@@ -1,0 +1,460 @@
+﻿<UserControl x:Class="Gsafety.Ant.BaseInformation.Views.SafeDeviceInfoView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
+             xmlns:Converter="clr-namespace:Gsafety.Common.Converts;assembly=Converts"
+             xmlns:Converts="clr-namespace:Gsafety.Common.Converts;assembly=Converts"
+    mc:Ignorable="d"
+    d:DesignHeight="800" d:DesignWidth="800">
+    <UserControl.Resources>
+        <Converter:FunItemVisibilityConverter x:Key="FunItemVisibilityConverter"/>
+        <Converter:FunItemEnableConverter x:Key="FunItemEnableConverter"/>
+        <Converts:DateTimeConverFormate x:Key="DateTimeConverFormate"/>     
+    </UserControl.Resources>
+    <Grid x:Name="LayoutRoot" Style="{StaticResource ContentGridStyle}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="180"/>
+            <RowDefinition Height="1"/>
+        </Grid.RowDefinitions>
+
+        <Grid Style="{StaticResource ViewFirstTitleWhiteGridStyle}"
+              Height="35"
+              Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Image Grid.Column="0"
+                   Style="{StaticResource TitleImageStyle}"/>
+
+            <TextBlock Text="{Binding [BASEINFO_SuiteInfoView], Source={StaticResource SR}}" 
+                       Grid.Column="1"
+                       Style="{StaticResource SecondTitleTextBlockStyle}"/>
+
+
+        </Grid>
+
+        <Grid Grid.Row="1"  Style="{StaticResource SearchContentGridStyle}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="1.1*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="1.1*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="1.1*"/>
+                <ColumnDefinition Width="0.4*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Text="{Binding [BASEINFO_InstallStatus], Source={StaticResource SR}}"
+                       HorizontalAlignment="Right"
+                       VerticalAlignment="Center"
+                       Margin="0,5,5,5"
+                       Grid.Column="0"
+                       Grid.Row="0"/>
+
+            <ComboBox Grid.Row="0"
+                      Grid.Column="1"
+                       ItemsSource="{Binding InstallStatusTypes}"
+                      DisplayMemberPath="ShowName"
+                      SelectedValuePath="EnumValue"
+                      Style="{StaticResource lightComboBox}"
+                      SelectedItem="{Binding SelectInstallState,Mode=TwoWay}"  Name="comboStatus"
+                      Height="25"/>
+
+
+            <TextBlock Text="{Binding [BASEINFO_VehicleNumber], Source={StaticResource SR}}"
+                       HorizontalAlignment="Right"
+                       VerticalAlignment="Center"
+                       Margin="5,5,5,5"
+                       Grid.Column="2"
+                       Grid.Row="0"/>
+
+            <TextBox Height="25"
+                     Margin="0,5,0,5"
+                     Grid.Column="3"
+                     Grid.Row="0"
+                     MaxLength="20"
+                     Text="{Binding VehicleSn,Mode=TwoWay}"
+                     HorizontalAlignment="Stretch"
+                     VerticalAlignment="Center"/>
+
+            <TextBlock Text="{Binding [ID_INSTALL_SUITE_MenuTitleNum], Source={StaticResource SR}}"
+                       HorizontalAlignment="Right"
+                       VerticalAlignment="Center"
+                       Margin="0,5,5,5"
+                       Grid.Column="4"
+                       Grid.Row="0"/>
+
+            <TextBox Height="25"
+                     Margin="0,5,0,5"
+                     Grid.Column="5"
+                     Grid.Row="0"
+                     MaxLength="20"
+                     Text="{Binding SuitID,Mode=TwoWay}"
+                     HorizontalAlignment="Stretch"
+                     VerticalAlignment="Center"/>
+
+            <TextBlock Text="{Binding [DeviceNUm], Source={StaticResource SR}}"
+                       HorizontalAlignment="Right"
+                       VerticalAlignment="Center"
+                       Margin="0,5,5,5"
+                       Grid.Column="0"
+                       Grid.Row="1"/>
+
+            <TextBox Height="25"
+                     Margin="0,5,0,5"
+                     Grid.Column="1"
+                     Grid.Row="1"
+                     MaxLength="20"
+                     Text="{Binding MdvrCoreSn,Mode=TwoWay}"
+                     HorizontalAlignment="Stretch"
+                     VerticalAlignment="Center"/>
+
+            <TextBlock Text="{Binding [barcode], Source={StaticResource SR}}"
+                       HorizontalAlignment="Right"
+                       VerticalAlignment="Center"
+                       Margin="0,5,5,5"
+                       Grid.Column="2"
+                       Grid.Row="1"/>
+
+            <TextBox Height="25"
+                     Margin="0,5,0,5"
+                     Grid.Column="3"
+                     Grid.Row="1"
+                     MaxLength="30"
+                     Text="{Binding MdvrSn,Mode=TwoWay}"
+                     HorizontalAlignment="Stretch"
+                     VerticalAlignment="Center"/>
+
+            <TextBlock Text="{Binding [BASEINFO_MdvrSimId], Source={StaticResource SR}}"
+                       HorizontalAlignment="Right"
+                       VerticalAlignment="Center"
+                       Margin="0,5,5,5"
+                       Grid.Column="4"
+                       Grid.Row="1"/>
+
+            <TextBox Height="25"
+                     Margin="0,5,0,5"
+                     Grid.Column="5"
+                     Grid.Row="1"
+                     MaxLength="30"
+                     Text="{Binding MdvrSim,Mode=TwoWay}"
+                     HorizontalAlignment="Stretch"
+                     VerticalAlignment="Center"/>
+
+            <Button Grid.Column="6"
+                    Grid.Row="1"
+                    Style="{StaticResource SearchButtonCommonStyle}"
+                    Command="{Binding BtnSearchCommand}"
+                    ToolTipService.ToolTip="{Binding [ID_INSTALL_Query], Source={StaticResource SR}}"/>
+
+        </Grid>
+
+        <Grid Grid.Row="2" Style="{StaticResource ViewFirstTitleWhiteGridStyle}" Height="35">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="20"/>
+            </Grid.ColumnDefinitions>
+
+            <Image Grid.Column="0" Style="{StaticResource TitleImageStyle}"/>
+
+            <TextBlock Text="{Binding [InstallList], Source={StaticResource SR}}" 
+                       Grid.Column="1"
+                       Style="{StaticResource SecondTitleTextBlockStyle}"/>
+            <Button Grid.Column="2"
+                    ToolTipService.ToolTip="{Binding [MANAGE_Add], Source={StaticResource SR}}"
+                    Visibility="{Binding AddVisibility}"
+                    Command="{Binding BtnAddCommand}"
+                    Style="{StaticResource AddButtonCommonStyle}"/>
+            <Button Grid.Column="3"
+                    ToolTipService.ToolTip="{Binding [BASEINFO_BatchImport], Source={StaticResource SR}}"
+                    Visibility="{Binding ImportVisibility}"
+                    Style="{StaticResource BatchUploadCommonStyle}"
+                    IsEnabled="{Binding UploadBtnStatus}"
+                    Command="{Binding UploadCommand}"/>
+            <HyperlinkButton Grid.Column="4" NavigateUri="{Binding Url}" TargetName="_blank"
+                    ToolTipService.ToolTip="{Binding [BASEINFO_DownTemplate], Source={StaticResource SR}}"
+                    Visibility="{Binding DownloadTemplateVisibility}"
+                    Style="{StaticResource TemplateDownloadCommonStyle}"/>
+            <Button Grid.Column="5"
+                    ToolTipService.ToolTip="{Binding [MANAGER_Export], Source={StaticResource SR}}"
+                    Visibility="{Binding ExportVisibility}"
+                    Style="{StaticResource ExpertButtonCommonStyle}"
+                    IsEnabled="{Binding ExportBtnStatus}"
+                    Command="{Binding ExportCommand}"/>
+
+        </Grid>
+        <sdk:DataGrid  
+                        ItemsSource="{Binding Data}"
+                       SelectedItem="{Binding CurrentModel,Mode=TwoWay}"
+                       x:Name="ListDataGrid"
+                       VerticalScrollBarVisibility="Auto"
+                       MinHeight="300" Style="{StaticResource DataGridWhiteStyleRxx}" Grid.Row="3">
+            <sdk:DataGrid.Columns>
+
+                <sdk:DataGridTextColumn  
+                                        HeaderStyle="{StaticResource ColumnHeaderWhiteStyle}"
+                                        Header="BASEINFO_InstallStatus"
+                                        Visibility="Visible" 
+                                        Width="1.5*"
+                                        Binding="{Binding DisplayInstallStatus}">
+
+                </sdk:DataGridTextColumn>
+
+                <sdk:DataGridTextColumn  
+                                        HeaderStyle="{StaticResource ColumnHeaderWhiteStyle}"
+                                        Header="BASEINFO_VehicleNumber"
+                                        Visibility="Visible" 
+                                        Width="1.5*"
+                                        Binding="{Binding VehicleID}">
+
+                </sdk:DataGridTextColumn>
+
+                <sdk:DataGridTextColumn  
+                                        HeaderStyle="{StaticResource ColumnHeaderWhiteStyle}"
+                                        Header="ID_INSTALL_SUITE_MenuTitleNum"
+                                        Visibility="Visible" 
+                                        Width="1.5*"
+                                        Binding="{Binding SuiteID}">
+
+                </sdk:DataGridTextColumn>
+
+                <sdk:DataGridTextColumn  Header="barcode" 
+                                        HeaderStyle="{StaticResource ColumnHeaderWhiteStyle}"
+                                        Visibility="Visible"
+                                        Width="1.5*"
+                                        Binding="{Binding MdvrSn}"/>
+
+
+                <sdk:DataGridTextColumn  Header="DeviceNUm" 
+                                        HeaderStyle="{StaticResource ColumnHeaderWhiteStyle}"
+                                        Visibility="Visible"
+                                        Width="1.5*"
+                                        Binding="{Binding MdvrCoreSn}"/>
+
+
+
+                <sdk:DataGridTextColumn  Header="BASEINFO_MdvrSimId" 
+                                        HeaderStyle="{StaticResource ColumnHeaderWhiteStyle}"
+                                        Visibility="Visible"
+                                        Width="1.5*"
+                                        Binding="{Binding MdvrSim}"/>
+
+                <sdk:DataGridTemplateColumn Header="ID_INSTALL_Operation" 
+                                            Width="110"
+                                            MinWidth="80"                                        
+                                        HeaderStyle="{StaticResource ColumnHeaderWhiteStyle}">
+                    <sdk:DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Button Grid.Column="1"
+                                        ToolTipService.ToolTip="{Binding [Edit], Source={StaticResource SR}}"
+                                        Style="{StaticResource EditButtonCommonStyle}" 
+                                        IsEnabled="{Binding Editable}"
+                                        Visibility="{Binding DataContext.EditVisibility, RelativeSource={RelativeSource AncestorType=sdk:DataGrid}}"
+                                        Command="{Binding DataContext.BtnEditCommand, RelativeSource={RelativeSource AncestorType=sdk:DataGrid}}"
+                                        />
+
+                                <Button Grid.Column="2"
+                                        ToolTipService.ToolTip="{Binding [Detail],Source={StaticResource SR}}"
+                                        Style="{StaticResource DetailButtonCommonStyle}"
+                                        Visibility="{Binding DataContext.ViewVisibility, RelativeSource={RelativeSource AncestorType=sdk:DataGrid}}"
+                                        Command="{Binding DataContext.BtnViewDetailCommand,RelativeSource={RelativeSource AncestorType=sdk:DataGrid}}"
+                                       />
+                                <Button Grid.Column="3"
+                                        ToolTipService.ToolTip="{Binding [Delete],Source={StaticResource SR}}"
+                                        Style="{StaticResource DeleteButtonCommonStyle}" 
+                                        IsEnabled="{Binding Editable}"
+                                        Visibility="{Binding DataContext.DeleteVisibility, RelativeSource={RelativeSource AncestorType=sdk:DataGrid}}"
+                                        Command="{Binding DataContext.BtnDeleteCommand,RelativeSource={RelativeSource AncestorType=sdk:DataGrid}}"
+                                       />
+
+                            </Grid>
+
+                        </DataTemplate>
+                    </sdk:DataGridTemplateColumn.CellTemplate>
+                </sdk:DataGridTemplateColumn>
+            </sdk:DataGrid.Columns>
+        </sdk:DataGrid>
+
+        <Border Grid.Row="4"  Height="35">
+
+            <Grid Style="{StaticResource SearchContentGridStyle}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="53*"/>
+                    <ColumnDefinition Width="17*"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock HorizontalAlignment="Right" Margin="0,4,5,4"   
+                           Text="{Binding [PageSize], Source={StaticResource SR}}" VerticalAlignment="Center"
+                           Grid.Column="1"
+                           />
+                <ComboBox SelectedItem="{Binding PageSizeValue,Mode=TwoWay}"   
+                          ItemsSource="{Binding PageSizeList}" HorizontalAlignment="Right" 
+                          Style="{StaticResource lightComboBox}"
+                          Height="20" VerticalAlignment="Center" Width="50" Background="{Binding ElementName=ListDataGrid, Path=Background}"
+                          Grid.Column="2" Margin="0,2"/>
+                <TextBlock Grid.Column="3"
+                    Text="{Binding [Total],Source={StaticResource SR}}"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Center"
+                    Margin="0,4,5,4"/>
+                <TextBlock Text="{Binding Data.ItemCount}" Grid.Column="4"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Margin="5,12"/>
+                <sdk:DataPager 
+                    Grid.Column="5"
+                    Height="25"
+                    Source="{Binding Data}"
+                    PageSize="{Binding PageSizeValue}"
+                    Background="{Binding ElementName=ListDataGrid, Path=Background}"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Center" Margin="0,0,0,-1"/>
+            </Grid>
+
+        </Border>
+
+        <Grid Grid.Row="5" Style="{StaticResource ViewFirstTitleWhiteGridStyle}" Height="35">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="20"/>
+            </Grid.ColumnDefinitions>
+
+            <Image Grid.Column="0" Style="{StaticResource TitleImageStyle}"/>
+
+            <TextBlock Text="{Binding [SuitePartList], Source={StaticResource SR}}" 
+                       Grid.Column="1"
+                       Style="{StaticResource SecondTitleTextBlockStyle}"/>
+            <Button Grid.Column="2"
+                    ToolTipService.ToolTip="{Binding [Common_Add], Source={StaticResource SR}}"
+                    IsEnabled="{Binding CurrentModel.Editable,FallbackValue=False}"
+                    Command="{Binding AddPartCommand}"
+                    Style="{StaticResource AddButtonCommonStyle}" Visibility="{Binding AddVisibility}"/>
+
+        </Grid>
+
+        <sdk:DataGrid ItemsSource="{Binding CurrentModel.BscDevSuiteParts}"
+                      SelectedItem="{Binding CurrentPart,Mode=TwoWay}"
+                      x:Name="PartListDataGrid" Grid.Row="6" 
+                      Style="{StaticResource DataGridWhiteStyleRxx}">
+
+            <sdk:DataGrid.Columns>
+                <sdk:DataGridTextColumn  
+                                        HeaderStyle="{StaticResource ColumnHeaderWhiteStyle}"
+                                        Header="ZiChanNum"
+                                        Visibility="Visible" 
+                                        Binding="{Binding PartSn}"
+                                        Width="*">
+
+                </sdk:DataGridTextColumn>
+
+
+                <sdk:DataGridTextColumn  Header="TRAFFIC_ElectricFence_Name" 
+                                        HeaderStyle="{StaticResource ColumnHeaderWhiteStyle}"
+                                        Visibility="Visible"
+                                        Width="*"
+                                        Binding="{Binding Name}"/>
+
+                <sdk:DataGridTextColumn  Header="PeiJianXingHao" 
+                                        HeaderStyle="{StaticResource ColumnHeaderWhiteStyle}"
+                                        Visibility="Visible"
+                                        Binding="{Binding Model}"
+                                        Width="*" 
+                                        />
+
+                <sdk:DataGridTextColumn  Header="TargetProperty" 
+                                        HeaderStyle="{StaticResource ColumnHeaderWhiteStyle}"
+                                        Visibility="Visible"
+                                        Binding="{Binding ShowParttype}"
+                                        Width="*" 
+                                        />
+
+                <sdk:DataGridTextColumn  Header="ChuChangRiQi" 
+                                        HeaderStyle="{StaticResource ColumnHeaderWhiteStyle}"
+                                        Visibility="Visible"
+                                        Width="*"
+                                        Binding="{Binding ProduceTime,Converter={StaticResource DateTimeConverFormate}}"/>
+
+                <sdk:DataGridTemplateColumn Header="GIS_Operate" 
+                                            Width="110"
+                                        HeaderStyle="{StaticResource ColumnHeaderWhiteStyle}">
+                    <sdk:DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Button Grid.Column="1"
+                                        ToolTipService.ToolTip="{Binding [Edit], Source={StaticResource SR}}"
+                                        Style="{StaticResource EditButtonCommonStyle}" 
+                                        Visibility="{Binding DataContext.EditVisibility, RelativeSource={RelativeSource AncestorType=sdk:DataGrid}}"
+                                        IsEnabled="{Binding DataContext.CurrentModel.Editable,RelativeSource={RelativeSource AncestorType=sdk:DataGrid}}"
+                                        Command="{Binding DataContext.UpdatePartCommand, RelativeSource={RelativeSource AncestorType=sdk:DataGrid}}"
+                                        />
+
+                                <Button Grid.Column="2"
+                                        ToolTipService.ToolTip="{Binding [Detail],Source={StaticResource SR}}"
+                                        Style="{StaticResource DetailButtonCommonStyle}"
+                                        Command="{Binding DataContext.ViewPartCommand,RelativeSource={RelativeSource AncestorType=sdk:DataGrid}}"
+                                        Visibility="{Binding DataContext.ViewVisibility, RelativeSource={RelativeSource AncestorType=sdk:DataGrid}}"
+                                       />
+                                <Button Grid.Column="3"
+                                        ToolTipService.ToolTip="{Binding [Delete],Source={StaticResource SR}}"
+                                        Style="{StaticResource DeleteButtonCommonStyle}" 
+                                        IsEnabled="{Binding DataContext.CurrentModel.Editable,RelativeSource={RelativeSource AncestorType=sdk:DataGrid}}"
+                                        Command="{Binding DataContext.DeletePartCommand,RelativeSource={RelativeSource AncestorType=sdk:DataGrid}}"
+                                        Visibility="{Binding DataContext.DeleteVisibility, RelativeSource={RelativeSource AncestorType=sdk:DataGrid}}"
+                                       />
+                            </Grid>
+                        </DataTemplate>
+                    </sdk:DataGridTemplateColumn.CellTemplate>
+                </sdk:DataGridTemplateColumn>
+            </sdk:DataGrid.Columns>
+        </sdk:DataGrid>
+
+    </Grid>
+</UserControl>

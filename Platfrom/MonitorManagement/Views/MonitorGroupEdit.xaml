@@ -1,0 +1,34 @@
+﻿<controls:ChildWindow x:Class="Gsafety.Ant.Monitor.Views.MonitorGroupEdit"
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+           Width="400" Height="300" FontSize="16"
+           Title="{Binding [MonitorGroupEditWindow], Source={StaticResource SR}}"
+           Style="{StaticResource SelfChildenWindowStyle}">
+    <Grid x:Name="LayoutRoot" Margin="2,2,-2,7">
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" Margin="0,20,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"></ColumnDefinition>
+                <ColumnDefinition Width="2*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="0" Grid.Column="0" Margin="0,0,5,0" Text="{Binding [MONITOR_Group], Source={StaticResource SR}}" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+            <TextBox Grid.Row="0" Grid.Column="1"  Margin="5,0,0,0" Name="groupName" HorizontalAlignment="Left" Text="{Binding EditRunMonitorGroup.GroupName,Mode=TwoWay, ValidatesOnDataErrors=True, ValidatesOnExceptions=true, NotifyOnValidationError=true}" Width="200" MaxLength="20"/>
+            <TextBlock Grid.Row="1" Grid.Column="0"  Margin="0,0,5,0" Text="{Binding [MONITOR_GroupNote], Source={StaticResource SR}}" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+            <TextBox  Grid.Row="1" Grid.Column="1" Margin="5,5,0,-91" Grid.RowSpan="2" Height="Auto"  HorizontalAlignment="Left"  Text="{Binding EditRunMonitorGroup.Note,Mode=TwoWay,ValidatesOnDataErrors=True, ValidatesOnExceptions=true, NotifyOnValidationError=true}" Width="200" MaxLength="200" TextWrapping="Wrap"/>
+        </Grid>
+        <Button x:Name="CancelButton" Style="{StaticResource CancelButtonStyle}" Content="{Binding [Cancel],  Source={StaticResource SR}}"  Click="CancelButton_Click" Width="80" HorizontalAlignment="Right" Margin="0,10,103,2" Grid.Row="1" />
+        <Button x:Name="OKButton" Style="{StaticResource SureButtonStyle}"  
+                Content="{Binding [Confirm], Source={StaticResource SR}}" Click="OKButton_Click" Width="80" 
+                HorizontalAlignment="Right" Margin="0,10,205,2" Grid.Row="1" />
+    </Grid>
+</controls:ChildWindow>

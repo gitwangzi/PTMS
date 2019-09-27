@@ -1,0 +1,220 @@
+﻿<UserControl x:Class="Gsafety.PTMS.MainPage.Views.MaintainPlatform"
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+           xmlns:toolkit="http://schemas.microsoft.com/winfx/2006/xaml/presentation/toolkit"
+           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+           xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
+           xmlns:Controls="clr-namespace:Gsafety.Common.Controls;assembly=CommonControls" 
+           xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity" 
+           xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions"
+           mc:Ignorable="d"
+           xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+           d:DesignHeight="800" d:DesignWidth="1280"
+	       HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0" >
+    <UserControl.Resources>
+        <Controls:MenuItemWidth x:Key="menuWidth"/>
+    </UserControl.Resources>
+    <Grid x:Name="LayoutRoot">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid x:Name="NavigationGrid" Style="{StaticResource NavigationGridStyle}" Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="350"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="180"/>
+                <ColumnDefinition Width="66"/>
+            </Grid.ColumnDefinitions>
+            <!--<Image x:Name="LogoBg" HorizontalAlignment="Left" Margin="0" Width="210" Grid.Column="0" Source="/ANT;component/Images/logoBg.png" VerticalAlignment="Top" Stretch="None"/>-->
+            <Grid Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40"></RowDefinition>
+                    <RowDefinition Height="30"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="180"></ColumnDefinition>
+                    <ColumnDefinition Width="200"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <TextBlock x:Name="mainLogo" Text="{Binding [Maintain_MainLogo], Source={StaticResource SR}}" 
+                           Grid.Row="0" Grid.ColumnSpan="2"
+                           Style="{StaticResource LogoText}" LineHeight="18" LineStackingStrategy="BaselineToBaseline" 
+                           TextOptions.TextHintingMode="Animated" FontWeight="Bold" TextWrapping="Wrap"/>
+                <TextBlock x:Name="minorLogo" Text="{Binding [Maintain_MinorLogo], Source={StaticResource SR}}" 
+                           Grid.Row="1" Grid.Column="1"
+                           Style="{StaticResource LogoText}" LineHeight="11" LineStackingStrategy="BaselineToBaseline" 
+                           TextOptions.TextHintingMode="Animated" FontWeight="Bold" FontSize="13" TextWrapping="Wrap" VerticalAlignment="Top" />
+
+
+            </Grid>
+            <Grid x:Name="UserInfoGrid" Grid.Column="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="8"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="8"/>
+                </Grid.ColumnDefinitions>
+                <Path Data="M78.6667,2 L78.6667,57.3333" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="56" Margin="0,0,0,0" Stretch="Fill" Stroke="#FF224181" UseLayoutRounding="False" VerticalAlignment="Center" Width="1"/>
+                <Path Data="M78.6667,2 L78.6667,57.3333" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="56" Margin="1,0,0,0" Stretch="Fill" Stroke="#FF547bc9" UseLayoutRounding="False" VerticalAlignment="Center" Width="1"/>
+                <Controls:MenuButton Style="{StaticResource UserMenuButtonStyle}" HorizontalAlignment="Left" Grid.Column="1" Width="154"
+                                     ToolTipService.ToolTip="{Binding  UserName}">
+                    <Controls:MenuButton.Content>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                            <Image HorizontalAlignment="Left" Height="32" VerticalAlignment="Center" Width="32" Source="/ExternalResource;component/Images/UserInfo.png" Stretch="Uniform"/>
+                            <TextBlock x:Name="User" TextWrapping="Wrap"    Text="{Binding UserName}" Style="{StaticResource UserInfo}" HorizontalAlignment="Left"/>
+                        </StackPanel>
+                    </Controls:MenuButton.Content>
+                    <Controls:MenuButton.ButtonMenuItemsSource>
+                        <toolkit:MenuItem FontSize="13" Header="{Binding [MAINPAGE_ChangePassword], Source={StaticResource SR}}" Command="{Binding Path=DataContext.ChangePasswordCommand,ElementName=LayoutRoot}" CommandParameter="{Binding}">
+                            <toolkit:MenuItem.Icon>
+                                <Image HorizontalAlignment="Center" Height="16" VerticalAlignment="Center" Width="16" Source="/ExternalResource;component/Images/ui-text-field-password.png" Stretch="Uniform"/>
+                            </toolkit:MenuItem.Icon>
+                        </toolkit:MenuItem>
+                        <toolkit:MenuItem FontSize="13"  Header="{Binding [MAINPAGE_UserInformant], Source={StaticResource SR}}" Command="{Binding Path=DataContext.UserInformationCommmand,ElementName=LayoutRoot}">
+                            <toolkit:MenuItem.Icon>
+                                <Image HorizontalAlignment="Center" Height="16" VerticalAlignment="Center" Width="16" Source="/ExternalResource;component/Images/user--pencil.png" Stretch="Uniform"/>
+                            </toolkit:MenuItem.Icon>
+                        </toolkit:MenuItem>
+                    </Controls:MenuButton.ButtonMenuItemsSource>
+                </Controls:MenuButton>
+                <Path Data="M78.6667,2 L78.6667,57.3333" Fill="#FFF4F4F5" Grid.Column="2" HorizontalAlignment="Left" Height="56" Margin="0,0,0,0" Stretch="Fill" Stroke="#FF224181" UseLayoutRounding="False" VerticalAlignment="Center" Width="1"/>
+                <Path Data="M78.6667,2 L78.6667,57.3333" Fill="#FFF4F4F5" Grid.Column="2" HorizontalAlignment="Left" Height="56" Margin="1,0,0,0" Stretch="Fill" Stroke="#FF547bc9" UseLayoutRounding="False" VerticalAlignment="Center" Width="1"/>
+
+            </Grid>
+            <StackPanel x:Name="Options" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,6,0" Grid.Column="3">
+            </StackPanel>
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="250" MaxWidth="500"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions >
+            <Grid x:Name="collapsedPane" Grid.Column="0" Grid.Row="0" Canvas.ZIndex="100" Margin="-5,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" Visibility="Collapsed" >
+                <Image x:Name="showL" Source="/ANT;component/Images/slidearrow06.png" Cursor="Hand" Stretch="None" Opacity="0.9" 
+                   ToolTipService.ToolTip="{Binding [MenuVisibleToolTip], Source={StaticResource SR}}" Margin="0,0,0,0"  />
+            </Grid>
+            <Grid x:Name="SuiteLeftContent" Grid.Column="0" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="35"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <Image x:Name="hiddenL" Source="/ANT;component/Images/slidearrow.png" Cursor="Hand" Margin="0,6,10,0" HorizontalAlignment="Right" 
+                   VerticalAlignment="Top" Canvas.ZIndex="100" Stretch="None"
+                   ToolTipService.ToolTip="{Binding [MenuCollapsedToolTip], Source={StaticResource SR}}"/>
+                <Border Grid.Row="0" Height="35" BorderThickness="0,1,0,1" BorderBrush="{StaticResource MenuBarLine}" Background="{StaticResource NavBarBG}">
+                    <StackPanel Orientation="Horizontal">
+                        <!--<Image Source="/ANT;component/Images/slidearrow.png" Stretch="None" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="5,0,0,0"></Image>-->
+                        <Image Source="/ExternalResource;component/Images/camcorder_image" Stretch="None" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="8,3,0,5"></Image>
+                        <TextBlock Text="{Binding [MAINTAIN_Navigation], Source={StaticResource SR}}" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="5,0,0,0" Style="{StaticResource Menu2TextBlock}"></TextBlock>
+                    </StackPanel>
+                </Border>
+                <toolkit:Accordion Name="acc_menuContainer" Grid.Row="1" VerticalAlignment="Stretch" BorderThickness="0" HorizontalAlignment="Stretch" Tag="{StaticResource menuWidth}" SizeChanged="AccordionControl_SizeChanged">
+                    <toolkit:AccordionItem Header="{Binding [MAINTAIN_SecuritySuite], Source={StaticResource SR}}" Template="{StaticResource ajaxTemplate}" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Top">
+                        <toolkit:AccordionItem.Content>
+                            <StackPanel MinWidth="235" Grid.Column="0"  HorizontalAlignment="Stretch" Width="{Binding Tag.PanelWidth, ElementName=acc_menuContainer}" >
+                                <HyperlinkButton x:Name="SecuritySuite" Style="{StaticResource NavBarItem}"
+                                     Command="{Binding NavigateCommand}" CommandParameter=""
+                                     NavigateUri="/SecuritySuite" TargetName="ContentFrame" Content="{Binding [MAINTAIN_SecuritySuiteInfo], Source={StaticResource SR}}" >
+                                </HyperlinkButton>
+                                <HyperlinkButton x:Name="SuiteInstalling" Style="{StaticResource NavBarItem}"
+                                     Command="{Binding NavigateCommand}" CommandParameter=""
+                                     NavigateUri="/SuiteInstalling" TargetName="ContentFrame" Content="{Binding [MAINTAIN_InstallingSuite], Source={StaticResource SR}}" >
+                                </HyperlinkButton>
+                                <HyperlinkButton x:Name="SuiteHistoryRecord" Style="{StaticResource NavBarItem}"
+                                     Command="{Binding NavigateCommand}" CommandParameter=""
+                                     NavigateUri="/SuiteHistoryRecord" TargetName="ContentFrame" Content="{Binding [MAINTAIN_HistoryInstallRecord], Source={StaticResource SR}}">
+                                </HyperlinkButton>
+                                <HyperlinkButton x:Name="SuiteAlertInfo" Style="{StaticResource NavBarItem}"
+                                     Command="{Binding NavigateCommand}" CommandParameter=""
+                                     NavigateUri="/SuiteAlertInfo" TargetName="ContentFrame" Content="{Binding [MAINTAIN_AlertInfor], Source={StaticResource SR}}">
+                                </HyperlinkButton>
+                                <HyperlinkButton x:Name="SuiteInspect" Style="{StaticResource NavBarItem}"
+                                     Command="{Binding NavigateCommand}" CommandParameter=""
+                                     NavigateUri="/SuiteInspect" TargetName="ContentFrame" Content="{Binding [MAINTAIN_SwitchDeviceStatus], Source={StaticResource SR}}">
+                                </HyperlinkButton>
+                                <HyperlinkButton x:Name="SuiteRunning" Style="{StaticResource NavBarItem}"
+                                     Command="{Binding NavigateCommand}" CommandParameter=""
+                                     NavigateUri="/SuiteRunning" TargetName="ContentFrame" Content="{Binding [MAINTAIN_SuiteRunning], Source={StaticResource SR}}">
+                                </HyperlinkButton>
+                            </StackPanel>
+                        </toolkit:AccordionItem.Content>
+                    </toolkit:AccordionItem>
+                    <toolkit:AccordionItem Header="{Binding [MAINTAIN_SuiteMaintain], Source={StaticResource SR}}" Template="{StaticResource ajaxTemplate}" 
+                                   HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" VerticalAlignment="Stretch">
+                        <toolkit:AccordionItem.Content>
+                            <StackPanel MinWidth="245" HorizontalAlignment="Stretch" Width="{Binding Tag.PanelWidth, ElementName=acc_menuContainer}">
+                                <HyperlinkButton x:Name="MaintenanceHandle" Style="{StaticResource NavBarItem}"
+                                     Command="{Binding NavigateCommand}" CommandParameter=""
+                                     NavigateUri="/MaintenanceHandle" TargetName="ContentFrame" Content="{Binding [MAINTAIN_MaintainArrange], Source={StaticResource SR}}">
+                                </HyperlinkButton>
+                                <HyperlinkButton x:Name="MaintainRecord" Style="{StaticResource NavBarItem}"
+                                     Command="{Binding NavigateCommand}" CommandParameter=""
+                                     NavigateUri="/MaintainRecord" TargetName="ContentFrame" Content="{Binding [INSTALLTION_MaintainRecord], Source={StaticResource SR}}">
+                                </HyperlinkButton>
+                                <HyperlinkButton x:Name="SuiteLife" Style="{StaticResource NavBarItem}"
+                                     Command="{Binding NavigateCommand}" CommandParameter=""
+                                     NavigateUri="/SuiteLife" TargetName="ContentFrame" Content="{Binding [SUITE_ServiceLife], Source={StaticResource SR}}">
+                                </HyperlinkButton>
+                                <HyperlinkButton x:Name="HandleRecord" Style="{StaticResource NavBarItem}"
+                                     Command="{Binding NavigateCommand}" CommandParameter=""
+                                     NavigateUri="/HandleRecord" TargetName="ContentFrame" Content="{Binding [MAINTAIN_HandleRecord], Source={StaticResource SR}}">
+                                </HyperlinkButton>
+                            </StackPanel>
+                        </toolkit:AccordionItem.Content>
+                    </toolkit:AccordionItem>
+
+                    <toolkit:AccordionItem Header="{Binding [MAINTAIN_SuiteUpgrade], Source={StaticResource SR}}" Template="{StaticResource ajaxTemplate}" 
+                                   HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" VerticalAlignment="Stretch">
+                        <toolkit:AccordionItem.Content>
+                            <StackPanel MinWidth="245" HorizontalAlignment="Stretch" Width="{Binding Tag.PanelWidth, ElementName=acc_menuContainer}">
+                                <HyperlinkButton x:Name="VersionMapping" Style="{StaticResource NavBarItem}"
+                                     Command="{Binding NavigateCommand}" CommandParameter=""
+                                     NavigateUri="/VersionMapping" TargetName="ContentFrame" Content="{Binding [MAINTAIN_VersionMapping], Source={StaticResource SR}}">
+                                </HyperlinkButton>
+                                <HyperlinkButton x:Name="SuiteUpgrade" Style="{StaticResource NavBarItem}"
+                                     Command="{Binding NavigateCommand}" CommandParameter=""
+                                     NavigateUri="/SuiteUpgrade" TargetName="ContentFrame" Content="{Binding [MAINTAIN_SuiteUpgrade], Source={StaticResource SR}}">
+                                </HyperlinkButton>
+                                <HyperlinkButton x:Name="UpgradeRecord" Style="{StaticResource NavBarItem}"
+                                     Command="{Binding NavigateCommand}" CommandParameter=""
+                                     NavigateUri="/UpgradeRecord" TargetName="ContentFrame" Content="{Binding [SUITE_UpgradeRecord], Source={StaticResource SR}}">
+                                </HyperlinkButton>
+                                <HyperlinkButton x:Name="UpgradeOvertime" Style="{StaticResource NavBarItem}"
+                                     Command="{Binding NavigateCommand}" CommandParameter=""
+                                     NavigateUri="/UpgradeOvertime" TargetName="ContentFrame" Content="{Binding [MAINTAIN_UpgradeOvertime], Source={StaticResource SR}}">
+                                </HyperlinkButton>
+                                <HyperlinkButton x:Name="UpgradeStatus" Style="{StaticResource NavBarItem}"
+                                     Command="{Binding NavigateCommand}" CommandParameter=""
+                                     NavigateUri="/UpgradeStatus" TargetName="ContentFrame" Content="{Binding [MAINTAIN_UpgradeStatus], Source={StaticResource SR}}">
+                                </HyperlinkButton>
+                            </StackPanel>
+                        </toolkit:AccordionItem.Content>
+                    </toolkit:AccordionItem>
+                </toolkit:Accordion>
+               
+            </Grid>
+            <sdk:GridSplitter Width="6" Style="{StaticResource ANTGridSplitter}"/>
+            <Border x:Name="ContentBorder" Style="{StaticResource ContentBorderStyle}" Margin="0,0,0,0"  Grid.Column="1">
+                <Grid x:Name="Content">
+                    <sdk:Frame  JournalOwnership="OwnsJournal"               
+        			x:Name="ContentFrame"
+        			Style="{StaticResource ContentFrameStyle}" Source="/SecuritySuite" Navigated="ContentFrame_Navigated" 
+                            NavigationFailed="ContentFrame_NavigationFailed">
+                        <sdk:Frame.UriMapper>
+                            <sdk:UriMapper>
+                                <sdk:UriMapping Uri="" MappedUri="/MainPage;component/Views/MaintainNavigationer.xaml"/>
+                                <sdk:UriMapping Uri="/ShowText/{text}" MappedUri="/MainPage;component/Views/MaintainNavigationer.xaml?view=TextView&amp;text={text}"/>
+                                <sdk:UriMapping Uri="/{pageName}" MappedUri="/MainPage;component/Views/MaintainNavigationer.xaml?view={pageName}"/>
+                            </sdk:UriMapper>
+                        </sdk:Frame.UriMapper>
+                    </sdk:Frame>
+                </Grid>
+            </Border>
+
+        </Grid>
+    </Grid>
+</UserControl>
+

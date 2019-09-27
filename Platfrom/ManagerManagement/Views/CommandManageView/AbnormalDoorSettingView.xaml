@@ -1,0 +1,113 @@
+﻿<UserControl x:Class="Gsafety.PTMS.Manager.Views.CommandManageView.AbnormalDoorSettingView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
+             xmlns:toolkit="http://schemas.microsoft.com/winfx/2006/xaml/presentation/toolkit"
+             xmlns:dp="clr-namespace:Gsafety.Common.Controls;assembly=CommonControls"
+             xmlns:convert="clr-namespace:Gsafety.Common.Converts;assembly=Converts"
+             mc:Ignorable="d"
+     d:DesignHeight="800" d:DesignWidth="1000">
+    <UserControl.Resources>
+        <convert:BoolToVisibility x:Key="BoolToVisibility" ></convert:BoolToVisibility>
+        <convert:BoolToEnable x:Key="boolToEnable"/>
+
+    </UserControl.Resources>
+    <Grid x:Name="LayoutRoot" Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="28"/>
+        </Grid.RowDefinitions>
+        <Border BorderThickness="0,1,0,1" Style="{StaticResource TopBorderStyle}" Height="40" Grid.RowSpan="3" Grid.Row="0" VerticalAlignment="Top"></Border>
+        <Image Margin="10,0,0,0" Stretch="None" VerticalAlignment="Center" HorizontalAlignment="Left" Source="/ExternalResource;component/Images/navigation.png"></Image>
+        <TextBlock Text="{Binding [MANAGE_AbnormalDoor_Setting], Source={StaticResource SR}}" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="36,8,0,0" Style="{StaticResource MainPage_Main_tle_TextBlockStyle}"></TextBlock>
+        <Border Height="35" VerticalAlignment="Top" Grid.Row="2" Margin="0" Style="{StaticResource MiddleBorderStyle}">
+            <Button Command="{Binding AddCommand}" Tag="{Binding [MANAGE_Add],Source={StaticResource SR}}" HorizontalAlignment="Right" VerticalAlignment="Center" MinWidth="100" Margin="0,0,20,0" Style="{StaticResource Main_center_ButtonStyle}">
+                <Image Source="/ExternalResource;component/Images/Main_add.png" Stretch="Fill" Width="22" Height="22"/>
+            </Button>
+        </Border>
+        <Image Margin="10,0,0,0" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Center" Stretch="None" Source="/ExternalResource;component/Images/navigation.png"></Image>
+        <TextBlock Grid.Row="2" Text="{Binding [MANAGE_AbnorrmalDoor_RuleList],Source={StaticResource SR}}" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="36,0,0,0" Style="{StaticResource MainPage_Main_tle_TextBlockStyle}"></TextBlock>
+        <Border Style="{StaticResource GridBorderStyle}" Grid.Row="1">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="150"/>
+                    <ColumnDefinition Width="200"/>
+                    <ColumnDefinition Width="150"/>
+                    <ColumnDefinition Width="200"/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="2"/>
+                    <ColumnDefinition Width="180"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right" Text="{Binding [MANAGE_Rule_Name], Source={StaticResource SR}}" Style="{StaticResource MainPage_Main_search_TextBlockStyle}" Margin="0,0,5,0" ></TextBlock>
+                <TextBox Grid.Column="1" Text="{Binding RuleName, Mode=TwoWay}" VerticalAlignment="Center" HorizontalAlignment="Left" Width="170" Style="{StaticResource MainPage_Main_TextBoxStyle}" Margin="5,0,0,0"></TextBox>
+
+
+                <Image HorizontalAlignment="Center" Grid.Column="5" Width="2" Height="31" Source="/ExternalResource;component/Images/MainPage_line31.png"></Image>
+                <Button Command="{Binding QueryCommand}" Tag="{Binding [Query],Source={StaticResource SR}}" HorizontalAlignment="Right" VerticalAlignment="Center" Style="{StaticResource Search_ButtonStyle}" Grid.Column="6" Margin="30,0,40,0">
+                    <Image Source="/ExternalResource;component/Images/MainPage_search.png" Stretch="Fill" Width="14" Height="14"/>
+                </Button>
+            </Grid>
+
+
+        </Border>
+        <Border Style="{StaticResource BottonBorderStyle}" BorderThickness="1" Height="25" Grid.Row="4"  VerticalAlignment="Center" Width="Auto">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,0,0">
+                <TextBlock HorizontalAlignment="Left" Margin="0,0,0,0" Grid.Row="4"  Text="{Binding [PageSize], Source={StaticResource SR}}" VerticalAlignment="Center" Style="{StaticResource DataGrid_Page_TextBlockStyle}"/>
+                <ComboBox SelectedItem="{Binding PageSizeValue,Mode=TwoWay}"   ItemsSource="{Binding PageSizeList}" HorizontalAlignment="Left" Height="25" Margin="0,0,0,0" VerticalAlignment="Center" Width="50" Style="{StaticResource DataGrid_Page_ComboBoxStyle}"/>
+                <sdk:DataPager PageIndex="-1" Name="DataPager1" IsTotalItemCountFixed="True" Height="25" Margin="0,0,0,0" PageSize="{Binding PageSizeValue,Mode=TwoWay}" Grid.Row="1" Source="{Binding AbnormalDoorInfoPage, Mode=TwoWay}" VerticalAlignment="Center" HorizontalAlignment="Center" />
+            </StackPanel>
+        </Border>
+        <sdk:DataGrid x:Name="LogDataGrid" IsReadOnly="True" Grid.Row="3" AutoGenerateColumns="False"  ItemsSource="{Binding AbnormalDoorInfoPage}" SelectedItem="{Binding CurrentSettingInfo, Mode=TwoWay}" Background="Transparent"
+                      ColumnHeaderStyle="{StaticResource DataGridColumnHeaderStyle}" CellStyle="{StaticResource DataGridCellStyle}" GridLinesVisibility="Horizontal" HorizontalGridLinesBrush="#FFDCDAD5" RowStyle="{StaticResource DataGridRowStyle}">
+            <sdk:DataGrid.Columns>
+                <sdk:DataGridTextColumn Header="ID"  Visibility="Collapsed" Binding="{Binding ID}"  CanUserSort="True" Width="*"></sdk:DataGridTextColumn>
+                <sdk:DataGridTextColumn Header="IsDefault"  Visibility="Collapsed" Binding="{Binding IsDefault}" CanUserSort="True" Width="*"></sdk:DataGridTextColumn>
+                <sdk:DataGridTextColumn Header="MANAGE_Rule_Name" Binding="{Binding RuleName}" CanUserSort="True" Width="*"></sdk:DataGridTextColumn>
+                <sdk:DataGridTextColumn Header="MANAGE_Speed" Binding="{Binding Speed}" CanUserSort="True" Width="*" ></sdk:DataGridTextColumn>
+                <sdk:DataGridTextColumn Header="MANAGE_Rule_UsingCount" Binding="{Binding UsingCount}" CanUserSort="True" Width="*" ></sdk:DataGridTextColumn>
+                <!--<sdk:DataGridTemplateColumn Header="MANAGE_Rule_UsingCount" CanUserSort="True" Width="*">
+                    <sdk:DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <HyperlinkButton Content="{Binding UsingCount}" Command="{Binding DataContext.DeleteAllRelationCommand, RelativeSource={RelativeSource AncestorType=sdk:DataGrid}}" CommandParameter="{Binding}" >
+                            </HyperlinkButton>
+                        </DataTemplate>
+                    </sdk:DataGridTemplateColumn.CellTemplate>
+                </sdk:DataGridTemplateColumn>-->
+                <sdk:DataGridTextColumn Header="MANAGE_Rule_Creator" Visibility="Collapsed" Binding="{Binding Creator}" CanUserSort="True" Width="*"></sdk:DataGridTextColumn>
+                <sdk:DataGridTextColumn Header="MANAGE_Rule_CreateTime" Visibility="Collapsed"  Binding="{Binding CreateTime,StringFormat='dd/MM/yyyy HH:mm:ss'}" CanUserSort="True" Width="*"></sdk:DataGridTextColumn>
+                <sdk:DataGridTextColumn Header="MANAGE_Note" Visibility="Collapsed"  Binding="{Binding UserDescription}" CanUserSort="True" Width="*"></sdk:DataGridTextColumn>
+                <sdk:DataGridTemplateColumn Header="MANAGE_Operation" Width="180" >
+                    <sdk:DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                <Button  Style="{StaticResource ANTBaseInfoGridBtn}" ToolTipService.ToolTip="{Binding [Look], Source={StaticResource SR}}"  Name="btnDetail" Command="{Binding Path=DataContext.DetailCommand, RelativeSource={RelativeSource AncestorType=sdk:DataGrid}}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,10,0" >
+                                    <Image Source="/ExternalResource;component/Images/DataGrid_detail.png" Stretch="None"   />
+                                </Button>
+                                <Button  Style="{StaticResource ANTBaseInfoGridBtn}" IsEnabled="{Binding IsDefault, Converter={StaticResource boolToEnable}}" ToolTipService.ToolTip="{Binding [MANAGER_Modify], Source={StaticResource SR}}"  Name="btnUpdate" Command="{Binding Path=DataContext.UpdateCommand, RelativeSource={RelativeSource AncestorType=sdk:DataGrid}}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,10,0" >
+                                    <Image Source="/ExternalResource;component/Images/DataGrid_edit.png" Stretch="None"   />
+                                </Button>
+                                <Button  Style="{StaticResource ANTBaseInfoGridBtn}" ToolTipService.ToolTip="{Binding [MANAGE_SettingToVehicle], Source={StaticResource SR}}" Command="{Binding Path=DataContext.SettingToVehicleCommand, RelativeSource={RelativeSource AncestorType=sdk:DataGrid}}"   HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,10,0" >
+                                    <Image Source="/ExternalResource;component/Images/DataGrid_vehicle.png" Stretch="None"   />
+                                </Button>
+                                <Button Style="{StaticResource ANTBaseInfoGridBtn}" Name="btnDefault"  IsEnabled="{Binding IsDefault, Converter={StaticResource boolToEnable}}" Command="{Binding Path=DataContext.DeleteAllRelationCommand, RelativeSource={RelativeSource AncestorType=sdk:DataGrid}}" CommandParameter="{Binding}" ToolTipService.ToolTip="{Binding [MANAGER_Rule_No_Relation_Tip], Source={StaticResource SR}}"  HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,10,0">
+                                    <Image Source="/ExternalResource;component/Images/DataGrid_return.png" Stretch="None" />
+                                </Button>
+                                <Button Style="{StaticResource ANTBaseInfoGridBtn}" Name="btnDelete"  IsEnabled="{Binding IsDefault, Converter={StaticResource boolToEnable}}" Command="{Binding Path=DataContext.DeleteCommand, RelativeSource={RelativeSource AncestorType=sdk:DataGrid}}" ToolTipService.ToolTip="{Binding [MANAGE_Delete], Source={StaticResource SR}}"  HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,10,0">
+                                    <Image Source="/ExternalResource;component/Images/DataGrid_dele.png" Stretch="None" />
+                                </Button>
+                            </StackPanel>
+                        </DataTemplate>
+                    </sdk:DataGridTemplateColumn.CellTemplate>
+                </sdk:DataGridTemplateColumn>
+
+            </sdk:DataGrid.Columns>
+
+        </sdk:DataGrid>
+
+    </Grid>
+</UserControl>

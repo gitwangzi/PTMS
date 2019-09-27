@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.BaseInformation.Contract.Data" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.BaseInformation.Contract.Data" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:2258/DistrictService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="ArrayOfDistrict">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="District" nillable="true" type="tns:District" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDistrict" nillable="true" type="tns:ArrayOfDistrict" />
+  <xs:complexType name="District">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ParentCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ParentName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="District" nillable="true" type="tns:District" />
+  <xs:complexType name="UserAuthority">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LoginName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Province" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RegionsCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RegionsName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SecurityGroup" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserType" type="tns:UserAuthorityType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UserAuthority" nillable="true" type="tns:UserAuthority" />
+  <xs:simpleType name="UserAuthorityType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Company">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">-1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="CountryLevel">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">0</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ProvinceLevel">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="CityLevel">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="UserAuthorityType" nillable="true" type="tns:UserAuthorityType" />
+  <xs:complexType name="ArrayOfUserAuthority">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="UserAuthority" nillable="true" type="tns:UserAuthority" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfUserAuthority" nillable="true" type="tns:ArrayOfUserAuthority" />
+  <xs:complexType name="ArrayOfFuncItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="FuncItem" nillable="true" type="tns:FuncItem" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfFuncItem" nillable="true" type="tns:ArrayOfFuncItem" />
+  <xs:complexType name="FuncItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Note" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ParendID" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FuncItem" nillable="true" type="tns:FuncItem" />
+  <xs:complexType name="RoleFuncs">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CreateDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Creator" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FuncId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RoleName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RoleFuncs" nillable="true" type="tns:RoleFuncs" />
+</xs:schema>

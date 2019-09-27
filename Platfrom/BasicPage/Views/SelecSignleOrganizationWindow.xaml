@@ -1,0 +1,63 @@
+﻿<controls:ChildWindow x:Class="Gsafety.PTMS.BasicPage.Views.SelecSignleOrganizationWindow"
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+            xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
+           xmlns:gsafetycontrols="clr-namespace:Gsafety.Common.Controls;assembly=CommonControls"
+           Width="350" Height="400" 
+           Title="{Binding [OrganizationVehicle], Source={StaticResource SR}}" Style="{StaticResource SelfChildenWindowStyle}">
+    <Grid x:Name="LayoutRoot" Margin="2">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <sdk:TreeView Name="monitorTree"
+                 ItemsSource="{Binding VehicleTreeFactory.VehicleTrees}"
+                 Style="{StaticResource TreeViewWhiteStyle}"
+                 ItemContainerStyle="{StaticResource TreeViewItemWhiteStyle}"
+                      SelectedItemChanged="monitorTree_SelectedItemChanged">
+            
+            <sdk:TreeView.ItemTemplate>
+                <sdk:HierarchicalDataTemplate ItemsSource="{Binding Path=Children}">
+                    <gsafetycontrols:NodeTypeTemplateSelector Content="{Binding}">
+                        <gsafetycontrols:NodeTypeTemplateSelector.Resources>
+                            <DataTemplate x:Key="OrganizationEx">
+                                <StackPanel Orientation="Horizontal">
+                                    
+                                    <Image Stretch="None" Margin="0,0,2,0" VerticalAlignment="Center" Source="/ExternalResource;component/Images/Organization.png"/>
+
+                                    <TextBlock Foreground="Black"  Text="{Binding Path=Organization.Name}"  TextAlignment="Left" Margin="0,0,3,0"/>
+                                    
+                                </StackPanel>
+                            </DataTemplate>
+                        </gsafetycontrols:NodeTypeTemplateSelector.Resources>
+                    </gsafetycontrols:NodeTypeTemplateSelector>
+                </sdk:HierarchicalDataTemplate>
+            </sdk:TreeView.ItemTemplate>
+            
+        </sdk:TreeView>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="CancelButton" 
+                        Tag="{Binding [Cancel],  Source={StaticResource SR}}" 
+                        Click="CancelButton_Click"  Width="75"
+                        HorizontalAlignment="Left" Margin="8,15,0,0" 
+                        Grid.Column="1" VerticalAlignment="Center"  
+                        Content="{Binding [Cancel],  Source={StaticResource SR}}"
+                        Style="{StaticResource CancelButtonStyle}">
+            </Button>
+
+            <Button x:Name="OKButton" Tag="{Binding [Confirm],  Source={StaticResource SR}}"
+                        Click="OKButton_Click" Width="75"
+                        HorizontalAlignment="Right"  
+                        Margin="0,15,8,0" Grid.Column="0" 
+                        IsEnabled="{Binding IsCheckItems,Mode=OneWay}"  
+                        Content="{Binding [Confirm],  Source={StaticResource SR}}"
+                        Style="{StaticResource SureButtonStyle}">
+            </Button>
+        </Grid>
+    </Grid>
+</controls:ChildWindow>

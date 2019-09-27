@@ -1,0 +1,401 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:26444/DeviceInstallService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" />
+  <xs:import schemaLocation="http://localhost:26444/DeviceInstallService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Installation.Contract" />
+  <xs:element name="GetInstallingSuiteVehicleId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="mdvrId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetInstallingSuiteVehicleIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" minOccurs="0" name="GetInstallingSuiteVehicleIdResult" nillable="true" type="q1:SingleMessageOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckInstallation">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="installationId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckInstallationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" minOccurs="0" name="CheckInstallationResult" nillable="true" type="q2:SingleMessageOfInstallationAudity_PtN1jVq" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSelfInspect">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="inspectId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSelfInspectResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" minOccurs="0" name="GetSelfInspectResult" nillable="true" type="q3:SingleMessageOfSelfInspectInfoy_PtN1jVq" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetInstallationResult">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="installationId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetInstallationResultResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" minOccurs="0" name="GetInstallationResultResult" nillable="true" type="q4:SingleMessageOfInstallInfoResulty_PtN1jVq" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetInstallationDetail">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="installationId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetInstallationDetailResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" minOccurs="0" name="GetInstallationDetailResult" nillable="true" type="q5:SingleMessageOfInstallationInfoy_PtN1jVq" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddInstallation">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Installation.Contract" minOccurs="0" name="installation" nillable="true" type="q6:InstallationInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddInstallationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" minOccurs="0" name="AddInstallationResult" nillable="true" type="q7:SingleMessageOfboolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateInstallation">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Installation.Contract" minOccurs="0" name="installation" nillable="true" type="q8:InstallationInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateInstallationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" minOccurs="0" name="UpdateInstallationResult" nillable="true" type="q9:SingleMessageOfboolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PassInstallationAudit">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Installation.Contract" minOccurs="0" name="audit" nillable="true" type="q10:InstallationAudit" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PassInstallationAuditResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" minOccurs="0" name="PassInstallationAuditResult" nillable="true" type="q11:SingleMessageOfboolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteInstallation">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="installationId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteInstallationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" minOccurs="0" name="DeleteInstallationResult" nillable="true" type="q12:SingleMessageOfboolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddInstallationAudit">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Installation.Contract" minOccurs="0" name="audit" nillable="true" type="q13:InstallationAudit" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddInstallationAuditResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" minOccurs="0" name="AddInstallationAuditResult" nillable="true" type="q14:SingleMessageOfboolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateInstallationAudit">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Installation.Contract" minOccurs="0" name="audit" nillable="true" type="q15:InstallationAudit" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateInstallationAuditResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" minOccurs="0" name="UpdateInstallationAuditResult" nillable="true" type="q16:SingleMessageOfboolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteInstallationAudit">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="auditId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteInstallationAuditResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" minOccurs="0" name="DeleteInstallationAuditResult" nillable="true" type="q17:SingleMessageOfboolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetInstallationInProgress">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="installStationId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetInstallationInProgressResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" minOccurs="0" name="GetInstallationInProgressResult" nillable="true" type="q18:MultiMessageOfInstallationInfoy_PtN1jVq" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetInstallationInProgressEx">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="carNumber" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="suiteId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="installer" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="installStationId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="beginDate" nillable="true" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="endDate" nillable="true" type="xs:dateTime" />
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" minOccurs="0" name="pageInfo" nillable="true" type="q19:PagingInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetInstallationInProgressExResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" minOccurs="0" name="GetInstallationInProgressExResult" nillable="true" type="q20:MultiMessageOfInstallationInfoy_PtN1jVq" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetInstallationFinished">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="installStationId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="beginDate" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="endDate" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetInstallationFinishedResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" minOccurs="0" name="GetInstallationFinishedResult" nillable="true" type="q21:MultiMessageOfInstallationInfoy_PtN1jVq" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetInstallationFinishedEx">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="carNumber" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="suiteId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="installer" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="installStationId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="beginDate" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="endDate" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetInstallationFinishedExResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" minOccurs="0" name="GetInstallationFinishedExResult" nillable="true" type="q22:MultiMessageOfInstallationInfoy_PtN1jVq" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSuiteInstallation">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="carNumber" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="suiteId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="installer" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="beginDate" nillable="true" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="endDate" nillable="true" type="xs:dateTime" />
+        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" minOccurs="0" name="pageInfo" nillable="true" type="q23:PagingInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSuiteInstallationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" minOccurs="0" name="GetSuiteInstallationResult" nillable="true" type="q24:MultiMessageOfInstallationInfoy_PtN1jVq" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetInstallationFinishedEx1">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="carNumber" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="suiteId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="installer" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="installStationId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="beginDate" nillable="true" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="endDate" nillable="true" type="xs:dateTime" />
+        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" minOccurs="0" name="pageInfo" nillable="true" type="q25:PagingInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetInstallationFinishedEx1Response">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" minOccurs="0" name="GetInstallationFinishedEx1Result" nillable="true" type="q26:MultiMessageOfInstallationInfoy_PtN1jVq" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetInstallationAudit">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="carNumber" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="suiteId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="installer" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="installStationId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="beginDate" nillable="true" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="endDate" nillable="true" type="xs:dateTime" />
+        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" minOccurs="0" name="pageInfo" nillable="true" type="q27:PagingInfo" />
+        <xs:element minOccurs="0" name="onlyWaitCheck" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetInstallationAuditResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" minOccurs="0" name="GetInstallationAuditResult" nillable="true" type="q28:MultiMessageOfInstallationAuditCollecty_PtN1jVq" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetInstallationAuditFuzzy">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="carNumber" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="suiteId" nillable="true" type="xs:string" />
+        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" minOccurs="0" name="pageInfo" nillable="true" type="q29:PagingInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetInstallationAuditFuzzyResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" minOccurs="0" name="GetInstallationAuditFuzzyResult" nillable="true" type="q30:MultiMessageOfInstallationAudity_PtN1jVq" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetInstallationInProgressFuzzy">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="carNumber" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="suiteId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="installStationId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="beginDate" nillable="true" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="endDate" nillable="true" type="xs:dateTime" />
+        <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" minOccurs="0" name="pageInfo" nillable="true" type="q31:PagingInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetInstallationInProgressFuzzyResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" minOccurs="0" name="GetInstallationInProgressFuzzyResult" nillable="true" type="q32:MultiMessageOfInstallationInfoy_PtN1jVq" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetInstallationFinishedFuzzy">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="carNumber" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="suiteId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="installStationId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="beginDate" nillable="true" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="endDate" nillable="true" type="xs:dateTime" />
+        <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" minOccurs="0" name="pageInfo" nillable="true" type="q33:PagingInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetInstallationFinishedFuzzyResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" minOccurs="0" name="GetInstallationFinishedFuzzyResult" nillable="true" type="q34:MultiMessageOfInstallationInfoy_PtN1jVq" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateBathCheckInfo">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateBathCheckInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" minOccurs="0" name="UpdateBathCheckInfoResult" nillable="true" type="q35:SingleMessageOfboolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckMediaFile">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="InstallId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="size" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckMediaFileResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q36="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" minOccurs="0" name="CheckMediaFileResult" nillable="true" type="q36:SingleMessageOfboolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSuiteInspectFuzzy">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="vehicleId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="suiteId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="beginDate" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="endDate" type="xs:dateTime" />
+        <xs:element xmlns:q37="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" minOccurs="0" name="pageInfo" nillable="true" type="q37:PagingInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSuiteInspectFuzzyResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q38="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" minOccurs="0" name="GetSuiteInspectFuzzyResult" nillable="true" type="q38:MultiMessageOfSelfInspectInfoy_PtN1jVq" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,346 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:2258/LogManageService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" />
+  <xs:import schemaLocation="http://localhost:2258/LogManageService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Common.Data" />
+  <xs:import schemaLocation="http://localhost:2258/LogManageService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Manager.Contract.Data" />
+  <xs:element name="GetAlarmDealLog">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="clientID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="vehicleID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="startTime" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="endTime" type="xs:dateTime" />
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" minOccurs="0" name="pageInfo" nillable="true" type="q1:PagingInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAlarmDealLogResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" minOccurs="0" name="GetAlarmDealLogResult" nillable="true" type="q2:MultiMessageOfAlarmDealLogInfo7ZhGgAvu" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCarAlertDealLog">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="clientID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="vehicleId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="startTime" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="endTime" type="xs:dateTime" />
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" minOccurs="0" name="pageInfo" nillable="true" type="q3:PagingInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCarAlertDealLogResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" minOccurs="0" name="GetCarAlertDealLogResult" nillable="true" type="q4:MultiMessageOfCarAlertLogInfo7ZhGgAvu" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetInstallLog">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="clientID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="installStation" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="installStaff" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="startTime" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="endTime" type="xs:dateTime" />
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" minOccurs="0" name="pageInfo" nillable="true" type="q5:PagingInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetInstallLogResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" minOccurs="0" name="GetInstallLogResult" nillable="true" type="q6:MultiMessageOfInstallLogInfo7ZhGgAvu" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddLoginLog">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Common.Data" minOccurs="0" name="access" nillable="true" type="q7:LogAccess" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddLoginLogResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" minOccurs="0" name="AddLoginLogResult" nillable="true" type="q8:SingleMessageOfboolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLoginLog">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="clientID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="startTime" nillable="true" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="endTime" nillable="true" type="xs:dateTime" />
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" minOccurs="0" name="pageInfo" nillable="true" type="q9:PagingInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLoginLogResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" minOccurs="0" name="GetLoginLogResult" nillable="true" type="q10:MultiMessageOfLogAccessi7Zg_POJ5" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ClearLoginLog">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="clientID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="userID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="username" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="content" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ClearLoginLogResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" minOccurs="0" name="ClearLoginLogResult" nillable="true" type="q11:SingleMessageOfboolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetVideoDownloadLog">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="downloader" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="type" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="startTime" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="endTime" type="xs:dateTime" />
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" minOccurs="0" name="pageInfo" nillable="true" type="q12:PagingInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetVideoDownloadLogResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" minOccurs="0" name="GetVideoDownloadLogResult" nillable="true" type="q13:MultiMessageOfVideoLogInfo7ZhGgAvu" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetVideoLog">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="player" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="type" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="startTime" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="endTime" type="xs:dateTime" />
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" minOccurs="0" name="pageInfo" nillable="true" type="q14:PagingInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetVideoLogResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" minOccurs="0" name="GetVideoLogResult" nillable="true" type="q15:MultiMessageOfVideoLogInfo7ZhGgAvu" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddVisitLog">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Manager.Contract.Data" minOccurs="0" name="visitLog" nillable="true" type="q16:VisitLogInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddVisitLogResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" minOccurs="0" name="AddVisitLogResult" nillable="true" type="q17:SingleMessageOfboolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetVisitLog">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="visitor" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="type" type="xs:int" />
+        <xs:element minOccurs="0" name="startTime" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="endTime" type="xs:dateTime" />
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" minOccurs="0" name="pageInfo" nillable="true" type="q18:PagingInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetVisitLogResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" minOccurs="0" name="GetVisitLogResult" nillable="true" type="q19:MultiMessageOfVisitLogInfo7ZhGgAvu" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ClearVisitLog">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="startTime" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="endTime" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ClearVisitLogResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" minOccurs="0" name="ClearVisitLogResult" nillable="true" type="q20:SingleMessageOfboolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSuitInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="suiteID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="startTime" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="endTime" type="xs:dateTime" />
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" minOccurs="0" name="pageInfo" nillable="true" type="q21:PagingInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSuitInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" minOccurs="0" name="GetSuitInfoResult" nillable="true" type="q22:MultiMessageOfSuiteInfoLog7ZhGgAvu" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetOperationLogList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="clientID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="startTime" nillable="true" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="endTime" nillable="true" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="pageIndex" type="xs:int" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetOperationLogListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" minOccurs="0" name="GetOperationLogListResult" nillable="true" type="q23:MultiMessageOfLogOperatei7Zg_POJ5" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ClearOperateLog">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="clientID" nillable="true" type="xs:string" />
+        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Common.Data" minOccurs="0" name="log" nillable="true" type="q24:LogOperate" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ClearOperateLogResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" minOccurs="0" name="ClearOperateLogResult" nillable="true" type="q25:SingleMessageOfboolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsertVideoDownloadLog">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Common.Data" minOccurs="0" name="models" nillable="true" type="q26:ArrayOfLogVideo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsertVideoDownloadLogResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" minOccurs="0" name="InsertVideoDownloadLogResult" nillable="true" type="q27:SingleMessageOfboolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsertVideoPlayLog">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Common.Data" minOccurs="0" name="models" nillable="true" type="q28:ArrayOfLogVideo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsertVideoPlayLogResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" minOccurs="0" name="InsertVideoPlayLogResult" nillable="true" type="q29:SingleMessageOfboolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ClearVideoDownloadLog">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ClientID" nillable="true" type="xs:string" />
+        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Common.Data" minOccurs="0" name="log" nillable="true" type="q30:LogOperate" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ClearVideoDownloadLogResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" minOccurs="0" name="ClearVideoDownloadLogResult" nillable="true" type="q31:SingleMessageOfboolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ClearVideoPlayLog">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ClientID" nillable="true" type="xs:string" />
+        <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Common.Data" minOccurs="0" name="log" nillable="true" type="q32:LogOperate" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ClearVideoPlayLogResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" minOccurs="0" name="ClearVideoPlayLogResult" nillable="true" type="q33:SingleMessageOfboolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetVideoPlayLogList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="clientID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="vehicleID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="mdvrCoreSN" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="startTime" nillable="true" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="endTime" nillable="true" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="pageIndex" type="xs:int" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetVideoPlayLogListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" minOccurs="0" name="GetVideoPlayLogListResult" nillable="true" type="q34:MultiMessageOfLogVideoi7Zg_POJ5" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetVideoDownloadLogList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="clientID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="vehicleID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="mdvrCoreSN" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="startTime" nillable="true" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="endTime" nillable="true" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="pageIndex" type="xs:int" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetVideoDownloadLogListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" minOccurs="0" name="GetVideoDownloadLogListResult" nillable="true" type="q35:MultiMessageOfLogVideoi7Zg_POJ5" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

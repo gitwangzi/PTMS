@@ -1,0 +1,543 @@
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Threading;
+using Gsafety.PTMS.Media.TransportStream.TsParser;
+using Gsafety.PTMS.Media.TransportStream.TsParser.Utility;
+using Gsafety.PTMS.Media.Utility;
+using Gsafety.PTMS.Media.Common.Loggers;
+
+namespace Gsafety.PTMS.Media.Buffering
+{
+    public sealed class BufferingManager : IBufferingManager
+    {
+        static readonly TimeSpan SeekEndTolerance = TimeSpan.FromMilliseconds(256);
+        static readonly TimeSpan SeekBeginTolerance = TimeSpan.FromSeconds(6);
+        static readonly TimeSpan BufferStatusUpdatePeriod = TimeSpan.FromMilliseconds(250);
+        readonly IBufferingPolicy _bufferingPolicy;
+        readonly CancellationTokenSource _disposeCancellationTokenSource = new CancellationTokenSource();
+        readonly object _lock = new object();
+        readonly ITsPesPacketPool _packetPool;
+        readonly List<IBufferingQueue> _queues = new List<IBufferingQueue>();
+        readonly SignalTask _refreshTask;
+        readonly List<BufferStatus> _statuses = new List<BufferStatus>();
+        bool _blockReads;
+        DateTime _bufferStatusTimeUtc = DateTime.MinValue;
+        float _bufferingProgress;
+        bool _isBuffering = true;
+        int _isDisposed;
+        bool _isEof;
+        bool _isStarting = true;
+        IQueueThrottling _queueThrottling;
+        SignalTask _reportingTask;
+        int _totalBufferedStart;
+
+        public BufferingManager(IBufferingPolicy bufferingPolicy, ITsPesPacketPool packetPool)
+        {
+            if (null == bufferingPolicy)
+                throw new ArgumentNullException("bufferingPolicy");
+            if (null == packetPool)
+                throw new ArgumentNullException("packetPool");
+
+            _bufferingPolicy = bufferingPolicy;
+            _packetPool = packetPool;
+
+            _refreshTask = new SignalTask(() =>
+            {
+                RefreshHandler();
+
+                return TplTaskExtensions.CompletedTask;
+            }, _disposeCancellationTokenSource.Token);
+        }
+
+        public void Initialize(IQueueThrottling queueThrottling, Action reportBufferingChange)
+        {
+            LoggerInstance.Debug("BufferingManager.Initialize()");
+
+            if (null == queueThrottling)
+                throw new ArgumentNullException("queueThrottling");
+            if (reportBufferingChange == null)
+                throw new ArgumentNullException("reportBufferingChange");
+
+            ThrowIfDisposed();
+
+            if (null != Interlocked.CompareExchange(ref _queueThrottling, queueThrottling, null))
+                throw new InvalidOperationException("The buffering manager is in use");
+
+            HandleStateChange();
+
+            _reportingTask = new SignalTask(() =>
+            {
+                reportBufferingChange();
+
+                return TplTaskExtensions.CompletedTask;
+            }, _disposeCancellationTokenSource.Token);
+        }
+
+        public void Shutdown(IQueueThrottling queueThrottling)
+        {
+            LoggerInstance.Debug("BufferingManager.Shutdown()");
+
+            if (null == queueThrottling)
+                throw new ArgumentNullException("queueThrottling");
+
+            ThrowIfDisposed();
+
+            var currrentQueueThrottling = Interlocked.CompareExchange(ref _queueThrottling, null, queueThrottling);
+            if (!ReferenceEquals(currrentQueueThrottling, queueThrottling))
+                throw new InvalidOperationException("Shutting down the wrong queueThrottling instance");
+
+            RefreshHandler();
+        }
+
+        public IStreamBuffer CreateStreamBuffer(TsStreamType streamType)
+        {
+            ThrowIfDisposed();
+
+            var buffer = new StreamBuffer(streamType, _packetPool.FreePesPacket, this);
+
+            lock (_lock)
+            {
+                _queues.Add(buffer);
+
+                ResizeStatuses();
+            }
+
+            return buffer;
+        }
+
+        public void Flush()
+        {
+            LoggerInstance.Debug("BufferingManager.Flush()");
+
+            ThrowIfDisposed();
+
+            bool hasQueues;
+
+            IBufferingQueue[] queues;
+
+            lock (_lock)
+            {
+                queues = _queues.ToArray();
+
+                _isStarting = true;
+                _isBuffering = true;
+                _isEof = false;
+
+                hasQueues = queues.Length > 0;
+            }
+
+            foreach (var queue in queues)
+                queue.Flush();
+
+            ReportBuffering(0);
+
+            if (hasQueues)
+                _refreshTask.Fire();
+        }
+
+        public bool IsSeekAlreadyBuffered(TimeSpan position)
+        {
+            LoggerInstance.Debug("BufferingManager.IsSeekAlreadyBuffered({0})", position);
+
+            ThrowIfDisposed();
+
+            lock (_lock)
+            {
+                UnlockedUpdateQueueStatus();
+
+                foreach (var queue in _statuses)
+                {
+                    // We'll ignore the "IsValid" flag for now.  The Oldest/Newest
+                    // will either be the last known values or TimeSpan.Zero.  In
+                    // either case, they should work for checking the supplied
+                    // position.
+                    //if (!queue.IsValid)
+                    //    return TimeSpan.Zero == position;
+
+                    if (position < queue.Oldest - SeekBeginTolerance)
+                        return false;
+
+                    if (position > queue.Newest + SeekEndTolerance)
+                        return false;
+                }
+            }
+
+            return true;
+        }
+
+        public bool IsBuffering
+        {
+            get { return _isBuffering; }
+        }
+
+        public float? BufferingProgress
+        {
+            get
+            {
+                lock (_lock)
+                {
+                    if (!IsBuffering)
+                        return null;
+
+                    Debug.Assert(_bufferingProgress >= 0 && _bufferingProgress <= 1, "BufferingProgress out of range: " + _bufferingProgress);
+
+                    return _bufferingProgress;
+                }
+            }
+        }
+
+        public void Dispose()
+        {
+            if (0 != Interlocked.Exchange(ref _isDisposed, 1))
+                return;
+
+            _disposeCancellationTokenSource.Cancel();
+
+            using (_refreshTask)
+            { }
+
+            using (_reportingTask)
+            { }
+            _reportingTask = null;
+
+            _disposeCancellationTokenSource.Dispose();
+
+            lock (_lock)
+            {
+                _queues.Clear();
+            }
+
+            var queueThrottling = Interlocked.Exchange(ref _queueThrottling, null);
+
+            if (null != queueThrottling)
+                LoggerInstance.Debug("**** BufferingManager.Dispose() _queueThrottling was not null");
+        }
+
+        public void Refresh()
+        {
+            ThrowIfDisposed();
+
+            _refreshTask.Fire();
+        }
+
+        public void ReportExhaustion()
+        {
+            LoggerInstance.Debug("BufferingManager.ReportExhaustion()");
+
+            lock (_lock)
+            {
+                if (_isEof || _isBuffering)
+                    return;
+
+                UnlockedRefreshHandler();
+            }
+        }
+
+        public void ReportEndOfData()
+        {
+            LoggerInstance.Debug("BufferingManager.ReportEndOfData()");
+
+            bool wasEof;
+
+            lock (_lock)
+            {
+                wasEof = _isEof;
+
+                _isEof = true;
+
+                UnlockedUpdateQueueStatus();
+
+                UnlockedReport();
+            }
+
+            _refreshTask.Fire();
+
+            if (!wasEof && null != _reportingTask)
+                _reportingTask.Fire();
+        }
+
+        void ResizeStatuses()
+        {
+            while (_statuses.Count > _queues.Count)
+                _statuses.RemoveAt(_statuses.Count - 1);
+            while (_statuses.Count < _queues.Count)
+                _statuses.Add(new BufferStatus());
+        }
+
+        void RefreshHandler()
+        {
+            lock (_lock)
+            {
+                UnlockedRefreshHandler();
+            }
+        }
+
+        void UnlockedRefreshHandler()
+        {
+            UnlockedUpdateQueueStatus();
+
+            UnlockedReport();
+        }
+
+        void UnlockedUpdateQueueStatus()
+        {
+            for (var i = 0; i < _queues.Count; ++i)
+                _queues[i].UpdateBufferStatus(_statuses[i]);
+        }
+
+        void UnlockedReport()
+        {
+            var shouldBlock = UpdateState();
+
+            if (shouldBlock != _blockReads)
+            {
+                _blockReads = shouldBlock;
+
+                HandleStateChange();
+            }
+        }
+
+        void UnlockedStartBuffering()
+        {
+            var wasBuffering = _isBuffering;
+
+            _isBuffering = true;
+
+            if (!wasBuffering)
+                return;
+
+            ReportBuffering(0);
+        }
+
+        bool UpdateState()
+        {
+            //LoggerInstance.Debug("BufferingManager.UpdateState()");
+
+            if (_statuses.Count <= 0)
+                return false;
+
+            var newest = TimeSpan.MinValue;
+            var oldest = TimeSpan.MaxValue;
+            var minDuration = TimeSpan.MaxValue;
+            var lowestCount = int.MaxValue;
+            var highestCount = int.MinValue;
+            var totalBuffered = 0;
+
+            var validData = false;
+            var allDone = _isEof;
+            var isExhausted = false;
+            var allExhausted = true;
+
+            foreach (var status in _statuses)
+            {
+                if (!status.IsDone)
+                    allDone = false;
+
+                if (!status.IsMedia)
+                    continue;
+
+                if (0 == status.PacketCount)
+                    isExhausted = true;
+                else
+                    allExhausted = false;
+
+                if (!status.IsValid)
+                {
+                    if (minDuration > TimeSpan.Zero)
+                        minDuration = TimeSpan.Zero;
+
+                    continue;
+                }
+
+                totalBuffered += status.Size;
+
+                validData = true;
+
+                var count = status.PacketCount;
+
+                if (count < lowestCount)
+                    lowestCount = count;
+
+                if (count > highestCount)
+                    highestCount = count;
+
+                var newTime = status.Newest;
+
+                if (newTime > newest)
+                    newest = newTime.Value;
+
+                var oldTime = status.Oldest;
+
+                if (oldTime < oldest)
+                    oldest = oldTime.Value;
+
+                var duration = (newTime - oldTime) ?? TimeSpan.Zero;
+
+                if (duration < TimeSpan.Zero)
+                    duration = TimeSpan.Zero;
+
+                if (duration < minDuration)
+                    minDuration = duration;
+            }
+
+            if (allDone)
+                _isEof = true;
+
+            var timestampDifference = validData ? minDuration : TimeSpan.MaxValue;
+            //var timestampDifference = validData ? newest - oldest : TimeSpan.MaxValue;
+
+            // The presentation order is not always the same as the decoding order.  Fudge things
+            // in the assert so we can still catch grievous errors.
+
+            Debug.Assert(timestampDifference == TimeSpan.MaxValue || timestampDifference + TimeSpan.FromMilliseconds(500) >= TimeSpan.Zero,
+                string.Format("Invalid timestamp difference: {0} (newest {1} oldest {2} low count {3} high count {4} valid data {5})",
+                    timestampDifference, newest, oldest, lowestCount, highestCount, validData));
+
+            if (timestampDifference <= TimeSpan.Zero)
+            {
+                timestampDifference = TimeSpan.Zero;
+                validData = false;
+            }
+
+            if (_isBuffering)
+            {
+                if (allDone)
+                {
+                    _isBuffering = false;
+
+                    LoggerInstance.Debug("BufferingManager.UpdateState done buffering (eof): duration {0} size {1} starting {2} memory {3:F} MiB",
+                        validData ? timestampDifference.ToString() : "none",
+                        validData ? totalBuffered.ToString() : "none",
+                        _isStarting,
+                        GC.GetTotalMemory(false).BytesToMiB());
+
+                    DumpQueues();
+
+                    ReportBuffering(1);
+                }
+                else if (validData)
+                    UpdateBuffering(timestampDifference, totalBuffered);
+
+                if (!_isBuffering)
+                    return false;
+            }
+            else
+            {
+                //if (!allDone && isExhausted && (!validData || 0 == highestCount))
+                //if (!allDone && allExhausted && validData)
+                if (!allDone && isExhausted)
+                {
+                    LoggerInstance.Debug("BufferingManager.UpdateState start buffering: duration {0} size {1} starting {2} memory {3:F} MiB",
+                        timestampDifference, totalBuffered, _isStarting, GC.GetTotalMemory(false).BytesToMiB());
+
+                    DumpQueues();
+
+                    _totalBufferedStart = totalBuffered;
+
+                    UnlockedStartBuffering();
+
+                    return false;
+                }
+            }
+
+            if (!validData)
+                return false;
+
+            var shouldBlock = _bufferingPolicy.ShouldBlockReads(_blockReads, timestampDifference, totalBuffered, isExhausted, allExhausted);
+
+#if DEBUG
+            if (shouldBlock != _blockReads)
+            {
+                LoggerInstance.Debug("BufferingManager.UpdateState read blocking -> {0} duration {1} size {2} memory {3:F} MiB",
+                    shouldBlock,
+                    validData ? timestampDifference.ToString() : "none",
+                    validData ? totalBuffered.ToString() : "none",
+                    GC.GetTotalMemory(false).BytesToMiB());
+
+                DumpQueues();
+            }
+#endif
+
+            return shouldBlock;
+        }
+
+        [Conditional("DEBUG")]
+        void DumpQueues()
+        {
+            foreach (var queue in _queues)
+                LoggerInstance.Debug("  " + queue);
+        }
+
+        void UpdateBuffering(TimeSpan timestampDifference, int bufferSize)
+        {
+            if (_bufferingPolicy.IsDoneBuffering(timestampDifference, bufferSize, _totalBufferedStart, _isStarting))
+            {
+                _isBuffering = false;
+
+                LoggerInstance.Debug("BufferingManager.UpdateBuffering done buffering: duration {0} size {1} starting {2} memory {3:F} MiB",
+                    timestampDifference, bufferSize, _isStarting, GC.GetTotalMemory(false).BytesToMiB());
+
+                DumpQueues();
+
+                _isStarting = false;
+
+                ReportBuffering(1);
+            }
+            else
+            {
+                var now = DateTime.UtcNow;
+
+                var elapsed = now - _bufferStatusTimeUtc;
+
+                if (elapsed >= BufferStatusUpdatePeriod)
+                {
+                    _bufferStatusTimeUtc = now;
+
+                    var bufferingStatus = _bufferingPolicy.GetProgress(timestampDifference, bufferSize, _totalBufferedStart, _isStarting);
+
+                    LoggerInstance.Debug("BufferingManager.UpdateBuffering: {0:F2}% duration {1} size {2} starting {3} memory {4:F} MiB",
+                        bufferingStatus * 100, timestampDifference, bufferSize, _isStarting, GC.GetTotalMemory(false).BytesToMiB());
+
+                    ReportBuffering(bufferingStatus);
+                }
+            }
+        }
+
+        void ReportBuffering(float bufferingProgress)
+        {
+            _bufferingProgress = bufferingProgress;
+
+            if (null != _reportingTask)
+                _reportingTask.Fire();
+        }
+
+        void HandleStateChange()
+        {
+            //var er = Volatile.Read(ref _queueThrottling); 
+            //TODO:自己实现
+            var er = Read(ref _queueThrottling);
+
+            if (null == er)
+                return;
+
+            if (_blockReads)
+                er.Pause();
+            else
+                er.Resume();
+        }
+
+        void ThrowIfDisposed()
+        {
+            if (0 != _isDisposed)
+                throw new ObjectDisposedException(GetType().Name);
+        }
+
+        T Read<T>(ref T location)
+        {
+            var value = location;
+            Thread.MemoryBarrier();
+            return value;
+        }
+    }
+}

@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:2258/AppConfigManager.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Manager.Contract.Data" />
+  <xs:import schemaLocation="http://localhost:2258/AppConfigManager.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="http://localhost:2258/AppConfigManager.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" />
+  <xs:element name="GetAllSections">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllSectionsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Manager.Contract.Data" minOccurs="0" name="GetAllSectionsResult" nillable="true" type="q1:ArrayOfConfigTree" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSectionByName">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSectionByNameResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetSectionByNameResult" nillable="true" type="q2:ArrayOfKeyValueOfstringstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddSection">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Manager.Contract.Data" minOccurs="0" name="tree" nillable="true" type="q3:ConfigTree" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddSectionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" minOccurs="0" name="AddSectionResult" nillable="true" type="q4:SingleMessageOfboolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateSection">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Manager.Contract.Data" minOccurs="0" name="tree" nillable="true" type="q5:ConfigTree" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateSectionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" minOccurs="0" name="UpdateSectionResult" nillable="true" type="q6:SingleMessageOfboolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteSection">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Manager.Contract.Data" minOccurs="0" name="tree" nillable="true" type="q7:ConfigTree" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteSectionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" minOccurs="0" name="DeleteSectionResult" nillable="true" type="q8:SingleMessageOfboolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteSectionById">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteSectionByIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" minOccurs="0" name="DeleteSectionByIdResult" nillable="true" type="q9:SingleMessageOfboolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IsValidName">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="parentName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IsValidNameResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" minOccurs="0" name="IsValidNameResult" nillable="true" type="q10:SingleMessageOfboolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetappConfigInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="desc" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetappConfigInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" minOccurs="0" name="GetappConfigInfoResult" nillable="true" type="q11:MultiMessageOfAppConfig7ZhGgAvu" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateConfig">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="configkey" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="configvalue" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateConfigResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" minOccurs="0" name="UpdateConfigResult" nillable="true" type="q12:SingleMessageOfboolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetappEmailInfo">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetappEmailInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" minOccurs="0" name="GetappEmailInfoResult" nillable="true" type="q13:MultiMessageOfAppConfig7ZhGgAvu" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetConfigInfoBytype">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="type" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="desc" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetConfigInfoBytypeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" minOccurs="0" name="GetConfigInfoBytypeResult" nillable="true" type="q14:MultiMessageOfAppConfig7ZhGgAvu" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateAllSection">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q15="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Dic" nillable="true" type="q15:ArrayOfKeyValueOfstringstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateAllSectionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" minOccurs="0" name="UpdateAllSectionResult" nillable="true" type="q16:SingleMessageOfboolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetConfigInfoBySectionName">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetConfigInfoBySectionNameResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" minOccurs="0" name="GetConfigInfoBySectionNameResult" nillable="true" type="q17:SingleMessageOfAppConfig7ZhGgAvu" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSetInfoBydesc">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="desc" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="type" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSetInfoBydescResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" minOccurs="0" name="GetSetInfoBydescResult" nillable="true" type="q18:SingleMessageOfAppConfig7ZhGgAvu" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

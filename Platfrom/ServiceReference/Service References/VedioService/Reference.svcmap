@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="6cfaeda5-7b70-4565-993f-27c0207c3d00" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>true</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.ObjectModel.ObservableCollection`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>false</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:2258/VedioService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="VedioService63.xsd" MetadataType="Schema" ID="b9ef56b7-7015-4990-bd52-046bf46b3687" SourceId="1" SourceUrl="http://localhost:2258/VedioService.svc?xsd=xsd3" />
+    <MetadataFile FileName="VedioService.xsd" MetadataType="Schema" ID="378631b0-8dbd-4673-9af6-fa1fd31818c9" SourceId="1" SourceUrl="http://localhost:2258/VedioService.svc?xsd=xsd7" />
+    <MetadataFile FileName="VedioService1.wsdl" MetadataType="Wsdl" ID="9071f078-6a7f-4d42-9ec7-0cb9eccf33c3" SourceId="1" SourceUrl="http://localhost:2258/VedioService.svc?wsdl" />
+    <MetadataFile FileName="VedioService66.xsd" MetadataType="Schema" ID="e25404cb-43af-4b11-9acc-e718170fd8b9" SourceId="1" SourceUrl="http://localhost:2258/VedioService.svc?xsd=xsd1" />
+    <MetadataFile FileName="VedioService1.xsd" MetadataType="Schema" ID="4c363ff4-00bd-415d-8f72-1a3428f423ba" SourceId="1" SourceUrl="http://localhost:2258/VedioService.svc?xsd=xsd8" />
+    <MetadataFile FileName="VedioService62.xsd" MetadataType="Schema" ID="7f8d8dd2-060a-49f6-985e-d423999a700c" SourceId="1" SourceUrl="http://localhost:2258/VedioService.svc?xsd=xsd2" />
+    <MetadataFile FileName="VedioService61.xsd" MetadataType="Schema" ID="1099f25f-3629-42d4-82d7-b3f39244b0c6" SourceId="1" SourceUrl="http://localhost:2258/VedioService.svc?xsd=xsd4" />
+    <MetadataFile FileName="VedioService2.xsd" MetadataType="Schema" ID="d3e0da0e-3f45-40b9-945c-2647c99aca2c" SourceId="1" SourceUrl="http://localhost:2258/VedioService.svc?xsd=xsd9" />
+    <MetadataFile FileName="VedioService1.disco" MetadataType="Disco" ID="6cb53d7c-f7dd-49ce-b971-57e7970cb2ad" SourceId="1" SourceUrl="http://localhost:2258/VedioService.svc?disco" />
+    <MetadataFile FileName="VedioService64.xsd" MetadataType="Schema" ID="1c1135c4-d2d3-4449-a022-268b232275c2" SourceId="1" SourceUrl="http://localhost:2258/VedioService.svc?xsd=xsd6" />
+    <MetadataFile FileName="VedioService65.xsd" MetadataType="Schema" ID="12451762-aa36-4365-bd4f-70288644246e" SourceId="1" SourceUrl="http://localhost:2258/VedioService.svc?xsd=xsd0" />
+    <MetadataFile FileName="VedioService6.xsd" MetadataType="Schema" ID="dbd0d45f-95e1-4a92-968c-99c1bbc20dc6" SourceId="1" SourceUrl="http://localhost:2258/VedioService.svc?xsd=xsd5" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

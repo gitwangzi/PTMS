@@ -1,0 +1,48 @@
+﻿<controls:ChildWindow x:Class="Gsafety.PTMS.BasicPage.Views.CameraSelectWindow"
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+           Width="400" Height="300" 
+           Title="{Binding [SelectChannelTitle], Source={StaticResource SR}}" Style="{StaticResource SelfChildenWindowStyle}">
+    <Grid x:Name="LayoutRoot" Margin="2">
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid Margin="30">
+            <Image Source="/ExternalResource;component/Images/Camera/CameraBus.png" Margin="0" Stretch="Fill"/>
+
+            <Canvas>
+                <CheckBox Name="InnerLeftDriver" Style="{StaticResource CameraSelectCheckBoxStyle}"  IsThreeState="False" Canvas.Left="278" Canvas.Top="32" Visibility="Collapsed">
+                </CheckBox>
+
+                <CheckBox Name="InnerRightDriver" Style="{StaticResource CameraSelectCheckBoxStyle}"  IsThreeState="False" Canvas.Left="278" Canvas.Top="119" Visibility="Collapsed">
+                </CheckBox>
+
+                <CheckBox Name="InnerCenter" Style="{StaticResource CameraSelectCheckBoxStyle}"  IsThreeState="False" Canvas.Left="138" Canvas.Top="76" Visibility="Collapsed">
+                </CheckBox>
+
+                <CheckBox Name="OuterBefore" Style="{StaticResource CameraSelectCheckBoxStyle}"  IsThreeState="False" Canvas.Left="278" Canvas.Top="76" Visibility="Collapsed">
+                </CheckBox>
+                <CheckBox Name="InnerBehind" Style="{StaticResource CameraSelectCheckBoxStyle}"  IsThreeState="False" Canvas.Left="66" Canvas.Top="76" Visibility="Collapsed">
+                </CheckBox>
+                <CheckBox Name="OuterLeft" Style="{StaticResource CameraSelectCheckBoxStyle}"   IsThreeState="False" Canvas.Left="138" Canvas.Top="19" Visibility="Collapsed">
+                </CheckBox>
+                <CheckBox Name="OuterRight" Style="{StaticResource CameraSelectCheckBoxStyle}"  IsThreeState="False" Canvas.Left="138" Canvas.Top="130" Visibility="Collapsed">
+                </CheckBox>
+                <CheckBox Name="OuterBehind" Style="{StaticResource CameraSelectCheckBoxStyle}"  IsThreeState="False" Canvas.Top="76" Visibility="Collapsed">
+                </CheckBox>
+            </Canvas>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="OKButton" Content="{Binding [Confirm],  Source={StaticResource SR}}" Style="{StaticResource SureButtonStyle}"  Click="OKButton_Click" Width="75" Height="23" HorizontalAlignment="Right" Margin="0,12,8,0" Grid.Column="0" />
+            <Button x:Name="CancelButton" Style="{StaticResource CancelButtonStyle}"
+                    Content="{Binding [Cancel],  Source={StaticResource SR}}" Click="CancelButton_Click" Width="75" 
+                    Height="23" HorizontalAlignment="Left" Margin="8,12,20,0" Grid.Column="1" />
+        </Grid>
+    </Grid>
+</controls:ChildWindow>

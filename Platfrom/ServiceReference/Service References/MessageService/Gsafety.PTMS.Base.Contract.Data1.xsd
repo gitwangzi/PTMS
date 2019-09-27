@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="DownwardBase">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CmType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DvId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GpsTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="MsgId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RuleName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DownwardBase" nillable="true" type="tns:DownwardBase" />
+  <xs:simpleType name="RuleOperationType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Add" />
+      <xs:enumeration value="Delete" />
+      <xs:enumeration value="Default" />
+      <xs:enumeration value="Update" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="RuleOperationType" nillable="true" type="tns:RuleOperationType" />
+  <xs:complexType name="AlertBaseModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AlertTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="AlertType" type="xs:short" />
+      <xs:element minOccurs="0" name="CityName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Cmd" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Context" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CreateTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Direction" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DistrictCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GpsTime" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="GpsValid" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Latitude" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Longitude" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MdvrCoreSN" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ProvinceName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Speed" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Status" type="xs:short" />
+      <xs:element minOccurs="0" name="SuitInfoID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SuiteID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SuiteStatus" type="xs:short" />
+      <xs:element minOccurs="0" name="VehicleID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VehicleType" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AlertBaseModel" nillable="true" type="tns:AlertBaseModel" />
+  <xs:complexType name="BaseSettingModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="OperationType" type="tns:RuleOperationType" />
+      <xs:element minOccurs="0" name="Value" nillable="true" type="tns:ArrayOfSelectInfoModel" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BaseSettingModel" nillable="true" type="tns:BaseSettingModel" />
+  <xs:complexType name="ArrayOfSelectInfoModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SelectInfoModel" nillable="true" type="tns:SelectInfoModel" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSelectInfoModel" nillable="true" type="tns:ArrayOfSelectInfoModel" />
+  <xs:complexType name="SelectInfoModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GroupID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Type" type="tns:SettingType" />
+      <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="VehicleType" nillable="true" type="q1:ArrayOfint" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SelectInfoModel" nillable="true" type="tns:SelectInfoModel" />
+  <xs:simpleType name="SettingType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ProvinceCode" />
+      <xs:enumeration value="CityCode" />
+      <xs:enumeration value="CountryWide" />
+      <xs:enumeration value="VehicleType" />
+      <xs:enumeration value="Vehicle" />
+      <xs:enumeration value="Group" />
+      <xs:enumeration value="FenceID" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="SettingType" nillable="true" type="tns:SettingType" />
+  <xs:simpleType name="ElectricFenceOperType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Add">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Modify">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Delete">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">3</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ElectricFenceOperType" nillable="true" type="tns:ElectricFenceOperType" />
+  <xs:simpleType name="AreaType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="NoType" />
+      <xs:enumeration value="ElectronicFence" />
+      <xs:enumeration value="MonitoringPoint" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="AreaType" nillable="true" type="tns:AreaType" />
+  <xs:complexType name="ReplyBaseModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AssociationSetID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Cmd" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Direction" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GpsTime" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="GpsValid" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Latitude" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Longitude" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MdvrCoreId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OperType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OriginalCmd" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OriginalTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ReplyType" type="xs:int" />
+      <xs:element minOccurs="0" name="Speed" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ReplyBaseModel" nillable="true" type="tns:ReplyBaseModel" />
+</xs:schema>

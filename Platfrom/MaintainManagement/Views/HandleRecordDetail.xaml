@@ -1,0 +1,121 @@
+﻿<UserControl x:Class="Gsafety.PTMS.Maintain.Views.HandleRecordDetail"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:converter="clr-namespace:Gsafety.Common.Converts;assembly=Converts"
+    mc:Ignorable="d"
+    d:DesignHeight="800" d:DesignWidth="1000">
+    <UserControl.Resources>
+        <converter:ToRepairType  x:Key="toRepairType"></converter:ToRepairType>
+    </UserControl.Resources>
+
+    <Grid x:Name="LayoutRoot" Background="Transparent"  Width="Auto" Height="Auto">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Border  Background="{StaticResource BlueBgStyleBrush}"  Grid.RowSpan="2">
+        </Border>
+        <Border Height="35" VerticalAlignment="Top" Grid.Row="0" Margin="0" BorderThickness="0,1,0,1" BorderBrush="{StaticResource MenuBarLine}" Background="{StaticResource NavBarBG}">
+            <Image Source="/ExternalResource;component/Images/a07b.png" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,0,0,0" Stretch="None"/>
+        </Border>
+        <TextBlock Text="{Binding [MAINTAIN_MaintainArrange], Source={StaticResource SR}}" HorizontalAlignment="Left"   VerticalAlignment="Center" Style="{StaticResource Menu2TextBlock}" Margin="36,0,0,0"/>
+        <Image Source="/ANT;component/Images/a07b.png" HorizontalAlignment="Left" VerticalAlignment="Center" Stretch="None" Margin="10,0,0,0"/>
+
+        <Grid Grid.Row="1" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="20"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition Width="400"/>
+                <ColumnDefinition Width="300"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <!--车牌号-->
+            <TextBlock Grid.Column="1" Grid.Row="1" HorizontalAlignment="Right"   
+                       Text="{Binding [BASEINFO_VehicleNumber], Source={StaticResource SR}}" VerticalAlignment="Center" Style="{StaticResource ViewFont}" Margin="0,11,8,11" />
+            <TextBox TabIndex="3" MaxLength="20" Grid.Column="2"  Grid.Row="1" IsReadOnly="True"  HorizontalAlignment="Left" Height="28"   
+                     Text="{Binding CurrentHandleRecord.SuiteHandle.VehicleId}" VerticalAlignment="Bottom" Width="245" Margin="0,0,0,6"  />
+
+            <!--联系人-->
+            <TextBlock Grid.Column="1" Grid.Row="5" HorizontalAlignment="Right"   
+                       Text="{Binding [BASEINFO_ContactPerson], Source={StaticResource SR}}" VerticalAlignment="Center"  Style="{StaticResource ViewFont}" Margin="0,11,8,11"/>
+            <TextBox TabIndex="11" MaxLength="50" Grid.Column="2" Grid.Row="5" IsReadOnly="True"  HorizontalAlignment="Left" Height="28"   
+                     Text="{Binding CurrentHandleRecord.SuiteHandle.Contact }" VerticalAlignment="Center" Width="245" Margin="0,6"  />
+
+            <!--联系人电话-->
+            <TextBlock Grid.Column="1" Grid.Row="6" HorizontalAlignment="Right"   
+                       Text="{Binding [BASEINFO_ContactPhone], Source={StaticResource SR}}" VerticalAlignment="Center"  Style="{StaticResource ViewFont}" Margin="0,11,8,11" />
+            <TextBox TabIndex="13" MaxLength="100" Grid.Column="2" Grid.Row="6" IsReadOnly="True"  HorizontalAlignment="Left" Height="28"   
+                     Text="{Binding CurrentHandleRecord.SuiteHandle.ContactPhone }" VerticalAlignment="Center" Width="245" Margin="0,6"  />
+
+            <!--指定维修开始时间-->
+            <TextBlock Grid.Column="1" Grid.Row="3" HorizontalAlignment="Right"   
+                       Text="{Binding [MAINTAIN_AssignedMaintainStartTime], Source={StaticResource SR}}" VerticalAlignment="Center" Style="{StaticResource ViewFont}" Margin="0,11,8,11"  />
+            <TextBox TabIndex="7" MaxLength="20" Grid.Column="2" Grid.Row="3" IsReadOnly="True"  HorizontalAlignment="Left" Height="28"   
+                     Text="{Binding CurrentHandleRecord.SuiteHandle.StartTime }" VerticalAlignment="Center" Width="245" Margin="0,6"  />
+
+            <!--指定维修结束时间-->
+            <TextBlock Grid.Column="1" Grid.Row="4" HorizontalAlignment="Right"   
+                       Text="{Binding [MAINTAIN_AssignedMaintainEndTime], Source={StaticResource SR}}" VerticalAlignment="Center" Style="{StaticResource ViewFont}" Margin="0,11,8,11"  />
+            <TextBox TabIndex="9" MaxLength="20" Grid.Column="2" Grid.Row="4" IsReadOnly="True"  HorizontalAlignment="Left" Height="28"   
+                     Text="{Binding CurrentHandleRecord.SuiteHandle.EndTime  }" VerticalAlignment="Center" Width="245" Margin="0,6"  />
+
+            <!--维修点-->
+            <TextBlock Grid.Column="1" Grid.Row="2"  HorizontalAlignment="Right"   
+                       Text="{Binding [MAINTAIN_Place], Source={StaticResource SR}}" VerticalAlignment="Center" Style="{StaticResource ViewFont}" Margin="0,11,8,11"  />
+            <TextBox TabIndex="5" MaxLength="20" Grid.Column="2" Grid.Row="2" IsReadOnly="True"  HorizontalAlignment="Left" Height="28"   
+                     Text="{Binding CurrentHandleRecord.StationName  }" VerticalAlignment="Center" Width="245" Margin="0,6"   />
+
+            <!--处理人-->
+            <TextBlock Grid.Column="1" Grid.Row="7" HorizontalAlignment="Right"   
+                       Text="{Binding [ALERT_HandlePerson], Source={StaticResource SR}}" VerticalAlignment="Center"  Style="{StaticResource ViewFont}" Margin="0,11,8,11"  />
+            <TextBox TabIndex="15" MaxLength="100" Grid.Column="2" Grid.Row="7" IsReadOnly="True"  HorizontalAlignment="Left" Height="28"   
+                     Text="{Binding CurrentHandleRecord.SuiteHandle.HandleUser  }" VerticalAlignment="Center" Width="245" Margin="0,6"  />
+
+            <!--处理时间-->
+            <TextBlock Grid.Column="1" Grid.Row="8" HorizontalAlignment="Right"   
+                       Text="{Binding [ALERT_HandelTime], Source={StaticResource SR}}" VerticalAlignment="Center"  Style="{StaticResource ViewFont}" Margin="0,11,8,11"/>
+            <TextBox TabIndex="17" MaxLength="100" Grid.Column="2" Grid.Row="8" IsReadOnly="True"  HorizontalAlignment="Left" Height="28"    
+                     Text="{Binding CurrentHandleRecord.SuiteHandle.HandleTime  }" VerticalAlignment="Center" Width="245" Margin="0,6"  />
+
+            <!--车辆到达时间-->
+            <TextBlock Grid.Column="1" Grid.Row="9" HorizontalAlignment="Right"   
+                       Text="{Binding [ID_INSTALL_VehicleArriveTime], Source={StaticResource SR}}" VerticalAlignment="Center"  Style="{StaticResource ViewFont}" Margin="0,11,8,11"  />
+            <TextBox TabIndex="19" MaxLength="100" Grid.Column="2" Grid.Row="9" IsReadOnly="True"  HorizontalAlignment="Left" Height="28"   
+                     Text="{Binding CurrentHandleRecord.ArrivalTime  }" VerticalAlignment="Center" Width="245" Margin="0,6"  />
+
+            <!--检测维修人员-->
+            <TextBlock Grid.Column="1" Grid.Row="10" HorizontalAlignment="Right"  
+            	Text="{Binding [ID_INSTALL_Maintainer], Source={StaticResource SR}}" VerticalAlignment="Center"  Style="{StaticResource ViewFont}" Margin="0,11,8,11"/>
+            <TextBox TabIndex="21" MaxLength="100" Grid.Column="2" Grid.Row="10" IsReadOnly="True"  HorizontalAlignment="Left" Height="28"  
+            	Text="{Binding CurrentHandleRecord.Mantainer }" VerticalAlignment="Center" Width="245" Margin="0,6"  />
+
+            <!--维修类型-->
+            <TextBlock Grid.Column="1" Grid.Row="11" HorizontalAlignment="Right"  
+            	Text="{Binding [ID_INSTALL_Maintainstype],Source={StaticResource SR}}" VerticalAlignment="Center"  Style="{StaticResource ViewFont}" Margin="0,11,8,11"/>
+            <TextBox TabIndex="23" MaxLength="100" Grid.Column="2" Grid.Row="11" IsReadOnly="True"  HorizontalAlignment="Left" Height="28"  
+            	Text="{Binding CurrentHandleRecord.RepairType,  Converter={ StaticResource toRepairType}}" VerticalAlignment="Center" Width="245" Margin="0,6"  />
+
+            <!--返回-->
+            <Button Grid.Column="2" Grid.Row="12" TabIndex="28" Command="{Binding CommitCommand}" Tag="{Binding [Return], Source={StaticResource SR}}" HorizontalAlignment="Center"  VerticalAlignment="Top" MinWidth="100" Margin="-40,21,8,11">
+                <Image Source="/ExternalResource;component/Images/return.png" Stretch="None"/>
+            </Button>
+
+        </Grid>
+    </Grid>
+</UserControl>

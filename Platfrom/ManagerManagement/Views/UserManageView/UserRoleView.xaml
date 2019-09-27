@@ -1,0 +1,137 @@
+﻿<UserControl x:Class="Gsafety.PTMS.Manager.Views.UserManageView.UserRoleView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="800" d:DesignWidth="1000">
+    <UserControl.Resources>
+        <!--<sdk:HierarchicalDataTemplate x:Key="treeItemTemplate">
+            <StackPanel>
+                <TextBlock Text="{Binding Name}"/>
+            </StackPanel>
+        </sdk:HierarchicalDataTemplate>-->
+        <Style x:Key="RedItemStyle" TargetType="sdk:TreeViewItem">
+            <Setter Property="HeaderTemplate">
+                <Setter.Value>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <CheckBox />
+                            <!--<Image Source="image/default.png"/>-->
+                            <TextBlock Text="{Binding Name}" Style="{StaticResource MainPage_Main_tle_TextBlockStyle}"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="IsExpanded" Value="True" />
+        </Style>
+    </UserControl.Resources>
+    <Grid x:Name="LayoutRoot">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Border Style="{StaticResource PageBorderStyle}" Height="40" Grid.Row="0"  VerticalAlignment="Top" ScrollViewer.HorizontalScrollBarVisibility="Auto">
+        </Border>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding [UserRoleInfo], Source={StaticResource SR}}" VerticalAlignment="Center" Margin="36,0,0,0"  Style="{StaticResource MainPage_Main_tle_TextBlockStyle}"/>
+        <Image Stretch="None" Source="/ExternalResource;component/Images/navigation.png" Margin="10,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" />
+        <!--new layout 13-12-18-->
+        <ScrollViewer Grid.Row="1" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+
+            <StackPanel Orientation="Vertical" >
+                <StackPanel Orientation="Horizontal" Grid.Row="0" HorizontalAlignment="Center" Margin="0,15,0,0">
+
+                    <TextBlock HorizontalAlignment="Left"  Text="{Binding [RoleName], Source={StaticResource SR}}"
+                   VerticalAlignment="Center" Style="{StaticResource MainPage_Main_search_TextBlockStyle}" TextAlignment="Right" Margin="0,0,5,0"/>
+                    <ComboBox HorizontalAlignment="Left" Height="25" VerticalAlignment="Center" Width="300" ItemsSource="{Binding RoleNames}" SelectedItem="{Binding SelectedRoleName, Mode=TwoWay}" SelectedIndex="0"
+                          Style="{StaticResource MainPage_Main_Search_ComboBoxStyle}">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding ShowName}"/>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+
+                    <Button Command="{Binding QueryCommand}" Tag="{Binding [MANAGE_Query], Source={StaticResource SR}}"  IsEnabled="{Binding GropQueryEnable}"
+                        HorizontalAlignment="Center" VerticalAlignment="Center" Margin="15,0,0,0" MinWidth="100" Visibility="Collapsed">
+                        <Image Source="/ManagerManagement;component/Images/seach.png" Stretch="None"/>
+                    </Button>
+                </StackPanel>
+
+                <!--<sdk:DataGrid x:Name="MoniterRegionViewDataGrid" IsReadOnly="True" Width="600"
+                          AutoGenerateColumns="False" ItemsSource="{Binding FunctionCheckList,Mode=TwoWay}" Background="Transparent" HorizontalAlignment="Center" Margin="0,20,0,0" >
+                <sdk:DataGrid.Columns>
+                    <sdk:DataGridTextColumn Binding="{Binding Name}" Header="FunctionName" CanUserSort="True"  Width="*" IsReadOnly="True">
+                        <sdk:DataGridTextColumn.HeaderStyle>
+                            <Style TargetType="sdk:DataGridColumnHeader">
+                                <Setter Property="HorizontalContentAlignment" Value="Center" />
+                            </Style>
+                        </sdk:DataGridTextColumn.HeaderStyle>
+                    </sdk:DataGridTextColumn>
+
+                    <sdk:DataGridTemplateColumn Header="Selecting" Width="100">
+
+                        <sdk:DataGridTemplateColumn.HeaderStyle>
+                            <Style TargetType="sdk:DataGridColumnHeader">
+                                <Setter Property="HorizontalContentAlignment" Value="Center" />
+                            </Style>
+                        </sdk:DataGridTemplateColumn.HeaderStyle>
+
+                        <sdk:DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                                    <CheckBox IsChecked="{Binding IsChecked,Mode=TwoWay}" IsEnabled="{Binding IsEnabled, Mode=TwoWay}" KeyDown="CheckBox_KeyDown"></CheckBox>
+                                </StackPanel>
+                            </DataTemplate>
+                        </sdk:DataGridTemplateColumn.CellTemplate>
+                    </sdk:DataGridTemplateColumn>
+                </sdk:DataGrid.Columns>
+            </sdk:DataGrid>-->
+                <!--ItemTemplate="{StaticResource treeItemTemplate}"-->
+                <sdk:TreeView ItemsSource="{Binding FunctionCheckList}" Width="350" BorderBrush="#FF6E6E6E"
+                              ItemContainerStyle="{StaticResource RedItemStyle }"
+                              Background="Transparent" HorizontalAlignment="Center" Margin="0,20,0,0" >
+                    <sdk:TreeView.ItemTemplate>
+                        <sdk:HierarchicalDataTemplate ItemsSource="{Binding Children,Mode=TwoWay}">
+                            <StackPanel Orientation="Horizontal">
+                                <CheckBox IsChecked="{Binding IsChecked, Mode=TwoWay}" IsEnabled="{Binding IsEnabled, Mode=TwoWay}"/>
+                                <!--<Image Source="image/default.png"/>-->
+                                <TextBlock Text="{Binding Name}" Style="{StaticResource MainPage_TreeView_Content}"/>
+                            </StackPanel>
+                        </sdk:HierarchicalDataTemplate>
+                    </sdk:TreeView.ItemTemplate>
+                    <!--<Border BorderBrush="Gray" BorderThickness="1" Padding="8" Margin="8,0,0,0" Grid.Row="1" Grid.Column="1">
+                        <StackPanel x:Name="DetailsPanel" Margin="4">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="版块ID: " FontWeight="Bold"  />
+                                <TextBlock Text="{Binding ForumID}" />
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="版块名称: " FontWeight="Bold"  />
+                                <TextBlock Text="{Binding ForumName}" />
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="版块信息: " FontWeight="Bold" />
+                                <TextBlock x:Name="DetailText" TextWrapping="Wrap" Text="{Binding ForumName}"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </Border>-->
+                </sdk:TreeView>
+
+                <StackPanel Orientation="Horizontal"  Margin="0,15,0,0" VerticalAlignment="Center" HorizontalAlignment="Center">
+
+                    <Button  Command="{Binding CommitCommand}" Tag="{Binding [MANAGE_Finish], Source={StaticResource SR}}"  Grid.Column="1"  Style="{StaticResource Search_ButtonStyle}">
+                        <Image Source="/ExternalResource;component/Images/MainPage_complete.png" Stretch="Fill" Width="15" Height="15" />
+                    </Button>
+
+                    <Button   IsEnabled="{Binding IsEnabled}" Command="{Binding ResetCommand}" Tag="{Binding [MANAGE_Reset], Source={StaticResource SR}}" Margin="8,0,0,0" Style="{StaticResource Search_ButtonStyle}">
+                        <Image Source="/ExternalResource;component/Images/MainPage_reset.png" Stretch="Fill" Width="15" Height="15" />
+                    </Button>
+                </StackPanel>
+
+            </StackPanel>
+
+        </ScrollViewer>
+    </Grid>
+</UserControl>

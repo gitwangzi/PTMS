@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="91487f48-01c6-42a5-8110-5529a6be06f9" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>true</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.ObjectModel.ObservableCollection`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>false</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:2259/SystemRubbishService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="SystemRubbishService7.xsd" MetadataType="Schema" ID="52b4fd5c-cb46-40dc-9706-8db2d28147d7" SourceId="1" SourceUrl="http://localhost:2259/SystemRubbishService.svc?xsd=xsd7" />
+    <MetadataFile FileName="SystemRubbishService.xsd" MetadataType="Schema" ID="3da2f7c6-1a78-4299-82a6-2ac1ff1db182" SourceId="1" SourceUrl="http://localhost:2259/SystemRubbishService.svc?xsd=xsd4" />
+    <MetadataFile FileName="SystemRubbishService1.xsd" MetadataType="Schema" ID="518ec0cc-9920-426d-bf57-78970a4f351e" SourceId="1" SourceUrl="http://localhost:2259/SystemRubbishService.svc?xsd=xsd0" />
+    <MetadataFile FileName="SystemRubbishService.wsdl" MetadataType="Wsdl" ID="0142b62c-87ae-4297-89e8-9bcae3df12a7" SourceId="1" SourceUrl="http://localhost:2259/SystemRubbishService.svc?wsdl" />
+    <MetadataFile FileName="SystemRubbishService2.xsd" MetadataType="Schema" ID="16894ef1-66f0-433e-8fac-a28cfe7f4c68" SourceId="1" SourceUrl="http://localhost:2259/SystemRubbishService.svc?xsd=xsd3" />
+    <MetadataFile FileName="SystemRubbishService3.xsd" MetadataType="Schema" ID="9b53fcc4-128e-42ee-8409-7e051b7a0163" SourceId="1" SourceUrl="http://localhost:2259/SystemRubbishService.svc?xsd=xsd1" />
+    <MetadataFile FileName="SystemRubbishService4.xsd" MetadataType="Schema" ID="d8e01518-6e42-4d79-b47f-d7de22a5e215" SourceId="1" SourceUrl="http://localhost:2259/SystemRubbishService.svc?xsd=xsd2" />
+    <MetadataFile FileName="SystemRubbishService5.xsd" MetadataType="Schema" ID="7b03484b-cf51-4467-8dfa-f1a60ca3eb39" SourceId="1" SourceUrl="http://localhost:2259/SystemRubbishService.svc?xsd=xsd6" />
+    <MetadataFile FileName="SystemRubbishService6.xsd" MetadataType="Schema" ID="183d1aa4-0b7b-4c86-8288-a28a63b93375" SourceId="1" SourceUrl="http://localhost:2259/SystemRubbishService.svc?xsd=xsd5" />
+    <MetadataFile FileName="SystemRubbishService.disco" MetadataType="Disco" ID="bb407bb8-1a7a-4b07-a1fb-2069729aed40" SourceId="1" SourceUrl="http://localhost:2259/SystemRubbishService.svc?disco" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

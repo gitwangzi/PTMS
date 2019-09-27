@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/DevExpress.Data.Browsing.Design" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/DevExpress.Data.Browsing.Design" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:simpleType name="TypeSpecifics">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="None" />
+      <xs:enumeration value="List" />
+      <xs:enumeration value="ListSource" />
+      <xs:enumeration value="ListOfParameters" />
+      <xs:enumeration value="Default" />
+      <xs:enumeration value="String" />
+      <xs:enumeration value="Integer" />
+      <xs:enumeration value="Float" />
+      <xs:enumeration value="Date" />
+      <xs:enumeration value="Bool" />
+      <xs:enumeration value="Array" />
+      <xs:enumeration value="CalcDefault" />
+      <xs:enumeration value="CalcString" />
+      <xs:enumeration value="CalcInteger" />
+      <xs:enumeration value="CalcFloat" />
+      <xs:enumeration value="CalcDate" />
+      <xs:enumeration value="CalcBool" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="TypeSpecifics" nillable="true" type="tns:TypeSpecifics" />
+</xs:schema>

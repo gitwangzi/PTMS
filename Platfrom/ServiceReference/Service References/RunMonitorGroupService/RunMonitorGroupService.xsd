@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:2258/RunMonitorGroupService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Monitor.Contract.Data" />
+  <xs:import schemaLocation="http://localhost:2258/RunMonitorGroupService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" />
+  <xs:element name="ChangeRunMonitorGroup">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Monitor.Contract.Data" minOccurs="0" name="groupModel" nillable="true" type="q1:ArrayOfRunMonitorGroup" />
+        <xs:element minOccurs="0" name="userID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ChangeRunMonitorGroupResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" minOccurs="0" name="ChangeRunMonitorGroupResult" nillable="true" type="q2:SingleMessageOfboolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteRunMonitorGroupByID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteRunMonitorGroupByIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" minOccurs="0" name="DeleteRunMonitorGroupByIDResult" nillable="true" type="q3:SingleMessageOfboolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRunMonitorGroupList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pageIndex" type="xs:int" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+        <xs:element minOccurs="0" name="groupId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRunMonitorGroupListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" minOccurs="0" name="GetRunMonitorGroupListResult" nillable="true" type="q4:MultiMessageOfRunMonitorGroupdrfzYGI1" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ChangeRunMonitorGroupVehicle">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="carNo" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="groupId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ChangeRunMonitorGroupVehicleResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" minOccurs="0" name="ChangeRunMonitorGroupVehicleResult" nillable="true" type="q5:SingleMessageOfboolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteRunMonitorGroupVehicleByID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="userID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteRunMonitorGroupVehicleByIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" minOccurs="0" name="DeleteRunMonitorGroupVehicleByIDResult" nillable="true" type="q6:SingleMessageOfboolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRunMonitorGroupVehicleList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pageIndex" type="xs:int" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+        <xs:element minOccurs="0" name="userID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRunMonitorGroupVehicleListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" minOccurs="0" name="GetRunMonitorGroupVehicleListResult" nillable="true" type="q7:MultiMessageOfRunMonitorGroupVehicledrfzYGI1" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="VedioService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:2258/VedioService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:2258/VedioService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:2258/VedioService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Common.Data" />
+      <xsd:import schemaLocation="http://localhost:2258/VedioService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" />
+      <xsd:import schemaLocation="http://localhost:2258/VedioService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/System" />
+      <xsd:import schemaLocation="http://localhost:2258/VedioService.svc?xsd=xsd5" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://localhost:2258/VedioService.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Integration.Contract" />
+      <xsd:import schemaLocation="http://localhost:2258/VedioService.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Integration.Contract.Data" />
+      <xsd:import schemaLocation="http://localhost:2258/VedioService.svc?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Common.Data.Data.Video" />
+      <xsd:import schemaLocation="http://localhost:2258/VedioService.svc?xsd=xsd9" namespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Common.Data.Enum" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IVedioService_QueryServerFileList_InputMessage">
+    <wsdl:part name="parameters" element="tns:QueryServerFileList" />
+  </wsdl:message>
+  <wsdl:message name="IVedioService_QueryServerFileList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:QueryServerFileListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IVedioService_QueryHistoryVideoList_InputMessage">
+    <wsdl:part name="parameters" element="tns:QueryHistoryVideoList" />
+  </wsdl:message>
+  <wsdl:message name="IVedioService_QueryHistoryVideoList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:QueryHistoryVideoListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IVedioService_QueryDownloadStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:QueryDownloadStatus" />
+  </wsdl:message>
+  <wsdl:message name="IVedioService_QueryDownloadStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:QueryDownloadStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="IVedioService_CheckAlarmVideo_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckAlarmVideo" />
+  </wsdl:message>
+  <wsdl:message name="IVedioService_CheckAlarmVideo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckAlarmVideoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IVedioService_GetHistoryItemForVideoAppeal_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetHistoryItemForVideoAppeal" />
+  </wsdl:message>
+  <wsdl:message name="IVedioService_GetHistoryItemForVideoAppeal_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetHistoryItemForVideoAppealResponse" />
+  </wsdl:message>
+  <wsdl:message name="IVedioService_GetAlarmFiftyVideoAppeal_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAlarmFiftyVideoAppeal" />
+  </wsdl:message>
+  <wsdl:message name="IVedioService_GetAlarmFiftyVideoAppeal_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAlarmFiftyVideoAppealResponse" />
+  </wsdl:message>
+  <wsdl:message name="IVedioService_UpdateVideoNote_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateVideoNote" />
+  </wsdl:message>
+  <wsdl:message name="IVedioService_UpdateVideoNote_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateVideoNoteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IVedioService_GetPhotoList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPhotoList" />
+  </wsdl:message>
+  <wsdl:message name="IVedioService_GetPhotoList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPhotoListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IVedioService_SetPhotoMark_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetPhotoMark" />
+  </wsdl:message>
+  <wsdl:message name="IVedioService_SetPhotoMark_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetPhotoMarkResponse" />
+  </wsdl:message>
+  <wsdl:message name="IVedioService_DeletePhoto_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeletePhoto" />
+  </wsdl:message>
+  <wsdl:message name="IVedioService_DeletePhoto_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeletePhotoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IVedioService_GetChannelByVehicleSN_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetChannelByVehicleSN" />
+  </wsdl:message>
+  <wsdl:message name="IVedioService_GetChannelByVehicleSN_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetChannelByVehicleSNResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IVedioService">
+    <wsdl:operation name="QueryServerFileList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IVedioService/QueryServerFileList" message="tns:IVedioService_QueryServerFileList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IVedioService/QueryServerFileListResponse" message="tns:IVedioService_QueryServerFileList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="QueryHistoryVideoList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IVedioService/QueryHistoryVideoList" message="tns:IVedioService_QueryHistoryVideoList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IVedioService/QueryHistoryVideoListResponse" message="tns:IVedioService_QueryHistoryVideoList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="QueryDownloadStatus">
+      <wsdl:input wsaw:Action="http://tempuri.org/IVedioService/QueryDownloadStatus" message="tns:IVedioService_QueryDownloadStatus_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IVedioService/QueryDownloadStatusResponse" message="tns:IVedioService_QueryDownloadStatus_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckAlarmVideo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IVedioService/CheckAlarmVideo" message="tns:IVedioService_CheckAlarmVideo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IVedioService/CheckAlarmVideoResponse" message="tns:IVedioService_CheckAlarmVideo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetHistoryItemForVideoAppeal">
+      <wsdl:input wsaw:Action="http://tempuri.org/IVedioService/GetHistoryItemForVideoAppeal" message="tns:IVedioService_GetHistoryItemForVideoAppeal_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IVedioService/GetHistoryItemForVideoAppealResponse" message="tns:IVedioService_GetHistoryItemForVideoAppeal_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAlarmFiftyVideoAppeal">
+      <wsdl:input wsaw:Action="http://tempuri.org/IVedioService/GetAlarmFiftyVideoAppeal" message="tns:IVedioService_GetAlarmFiftyVideoAppeal_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IVedioService/GetAlarmFiftyVideoAppealResponse" message="tns:IVedioService_GetAlarmFiftyVideoAppeal_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateVideoNote">
+      <wsdl:input wsaw:Action="http://tempuri.org/IVedioService/UpdateVideoNote" message="tns:IVedioService_UpdateVideoNote_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IVedioService/UpdateVideoNoteResponse" message="tns:IVedioService_UpdateVideoNote_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPhotoList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IVedioService/GetPhotoList" message="tns:IVedioService_GetPhotoList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IVedioService/GetPhotoListResponse" message="tns:IVedioService_GetPhotoList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetPhotoMark">
+      <wsdl:input wsaw:Action="http://tempuri.org/IVedioService/SetPhotoMark" message="tns:IVedioService_SetPhotoMark_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IVedioService/SetPhotoMarkResponse" message="tns:IVedioService_SetPhotoMark_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeletePhoto">
+      <wsdl:input wsaw:Action="http://tempuri.org/IVedioService/DeletePhoto" message="tns:IVedioService_DeletePhoto_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IVedioService/DeletePhotoResponse" message="tns:IVedioService_DeletePhoto_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetChannelByVehicleSN">
+      <wsdl:input wsaw:Action="http://tempuri.org/IVedioService/GetChannelByVehicleSN" message="tns:IVedioService_GetChannelByVehicleSN_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IVedioService/GetChannelByVehicleSNResponse" message="tns:IVedioService_GetChannelByVehicleSN_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IVedioService" type="tns:IVedioService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="QueryServerFileList">
+      <soap:operation soapAction="http://tempuri.org/IVedioService/QueryServerFileList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryHistoryVideoList">
+      <soap:operation soapAction="http://tempuri.org/IVedioService/QueryHistoryVideoList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryDownloadStatus">
+      <soap:operation soapAction="http://tempuri.org/IVedioService/QueryDownloadStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckAlarmVideo">
+      <soap:operation soapAction="http://tempuri.org/IVedioService/CheckAlarmVideo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHistoryItemForVideoAppeal">
+      <soap:operation soapAction="http://tempuri.org/IVedioService/GetHistoryItemForVideoAppeal" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAlarmFiftyVideoAppeal">
+      <soap:operation soapAction="http://tempuri.org/IVedioService/GetAlarmFiftyVideoAppeal" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateVideoNote">
+      <soap:operation soapAction="http://tempuri.org/IVedioService/UpdateVideoNote" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPhotoList">
+      <soap:operation soapAction="http://tempuri.org/IVedioService/GetPhotoList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetPhotoMark">
+      <soap:operation soapAction="http://tempuri.org/IVedioService/SetPhotoMark" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeletePhoto">
+      <soap:operation soapAction="http://tempuri.org/IVedioService/DeletePhoto" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetChannelByVehicleSN">
+      <soap:operation soapAction="http://tempuri.org/IVedioService/GetChannelByVehicleSN" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="VedioService">
+    <wsdl:port name="BasicHttpBinding_IVedioService" binding="tns:BasicHttpBinding_IVedioService">
+      <soap:address location="http://localhost:2258/VedioService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

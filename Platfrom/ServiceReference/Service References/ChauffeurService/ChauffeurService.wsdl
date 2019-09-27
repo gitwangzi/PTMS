@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ChauffeurService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:2258/ChauffeurService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:2258/ChauffeurService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:2258/ChauffeurService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.BaseInformation.Contract.Data" />
+      <xsd:import schemaLocation="http://localhost:2258/ChauffeurService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" />
+      <xsd:import schemaLocation="http://localhost:2258/ChauffeurService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/System" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IChauffeurService_AddChauffeurList_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddChauffeurList" />
+  </wsdl:message>
+  <wsdl:message name="IChauffeurService_AddChauffeurList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddChauffeurListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IChauffeurService_BatchAddChauffeur_InputMessage">
+    <wsdl:part name="parameters" element="tns:BatchAddChauffeur" />
+  </wsdl:message>
+  <wsdl:message name="IChauffeurService_BatchAddChauffeur_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BatchAddChauffeurResponse" />
+  </wsdl:message>
+  <wsdl:message name="IChauffeurService_CheckChauffeurExist_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckChauffeurExist" />
+  </wsdl:message>
+  <wsdl:message name="IChauffeurService_CheckChauffeurExist_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckChauffeurExistResponse" />
+  </wsdl:message>
+  <wsdl:message name="IChauffeurService_AddChauffeur_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddChauffeur" />
+  </wsdl:message>
+  <wsdl:message name="IChauffeurService_AddChauffeur_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddChauffeurResponse" />
+  </wsdl:message>
+  <wsdl:message name="IChauffeurService_DeleteChauffeur_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteChauffeur" />
+  </wsdl:message>
+  <wsdl:message name="IChauffeurService_DeleteChauffeur_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteChauffeurResponse" />
+  </wsdl:message>
+  <wsdl:message name="IChauffeurService_UpdateChauffeur_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateChauffeur" />
+  </wsdl:message>
+  <wsdl:message name="IChauffeurService_UpdateChauffeur_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateChauffeurResponse" />
+  </wsdl:message>
+  <wsdl:message name="IChauffeurService_GetChauffeurByPage_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetChauffeurByPage" />
+  </wsdl:message>
+  <wsdl:message name="IChauffeurService_GetChauffeurByPage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetChauffeurByPageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IChauffeurService_GetChauffeurByCondition_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetChauffeurByCondition" />
+  </wsdl:message>
+  <wsdl:message name="IChauffeurService_GetChauffeurByCondition_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetChauffeurByConditionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IChauffeurService_GetChauffeurVehicle_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetChauffeurVehicle" />
+  </wsdl:message>
+  <wsdl:message name="IChauffeurService_GetChauffeurVehicle_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetChauffeurVehicleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IChauffeurService_SaveChauffeurVehicle_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveChauffeurVehicle" />
+  </wsdl:message>
+  <wsdl:message name="IChauffeurService_SaveChauffeurVehicle_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveChauffeurVehicleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IChauffeurService_GetChauffeurByVehicle_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetChauffeurByVehicle" />
+  </wsdl:message>
+  <wsdl:message name="IChauffeurService_GetChauffeurByVehicle_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetChauffeurByVehicleResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IChauffeurService">
+    <wsdl:operation name="AddChauffeurList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IChauffeurService/AddChauffeurList" message="tns:IChauffeurService_AddChauffeurList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IChauffeurService/AddChauffeurListResponse" message="tns:IChauffeurService_AddChauffeurList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BatchAddChauffeur">
+      <wsdl:input wsaw:Action="http://tempuri.org/IChauffeurService/BatchAddChauffeur" message="tns:IChauffeurService_BatchAddChauffeur_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IChauffeurService/BatchAddChauffeurResponse" message="tns:IChauffeurService_BatchAddChauffeur_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckChauffeurExist">
+      <wsdl:input wsaw:Action="http://tempuri.org/IChauffeurService/CheckChauffeurExist" message="tns:IChauffeurService_CheckChauffeurExist_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IChauffeurService/CheckChauffeurExistResponse" message="tns:IChauffeurService_CheckChauffeurExist_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddChauffeur">
+      <wsdl:input wsaw:Action="http://tempuri.org/IChauffeurService/AddChauffeur" message="tns:IChauffeurService_AddChauffeur_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IChauffeurService/AddChauffeurResponse" message="tns:IChauffeurService_AddChauffeur_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteChauffeur">
+      <wsdl:input wsaw:Action="http://tempuri.org/IChauffeurService/DeleteChauffeur" message="tns:IChauffeurService_DeleteChauffeur_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IChauffeurService/DeleteChauffeurResponse" message="tns:IChauffeurService_DeleteChauffeur_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateChauffeur">
+      <wsdl:input wsaw:Action="http://tempuri.org/IChauffeurService/UpdateChauffeur" message="tns:IChauffeurService_UpdateChauffeur_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IChauffeurService/UpdateChauffeurResponse" message="tns:IChauffeurService_UpdateChauffeur_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetChauffeurByPage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IChauffeurService/GetChauffeurByPage" message="tns:IChauffeurService_GetChauffeurByPage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IChauffeurService/GetChauffeurByPageResponse" message="tns:IChauffeurService_GetChauffeurByPage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetChauffeurByCondition">
+      <wsdl:input wsaw:Action="http://tempuri.org/IChauffeurService/GetChauffeurByCondition" message="tns:IChauffeurService_GetChauffeurByCondition_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IChauffeurService/GetChauffeurByConditionResponse" message="tns:IChauffeurService_GetChauffeurByCondition_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetChauffeurVehicle">
+      <wsdl:input wsaw:Action="http://tempuri.org/IChauffeurService/GetChauffeurVehicle" message="tns:IChauffeurService_GetChauffeurVehicle_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IChauffeurService/GetChauffeurVehicleResponse" message="tns:IChauffeurService_GetChauffeurVehicle_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveChauffeurVehicle">
+      <wsdl:input wsaw:Action="http://tempuri.org/IChauffeurService/SaveChauffeurVehicle" message="tns:IChauffeurService_SaveChauffeurVehicle_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IChauffeurService/SaveChauffeurVehicleResponse" message="tns:IChauffeurService_SaveChauffeurVehicle_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetChauffeurByVehicle">
+      <wsdl:input wsaw:Action="http://tempuri.org/IChauffeurService/GetChauffeurByVehicle" message="tns:IChauffeurService_GetChauffeurByVehicle_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IChauffeurService/GetChauffeurByVehicleResponse" message="tns:IChauffeurService_GetChauffeurByVehicle_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IChauffeurService" type="tns:IChauffeurService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddChauffeurList">
+      <soap:operation soapAction="http://tempuri.org/IChauffeurService/AddChauffeurList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BatchAddChauffeur">
+      <soap:operation soapAction="http://tempuri.org/IChauffeurService/BatchAddChauffeur" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckChauffeurExist">
+      <soap:operation soapAction="http://tempuri.org/IChauffeurService/CheckChauffeurExist" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddChauffeur">
+      <soap:operation soapAction="http://tempuri.org/IChauffeurService/AddChauffeur" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteChauffeur">
+      <soap:operation soapAction="http://tempuri.org/IChauffeurService/DeleteChauffeur" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateChauffeur">
+      <soap:operation soapAction="http://tempuri.org/IChauffeurService/UpdateChauffeur" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetChauffeurByPage">
+      <soap:operation soapAction="http://tempuri.org/IChauffeurService/GetChauffeurByPage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetChauffeurByCondition">
+      <soap:operation soapAction="http://tempuri.org/IChauffeurService/GetChauffeurByCondition" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetChauffeurVehicle">
+      <soap:operation soapAction="http://tempuri.org/IChauffeurService/GetChauffeurVehicle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveChauffeurVehicle">
+      <soap:operation soapAction="http://tempuri.org/IChauffeurService/SaveChauffeurVehicle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetChauffeurByVehicle">
+      <soap:operation soapAction="http://tempuri.org/IChauffeurService/GetChauffeurByVehicle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ChauffeurService">
+    <wsdl:port name="BasicHttpBinding_IChauffeurService" binding="tns:BasicHttpBinding_IChauffeurService">
+      <soap:address location="http://localhost:2258/ChauffeurService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

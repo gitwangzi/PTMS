@@ -1,0 +1,690 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="PublicService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:2258/PublicService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:2258/PublicService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:2258/PublicService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.PublicService.Contract" />
+      <xsd:import schemaLocation="http://localhost:2258/PublicService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" />
+      <xsd:import schemaLocation="http://localhost:2258/PublicService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/System" />
+      <xsd:import schemaLocation="http://localhost:2258/PublicService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Common.Data" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ILostRegistry_InsertLostRegistry_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertLostRegistry" />
+  </wsdl:message>
+  <wsdl:message name="ILostRegistry_InsertLostRegistry_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertLostRegistryResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILostRegistry_UpdateLostRegistry_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateLostRegistry" />
+  </wsdl:message>
+  <wsdl:message name="ILostRegistry_UpdateLostRegistry_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateLostRegistryResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILostRegistry_DeleteLostRegistryByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteLostRegistryByID" />
+  </wsdl:message>
+  <wsdl:message name="ILostRegistry_DeleteLostRegistryByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteLostRegistryByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILostRegistry_GetLostRegistry_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLostRegistry" />
+  </wsdl:message>
+  <wsdl:message name="ILostRegistry_GetLostRegistry_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLostRegistryResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILostRegistry_GetLostRegistryList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLostRegistryList" />
+  </wsdl:message>
+  <wsdl:message name="ILostRegistry_GetLostRegistryList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLostRegistryListResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILostRegistry_GetLostRegistryByConditionList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLostRegistryByConditionList" />
+  </wsdl:message>
+  <wsdl:message name="ILostRegistry_GetLostRegistryByConditionList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLostRegistryByConditionListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFoundRegistry_InsertFoundRegistry_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertFoundRegistry" />
+  </wsdl:message>
+  <wsdl:message name="IFoundRegistry_InsertFoundRegistry_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertFoundRegistryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFoundRegistry_UpdateFoundRegistry_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateFoundRegistry" />
+  </wsdl:message>
+  <wsdl:message name="IFoundRegistry_UpdateFoundRegistry_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateFoundRegistryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFoundRegistry_DeleteFoundRegistryByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteFoundRegistryByID" />
+  </wsdl:message>
+  <wsdl:message name="IFoundRegistry_DeleteFoundRegistryByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteFoundRegistryByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFoundRegistry_GetFoundRegistry_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFoundRegistry" />
+  </wsdl:message>
+  <wsdl:message name="IFoundRegistry_GetFoundRegistry_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFoundRegistryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFoundRegistry_GetFoundRegistryList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFoundRegistryList" />
+  </wsdl:message>
+  <wsdl:message name="IFoundRegistry_GetFoundRegistryList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFoundRegistryListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFoundRegistry_GetFoundRegistryByConditionList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFoundRegistryByConditionList" />
+  </wsdl:message>
+  <wsdl:message name="IFoundRegistry_GetFoundRegistryByConditionList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFoundRegistryByConditionListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRunMdvrMessage_InsertRunMdvrMessage_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertRunMdvrMessage" />
+  </wsdl:message>
+  <wsdl:message name="IRunMdvrMessage_InsertRunMdvrMessage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertRunMdvrMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRunMdvrMessage_UpdateRunMdvrMessage_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateRunMdvrMessage" />
+  </wsdl:message>
+  <wsdl:message name="IRunMdvrMessage_UpdateRunMdvrMessage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateRunMdvrMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRunMdvrMessage_DeleteRunMdvrMessageByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteRunMdvrMessageByID" />
+  </wsdl:message>
+  <wsdl:message name="IRunMdvrMessage_DeleteRunMdvrMessageByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteRunMdvrMessageByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRunMdvrMessage_GetRunMdvrMessage_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRunMdvrMessage" />
+  </wsdl:message>
+  <wsdl:message name="IRunMdvrMessage_GetRunMdvrMessage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRunMdvrMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRunMdvrMessage_GetRunMdvrMessageList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRunMdvrMessageList" />
+  </wsdl:message>
+  <wsdl:message name="IRunMdvrMessage_GetRunMdvrMessageList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRunMdvrMessageListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRunAppMessage_InsertRunAppMessage_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertRunAppMessage" />
+  </wsdl:message>
+  <wsdl:message name="IRunAppMessage_InsertRunAppMessage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertRunAppMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRunAppMessage_UpdateRunAppMessage_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateRunAppMessage" />
+  </wsdl:message>
+  <wsdl:message name="IRunAppMessage_UpdateRunAppMessage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateRunAppMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRunAppMessage_DeleteRunAppMessageByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteRunAppMessageByID" />
+  </wsdl:message>
+  <wsdl:message name="IRunAppMessage_DeleteRunAppMessageByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteRunAppMessageByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRunAppMessage_GetRunAppMessage_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRunAppMessage" />
+  </wsdl:message>
+  <wsdl:message name="IRunAppMessage_GetRunAppMessage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRunAppMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRunAppMessage_GetRunAppMessageList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRunAppMessageList" />
+  </wsdl:message>
+  <wsdl:message name="IRunAppMessage_GetRunAppMessageList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRunAppMessageListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRunAppMessage_SendRunAppMessage_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendRunAppMessage" />
+  </wsdl:message>
+  <wsdl:message name="IRunAppMessage_SendRunAppMessage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendRunAppMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRunMdvrmessageVehicle_InsertRunMdvrmessageVehicle_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertRunMdvrmessageVehicle" />
+  </wsdl:message>
+  <wsdl:message name="IRunMdvrmessageVehicle_InsertRunMdvrmessageVehicle_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertRunMdvrmessageVehicleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRunMdvrmessageVehicle_DeleteRunMdvrmessageVehicleByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteRunMdvrmessageVehicleByID" />
+  </wsdl:message>
+  <wsdl:message name="IRunMdvrmessageVehicle_DeleteRunMdvrmessageVehicleByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteRunMdvrmessageVehicleByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRunMdvrmessageVehicle_GetRunMdvrmessageVehicleList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRunMdvrmessageVehicleList" />
+  </wsdl:message>
+  <wsdl:message name="IRunMdvrmessageVehicle_GetRunMdvrmessageVehicleList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRunMdvrmessageVehicleListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRunMdvrmessageVehicle_DeliverRunMdvrmessageToVehicle_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeliverRunMdvrmessageToVehicle" />
+  </wsdl:message>
+  <wsdl:message name="IRunMdvrmessageVehicle_DeliverRunMdvrmessageToVehicle_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeliverRunMdvrmessageToVehicleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRunMdvrmessageVehicle_GetAllRunMdvrmessageVehicleListBySpeedID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllRunMdvrmessageVehicleListBySpeedID" />
+  </wsdl:message>
+  <wsdl:message name="IRunMdvrmessageVehicle_GetAllRunMdvrmessageVehicleListBySpeedID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllRunMdvrmessageVehicleListBySpeedIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAppMessageVehicle_InsertAppMessageVehicle_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertAppMessageVehicle" />
+  </wsdl:message>
+  <wsdl:message name="IAppMessageVehicle_InsertAppMessageVehicle_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertAppMessageVehicleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAppMessageVehicle_DeleteAppMessageVehicleByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteAppMessageVehicleByID" />
+  </wsdl:message>
+  <wsdl:message name="IAppMessageVehicle_DeleteAppMessageVehicleByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteAppMessageVehicleByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAppMessageVehicle_GetAppMessageVehicleListByAppID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAppMessageVehicleListByAppID" />
+  </wsdl:message>
+  <wsdl:message name="IAppMessageVehicle_GetAppMessageVehicleListByAppID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAppMessageVehicleListByAppIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAppMessageVehicle_GetAllAppMessageVehicleListByAppID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllAppMessageVehicleListByAppID" />
+  </wsdl:message>
+  <wsdl:message name="IAppMessageVehicle_GetAllAppMessageVehicleListByAppID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllAppMessageVehicleListByAppIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAppMessageVehicle_DeliverAppMessageToVehicle_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeliverAppMessageToVehicle" />
+  </wsdl:message>
+  <wsdl:message name="IAppMessageVehicle_DeliverAppMessageToVehicle_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeliverAppMessageToVehicleResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ILostRegistry">
+    <wsdl:operation name="InsertLostRegistry">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILostRegistry/InsertLostRegistry" message="tns:ILostRegistry_InsertLostRegistry_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILostRegistry/InsertLostRegistryResponse" message="tns:ILostRegistry_InsertLostRegistry_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateLostRegistry">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILostRegistry/UpdateLostRegistry" message="tns:ILostRegistry_UpdateLostRegistry_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILostRegistry/UpdateLostRegistryResponse" message="tns:ILostRegistry_UpdateLostRegistry_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteLostRegistryByID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILostRegistry/DeleteLostRegistryByID" message="tns:ILostRegistry_DeleteLostRegistryByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILostRegistry/DeleteLostRegistryByIDResponse" message="tns:ILostRegistry_DeleteLostRegistryByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLostRegistry">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILostRegistry/GetLostRegistry" message="tns:ILostRegistry_GetLostRegistry_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILostRegistry/GetLostRegistryResponse" message="tns:ILostRegistry_GetLostRegistry_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLostRegistryList">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILostRegistry/GetLostRegistryList" message="tns:ILostRegistry_GetLostRegistryList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILostRegistry/GetLostRegistryListResponse" message="tns:ILostRegistry_GetLostRegistryList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLostRegistryByConditionList">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILostRegistry/GetLostRegistryByConditionList" message="tns:ILostRegistry_GetLostRegistryByConditionList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILostRegistry/GetLostRegistryByConditionListResponse" message="tns:ILostRegistry_GetLostRegistryByConditionList_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="IFoundRegistry">
+    <wsdl:operation name="InsertFoundRegistry">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFoundRegistry/InsertFoundRegistry" message="tns:IFoundRegistry_InsertFoundRegistry_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFoundRegistry/InsertFoundRegistryResponse" message="tns:IFoundRegistry_InsertFoundRegistry_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateFoundRegistry">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFoundRegistry/UpdateFoundRegistry" message="tns:IFoundRegistry_UpdateFoundRegistry_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFoundRegistry/UpdateFoundRegistryResponse" message="tns:IFoundRegistry_UpdateFoundRegistry_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteFoundRegistryByID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFoundRegistry/DeleteFoundRegistryByID" message="tns:IFoundRegistry_DeleteFoundRegistryByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFoundRegistry/DeleteFoundRegistryByIDResponse" message="tns:IFoundRegistry_DeleteFoundRegistryByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFoundRegistry">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFoundRegistry/GetFoundRegistry" message="tns:IFoundRegistry_GetFoundRegistry_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFoundRegistry/GetFoundRegistryResponse" message="tns:IFoundRegistry_GetFoundRegistry_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFoundRegistryList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFoundRegistry/GetFoundRegistryList" message="tns:IFoundRegistry_GetFoundRegistryList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFoundRegistry/GetFoundRegistryListResponse" message="tns:IFoundRegistry_GetFoundRegistryList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFoundRegistryByConditionList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFoundRegistry/GetFoundRegistryByConditionList" message="tns:IFoundRegistry_GetFoundRegistryByConditionList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFoundRegistry/GetFoundRegistryByConditionListResponse" message="tns:IFoundRegistry_GetFoundRegistryByConditionList_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="IRunMdvrMessage">
+    <wsdl:operation name="InsertRunMdvrMessage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRunMdvrMessage/InsertRunMdvrMessage" message="tns:IRunMdvrMessage_InsertRunMdvrMessage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRunMdvrMessage/InsertRunMdvrMessageResponse" message="tns:IRunMdvrMessage_InsertRunMdvrMessage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateRunMdvrMessage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRunMdvrMessage/UpdateRunMdvrMessage" message="tns:IRunMdvrMessage_UpdateRunMdvrMessage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRunMdvrMessage/UpdateRunMdvrMessageResponse" message="tns:IRunMdvrMessage_UpdateRunMdvrMessage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteRunMdvrMessageByID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRunMdvrMessage/DeleteRunMdvrMessageByID" message="tns:IRunMdvrMessage_DeleteRunMdvrMessageByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRunMdvrMessage/DeleteRunMdvrMessageByIDResponse" message="tns:IRunMdvrMessage_DeleteRunMdvrMessageByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRunMdvrMessage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRunMdvrMessage/GetRunMdvrMessage" message="tns:IRunMdvrMessage_GetRunMdvrMessage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRunMdvrMessage/GetRunMdvrMessageResponse" message="tns:IRunMdvrMessage_GetRunMdvrMessage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRunMdvrMessageList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRunMdvrMessage/GetRunMdvrMessageList" message="tns:IRunMdvrMessage_GetRunMdvrMessageList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRunMdvrMessage/GetRunMdvrMessageListResponse" message="tns:IRunMdvrMessage_GetRunMdvrMessageList_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="IRunAppMessage">
+    <wsdl:operation name="InsertRunAppMessage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRunAppMessage/InsertRunAppMessage" message="tns:IRunAppMessage_InsertRunAppMessage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRunAppMessage/InsertRunAppMessageResponse" message="tns:IRunAppMessage_InsertRunAppMessage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateRunAppMessage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRunAppMessage/UpdateRunAppMessage" message="tns:IRunAppMessage_UpdateRunAppMessage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRunAppMessage/UpdateRunAppMessageResponse" message="tns:IRunAppMessage_UpdateRunAppMessage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteRunAppMessageByID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRunAppMessage/DeleteRunAppMessageByID" message="tns:IRunAppMessage_DeleteRunAppMessageByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRunAppMessage/DeleteRunAppMessageByIDResponse" message="tns:IRunAppMessage_DeleteRunAppMessageByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRunAppMessage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRunAppMessage/GetRunAppMessage" message="tns:IRunAppMessage_GetRunAppMessage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRunAppMessage/GetRunAppMessageResponse" message="tns:IRunAppMessage_GetRunAppMessage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRunAppMessageList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRunAppMessage/GetRunAppMessageList" message="tns:IRunAppMessage_GetRunAppMessageList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRunAppMessage/GetRunAppMessageListResponse" message="tns:IRunAppMessage_GetRunAppMessageList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendRunAppMessage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRunAppMessage/SendRunAppMessage" message="tns:IRunAppMessage_SendRunAppMessage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRunAppMessage/SendRunAppMessageResponse" message="tns:IRunAppMessage_SendRunAppMessage_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="IRunMdvrmessageVehicle">
+    <wsdl:operation name="InsertRunMdvrmessageVehicle">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRunMdvrmessageVehicle/InsertRunMdvrmessageVehicle" message="tns:IRunMdvrmessageVehicle_InsertRunMdvrmessageVehicle_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRunMdvrmessageVehicle/InsertRunMdvrmessageVehicleResponse" message="tns:IRunMdvrmessageVehicle_InsertRunMdvrmessageVehicle_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteRunMdvrmessageVehicleByID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRunMdvrmessageVehicle/DeleteRunMdvrmessageVehicleByID" message="tns:IRunMdvrmessageVehicle_DeleteRunMdvrmessageVehicleByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRunMdvrmessageVehicle/DeleteRunMdvrmessageVehicleByIDResponse" message="tns:IRunMdvrmessageVehicle_DeleteRunMdvrmessageVehicleByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRunMdvrmessageVehicleList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRunMdvrmessageVehicle/GetRunMdvrmessageVehicleList" message="tns:IRunMdvrmessageVehicle_GetRunMdvrmessageVehicleList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRunMdvrmessageVehicle/GetRunMdvrmessageVehicleListResponse" message="tns:IRunMdvrmessageVehicle_GetRunMdvrmessageVehicleList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeliverRunMdvrmessageToVehicle">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRunMdvrmessageVehicle/DeliverRunMdvrmessageToVehicle" message="tns:IRunMdvrmessageVehicle_DeliverRunMdvrmessageToVehicle_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRunMdvrmessageVehicle/DeliverRunMdvrmessageToVehicleResponse" message="tns:IRunMdvrmessageVehicle_DeliverRunMdvrmessageToVehicle_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllRunMdvrmessageVehicleListBySpeedID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRunMdvrmessageVehicle/GetAllRunMdvrmessageVehicleListBySpeedID" message="tns:IRunMdvrmessageVehicle_GetAllRunMdvrmessageVehicleListBySpeedID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRunMdvrmessageVehicle/GetAllRunMdvrmessageVehicleListBySpeedIDResponse" message="tns:IRunMdvrmessageVehicle_GetAllRunMdvrmessageVehicleListBySpeedID_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="IAppMessageVehicle">
+    <wsdl:operation name="InsertAppMessageVehicle">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAppMessageVehicle/InsertAppMessageVehicle" message="tns:IAppMessageVehicle_InsertAppMessageVehicle_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAppMessageVehicle/InsertAppMessageVehicleResponse" message="tns:IAppMessageVehicle_InsertAppMessageVehicle_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAppMessageVehicleByID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAppMessageVehicle/DeleteAppMessageVehicleByID" message="tns:IAppMessageVehicle_DeleteAppMessageVehicleByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAppMessageVehicle/DeleteAppMessageVehicleByIDResponse" message="tns:IAppMessageVehicle_DeleteAppMessageVehicleByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAppMessageVehicleListByAppID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAppMessageVehicle/GetAppMessageVehicleListByAppID" message="tns:IAppMessageVehicle_GetAppMessageVehicleListByAppID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAppMessageVehicle/GetAppMessageVehicleListByAppIDResponse" message="tns:IAppMessageVehicle_GetAppMessageVehicleListByAppID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllAppMessageVehicleListByAppID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAppMessageVehicle/GetAllAppMessageVehicleListByAppID" message="tns:IAppMessageVehicle_GetAllAppMessageVehicleListByAppID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAppMessageVehicle/GetAllAppMessageVehicleListByAppIDResponse" message="tns:IAppMessageVehicle_GetAllAppMessageVehicleListByAppID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeliverAppMessageToVehicle">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAppMessageVehicle/DeliverAppMessageToVehicle" message="tns:IAppMessageVehicle_DeliverAppMessageToVehicle_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAppMessageVehicle/DeliverAppMessageToVehicleResponse" message="tns:IAppMessageVehicle_DeliverAppMessageToVehicle_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_ILostRegistry" type="tns:ILostRegistry">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="InsertLostRegistry">
+      <soap:operation soapAction="http://tempuri.org/ILostRegistry/InsertLostRegistry" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateLostRegistry">
+      <soap:operation soapAction="http://tempuri.org/ILostRegistry/UpdateLostRegistry" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteLostRegistryByID">
+      <soap:operation soapAction="http://tempuri.org/ILostRegistry/DeleteLostRegistryByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLostRegistry">
+      <soap:operation soapAction="http://tempuri.org/ILostRegistry/GetLostRegistry" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLostRegistryList">
+      <soap:operation soapAction="http://tempuri.org/ILostRegistry/GetLostRegistryList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLostRegistryByConditionList">
+      <soap:operation soapAction="http://tempuri.org/ILostRegistry/GetLostRegistryByConditionList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BasicHttpBinding_IFoundRegistry" type="tns:IFoundRegistry">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="InsertFoundRegistry">
+      <soap:operation soapAction="http://tempuri.org/IFoundRegistry/InsertFoundRegistry" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateFoundRegistry">
+      <soap:operation soapAction="http://tempuri.org/IFoundRegistry/UpdateFoundRegistry" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteFoundRegistryByID">
+      <soap:operation soapAction="http://tempuri.org/IFoundRegistry/DeleteFoundRegistryByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFoundRegistry">
+      <soap:operation soapAction="http://tempuri.org/IFoundRegistry/GetFoundRegistry" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFoundRegistryList">
+      <soap:operation soapAction="http://tempuri.org/IFoundRegistry/GetFoundRegistryList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFoundRegistryByConditionList">
+      <soap:operation soapAction="http://tempuri.org/IFoundRegistry/GetFoundRegistryByConditionList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BasicHttpBinding_IRunMdvrMessage" type="tns:IRunMdvrMessage">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="InsertRunMdvrMessage">
+      <soap:operation soapAction="http://tempuri.org/IRunMdvrMessage/InsertRunMdvrMessage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateRunMdvrMessage">
+      <soap:operation soapAction="http://tempuri.org/IRunMdvrMessage/UpdateRunMdvrMessage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteRunMdvrMessageByID">
+      <soap:operation soapAction="http://tempuri.org/IRunMdvrMessage/DeleteRunMdvrMessageByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRunMdvrMessage">
+      <soap:operation soapAction="http://tempuri.org/IRunMdvrMessage/GetRunMdvrMessage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRunMdvrMessageList">
+      <soap:operation soapAction="http://tempuri.org/IRunMdvrMessage/GetRunMdvrMessageList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BasicHttpBinding_IRunAppMessage" type="tns:IRunAppMessage">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="InsertRunAppMessage">
+      <soap:operation soapAction="http://tempuri.org/IRunAppMessage/InsertRunAppMessage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateRunAppMessage">
+      <soap:operation soapAction="http://tempuri.org/IRunAppMessage/UpdateRunAppMessage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteRunAppMessageByID">
+      <soap:operation soapAction="http://tempuri.org/IRunAppMessage/DeleteRunAppMessageByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRunAppMessage">
+      <soap:operation soapAction="http://tempuri.org/IRunAppMessage/GetRunAppMessage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRunAppMessageList">
+      <soap:operation soapAction="http://tempuri.org/IRunAppMessage/GetRunAppMessageList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendRunAppMessage">
+      <soap:operation soapAction="http://tempuri.org/IRunAppMessage/SendRunAppMessage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BasicHttpBinding_IRunMdvrmessageVehicle" type="tns:IRunMdvrmessageVehicle">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="InsertRunMdvrmessageVehicle">
+      <soap:operation soapAction="http://tempuri.org/IRunMdvrmessageVehicle/InsertRunMdvrmessageVehicle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteRunMdvrmessageVehicleByID">
+      <soap:operation soapAction="http://tempuri.org/IRunMdvrmessageVehicle/DeleteRunMdvrmessageVehicleByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRunMdvrmessageVehicleList">
+      <soap:operation soapAction="http://tempuri.org/IRunMdvrmessageVehicle/GetRunMdvrmessageVehicleList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeliverRunMdvrmessageToVehicle">
+      <soap:operation soapAction="http://tempuri.org/IRunMdvrmessageVehicle/DeliverRunMdvrmessageToVehicle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllRunMdvrmessageVehicleListBySpeedID">
+      <soap:operation soapAction="http://tempuri.org/IRunMdvrmessageVehicle/GetAllRunMdvrmessageVehicleListBySpeedID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BasicHttpBinding_IAppMessageVehicle" type="tns:IAppMessageVehicle">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="InsertAppMessageVehicle">
+      <soap:operation soapAction="http://tempuri.org/IAppMessageVehicle/InsertAppMessageVehicle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAppMessageVehicleByID">
+      <soap:operation soapAction="http://tempuri.org/IAppMessageVehicle/DeleteAppMessageVehicleByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAppMessageVehicleListByAppID">
+      <soap:operation soapAction="http://tempuri.org/IAppMessageVehicle/GetAppMessageVehicleListByAppID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllAppMessageVehicleListByAppID">
+      <soap:operation soapAction="http://tempuri.org/IAppMessageVehicle/GetAllAppMessageVehicleListByAppID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeliverAppMessageToVehicle">
+      <soap:operation soapAction="http://tempuri.org/IAppMessageVehicle/DeliverAppMessageToVehicle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="PublicService">
+    <wsdl:port name="BasicHttpBinding_ILostRegistry" binding="tns:BasicHttpBinding_ILostRegistry">
+      <soap:address location="http://localhost:2258/PublicService.svc" />
+    </wsdl:port>
+    <wsdl:port name="BasicHttpBinding_IFoundRegistry" binding="tns:BasicHttpBinding_IFoundRegistry">
+      <soap:address location="http://localhost:2258/PublicService.svc" />
+    </wsdl:port>
+    <wsdl:port name="BasicHttpBinding_IRunMdvrMessage" binding="tns:BasicHttpBinding_IRunMdvrMessage">
+      <soap:address location="http://localhost:2258/PublicService.svc" />
+    </wsdl:port>
+    <wsdl:port name="BasicHttpBinding_IRunAppMessage" binding="tns:BasicHttpBinding_IRunAppMessage">
+      <soap:address location="http://localhost:2258/PublicService.svc" />
+    </wsdl:port>
+    <wsdl:port name="BasicHttpBinding_IRunMdvrmessageVehicle" binding="tns:BasicHttpBinding_IRunMdvrmessageVehicle">
+      <soap:address location="http://localhost:2258/PublicService.svc" />
+    </wsdl:port>
+    <wsdl:port name="BasicHttpBinding_IAppMessageVehicle" binding="tns:BasicHttpBinding_IAppMessageVehicle">
+      <soap:address location="http://localhost:2258/PublicService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

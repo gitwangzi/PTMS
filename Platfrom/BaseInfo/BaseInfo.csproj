@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1A55AF1B-1BE4-47B2-80F5-0B1E48EF087D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Gsafety.PTMS.BaseInfo</RootNamespace>
+    <AssemblyName>BaseInfo</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Assemblies\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Assemblies\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Serialization" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BaseRepository.cs" />
+    <Compile Include="BaseService.cs" />
+    <Compile Include="CommonErrorMessage.cs" />
+    <Compile Include="Conditons\GlobalData.cs" />
+    <Compile Include="Conditons\Interface\IPropertyCondition.cs" />
+    <Compile Include="Conditons\Interface\IValueAnaly.cs" />
+    <Compile Include="Conditons\MakerContions\ConditonMaker.cs" />
+    <Compile Include="Conditons\MakerContions\Enums\LogicSymbol.cs" />
+    <Compile Include="Conditons\MakerContions\Enums\OperateEnum.cs" />
+    <Compile Include="Conditons\MakerContions\Interface\IConditon.cs" />
+    <Compile Include="Conditons\MakerContions\Items\CondtionItem.cs" />
+    <Compile Include="Conditons\QueryFiler\BasePropertyCondition.cs" />
+    <Compile Include="Conditons\QueryFiler\BasePropertyConditonGroup.cs" />
+    <Compile Include="Conditons\QueryFiler\ConstantPropertyConditon.cs" />
+    <Compile Include="Conditons\QueryFiler\DateTimePropertyConditon.cs" />
+    <Compile Include="Conditons\QueryFiler\StringPropertyConditon.cs" />
+    <Compile Include="Conditons\ValueAnalys\AuthorityValue.cs" />
+    <Compile Include="Conditons\ValueAnalys\DistrictValue.cs" />
+    <Compile Include="DBContextHelper.cs" />
+    <Compile Include="MessageHeaderUserInfo.cs" />
+    <Compile Include="PageHelper.cs" />
+    <Compile Include="ParameterRebinder.cs" />
+    <Compile Include="PredicateBuilderUtility.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ValidEnum.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BaseContract\BaseContract.csproj">
+      <Project>{a6c2a532-546d-4dae-8aa3-4c01de81f462}</Project>
+      <Name>BaseContract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataModel\DBEntity.csproj">
+      <Project>{b8edef26-d01b-42cc-9a6f-5802d4c5f43c}</Project>
+      <Name>DBEntity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LogManage\LogManage.csproj">
+      <Project>{48e5a665-a6c2-49a2-96d3-031eaa67de3d}</Project>
+      <Name>LogManage</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

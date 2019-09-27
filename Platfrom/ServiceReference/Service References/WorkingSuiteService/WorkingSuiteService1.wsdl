@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="WorkingSuiteService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:2258/WorkingSuiteService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:2258/WorkingSuiteService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:2258/WorkingSuiteService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.SecuritySuite.Contract" />
+      <xsd:import schemaLocation="http://localhost:2258/WorkingSuiteService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" />
+      <xsd:import schemaLocation="http://localhost:2258/WorkingSuiteService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/System" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IWorkingSuiteService_AddWorkingSuite_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddWorkingSuite" />
+  </wsdl:message>
+  <wsdl:message name="IWorkingSuiteService_AddWorkingSuite_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddWorkingSuiteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWorkingSuiteService_UpdateWorkingSuite_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateWorkingSuite" />
+  </wsdl:message>
+  <wsdl:message name="IWorkingSuiteService_UpdateWorkingSuite_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateWorkingSuiteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWorkingSuiteService_DeleteWorkingSuite_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteWorkingSuite" />
+  </wsdl:message>
+  <wsdl:message name="IWorkingSuiteService_DeleteWorkingSuite_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteWorkingSuiteResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IWorkingSuiteService">
+    <wsdl:operation name="AddWorkingSuite">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWorkingSuiteService/AddWorkingSuite" message="tns:IWorkingSuiteService_AddWorkingSuite_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWorkingSuiteService/AddWorkingSuiteResponse" message="tns:IWorkingSuiteService_AddWorkingSuite_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateWorkingSuite">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWorkingSuiteService/UpdateWorkingSuite" message="tns:IWorkingSuiteService_UpdateWorkingSuite_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWorkingSuiteService/UpdateWorkingSuiteResponse" message="tns:IWorkingSuiteService_UpdateWorkingSuite_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteWorkingSuite">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWorkingSuiteService/DeleteWorkingSuite" message="tns:IWorkingSuiteService_DeleteWorkingSuite_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWorkingSuiteService/DeleteWorkingSuiteResponse" message="tns:IWorkingSuiteService_DeleteWorkingSuite_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IWorkingSuiteService" type="tns:IWorkingSuiteService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddWorkingSuite">
+      <soap:operation soapAction="http://tempuri.org/IWorkingSuiteService/AddWorkingSuite" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateWorkingSuite">
+      <soap:operation soapAction="http://tempuri.org/IWorkingSuiteService/UpdateWorkingSuite" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteWorkingSuite">
+      <soap:operation soapAction="http://tempuri.org/IWorkingSuiteService/DeleteWorkingSuite" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WorkingSuiteService">
+    <wsdl:port name="BasicHttpBinding_IWorkingSuiteService" binding="tns:BasicHttpBinding_IWorkingSuiteService">
+      <soap:address location="http://localhost:2258/WorkingSuiteService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

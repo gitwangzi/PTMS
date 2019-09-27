@@ -1,0 +1,66 @@
+﻿<UserControl
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    x:Class="Gsafety.PTMS.Manager.Views.CommandManageView.AlarmSettingAddView"
+    xmlns:CommandManageView="clr-namespace:Gsafety.PTMS.BasicPage.VehicleSelect;assembly=BasicPage"
+    mc:Ignorable="d"
+    d:DesignHeight="800" d:DesignWidth="1000">
+
+    <Grid x:Name="LayoutRoot" >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="80"/>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="520"/>
+            <ColumnDefinition Width="220"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="8"/>
+            <RowDefinition Height="93*"/>
+            <RowDefinition Height="100"/>
+        </Grid.RowDefinitions>
+        <Border BorderThickness="1"  Height="40" VerticalAlignment="Top"  Style="{StaticResource TopBorderStyle}" Grid.ColumnSpan="5"/>
+        <TextBlock TextWrapping="Wrap" Text="{Binding Title}" Style="{StaticResource MainPage_Main_tle_TextBlockStyle}" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="30,0,0,0" Grid.ColumnSpan="3"/>
+        <Image Stretch="None" Source="/ExternalResource;component/Images/navigation.png" Margin="10,15,0,14" HorizontalAlignment="Left" VerticalAlignment="Center" Height="11" Width="11" />
+
+        <TextBlock HorizontalAlignment="Right" Margin="0,0,5,10" Grid.Row="1" TextWrapping="Wrap" Text="{Binding [MANAGER_GpsSetting_Name], Source={StaticResource SR}}" Style="{StaticResource MainPage_Main_search_TextBlockStyle}" VerticalAlignment="Bottom" Grid.Column="0" Grid.ColumnSpan="2" Height="19" Width="56"/>
+        <TextBox x:Name="name" HorizontalAlignment="Left"  Grid.Row="1" IsReadOnly="{Binding IsRead,Mode=TwoWay}" TextWrapping="Wrap" Text="{Binding Alarm_RuleName, Mode=TwoWay}" VerticalAlignment="Bottom" Width="220" Grid.Column="2"
+                 Margin="0,0,0,6" Style="{StaticResource MainPage_Main_TextBoxStyle}" MaxLength="20" Height="26"/>
+
+        <!--<TextBlock HorizontalAlignment="Right" Margin="0,18,0,0" Grid.Row="1" TextWrapping="Wrap" Text="{Binding [MANAGER_OverSpeedSetting], Source={StaticResource SR}}" Style="{StaticResource MainPage_Main_search_TextBlockStyle}" VerticalAlignment="Top" Grid.Column="1" Height="20" Width="84"/>
+        <TextBox HorizontalAlignment="Left" Height="25" Margin="10,15,0,0" Grid.Row="1" Text="{Binding Alarm_ButtonTime, Mode=TwoWay}" VerticalAlignment="Top" Width="140" Grid.Column="2"/>-->
+
+        <TextBlock HorizontalAlignment="Right" Text="{Binding  [MANAGER_ValidButtonTime], Source={StaticResource SR}}" Margin="0,0,10,0" Grid.Row="2" VerticalAlignment="Center" Style="{StaticResource MainPage_Main_search_TextBlockStyle}"  Grid.ColumnSpan="2"/>
+        <TextBox x:Name="buttontime" HorizontalAlignment="Left" Grid.Row="2" IsReadOnly="{Binding IsRead,Mode=TwoWay}" VerticalAlignment="Center" Width="220" Text="{Binding Alarm_ButtonTime, Mode=TwoWay}" Grid.Column="2" Style="{StaticResource MainPage_Main_TextBoxStyle}" MaxLength="2" Height="26" Margin="0,7"/>
+
+        <TextBlock HorizontalAlignment="Right" Margin="0,0,5,0" Text="{Binding [MANAGE_Note], Source={StaticResource SR}}" Grid.Row="3" VerticalAlignment="Center" Style="{StaticResource MainPage_Main_search_TextBlockStyle}" Grid.Column="1" Height="19"/>
+        <TextBox  Height="45"  Grid.Row="3" VerticalAlignment="Center" IsReadOnly="{Binding IsRead,Mode=TwoWay}" Text="{Binding Alarm_Description, Mode=TwoWay}" Grid.ColumnSpan="2" Grid.Column="2" Margin="0,8,0,7"/>
+
+        <TextBlock Text="{Binding [MANAGER_NormalSetting], Source={StaticResource SR}}" Grid.Row="2" VerticalAlignment="Center"  Style="{StaticResource MainPage_Main_search_TextBlockStyle}" Margin="0,0,10,0" HorizontalAlignment="Right" Grid.Column="2"/>
+        <TextBox HorizontalAlignment="Left" Grid.Row="2"  VerticalAlignment="Center" Width="220" Text="{Binding Alarm_Normal, Mode=TwoWay}" Grid.Column="3" Style="{StaticResource MainPage_Main_TextBoxStyle}" MaxLength="2" Height="26" Margin="0,7"/>
+        <CommandManageView:VehicleSelectView  Name="cSelectView"  Visibility="{Binding TreeViewVisible,Mode=TwoWay}" DataContext="{Binding VehicleSelectVM,Mode=TwoWay}" Grid.Row="5" Grid.RowSpan="1" Grid.Column="2" Grid.ColumnSpan="2" />
+        <TextBlock HorizontalAlignment="Right"   Text="{Binding [MANAGE_Rule_SettingSelected], Source={StaticResource SR}}" VerticalAlignment="Top" Style="{StaticResource MainPage_Main_search_TextBlockStyle}" Grid.Row="5" Grid.Column="1" Margin="0,3,5,0"/>
+        <StackPanel Grid.Row="6" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,20,0,0" Grid.Column="0" Grid.ColumnSpan="5">
+            <Button HorizontalAlignment="Center" Margin="0,0,8,0" Command="{Binding FinshCommand}" VerticalAlignment="Center" Style="{StaticResource Search_ButtonStyle}" Tag="{Binding [MANAGE_SAVE], Source={StaticResource SR}}" IsEnabled="{Binding FinishEnabled,Mode=TwoWay}" Visibility="{Binding alarmSettingVisibility}">
+                <Image Height="15" Source="/ExternalResource;component/Images/MainPage_complete.png" Stretch="Fill" Width="15"/>
+            </Button>
+            <Button   IsEnabled="{Binding IsEnabled}" Command="{Binding ResetCommand}" Tag="{Binding [MANAGE_Reset], Source={StaticResource SR}}" HorizontalAlignment="Center" 
+            	VerticalAlignment="Center"  Style="{StaticResource Search_ButtonStyle}" Margin="0,0,8,0" >
+                <Image Height="15" Source="/ExternalResource;component/Images/MainPage_reset.png" Stretch="Fill" Width="15" />
+            </Button>
+            <Button  Command="{Binding SaveAndSettingCommand}" Tag="{Binding [MANAGER_SaveAndSetting], Source={StaticResource SR}}" IsEnabled="{Binding FinishEnabled,Mode=TwoWay}"
+                        HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,8,0" Style="{StaticResource Search_ButtonStyle}">
+                <Image Height="15" Source="/ExternalResource;component/Images/MainPage_return.png" Stretch="Fill" Width="15"/>
+            </Button>
+            <Button HorizontalAlignment="Center" Margin="0,0,8,0" VerticalAlignment="Center" Command="{Binding ReturnCommand}" Style="{StaticResource Search_ButtonStyle}" Tag="{Binding [MANAGE_Return], Source={StaticResource SR}}" >
+                <Image Height="15" Source="/ExternalResource;component/Images/MainPage_return.png" Stretch="Fill" Width="15"/>
+            </Button>
+        </StackPanel>
+    </Grid>
+</UserControl>

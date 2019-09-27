@@ -1,0 +1,72 @@
+﻿<UserControl x:Class="Gsafety.PTMS.VideoDownloadManagement.Views.VideoDownLoadMenu_View"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk" 
+    xmlns:ctrl="clr-namespace:Gsafety.PTMS.VideoDownloadManagement.Views.ctrl"
+    xmlns:Converts="clr-namespace:Gsafety.Common.Converts;assembly=Converts"   
+    mc:Ignorable="d"
+    d:DesignHeight="300" d:DesignWidth="400">
+    <UserControl.Resources>
+        <Converts:VehicleStateToMinImage x:Key="StateToMinImage"/>
+        <Converts:MainPageMenuConvert x:Key="MainPageMenuConvert" />
+        <sdk:HierarchicalDataTemplate x:Key="VehiclesTemplate">
+            <StackPanel Orientation="Horizontal">
+                <Image  Width="16" Height="16">
+                    <Converts:BindingUtil.MultiBindings>
+                        <Converts:MultiBindings>
+                            <Converts:MultiBinding TargetProperty="Source" Converter="{StaticResource StateToMinImage}">
+                                <Converts:MultiBinding.Bindings>
+                                    <Converts:BindingCollection>
+                                        <Binding Path="VehicleType"/>
+                                        <Binding Path="IsOnLine"/>
+                                    </Converts:BindingCollection>
+                                </Converts:MultiBinding.Bindings>
+                            </Converts:MultiBinding>
+                        </Converts:MultiBindings>
+                    </Converts:BindingUtil.MultiBindings>
+                </Image>
+                <TextBlock Text="{Binding VehicleId}" Tag="{Binding}"></TextBlock>
+            </StackPanel>
+        </sdk:HierarchicalDataTemplate>
+
+        <sdk:HierarchicalDataTemplate x:Key="VehicleTypeInfoTemplate" 
+                ItemsSource="{Binding Vehicles}"  ItemTemplate="{StaticResource VehiclesTemplate}">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="{Binding Name}" Foreground="Blue"/>
+                <TextBlock Text="{Binding VehiclesCount}" Foreground="Blue"/>
+            </StackPanel>
+        </sdk:HierarchicalDataTemplate>
+
+        <sdk:HierarchicalDataTemplate x:Key="CityTemplate"
+                ItemsSource="{Binding VehicleTypes}" ItemTemplate="{StaticResource VehicleTypeInfoTemplate}">
+            <StackPanel>
+                <TextBlock Text="{Binding Name}"/>
+            </StackPanel>
+        </sdk:HierarchicalDataTemplate>
+        <sdk:HierarchicalDataTemplate x:Key="ProvinceTemplate" ItemsSource="{Binding Citys}" ItemTemplate="{StaticResource CityTemplate}">
+            <StackPanel>
+                <TextBlock Text="{Binding Name}" Foreground="#ff516ea8"/>
+            </StackPanel>
+        </sdk:HierarchicalDataTemplate>
+    </UserControl.Resources>
+
+    <Grid x:Name="LayoutRoot" Style="{StaticResource ContentGridStyle}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        
+        <Grid Style="{StaticResource ViewFirstTitleGridStyle}" Grid.Row="0">
+            <StackPanel Orientation="Horizontal">
+                <Image Source="/ExternalResource;component/Images/MainPage_menu_download.png" Stretch="None" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="8,4,0,6"/>
+                <TextBlock Text="{Binding [VDL_Name], Source={StaticResource SR}}" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="5,0,0,0" Style="{StaticResource MainPage_menu_tle_TextBlockStyle}"></TextBlock>
+            </StackPanel>
+        </Grid>
+        
+        <StackPanel Name="LinksStackPanel" Grid.Row="1">
+            <HyperlinkButton x:Name="VDL_VideoDownload" NavigateUri="/VideoDownloadV" Style="{StaticResource View_Menu_HyperlinkButtonStyle}"  TargetName="VideoFrame" Content="视频下载" Visibility="{Binding MenuShow, Converter={StaticResource MainPageMenuConvert}, ConverterParameter=VDL_SerListDown}"/>
+        </StackPanel>
+    </Grid>
+</UserControl>

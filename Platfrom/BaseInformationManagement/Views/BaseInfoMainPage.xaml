@@ -1,0 +1,62 @@
+﻿<UserControl x:Class="Gsafety.PTMS.BaseInformation.Views.BaseInfoMainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
+    xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+    xmlns:uriMapper="clr-namespace:System.Windows.Navigation;assembly=System.Windows.Controls.Navigation"
+    xmlns:Views="clr-namespace:Gsafety.PTMS.BaseInformation.Views" 
+    mc:Ignorable="d"
+    d:DesignHeight="800" d:DesignWidth="1000">
+    <UserControl.Resources>
+        <Storyboard x:Key="collapseTransition">
+            <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="SythesesLeftContent" 
+                    Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.X)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:00.1000000" Value="-250"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="expandTransition">
+            <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="SythesesLeftContent" 
+                    Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.X)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="-250"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:00.1000000" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </UserControl.Resources>
+    <Grid x:Name="LayoutRoot" Background="White">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="250" MaxWidth="500"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid x:Name="collapsedPane" Grid.Column="0" Grid.Row="0" Canvas.ZIndex="100" Margin="-5,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" Visibility="Collapsed" >
+            <Image x:Name="showlL" Source="/ExternalResource;component/Images/slidearrow06.png" Cursor="Hand" Stretch="None" Opacity="0.9" 
+                   ToolTipService.ToolTip="{Binding [MenuVisibleToolTip], Source={StaticResource SR}}" Margin="0,0,0,0" MouseLeftButtonDown="showL_MouseLeftButtonDown"/>
+        </Grid>
+        <Grid x:Name="SythesesLeftContent" Grid.Column="0">
+            <Grid.RenderTransform>
+                <TranslateTransform/>
+            </Grid.RenderTransform>
+            <Image x:Name="hiddenL" Source="/ExternalResource;component/Images/MainPage_menu_arrowleft.png" Cursor="Hand" Margin="0,6,10,0" HorizontalAlignment="Right" 
+                   VerticalAlignment="Top" Canvas.ZIndex="100" Stretch="None" MouseLeftButtonDown="hiddenL_MouseLeftButtonDown"
+                   ToolTipService.ToolTip="{Binding [MenuCollapsedToolTip], Source={StaticResource SR}}"/>
+            <Views:BaseInfoMenu x:Name="baseInfoMenu"/>
+        </Grid>
+
+        <sdk:GridSplitter Width="6" Style="{StaticResource ANTGridSplitter}"/>
+        <Border x:Name="ContentBorder" Style="{StaticResource ContentBorderStyle}" Margin="0,0,0,0" Grid.Column="1">
+            <navigation:Frame        
+                x:Name="BaseInfoContentFrame"
+                Style="{StaticResource ContentFrameStyle}" Source="/Vehicle" Navigated="ContentFrame_Navigated" NavigationFailed="ContentFrame_NavigationFailed">
+                <navigation:Frame.UriMapper>
+                    <uriMapper:UriMapper>
+                        <uriMapper:UriMapping Uri="" MappedUri="/BaseInformationManagement;component/Views/BaseInfoNavigationer.xaml"/>
+                        <uriMapper:UriMapping Uri="/ShowText/{text}" MappedUri="/BaseInformationManagement;component/Views/BaseInfoNavigationer.xaml?view=TextView&amp;text={text}"/>
+                        <uriMapper:UriMapping Uri="/{pageName}" MappedUri="/BaseInformationManagement;component/Views/BaseInfoNavigationer.xaml?view={pageName}"/>
+                    </uriMapper:UriMapper>
+                </navigation:Frame.UriMapper>
+            </navigation:Frame>
+        </Border>
+    </Grid>
+</UserControl>

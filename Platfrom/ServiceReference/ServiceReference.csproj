@@ -1,0 +1,1954 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{116E9AB2-DB01-41D6-BD5E-805CAC206B32}</ProjectGuid>
+    <ProjectTypeGuids>{A1591282-1198-4647-A2B1-27E5FF5F6F3B};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Gsafety.PTMS.ServiceReference</RootNamespace>
+    <AssemblyName>ServiceReference</AssemblyName>
+    <TargetFrameworkIdentifier>Silverlight</TargetFrameworkIdentifier>
+    <TargetFrameworkVersion>v5.0</TargetFrameworkVersion>
+    <SilverlightVersion>$(TargetFrameworkVersion)</SilverlightVersion>
+    <SilverlightApplication>false</SilverlightApplication>
+    <ValidateXaml>true</ValidateXaml>
+    <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
+  </PropertyGroup>
+  <!-- This property group is only here to support building this project using the 
+       MSBuild 3.5 toolset. In order to work correctly with this older toolset, it needs 
+       to set the TargetFrameworkVersion to v3.5 -->
+  <PropertyGroup Condition="'$(MSBuildToolsVersion)' == '3.5'">
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CompilerServices.AsyncTargetingPack.Silverlight5">
+      <HintPath>..\Assemblies\Microsoft.CompilerServices.AsyncTargetingPack.Silverlight5.dll</HintPath>
+    </Reference>
+    <Reference Include="mscorlib" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Extensions, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.ServiceModel.NetTcp, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows" />
+    <Reference Include="system" />
+    <Reference Include="System.Core">
+      <HintPath>$(TargetFrameworkDirectory)System.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Windows.Browser" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Extend\AlarmInfo.cs" />
+    <Compile Include="Extend\AppConfigModel.part.cs" />
+    <Compile Include="Extend\APP_CONFIG.part.cs" />
+    <Compile Include="Extend\BusinessAlertExt.cs" />
+    <Compile Include="Extend\DevGpsExt.cs" />
+    <Compile Include="Extend\DeviceAlertExt.cs" />
+    <Compile Include="Extend\DevSuiteExt.cs" />
+    <Compile Include="Extend\GUser.cs" />
+    <Compile Include="Extend\LogOperate.cs" />
+    <Compile Include="Extend\RunMonitorGroup.cs" />
+    <Compile Include="Extend\Vehicle.cs" />
+    <Compile Include="Extend\DeviceInstallVehicle.cs" />
+    <Compile Include="Service References\EmailService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\SystemRubbishService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="ServiceExtend\InstallStation.cs" />
+    <Compile Include="ServiceExtend\MdvrMessage.cs" />
+    <Compile Include="Extend\OrderClientEx.part.cs" />
+    <Compile Include="Extend\TrafficeFence.cs" />
+    <Compile Include="Extend\UserOnline.cs" />
+    <Compile Include="Extend\VehicleAlert.cs" />
+    <Compile Include="Service References\ADUserInfoService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\BscDevSuiteService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\BscGeoPoiService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ChauffeurService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\CommandManageService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\DevGpsService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\DeviceInstallService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\MaintainService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\MessageServiceExt\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\MessageService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\OrderClientService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\PTMSLogManageService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\PublicService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ReportsService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\RunMonitorGroupService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\RunVehicleLocationService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\SecuritySuiteService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\LogService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\TrafficManageService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\VedioService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\VehicleAlarmService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\VehicleAlertService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\VehicleMonitorService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\VehicleService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\VehicleStatusService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\WorkingSuiteService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service References\AppConfigService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\DeviceAlertService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\DistrictService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\InstallStationService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\AccountService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\OrganizationService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="ServiceExtend\HeartbeatRuleEx.cs" />
+    <Compile Include="ServiceExtend\LocationReportRule.cs" />
+    <Compile Include="ServiceExtend\MessageServiceEx.cs" />
+    <Compile Include="ServiceExtend\VedioServiceClientExtend.cs" />
+    <Compile Include="ServiceExtend\VehicleEx.cs" />
+    <Compile Include="ServiceExtend\VideoRule.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\AccountService\AccountService1.wsdl" />
+    <None Include="Service References\AccountService\AccountService11.wsdl" />
+    <None Include="Service References\AccountService\AccountService8.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AccountService\AccountService81.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AccountService\AccountService810.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AccountService\AccountService811.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AccountService\AccountService812.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AccountService\AccountService813.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AccountService\AccountService814.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AccountService\AccountService815.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AccountService\AccountService82.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AccountService\AccountService83.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AccountService\AccountService84.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AccountService\AccountService85.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AccountService\AccountService86.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AccountService\AccountService87.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AccountService\AccountService88.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AccountService\AccountService89.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AccountService\Gsafety.PTMS.ServiceReference.AccountService.MultiMessageOfFuncItem7ZhGgAvu.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AccountService\Gsafety.PTMS.ServiceReference.AccountService.MultiMessageOfGUser7ZhGgAvu.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AccountService\Gsafety.PTMS.ServiceReference.AccountService.MultiMessageOfOrganizationUsernBlkyCYJ.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AccountService\Gsafety.PTMS.ServiceReference.AccountService.MultiMessageOfRole7ZhGgAvu.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AccountService\Gsafety.PTMS.ServiceReference.AccountService.MultiMessageOfstring.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AccountService\Gsafety.PTMS.ServiceReference.AccountService.MultiMessageOfUserOnlinei7Zg_POJ5.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AccountService\Gsafety.PTMS.ServiceReference.AccountService.MultiMessageOfUsrDepartment7ZhGgAvu1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AccountService\Gsafety.PTMS.ServiceReference.AccountService.SingleMessageOfboolean.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AccountService\Gsafety.PTMS.ServiceReference.AccountService.SingleMessageOfGUser7ZhGgAvu.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AccountService\Gsafety.PTMS.ServiceReference.AccountService.SingleMessageOfUsrDepartment7ZhGgAvu1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ADUserInfoService\ADUserInfoService.wsdl" />
+    <None Include="Service References\ADUserInfoService\ADUserInfoService5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ADUserInfoService\ADUserInfoService51.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ADUserInfoService\ADUserInfoService52.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ADUserInfoService\ADUserInfoService53.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ADUserInfoService\ADUserInfoService54.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ADUserInfoService\Gsafety.PTMS.ServiceReference.ADUserInfoService.SingleMessageOfADAccountInfo7ZhGgAvu2.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ADUserInfoService\Gsafety.PTMS.ServiceReference.ADUserInfoService.SingleMessageOfboolean2.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AppConfigService\AppConfigManager1.wsdl" />
+    <None Include="Service References\AppConfigService\AppConfigManager6.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AppConfigService\AppConfigManager61.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AppConfigService\AppConfigManager62.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AppConfigService\AppConfigManager63.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AppConfigService\AppConfigManager64.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AppConfigService\AppConfigManager65.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\BscDevSuiteService\BscDevSuiteService1.wsdl" />
+    <None Include="Service References\BscDevSuiteService\BscDevSuiteService6.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\BscDevSuiteService\BscDevSuiteService61.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\BscDevSuiteService\BscDevSuiteService62.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\BscDevSuiteService\BscDevSuiteService63.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\BscDevSuiteService\BscDevSuiteService64.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\BscDevSuiteService\BscDevSuiteService65.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\BscDevSuiteService\Gsafety.PTMS.ServiceReference.BscDevSuiteService.MultiMessageOfDevSuitei7Zg_POJ5.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\BscDevSuiteService\Gsafety.PTMS.ServiceReference.BscDevSuiteService.MultiMessageOfDevSuiteParti7Zg_POJ5.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\BscDevSuiteService\Gsafety.PTMS.ServiceReference.BscDevSuiteService.SingleMessageOfboolean.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\BscDevSuiteService\Gsafety.PTMS.ServiceReference.BscDevSuiteService.SingleMessageOfDevSuitei7Zg_POJ5.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\BscDevSuiteService\Gsafety.PTMS.ServiceReference.BscDevSuiteService.SingleMessageOfstring.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\BscGeoPoiService\BscGeoPoiService.wsdl" />
+    <None Include="Service References\BscGeoPoiService\BscGeoPoiService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\BscGeoPoiService\BscGeoPoiService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\BscGeoPoiService\BscGeoPoiService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\BscGeoPoiService\BscGeoPoiService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\BscGeoPoiService\BscGeoPoiService4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\BscGeoPoiService\Gsafety.PTMS.ServiceReference.BscGeoPoiService.MultiMessageOfBscGeoPoih_PhsrrDr.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\BscGeoPoiService\Gsafety.PTMS.ServiceReference.BscGeoPoiService.SingleMessageOfboolean.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\BscGeoPoiService\Gsafety.PTMS.ServiceReference.BscGeoPoiService.SingleMessageOfBscGeoPoih_PhsrrDr.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ChauffeurService\ChauffeurService.wsdl" />
+    <None Include="Service References\ChauffeurService\ChauffeurService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ChauffeurService\ChauffeurService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ChauffeurService\ChauffeurService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ChauffeurService\ChauffeurService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ChauffeurService\ChauffeurService4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ChauffeurService\Gsafety.PTMS.ServiceReference.ChauffeurService.MultiMessageOfChauffeurh_PhsrrDr.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ChauffeurService\Gsafety.PTMS.ServiceReference.ChauffeurService.MultiMessageOfChauffeurVehicleh_PhsrrDr.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ChauffeurService\Gsafety.PTMS.ServiceReference.ChauffeurService.SingleMessageOfboolean.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CommandManageService\CommandManageService1.wsdl" />
+    <None Include="Service References\CommandManageService\CommandManageService7.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CommandManageService\CommandManageService73.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CommandManageService\CommandManageService74.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CommandManageService\CommandManageService75.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CommandManageService\CommandManageService76.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CommandManageService\Gsafety.PTMS.ServiceReference.CommandManageService.MultiMessageOfHeartbeatRulei7Zg_POJ5.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CommandManageService\Gsafety.PTMS.ServiceReference.CommandManageService.MultiMessageOfHeartbeatVehiclei7Zg_POJ5.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CommandManageService\Gsafety.PTMS.ServiceReference.CommandManageService.MultiMessageOfLocationReportRulei7Zg_POJ5.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CommandManageService\Gsafety.PTMS.ServiceReference.CommandManageService.MultiMessageOfLocationReportVehiclei7Zg_POJ5.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CommandManageService\Gsafety.PTMS.ServiceReference.CommandManageService.MultiMessageOfSpeedLimiti7Zg_POJ5.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CommandManageService\Gsafety.PTMS.ServiceReference.CommandManageService.MultiMessageOfVehicleSpeedi7Zg_POJ5.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CommandManageService\Gsafety.PTMS.ServiceReference.CommandManageService.MultiMessageOfVideoRulei7Zg_POJ5.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CommandManageService\Gsafety.PTMS.ServiceReference.CommandManageService.MultiMessageOfVideoRuleVehiclei7Zg_POJ5.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CommandManageService\Gsafety.PTMS.ServiceReference.CommandManageService.SingleMessageOfboolean.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DevGpsService\DevGpsService.wsdl" />
+    <None Include="Service References\DevGpsService\DevGpsService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DevGpsService\DevGpsService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DevGpsService\DevGpsService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DevGpsService\DevGpsService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DevGpsService\DevGpsService4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DevGpsService\DevGpsService5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DevGpsService\Gsafety.PTMS.ServiceReference.DevGpsService.MultiMessageOfDevGpsi7Zg_POJ5.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DevGpsService\Gsafety.PTMS.ServiceReference.DevGpsService.SingleMessageOfboolean.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DevGpsService\Gsafety.PTMS.ServiceReference.DevGpsService.SingleMessageOfDevGpsi7Zg_POJ5.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DeviceAlertService\DeviceAlertService.wsdl" />
+    <None Include="Service References\DeviceAlertService\DeviceAlertService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DeviceAlertService\DeviceAlertService1.wsdl" />
+    <None Include="Service References\DeviceAlertService\DeviceAlertService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DeviceAlertService\DeviceAlertService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DeviceAlertService\DeviceAlertService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DeviceAlertService\DeviceAlertService4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DeviceAlertService\DeviceAlertService5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DeviceAlertService\DeviceAlertService6.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DeviceAlertService\DeviceAlertService7.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DeviceAlertService\DeviceAlertService71.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DeviceAlertService\DeviceAlertService72.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DeviceAlertService\DeviceAlertService73.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DeviceAlertService\DeviceAlertService74.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DeviceAlertService\DeviceAlertService75.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DeviceAlertService\DeviceAlertService76.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DeviceAlertService\DeviceAlertService77.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DeviceAlertService\Gsafety.PTMS.ServiceReference.DeviceAlertService.MultiMessageOfDeviceAlertExi7Zg_POJ5.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DeviceInstallService\DeviceInstallService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DeviceInstallService\DeviceInstallService1.wsdl" />
+    <None Include="Service References\DeviceInstallService\DeviceInstallService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DeviceInstallService\DeviceInstallService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DeviceInstallService\DeviceInstallService31.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DeviceInstallService\DeviceInstallService6.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DeviceInstallService\DeviceInstallService61.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DeviceInstallService\DeviceInstallService62.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DeviceInstallService\DeviceInstallService63.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DeviceInstallService\DeviceInstallService64.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DeviceInstallService\DeviceInstallService65.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DeviceInstallService\Gsafety.PTMS.ServiceReference.DeviceInstallService.MultiMessageOfCameraInfoi7Zg_POJ51.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DeviceInstallService\Gsafety.PTMS.ServiceReference.DeviceInstallService.MultiMessageOfDeviceAlertStatisticsi7Zg_POJ5.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DeviceInstallService\Gsafety.PTMS.ServiceReference.DeviceInstallService.MultiMessageOfInstallationAuditCollecty_PtN1jVq.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DeviceInstallService\Gsafety.PTMS.ServiceReference.DeviceInstallService.MultiMessageOfInstallationInfoy_PtN1jVq.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DeviceInstallService\Gsafety.PTMS.ServiceReference.DeviceInstallService.MultiMessageOfInstallStatisticsViewi7Zg_POJ5.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DeviceInstallService\Gsafety.PTMS.ServiceReference.DeviceInstallService.SingleMessageOfboolean.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DeviceInstallService\Gsafety.PTMS.ServiceReference.DeviceInstallService.SingleMessageOfInstallationInfoy_PtN1jVq.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DeviceInstallService\Gsafety.PTMS.ServiceReference.DeviceInstallService.SingleMessageOfInstallInfoResulty_PtN1jVq.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DeviceInstallService\Gsafety.PTMS.ServiceReference.DeviceInstallService.SingleMessageOfSetAlarmParai7Zg_POJ51.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DeviceInstallService\Gsafety.PTMS.ServiceReference.DeviceInstallService.SingleMessageOfstring.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DistrictService\DistrictService1.wsdl" />
+    <None Include="Service References\DistrictService\DistrictService5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DistrictService\DistrictService51.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DistrictService\DistrictService52.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DistrictService\DistrictService53.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DistrictService\DistrictService54.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\EmailService\EmailService.wsdl" />
+    <None Include="Service References\EmailService\EmailService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\EmailService\EmailService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\EmailService\EmailService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\EmailService\EmailService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\EmailService\EmailService4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\EmailService\EmailService5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\EmailService\EmailService6.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\EmailService\Gsafety.PTMS.ServiceReference.EmailService.SingleMessageOfboolean.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\InstallStationService\Gsafety.PTMS.ServiceReference.InstallStationService.MultiMessageOfInstallStationUserh_PhsrrDr.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\InstallStationService\InstallStationService1.wsdl" />
+    <None Include="Service References\InstallStationService\InstallStationService5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\InstallStationService\InstallStationService51.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\InstallStationService\InstallStationService52.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\InstallStationService\InstallStationService53.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\InstallStationService\InstallStationService54.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AccountService\configuration91.svcinfo" />
+    <None Include="Service References\AccountService\configuration.svcinfo" />
+    <None Include="Service References\AccountService\Gsafety.PTMS.ServiceReference.AccountService.SingleMessageOfAccountInfo7ZhGgAvu.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AccountService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\LogService\Gsafety.PTMS.ServiceReference.LogService.MultiMessageOfLogDataDON8MPQy.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\LogService\Gsafety.PTMS.ServiceReference.LogService.MultiMessageOfLogManageri7Zg_POJ5.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\LogService\Gsafety.PTMS.ServiceReference.LogService.SingleMessageOfboolean.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\LogService\LogService5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MaintainService\Gsafety.PTMS.ServiceReference.MaintainService.MultiMessageOfInstallStationh_PhsrrDr.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\MaintainService\Gsafety.PTMS.ServiceReference.MaintainService.MultiMessageOfMaintainApplicationi7Zg_POJ5.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\MaintainService\Gsafety.PTMS.ServiceReference.MaintainService.MultiMessageOfMaintainRecordi7Zg_POJ5.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\MaintainService\Gsafety.PTMS.ServiceReference.MaintainService.MultiMessageOfMaintainRecordUnfinishedi7Zg_POJ5.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\MaintainService\Gsafety.PTMS.ServiceReference.MaintainService.SingleMessageOfboolean.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\MaintainService\Gsafety.PTMS.ServiceReference.MaintainService.SingleMessageOfMaintainApplicationi7Zg_POJ5.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\MaintainService\Gsafety.PTMS.ServiceReference.MaintainService.SingleMessageOfMaintainRecordi7Zg_POJ5.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\MaintainService\MaintainService.wsdl" />
+    <None Include="Service References\MaintainService\MaintainService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MaintainService\MaintainService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MaintainService\MaintainService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MaintainService\MaintainService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MaintainService\MaintainService4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MaintainService\MaintainService5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MaintainService\MaintainService6.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MessageServiceExt\Arrays.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MessageServiceExt\Gsafety.PTMS.Common.Data.Data.Video1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MessageServiceExt\Gsafety.PTMS.Common.Data.Enum1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MessageServiceExt\Gsafety.PTMS.Common.Data1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MessageServiceExt\Gsafety.PTMS.Common.Enum1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MessageServiceExt\Gsafety.PTMS.Message.Contract.Data1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MessageServiceExt\Gsafety.PTMS.Message.Contract.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MessageServiceExt\service.wsdl" />
+    <None Include="Service References\MessageServiceExt\service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MessageServiceExt\service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MessageService\Arrays.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MessageService\Gsafety.PTMS.Base.Contract.Data1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MessageService\Gsafety.PTMS.Message.Contract.Data.CommandManage1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MessageService\Gsafety.PTMS.Message.Contract.Data.Video1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MessageService\Gsafety.PTMS.Message.Contract.Data1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MessageService\service1.wsdl" />
+    <None Include="Service References\MessageService\service2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MessageService\service21.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OrderClientService\Gsafety.PTMS.ServiceReference.OrderClientService.MultiMessageOfOrderClientExi7Zg_POJ5.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OrderClientService\Gsafety.PTMS.ServiceReference.OrderClientService.SingleMessageOfboolean.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OrderClientService\Gsafety.PTMS.ServiceReference.OrderClientService.SingleMessageOfOrderClienti7Zg_POJ5.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OrderClientService\OrderClientService.wsdl" />
+    <None Include="Service References\OrderClientService\OrderClientService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OrderClientService\OrderClientService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OrderClientService\OrderClientService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OrderClientService\OrderClientService21.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OrderClientService\OrderClientService22.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OrderClientService\OrderClientService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PTMSLogManageService\Gsafety.PTMS.ServiceReference.PTMSLogManageService.MultiMessageOfAlarmDealLogInfo7ZhGgAvu.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PTMSLogManageService\Gsafety.PTMS.ServiceReference.PTMSLogManageService.MultiMessageOfCarAlertLogInfo7ZhGgAvu.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PTMSLogManageService\Gsafety.PTMS.ServiceReference.PTMSLogManageService.MultiMessageOfInstallLogInfo7ZhGgAvu.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PTMSLogManageService\Gsafety.PTMS.ServiceReference.PTMSLogManageService.MultiMessageOfLogAccessi7Zg_POJ5.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PTMSLogManageService\Gsafety.PTMS.ServiceReference.PTMSLogManageService.MultiMessageOfLogOperatei7Zg_POJ5.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PTMSLogManageService\Gsafety.PTMS.ServiceReference.PTMSLogManageService.MultiMessageOfLogVideoi7Zg_POJ5.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PTMSLogManageService\Gsafety.PTMS.ServiceReference.PTMSLogManageService.MultiMessageOfSuiteInfoLog7ZhGgAvu.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PTMSLogManageService\Gsafety.PTMS.ServiceReference.PTMSLogManageService.MultiMessageOfVideoLogInfo7ZhGgAvu.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PTMSLogManageService\Gsafety.PTMS.ServiceReference.PTMSLogManageService.MultiMessageOfVisitLogInfo7ZhGgAvu.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PTMSLogManageService\Gsafety.PTMS.ServiceReference.PTMSLogManageService.SingleMessageOfboolean.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AppConfigService\Gsafety.PTMS.ServiceReference.AppConfigService.ConfigTree.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AppConfigService\Gsafety.PTMS.ServiceReference.AppConfigService.MultiMessageOfAppConfig7ZhGgAvu.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AppConfigService\Gsafety.PTMS.ServiceReference.AppConfigService.SingleMessageOfAppConfig7ZhGgAvu.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AppConfigService\Gsafety.PTMS.ServiceReference.AppConfigService.SingleMessageOfboolean.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DeviceAlertService\Gsafety.PTMS.ServiceReference.DeviceAlertService.MultiMessageOfDeviceAlertWem2IK3v.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DeviceAlertService\Gsafety.PTMS.ServiceReference.DeviceAlertService.SingleMessageOfboolean.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DeviceAlertService\Gsafety.PTMS.ServiceReference.DeviceAlertService.SingleMessageOfDeviceAlertWem2IK3v.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DistrictService\Gsafety.PTMS.ServiceReference.DistrictService.MultiMessageOfDistricth_PhsrrDr.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DistrictService\Gsafety.PTMS.ServiceReference.DistrictService.MultiMessageOfFuncItemh_PhsrrDr.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DistrictService\Gsafety.PTMS.ServiceReference.DistrictService.MultiMessageOfUserAuthorityh_PhsrrDr.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OrganizationService\Gsafety.PTMS.ServiceReference.OrganizationService.MultiMessageOfOrganizationkkxVxFex.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DistrictService\Gsafety.PTMS.ServiceReference.DistrictService.SingleMessageOfboolean.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DistrictService\Gsafety.PTMS.ServiceReference.DistrictService.SingleMessageOfRoleFuncsh_PhsrrDr.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\InstallStationService\Gsafety.PTMS.ServiceReference.InstallStationService.MultiMessageOfInstallStationh_PhsrrDr1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\InstallStationService\Gsafety.PTMS.ServiceReference.InstallStationService.MultiMessageOfInstallStationh_PhsrrDr2.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\InstallStationService\Gsafety.PTMS.ServiceReference.InstallStationService.SingleMessageOfboolean1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\InstallStationService\Gsafety.PTMS.ServiceReference.InstallStationService.SingleMessageOfboolean2.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\InstallStationService\Gsafety.PTMS.ServiceReference.InstallStationService.SingleMessageOfInstallStationh_PhsrrDr2.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PTMSLogManageService\LogManageService.wsdl" />
+    <None Include="Service References\PTMSLogManageService\LogManageService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PTMSLogManageService\LogManageService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PTMSLogManageService\LogManageService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PTMSLogManageService\LogManageService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PTMSLogManageService\LogManageService4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PTMSLogManageService\LogManageService5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PublicService\Gsafety.PTMS.ServiceReference.PublicService.MultiMessageOfAppMessageVehiclei7Zg_POJ5.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PublicService\Gsafety.PTMS.ServiceReference.PublicService.MultiMessageOfFoundRegistryi7Zg_POJ5.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PublicService\Gsafety.PTMS.ServiceReference.PublicService.MultiMessageOfLostRegistryHP9hECy1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PublicService\Gsafety.PTMS.ServiceReference.PublicService.MultiMessageOfMdvrMessageVehiclei7Zg_POJ5.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PublicService\Gsafety.PTMS.ServiceReference.PublicService.MultiMessageOfRunAppMessageHP9hECy1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PublicService\Gsafety.PTMS.ServiceReference.PublicService.MultiMessageOfRunMdvrMessageHP9hECy1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PublicService\Gsafety.PTMS.ServiceReference.PublicService.SingleMessageOfboolean.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PublicService\Gsafety.PTMS.ServiceReference.PublicService.SingleMessageOfFoundRegistryi7Zg_POJ5.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PublicService\Gsafety.PTMS.ServiceReference.PublicService.SingleMessageOfLostRegistryHP9hECy1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PublicService\Gsafety.PTMS.ServiceReference.PublicService.SingleMessageOfRunAppMessageHP9hECy1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PublicService\Gsafety.PTMS.ServiceReference.PublicService.SingleMessageOfRunMdvrMessageHP9hECy1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PublicService\PublicService.wsdl" />
+    <None Include="Service References\PublicService\PublicService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PublicService\PublicService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PublicService\PublicService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PublicService\PublicService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PublicService\PublicService4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PublicService\PublicService5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ReportsService\Gsafety.PTMS.ServiceReference.ReportsService.BuildStatus.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ReportsService\Gsafety.PTMS.ServiceReference.ReportsService.ColumnInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ReportsService\Gsafety.PTMS.ServiceReference.ReportsService.DataSourceInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ReportsService\Gsafety.PTMS.ServiceReference.ReportsService.DataSourceInformation.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ReportsService\Gsafety.PTMS.ServiceReference.ReportsService.DocumentData.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ReportsService\Gsafety.PTMS.ServiceReference.ReportsService.DocumentId.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ReportsService\Gsafety.PTMS.ServiceReference.ReportsService.ExportId.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ReportsService\Gsafety.PTMS.ServiceReference.ReportsService.ExportStatus.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ReportsService\Gsafety.PTMS.ServiceReference.ReportsService.PrintId.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ReportsService\Gsafety.PTMS.ServiceReference.ReportsService.PrintStatus.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ReportsService\Gsafety.PTMS.ServiceReference.ReportsService.PropertyDescriptorProxy.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ReportsService\Gsafety.PTMS.ServiceReference.ReportsService.ReportDesignerPage.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ReportsService\Gsafety.PTMS.ServiceReference.ReportsService.ReportParameterContainer.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ReportsService\Gsafety.PTMS.ServiceReference.ReportsService.TableInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ReportsService\Gsafety.PTMS.ServiceReference.ReportsService.UploadingResourceId.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ReportsService\ReportService.wsdl" />
+    <None Include="Service References\ReportsService\ReportService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ReportsService\ReportService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ReportsService\ReportService10.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ReportsService\ReportService11.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ReportsService\ReportService12.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ReportsService\ReportService13.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ReportsService\ReportService14.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ReportsService\ReportService15.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ReportsService\ReportService16.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ReportsService\ReportService17.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ReportsService\ReportService18.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ReportsService\ReportService19.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ReportsService\ReportService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ReportsService\ReportService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ReportsService\ReportService4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ReportsService\ReportService5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ReportsService\ReportService6.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ReportsService\ReportService7.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ReportsService\ReportService8.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ReportsService\ReportService9.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\RunMonitorGroupService\Gsafety.PTMS.ServiceReference.RunMonitorGroupService.MultiMessageOfRunMonitorGroupdrfzYGI1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\RunMonitorGroupService\Gsafety.PTMS.ServiceReference.RunMonitorGroupService.MultiMessageOfRunMonitorGroupVehicledrfzYGI1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\RunMonitorGroupService\Gsafety.PTMS.ServiceReference.RunMonitorGroupService.SingleMessageOfboolean.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\RunMonitorGroupService\RunMonitorGroupService.wsdl" />
+    <None Include="Service References\RunMonitorGroupService\RunMonitorGroupService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\RunMonitorGroupService\RunMonitorGroupService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\RunMonitorGroupService\RunMonitorGroupService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\RunMonitorGroupService\RunMonitorGroupService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\RunMonitorGroupService\RunMonitorGroupService4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\RunVehicleLocationService\Gsafety.PTMS.ServiceReference.RunVehicleLocationService.MultiMessageOfRunVehicleLocationh_PhsrrDr.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\RunVehicleLocationService\Gsafety.PTMS.ServiceReference.RunVehicleLocationService.SingleMessageOfboolean.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\RunVehicleLocationService\Gsafety.PTMS.ServiceReference.RunVehicleLocationService.SingleMessageOfRunVehicleLocationh_PhsrrDr.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\RunVehicleLocationService\RunVehicleLocationService.wsdl" />
+    <None Include="Service References\RunVehicleLocationService\RunVehicleLocationService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\RunVehicleLocationService\RunVehicleLocationService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\RunVehicleLocationService\RunVehicleLocationService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\RunVehicleLocationService\RunVehicleLocationService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\RunVehicleLocationService\RunVehicleLocationService4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SecuritySuiteService\Gsafety.PTMS.ServiceReference.SecuritySuiteService.MultiMessageOfDeviceSuiteh_PhsrrDr.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SecuritySuiteService\Gsafety.PTMS.ServiceReference.SecuritySuiteService.SingleMessageOfboolean.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SecuritySuiteService\Gsafety.PTMS.ServiceReference.SecuritySuiteService.SingleMessageOfDeviceSuiteh_PhsrrDr.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SecuritySuiteService\SecuritySuiteService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SecuritySuiteService\SecuritySuiteService1.wsdl" />
+    <None Include="Service References\SecuritySuiteService\SecuritySuiteService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SecuritySuiteService\SecuritySuiteService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SecuritySuiteService\SecuritySuiteService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SecuritySuiteService\SecuritySuiteService4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\LogService\LogService.wsdl" />
+    <None Include="Service References\LogService\LogService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\LogService\LogService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\LogService\LogService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\LogService\LogService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\LogService\LogService4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SystemRubbishService\Gsafety.PTMS.ServiceReference.SystemRubbishService.MultiMessageOfDevSuitei7Zg_POJ5.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SystemRubbishService\Gsafety.PTMS.ServiceReference.SystemRubbishService.MultiMessageOfGUser7ZhGgAvu.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SystemRubbishService\Gsafety.PTMS.ServiceReference.SystemRubbishService.MultiMessageOfVehiclei7Zg_POJ5.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SystemRubbishService\Gsafety.PTMS.ServiceReference.SystemRubbishService.SingleMessageOfboolean.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SystemRubbishService\SystemRubbishService.wsdl" />
+    <None Include="Service References\SystemRubbishService\SystemRubbishService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SystemRubbishService\SystemRubbishService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SystemRubbishService\SystemRubbishService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SystemRubbishService\SystemRubbishService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SystemRubbishService\SystemRubbishService4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SystemRubbishService\SystemRubbishService5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SystemRubbishService\SystemRubbishService6.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SystemRubbishService\SystemRubbishService7.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\TrafficManageService\Gsafety.PTMS.ServiceReference.TrafficManageService.MultiMessageOfFenceQueuei7Zg_POJ5.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TrafficManageService\Gsafety.PTMS.ServiceReference.TrafficManageService.MultiMessageOfRouteQueuei7Zg_POJ5.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TrafficManageService\Gsafety.PTMS.ServiceReference.TrafficManageService.MultiMessageOfTrafficFencei7Zg_POJ5.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TrafficManageService\Gsafety.PTMS.ServiceReference.TrafficManageService.MultiMessageOfTrafficRoutei7Zg_POJ5.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TrafficManageService\Gsafety.PTMS.ServiceReference.TrafficManageService.MultiMessageOfVehicle8UxEljkQ.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TrafficManageService\Gsafety.PTMS.ServiceReference.TrafficManageService.SingleMessageOfboolean.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TrafficManageService\Gsafety.PTMS.ServiceReference.TrafficManageService.SingleMessageOfTrafficFencei7Zg_POJ5.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TrafficManageService\Gsafety.PTMS.ServiceReference.TrafficManageService.SingleMessageOfTrafficRoutei7Zg_POJ5.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TrafficManageService\TrafficManageService.wsdl" />
+    <None Include="Service References\TrafficManageService\TrafficManageService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\TrafficManageService\TrafficManageService11.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\TrafficManageService\TrafficManageService12.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\TrafficManageService\TrafficManageService13.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\TrafficManageService\TrafficManageService14.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\TrafficManageService\TrafficManageService15.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\VedioService\Gsafety.PTMS.ServiceReference.VedioService.MultiMessageOfHistoryItemForVideoAppealA5zhs20f.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VedioService\Gsafety.PTMS.ServiceReference.VedioService.MultiMessageOfPhotoi7Zg_POJ5.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VedioService\Gsafety.PTMS.ServiceReference.VedioService.MultiMessageOfQueryDownloadStatusMessagei7Zg_POJ5.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VedioService\Gsafety.PTMS.ServiceReference.VedioService.MultiMessageOfQueryServerFileListMessagei7Zg_POJ5.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VedioService\Gsafety.PTMS.ServiceReference.VedioService.MultiMessageOfRealTimeChannelInfoA5zhs20f.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VedioService\Gsafety.PTMS.ServiceReference.VedioService.SingleMessageOfArrayOfKeyValueOfintbooleanuHEDJ7Dj.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VedioService\Gsafety.PTMS.ServiceReference.VedioService.SingleMessageOfboolean.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VedioService\VedioService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\VedioService\VedioService1.wsdl" />
+    <None Include="Service References\VedioService\VedioService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\VedioService\VedioService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\VedioService\VedioService6.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\VedioService\VedioService61.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\VedioService\VedioService62.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\VedioService\VedioService63.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\VedioService\VedioService64.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\VedioService\VedioService65.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\VedioService\VedioService66.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\VehicleAlarmService\Gsafety.PTMS.ServiceReference.VehicleAlarmService.MultiMessageOfAlarmEmailInfoi7Zg_POJ5.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VehicleAlarmService\Gsafety.PTMS.ServiceReference.VehicleAlarmService.MultiMessageOfAlarmInfoExi7Zg_POJ5.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VehicleAlarmService\Gsafety.PTMS.ServiceReference.VehicleAlarmService.MultiMessageOfAlarmNoteInfoi7Zg_POJ5.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VehicleAlarmService\Gsafety.PTMS.ServiceReference.VehicleAlarmService.MultiMessageOfAlarmTreatmentKy150u3w.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VehicleAlarmService\Gsafety.PTMS.ServiceReference.VehicleAlarmService.MultiMessageOfAlarmTypeInfoi7Zg_POJ5.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VehicleAlarmService\Gsafety.PTMS.ServiceReference.VehicleAlarmService.MultiMessageOfGPSi7Zg_POJ5.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VehicleAlarmService\Gsafety.PTMS.ServiceReference.VehicleAlarmService.SingleMessageOfAlarmHandleResulti7Zg_POJ5.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VehicleAlarmService\Gsafety.PTMS.ServiceReference.VehicleAlarmService.SingleMessageOfAlarmInfoExi7Zg_POJ5.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VehicleAlarmService\Gsafety.PTMS.ServiceReference.VehicleAlarmService.SingleMessageOfApealDisposei7Zg_POJ5.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VehicleAlarmService\Gsafety.PTMS.ServiceReference.VehicleAlarmService.SingleMessageOfboolean.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VehicleAlarmService\Gsafety.PTMS.ServiceReference.VehicleAlarmService.SingleMessageOfTransferDisposei7Zg_POJ5.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VehicleAlarmService\VehicleAlarmService.wsdl" />
+    <None Include="Service References\VehicleAlarmService\VehicleAlarmService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\VehicleAlarmService\VehicleAlarmService21.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\VehicleAlarmService\VehicleAlarmService22.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\VehicleAlarmService\VehicleAlarmService23.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\VehicleAlarmService\VehicleAlarmService24.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\VehicleAlarmService\VehicleAlarmService25.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\VehicleAlarmService\VehicleAlarmService26.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\VehicleAlertService\Gsafety.PTMS.ServiceReference.VehicleAlertService.MultiMessageOfBusinessAlertExi7Zg_POJ5.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VehicleAlertService\Gsafety.PTMS.ServiceReference.VehicleAlertService.MultiMessageOfVehicleAlertExWem2IK3v.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VehicleAlertService\Gsafety.PTMS.ServiceReference.VehicleAlertService.MultiMessageOfVehicleFenceAlertWem2IK3v.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VehicleAlertService\Gsafety.PTMS.ServiceReference.VehicleAlertService.SingleMessageOfAlertHandleResulti7Zg_POJ5.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VehicleAlertService\Gsafety.PTMS.ServiceReference.VehicleAlertService.SingleMessageOfboolean.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VehicleAlertService\Gsafety.PTMS.ServiceReference.VehicleAlertService.SingleMessageOfBusinessAlertExi7Zg_POJ5.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VehicleAlertService\Gsafety.PTMS.ServiceReference.VehicleAlertService.SingleMessageOfBusinessAlertHandlei7Zg_POJ5.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VehicleAlertService\Gsafety.PTMS.ServiceReference.VehicleAlertService.SingleMessageOfVehicleAlertDetailWem2IK3v.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VehicleAlertService\VehicleAlertService.wsdl" />
+    <None Include="Service References\VehicleAlertService\VehicleAlertService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\VehicleAlertService\VehicleAlertService21.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\VehicleAlertService\VehicleAlertService22.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\VehicleAlertService\VehicleAlertService23.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\VehicleAlertService\VehicleAlertService24.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\VehicleAlertService\VehicleAlertService25.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\VehicleAlertService\VehicleAlertService26.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\VehicleMonitorService\Gsafety.PTMS.ServiceReference.VehicleMonitorService.MultiMessageOfGPSi7Zg_POJ5.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VehicleMonitorService\Gsafety.PTMS.ServiceReference.VehicleMonitorService.MultiMessageOfVehicleAlertdrfzYGI1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VehicleMonitorService\Gsafety.PTMS.ServiceReference.VehicleMonitorService.SingleMessageOfboolean1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VehicleMonitorService\Gsafety.PTMS.ServiceReference.VehicleMonitorService.SingleMessageOfGPSi7Zg_POJ5.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VehicleMonitorService\VehicleMonitorService1.wsdl" />
+    <None Include="Service References\VehicleMonitorService\VehicleMonitorService6.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\VehicleMonitorService\VehicleMonitorService61.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\VehicleMonitorService\VehicleMonitorService63.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\VehicleMonitorService\VehicleMonitorService64.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\VehicleMonitorService\VehicleMonitorService65.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\VehicleMonitorService\VehicleMonitorService66.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\VehicleService\Gsafety.PTMS.ServiceReference.VehicleService.MultiMessageOfVehiclei7Zg_POJ5.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VehicleService\Gsafety.PTMS.ServiceReference.VehicleService.MultiMessageOfVehicleTypeColori7Zg_POJ5.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VehicleService\Gsafety.PTMS.ServiceReference.VehicleService.MultiMessageOfVehicleTypei7Zg_POJ5.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VehicleService\Gsafety.PTMS.ServiceReference.VehicleService.MultiMessageOfVVehicleh_PhsrrDr.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VehicleService\Gsafety.PTMS.ServiceReference.VehicleService.SingleMessageOfboolean.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VehicleService\Gsafety.PTMS.ServiceReference.VehicleService.SingleMessageOfVehicleCheckResultExti7Zg_POJ5.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VehicleService\Gsafety.PTMS.ServiceReference.VehicleService.SingleMessageOfVehiclei7Zg_POJ5.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VehicleService\VehicleService.wsdl" />
+    <None Include="Service References\VehicleService\VehicleService9.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\VehicleService\VehicleService91.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\VehicleService\VehicleService92.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\VehicleService\VehicleService93.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\VehicleService\VehicleService94.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\VehicleService\VehicleService95.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\VehicleService\VehicleService96.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\VehicleService\VehicleService97.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\VehicleService\VehicleService98.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\VehicleStatusService\Gsafety.PTMS.ServiceReference.VehicleStatusService.MultiMessageOfInitialSuiteMangementxVjn_Pu1b.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VehicleStatusService\Gsafety.PTMS.ServiceReference.VehicleStatusService.MultiMessageOfSuiteStatusxVjn_Pu1b.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VehicleStatusService\Gsafety.PTMS.ServiceReference.VehicleStatusService.MultiMessageOfVehicleStatusxVjn_Pu1b.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VehicleStatusService\Gsafety.PTMS.ServiceReference.VehicleStatusService.SingleMessageOfVehicleStatusxVjn_Pu1b.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VehicleStatusService\VehicleStatusService1.wsdl" />
+    <None Include="Service References\VehicleStatusService\VehicleStatusService5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\VehicleStatusService\VehicleStatusService51.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\VehicleStatusService\VehicleStatusService52.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\VehicleStatusService\VehicleStatusService53.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\VehicleStatusService\VehicleStatusService54.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OrganizationService\Gsafety.PTMS.ServiceReference.OrganizationService.SingleMessageOfboolean.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OrganizationService\OrganizationService.disco" />
+    <None Include="Service References\OrganizationService\configuration91.svcinfo" />
+    <None Include="Service References\OrganizationService\configuration.svcinfo" />
+    <None Include="Service References\OrganizationService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\WorkingSuiteService\Gsafety.PTMS.ServiceReference.WorkingSuiteService.SingleMessageOfboolean.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WorkingSuiteService\Gsafety.PTMS.ServiceReference.WorkingSuiteService.SingleMessageOfint.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ReportsService\configuration91.svcinfo" />
+    <None Include="Service References\ReportsService\configuration.svcinfo" />
+    <None Include="Service References\ReportsService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\MessageService\configuration91.svcinfo" />
+    <None Include="Service References\MessageService\configuration.svcinfo" />
+    <None Include="Service References\MessageService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\ADUserInfoService\configuration91.svcinfo" />
+    <None Include="Service References\ADUserInfoService\configuration.svcinfo" />
+    <None Include="Service References\ADUserInfoService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\ADUserInfoService\ADUserInfoService1.disco" />
+    <None Include="Service References\PTMSLogManageService\configuration91.svcinfo" />
+    <None Include="Service References\PTMSLogManageService\configuration.svcinfo" />
+    <None Include="Service References\PTMSLogManageService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\CommandManageService\configuration91.svcinfo" />
+    <None Include="Service References\CommandManageService\configuration.svcinfo" />
+    <None Include="Service References\CommandManageService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\VehicleAlertService\configuration91.svcinfo" />
+    <None Include="Service References\VehicleAlertService\configuration.svcinfo" />
+    <None Include="Service References\VehicleAlertService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\ReportsService\ReportService.disco" />
+    <None Include="Service References\MessageServiceExt\configuration91.svcinfo" />
+    <None Include="Service References\DeviceInstallService\configuration91.svcinfo" />
+    <None Include="Service References\DeviceInstallService\configuration.svcinfo" />
+    <None Include="Service References\DeviceInstallService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\AppConfigService\AppConfigManager1.disco" />
+    <None Include="Service References\CommandManageService\CommandManageService1.disco" />
+    <None Include="Service References\DeviceAlertService\DeviceAlertService.disco" />
+    <None Include="Service References\DeviceInstallService\DeviceInstallService1.disco" />
+    <None Include="Service References\DistrictService\DistrictService1.disco" />
+    <None Include="Service References\InstallStationService\InstallStationService1.disco" />
+    <None Include="Service References\SecuritySuiteService\SecuritySuiteService1.disco" />
+    <None Include="Service References\VedioService\VedioService1.disco" />
+    <None Include="Service References\VehicleMonitorService\VehicleMonitorService1.disco" />
+    <None Include="Service References\VehicleStatusService\VehicleStatusService1.disco" />
+    <None Include="Service References\WorkingSuiteService\WorkingSuiteService1.disco" />
+    <None Include="Service References\OrderClientService\OrderClientService.disco" />
+    <None Include="Service References\OrderClientService\configuration91.svcinfo" />
+    <None Include="Service References\OrderClientService\configuration.svcinfo" />
+    <None Include="Service References\OrderClientService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\BscDevSuiteService\configuration91.svcinfo" />
+    <None Include="Service References\BscDevSuiteService\configuration.svcinfo" />
+    <None Include="Service References\BscDevSuiteService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\ChauffeurService\ChauffeurService.disco" />
+    <None Include="Service References\ChauffeurService\configuration91.svcinfo" />
+    <None Include="Service References\ChauffeurService\configuration.svcinfo" />
+    <None Include="Service References\ChauffeurService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\DevGpsService\DevGpsService.disco" />
+    <None Include="Service References\DevGpsService\configuration91.svcinfo" />
+    <None Include="Service References\MessageServiceExt\configuration.svcinfo" />
+    <None Include="Service References\MessageServiceExt\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\DevGpsService\configuration.svcinfo" />
+    <None Include="Service References\DevGpsService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\BscGeoPoiService\BscGeoPoiService.disco" />
+    <None Include="Service References\BscGeoPoiService\configuration91.svcinfo" />
+    <None Include="Service References\BscGeoPoiService\configuration.svcinfo" />
+    <None Include="Service References\BscGeoPoiService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\PublicService\PublicService.disco" />
+    <None Include="Service References\PublicService\configuration91.svcinfo" />
+    <None Include="Service References\PublicService\configuration.svcinfo" />
+    <None Include="Service References\PublicService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\RunVehicleLocationService\RunVehicleLocationService.disco" />
+    <None Include="Service References\RunVehicleLocationService\configuration91.svcinfo" />
+    <None Include="Service References\RunVehicleLocationService\configuration.svcinfo" />
+    <None Include="Service References\RunVehicleLocationService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\RunMonitorGroupService\RunMonitorGroupService.disco" />
+    <None Include="Service References\RunMonitorGroupService\configuration91.svcinfo" />
+    <None Include="Service References\RunMonitorGroupService\configuration.svcinfo" />
+    <None Include="Service References\RunMonitorGroupService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\LogService\LogService.disco" />
+    <None Include="Service References\LogService\configuration91.svcinfo" />
+    <None Include="Service References\LogService\configuration.svcinfo" />
+    <None Include="Service References\LogService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\MaintainService\MaintainService.disco" />
+    <None Include="Service References\MaintainService\configuration91.svcinfo" />
+    <None Include="Service References\MaintainService\configuration.svcinfo" />
+    <None Include="Service References\MaintainService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\PTMSLogManageService\LogManageService.disco" />
+    <None Include="Service References\DeviceAlertService\DeviceAlertService1.disco" />
+    <None Include="Service References\SystemRubbishService\SystemRubbishService.disco" />
+    <None Include="Service References\SystemRubbishService\configuration91.svcinfo" />
+    <None Include="Service References\SystemRubbishService\configuration.svcinfo" />
+    <None Include="Service References\SystemRubbishService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\AccountService\AccountService1.disco" />
+    <None Include="Service References\BscDevSuiteService\BscDevSuiteService1.disco" />
+    <None Include="Service References\AccountService\AccountService11.disco" />
+    <None Include="Service References\VehicleAlarmService\VehicleAlarmService.disco" />
+    <None Include="Service References\VehicleService\VehicleService.disco" />
+    <None Include="Service References\EmailService\EmailService.disco" />
+    <None Include="Service References\EmailService\configuration91.svcinfo" />
+    <None Include="Service References\EmailService\configuration.svcinfo" />
+    <None Include="Service References\EmailService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\TrafficManageService\TrafficManageService.disco" />
+    <None Include="Service References\VehicleAlertService\VehicleAlertService.disco" />
+    <Content Include="ServiceReferences.ClientConfig">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </Content>
+    <None Include="Service References\OrganizationService\OrganizationService.wsdl" />
+    <None Include="Service References\OrganizationService\OrganizationService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OrganizationService\OrganizationService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OrganizationService\OrganizationService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OrganizationService\OrganizationService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OrganizationService\OrganizationService4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\WorkingSuiteService\WorkingSuiteService1.wsdl" />
+    <None Include="Service References\WorkingSuiteService\WorkingSuiteService5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\WorkingSuiteService\WorkingSuiteService51.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\WorkingSuiteService\WorkingSuiteService52.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\WorkingSuiteService\WorkingSuiteService53.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\WorkingSuiteService\WorkingSuiteService54.xsd">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\ADUserInfoService\" />
+    <WCFMetadataStorage Include="Service References\BscDevSuiteService\" />
+    <WCFMetadataStorage Include="Service References\BscGeoPoiService\" />
+    <WCFMetadataStorage Include="Service References\ChauffeurService\" />
+    <WCFMetadataStorage Include="Service References\CommandManageService\" />
+    <WCFMetadataStorage Include="Service References\DevGpsService\" />
+    <WCFMetadataStorage Include="Service References\DeviceInstallService\" />
+    <WCFMetadataStorage Include="Service References\EmailService\" />
+    <WCFMetadataStorage Include="Service References\MaintainService\" />
+    <WCFMetadataStorage Include="Service References\OrderClientService\" />
+    <WCFMetadataStorage Include="Service References\PTMSLogManageService\" />
+    <WCFMetadataStorage Include="Service References\AppConfigService\" />
+    <WCFMetadataStorage Include="Service References\DeviceAlertService\" />
+    <WCFMetadataStorage Include="Service References\DistrictService\" />
+    <WCFMetadataStorage Include="Service References\InstallStationService\" />
+    <WCFMetadataStorage Include="Service References\MessageService\" />
+    <WCFMetadataStorage Include="Service References\PublicService\" />
+    <WCFMetadataStorage Include="Service References\ReportsService\" />
+    <WCFMetadataStorage Include="Service References\RunMonitorGroupService\" />
+    <WCFMetadataStorage Include="Service References\RunVehicleLocationService\" />
+    <WCFMetadataStorage Include="Service References\SecuritySuiteService\" />
+    <WCFMetadataStorage Include="Service References\LogService\" />
+    <WCFMetadataStorage Include="Service References\SystemRubbishService\" />
+    <WCFMetadataStorage Include="Service References\TrafficManageService\" />
+    <WCFMetadataStorage Include="Service References\MessageServiceExt\" />
+    <WCFMetadataStorage Include="Service References\VedioService\" />
+    <WCFMetadataStorage Include="Service References\VehicleAlarmService\" />
+    <WCFMetadataStorage Include="Service References\VehicleAlertService\" />
+    <WCFMetadataStorage Include="Service References\VehicleMonitorService\" />
+    <WCFMetadataStorage Include="Service References\VehicleService\" />
+    <WCFMetadataStorage Include="Service References\VehicleStatusService\" />
+    <WCFMetadataStorage Include="Service References\WorkingSuiteService\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\AccountService\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\DistrictService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\DistrictService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\DistrictService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\InstallStationService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\InstallStationService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\InstallStationService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\DeviceAlertService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\DeviceAlertService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\DeviceAlertService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SecuritySuiteService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SecuritySuiteService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SecuritySuiteService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\TrafficManageService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\OrganizationService\" />
+    <None Include="Service References\TrafficManageService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\TrafficManageService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\VedioService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\VedioService\configuration.svcinfo">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\VedioService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\VehicleAlarmService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\VehicleAlarmService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\VehicleAlarmService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\VehicleMonitorService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\VehicleMonitorService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\VehicleMonitorService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\VehicleService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\VehicleService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\VehicleService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\WorkingSuiteService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\WorkingSuiteService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\WorkingSuiteService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\AppConfigService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\AppConfigService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\AppConfigService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\VehicleStatusService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\VehicleStatusService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\VehicleStatusService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{A1591282-1198-4647-A2B1-27E5FF5F6F3B}">
+        <SilverlightProjectProperties />
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

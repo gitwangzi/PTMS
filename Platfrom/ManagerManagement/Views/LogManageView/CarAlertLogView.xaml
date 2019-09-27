@@ -1,0 +1,127 @@
+﻿<UserControl x:Class="Gsafety.PTMS.Manager.Views.LogManageView.CarAlertLogView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk" 
+    xmlns:toolkit="http://schemas.microsoft.com/winfx/2006/xaml/presentation/toolkit"  
+    xmlns:dp="clr-namespace:Gsafety.Common.Controls;assembly=CommonControls"
+
+    xmlns:lc="clr-namespace:Gsafety.PTMS.Bases.Enums;assembly=Enums"
+    mc:Ignorable="d"
+    d:DesignHeight="800" d:DesignWidth="1000">
+    <UserControl.Resources>
+        <lc:BusinessAlertTypeConverter x:Key="localize"></lc:BusinessAlertTypeConverter>
+        <lc:VehicleConverter x:Key="vihcle"></lc:VehicleConverter>
+    </UserControl.Resources>
+
+
+    <!--<toolkit:BusyIndicator x:Name="dataLoading" IsBusy="{Binding IsBusy}"  Style="{StaticResource BusyIndicatorRoundedStyle}" >-->
+    <Grid x:Name="LayoutRoot">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="85"/>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="28"/>
+        </Grid.RowDefinitions>
+        <Border BorderThickness="0,1,0,1" Style="{StaticResource TopBorderStyle}" Height="40" Grid.RowSpan="3" Grid.Row="0"  VerticalAlignment="Top" >
+        </Border>
+        <Image Margin="10,0,0,0" Stretch="None" VerticalAlignment="Center" HorizontalAlignment="Left" Source="/ExternalResource;component/Images/navigation.png"/>
+        <TextBlock  Text="{Binding [MANAGER_CarAlertLog], Source={StaticResource SR}}" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="36,0,0,0" Style="{StaticResource MainPage_Main_tle_TextBlockStyle}"/>
+        <Border Style="{StaticResource GridBorderStyle}" Grid.Row="1" >
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="40"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="150"/>
+                    <ColumnDefinition Width="200"/>
+                    <ColumnDefinition Width="180"/>
+                    <ColumnDefinition Width="200"/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="2"/>
+                    <ColumnDefinition Width="180"/>
+                </Grid.ColumnDefinitions>
+                <!--VehicleID-->
+                <TextBlock Grid.Column="0" HorizontalAlignment="Right" Text="{Binding [MANAGER_VehicleID], Source={StaticResource SR}}" VerticalAlignment="Center" Style="{StaticResource MainPage_Main_search_TextBlockStyle}" Margin="0,0,5,0"/>
+                <TextBox Name="vehicle" Grid.Column="1" TabIndex="1" MaxLength="20" Text="{Binding VehicleId, Mode=TwoWay}"  HorizontalAlignment="Left" VerticalAlignment="Center" Width="170"  Style="{StaticResource MainPage_Main_TextBoxStyle}" Margin="5,0,0,0"/>
+
+                <!-- User_UserName-->
+                <TextBlock Grid.Column="2" HorizontalAlignment="Right" Text="{Binding [MANAGER_DealPerson], Source={StaticResource SR}}" VerticalAlignment="Center" Style="{StaticResource MainPage_Main_search_TextBlockStyle}" Margin="0,0,5,0"/>
+                <TextBox Name="user" Grid.Column="3" TabIndex="1" MaxLength="80" Text="{Binding UserName, Mode=TwoWay}"  HorizontalAlignment="Left" VerticalAlignment="Center" Width="170"  Style="{StaticResource MainPage_Main_TextBoxStyle}" Margin="5,0,0,0"/>
+
+                <!--StartTime-->
+                <TextBlock HorizontalAlignment="Right" Text="{Binding [MANAGER_StartTime], Source={StaticResource SR}}" VerticalAlignment="Center" Style="{StaticResource MainPage_Main_search_TextBlockStyle}" Grid.Row="1" Margin="0,0,5,0" />
+                <dp:DatePickerExp  x:Name="startDatePicker" SelectedDate="{Binding StartTime, Mode=TwoWay}" DisplayDateEnd="{Binding ElementName=endDatePicker, Path=SelectedDate}"   HorizontalAlignment="Left" VerticalAlignment="Center" Width="170"   Grid.Column="1"  Grid.Row="1"  Margin="5,0,0,0"/>
+
+                <!--EndTime-->
+                <TextBlock Grid.Column="2" HorizontalAlignment="Right"  Text="{Binding [MANAGER_EndTime], Source={StaticResource SR}}" VerticalAlignment="Center" Style="{StaticResource MainPage_Main_search_TextBlockStyle}" Grid.Row="1"  Margin="0,0,5,0"/>
+                <dp:DatePickerExp  Name="endDatePicker" DisplayDateStart="{Binding ElementName=startDatePicker, Path=SelectedDate}" SelectedDate="{Binding EndTime, Mode=TwoWay}" HorizontalAlignment="Left"  VerticalAlignment="Center" Width="170" Grid.Column="3" Grid.Row="1" Margin="5,0,0,0"/>
+                <Image HorizontalAlignment="Left" Grid.RowSpan="2" VerticalAlignment="Center" Grid.Column="5" Width="2" Source="/ExternalResource;component/Images/MainPage_line.png"/>
+                <!--QueryButton-->
+                <Button TabIndex="2" Name="searchButton" Command="{Binding QueryCommand}" Tag="{Binding [Query], Source={StaticResource SR}}" HorizontalAlignment="Right"  VerticalAlignment="Center" Grid.Column="6" Grid.RowSpan="2" Style="{StaticResource Search_ButtonStyle}" Margin="30,0,40,0">
+                    <Image Source="/ExternalResource;component/Images/MainPage_search.png" Stretch="Fill" Width="14" Height="14"/>
+                </Button>
+            </Grid>
+        </Border>
+
+        <Border VerticalAlignment="Top" Grid.Row="2" Margin="0" Style="{StaticResource MiddleBorderStyle}" Height="35">
+        </Border>
+        <Image Grid.Row="2" Margin="10,0,0,0" Stretch="None" VerticalAlignment="Center" HorizontalAlignment="Left" Source="/ExternalResource;component/Images/navigation.png"/>
+        <TextBlock Grid.Row="2"  Text="{Binding [LogList], Source={StaticResource SR}}" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="36,0,0,0" Style="{StaticResource MainPage_Main_tle_TextBlockStyle}"/>
+        <Button Grid.Row="2" Margin="0,0,20,0" HorizontalAlignment="Right" MinWidth="100" Tag="{Binding [MANAGER_Export], Source={StaticResource SR}}"  Command="{Binding ExportCommand}" IsEnabled="{Binding ExportBtnStatus}" VerticalAlignment="Center" Style="{StaticResource Main_center_ButtonStyle}">
+            <Image Source="/ExternalResource;component/Images/Main_export.png" Stretch="Fill" Width="22" Height="22"/>
+        </Button>
+        <Border Style="{StaticResource BottonBorderStyle}" BorderThickness="1" Height="25" Grid.Row="4"  VerticalAlignment="Center" Width="Auto">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,0,0">
+                <TextBlock HorizontalAlignment="Left" Margin="0,0,5,0" Grid.Row="4"  Text="{Binding [PageSize], Source={StaticResource SR}}" VerticalAlignment="Center" Style="{StaticResource DataGrid_Page_TextBlockStyle}"/>
+                <ComboBox SelectedItem="{Binding PageSizeValue,Mode=TwoWay}"   ItemsSource="{Binding PageSizeList}" HorizontalAlignment="Left" Height="25" Margin="0,0,0,0" VerticalAlignment="Center" Width="50" Style="{StaticResource DataGrid_Page_ComboBoxStyle}"/>
+                <sdk:DataPager PageIndex="-1" Name="DataPager1" IsTotalItemCountFixed="True"   Height="25" Margin="0,0,0,0" PageSize="{Binding PageSizeValue,Mode=TwoWay}" Grid.Row="1" Source="{Binding LogInfoPage, Mode=TwoWay}" VerticalAlignment="Center" HorizontalAlignment="Center" />
+            </StackPanel>
+        </Border>
+        <!--LogList-->
+        <sdk:DataGrid x:Name="LogDataGrid" IsReadOnly="True" Grid.Row="3" AutoGenerateColumns="False"  ItemsSource="{Binding LogInfoPage}" SelectedItem="{Binding CurrentLog, Mode=TwoWay}" Background="Transparent"
+                      ColumnHeaderStyle="{StaticResource DataGridColumnHeaderStyle}" CellStyle="{StaticResource DataGridCellStyle}" GridLinesVisibility="Horizontal" HorizontalGridLinesBrush="#FFDCDAD5" RowStyle="{StaticResource DataGridRowStyle}">
+            <sdk:DataGrid.Columns>
+                <!--VehcileID-->
+                <sdk:DataGridTextColumn Header="MANAGER_VehicleID"  Binding="{Binding CarNumber, Mode=TwoWay}" CanUserSort="True" Width="2*" >
+
+                </sdk:DataGridTextColumn>
+                <!--VehcleType-->
+                <sdk:DataGridTextColumn Binding="{Binding VihcleType, ConverterParameter=VihcleType, Converter={ StaticResource  vihcle}}" Header="MONITOR_VehicleType" CanUserSort="True" Width="1.5*" >
+
+                </sdk:DataGridTextColumn>
+                <!--DealTime-->
+                <sdk:DataGridTextColumn Binding="{Binding DealTime, StringFormat='dd/MM/yyyy HH:mm:ss'}" Header="MANAGER_DealTime" CanUserSort="True" Width="3*" >
+
+                </sdk:DataGridTextColumn>
+                <!--Operator-->
+                <sdk:DataGridTextColumn Binding="{Binding DealPerson}" Header="MANAGER_DealPerson" CanUserSort="True" Width="2*" >
+
+                </sdk:DataGridTextColumn>
+                <!--AlertTime-->
+                <sdk:DataGridTextColumn Binding="{Binding AlertTime, StringFormat='dd/MM/yyyy HH:mm:ss'}" Header="MANAGER_AlertTime" CanUserSort="True" Width="3*" >
+
+                </sdk:DataGridTextColumn>
+                <!--AlertType-->
+                <sdk:DataGridTextColumn Binding="{Binding AlertType, ConverterParameter=AlertType, Converter={ StaticResource  localize}}" Header="MANAGER_AlertType" CanUserSort="True" Width="3*" >
+
+                </sdk:DataGridTextColumn>
+
+                <!--MANAGER_DealContent-->
+                <sdk:DataGridTemplateColumn Header="MANAGER_DealContent" Width="3*" CanUserSort="True" >
+                    <sdk:DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding DealContent,Mode=TwoWay}" ToolTipService.ToolTip="{Binding DealContent,Mode=TwoWay}"></TextBlock>
+                        </DataTemplate>
+                    </sdk:DataGridTemplateColumn.CellTemplate>
+
+                </sdk:DataGridTemplateColumn>
+            </sdk:DataGrid.Columns>
+        </sdk:DataGrid>
+    </Grid>
+
+    <!--</toolkit:BusyIndicator>-->
+</UserControl>

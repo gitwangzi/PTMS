@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="efa7075a-703f-4235-b320-c930bd385530" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>true</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.ObjectModel.ObservableCollection`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>false</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:2258/BscDevSuiteService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="BscDevSuiteService.xsd" MetadataType="Schema" ID="2195e5df-0023-4684-a0b3-37100c49d2ef" SourceId="1" SourceUrl="http://localhost:2258/BscDevSuiteService.svc?xsd=xsd4" />
+    <MetadataFile FileName="BscDevSuiteService.disco" MetadataType="Disco" ID="95b8ba8b-4163-4a38-bbb4-cd2d3649d2fb" SourceId="1" SourceUrl="http://localhost:2258/BscDevSuiteService.svc?disco" />
+    <MetadataFile FileName="BscDevSuiteService1.xsd" MetadataType="Schema" ID="9fecadc8-33fa-4c66-8964-e7dc086f7dbb" SourceId="1" SourceUrl="http://localhost:2258/BscDevSuiteService.svc?xsd=xsd0" />
+    <MetadataFile FileName="BscDevSuiteService2.xsd" MetadataType="Schema" ID="e089cbd9-7bd1-48bc-92dc-dc5ca997a6cd" SourceId="1" SourceUrl="http://localhost:2258/BscDevSuiteService.svc?xsd=xsd1" />
+    <MetadataFile FileName="BscDevSuiteService3.xsd" MetadataType="Schema" ID="cc2f1499-e3d0-4d70-8f29-00a89baefc92" SourceId="1" SourceUrl="http://localhost:2258/BscDevSuiteService.svc?xsd=xsd2" />
+    <MetadataFile FileName="BscDevSuiteService4.xsd" MetadataType="Schema" ID="9e06f50f-eaa2-44e8-9638-ede35fc36012" SourceId="1" SourceUrl="http://localhost:2258/BscDevSuiteService.svc?xsd=xsd3" />
+    <MetadataFile FileName="BscDevSuiteService.wsdl" MetadataType="Wsdl" ID="9582877c-d2f6-4aad-b97a-269b65fe223a" SourceId="1" SourceUrl="http://localhost:2258/BscDevSuiteService.svc?wsdl" />
+    <MetadataFile FileName="BscDevSuiteService5.xsd" MetadataType="Schema" ID="d8ebe7ad-a6a8-4f09-a32a-4e22e58f55cf" SourceId="1" SourceUrl="http://localhost:2258/BscDevSuiteService.svc?xsd=xsd5" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

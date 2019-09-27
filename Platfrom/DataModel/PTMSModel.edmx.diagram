@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="9b1e159fa60841109515660f3860eeb4" Name="关系图1" ZoomLevel="72">
+        <EntityTypeShape EntityType="PTMSModel.ALM_911_DISPOSE" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PTMSModel.ALM_ALARM_DISPOSE" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PTMSModel.ALM_ALARM_NOTE" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PTMSModel.ALM_ALARM_RECORD" Width="1.5" PointX="4.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PTMSModel.ALT_BUSINESS_ALERT" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PTMSModel.ALT_BUSINESS_ALERT_HANDLE" Width="1.5" PointX="0.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PTMSModel.ALT_DEVICE_ALERT" Width="1.5" PointX="6.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PTMSModel.ALT_DEVICE_ALERT_CHECK" Width="1.5" PointX="8.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PTMSModel.BSC_CHAUFFEUR" Width="1.5" PointX="8.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PTMSModel.BSC_DEV_GPS" Width="1.5" PointX="8.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PTMSModel.BSC_DEV_SUITE" Width="1.5" PointX="0.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PTMSModel.BSC_DEV_SUITE_PART" Width="1.5" PointX="10.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PTMSModel.BSC_DISTRICT" Width="1.5" PointX="2.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PTMSModel.BSC_GEO_POI" Width="1.5" PointX="10.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PTMSModel.BSC_INSTALLATION_STAFF" Width="1.5" PointX="10.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PTMSModel.BSC_ORDER_CLIENT" Width="1.5" PointX="12.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PTMSModel.BSC_SETUP_STATION" Width="1.5" PointX="4.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PTMSModel.BSC_SETUPSTATION_USER" Width="1.5" PointX="12.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PTMSModel.BSC_VEHICLE" Width="1.5" PointX="6.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PTMSModel.BSC_VEHICLE_CHAUFFEUR" Width="1.5" PointX="12.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PTMSModel.BSC_VEHICLE_SPEEDCOLOR" Width="1.5" PointX="8.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PTMSModel.BSC_VEHICLE_TYPE" Width="1.5" PointX="10.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PTMSModel.CFG_APP_CONFIG" Width="1.5" PointX="12.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PTMSModel.CFG_TRANSFER_MAPPING" Width="1.5" PointX="14.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PTMSModel.LOG_ACCESS" Width="1.5" PointX="0.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PTMSModel.LOG_DATA" Width="1.5" PointX="14.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PTMSModel.LOG_MANAGER" Width="1.5" PointX="14.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PTMSModel.LOG_OPERATE" Width="1.5" PointX="14.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PTMSModel.LOG_VIDEO" Width="1.5" PointX="16.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PTMSModel.MDI_ALARM_VIDEO" Width="1.5" PointX="16.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PTMSModel.MDI_DOWNLOAD_VIDEO" Width="1.5" PointX="8.75" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PTMSModel.MDI_LIVE_VIDEO" Width="1.5" PointX="16.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PTMSModel.MDI_PHOTOGRAPH" Width="1.5" PointX="10.75" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PTMSModel.MTN_GPS_INSTALLATION_DETAIL" Width="1.5" PointX="16.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PTMSModel.MTN_INSTALLATION_AUDIT" Width="1.5" PointX="2.75" PointY="17.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PTMSModel.MTN_INSTALLATION_DETAIL" Width="1.5" PointX="18.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PTMSModel.MTN_MAINTAIN_APPLICATION" Width="1.5" PointX="18.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PTMSModel.MTN_MAINTAIN_RECORD" Width="1.5" PointX="4.75" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PTMSModel.MTN_MDVR_REGISTER" Width="1.5" PointX="18.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PTMSModel.MTN_PART_AUDIT" Width="1.5" PointX="12.75" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PTMSModel.MTN_VIDEO_UPLOAD_COMMAND" Width="1.5" PointX="18.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PTMSModel.RUN_APP_MESSAGE" Width="1.5" PointX="18.75" PointY="17.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PTMSModel.RUN_APP_ONLINE_RECORD" Width="1.5" PointX="14.75" PointY="19.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PTMSModel.RUN_APPMESSAGE_VEHICLE" Width="1.5" PointX="20.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PTMSModel.RUN_FOUND_REGISTRY" Width="1.5" PointX="20.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PTMSModel.RUN_GPS_ONLINE_RECORD" Width="1.5" PointX="20.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PTMSModel.RUN_GPS_STATUS_CHANGE" Width="1.5" PointX="20.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PTMSModel.RUN_GPS_WORKING" Width="1.5" PointX="20.75" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PTMSModel.RUN_LOST_REGISTRY" Width="1.5" PointX="0.75" PointY="21.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PTMSModel.RUN_MDVR_MESSAGE" Width="1.5" PointX="16.75" PointY="21.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PTMSModel.RUN_MDVRMESSAGE_VEHICLE" Width="1.5" PointX="22.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PTMSModel.RUN_MOBILE_WORKING" Width="1.5" PointX="2.75" PointY="22.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PTMSModel.RUN_MONITOR_GROUP" Width="1.5" PointX="22.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PTMSModel.RUN_MONITOR_GROUP_VEHICLE" Width="1.5" PointX="4.75" PointY="22.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PTMSModel.RUN_SUITE_ONLINE_RECORD" Width="1.5" PointX="22.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PTMSModel.RUN_SUITE_STATUS_CHANGE" Width="1.5" PointX="10.75" PointY="22.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PTMSModel.RUN_SUITE_WORKING" Width="1.5" PointX="22.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PTMSModel.RUN_TAKEPICTURE" Width="1.5" PointX="22.75" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PTMSModel.RUN_USER_ONLINE" Width="1.5" PointX="18.75" PointY="22.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PTMSModel.RUN_VEHICLE_LOCATION" Width="1.5" PointX="20.75" PointY="22.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PTMSModel.RUN_VEHICLE_ONLINE_TIME" Width="1.5" PointX="22.75" PointY="21.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PTMSModel.RUN_VIDEO_QUERY" Width="1.5" PointX="6.75" PointY="23.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PTMSModel.TRF_COMMAND_PARAM" Width="1.5" PointX="12.75" PointY="23.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PTMSModel.TRF_COMMAND_VEHICLE" Width="1.5" PointX="24.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PTMSModel.TRF_FENCE" Width="1.5" PointX="24.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PTMSModel.TRF_FENCE_QUEUE" Width="1.5" PointX="24.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PTMSModel.TRF_ROUTE" Width="1.5" PointX="24.75" PointY="17.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PTMSModel.TRF_ROUTE_QUEUE" Width="1.5" PointX="24.75" PointY="22.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PTMSModel.TRF_SOFTWARE_VERSION" Width="1.5" PointX="0.75" PointY="25.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PTMSModel.TRF_UPGRADE_RECORD" Width="1.5" PointX="2.75" PointY="25.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PTMSModel.USR_DEPARTMENT" Width="1.5" PointX="14.75" PointY="25.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PTMSModel.USR_FUNC_ITEM" Width="1.5" PointX="16.75" PointY="25.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PTMSModel.USR_GUSER" Width="1.5" PointX="26.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PTMSModel.USR_ORGANIZATION" Width="1.5" PointX="26.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PTMSModel.USR_ORGANIZATION_USER" Width="1.5" PointX="8.75" PointY="26.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PTMSModel.USR_ROLE" Width="1.5" PointX="26.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PTMSModel.USR_ROLE_FUNCS" Width="1.5" PointX="26.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PTMSModel.ALARM_UNHANDLED_VIEW" Width="1.5" PointX="26.75" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PTMSModel.BSC_GPS_VIEW" Width="1.5" PointX="26.75" PointY="22.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PTMSModel.BSC_SUITE_VIEW" Width="1.5" PointX="26.75" PointY="26.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PTMSModel.BUSINESS_ALERT_UNHANDLED_VIEW" Width="1.5" PointX="4.75" PointY="27.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PTMSModel.BUSINESS_ALERT_VIEW" Width="1.5" PointX="18.75" PointY="27.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PTMSModel.DEVICEALERT_VECHILESER_VIEW" Width="1.5" PointX="20.75" PointY="27.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PTMSModel.DISTRICT_LEVEL_VIEW" Width="1.5" PointX="28.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PTMSModel.INSTALL_STATISTICS_VIEW" Width="1.5" PointX="28.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PTMSModel.INSTALL_SUITE_INFO_VIEW" Width="1.5" PointX="28.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PTMSModel.INSTALLATION_VIEW" Width="1.5" PointX="10.75" PointY="28.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PTMSModel.MNT_MAINTAINRECORD_UNFINISHED" Width="1.5" PointX="28.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PTMSModel.STATUS_CHANGING_VIEW" Width="1.5" PointX="28.75" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PTMSModel.SUITE_SOFTWARE_VERSION_VIEW" Width="1.5" PointX="28.75" PointY="19.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PTMSModel.SUITE_UPGRADE_RECORD_VIEW" Width="1.5" PointX="22.75" PointY="28.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PTMSModel.SUITE_VIEW" Width="1.5" PointX="28.75" PointY="23.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PTMSModel.TRF_FENCEQUEUE_DELETED" Width="1.5" PointX="6.75" PointY="29.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PTMSModel.TRF_FENCEQUEUE_DELETEFENCEID" Width="1.5" PointX="12.75" PointY="29.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PTMSModel.TRF_FENCEQUEUE_INVALIDID" Width="1.5" PointX="14.75" PointY="29.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PTMSModel.TRF_FENCEQUEUE_ONVEHICLE" Width="1.5" PointX="28.75" PointY="29.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PTMSModel.TRF_FENCEQUEUE_SUCCEEDID" Width="1.5" PointX="30.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PTMSModel.TRF_FENCEQUEUE_TOVEHICLE" Width="1.5" PointX="30.75" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PTMSModel.TRF_ROUTEQUEUE_DELETED" Width="1.5" PointX="30.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PTMSModel.TRF_ROUTEQUEUE_DELETEID" Width="1.5" PointX="30.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PTMSModel.TRF_ROUTEQUEUE_INVALIDID" Width="1.5" PointX="30.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PTMSModel.TRF_ROUTEQUEUE_ONVEHCILE" Width="1.5" PointX="30.75" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PTMSModel.TRF_ROUTEQUEUE_SUCCEEDID" Width="1.5" PointX="30.75" PointY="22.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PTMSModel.TRF_ROUTEQUEUE_TOVEHICLE" Width="1.5" PointX="30.75" PointY="24.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PTMSModel.VEHICLE_ONLINE_TIME_VIEW" Width="1.5" PointX="30.75" PointY="30.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PTMSModel.VEHICLE_STATUS_VIEW" Width="1.5" PointX="0.75" PointY="31.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PTMSModel.VEHICLE_WORKING_VIEW" Width="1.5" PointX="12.75" PointY="31.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PTMSModel.VEHICLEGPS_VIEW" Width="1.5" PointX="14.75" PointY="31.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PTMSModel.ALM_ALARM_MAIL" Width="1.5" PointX="8.2300398313580256" PointY="6.6622712941198943" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="eb492758-cb57-493d-b72e-2016cb2226b1" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>true</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.ObjectModel.ObservableCollection`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>false</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:2258/LogManageService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="LogManageService.wsdl" MetadataType="Wsdl" ID="45d9bfef-6116-4710-b517-fa0420480ff9" SourceId="1" SourceUrl="http://localhost:2258/LogManageService.svc?wsdl" />
+    <MetadataFile FileName="LogManageService.xsd" MetadataType="Schema" ID="b23541c0-7e77-49bf-8914-b87774d9dac0" SourceId="1" SourceUrl="http://localhost:2258/LogManageService.svc?xsd=xsd0" />
+    <MetadataFile FileName="LogManageService.disco" MetadataType="Disco" ID="736e5b85-6ff7-400f-a210-ddd98ef46d83" SourceId="1" SourceUrl="http://localhost:2258/LogManageService.svc?disco" />
+    <MetadataFile FileName="LogManageService1.xsd" MetadataType="Schema" ID="155452ec-ce61-4a9a-bd51-b87d8881bb72" SourceId="1" SourceUrl="http://localhost:2258/LogManageService.svc?xsd=xsd5" />
+    <MetadataFile FileName="LogManageService2.xsd" MetadataType="Schema" ID="68f56d16-f1f0-40ed-8819-392d45c036d9" SourceId="1" SourceUrl="http://localhost:2258/LogManageService.svc?xsd=xsd3" />
+    <MetadataFile FileName="LogManageService3.xsd" MetadataType="Schema" ID="e1c4b466-b696-4eaf-a4fb-60ca6682dae8" SourceId="1" SourceUrl="http://localhost:2258/LogManageService.svc?xsd=xsd1" />
+    <MetadataFile FileName="LogManageService4.xsd" MetadataType="Schema" ID="52293955-b2f7-4ad4-a5ed-827a1a61bcb4" SourceId="1" SourceUrl="http://localhost:2258/LogManageService.svc?xsd=xsd2" />
+    <MetadataFile FileName="LogManageService5.xsd" MetadataType="Schema" ID="3b085a82-3a3d-4ecb-9414-3d344c80fc03" SourceId="1" SourceUrl="http://localhost:2258/LogManageService.svc?xsd=xsd4" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

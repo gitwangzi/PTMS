@@ -1,0 +1,211 @@
+﻿<UserControl xmlns:Controls="clr-namespace:Gsafety.Common.Controls;assembly=CommonControls"  xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"  
+             x:Class="Gsafety.PTMS.Installation.Views.InstallStatisticsView"
+            xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+            xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+            xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+            xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+            xmlns:Converts="clr-namespace:Gsafety.Common.Converts;assembly=Converts"
+            mc:Ignorable="d"
+            d:DesignHeight="800" d:DesignWidth="1000">
+    <UserControl.Resources>
+        <Converts:PassConverter x:Key="PassConverter"/>
+        <Converts:LanguageToImage x:Key="LanguageToImage"/>
+    </UserControl.Resources>
+    <Grid x:Name="LayoutRoot" Style="{StaticResource ContentGridWhiteStyle}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="28"/>
+        </Grid.RowDefinitions>
+
+        <Grid Style="{StaticResource ViewFirstTitleWhiteGridStyle}"
+              Height="40"
+              Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="20"/>
+            </Grid.ColumnDefinitions>
+
+            <Image Grid.Column="0" Style="{StaticResource TitleImageStyle}"/>
+
+            <TextBlock Text="{Binding [InstalledVehicleStatistics], Source={StaticResource SR}}" 
+                       Style="{StaticResource SecondTitleTextBlockStyle}"
+                       Grid.Column="1"/>
+        </Grid>
+
+        <Grid  Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="1.2*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="1.2*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="1.2*"/>
+                <ColumnDefinition Width="0.3*"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="20"/>
+            </Grid.ColumnDefinitions>
+            <!--License plate number-->
+            <TextBlock Text="{Binding [MANAGE_InstallStation], Source={StaticResource SR}}" 
+            	        Grid.Column="0"
+            	        Grid.Row="0"
+            	        HorizontalAlignment="Right"
+            	        VerticalAlignment="Center" Margin="0,5,5,5"/>
+
+            <ComboBox Grid.Row="0" Grid.Column="1" Margin="0,5,0,5"                 
+                                  ItemsSource="{Binding InstallStations}"
+                                  DisplayMemberPath="Name" Style="{StaticResource lightComboBox}"
+                                  SelectedItem="{Binding InstallStation,Mode=TwoWay}"
+                                  HorizontalAlignment="Stretch"
+                                  VerticalAlignment="Center"
+                        Name="comboStatus"
+                                 />
+            <!--Security Suite No.-->
+            <TextBlock Text="{Binding [ALARM_VehicleType], Source={StaticResource SR}}" 
+                               HorizontalAlignment="Right"
+                               VerticalAlignment="Center" Grid.Column="2"
+                       Margin="0,5,5,5"/>
+
+            <ComboBox Grid.Column="3"
+                              Height="25" Style="{StaticResource lightComboBox}"
+                               Name="combVehicleType" ItemsSource="{Binding VehicleTypes}"
+                                  DisplayMemberPath="Name"
+                                  SelectedItem="{Binding VehicleType,Mode=TwoWay}"
+                      Margin="0,5,0,5"/>
+
+            <TextBlock Text="{Binding [BelongOrganizationName], Source={StaticResource SR}}" 
+                               Grid.Row="0"
+                               Grid.Column="4"
+                               HorizontalAlignment="Right"
+                               VerticalAlignment="Center"
+                               Margin="0,5,5,5"  />
+            <Grid Grid.Row="0"
+                      Grid.Column="5">
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBox Grid.Column="0"
+                         HorizontalAlignment="Stretch"
+                         VerticalAlignment="Center"
+                         Margin="0,5,0,5"
+                         IsReadOnly="True" 
+                         Text="{Binding OrganizationName, Mode=TwoWay}"/>
+
+                <Button 
+                        Grid.Column="1"
+                        Style="{StaticResource SelectOrganizationWindowButtonCommonStyle}"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Stretch"
+                        Margin="0,5,0,5"
+                        ToolTipService.ToolTip="{Binding [PleaseSelectOrganization], Source={StaticResource SR}}"
+                        Command="{Binding SelectOrganizationCommand}"/>
+
+
+            </Grid>
+
+            <!--Start Date-->
+            <TextBlock  Grid.Column="0" Grid.Row="1" HorizontalAlignment="Right" Margin="0,5,5,5" TextWrapping="Wrap" 
+                        Text="{Binding [ID_INSTALL_StartDate], Source={StaticResource SR}}"
+                        VerticalAlignment="Center" />
+
+            <Controls:DatePickerEx x:Name="startDatePicker"  IsReadOnly="True"
+                                   Grid.Row="1" Grid.Column="1" Style="{StaticResource lightDatePicker}"
+                                   HorizontalAlignment="Stretch"  
+                                   VerticalAlignment="Center" Margin="0,5,0,5"
+                SelectedDate="{Binding BeginTime, Mode=TwoWay, ValidatesOnExceptions=True, ValidatesOnDataErrors=True}" />
+            <!--End Date-->
+            <TextBlock  Grid.Column="2" Grid.Row="1" HorizontalAlignment="Right" Margin="0,5,5,5" TextWrapping="Wrap" 
+                        Text="{Binding [ID_INSTALL_EndDate], Source={StaticResource SR}}" VerticalAlignment="Center" />
+
+            <Controls:DatePickerEx x:Name="endDatePicker"  
+                                   Grid.Row="1" Grid.Column="3" 
+                                   HorizontalAlignment="Stretch" 
+                                   VerticalAlignment="Center" 
+                                   Margin="0,5,0,5"
+                IsReadOnly="True" Style="{StaticResource lightDatePicker}"
+                                   SelectedDate="{Binding EndTime, Mode=TwoWay}" DisplayDateEnd="{Binding Now}" />
+            <!--<Image HorizontalAlignment="Left" Grid.RowSpan="2" VerticalAlignment="Center" Grid.Column="6" Width="2" Height="62" Source="/ExternalResource;component/Images/MainPage_line.png"/>-->
+            <!--Query button-->
+            <!--<Button TabIndex="5" x:Name="btnQuery"  
+                    Command="{Binding QueryCommand}" 
+                    Tag="{Binding [ID_INSTALL_Query], Source={StaticResource SR}}" 
+                    HorizontalAlignment="Right" Margin="0,0,40,0" 
+                    VerticalAlignment="Center" Grid.Column="7" 
+                    Grid.RowSpan="2" 
+                    Style="{StaticResource Search_ButtonStyle}">
+                <Image x:Name="imQuery" Source="/ExternalResource;component/Images/MainPage_search.png" Stretch="Fill" Width="14" Height="14"/>
+            </Button>-->
+
+            <Button TabIndex="5" x:Name="btnQuery"  
+                    Command="{Binding BtnSearchCommand}" 
+                    Tag="{Binding [ID_INSTALL_Query], Source={StaticResource SR}}" 
+                    HorizontalAlignment="Left" Margin="10,5,0,5" 
+                    VerticalAlignment="Center" Grid.Column="4" 
+                    Grid.Row="1"
+                    IsEnabled="{Binding IsTrue}"
+                    ToolTipService.ToolTip="{Binding [Search], Source={StaticResource SR}}"
+                    Style="{StaticResource SearchButtonCommonStyle}">
+            </Button>
+
+
+
+        </Grid>
+
+        <Grid Grid.Row="2" Style="{StaticResource ViewFirstTitleWhiteGridStyle}">
+            <!--<Image VerticalAlignment="Center" HorizontalAlignment="Left" Style="{StaticResource TitleImageStyle}"  Stretch="None"/>
+            <TextBlock Style="{StaticResource SecondTitleTextBlockStyle}"  TextWrapping="Wrap" Text="{Binding [ID_INSTALL_Menu_uncompleteHistoryRecordList], Source={StaticResource SR}}" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="36,0,0,0"/>-->
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="20"/>
+            </Grid.ColumnDefinitions>
+
+            <Image Grid.Column="0" Style="{StaticResource TitleImageStyle}"/>
+
+            <TextBlock Text="{Binding [Rpt_Result], Source={StaticResource SR}}" 
+                       Style="{StaticResource SecondTitleTextBlockStyle}"
+                       Grid.Column="1"/>
+
+        </Grid>
+
+        <!--<sdk:DataGrid  x:Name="SuiteDataGrid" IsReadOnly="True" 
+                       Grid.Row="3" AutoGenerateColumns="False" 
+                       SelectedItem="{Binding CurrentInstallRecord, Mode=TwoWay}" ItemsSource="{Binding SuiteModels_Imps}" Background="Transparent"
+                       ColumnHeaderStyle="{StaticResource DataGridColumnHeaderStyle}" CellStyle="{StaticResource DataGridCellStyle}"
+                       GridLinesVisibility="Horizontal" HorizontalGridLinesBrush="#FFDCDAD5" RowStyle="{StaticResource DataGridRowStyle}">-->
+        <sdk:DataGrid  x:Name="SuiteDataGrid" IsReadOnly="True" 
+                       Grid.Row="3" AutoGenerateColumns="False" 
+                     ItemsSource="{Binding Data}" 
+                       Style="{StaticResource DataGridWhiteStyleRxx}">
+
+            <sdk:DataGrid.Columns>
+                <sdk:DataGridTextColumn HeaderStyle="{StaticResource ColumnHeaderWhiteStyle}" 
+                                        Header="SUITE_SetupStationName"
+                                        Binding="{Binding StationName}" Width="2*" ></sdk:DataGridTextColumn>
+
+                <sdk:DataGridTextColumn HeaderStyle="{StaticResource ColumnHeaderWhiteStyle}"
+                                        Header="OrganizationName" 
+                                        Binding="{Binding OrganizationName}" Width="*" ></sdk:DataGridTextColumn>
+
+                <sdk:DataGridTextColumn HeaderStyle="{StaticResource ColumnHeaderWhiteStyle}" 
+                                        Header="VehicleType" Binding="{Binding VehicleType}" Width="2*" ></sdk:DataGridTextColumn>
+
+                <sdk:DataGridTextColumn HeaderStyle="{StaticResource ColumnHeaderWhiteStyle}" 
+                                        Header="Count" Binding="{Binding Count}" Width="2*" ></sdk:DataGridTextColumn>
+            </sdk:DataGrid.Columns>
+        </sdk:DataGrid>
+    </Grid>
+</UserControl>

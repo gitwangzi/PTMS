@@ -1,0 +1,34 @@
+﻿<UserControl x:Class="GisManagement.Views.ZoomToDistView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="90" d:DesignWidth="300">
+    <Border x:Name="border" RenderTransformOrigin="0.5,0" Opacity="1" CornerRadius="6" Style="{StaticResource GridBorderStyle}">
+        <Border.RenderTransform>
+            <CompositeTransform/>
+        </Border.RenderTransform>
+        <Border.Effect>
+            <DropShadowEffect ShadowDepth="3" Direction="-120" Color="#FF8A9AAC" BlurRadius="10"/>
+        </Border.Effect>
+        <Grid x:Name="LayoutRoot">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10"></ColumnDefinition>
+            <ColumnDefinition Width="80"></ColumnDefinition>
+            <ColumnDefinition Width="10"></ColumnDefinition>
+            <ColumnDefinition Width="200"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10"></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="10"></RowDefinition>
+        </Grid.RowDefinitions>
+            <TextBlock Grid.Column="1" Grid.Row="1" VerticalAlignment="Center"  Text="{Binding [GIS_Province], Source={StaticResource SR}}"  TextAlignment="Right" Style="{StaticResource MainPage_Main_search_TextBlockStyle}"></TextBlock>
+            <ComboBox Grid.Column="3" Grid.Row="1"  x:Name="cmbPrivince" HorizontalAlignment="Left" VerticalAlignment="Center" Width="180" SelectionChanged="cmbPrivince_SelectionChanged" Style="{StaticResource MainPage_Main_Search_ComboBoxStyle}"/>
+            <ComboBox Grid.Column="3" Grid.Row="2"  x:Name="cmbCity" HorizontalAlignment="Left" VerticalAlignment="Center" Width="180" SelectionChanged="cmbCity_SelectionChanged" Style="{StaticResource MainPage_Main_Search_ComboBoxStyle}"/>
+            <TextBlock Grid.Column="1" Grid.Row="2" VerticalAlignment="Center"  Text="{Binding [MAINPAGE_City], Source={StaticResource SR}}"  TextAlignment="Right" Style="{StaticResource MainPage_Main_search_TextBlockStyle}"></TextBlock>
+    </Grid>
+    </Border>
+</UserControl>

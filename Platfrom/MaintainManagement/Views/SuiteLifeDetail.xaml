@@ -1,0 +1,85 @@
+﻿<UserControl x:Class="Gsafety.PTMS.Maintain.Views.SuiteLifeDetail"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
+    xmlns:Converts="clr-namespace:Gsafety.Common.Converts;assembly=Converts"
+    mc:Ignorable="d"
+    d:DesignHeight="800" d:DesignWidth="1000">
+
+    <UserControl.Resources>
+        <Converts:LocalizedStringConverter x:Key="LocalizedString" />
+    </UserControl.Resources>
+    <Grid x:Name="LayoutRoot" Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="85"/>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="28"/>
+        </Grid.RowDefinitions>
+        <Border BorderThickness="0,1,0,1" BorderBrush="{StaticResource MenuBarLine}" Background="{StaticResource NavBarBG}"  Height="35" Grid.RowSpan="3" Grid.Row="0"  VerticalAlignment="Top" >
+        </Border>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding [SUITE_ServiceLifeView], Source={StaticResource SR}}" VerticalAlignment="Center" Margin="36,0,0,0" Style="{StaticResource Menu2TextBlock}"/>
+        <Image Stretch="None" Source="/SecuritySuiteManagement;component/Images/a07b.png" Margin="10,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" />
+        <Grid Grid.Row="1" Background="#FFd0dcea">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50*"/>
+                <RowDefinition Height="50*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition Width="150"/>
+                <ColumnDefinition Width="150"/>
+                <ColumnDefinition Width="150"/>
+                <ColumnDefinition Width="150"/>
+                <ColumnDefinition Width="50*"/>
+            </Grid.ColumnDefinitions>
+            <!--安全套件号-->
+            <TextBlock Grid.Column="1" Grid.Row="0" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,5,0" TextWrapping="Wrap" 
+                       Text="{Binding [SuiteID], Source={StaticResource SR}}" Style="{StaticResource ViewFont}"/>
+            <TextBox TabIndex="1" IsReadOnly="True" MaxLength="25" Text="{Binding CurrentItem.SuiteId, Mode=TwoWay}"  HorizontalAlignment="Left" Height="28" Margin="5,0,0,0" TextWrapping="Wrap" VerticalAlignment="Center" Width="145" Grid.Column="2"/>
+            <!--安全套件号-->
+            <TextBlock HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Column="3" Margin="0,0,5,0" TextWrapping="Wrap" 
+                       Text="{Binding [SUITE_RemainingMaintainTime], Source={StaticResource SR}}" Style="{StaticResource ViewFont}"/>
+            <TextBox TabIndex="2" IsReadOnly="True" MaxLength="25" Text="{Binding CurrentItem.WarrantyDays, Mode=TwoWay}"  HorizontalAlignment="Left" Height="28" Margin="5,0,0,0" TextWrapping="Wrap" VerticalAlignment="Center" Width="145" Grid.Column="4"/>
+            <!--设备开始使用日期-->
+            <TextBlock  Grid.Column="1" Grid.Row="1" HorizontalAlignment="Right" Margin="0,0,5,0" TextWrapping="Wrap" 
+                        Text="{Binding [SUITE_SuiteStartTime], Source={StaticResource SR}}" VerticalAlignment="Center" Style="{StaticResource ViewFont}"/>
+            <TextBox TabIndex="3" IsReadOnly="True" MaxLength="25" Text="{Binding CurrentItem.InstallationTime, Mode=TwoWay, StringFormat=yyyy-MM-dd HH:mm:ss}"  HorizontalAlignment="Left" Height="28" Margin="5,0,0,0" TextWrapping="Wrap" VerticalAlignment="Center" Width="145" Grid.Column="2" Grid.Row="1"/>
+            <!--保修期限-->
+            <TextBlock  Grid.Column="3" Grid.Row="1" HorizontalAlignment="Right" Margin="0,0,5,0" TextWrapping="Wrap" 
+                        Text="{Binding [SUITE_WarrantyTime], Source={StaticResource SR}}" VerticalAlignment="Center" Style="{StaticResource ViewFont}"/>
+            <TextBox TabIndex="4" IsReadOnly="True" MaxLength="25" Text="{Binding [SUITE_WarrantyYear], Source={StaticResource SR}}"  HorizontalAlignment="Left" Height="28" Margin="5,0,0,0" TextWrapping="Wrap" VerticalAlignment="Center" Width="145" Grid.Column="4" Grid.Row="1"/>
+        </Grid>
+        <Border BorderThickness="0,1,0,1" Height="35" Grid.Row="2"  VerticalAlignment="Top" BorderBrush="{StaticResource MenuBarLine}" Background="{StaticResource NavBarBG}" >
+        </Border>
+        <Image Stretch="None" Source="/SecuritySuiteManagement;component/Images/a07b.png" Margin="10,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="2"/>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding [SUITE_ServiceLifeDetail],Source={StaticResource SR}}" VerticalAlignment="Center" Margin="36,0,0,0" Style="{StaticResource Menu2TextBlock}" Grid.Row="2"/>
+
+        <Grid Grid.Row="3">
+            <sdk:DataGrid IsReadOnly="True" AutoGenerateColumns="False" ItemsSource="{Binding SuiteLifeDetailModels, Mode=TwoWay}" x:Name="SuiteLifeDetailGrid1">
+                <sdk:DataGrid.Columns>
+                    <sdk:DataGridTextColumn Binding="{Binding Name, Converter={StaticResource LocalizedString}}" Header="SUITE_DeviceName" CanUserSort="True" Width="Auto" />
+                    <sdk:DataGridTextColumn Binding="{Binding SN}" Header="SUITE_DeviceSN" CanUserSort="True" Width="Auto" />
+                    <sdk:DataGridTextColumn Binding="{Binding StartTime, StringFormat=yyyy-MM-dd}" Header="SUITE_DeviceStartTime" CanUserSort="True" Width="*" />
+                    <sdk:DataGridTextColumn Binding="{Binding ExpirationTime, StringFormat=yyyy-MM-dd}" Header="SUITE_ExpirationTime" CanUserSort="True" Width="*" />
+                    <sdk:DataGridTextColumn Binding="{Binding WarrantyDays}" Header="SUITE_RemainingMaintainTime" CanUserSort="True" Width="*" />
+                </sdk:DataGrid.Columns>
+            </sdk:DataGrid>
+        </Grid>
+        <Border BorderBrush="{StaticResource BorderBrushDeep}" Background="{StaticResource OptionBgColorBrush}" BorderThickness="1" Height="28" Grid.Row="4"  VerticalAlignment="Center" Width="Auto">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,0,0">
+                <!--打印报告按钮-->
+                <Button x:Name="btnPrint"  Command="{Binding PrintCommand}" Tag="{Binding [SUITE_PrintServiceLifeReport], Source={StaticResource SR}}" HorizontalAlignment="Right" VerticalAlignment="Center" MinWidth="200" Height="24" Click="btnPrint_Click">
+                    <Image x:Name="imQuery" Source="/SecuritySuiteManagement;component/Images/seach.png" Stretch="None"/>
+                </Button>
+                <!--返回按钮-->
+                <Button x:Name="btnReturn"  Command="{Binding ReturnCommand}" Tag="{Binding [Return], Source={StaticResource SR}}" HorizontalAlignment="Right" Margin="20,0,0,0" VerticalAlignment="Center" MinWidth="100" Height="24">
+                    <Image Source="/ManagerManagement;component/Images/return.png" Stretch="None"/>
+                </Button>
+            </StackPanel>
+        </Border>
+    </Grid>
+</UserControl>

@@ -1,0 +1,922 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<FuncItems>
+  <FuncItem ID="01" Name="SuperPower" URL="" Version="Basic" Module="">
+    <FuncItem ID="01-01" Name="" URL="" Version="Basic" Module="">
+      <FuncItem ID="01-01-01" Name="" URL="" Version="Basic" Module="">
+        <FuncItem ID="01-01-01-01" Name="" URL="" Version="Basic" Module="">
+          <FuncItem ID="01-01-01-01-01" Name="" URL="" Version="Basic" Module=""/>
+        </FuncItem>
+      </FuncItem>
+    </FuncItem>
+  </FuncItem>
+
+  <FuncItem ID="02" Name="SecurityMonitor" URL="" Version="Basic" Module="">
+
+    <FuncItem ID="02-01" Name="LivingMonitorMenu" URL="" Version="Basic" Module="">
+      <FuncItem ID="02-01-01-01" Name="MAINPAGE_Monitor" URL="" Version="Basic" Module="">
+        <FuncItem ID="02-01-01-01-01" Name="Detail" URL="" Version="Basic" Module="">
+        </FuncItem>
+        <FuncItem ID="02-01-01-01-02" Name="Rpt_External_Access_COLSSSP" URL="" Version="Basic" Module="">
+          <Depend ID="02-01-01-01-01"></Depend>
+        </FuncItem>
+        <FuncItem ID="02-01-01-01-03" Name="Camera_Photo" URL="" Version="Basic" Module="">
+          <Depend ID="02-01-01-01-01"></Depend>
+        </FuncItem>
+        <FuncItem ID="02-01-01-01-04" Name="MONITOR_HistoricalVideo" URL="" Version="Basic" Module="">
+          <Depend ID="02-01-01-01-01"></Depend>
+        </FuncItem>
+        <FuncItem ID="02-01-01-01-05" Name="TRAFFIC_Fence" URL="" Version="Basic" Module="">
+          <Depend ID="02-01-01-01-01"></Depend>
+        </FuncItem>
+        <FuncItem ID="02-01-01-01-06" Name="TRAFFIC_Route" URL="" Version="Basic" Module="">
+          <Depend ID="02-01-01-01-01"></Depend>
+        </FuncItem>
+        <FuncItem ID="02-01-01-01-07" Name="MONITOR_SendMessage" URL="" Version="Basic" Module="">
+          <Depend ID="02-01-01-01-01"></Depend>
+        </FuncItem>
+        <FuncItem ID="02-01-01-01-08" Name="MONITOR_AlarmByMonitor" URL="" Version="Basic" Module="">
+          <Depend ID="02-01-01-01-01"></Depend>
+        </FuncItem>
+        <FuncItem ID="02-01-01-01-09" Name="MONITOR_SendEmail" URL="" Version="Basic" Module="">
+          <Depend ID="02-01-01-01-01"></Depend>
+        </FuncItem>
+      </FuncItem>
+
+      <FuncItem ID="02-01-01-02" Name="VehicleAlarm" URL="" Version="Basic" Module="">
+        <FuncItem ID="02-01-01-02-01" Name="Detail" URL="" Version="Basic" Module="">
+        </FuncItem>
+        <FuncItem ID="02-01-01-02-02" Name="Rpt_External_Access_COLSSSP" URL="" Version="Basic" Module="">
+          <Depend ID="02-01-01-02-01"></Depend>
+        </FuncItem>
+        <FuncItem ID="02-01-01-02-03" Name="Camera_Photo" URL="" Version="Basic" Module="">
+          <Depend ID="02-01-01-02-01"></Depend>
+        </FuncItem>
+        <FuncItem ID="02-01-01-02-04" Name="MONITOR_HistoricalVideo" URL="" Version="Basic" Module="">
+          <Depend ID="02-01-01-02-01"></Depend>
+        </FuncItem>
+        <FuncItem ID="02-01-01-02-05" Name="ALARM_1Way15S" URL="" Version="Basic" Module="">
+          <Depend ID="02-01-01-02-01"></Depend>
+        </FuncItem>
+        <FuncItem ID="02-01-01-02-06" Name="TRAFFIC_Fence" URL="" Version="Basic" Module="">
+          <Depend ID="02-01-01-02-01"></Depend>
+        </FuncItem>
+        <FuncItem ID="02-01-01-02-07" Name="TRAFFIC_Route" URL="" Version="Basic" Module="">
+          <Depend ID="02-01-01-02-01"></Depend>
+        </FuncItem>
+        <FuncItem ID="02-01-01-02-08" Name="AlarmDisposed" URL="" Version="Basic" Module="">
+          <Depend ID="02-01-01-02-01"></Depend>
+        </FuncItem>
+        <FuncItem ID="02-01-01-02-09" Name="HappenLocation" URL="" Version="Basic" Module="">
+          <Depend ID="02-01-01-02-01"></Depend>
+        </FuncItem>
+        <FuncItem ID="02-01-01-02-10" Name="MONITOR_SendMessage" URL="" Version="Basic" Module="">
+          <Depend ID="02-01-01-02-01"></Depend>
+        </FuncItem>
+        <FuncItem ID="02-01-01-02-11" Name="MONITOR_SendEmail" URL="" Version="Basic" Module="">
+          <Depend ID="02-01-01-02-01"></Depend>
+        </FuncItem>
+      </FuncItem>
+
+      <FuncItem ID="02-01-01-03" Name="ALERT_VehicleAlert" URL="" Version="Basic" Module="">
+        <FuncItem ID="02-01-01-03-01" Name="Detail" URL="" Version="Basic" Module="">
+        </FuncItem>
+        <FuncItem ID="02-01-01-03-02" Name="Rpt_External_Access_COLSSSP" URL="" Version="Basic" Module="">
+          <Depend ID="02-01-01-03-01"></Depend>
+        </FuncItem>
+        <FuncItem ID="02-01-01-03-03" Name="Camera_Photo" URL="" Version="Basic" Module="">
+          <Depend ID="02-01-01-03-01"></Depend>
+        </FuncItem>
+        <FuncItem ID="02-01-01-03-04" Name="MONITOR_HistoricalVideo" URL="" Version="Basic" Module="">
+          <Depend ID="02-01-01-03-01"></Depend>
+        </FuncItem>
+        <FuncItem ID="02-01-01-03-05" Name="TRAFFIC_Fence" URL="" Version="Basic" Module="">
+          <Depend ID="02-01-01-03-01"></Depend>
+        </FuncItem>
+        <FuncItem ID="02-01-01-03-06" Name="TRAFFIC_Route" URL="" Version="Basic" Module="">
+          <Depend ID="02-01-01-03-01"></Depend>
+        </FuncItem>
+        <FuncItem ID="02-01-01-03-07" Name="AlertDisposed" URL="" Version="Basic" Module="">
+          <Depend ID="02-01-01-03-01"></Depend>
+        </FuncItem>
+        <FuncItem ID="02-01-01-03-08" Name="HappenLocation" URL="" Version="Basic" Module="">
+          <Depend ID="02-01-01-03-01"></Depend>
+        </FuncItem>
+        <FuncItem ID="02-01-01-03-09" Name="MONITOR_SendMessage" URL="" Version="Basic" Module="">
+          <Depend ID="02-01-01-03-01"></Depend>
+        </FuncItem>
+        <FuncItem ID="02-01-01-03-10" Name="MONITOR_SendEmail" URL="" Version="Basic" Module="">
+          <Depend ID="02-01-01-03-01"></Depend>
+        </FuncItem>
+      </FuncItem>
+
+      <FuncItem ID="02-01-01-04" Name="MonitorList" URL="" Version="Basic" Module="">
+        <FuncItem ID="02-01-01-04-01" Name="MonitorGroupManage" URL="" Version="Basic" Module="">
+        </FuncItem>
+        <FuncItem ID="02-01-01-04-02" Name="Rpt_External_Access_COLSSSP" URL="" Version="Basic" Module="">
+          <Depend ID="02-01-01-04-01"></Depend>
+        </FuncItem>
+        <FuncItem ID="02-01-01-04-03" Name="Camera_Photo" URL="" Version="Basic" Module="">
+          <Depend ID="02-01-01-04-01"></Depend>
+        </FuncItem>
+        <FuncItem ID="02-01-01-04-04" Name="MONITOR_HistoricalVideo" URL="" Version="Basic" Module="">
+          <Depend ID="02-01-01-04-01"></Depend>
+        </FuncItem>
+        <FuncItem ID="02-01-01-04-05" Name="TRAFFIC_Fence" URL="" Version="Basic" Module="">
+          <Depend ID="02-01-01-04-01"></Depend>
+        </FuncItem>
+        <FuncItem ID="02-01-01-04-06" Name="TRAFFIC_Route" URL="" Version="Basic" Module="">
+          <Depend ID="02-01-01-04-01"></Depend>
+        </FuncItem>
+        <FuncItem ID="02-01-01-04-07" Name="MONITOR_SendMessage" URL="" Version="Basic" Module="">
+          <Depend ID="02-01-01-04-01"></Depend>
+        </FuncItem>
+        <FuncItem ID="02-01-01-04-08" Name="MONITOR_AlarmByMonitor" URL="" Version="Basic" Module="">
+          <Depend ID="02-01-01-04-01"></Depend>
+        </FuncItem>
+      </FuncItem>
+    </FuncItem>
+
+    <FuncItem ID="02-02" Name="HistoryQueryMenu" URL="" Version="Basic" Module="">
+
+      <FuncItem ID="02-02-01-01" Name="AlarmHistory" URL="" Version="Basic" Module="">
+        <FuncItem ID="02-02-01-01-01" Name="Detail" URL="" Version="Basic" Module="">
+        </FuncItem>
+        <FuncItem ID="02-02-01-01-02" Name="MONITOR_HistoricalVideo" URL="" Version="Basic" Module="">
+          <Depend ID="02-02-01-01-01"></Depend>
+        </FuncItem>
+        <FuncItem ID="02-02-01-01-03" Name="HistoryRote" URL="" Version="Basic" Module="">
+          <Depend ID="02-02-01-01-01"></Depend>
+        </FuncItem>
+        <FuncItem ID="02-02-01-01-04" Name="Mark" URL="" Version="Basic" Module="">
+          <Depend ID="02-02-01-01-01"></Depend>
+        </FuncItem>
+      </FuncItem>
+
+      <FuncItem ID="02-02-01-02" Name="AlertHistory" URL="" Version="Basic" Module="">
+        <FuncItem ID="02-02-01-02-01" Name="Detail" URL="" Version="Basic" Module="">
+        </FuncItem>
+        <FuncItem ID="02-02-01-02-02" Name="MONITOR_HistoricalVideo" URL="" Version="Basic" Module="">
+          <Depend ID="02-02-01-02-01"></Depend>
+        </FuncItem>
+        <FuncItem ID="02-02-01-02-03" Name="HistoryRote" URL="" Version="Basic" Module="">
+          <Depend ID="02-02-01-02-01"></Depend>
+        </FuncItem>
+        <FuncItem ID="02-02-01-02-04" Name="Mark" URL="" Version="Basic" Module="">
+          <Depend ID="02-02-01-02-01"></Depend>
+        </FuncItem>
+      </FuncItem>
+
+    </FuncItem>
+
+    <FuncItem ID="02-03" Name="TrafficeManageMenu" URL="" Version="Basic" Module="">
+      <FuncItem ID="02-03-01-01" Name="TRAFFIC_ElectricFence" URL="" Version="Basic" Module="">
+        <FuncItem ID="02-03-01-01-01" Name="Detail" URL="" Version="Basic" Module="">
+        </FuncItem>
+        <FuncItem ID="02-03-01-01-02" Name="Add" URL="" Version="Basic" Module="">
+          <Depend ID="02-03-01-01-01"></Depend>
+        </FuncItem>
+        <FuncItem ID="02-03-01-01-03" Name="TRAFFIC_ElectricFence_NewVersion" URL ="" Version="Basic" Module="">
+          <Depend ID="02-03-01-01-01"></Depend>
+        </FuncItem>
+        <FuncItem ID="02-03-01-01-04" Name="TRAFFIC_ElectricFence_EditGeometry" URL ="" Version="Basic" Module="">
+          <Depend ID="02-03-01-01-01"></Depend>
+        </FuncItem>
+        <FuncItem ID="02-03-01-01-05" Name="TRAFFIC_ElectricFence_EditProperty" URL ="" Version="Basic" Module="">
+          <Depend ID="02-03-01-01-01"></Depend>
+        </FuncItem>
+        <FuncItem ID="02-03-01-01-06" Name="TRAFFIC_Route_SendToVechile" URL ="" Version="Basic" Module="">
+          <Depend ID="02-03-01-01-01"></Depend>
+        </FuncItem>
+        <FuncItem ID="02-03-01-01-07" Name="TRAFFIC_Route_abandon" URL ="" Version="Basic" Module="">
+          <Depend ID="02-03-01-01-01"></Depend>
+        </FuncItem>
+        <FuncItem ID="02-03-01-01-08" Name="Delete" URL ="" Version="Basic" Module="">
+          <Depend ID="02-03-01-01-01"></Depend>
+        </FuncItem>
+      </FuncItem>
+      <FuncItem ID="02-03-01-02" Name="MONITOR_DriveRoute" URL="" Version="Basic" Module="">
+        <FuncItem ID="02-03-01-02-01" Name="Detail" URL="" Version="Basic" Module=""></FuncItem>
+        <FuncItem ID="02-03-01-02-02" Name="Add" URL="" Version="Basic" Module="">
+          <Depend ID="02-03-01-02-01"></Depend>
+        </FuncItem>
+        <FuncItem ID="02-03-01-02-03" Name="TRAFFIC_ElectricFence_NewVersion" URL ="" Version="Basic" Module="">
+          <Depend ID="02-03-01-02-01"></Depend>
+        </FuncItem>
+        <FuncItem ID="02-03-01-02-04" Name="TRAFFIC_Route_EditGeometry" URL ="" Version="Basic" Module="">
+          <Depend ID="02-03-01-02-01"></Depend>
+        </FuncItem>
+        <FuncItem ID="02-03-01-02-05" Name="TRAFFIC_Route_EditProperty" URL ="" Version="Basic" Module="">
+          <Depend ID="02-03-01-02-01"></Depend>
+        </FuncItem>
+        <FuncItem ID="02-03-01-02-06" Name="TRAFFIC_Route_SendToVechile" URL ="" Version="Basic" Module="">
+          <Depend ID="02-03-01-02-01"></Depend>
+        </FuncItem>
+        <FuncItem ID="02-03-01-02-07" Name="TRAFFIC_Route_abandon" URL ="" Version="Basic" Module="">
+          <Depend ID="02-03-01-02-01"></Depend>
+        </FuncItem>
+        <FuncItem ID="02-03-01-02-08" Name="TRAFFIC_Route_Delete" URL ="" Version="Basic" Module="">
+          <Depend ID="02-03-01-02-01"></Depend>
+        </FuncItem>
+      </FuncItem>
+      <FuncItem ID="02-03-01-03" Name="SpeedSetRule" URL="" Version="Basic" Module="">
+        <FuncItem ID="02-03-01-03-01" Name="Detail" URL="" Version="Basic" Module="">
+        </FuncItem>
+        <FuncItem ID="02-03-01-03-02" Name="Add" URL="" Version="Basic" Module="">
+          <Depend ID="02-03-01-03-01"></Depend>
+        </FuncItem>
+        <FuncItem ID="02-03-01-03-03" Name="Edit" URL="" Version="Basic" Module="">
+          <Depend ID="02-03-01-03-01"></Depend>
+        </FuncItem>
+        <FuncItem ID="02-03-01-03-04" Name="Delete" URL="" Version="Basic" Module="">
+          <Depend ID="02-03-01-03-01"></Depend>
+        </FuncItem>
+        <FuncItem ID="02-03-01-03-05" Name="TRAFFIC_RuleSetting_Selected" URL="" Version="Basic" Module="">
+          <Depend ID="02-03-01-03-01"></Depend>
+        </FuncItem>
+
+        <FuncItem ID="02-03-01-03-06" Name="ApplyTuleVehicle" URL="" Version="Basic" Module="">
+          <Depend ID="02-03-01-03-01"></Depend>
+        </FuncItem>
+
+        <FuncItem ID="02-03-01-03-07" Name="TRAFFIC_Route_SendToVechile" URL="" Version="Basic" Module="">
+          <Depend ID="02-03-01-03-01"></Depend>
+        </FuncItem>
+
+        <FuncItem ID="02-03-01-03-08" Name="Delete" URL="" Version="Basic" Module="">
+          <Depend ID="02-03-01-03-01"></Depend>
+        </FuncItem>
+      </FuncItem>
+    </FuncItem>
+
+    <FuncItem ID="02-04" Name="BasicInfoMenu" URL="" Version="Basic" Module="">
+      <FuncItem ID="02-04-01-01" Name="BASEINFO_Vehicle" URL="" Version="Basic" Module="">
+        <FuncItem ID="02-04-01-01-01" Name="Detail" URL="" Version="Basic" Module="">
+        </FuncItem>
+        <FuncItem ID="02-04-01-01-02" Name="AddAgency" URL="" Version="Basic" Module="">
+          <Depend ID="02-04-01-01-01"></Depend>
+        </FuncItem>
+        <FuncItem ID="02-04-01-01-03" Name="EditAgency" URL="" Version="Basic" Module="">
+          <Depend ID="02-04-01-01-01"></Depend>
+        </FuncItem>
+        <FuncItem ID="02-04-01-01-04" Name="DeleteAgency" URL="" Version="Basic" Module="">
+          <Depend ID="02-04-01-01-01"></Depend>
+        </FuncItem>
+        <FuncItem ID="02-04-01-01-05" Name="AddVehicle" URL="" Version="Basic" Module="">
+          <Depend ID="02-04-01-01-01"></Depend>
+        </FuncItem>
+        <FuncItem ID="02-04-01-01-06" Name="EditVehicle" URL="" Version="Basic" Module="">
+          <Depend ID="02-04-01-01-01"></Depend>
+        </FuncItem>
+        <FuncItem ID="02-04-01-01-07" Name="DeleteVehicle" URL="" Version="Basic" Module="">
+          <Depend ID="02-04-01-01-01"></Depend>
+        </FuncItem>
+        <FuncItem ID="02-04-01-01-08" Name="ImportVehicle" URL="" Version="Basic" Module="">
+          <Depend ID="02-04-01-01-01"></Depend>
+        </FuncItem>
+        <FuncItem ID="02-04-01-01-09" Name="BASEINFO_DownTemplate" URL="" Version="Basic" Module="">
+          <Depend ID="02-04-01-01-01"></Depend>
+        </FuncItem>
+        <FuncItem ID="02-04-01-01-10" Name="ExportVehicle" URL="" Version="Basic" Module="">
+          <Depend ID="02-04-01-01-01"></Depend>
+        </FuncItem>
+      </FuncItem>
+      <FuncItem ID="02-04-01-02" Name="Churffure" URL="" Version="Basic" Module="">
+        <FuncItem ID="02-04-01-02-01" Name="Detail" URL="" Version="Basic" Module="">
+        </FuncItem>
+        <FuncItem ID="02-04-01-02-02" Name="Add" URL="" Version="Basic" Module="">
+          <Depend ID="02-04-01-02-01"></Depend>
+        </FuncItem>
+        <FuncItem ID="02-04-01-02-03" Name="Edit" URL="" Version="Basic" Module="">
+          <Depend ID="02-04-01-02-01"></Depend>
+        </FuncItem>
+        <FuncItem ID="02-04-01-02-04" Name="Delete" URL="" Version="Basic" Module="">
+          <Depend ID="02-04-01-02-01"></Depend>
+        </FuncItem>
+        <FuncItem ID="02-04-01-02-05" Name="Binding" URL="" Version="Basic" Module="">
+          <Depend ID="02-04-01-02-01"></Depend>
+        </FuncItem>
+      </FuncItem>
+      <FuncItem ID="02-04-01-03" Name="MAINTAIN_SecuritySuite" URL="" Version="Basic" Module="">
+        <FuncItem ID="02-04-01-03-01" Name="Detail" URL="" Version="Basic" Module="">
+        </FuncItem>
+        <FuncItem ID="02-04-01-03-02" Name="Add" URL="" Version="Basic" Module="">
+          <Depend ID="02-04-01-03-01"></Depend>
+        </FuncItem>
+        <FuncItem ID="02-04-01-03-03" Name="Edit" URL="" Version="Basic" Module="">
+          <Depend ID="02-04-01-03-01"></Depend>
+        </FuncItem>
+        <FuncItem ID="02-04-01-03-04" Name="Delete" URL="" Version="Basic" Module="">
+          <Depend ID="02-04-01-03-01"></Depend>
+        </FuncItem>
+        <FuncItem ID="02-04-01-03-05" Name="Import" URL="" Version="Basic" Module="">
+          <Depend ID="02-04-01-03-01"></Depend>
+        </FuncItem>
+        <FuncItem ID="02-04-01-03-06" Name="BASEINFO_DownTemplate" URL="" Version="Basic" Module="">
+          <Depend ID="02-04-01-03-01"></Depend>
+        </FuncItem>
+        <FuncItem ID="02-04-01-03-07" Name="MANAGER_Export" URL="" Version="Basic" Module="">
+          <Depend ID="02-04-01-03-01"></Depend>
+        </FuncItem>
+      </FuncItem>
+      <FuncItem ID="02-04-01-04" Name="BASEINFO_DevGpsManager" URL="" Version="Basic" Module="">
+        <FuncItem ID="02-04-01-04-01" Name="Detail" URL="" Version="Basic" Module="">
+        </FuncItem>
+        <FuncItem ID="02-04-01-04-02" Name="Add" URL="" Version="Basic" Module="">
+          <Depend ID="02-04-01-04-01"></Depend>
+        </FuncItem>
+        <FuncItem ID="02-04-01-04-03" Name="Edit" URL="" Version="Basic" Module="">
+          <Depend ID="02-04-01-04-01"></Depend>
+        </FuncItem>
+        <FuncItem ID="02-04-01-04-04" Name="Delete" URL="" Version="Basic" Module="">
+          <Depend ID="02-04-01-04-01"></Depend>
+        </FuncItem>
+        <FuncItem ID="02-04-01-04-05" Name="Import" URL="" Version="Basic" Module="">
+          <Depend ID="02-04-01-04-01"></Depend>
+        </FuncItem>
+        <FuncItem ID="02-04-01-04-06" Name="BASEINFO_DownTemplate" URL="" Version="Basic" Module="">
+          <Depend ID="02-04-01-04-01"></Depend>
+        </FuncItem>
+        <FuncItem ID="02-04-01-04-07" Name="MANAGER_Export" URL="" Version="Basic" Module="">
+          <Depend ID="02-04-01-04-01"></Depend>
+        </FuncItem>
+      </FuncItem>
+      <FuncItem ID="02-04-01-05" Name="BASEINFO_SetupStation" URL="" Version="Basic" Module="">
+        <FuncItem ID="02-04-01-05-01" Name="Detail" URL="" Version="Basic" Module="">
+        </FuncItem>
+        <FuncItem ID="02-04-01-05-02" Name="Add" URL="" Version="Basic" Module="">
+          <Depend ID="02-04-01-05-01"></Depend>
+        </FuncItem>
+        <FuncItem ID="02-04-01-05-03" Name="Edit" URL="" Version="Basic" Module="">
+          <Depend ID="02-04-01-05-01"></Depend>
+        </FuncItem>
+        <FuncItem ID="02-04-01-05-04" Name="Delete" URL="" Version="Basic" Module="">
+          <Depend ID="02-04-01-05-01"></Depend>
+        </FuncItem>
+        <FuncItem ID="02-04-01-05-05" Name="Import" URL="" Version="Basic" Module="">
+          <Depend ID="02-04-01-05-01"></Depend>
+        </FuncItem>
+        <FuncItem ID="02-04-01-05-06" Name="BASEINFO_DownTemplate" URL="" Version="Basic" Module="">
+          <Depend ID="02-04-01-05-01"></Depend>
+        </FuncItem>
+        <FuncItem ID="02-04-01-05-07" Name="MANAGER_Export" URL="" Version="Basic" Module="">
+          <Depend ID="02-04-01-05-01"></Depend>
+        </FuncItem>
+        <FuncItem ID="02-04-01-05-08" Name="BindingUser" URL="" Version="Basic" Module="">
+          <Depend ID="02-04-01-05-01"></Depend>
+        </FuncItem>
+      </FuncItem>
+    </FuncItem>
+
+
+    <FuncItem ID="02-05" Name="StatisticsReportMenu" URL="" Version="Basic" Module="">
+      <FuncItem ID="02-05-01" Name="Rpt_Vehicle_Menu" URL="" Version="Basic" Module="" >
+        <FuncItem ID="02-05-01-01-01" Name="Detail" URL="" Version="Basic" Module="">
+        </FuncItem>
+        <FuncItem ID="02-05-01-01" Name="VedioFlow" URL="" Version="Basic" Module="" >
+          <Depend ID="02-05-01-01-01"></Depend>
+        </FuncItem>
+        <FuncItem ID="02-05-01-02" Name="VehicleOffLine" URL="" Version="Basic" Module="" >
+          <Depend ID="02-05-01-01-01"></Depend>
+        </FuncItem>
+        <FuncItem ID="02-05-01-03" Name="UserOnlineDetailStatistics" URL="" Version="Basic" Module="" >
+          <Depend ID="02-05-01-01-01"></Depend>
+        </FuncItem>
+
+      </FuncItem>
+      <FuncItem ID="02-05-02" Name="Rpt_Alarm_Menu" URL="" Version="Basic" Module="" >
+        <FuncItem ID="02-05-02-01-01" Name="Detail" URL="" Version="Basic" Module="">
+        </FuncItem>
+        <FuncItem ID="02-05-02-01" Name="StatisticsByYear" URL="" Version="Basic" Module="" >
+          <Depend ID="02-05-02-01-01"></Depend>
+        </FuncItem>
+        <FuncItem ID="02-05-02-02" Name="StatisticsByMonth" URL="" Version="Basic" Module="" >
+          <Depend ID="02-05-02-01-01"></Depend>
+        </FuncItem>
+        <FuncItem ID="02-05-02-03" Name="StatisticsByWeek" URL="" Version="Basic" Module="" >
+          <Depend ID="02-05-02-01-01"></Depend>
+        </FuncItem>
+        <FuncItem ID="02-05-02-04" Name="StatisticsByDay" URL="" Version="Basic" Module="" >
+          <Depend ID="02-05-02-01-01"></Depend>
+        </FuncItem>
+        <FuncItem ID="02-05-02-05" Name="StatisticsByOrganzation" URL="" Version="Basic" Module="" >
+          <Depend ID="02-05-02-01-01"></Depend>
+        </FuncItem>
+        <FuncItem ID="02-05-02-06" Name="StatisticsByProvince" URL="" Version="Basic" Module="" >
+          <Depend ID="02-05-02-01-01"></Depend>
+        </FuncItem>
+        <FuncItem ID="02-05-02-07" Name="StatisticsByCity" URL="" Version="Basic" Module="" >
+          <Depend ID="02-05-02-01-01"></Depend>
+        </FuncItem>
+
+
+      </FuncItem>
+      <FuncItem ID="02-05-03" Name="BusinessAlertReport" URL="" Version="Basic" Module="" >
+        <FuncItem ID="02-05-03-01-01" Name="Detail" URL="" Version="Basic" Module=""></FuncItem>
+        <FuncItem ID="02-05-03-01" Name="StatisticsByYear" URL="" Version="Basic" Module="" >
+          <Depend ID="02-05-03-01-01"></Depend>
+        </FuncItem>
+        <FuncItem ID="02-05-03-02" Name="StatisticsByMonth" URL="" Version="Basic" Module="" >
+          <Depend ID="02-05-03-01-01"></Depend>
+        </FuncItem>
+        <FuncItem ID="02-05-03-03" Name="StatisticsByWeek" URL="" Version="Basic" Module="" >
+          <Depend ID="02-05-03-01-01"></Depend>
+        </FuncItem>
+        <FuncItem ID="02-05-03-04" Name="StatisticsByDay" URL="" Version="Basic" Module="" >
+          <Depend ID="02-05-03-01-01"></Depend>
+        </FuncItem>
+        <FuncItem ID="02-05-03-05" Name="StatisticsByOrganzation" URL="" Version="Basic" Module="" >
+          <Depend ID="02-05-03-01-01"></Depend>
+        </FuncItem>
+        <FuncItem ID="02-05-03-06" Name="StatisticsByProvince" URL="" Version="Basic" Module="" >
+          <Depend ID="02-05-03-01-01"></Depend>
+        </FuncItem>
+        <FuncItem ID="02-05-03-07" Name="StatisticsByCity" URL="" Version="Basic" Module="" >
+          <Depend ID="02-05-03-01-01"></Depend>
+        </FuncItem>
+      </FuncItem>
+      <FuncItem ID="02-05-04" Name="DeviceAlertReport" URL="" Version="Basic" Module="" >
+        <FuncItem ID="02-05-04-01-01" Name="Detail" URL="" Version="Basic" Module=""></FuncItem>
+        <FuncItem ID="02-05-04-01" Name="StatisticsByYear" URL="" Version="Basic" Module="" >
+          <Depend ID="02-05-04-01-01"></Depend>
+        </FuncItem>
+        <FuncItem ID="02-05-04-02" Name="StatisticsByMonth" URL="" Version="Basic" Module="" >
+          <Depend ID="02-05-04-01-01"></Depend>
+        </FuncItem>
+        <FuncItem ID="02-05-04-03" Name="StatisticsByWeek" URL="" Version="Basic" Module="" >
+          <Depend ID="02-05-04-01-01"></Depend>
+        </FuncItem>
+        <FuncItem ID="02-05-04-04" Name="StatisticsByDay" URL="" Version="Basic" Module="" >
+          <Depend ID="02-05-04-01-01"></Depend>
+        </FuncItem>
+        <FuncItem ID="02-05-04-05" Name="StatisticsByOrganzation" URL="" Version="Basic" Module="" >
+          <Depend ID="02-05-04-01-01"></Depend>
+        </FuncItem>
+        <FuncItem ID="02-05-04-06" Name="StatisticsByProvince" URL="" Version="Basic" Module="" >
+          <Depend ID="02-05-04-01-01"></Depend>
+        </FuncItem>
+        <FuncItem ID="02-05-04-07" Name="StatisticsByCity" URL="" Version="Basic" Module="" >
+          <Depend ID="02-05-04-01-01"></Depend>
+        </FuncItem>
+      </FuncItem>
+    </FuncItem>
+
+    <FuncItem ID="02-06" Name="VedioWallMenu" URL="" Version="Basic" Module="">
+      <FuncItem ID="02-06-01-01-01" Name="Rpt_External_Access_COLSSSP" URL="" Version="Basic" Module="">
+      </FuncItem>
+      <FuncItem ID="02-06-01-01-02" Name="MONITOR_HistoricalVideo" URL="" Version="Basic" Module="">
+      </FuncItem>
+    </FuncItem>
+
+    <FuncItem ID="02-07" Name="PublicServiceMenu" URL="" Version="Basic" Module="">
+      <FuncItem ID="02-07-01" Name="MessageManage" URL="" Version="Basic" Module="">
+        <FuncItem ID="02-07-01-01" Name="SafeDeviceMessage" URL="" Version="Basic" Module="">
+          <FuncItem ID="02-07-01-01-01" Name="Detail" URL="" Version="Basic" Module="">
+          </FuncItem>
+          <FuncItem ID="02-07-01-01-02" Name="Add" URL="" Version="Basic" Module="">
+            <Depend ID="02-07-01-01-01"></Depend>
+          </FuncItem>
+          <FuncItem ID="02-07-01-01-03" Name="Edit" URL="" Version="Basic" Module="">
+            <Depend ID="02-07-01-01-01"></Depend>
+          </FuncItem>
+          <FuncItem ID="02-07-01-01-04" Name="Delete" URL="" Version="Basic" Module="">
+            <Depend ID="02-07-01-01-01"></Depend>
+          </FuncItem>
+          <FuncItem ID="02-07-01-01-07" Name="MANAGE_SendInfo" URL="" Version="Basic" Module="">
+            <Depend ID="02-07-01-01-01"></Depend>
+          </FuncItem>
+        </FuncItem>
+        <FuncItem ID="02-07-01-02" Name="PhoneMessage" URL="" Version="Basic" Module="">
+          <FuncItem ID="02-07-01-02-01" Name="Detail" URL="" Version="Basic" Module="">
+          </FuncItem>
+          <FuncItem ID="02-07-01-02-02" Name="Add" URL="" Version="Basic" Module="">
+            <Depend ID="02-07-01-02-01"></Depend>
+          </FuncItem>
+          <FuncItem ID="02-07-01-02-03" Name="Edit" URL="" Version="Basic" Module="">
+            <Depend ID="02-07-01-02-01"></Depend>
+          </FuncItem>
+          <FuncItem ID="02-07-01-02-04" Name="Delete" URL="" Version="Basic" Module="">
+            <Depend ID="02-07-01-02-01"></Depend>
+          </FuncItem>
+          <FuncItem ID="02-07-01-02-07" Name="MANAGE_SendInfo" URL="" Version="Basic" Module="">
+            <Depend ID="02-07-01-02-01"></Depend>
+          </FuncItem>
+        </FuncItem>
+      </FuncItem>
+
+      <FuncItem ID="02-07-02" Name="LostGet" URL="" Version="Basic" Module="">
+        <FuncItem ID="02-07-02-01" Name="LostRegister" URL="" Version="Basic" Module="">
+          <FuncItem ID="02-07-02-01-01" Name="Detail" URL="" Version="Basic" Module="">
+          </FuncItem>
+          <FuncItem ID="02-07-02-01-02" Name="Add" URL="" Version="Basic" Module="">
+            <Depend ID="02-07-02-01-01"></Depend>
+          </FuncItem>
+          <FuncItem ID="02-07-02-01-03" Name="Edit" URL="" Version="Basic" Module="">
+            <Depend ID="02-07-02-01-01"></Depend>
+          </FuncItem>
+          <FuncItem ID="02-07-02-01-04" Name="Delete" URL="" Version="Basic" Module="">
+            <Depend ID="02-07-02-01-01"></Depend>
+          </FuncItem>
+        </FuncItem>
+        <FuncItem ID="02-07-02-02" Name="GetRegister" URL="" Version="Basic" Module="">
+          <FuncItem ID="02-07-02-02-01" Name="Detail" URL="" Version="Basic" Module="">
+          </FuncItem>
+          <FuncItem ID="02-07-02-02-02" Name="Add" URL="" Version="Basic" Module="">
+            <Depend ID="02-07-02-02-01"></Depend>
+          </FuncItem>
+          <FuncItem ID="02-07-02-02-03" Name="Edit" URL="" Version="Basic" Module="">
+            <Depend ID="02-07-02-02-01"></Depend>
+          </FuncItem>
+          <FuncItem ID="02-07-02-02-04" Name="Delete" URL="" Version="Basic" Module="">
+            <Depend ID="02-07-02-02-01"></Depend>
+          </FuncItem>
+        </FuncItem>
+      </FuncItem>
+    </FuncItem>
+
+    <FuncItem ID="02-08" Name="SystemManageMenu" URL="" Version="Basic" Module="">
+
+      <FuncItem ID="02-08-01" Name="MANAGER_UserManger" URL="" Version="Basic" Module="">
+
+        <FuncItem ID="02-08-01-01" Name="RoleManage" URL="" Version="Basic" Module="">
+          <FuncItem ID="02-08-01-01-01" Name="Detail" URL="" Version="Basic" Module="">
+          </FuncItem>
+          <FuncItem ID="02-08-01-01-02" Name="Add" URL="" Version="Basic" Module="">
+            <Depend ID="02-08-01-01-01"></Depend>
+          </FuncItem>
+          <FuncItem ID="02-08-01-01-03" Name="Edit" URL="" Version="Basic" Module="">
+            <Depend ID="02-08-01-01-01"></Depend>
+          </FuncItem>
+          <FuncItem ID="02-08-01-01-04" Name="Delete" URL="" Version="Basic" Module="">
+            <Depend ID="02-08-01-01-01"></Depend>
+          </FuncItem>
+          <FuncItem ID="02-08-01-01-05" Name="EditPermissions" URL="" Version="Basic" Module="">
+            <Depend ID="02-08-01-01-01"></Depend>
+          </FuncItem>
+        </FuncItem>
+
+        <FuncItem ID="02-08-01-02" Name="CloudUserManage" URL="" Version="Basic" Module="">
+          <FuncItem ID="02-08-01-02-01" Name="Detail" URL="" Version="Basic" Module="">
+          </FuncItem>
+          <FuncItem ID="02-08-01-02-02" Name="AddUserAgency" URL="" Version="Basic" Module="">
+            <Depend ID="02-08-01-02-01"></Depend>
+          </FuncItem>
+          <FuncItem ID="02-08-01-02-03" Name="EditUserAgency" URL="" Version="Basic" Module="">
+            <Depend ID="02-08-01-02-01"></Depend>
+          </FuncItem>
+          <FuncItem ID="02-08-01-02-04" Name="DeleteUserAgency" URL="" Version="Basic" Module="">
+            <Depend ID="02-08-01-02-01"></Depend>
+          </FuncItem>
+          <FuncItem ID="02-08-01-02-05" Name="Add" URL="" Version="Basic" Module="">
+            <Depend ID="02-08-01-02-01"></Depend>
+          </FuncItem>
+
+          <FuncItem ID="02-08-01-02-06" Name="Edit" URL="" Version="Basic" Module="">
+            <Depend ID="02-08-01-02-01"></Depend>
+          </FuncItem>
+          <FuncItem ID="02-08-01-02-07" Name="Delete" URL="" Version="Basic" Module="">
+            <Depend ID="02-08-01-02-01"></Depend>
+          </FuncItem>
+
+          <FuncItem ID="02-08-01-02-08" Name="MANAGE_PasswordReset" URL="" Version="Basic" Module="">
+            <Depend ID="02-08-01-02-01"></Depend>
+          </FuncItem>
+
+          <FuncItem ID="02-08-01-02-09" Name="EditBelongAgency" URL="" Version="Basic" Module="">
+            <Depend ID="02-08-01-02-01"></Depend>
+          </FuncItem>
+
+
+        </FuncItem>
+
+        <FuncItem ID="02-08-01-03" Name="MANAGER_UserOnline" URL="" Version="Basic" Module="">
+          <FuncItem ID="02-08-01-03-01" Name="Detail" URL="" Version="Basic" Module="">
+          </FuncItem>
+
+        </FuncItem>
+      </FuncItem>
+
+      <FuncItem ID="02-08-02" Name="MANAGER_SettingManage" URL="" Version="Basic" Module="">
+        <FuncItem ID="02-08-02-01" Name="MONITOR_VehicleType" URL="" Version="Basic" Module="">
+          <FuncItem ID="02-08-02-01-01" Name="Detail" URL="" Version="Basic" Module="">
+          </FuncItem>
+          <FuncItem ID="02-08-02-01-02" Name="Add" URL="" Version="Basic" Module="">
+            <Depend ID="02-08-02-01-01"></Depend>
+          </FuncItem>
+          <FuncItem ID="02-08-02-01-03" Name="Edit" URL="" Version="Basic" Module="">
+            <Depend ID="02-08-02-01-01"></Depend>
+          </FuncItem>
+          <FuncItem ID="02-08-02-01-04" Name="Delete" URL="" Version="Basic" Module="">
+            <Depend ID="02-08-02-01-01"></Depend>
+          </FuncItem>
+        </FuncItem>
+      </FuncItem>
+
+      <FuncItem ID="02-08-03" Name="CommandManager" URL="" Version="Basic" Module="">
+
+        <FuncItem ID="02-08-03-01" Name="SetGpsRule" URL="" Version="Basic" Module="">
+          <FuncItem ID="02-08-03-01-01" Name="Detail" URL="" Version="Basic" Module="">
+          </FuncItem>
+          <FuncItem ID="02-08-03-01-02" Name="Add" URL="" Version="Basic" Module="">
+            <Depend ID="02-08-03-01-01"></Depend>
+          </FuncItem>
+          <FuncItem ID="02-08-03-01-03" Name="Edit" URL="" Version="Basic" Module="">
+            <Depend ID="02-08-03-01-01"></Depend>
+          </FuncItem>
+          <FuncItem ID="02-08-03-01-04" Name="Delete" URL="" Version="Basic" Module="">
+            <Depend ID="02-08-03-01-01"></Depend>
+          </FuncItem>
+
+          <FuncItem ID="02-08-03-01-05" Name="TRAFFIC_Refesh" URL="" Version="Basic" Module="">
+            <Depend ID="02-08-03-01-01"></Depend>
+          </FuncItem>
+          <FuncItem ID="02-08-03-01-06" Name="TRAFFIC_RuleSetting_Selected" URL="" Version="Basic" Module="">
+            <Depend ID="02-08-03-01-01"></Depend>
+          </FuncItem>
+
+          <FuncItem ID="02-08-03-01-07" Name="ApplyTuleVehicle" URL="" Version="Basic" Module="">
+            <Depend ID="02-08-03-01-01"></Depend>
+          </FuncItem>
+
+          <FuncItem ID="02-08-03-01-08" Name="TRAFFIC_Route_SendToVechile" URL="" Version="Basic" Module="">
+            <Depend ID="02-08-03-01-01"></Depend>
+          </FuncItem>
+
+          <FuncItem ID="02-08-03-01-09" Name="Delete" URL="" Version="Basic" Module="">
+            <Depend ID="02-08-03-01-01"></Depend>
+          </FuncItem>
+        </FuncItem>
+
+        <FuncItem ID="02-08-03-03" Name="Setheartbeat" URL="" Version="Basic" Module="">
+          <FuncItem ID="02-08-03-03-01" Name="Detail" URL="" Version="Basic" Module="">
+          </FuncItem>
+          <FuncItem ID="02-08-03-03-02" Name="Add" URL="" Version="Basic" Module="">
+            <Depend ID="02-08-03-03-01"></Depend>
+          </FuncItem>
+          <FuncItem ID="02-08-03-03-03" Name="Edit" URL="" Version="Basic" Module="">
+            <Depend ID="02-08-03-03-01"></Depend>
+          </FuncItem>
+          <FuncItem ID="02-08-03-03-04" Name="Delete" URL="" Version="Basic" Module="">
+            <Depend ID="02-08-03-03-01"></Depend>
+          </FuncItem>
+
+          <FuncItem ID="02-08-03-03-05" Name="TRAFFIC_Refesh" URL="" Version="Basic" Module="">
+            <Depend ID="02-08-03-03-01"></Depend>
+          </FuncItem>
+          <FuncItem ID="02-08-03-03-06" Name="TRAFFIC_RuleSetting_Selected" URL="" Version="Basic" Module="">
+            <Depend ID="02-08-03-03-01"></Depend>
+          </FuncItem>
+
+          <FuncItem ID="02-08-03-03-07" Name="ApplyTuleVehicle" URL="" Version="Basic" Module="">
+            <Depend ID="02-08-03-03-01"></Depend>
+          </FuncItem>
+
+          <FuncItem ID="02-08-03-03-08" Name="TRAFFIC_Route_SendToVechile" URL="" Version="Basic" Module="">
+            <Depend ID="02-08-03-03-01"></Depend>
+          </FuncItem>
+
+          <FuncItem ID="02-08-03-03-09" Name="Delete" URL="" Version="Basic" Module="">
+            <Depend ID="02-08-03-03-01"></Depend>
+          </FuncItem>
+        </FuncItem>
+      </FuncItem>
+
+      <FuncItem ID="02-08-04" Name="MANAGER_LogManage" URL="" Version="Basic" Module="">
+
+        <FuncItem ID="02-08-04-01" Name="SetAlarmLog" URL="" Version="Basic" Module="">
+          <FuncItem ID="02-08-04-01-01" Name="Detail" URL="" Version="Basic" Module="">
+          </FuncItem>
+          <FuncItem ID="02-08-04-01-02" Name="MANAGER_Export" URL="" Version="Basic" Module="">
+            <Depend ID="02-08-04-01-01"></Depend>
+          </FuncItem>
+        </FuncItem>
+
+        <FuncItem ID="02-08-04-02" Name="MANAGER_CarAlertLog" URL="" Version="Basic" Module="">
+          <FuncItem ID="02-08-04-02-01" Name="Detail" URL="" Version="Basic" Module="">
+          </FuncItem>
+          <FuncItem ID="02-08-04-02-02" Name="MANAGER_Export" URL="" Version="Basic" Module="">
+            <Depend ID="02-08-04-02-01"></Depend>
+          </FuncItem>
+        </FuncItem>
+
+        <FuncItem ID="02-08-04-03" Name="MANAGER_InstallLog" URL="" Version="Basic" Module="">
+          <FuncItem ID="02-08-04-03-01" Name="Detail" URL="" Version="Basic" Module="">
+          </FuncItem>
+          <FuncItem ID="02-08-04-03-02" Name="MANAGER_Export" URL="" Version="Basic" Module="">
+            <Depend ID="02-08-04-03-01"></Depend>
+          </FuncItem>
+        </FuncItem>
+
+        <FuncItem ID="02-08-04-04" Name="MANAGER_VideoDowmLoadlog" URL="" Version="Basic" Module="">
+          <FuncItem ID="02-08-04-04-01" Name="Detail" URL="" Version="Basic" Module="">
+          </FuncItem>
+          <FuncItem ID="02-08-04-04-02" Name="MANAGER_Export" URL="" Version="Basic" Module="">
+            <Depend ID="02-08-04-04-01"></Depend>
+          </FuncItem>
+          <FuncItem ID="02-08-04-04-03" Name="Delete" URL="" Version="Basic" Module="">
+            <Depend ID="02-08-04-04-01"></Depend>
+          </FuncItem>
+        </FuncItem>
+
+        <FuncItem ID="02-08-04-05" Name="VideoRunLog" URL="" Version="Basic" Module="">
+          <FuncItem ID="02-08-04-05-01" Name="Detail" URL="" Version="Basic" Module="">
+          </FuncItem>
+          <FuncItem ID="02-08-04-05-02" Name="MANAGER_Export" URL="" Version="Basic" Module="">
+            <Depend ID="02-08-04-05-01"></Depend>
+          </FuncItem>
+          <FuncItem ID="02-08-04-05-03" Name="Delete" URL="" Version="Basic" Module="">
+            <Depend ID="02-08-04-05-01"></Depend>
+          </FuncItem>
+        </FuncItem>
+
+        <FuncItem ID="02-08-04-06" Name="UserManagerLog" URL="" Version="Basic" Module="">
+          <FuncItem ID="02-08-04-06-01" Name="Detail" URL="" Version="Basic" Module="">
+          </FuncItem>
+          <FuncItem ID="02-08-04-06-02" Name="MANAGER_Export" URL="" Version="Basic" Module="">
+            <Depend ID="02-08-04-06-01"></Depend>
+          </FuncItem>
+          <FuncItem ID="02-08-04-06-03" Name="Delete" URL="" Version="Basic" Module="">
+            <Depend ID="02-08-04-06-01"></Depend>
+          </FuncItem>
+        </FuncItem>
+
+        <FuncItem ID="02-08-04-07" Name="MANAGER_LoginLog" URL="" Version="Basic" Module="">
+          <FuncItem ID="02-08-04-07-01" Name="Detail" URL="" Version="Basic" Module="">
+          </FuncItem>
+          <FuncItem ID="02-08-04-07-02" Name="MANAGER_Export" URL="" Version="Basic" Module="">
+            <Depend ID="02-08-04-07-01"></Depend>
+          </FuncItem>
+          <FuncItem ID="02-08-04-07-03" Name="Delete" URL="" Version="Basic" Module="">
+            <Depend ID="02-08-04-07-01"></Depend>
+          </FuncItem>
+        </FuncItem>
+      </FuncItem>
+    </FuncItem>
+
+    <FuncItem ID="02-09" Name="GisManagement" URL="" Version="Basic" Module="">
+      <FuncItem ID="02-09-01-01" Name="MAINPAGE_Monitor"  URL="" Version="Basic" Module="">
+        <FuncItem ID="02-09-01-01-01" Name="Rpt_External_Access_COLSSSP" URL="" Version="Basic" Module="">
+
+        </FuncItem>
+      </FuncItem>
+    </FuncItem>
+  </FuncItem>
+
+  <FuncItem ID="03" Name="MaintainMonitor" URL="" Version="Basic" Module="">
+
+    <FuncItem ID="03-01" Name="InstallationManagementMenu" URL="" Version="Basic" Module="">
+
+      <FuncItem ID="03-01-01" Name="SafeDeviceInstall" URL="" Version="Basic" Module="">
+
+        <FuncItem ID="03-01-01-01" Name="INSTALLTION_Installing" URL="" Version="Basic" Module="">
+        </FuncItem>
+
+        <FuncItem ID="03-01-01-02" Name="INSTALLTION_UninstalledRecord" URL="" Version="Basic" Module="">
+        </FuncItem>
+
+        <FuncItem ID="03-01-01-03" Name="INSTALLTION_InstalledRecord" URL="" Version="Basic" Module="">
+        </FuncItem>
+
+      </FuncItem>
+
+      <FuncItem ID="03-01-02" Name="LocateDeviceInstall" URL="" Version="Basic" Module="">
+
+        <FuncItem ID="03-01-02-01" Name="INSTALLTION_Installing" URL="" Version="Basic" Module="">
+        </FuncItem>
+
+        <FuncItem ID="03-01-02-02" Name="INSTALLTION_UninstalledRecord" URL="" Version="Basic" Module="">
+        </FuncItem>
+
+        <FuncItem ID="03-01-02-03" Name="INSTALLTION_InstalledRecord" URL="" Version="Basic" Module="">
+        </FuncItem>
+
+      </FuncItem>
+
+      <FuncItem ID="03-01-03" Name="Reservation" URL="" Version="Basic" Module="">
+
+        <FuncItem ID="03-01-03-01" Name="ApplicationManagement" URL="" Version="Basic" Module="">
+
+          <FuncItem ID="03-01-03-01-01" Name="Detail" URL="" Version="Basic" Module="">
+          </FuncItem>
+          <FuncItem ID="03-01-03-01-02" Name="Add" URL="" Version="Basic" Module="">
+            <Depend ID="03-01-03-01-01"></Depend>
+          </FuncItem>
+          <FuncItem ID="03-01-03-01-03" Name="Edit" URL="" Version="Basic" Module="">
+            <Depend ID="03-01-03-01-01"></Depend>
+          </FuncItem>
+          <FuncItem ID="03-01-03-01-04" Name="Delete" URL="" Version="Basic" Module="">
+            <Depend ID="03-01-03-01-01"></Depend>
+          </FuncItem>
+
+        </FuncItem>
+
+        <FuncItem ID="03-01-03-02" Name="BookingManagement" URL="" Version="Basic" Module="">
+
+          <FuncItem ID="03-01-03-02-01" Name="Detail" URL="" Version="Basic" Module="">
+          </FuncItem>
+          <FuncItem ID="03-01-03-02-02" Name="Add" URL="" Version="Basic" Module="">
+            <Depend ID="03-01-03-02-01"></Depend>
+          </FuncItem>
+          <FuncItem ID="03-01-03-02-03" Name="Edit" URL="" Version="Basic" Module="">
+            <Depend ID="03-01-03-02-01"></Depend>
+          </FuncItem>
+          <FuncItem ID="03-01-03-02-04" Name="Delete" URL="" Version="Basic" Module="">
+            <Depend ID="03-01-03-02-01"></Depend>
+          </FuncItem>
+
+        </FuncItem>
+
+      </FuncItem>
+
+      <FuncItem ID="03-01-04" Name="EquipmentMaintenance" URL="" Version="Basic" Module="">
+
+        <FuncItem ID="03-01-04-01" Name="ForMaintenanceManagement" URL="" Version="Basic" Module="">
+
+          <FuncItem ID="03-01-04-01-01" Name="Detail" URL="" Version="Basic" Module="">
+          </FuncItem>
+          <FuncItem ID="03-01-04-01-02" Name="Add" URL="" Version="Basic" Module="">
+            <Depend ID="03-01-04-01-01"></Depend>
+          </FuncItem>
+          <FuncItem ID="03-01-04-01-03" Name="Edit" URL="" Version="Basic" Module="">
+            <Depend ID="03-01-04-01-01"></Depend>
+          </FuncItem>
+          <FuncItem ID="03-01-04-01-04" Name="Delete" URL="" Version="Basic" Module="">
+            <Depend ID="03-01-04-01-01"></Depend>
+          </FuncItem>
+
+        </FuncItem>
+
+        <FuncItem ID="03-01-04-02" Name="MaintenancedQuery" URL="" Version="Basic" Module="">
+
+          <FuncItem ID="03-01-04-02-01" Name="Detail" URL="" Version="Basic" Module="">
+          </FuncItem>
+        </FuncItem>
+
+      </FuncItem>
+
+      <FuncItem ID="03-01-05" Name="QueryStatistics" URL="" Version="Basic" Module="">
+
+        <FuncItem ID="03-01-05-01" Name="SafeDeviceAlertStatistics" URL="" Version="Basic" Module="">
+
+          <FuncItem ID="03-01-05-01-01" Name="Detail" URL="" Version="Basic" Module="">
+          </FuncItem>
+
+
+        </FuncItem>
+
+        <FuncItem ID="03-01-05-02" Name="InstalledVehicleStatistics" URL="" Version="Basic" Module="">
+
+          <FuncItem ID="03-01-05-02-01" Name="Detail" URL="" Version="Basic" Module="">
+          </FuncItem>
+
+        </FuncItem>
+
+        <FuncItem ID="03-01-05-03" Name="SafeDeviceAlertStatistics" URL="" Version="Basic" Module="">
+
+          <FuncItem ID="03-01-05-03-01" Name="Detail" URL="" Version="Basic" Module="">
+          </FuncItem>
+
+        </FuncItem>
+
+      </FuncItem>
+
+      <FuncItem ID="03-01-06" Name="BASEINFO_MenuTitle" URL="" Version="Basic" Module="">
+        <FuncItem ID="03-01-06-01" Name="BASEINFO_VehicleView" URL="" Version="Basic" Module="">
+          <FuncItem ID="03-01-06-01-01" Name="AddVehicle" URL="" Version="Basic" Module="">
+          </FuncItem>
+          <FuncItem ID="03-01-06-01-02" Name="EditVehicle" URL="" Version="Basic" Module="">
+          </FuncItem>
+          <FuncItem ID="03-01-06-01-03" Name="DeleteVehicle" URL="" Version="Basic" Module="">
+          </FuncItem>
+        </FuncItem>
+
+        <FuncItem ID="03-01-06-02" Name="BASEINFO_SuiteInfoView" URL="" Version="Basic" Module="">
+          <FuncItem ID="03-01-06-02-01" Name="Detail" URL="" Version="Basic" Module="">
+          </FuncItem>
+          <FuncItem ID="03-01-06-02-02" Name="BASEINFO_AddSuite" URL="" Version="Basic" Module="">
+            <Depend ID="03-01-06-02-01"></Depend>
+          </FuncItem>
+          <FuncItem ID="03-01-06-02-03" Name="BASEINFO_UpdateSuite" URL="" Version="Basic" Module="">
+            <Depend ID="03-01-06-02-01"></Depend>
+          </FuncItem>
+          <FuncItem ID="03-01-06-02-04" Name="Delete" URL="" Version="Basic" Module="">
+            <Depend ID="03-01-06-02-01"></Depend>
+          </FuncItem>
+        </FuncItem>
+
+        <FuncItem ID="03-01-06-03" Name="BASEINFO_DevGpsManager" URL="" Version="Basic" Module="">
+          <FuncItem ID="03-01-06-03-01" Name="Detail" URL="" Version="Basic" Module="">
+          </FuncItem>
+          <FuncItem ID="03-01-06-03-02" Name="Add" URL="" Version="Basic" Module="">
+            <Depend ID="03-01-06-03-01"></Depend>
+          </FuncItem>
+          <FuncItem ID="03-01-06-03-03" Name="Edit" URL="" Version="Basic" Module="">
+            <Depend ID="03-01-06-03-01"></Depend>
+          </FuncItem>
+          <FuncItem ID="03-01-06-03-04" Name="Delete" URL="" Version="Basic" Module="">
+            <Depend ID="03-01-06-03-01"></Depend>
+          </FuncItem>
+        </FuncItem>
+      </FuncItem>
+    </FuncItem>
+  </FuncItem>
+</FuncItems>

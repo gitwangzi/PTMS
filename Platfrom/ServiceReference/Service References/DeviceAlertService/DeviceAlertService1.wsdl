@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="DeviceAlertService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:2259/DeviceAlertService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:2259/DeviceAlertService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:2259/DeviceAlertService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Alert.Contract.Data" />
+      <xsd:import schemaLocation="http://localhost:2259/DeviceAlertService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" />
+      <xsd:import schemaLocation="http://localhost:2259/DeviceAlertService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/System" />
+      <xsd:import schemaLocation="http://localhost:2259/DeviceAlertService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Common.Data" />
+      <xsd:import schemaLocation="http://localhost:2259/DeviceAlertService.svc?xsd=xsd6" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://localhost:2259/DeviceAlertService.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.BaseInformation.Contract.Data" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IDeviceAlertService_AddDeviceAlert_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddDeviceAlert" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceAlertService_AddDeviceAlert_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddDeviceAlertResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceAlertService_GetDeviceAlertEx1_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDeviceAlertEx1" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceAlertService_GetDeviceAlertEx1_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDeviceAlertEx1Response" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceAlertService_ModifySecuritySuiteStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:ModifySecuritySuiteStatus" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceAlertService_ModifySecuritySuiteStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ModifySecuritySuiteStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceAlertService_UpdateDeviceAlert_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateDeviceAlert" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceAlertService_UpdateDeviceAlert_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateDeviceAlertResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceAlertService_DeleteDeviceAlertByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteDeviceAlertByID" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceAlertService_DeleteDeviceAlertByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteDeviceAlertByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceAlertService_GetDeviceAlertList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDeviceAlertList" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceAlertService_GetDeviceAlertList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDeviceAlertListResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IDeviceAlertService">
+    <wsdl:operation name="AddDeviceAlert">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDeviceAlertService/AddDeviceAlert" message="tns:IDeviceAlertService_AddDeviceAlert_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDeviceAlertService/AddDeviceAlertResponse" message="tns:IDeviceAlertService_AddDeviceAlert_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDeviceAlertEx1">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDeviceAlertService/GetDeviceAlertEx1" message="tns:IDeviceAlertService_GetDeviceAlertEx1_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDeviceAlertService/GetDeviceAlertEx1Response" message="tns:IDeviceAlertService_GetDeviceAlertEx1_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ModifySecuritySuiteStatus">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDeviceAlertService/ModifySecuritySuiteStatus" message="tns:IDeviceAlertService_ModifySecuritySuiteStatus_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDeviceAlertService/ModifySecuritySuiteStatusResponse" message="tns:IDeviceAlertService_ModifySecuritySuiteStatus_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDeviceAlert">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDeviceAlertService/UpdateDeviceAlert" message="tns:IDeviceAlertService_UpdateDeviceAlert_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDeviceAlertService/UpdateDeviceAlertResponse" message="tns:IDeviceAlertService_UpdateDeviceAlert_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDeviceAlertByID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDeviceAlertService/DeleteDeviceAlertByID" message="tns:IDeviceAlertService_DeleteDeviceAlertByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDeviceAlertService/DeleteDeviceAlertByIDResponse" message="tns:IDeviceAlertService_DeleteDeviceAlertByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDeviceAlertList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDeviceAlertService/GetDeviceAlertList" message="tns:IDeviceAlertService_GetDeviceAlertList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDeviceAlertService/GetDeviceAlertListResponse" message="tns:IDeviceAlertService_GetDeviceAlertList_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IDeviceAlertService" type="tns:IDeviceAlertService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddDeviceAlert">
+      <soap:operation soapAction="http://tempuri.org/IDeviceAlertService/AddDeviceAlert" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDeviceAlertEx1">
+      <soap:operation soapAction="http://tempuri.org/IDeviceAlertService/GetDeviceAlertEx1" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModifySecuritySuiteStatus">
+      <soap:operation soapAction="http://tempuri.org/IDeviceAlertService/ModifySecuritySuiteStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDeviceAlert">
+      <soap:operation soapAction="http://tempuri.org/IDeviceAlertService/UpdateDeviceAlert" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDeviceAlertByID">
+      <soap:operation soapAction="http://tempuri.org/IDeviceAlertService/DeleteDeviceAlertByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDeviceAlertList">
+      <soap:operation soapAction="http://tempuri.org/IDeviceAlertService/GetDeviceAlertList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="DeviceAlertService">
+    <wsdl:port name="BasicHttpBinding_IDeviceAlertService" binding="tns:BasicHttpBinding_IDeviceAlertService">
+      <soap:address location="http://localhost:2259/DeviceAlertService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

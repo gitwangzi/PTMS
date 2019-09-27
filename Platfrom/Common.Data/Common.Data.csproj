@@ -1,0 +1,214 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{2B4CAA14-181A-4B8D-9DC6-891BEA684735}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Gsafety.PTMS.Common.Data</RootNamespace>
+    <AssemblyName>Gsafety.PTMS.Common.Data</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Windows" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\Enums\EnumAttribute.cs">
+      <Link>Enum\EnumAttribute.cs</Link>
+    </Compile>
+    <Compile Include="Data\Alarm\AlarmHandleResult.cs" />
+    <Compile Include="Data\Alarm\ApealDispose.cs" />
+    <Compile Include="Data\Alarm\ManualAlarmInfo.cs" />
+    <Compile Include="Data\Alarm\TransferDispose.cs" />
+    <Compile Include="Data\Alarm\AlarmNoteInfo.cs" />
+    <Compile Include="Data\Alarm\AlarmEmailInfo.cs" />
+    <Compile Include="Data\Alarm\AlarmTypeInfo.cs" />
+    <Compile Include="Data\Alert\AlertHandleResult.cs" />
+    <Compile Include="Data\Alert\BusinessAlertHandle.cs" />
+    <Compile Include="Data\Alert\CompleteAlert.cs" />
+    <Compile Include="Data\BaseInformation\DevGps.cs" />
+    <Compile Include="Data\BaseInformation\DevSuite.cs" />
+    <Compile Include="Data\BaseInformation\DevSuitePart.cs" />
+    <Compile Include="Data\BaseInformation\Vehicle.cs" />
+    <Compile Include="Data\BaseInformation\VehicleCheckResult.cs" />
+    <Compile Include="Data\BaseInformation\VehicleCheckResultExt.cs" />
+    <Compile Include="Data\BaseInformation\VehicleType.cs" />
+    <Compile Include="Data\BaseInformation\VehicleTypeColor.cs" />
+    <Compile Include="Data\Command\LocationReportRule.cs" />
+    <Compile Include="Data\Command\LocationReportVehicle.cs" />
+    <Compile Include="Data\Command\SpeedLimit.cs" />
+    <Compile Include="Data\Command\VehicleSpeed.cs" />
+    <Compile Include="Data\Command\VideoRule.cs" />
+    <Compile Include="Data\Command\VideoRuleVehicle.cs" />
+    <Compile Include="Data\DataAccess\AlarmInfo.cs" />
+    <Compile Include="Data\Alarm\AlarmInfoEx.cs" />
+    <Compile Include="Data\Alarm\CompleteAlarm.cs" />
+    <Compile Include="Data\DataAccess\AppMessage.cs" />
+    <Compile Include="Data\DataAccess\Authenticate.cs" />
+    <Compile Include="Data\DataAccess\AuthenticateResponse.cs" />
+    <Compile Include="Data\DataAccess\MDVRMessage.cs" />
+    <Compile Include="Data\DataAccess\MobileAlarmInfo.cs" />
+    <Compile Include="Data\DataAccess\Register.cs" />
+    <Compile Include="Data\DataAccess\RegisterResponse.cs" />
+    <Compile Include="Data\DataAccess\RegisterResultType.cs" />
+    <Compile Include="Data\DataAccess\UnRegister.cs" />
+    <Compile Include="Data\DataAccess\UnRegisterResponse.cs" />
+    <Compile Include="Data\Installation\DeviceAlertStatistics.cs" />
+    <Compile Include="Data\Installation\InstallStatisticsView.cs" />
+    <Compile Include="Data\Installation\Json\SetAlarmParaJson.cs" />
+    <Compile Include="Data\Installation\Json\SetAlarmParaResponseJson.cs" />
+    <Compile Include="Data\Installation\SetAlarmPara.cs" />
+    <Compile Include="Data\Log\LogAccess.cs" />
+    <Compile Include="Data\Log\LogManager.cs" />
+    <Compile Include="Data\Log\LogVideo.cs" />
+    <Compile Include="Data\Maintain\MaintainApplication.cs" />
+    <Compile Include="Data\Maintain\MaintainRecord.cs" />
+    <Compile Include="Data\Mobile\AuthenticationResult.cs" />
+    <Compile Include="Data\PublicService\AppMessageVehicle.cs" />
+    <Compile Include="Data\PublicService\FoundRegistry.cs" />
+    <Compile Include="Data\Installation\CameraInfo.cs" />
+    <Compile Include="Data\Monitor\GPSInfo.cs" />
+    <Compile Include="Data\Monitor\UserOnline.cs" />
+    <Compile Include="Data\Traffic\FenceQueue.cs" />
+    <Compile Include="Data\Traffic\RouteQueue.cs" />
+    <Compile Include="Data\User\AuthenticationInfo.cs" />
+    <Compile Include="Data\User\BaseInfo.cs" />
+    <Compile Include="Data\Alert\BusinessAlert.cs" />
+    <Compile Include="Data\Alert\BusinessAlertEx.cs" />
+    <Compile Include="Data\User\OrganizationUser.cs" />
+    <Compile Include="Data\User\UserOnlineHeartBeat.cs" />
+    <Compile Include="Data\Video\DownloadFile.cs" />
+    <Compile Include="Data\Video\Json\DownloadFileJson.cs" />
+    <Compile Include="Data\Video\Json\TakePictureJson.cs" />
+    <Compile Include="Data\Video\Json\TakePictureResponseJson.cs" />
+    <Compile Include="Data\Video\Photo.cs" />
+    <Compile Include="Data\Video\QueryDownloadStatusArgs.cs" />
+    <Compile Include="Data\Video\QueryDownloadStatusMessage.cs" />
+    <Compile Include="Data\Video\Json\QueryFileListJson.cs" />
+    <Compile Include="Data\Video\Json\QueryFileListResponseJson.cs" />
+    <Compile Include="Data\Video\QueryMdvrFileList.cs" />
+    <Compile Include="Data\Video\QueryPhotoFileListArgs.cs" />
+    <Compile Include="Data\Video\QueryServerFileListArgs.cs" />
+    <Compile Include="Data\Video\QueryServerFileListMessage.cs" />
+    <Compile Include="Data\Video\QueryServerFileListMessageResponse.cs" />
+    <Compile Include="Data\Video\TakePictureArgs.cs" />
+    <Compile Include="Data\Video\TakePictureMessageResponse.cs" />
+    <Compile Include="Enum\BscDevSuitePartTypeEnum.cs" />
+    <Compile Include="Enum\BussinessAlertType.cs" />
+    <Compile Include="Data\Command\HeartbeatRule.cs" />
+    <Compile Include="Data\Command\HeartbeatVehicle.cs" />
+    <Compile Include="Data\Monitor\GPSWorking.cs" />
+    <Compile Include="Data\Monitor\MobileWorking.cs" />
+    <Compile Include="Data\Monitor\SuiteWorking.cs" />
+    <Compile Include="Data\OrderClient\ClientUserList.cs" />
+    <Compile Include="Data\OrderClient\OrderClient.cs" />
+    <Compile Include="Data\OrderClient\OrderClientEx.cs" />
+    <Compile Include="Data\OrderClient\OrderClientStatus.cs" />
+    <Compile Include="Data\SendCommand.cs" />
+    <Compile Include="Data\Traffic\DelPolygonsRegion.cs" />
+    <Compile Include="Data\Traffic\DelRouteRegion.cs" />
+    <Compile Include="Data\Alert\DeviceAlert.cs" />
+    <Compile Include="Data\Alert\DeviceAlertEx.cs" />
+    <Compile Include="Enum\CommandParaEnum.cs" />
+    <Compile Include="Enum\CommandStateEnum.cs" />
+    <Compile Include="Enum\DeviceAlertType.cs" />
+    <Compile Include="Data\GenenalResponse.cs" />
+    <Compile Include="Data\DataAccess\GpsInfo.cs" />
+    <Compile Include="Enum\InstallStatusType.cs" />
+    <Compile Include="Enum\IsPassed.cs" />
+    <Compile Include="Data\Monitor\OnOffline.cs" />
+    <Compile Include="Data\Monitor\OnOfflineEx.cs" />
+    <Compile Include="Data\ParamInfo.cs" />
+    <Compile Include="Data\Traffic\Point.cs" />
+    <Compile Include="Data\Traffic\PolygonsRegion.cs" />
+    <Compile Include="Data\Traffic\PolygonsRegionEx.cs" />
+    <Compile Include="Data\Traffic\QueryParaResponse.cs" />
+    <Compile Include="Data\Command\QueryPartParamEx.cs" />
+    <Compile Include="Enum\GenenalResponseResult.cs" />
+    <Compile Include="Data\Traffic\RouteInfo.cs" />
+    <Compile Include="Data\Traffic\RouteInfoEx.cs" />
+    <Compile Include="Data\SendRecord.cs" />
+    <Compile Include="Data\Command\SetTermParam.cs" />
+    <Compile Include="Data\Traffic\TrafficFence.cs" />
+    <Compile Include="Data\Traffic\TrafficRoute.cs" />
+    <Compile Include="Data\TurningPoint.cs" />
+    <Compile Include="Data\Command\QueryPartParam.cs" />
+    <Compile Include="Data\Traffic\QueryParaResponseEx.cs" />
+    <Compile Include="Data\GenenalResponseEx.cs" />
+    <Compile Include="Data\Command\SetTermParamEx.cs" />
+    <Compile Include="Data\Traffic\DelRouteRegionEx.cs" />
+    <Compile Include="Data\Traffic\DelPolygonsRegionEx.cs" />
+    <Compile Include="Data\User\UserModel.cs" />
+    <Compile Include="Enum\AlarmSourceEnum.cs" />
+    <Compile Include="Enum\CameraInstallLocationEnum.cs" />
+    <Compile Include="Enum\CommandTypeEnum.cs" />
+    <Compile Include="Enum\GPSSourceEnum.cs" />
+    <Compile Include="Enum\OperateTypeEnum.cs" />
+    <Compile Include="Enum\PhotoStatusEnum.cs" />
+    <Compile Include="Enum\ResolutionEnum.cs" />
+    <Compile Include="Enum\TextMessageTypeEnum.cs" />
+    <Compile Include="Enum\MessageTypeEnum.cs" />
+    <Compile Include="Enum\OperTypeEnum.cs" />
+    <Compile Include="Enum\ProtocolTypeEnum.cs" />
+    <Compile Include="Enum\ReportStrategyEnum.cs" />
+    <Compile Include="Enum\RuleOperationType.cs" />
+    <Compile Include="Enum\SystemLogTypeEnum.cs" />
+    <Compile Include="Enum\VehicleConditionType.cs" />
+    <Compile Include="Enum\VehicleSeviceType.cs" />
+    <Compile Include="Enum\VersionEnum.cs" />
+    <Compile Include="Enum\VideoLogTypeEnum.cs" />
+    <Compile Include="Enum\Video\DownloadStatus.cs" />
+    <Compile Include="Enum\Video\VideoTypeEnum.cs" />
+    <Compile Include="Data\Maintain\MaintainRecordUnfinished.cs" />
+    <Compile Include="Data\Log\LogOperate.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Enum\StatusEnum.cs" />
+    <Compile Include="Enum\TansferModeEnum.cs" />
+    <Compile Include="Data\PublicService\MdvrMessageVehicle.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Util\Util.csproj">
+      <Project>{84a8e879-776a-42bc-8de9-10fa339cb331}</Project>
+      <Name>Util</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

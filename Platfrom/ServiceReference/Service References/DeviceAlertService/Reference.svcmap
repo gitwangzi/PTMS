@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="65227c68-6dec-4a12-aabf-446b273407dd" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>true</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.ObjectModel.ObservableCollection`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>false</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:2259/DeviceAlertService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="DeviceAlertService1.disco" MetadataType="Disco" ID="7c22048b-b760-4951-b318-ab605910d0f4" SourceId="1" SourceUrl="http://localhost:2259/DeviceAlertService.svc?disco" />
+    <MetadataFile FileName="DeviceAlertService7.xsd" MetadataType="Schema" ID="1ddd6197-0f0d-4bd5-9f73-3eace69860d6" SourceId="1" SourceUrl="http://localhost:2259/DeviceAlertService.svc?xsd=xsd2" />
+    <MetadataFile FileName="DeviceAlertService71.xsd" MetadataType="Schema" ID="b5f29034-afe5-4d5f-b92d-45641c8730b0" SourceId="1" SourceUrl="http://localhost:2259/DeviceAlertService.svc?xsd=xsd3" />
+    <MetadataFile FileName="DeviceAlertService72.xsd" MetadataType="Schema" ID="077ae08a-4616-4505-be5d-3887b21546a7" SourceId="1" SourceUrl="http://localhost:2259/DeviceAlertService.svc?xsd=xsd0" />
+    <MetadataFile FileName="DeviceAlertService73.xsd" MetadataType="Schema" ID="d1685b2a-3cf3-4164-962d-7fe113729a3e" SourceId="1" SourceUrl="http://localhost:2259/DeviceAlertService.svc?xsd=xsd1" />
+    <MetadataFile FileName="DeviceAlertService74.xsd" MetadataType="Schema" ID="229f0d95-2ed6-4c04-892d-5ed13d0b6030" SourceId="1" SourceUrl="http://localhost:2259/DeviceAlertService.svc?xsd=xsd6" />
+    <MetadataFile FileName="DeviceAlertService75.xsd" MetadataType="Schema" ID="af0e082f-5339-4a42-ad81-d518823003f5" SourceId="1" SourceUrl="http://localhost:2259/DeviceAlertService.svc?xsd=xsd7" />
+    <MetadataFile FileName="DeviceAlertService1.wsdl" MetadataType="Wsdl" ID="6021fcfe-4f72-4724-83a0-d4bac1f53844" SourceId="1" SourceUrl="http://localhost:2259/DeviceAlertService.svc?wsdl" />
+    <MetadataFile FileName="DeviceAlertService76.xsd" MetadataType="Schema" ID="1b34bd65-0ead-49fa-b8b5-2c0da11459c0" SourceId="1" SourceUrl="http://localhost:2259/DeviceAlertService.svc?xsd=xsd5" />
+    <MetadataFile FileName="DeviceAlertService77.xsd" MetadataType="Schema" ID="e03a5b60-6b7e-4b09-96a0-17645fdbabb7" SourceId="1" SourceUrl="http://localhost:2259/DeviceAlertService.svc?xsd=xsd4" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

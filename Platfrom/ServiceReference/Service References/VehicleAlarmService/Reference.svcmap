@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="3ca47059-bc4c-446e-ad9b-2b921ceff60e" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>true</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.ObjectModel.ObservableCollection`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>false</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:2259/VehicleAlarmService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="VehicleAlarmService2.xsd" MetadataType="Schema" ID="66a2952f-e80a-4d4e-bc72-2ec1d39aa599" SourceId="1" SourceUrl="http://localhost:2259/VehicleAlarmService.svc?xsd=xsd0" />
+    <MetadataFile FileName="VehicleAlarmService21.xsd" MetadataType="Schema" ID="c85ff816-121b-42b2-9dee-0cdf44fbb1a2" SourceId="1" SourceUrl="http://localhost:2259/VehicleAlarmService.svc?xsd=xsd1" />
+    <MetadataFile FileName="VehicleAlarmService22.xsd" MetadataType="Schema" ID="331e07c4-dc83-4080-be9c-75693041b276" SourceId="1" SourceUrl="http://localhost:2259/VehicleAlarmService.svc?xsd=xsd2" />
+    <MetadataFile FileName="VehicleAlarmService23.xsd" MetadataType="Schema" ID="1bfbf433-ac58-4403-a2e8-0e6cd1bf5d14" SourceId="1" SourceUrl="http://localhost:2259/VehicleAlarmService.svc?xsd=xsd3" />
+    <MetadataFile FileName="VehicleAlarmService.disco" MetadataType="Disco" ID="1e2d78a9-9cf6-4855-aa20-b7bc28e548a3" SourceId="1" SourceUrl="http://localhost:2259/VehicleAlarmService.svc?disco" />
+    <MetadataFile FileName="VehicleAlarmService.wsdl" MetadataType="Wsdl" ID="9fe6b50c-db46-4805-9aea-c19f564b5043" SourceId="1" SourceUrl="http://localhost:2259/VehicleAlarmService.svc?wsdl" />
+    <MetadataFile FileName="VehicleAlarmService24.xsd" MetadataType="Schema" ID="094b9085-79fb-4e32-9be7-c8a415ae4ead" SourceId="1" SourceUrl="http://localhost:2259/VehicleAlarmService.svc?xsd=xsd4" />
+    <MetadataFile FileName="VehicleAlarmService25.xsd" MetadataType="Schema" ID="57d5c63b-6dd7-4135-abcf-37ab5c747f8e" SourceId="1" SourceUrl="http://localhost:2259/VehicleAlarmService.svc?xsd=xsd5" />
+    <MetadataFile FileName="VehicleAlarmService26.xsd" MetadataType="Schema" ID="c8ea183a-6439-44ae-b972-d8d788b5e5d0" SourceId="1" SourceUrl="http://localhost:2259/VehicleAlarmService.svc?xsd=xsd6" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

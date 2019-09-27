@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:26444/DeviceInstallService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/System" />
+  <xs:import schemaLocation="http://localhost:26444/DeviceInstallService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Installation.Contract" />
+  <xs:complexType name="SingleMessageOfstring">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="SingleMessageOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="string" Namespace="http://www.w3.org/2001/XMLSchema" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ErrorDetailMsg" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ErrorMsg" nillable="true" type="xs:string" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="ExceptionMessage" nillable="true" type="q1:Exception" />
+      <xs:element minOccurs="0" name="IsSuccess" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Result" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SingleMessageOfstring" nillable="true" type="tns:SingleMessageOfstring" />
+  <xs:complexType name="SingleMessageOfInstallationAudity_PtN1jVq">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="SingleMessageOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="InstallationAudit" Namespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Installation.Contract" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ErrorDetailMsg" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ErrorMsg" nillable="true" type="xs:string" />
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="ExceptionMessage" nillable="true" type="q2:Exception" />
+      <xs:element minOccurs="0" name="IsSuccess" type="xs:boolean" />
+      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Installation.Contract" minOccurs="0" name="Result" nillable="true" type="q3:InstallationAudit" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SingleMessageOfInstallationAudity_PtN1jVq" nillable="true" type="tns:SingleMessageOfInstallationAudity_PtN1jVq" />
+  <xs:complexType name="SingleMessageOfSelfInspectInfoy_PtN1jVq">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="SingleMessageOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="SelfInspectInfo" Namespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Installation.Contract" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ErrorDetailMsg" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ErrorMsg" nillable="true" type="xs:string" />
+      <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="ExceptionMessage" nillable="true" type="q4:Exception" />
+      <xs:element minOccurs="0" name="IsSuccess" type="xs:boolean" />
+      <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Installation.Contract" minOccurs="0" name="Result" nillable="true" type="q5:SelfInspectInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SingleMessageOfSelfInspectInfoy_PtN1jVq" nillable="true" type="tns:SingleMessageOfSelfInspectInfoy_PtN1jVq" />
+  <xs:complexType name="SingleMessageOfInstallInfoResulty_PtN1jVq">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="SingleMessageOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="InstallInfoResult" Namespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Installation.Contract" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ErrorDetailMsg" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ErrorMsg" nillable="true" type="xs:string" />
+      <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="ExceptionMessage" nillable="true" type="q6:Exception" />
+      <xs:element minOccurs="0" name="IsSuccess" type="xs:boolean" />
+      <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Installation.Contract" minOccurs="0" name="Result" nillable="true" type="q7:InstallInfoResult" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SingleMessageOfInstallInfoResulty_PtN1jVq" nillable="true" type="tns:SingleMessageOfInstallInfoResulty_PtN1jVq" />
+  <xs:complexType name="SingleMessageOfInstallationInfoy_PtN1jVq">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="SingleMessageOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="InstallationInfo" Namespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Installation.Contract" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ErrorDetailMsg" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ErrorMsg" nillable="true" type="xs:string" />
+      <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="ExceptionMessage" nillable="true" type="q8:Exception" />
+      <xs:element minOccurs="0" name="IsSuccess" type="xs:boolean" />
+      <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Installation.Contract" minOccurs="0" name="Result" nillable="true" type="q9:InstallationInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SingleMessageOfInstallationInfoy_PtN1jVq" nillable="true" type="tns:SingleMessageOfInstallationInfoy_PtN1jVq" />
+  <xs:complexType name="SingleMessageOfboolean">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="SingleMessageOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="boolean" Namespace="http://www.w3.org/2001/XMLSchema" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ErrorDetailMsg" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ErrorMsg" nillable="true" type="xs:string" />
+      <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="ExceptionMessage" nillable="true" type="q10:Exception" />
+      <xs:element minOccurs="0" name="IsSuccess" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Result" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SingleMessageOfboolean" nillable="true" type="tns:SingleMessageOfboolean" />
+  <xs:complexType name="MultiMessageOfInstallationInfoy_PtN1jVq">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="MultiMessageOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="InstallationInfo" Namespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Installation.Contract" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ErrorDetailMsg" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ErrorMsg" nillable="true" type="xs:string" />
+      <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="ExceptionMessage" nillable="true" type="q11:Exception" />
+      <xs:element minOccurs="0" name="IsSuccess" type="xs:boolean" />
+      <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Installation.Contract" minOccurs="0" name="Result" nillable="true" type="q12:ArrayOfInstallationInfo" />
+      <xs:element minOccurs="0" name="TotalRecord" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MultiMessageOfInstallationInfoy_PtN1jVq" nillable="true" type="tns:MultiMessageOfInstallationInfoy_PtN1jVq" />
+  <xs:complexType name="PagingInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="PageIndex" type="xs:int" />
+      <xs:element minOccurs="0" name="PageSize" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PagingInfo" nillable="true" type="tns:PagingInfo" />
+  <xs:complexType name="MultiMessageOfInstallationAuditCollecty_PtN1jVq">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="MultiMessageOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="InstallationAuditCollect" Namespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Installation.Contract" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ErrorDetailMsg" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ErrorMsg" nillable="true" type="xs:string" />
+      <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="ExceptionMessage" nillable="true" type="q13:Exception" />
+      <xs:element minOccurs="0" name="IsSuccess" type="xs:boolean" />
+      <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Installation.Contract" minOccurs="0" name="Result" nillable="true" type="q14:ArrayOfInstallationAuditCollect" />
+      <xs:element minOccurs="0" name="TotalRecord" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MultiMessageOfInstallationAuditCollecty_PtN1jVq" nillable="true" type="tns:MultiMessageOfInstallationAuditCollecty_PtN1jVq" />
+  <xs:complexType name="MultiMessageOfInstallationAudity_PtN1jVq">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="MultiMessageOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="InstallationAudit" Namespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Installation.Contract" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ErrorDetailMsg" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ErrorMsg" nillable="true" type="xs:string" />
+      <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="ExceptionMessage" nillable="true" type="q15:Exception" />
+      <xs:element minOccurs="0" name="IsSuccess" type="xs:boolean" />
+      <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Installation.Contract" minOccurs="0" name="Result" nillable="true" type="q16:ArrayOfInstallationAudit" />
+      <xs:element minOccurs="0" name="TotalRecord" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MultiMessageOfInstallationAudity_PtN1jVq" nillable="true" type="tns:MultiMessageOfInstallationAudity_PtN1jVq" />
+  <xs:complexType name="MultiMessageOfSelfInspectInfoy_PtN1jVq">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="MultiMessageOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="SelfInspectInfo" Namespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Installation.Contract" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ErrorDetailMsg" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ErrorMsg" nillable="true" type="xs:string" />
+      <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="ExceptionMessage" nillable="true" type="q17:Exception" />
+      <xs:element minOccurs="0" name="IsSuccess" type="xs:boolean" />
+      <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Installation.Contract" minOccurs="0" name="Result" nillable="true" type="q18:ArrayOfSelfInspectInfo" />
+      <xs:element minOccurs="0" name="TotalRecord" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MultiMessageOfSelfInspectInfoy_PtN1jVq" nillable="true" type="tns:MultiMessageOfSelfInspectInfoy_PtN1jVq" />
+</xs:schema>

@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:2258/SecuritySuiteService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.BaseInformation.Contract.Data" />
+  <xs:import schemaLocation="http://localhost:2258/SecuritySuiteService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" />
+  <xs:element name="AddSecuritySuite">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.BaseInformation.Contract.Data" minOccurs="0" name="securitySuite" nillable="true" type="q1:DeviceSuite" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddSecuritySuiteResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" minOccurs="0" name="AddSecuritySuiteResult" nillable="true" type="q2:SingleMessageOfboolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateSecuritySuite">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.BaseInformation.Contract.Data" minOccurs="0" name="securitySuite" nillable="true" type="q3:DeviceSuite" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateSecuritySuiteResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" minOccurs="0" name="UpdateSecuritySuiteResult" nillable="true" type="q4:SingleMessageOfboolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSecuritySuiteBySuiteId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="suiteId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="mdvrid" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSecuritySuiteBySuiteIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" minOccurs="0" name="GetSecuritySuiteBySuiteIdResult" nillable="true" type="q5:SingleMessageOfDeviceSuiteh_PhsrrDr" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSecuritySuitesFuzzy">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="vehicleId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="suiteId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="mdvrId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="mdvrCoreId" nillable="true" type="xs:string" />
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.BaseInformation.Contract.Data" minOccurs="0" name="status" nillable="true" type="q6:InstallStatusType" />
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" minOccurs="0" name="page" nillable="true" type="q7:PagingInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSecuritySuitesFuzzyResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" minOccurs="0" name="GetSecuritySuitesFuzzyResult" nillable="true" type="q8:MultiMessageOfDeviceSuiteh_PhsrrDr" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateSecuritySuiteStatusByID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.BaseInformation.Contract.Data" minOccurs="0" name="status" type="q9:DeviceSuiteStatus" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateSecuritySuiteStatusByIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" minOccurs="0" name="UpdateSecuritySuiteStatusByIDResult" nillable="true" type="q10:SingleMessageOfboolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckSecuritySuiteExistBySuiteID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="suiteID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckSecuritySuiteExistBySuiteIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" minOccurs="0" name="CheckSecuritySuiteExistBySuiteIDResult" nillable="true" type="q11:SingleMessageOfboolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckSecuritySuiteExistByMdvrCoreId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="mdvrCoreId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckSecuritySuiteExistByMdvrCoreIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" minOccurs="0" name="CheckSecuritySuiteExistByMdvrCoreIdResult" nillable="true" type="q12:SingleMessageOfboolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckSecuritySuiteExistByMdvrId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="mdvrId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckSecuritySuiteExistByMdvrIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" minOccurs="0" name="CheckSecuritySuiteExistByMdvrIdResult" nillable="true" type="q13:SingleMessageOfboolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckInstallDetailById">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckInstallDetailByIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" minOccurs="0" name="CheckInstallDetailByIdResult" nillable="true" type="q14:SingleMessageOfboolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="BatchAdd">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.BaseInformation.Contract.Data" minOccurs="0" name="suiteList" nillable="true" type="q15:ArrayOfDeviceSuite" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="BatchAddResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" minOccurs="0" name="BatchAddResult" nillable="true" type="q16:SingleMessageOfboolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteSecuritySuite">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.BaseInformation.Contract.Data" minOccurs="0" name="SecuritySuite" nillable="true" type="q17:DeviceSuite" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteSecuritySuiteResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" minOccurs="0" name="DeleteSecuritySuiteResult" nillable="true" type="q18:SingleMessageOfboolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckSecuritySuiteExist">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.BaseInformation.Contract.Data" minOccurs="0" name="deviceSuiteList" nillable="true" type="q19:ArrayOfDeviceSuite" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckSecuritySuiteExistResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" minOccurs="0" name="CheckSecuritySuiteExistResult" nillable="true" type="q20:SingleMessageOfboolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

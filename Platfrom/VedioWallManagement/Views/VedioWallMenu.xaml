@@ -1,0 +1,108 @@
+﻿<UserControl x:Class="Gsafety.PTMS.VedioWall.Views.VedioWallMenu"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:Converts="clr-namespace:Gsafety.Common.Converts;assembly=Converts"  
+    xmlns:share="clr-namespace:Gsafety.PTMS.Share;assembly=Share"
+    xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
+    xmlns:Controls="clr-namespace:Gsafety.Common.Controls;assembly=CommonControls"
+    xmlns:system="clr-namespace:System;assembly=mscorlib"
+    mc:Ignorable="d"
+    d:DesignHeight="300" d:DesignWidth="400">
+    <UserControl.Resources>
+        <Converts:VehicleStateToMinImage x:Key="StateToMinImage"/>
+        <Converts:VehicleTreenodeLenght x:Key="VehicleLenght"/>
+        <Converts:VehicleOnLineConverter x:Key="VehicleOnLineConverter"/>
+        <Converts:TargetNullValueConverter x:Key="TargetNullValueConverter"/>
+        <Converts:FunItemVisibilityConverter x:Key="FunItemVisibilityConverter"/>
+    </UserControl.Resources>
+
+    <Grid x:Name="LayoutRoot" Style="{StaticResource ContentGridStyle}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        
+        <Grid Style="{StaticResource ViewFirstTitleGridStyle}" Grid.Row="0">
+            <StackPanel Orientation="Horizontal">
+                <Image Source="/ExternalResource;component/Images/MainPage_menu_wall.png" Stretch="None" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="8,4,0,6"/>
+                <TextBlock Text="{Binding [VedioWall_VehicleList], Source={StaticResource SR}}" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="5,0,0,0" Style="{StaticResource MainPage_menu_tle_TextBlockStyle}"></TextBlock>
+            </StackPanel>
+        </Grid>
+        
+        <Grid share:ButtonServices.DefaultButton="{Binding ElementName=VehicleSearch}" Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left"  Margin="5,0,5,0" Grid.Row="0" >
+                <!--<TextBlock Text="{Binding [CarNumber], Source={StaticResource SR}}" VerticalAlignment="Center" Style="{StaticResource MainPage_Main_search_TextBlockStyle}"></TextBlock>-->
+                <Controls:SearchTextBox Name="FilterTextBox" TextWrapping="NoWrap" Text="{Binding FilterText, Mode=TwoWay, Converter={StaticResource TargetNullValueConverter},ConverterParameter=Organization_VehicleSn_Line}"
+                             MaxLength="20" Width="280" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,0,0,0"/>
+                <Button Name="VehicleSearch" Style="{StaticResource SearchButtonCommonStyle}" 
+                        ToolTipService.ToolTip="{Binding [MONITOR_VehicleQuery], Source={StaticResource SR}}"                                    
+                        Command="{Binding VehicleSearchCommand}"
+                        VerticalAlignment="Center">
+                </Button>
+            </StackPanel>
+
+            <sdk:TreeView Name="monitorTree" Grid.Row="1"
+                 ItemsSource="{Binding VehicleTreeFactory.VehicleTrees}"
+                 Style="{StaticResource TreeViewStyle}" ItemContainerStyle="{StaticResource TreeViewItemVisibility}">
+                <sdk:TreeView.ItemTemplate>
+                    <sdk:HierarchicalDataTemplate ItemsSource="{Binding Path=Children}">
+                        <Controls:NodeTypeTemplateSelector Content="{Binding}">
+                            <Controls:NodeTypeTemplateSelector.Resources>
+                                <DataTemplate x:Key="OrganizationEx">
+                                    <StackPanel Orientation="Horizontal">
+                                        <Image Stretch="None" Margin="0,0,2,0" VerticalAlignment="Center" Source="/ExternalResource;component/Images/Organization.png"/>
+
+                                        <TextBlock Foreground="White"  Text="{Binding Path=Organization.Name}"  TextAlignment="Left" Margin="0,0,3,0"/>
+                                        <TextBlock Foreground="White" Text="("  TextAlignment="Left"/>
+                                        <TextBlock Foreground="White" Text="{Binding Path=VehicleOnlineCount}"  TextAlignment="Left"/>
+                                        <TextBlock Foreground="White" Text="/"  TextAlignment="Left"/>
+                                        <TextBlock Foreground="White" Text="{Binding Path=VehicleCount}"  TextAlignment="Left"/>
+                                        <TextBlock Foreground="White" Text=")"  TextAlignment="Left"/>
+                                    </StackPanel>
+                                </DataTemplate>
+
+                                <DataTemplate x:Key="VehicleEx">
+                                    <StackPanel Orientation="Horizontal" Name="stackPanel">
+                                        <Image Stretch="None" Margin="5,0,4,0"  
+                                                                   VerticalAlignment="Center"  
+                                                                   Source="{Binding VehicleInfo.IsOnLine,Converter={StaticResource VehicleOnLineConverter}}"/>
+
+                                        <TextBlock Text="{Binding Path=Name}" Foreground="White"
+                                                                       HorizontalAlignment="Left"
+                                                                       Margin="2,0,2,0"
+                                                                       VerticalAlignment="Center"
+                                                                       Width="70"/>
+
+                                        <!--实时视频-->
+                                        <Button  Command="{Binding DataContext.PlayVideoCommand,ElementName=monitorTree}"
+                                                                             CommandParameter="{Binding DataContext.VehicleInfo.UniqueId,ElementName=stackPanel}"
+                                                                             Margin="10,0,2,0"
+                                                      IsEnabled="{Binding VehicleInfo.IsOnLine}"
+                                                Visibility="{Binding RelativeSource={RelativeSource Self}, Converter={StaticResource FunItemVisibilityConverter},ConverterParameter='02-06-01-01-01'}"
+                                                                             ToolTipService.ToolTip="{Binding [Rpt_External_Access_COLSSSP],Source={StaticResource SR}}"
+                                                                             Style="{StaticResource MonitorVedioButtonCommonStyle}"></Button>
+
+                                        <!--历史视频-->
+                                        <Button  Command="{Binding DataContext.HistoricalVideoCommand,ElementName=monitorTree}"
+                                                                             CommandParameter="{Binding DataContext.VehicleInfo.VehicleId,ElementName=stackPanel}"
+                                                                             Margin="2,0,2,0"
+                                                Visibility="{Binding RelativeSource={RelativeSource Self}, Converter={StaticResource FunItemVisibilityConverter},ConverterParameter='02-06-01-01-02'}"
+                                                                             ToolTipService.ToolTip="{Binding [Rpt_External_Access_COLLSSP],Source={StaticResource SR}}"
+                                                                             Style="{StaticResource HistoryVedioCommonStyle}"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </Controls:NodeTypeTemplateSelector.Resources>
+                        </Controls:NodeTypeTemplateSelector>
+                    </sdk:HierarchicalDataTemplate>
+                </sdk:TreeView.ItemTemplate>
+            </sdk:TreeView>
+        </Grid>
+    </Grid>
+</UserControl>

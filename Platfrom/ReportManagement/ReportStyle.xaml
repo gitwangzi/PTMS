@@ -1,0 +1,33 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+        xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
+                 xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars" 
+    xmlns:dxp="http://schemas.devexpress.com/winfx/2008/xaml/printing"     
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <DataTemplate x:Key="barCustomizationTemplate">
+        <dxb:BarManagerActionContainer>
+            <dxb:RemoveBarItemAndLinkAction ItemName="documentMap"/>
+            <dxb:RemoveBarItemAndLinkAction ItemName="pageSetup"/>
+            <dxb:RemoveBarItemAndLinkAction ItemName="exportHTML"/>
+            <dxb:RemoveBarItemAndLinkAction ItemName="exportMHT"/>
+            <dxb:RemoveBarItemAndLinkAction ItemName="exportRTF"/>
+            <dxb:RemoveBarItemAndLinkAction ItemName="exportCSV"/>
+            <dxb:RemoveBarItemAndLinkAction ItemName="exportText"/>
+            <dxb:RemoveBarItemAndLinkAction ItemName="exportImage"/>
+            <dxb:RemoveBarItemAndLinkAction ItemName="exportXPS"/>
+            <dxb:RemoveBarItemAndLinkAction ItemName="exportHTMLToWindow"/>
+            <dxb:RemoveBarItemAndLinkAction ItemName="exportMHTToWindow"/>
+            <dxb:RemoveBarItemAndLinkAction ItemName="exportRTFToWindow"/>
+            <dxb:RemoveBarItemAndLinkAction ItemName="exportCSVToWindow"/>
+            <dxb:RemoveBarItemAndLinkAction ItemName="exportTextToWindow"/>
+            <dxb:RemoveBarItemAndLinkAction ItemName="exportImageToWindow"/>
+            <dxb:RemoveBarItemAndLinkAction ItemName="exportXPSToWindow"/>
+        </dxb:BarManagerActionContainer>
+    </DataTemplate>
+
+    <Style TargetType="dxp:DocumentPreview" x:Key="DocumentPreviewStyle">
+        <Setter Property="dxp:BarManagerCustomization.Template" Value="{StaticResource barCustomizationTemplate}"/>
+    </Style>
+
+</ResourceDictionary>

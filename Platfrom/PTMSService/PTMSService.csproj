@@ -1,0 +1,415 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{6E5D05DB-C3DA-4A70-A8BA-A7C79F8E462A}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Gs.PTMS.Service</RootNamespace>
+    <AssemblyName>Gs.PTMS.Service</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <WcfConfigValidationEnabled>True</WcfConfigValidationEnabled>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\Assemblies\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Localization, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Localization\Bin\Debug\Localization.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Assemblies\log4net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\Assemblies\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Formatting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Net.Http.WebRequest" />
+    <Reference Include="System.ServiceModel.Activation" />
+    <Reference Include="System.ServiceModel.Routing" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Web" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AccountService.svc" />
+    <Content Include="AppConfigManager.svc" />
+    <Content Include="BscDevSuiteService.svc" />
+    <Content Include="BscGeoPoiService.svc" />
+    <Content Include="ChauffeurService.svc" />
+    <Content Include="clientaccesspolicy.xml" />
+    <Content Include="CommandManageService.svc" />
+    <Content Include="DevGpsService.svc" />
+    <Content Include="DeviceAlertService.svc" />
+    <Content Include="DeviceInstallService.svc" />
+    <Content Include="DistrictService.svc" />
+    <Content Include="EmailService.svc" />
+    <Content Include="InstallStaffService.svc" />
+    <Content Include="InstallStationService.svc" />
+    <Content Include="LogService.svc" />
+    <Content Include="MaintainService.svc" />
+    <Content Include="OrderClientService.svc" />
+    <Content Include="OrganizationService.svc" />
+    <Content Include="LogManageService.svc" />
+    <Content Include="RunMonitorGroupService.svc" />
+    <Content Include="PublicService.svc" />
+    <Content Include="SecuritySuiteService.svc" />
+    <Content Include="SystemRubbishService.svc" />
+    <Content Include="TrafficManageService.svc" />
+    <Content Include="VedioService.svc" />
+    <Content Include="VehicleAlarmService.svc" />
+    <Content Include="VehicleAlertService.svc" />
+    <Content Include="VehicleMonitorService.svc" />
+    <Content Include="VehicleService.svc" />
+    <Content Include="VehicleStatusService.svc" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="WorkingSuiteService.svc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AccountService.svc.cs">
+      <DependentUpon>AccountService.svc</DependentUpon>
+      <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
+    </Compile>
+    <Compile Include="AppConfigManager.svc.cs">
+      <DependentUpon>AppConfigManager.svc</DependentUpon>
+    </Compile>
+    <Compile Include="BscDevSuiteService.svc.cs">
+      <DependentUpon>BscDevSuiteService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="BscGeoPoiService.svc.cs">
+      <DependentUpon>BscGeoPoiService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="ChauffeurService.svc.cs">
+      <DependentUpon>ChauffeurService.svc</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CommandManageService.svc.cs">
+      <DependentUpon>CommandManageService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="DevGpsService.svc.cs">
+      <DependentUpon>DevGpsService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="DeviceAlertService.svc.cs">
+      <DependentUpon>DeviceAlertService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="DeviceInstallService.svc.cs">
+      <DependentUpon>DeviceInstallService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="DistrictService.svc.cs">
+      <DependentUpon>DistrictService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="EmailService.svc.cs">
+      <DependentUpon>EmailService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="InstallStaffService.svc.cs">
+      <DependentUpon>InstallStaffService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="InstallStationService.svc.cs">
+      <DependentUpon>InstallStationService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="LogService.svc.cs">
+      <DependentUpon>LogService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="MaintainService.svc.cs">
+      <DependentUpon>MaintainService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="OrderClientService.svc.cs">
+      <DependentUpon>OrderClientService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="OrganizationService.svc.cs">
+      <DependentUpon>OrganizationService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="LogManageService.svc.cs">
+      <DependentUpon>LogManageService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="RunMonitorGroupService.svc.cs">
+      <DependentUpon>RunMonitorGroupService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="PublicService.svc.cs">
+      <DependentUpon>PublicService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="SecuritySuiteService.svc.cs">
+      <DependentUpon>SecuritySuiteService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="SystemRubbishService.svc.cs">
+      <DependentUpon>SystemRubbishService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="TrafficManageService.svc.cs">
+      <DependentUpon>TrafficManageService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="VedioService.svc.cs">
+      <DependentUpon>VedioService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="VehicleAlarmService.svc.cs">
+      <DependentUpon>VehicleAlarmService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="VehicleAlertService.svc.cs">
+      <DependentUpon>VehicleAlertService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="VehicleMonitorService.svc.cs">
+      <DependentUpon>VehicleMonitorService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="VehicleService.svc.cs">
+      <DependentUpon>VehicleService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="VehicleStatusService.svc.cs">
+      <DependentUpon>VehicleStatusService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="WorkingSuiteService.svc.cs">
+      <DependentUpon>WorkingSuiteService.svc</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\PublishProfiles\PTMS.pubxml" />
+    <Content Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </Content>
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AlarmContract\AlarmContract.csproj">
+      <Project>{c1648bb6-2ddc-4db3-b532-3383f4ebf4a2}</Project>
+      <Name>AlarmContract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AlarmRepository\AlarmRepository.csproj">
+      <Project>{be352cb3-0734-4b42-8ac6-e5b34d8bea80}</Project>
+      <Name>AlarmRepository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AlertContract\AlertContract.csproj">
+      <Project>{008bef84-fb4b-4c9d-8239-804a4d662075}</Project>
+      <Name>AlertContract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AlertRepository\AlertRepository.csproj">
+      <Project>{7484996a-8719-406b-9d5a-088fd07aa116}</Project>
+      <Name>AlertRepository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BaseContract\BaseContract.csproj">
+      <Project>{a6c2a532-546d-4dae-8aa3-4c01de81f462}</Project>
+      <Name>BaseContract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BaseInformationContract\BaseInformationContract.csproj">
+      <Project>{679e0b68-feca-4a96-9313-19e24c1d46b6}</Project>
+      <Name>BaseInformationContract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BaseInformationRepository\BaseInformationRepository.csproj">
+      <Project>{a5efa9ec-ef89-49bd-aa35-913cb278feae}</Project>
+      <Name>BaseInformationRepository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BaseInfo\BaseInfo.csproj">
+      <Project>{1a55af1b-1be4-47b2-80f5-0b1e48ef087d}</Project>
+      <Name>BaseInfo</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Common.Data\Common.Data.csproj">
+      <Project>{2b4caa14-181a-4b8d-9dc6-891bea684735}</Project>
+      <Name>Common.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataModel\DBEntity.csproj">
+      <Project>{b8edef26-d01b-42cc-9a6f-5802d4c5f43c}</Project>
+      <Name>DBEntity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EmailContract\EmailContract.csproj">
+      <Project>{bd9fed62-4a6a-44c9-9269-b0c9a510175d}</Project>
+      <Name>EmailContract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EmailRepository\EmailRepository.csproj">
+      <Project>{064e6134-c4ff-4cd4-b21d-6a1abb560c14}</Project>
+      <Name>EmailRepository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\InstallationContract\InstallationContract.csproj">
+      <Project>{622eaa0e-afe9-4cd4-b09b-cdd4910f0d46}</Project>
+      <Name>InstallationContract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\InstallationRepository\InstallationRepository.csproj">
+      <Project>{175b500b-3b98-43bc-884d-a4b28992340f}</Project>
+      <Name>InstallationRepository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IntegrationContract\IntegrationContract.csproj">
+      <Project>{cad14f54-9375-47b6-ba53-71588aa2637a}</Project>
+      <Name>IntegrationContract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IntegrationRepository\IntegrationRepository.csproj">
+      <Project>{e3da9a3e-50c9-4f10-91f1-0d0142e112ea}</Project>
+      <Name>IntegrationRepository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LogManage\LogManage.csproj">
+      <Project>{48e5a665-a6c2-49a2-96d3-031eaa67de3d}</Project>
+      <Name>LogManage</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LogServiceContract\LogServiceContract.csproj">
+      <Project>{8d63984d-9513-457c-811d-9c55fa437fc0}</Project>
+      <Name>LogServiceContract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LogServiceRepository\LogServiceRepository.csproj">
+      <Project>{50e8413f-14d0-4aac-8d64-5abfb5c67d26}</Project>
+      <Name>LogServiceRepository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MaintainContract\MaintainContract.csproj">
+      <Project>{4b070b1f-1e40-4958-986b-a830d76ca0bf}</Project>
+      <Name>MaintainContract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MaintainRepository\MaintainRepository.csproj">
+      <Project>{4e1c86bd-441e-467f-89cf-1de6ef484d3b}</Project>
+      <Name>MaintainRepository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ManagerContract\ManagerContract.csproj">
+      <Project>{5955c031-5415-457c-95d3-b06e38279572}</Project>
+      <Name>ManagerContract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ManagerRepository\ManagerRepository.csproj">
+      <Project>{5a9e13d9-65a4-405e-a6d3-fe05fee1367e}</Project>
+      <Name>ManagerRepository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MessageContract\MessageContract.csproj">
+      <Project>{e9a83f02-f0dd-4c92-b47d-1f894c2d3c9a}</Project>
+      <Name>MessageContract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MonitorContract\MonitorContract.csproj">
+      <Project>{66024dda-bae4-442a-838e-953bf716cc90}</Project>
+      <Name>MonitorContract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MonitorRepository\MonitorRepository.csproj">
+      <Project>{7963de26-e2f7-4c67-83e6-0545732d4fb8}</Project>
+      <Name>MonitorRepository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PublicServiceContract\PublicServiceContract.csproj">
+      <Project>{0d9ac0da-d476-467a-ac38-06f77918b11d}</Project>
+      <Name>PublicServiceContract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PublicServiceRepository\PublicServiceRepository.csproj">
+      <Project>{ba63e1ec-7a37-4c60-89b9-ffd21782d42f}</Project>
+      <Name>PublicServiceRepository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SecuritySuiteContract\SecuritySuiteContract.csproj">
+      <Project>{633f50be-fcc6-4b05-9b4f-5d9cec137b43}</Project>
+      <Name>SecuritySuiteContract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SecuritySuiteRepository\SecuritySuiteRepository.csproj">
+      <Project>{15af8443-29c7-47f0-bf2d-6c5fd427b0d8}</Project>
+      <Name>SecuritySuiteRepository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SystemRubbishContract\SystemRubbishContract.csproj">
+      <Project>{25cdefcd-adc6-4e2b-bfd7-2237a1ec0666}</Project>
+      <Name>SystemRubbishContract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SystemRubbishRepository\SystemRubbishRepository.csproj">
+      <Project>{beffa657-523b-4d47-a571-0d571ec8dd86}</Project>
+      <Name>SystemRubbishRepository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TrafficContract\TrafficContract.csproj">
+      <Project>{a4c2fb20-3486-4529-a83a-715d0dcda065}</Project>
+      <Name>TrafficContract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TrafficRepository\TrafficRepository.csproj">
+      <Project>{7188174e-9a81-44de-b585-b03febd2842c}</Project>
+      <Name>TrafficRepository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Util\Util.csproj">
+      <Project>{84a8e879-776a-42bc-8de9-10fa339cb331}</Project>
+      <Name>Util</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VideoLogContract\VideoLogContract.csproj">
+      <Project>{17a79074-db99-44fb-8575-1c6ad34702c6}</Project>
+      <Name>VideoLogContract</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>False</AutoAssignPort>
+          <DevelopmentServerPort>2259</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:2259/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

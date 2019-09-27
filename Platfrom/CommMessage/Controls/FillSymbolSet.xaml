@@ -1,0 +1,53 @@
+﻿<controls:ChildWindow x:Class="Gsafety.Common.CommMessage.Controls.FillSymbolSet"
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+           xmlns:toolkit="http://schemas.microsoft.com/winfx/2006/xaml/presentation/toolkit"
+           Width="350" Height="140" 
+           Title="{Binding [GIS_FillSymbolSet], Source={StaticResource SR}}" Style="{StaticResource ChildWindowStyle}" Closing="ChildWindow_Closing" >
+    <Grid x:Name="LayoutRoot" Margin="2">
+        <Grid.Resources>
+            <LinearGradientBrush x:Key="BorderBrush" EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FFA3AEB9" Offset="0"/>
+                <GradientStop Color="#FF8399A9" Offset="0.375"/>
+                <GradientStop Color="#FF718597" Offset="0.375"/>
+                <GradientStop Color="#FF617584" Offset="1"/>
+            </LinearGradientBrush>
+            <DataTemplate x:Key="CBTemplate">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Rectangle Width="22" Height="11" Stroke="{StaticResource BorderBrush}" StrokeThickness="1">
+                        <Rectangle.Fill>
+                            <SolidColorBrush Color="{Binding Value}" />
+                        </Rectangle.Fill>
+                    </Rectangle>
+                    <TextBlock Grid.Column="1" Text="{Binding NameV}" Margin="5,0" Height="20" Width="88"  />
+                </Grid>
+            </DataTemplate>
+        </Grid.Resources>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <TextBlock  Grid.Column="0" Grid.Row="0" HorizontalAlignment="Right"   Text="{Binding [GIS_Symbol_Color], Source={StaticResource SR}}" VerticalAlignment="Center" Margin="0,0,5,0"/>
+        <ComboBox TabIndex="0" x:Name="FillColor"  HorizontalAlignment="Left" SelectedIndex="1" VerticalAlignment="Center"
+                          ItemTemplate="{StaticResource CBTemplate}" ItemsSource="{Binding}" 
+                  Grid.Row="0" Grid.Column="1" Margin="5,0,0,0" Width="200"/>
+        <TextBlock Grid.Column="0" Grid.Row="1" HorizontalAlignment="Right"  TextWrapping="Wrap" Text="{Binding [GIS_Symbol_Transparent], Source={StaticResource SR}}" VerticalAlignment="Center" Margin="0,0,5,0"/>
+        <Slider x:Name="trasparentSet" TabIndex="1" Grid.Column="1" HorizontalAlignment="Left" Margin="0,0,5,0" Grid.Row="1" VerticalAlignment="Center" Width="200" Maximum="1" Minimum="0" Value="0.3"/>
+        <StackPanel Grid.Column="1" Grid.Row="2" Orientation="Horizontal" VerticalAlignment="Center">
+            <Button TabIndex="2" x:Name="OKButton"  Content="{Binding [Confirm], Source={StaticResource SR}}" Click="OKButton_Click"  Width="75" Height="23" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="20,5,0,0" />
+            <Button TabIndex="3" x:Name="CancelButton" Content="{Binding [Cancel], Source={StaticResource SR}}" Click="CancelButton_Click"  HorizontalAlignment="Right" Width="75" Height="23"  VerticalAlignment="Center" Margin="30,5,0,0"/>
+        </StackPanel>
+        
+    </Grid>
+</controls:ChildWindow>

@@ -1,0 +1,118 @@
+﻿<Application xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:Gsafety.Common.Localization;assembly=Localization"
+             xmlns:Services="clr-namespace:Jounce.Framework.Services;assembly=Jounce"  
+             xmlns:gislocal="clr-namespace:GisManagement.ViewModels;assembly=GisManagement"
+             xmlns:System="clr-namespace:System;assembly=mscorlib"
+             x:Class="PTMS.App">
+    <Application.Resources>
+
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+
+                <!--自定义的控件内置垂直滚动条样式，使用控件为Combox、Listbox、DataGrid等-->
+                <ResourceDictionary Source="./Assets/AntProductScrollViewerStyle.xaml"/>
+
+                <ResourceDictionary Source="./Assets/Styles.xaml"/>
+                <ResourceDictionary Source="./Assets/Templates.xaml"/>
+                <ResourceDictionary Source="./Assets/TreeViewCheckBoxes.xaml"/>
+                <ResourceDictionary Source="./Assets/MapToolbar.xaml"/>
+                <ResourceDictionary Source="./Assets/BusyIndicatorStyle.xaml"/>
+                <ResourceDictionary Source="./Assets/ToggleSwitchStyles.xaml"/>
+                <ResourceDictionary Source="./Assets/LoginStyle.xaml"/>
+                <ResourceDictionary Source="./Assets/TextBlockStyle.xaml"/>
+                <ResourceDictionary Source="./Assets/HyperlinkButtonStyle.xaml"/>
+                <ResourceDictionary Source="./Assets/BorderStyle.xaml"/>
+                <ResourceDictionary Source="./Assets/ButtonStyle.xaml"/>
+                <ResourceDictionary Source="./Assets/TabControlStyle.xaml"/>
+                <ResourceDictionary Source="./Assets/ToolKitStyle.xaml"/>
+                <ResourceDictionary Source="./Assets/ComboBoxStyle.xaml"/>
+                <ResourceDictionary Source="./Assets/DataGridStyle.xaml"/>
+                <ResourceDictionary Source="./Assets/RadioButtonStyle.xaml"/>
+
+                <!--公共交通产品所有的样式都放在这里-->
+                <ResourceDictionary Source="./Assets/AdviceControlStyle.xaml"/>
+
+
+                <!--所有按钮样式-->
+                <ResourceDictionary Source="./Assets/AntProductButtonStyle.xaml"/>
+
+                <!--所有TextBlock样式-->
+                <ResourceDictionary Source="./Assets/AntProductTextBoxStyle.xaml"/>
+
+                <!--所有TextBlock样式-->
+                <ResourceDictionary Source="./Assets/AntProductTextBlockStyle.xaml"/>
+                <!--所有DataGrid样式-->
+                <ResourceDictionary Source="./Assets/AntProductDataGridStyle.xaml"/>
+                <!--所有Accordion样式-->
+                <ResourceDictionary Source="./Assets/AntProductAccordionStyle.xaml"/>
+                <!--所有ChildenWindow样式-->
+                <ResourceDictionary Source="./Assets/AntProductChildenWindowStyle.xaml"/>
+
+                <!--所有AntProductScrollViewerStyle样式-->
+                <ResourceDictionary Source="./Assets/AntProductScrollViewerStyle.xaml"/>
+
+                <!--所有ListBox样式-->
+                <ResourceDictionary Source="./Assets/AntProductListBoxStyle.xaml"/>
+                <!--所有Frame样式-->
+                <ResourceDictionary Source="./Assets/AntProductFrameStyle.xaml"/>
+                <!--所有Grid样式-->
+                <ResourceDictionary Source="./Assets/AntProductGridStyle.xaml"/>
+                <!--所有Image样式-->
+                <ResourceDictionary Source="./Assets/AntProductImageStyle.xaml"/>
+
+                <!--所有Combox样式-->
+                <ResourceDictionary Source="./Assets/AntProductComboxStyle.xaml"/>
+
+                <!--所有DatePicker样式-->
+                <ResourceDictionary Source="./Assets/AntProductDatePickerStyle.xaml"/>
+
+                <!--所有HyperLinksButton样式-->
+                <ResourceDictionary Source="./Assets/AntProductHyperlinkButtonStyle.xaml"/>
+
+                <!--所有TreeView样式-->
+                <ResourceDictionary Source="./Assets/AntProductTreeViewStyle.xaml"/>
+
+                <!--所有GridSplitter分割线样式-->
+                <ResourceDictionary Source="./Assets/AntProductGridSplitter.xaml"/>
+
+                <!--所有DataPager分割线样式-->
+                <ResourceDictionary Source="./Assets/AntProductDataPagerStyle.xaml"/>
+
+                <!--所有ProgressBar样式-->
+                <ResourceDictionary Source="./Assets/AntProductProgressBarStyle.xaml"/>
+
+                <!--所有Border样式-->
+                <ResourceDictionary Source="./Assets/AntProductBorder.xaml"/>
+
+                <!--所有Slider样式-->
+                <ResourceDictionary Source="./Assets/AntProductSlider.xaml"/>
+
+                <!--所有TabControl样式-->
+                <ResourceDictionary Source="./Assets/AntProductTabControlStyle.xaml"/>
+
+
+                <!--所有TabControl摄像头选择CheckBox样式-->
+                <ResourceDictionary Source="./Assets/CameraSelectCheckBox.xaml"/>
+
+                <!--所有CheckBox样式-->
+                <ResourceDictionary Source="./Assets/AntProductCheckBoxStyle.xaml"/>
+
+                <!--播放器样式--> 
+                <ResourceDictionary Source="./Assets/MediaPlayerStyle.xaml"/>
+                <!--时间选择-->
+                <ResourceDictionary Source="./Assets/BetweenSilverStyle.xaml"/>
+                <ResourceDictionary Source="/ReportManagement;component/ReportStyle.xaml"/> 
+
+            </ResourceDictionary.MergedDictionaries>
+            <local:StringResourceReader x:Key="SR"/>
+            <gislocal:RouteManager x:Key="RouteManager" x:Name="RouteManager"/>
+            <gislocal:NetAnalyze x:Key="NetAnalyze" x:Name="NetAnalyze"/>
+            <System:String x:Key="DevExpress.Xpf.License">6F-9C-E7-0E-F2-E0-DD-C6-E7-A7-49-2D-F2-3E-43-31-F0-1D-F2-11</System:String>
+
+        </ResourceDictionary>
+    </Application.Resources>
+    <Application.ApplicationLifetimeObjects>
+        <Services:ApplicationService/>
+    </Application.ApplicationLifetimeObjects>
+</Application>

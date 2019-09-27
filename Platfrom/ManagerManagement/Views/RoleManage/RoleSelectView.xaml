@@ -1,0 +1,78 @@
+﻿<controls:ChildWindow x:Class="Gsafety.PTMS.Manager.Views.RoleManage.RoleSelectView"
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+                      xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"  
+           Width="500" Height="520" 
+           Title="{Binding [RoleSelect], Source={StaticResource SR}}"
+                      Style="{StaticResource SelfChildenWindowWhiteStyle}">
+    <Grid x:Name="LayoutRoot" Style="{StaticResource ContentGridWhiteStyle}">
+
+        <Grid.RowDefinitions>
+            <RowDefinition  Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="15"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="20"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Text="{Binding [FunctionList], Source={StaticResource SR}}" Grid.Column="0"
+                       HorizontalAlignment="Right"
+                       Margin="0,5,20,5"
+                       VerticalAlignment="Center"/>
+
+            <sdk:TreeView  Grid.Column="1" Margin="0,20,0,0"
+                           Height="400"
+                           Width="300"
+                           ItemsSource="{Binding FunctionCheckList}"  
+                           Style="{StaticResource TreeViewWhiteStyle}" 
+                           ItemContainerStyle="{StaticResource TreeViewItemWhiteStyle}"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Top"
+                           Foreground="White">
+                <sdk:TreeView.ItemTemplate>
+                    <sdk:HierarchicalDataTemplate ItemsSource="{Binding Children}">
+                        <StackPanel Orientation="Horizontal">
+                            <CheckBox IsChecked="{Binding IsChecked,Mode=TwoWay}" IsEnabled="{Binding DataContext.EditEnable,RelativeSource={RelativeSource AncestorType=sdk:TreeView}}"/>
+                            <TextBlock Text="{Binding Name}" Foreground="#333333"/>
+                        </StackPanel>
+                    </sdk:HierarchicalDataTemplate>
+                </sdk:TreeView.ItemTemplate>
+            </sdk:TreeView>
+
+        </Grid>
+        <Grid Visibility="{Binding EditVisibility}"
+            Grid.Row="3"
+            Style="{StaticResource ContentGridWhiteStyle}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Button Grid.Column="0"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Center"
+                        Content="{Binding [MANAGE_Finish], Source={StaticResource SR}}"
+                        Command="{Binding SaveCommand}"
+                        Style="{StaticResource SaveButtonStyle}"/>
+            <Button Grid.Column="2"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Center"
+                        Content="{Binding [MANAGE_Return], Source={StaticResource SR}}"                       
+                        Style="{StaticResource BackButtonStyle}"
+                        Click="CancelButton_Click"  
+                    />
+            <!--Command="{Binding ReturnCommand}"-->
+
+        </Grid>
+    </Grid>
+</controls:ChildWindow>

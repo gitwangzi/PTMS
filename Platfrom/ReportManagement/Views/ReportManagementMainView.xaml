@@ -1,0 +1,252 @@
+﻿<UserControl xmlns:toolkit="http://schemas.microsoft.com/winfx/2006/xaml/presentation/toolkit"  xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"  x:Class="Gsafety.PTMS.ReportManager.Views.ReportManagementMainView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="300" d:DesignWidth="400">
+
+    <Grid x:Name="LayoutRoot" Background="White">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="250"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <toolkit:Accordion  Grid.Column="0" 
+                            x:Name="NativeAccordion"
+                            HorizontalAlignment="Stretch"
+                            VerticalAlignment="Stretch"      
+                            HorizontalContentAlignment="Stretch"     
+                            VerticalContentAlignment="Stretch"
+                            Margin="0,0,0,0"
+                            SelectionChanged="NativeAccordion_OnSelectionChanged">
+            <toolkit:AccordionItem Header="统计业务告警" HorizontalContentAlignment="Stretch"
+                                          VerticalContentAlignment="Stretch"
+                                          Style="{StaticResource AdviceMenu_AccordionItemStyle}">
+                <toolkit:AccordionItem.Content>
+                    <StackPanel Orientation="Vertical">
+
+                        <Button Content="通过电子围栏告警统计" 
+                                x:Name="ElectronicFenceVehicleAlarmStatisticsButton"
+                                HorizontalContentAlignment="Center" 
+                                VerticalContentAlignment="Center"
+                                Height="30"
+                                Margin="0,5,0,5"
+                                FontSize="14"
+                                FontWeight="Bold"
+                                Click="ElectronicFenceVehicleAlarmStatisticsButton_OnClick"/>
+
+                        <Button Content="不按线路行驶告警统计"
+                                x:Name="WrongRouteDriveAlarmStatisticsButton"
+                                HorizontalContentAlignment="Center" 
+                                VerticalContentAlignment="Center"
+                                Height="30"
+                                Margin="0,5,0,5"
+                                FontSize="14"
+                                FontWeight="Bold"
+                                Click="WrongRouteDriveAlarmStatisticsButton_OnClick"/>
+
+                        <Button Content="超速行驶告警统计" 
+                                x:Name="SpeedingAlarmStatisticsButton"
+                                HorizontalContentAlignment="Center" 
+                                VerticalContentAlignment="Center"
+                                Height="30"
+                                Margin="0,5,0,5"
+                                FontSize="14"
+                                FontWeight="Bold"
+                                Click="SpeedingAlarmStatisticsButton_OnClick"/>
+
+                    </StackPanel>
+                </toolkit:AccordionItem.Content>
+            </toolkit:AccordionItem>
+
+            <toolkit:AccordionItem Header="统计车辆报警" 
+                                   Style="{StaticResource AdviceMenu_AccordionItemStyle}"
+                                   HorizontalContentAlignment="Stretch"
+                                   VerticalContentAlignment="Stretch">
+                <toolkit:AccordionItem.Content>
+                    <StackPanel Orientation="Vertical">
+
+                        <Button Content="车辆报警统计" 
+                                x:Name="VehicleAlarmStatisticsButton"
+                                HorizontalContentAlignment="Center" 
+                                VerticalContentAlignment="Center"
+                                Height="30"
+                                Margin="0,5,0,5"
+                                FontSize="14"
+                                FontWeight="Bold"
+                                Click="VehicleAlarmStatisticsButton_OnClick"/>
+
+                    </StackPanel>
+                </toolkit:AccordionItem.Content>
+            </toolkit:AccordionItem>
+
+            <toolkit:AccordionItem Header="统计长时间离线车辆" 
+                                   Style="{StaticResource AdviceMenu_AccordionItemStyle}"
+                                   HorizontalContentAlignment="Stretch"
+                                   VerticalContentAlignment="Stretch">
+
+                <toolkit:AccordionItem.Content>
+                    <StackPanel Orientation="Vertical">
+
+                        <Button Content="长时间离线车辆统计" 
+                                x:Name="VehicleOfflineStatisticsButton"
+                                HorizontalContentAlignment="Center" 
+                                VerticalContentAlignment="Center"
+                                Height="30"
+                                Margin="0,5,0,5"
+                                FontSize="14"
+                                FontWeight="Bold"
+                                Click="VehicleOfflineStatisticsButton_OnClick"/>
+
+                    </StackPanel>
+                </toolkit:AccordionItem.Content>
+            </toolkit:AccordionItem>
+
+            <toolkit:AccordionItem Header="统计用户在线情况" 
+                                   Style="{StaticResource AdviceMenu_AccordionItemStyle}"
+                                   HorizontalContentAlignment="Stretch"
+                                   VerticalContentAlignment="Stretch">
+
+                <toolkit:AccordionItem.Content>
+                    <StackPanel Orientation="Vertical">
+
+                        <Button Content="用户在线情况统计" 
+                                x:Name="UserOnLineStatisticsButton"
+                                HorizontalContentAlignment="Center" 
+                                VerticalContentAlignment="Center"
+                                Height="30"
+                                Margin="0,5,0,5"
+                                FontSize="14"
+                                FontWeight="Bold"
+                                Click="UserOnLineStatisticsButton_OnClick"/>
+
+                    </StackPanel>
+                </toolkit:AccordionItem.Content>
+            </toolkit:AccordionItem>
+
+
+            <toolkit:AccordionItem Header="统计车辆视频流量" 
+                                   Style="{StaticResource AdviceMenu_AccordionItemStyle}"
+                                   HorizontalContentAlignment="Stretch"
+                                   VerticalContentAlignment="Stretch">
+
+                <toolkit:AccordionItem.Content>
+                    <StackPanel Orientation="Vertical">
+
+                        <Button Content="车辆视频流量统计" 
+                                x:Name="VehicleVedioTrafficStatisticsButton"
+                                HorizontalContentAlignment="Center" 
+                                VerticalContentAlignment="Center"
+                                Height="30"
+                                Margin="0,5,0,5"
+                                FontSize="14"
+                                FontWeight="Bold"
+                                Click="VehicleVedioTrafficStatisticsButton_OnClick"/>
+
+                    </StackPanel>
+                </toolkit:AccordionItem.Content>
+
+            </toolkit:AccordionItem>
+
+            <toolkit:AccordionItem Header="报表管理" 
+                                   Style="{StaticResource AdviceMenu_AccordionItemStyle}"
+                                   HorizontalContentAlignment="Stretch"
+                                   VerticalContentAlignment="Stretch">
+                <toolkit:AccordionItem.Content>
+
+                    <Grid Background="#5f6772">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+
+                        <Grid Grid.Row="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="2*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+
+                            <TextBlock Text="名称"
+                                       Grid.Column="0"
+                                       Grid.Row="0"
+                                       Margin="0,20,5,10"
+                                       HorizontalAlignment="Right"
+                                       VerticalAlignment="Center"/>
+                            <TextBox Grid.Column="1"
+                                     Grid.Row="0"
+                                     Margin="0,20,20,10"
+                                     Height="25"
+                                     HorizontalAlignment="Stretch"
+                                     VerticalAlignment="Center"/>
+                            <TextBlock Text="上传时间"
+                                       Grid.Row="1"
+                                       Grid.Column="0"
+                                       Margin="0,10,5,10"
+                                       HorizontalAlignment="Right"
+                                       VerticalAlignment="Center"/>
+                            <sdk:DatePicker Grid.Column="1"
+                                            Grid.Row="1"
+                                            Margin="0,10,0,10"
+                                            HorizontalAlignment="Stretch"
+                                            VerticalAlignment="Center"
+                                            Height="25"/>
+                            <TextBlock Text="上传时间"
+                                       Grid.Row="2"
+                                       Grid.Column="0"
+                                       Margin="0,10,5,10"
+                                       HorizontalAlignment="Right"
+                                       VerticalAlignment="Center"/>
+                            <sdk:DatePicker Grid.Column="1"
+                                            Grid.Row="2"
+                                            Margin="0,10,0,10"
+                                            HorizontalAlignment="Stretch"
+                                            VerticalAlignment="Center"
+                                            Height="25"/>
+
+                            <Button Grid.ColumnSpan="2"
+                                    Grid.Row="3"
+                                    Height="30"
+                                    Width="60"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    Style="{StaticResource ButtonStype}"
+                                    Content="搜索"
+                                    x:Name="SearchButton"
+                                    Cursor="Hand"
+                                    Click="SearchButton_OnClick"/>
+
+                        </Grid>
+
+                    </Grid>
+
+                </toolkit:AccordionItem.Content>
+
+
+            </toolkit:AccordionItem>
+
+
+        </toolkit:Accordion>
+
+        <sdk:Frame  x:Name="NativeFrame" Grid.Column="1"
+                    Source="/ReportManagement;component/Views/ElectronicFenceVehicleAlarmStatisticsView">
+
+            <sdk:Frame.UriMapper>
+                <sdk:UriMapper>
+                    <sdk:UriMapping Uri="/{addr}"  
+                                    MappedUri="/{addr}.xaml"/>
+                </sdk:UriMapper>
+            </sdk:Frame.UriMapper>
+
+
+        </sdk:Frame>
+
+
+    </Grid>
+</UserControl>

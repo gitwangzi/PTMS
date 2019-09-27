@@ -1,0 +1,129 @@
+﻿<UserControl x:Class="Gsafety.PTMS.Maintain.Views.SecuritySuiteView.SuiteInspectDisplay"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:converter="clr-namespace:Gsafety.Common.Converts;assembly=Converts"
+    mc:Ignorable="d"
+    d:DesignHeight="800" d:DesignWidth="1000">
+    <UserControl.Resources>
+        <converter:LocalizedStringConverter  x:Key="localize"></converter:LocalizedStringConverter>
+    </UserControl.Resources>
+
+    <Grid x:Name="LayoutRoot" Background="Transparent"  Width="Auto" Height="Auto">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Border  Background="{StaticResource BlueBgStyleBrush}"  Grid.RowSpan="2">
+        </Border>
+        <Border Height="35" VerticalAlignment="Top" Grid.Row="0" Margin="0" BorderThickness="0,1,0,1" BorderBrush="{StaticResource MenuBarLine}" Background="{StaticResource NavBarBG}">
+            <Image Source="/ExternalResource;component/Images/a07b.png" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,0,0,0" Stretch="None"/>
+        </Border>
+        <TextBlock Text="{Binding [MAINTAIN_SuiteSwitchStatusView], Source={StaticResource SR}}" HorizontalAlignment="Left"   VerticalAlignment="Center" Style="{StaticResource Menu2TextBlock}" Margin="36,0,0,0"/>
+        <Image Source="/ANT;component/Images/a07b.png" HorizontalAlignment="Left" VerticalAlignment="Center" Stretch="None" Margin="10,0,0,0"/>
+
+        <Grid Grid.Row="1" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="20"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition Width="400"/>
+                <ColumnDefinition Width="300"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <!--输入电压-->
+            <TextBlock Grid.Column="1" Grid.Row="12" HorizontalAlignment="Right" 
+                       Text="{Binding [ID_INSTALL_InputVoltage], Source={StaticResource SR}}" VerticalAlignment="Center" Style="{StaticResource ViewFont}" />
+            <TextBox TabIndex="1" MaxLength="20" IsReadOnly="True" Grid.Column="2"  Grid.Row="12"  HorizontalAlignment="Left" Height="28"  
+                     Text="{Binding CurrentInspectInfo.CurVoltage }" VerticalAlignment="Center" Width="245" />
+            <!--录像SD卡-->
+            <TextBlock Grid.Column="1" Grid.Row="1" HorizontalAlignment="Right"   
+                       Text="{Binding [ID_INSTALL_VideoSD], Source={StaticResource SR}}" VerticalAlignment="Center" Style="{StaticResource ViewFont}" />
+            <TextBox TabIndex="3" MaxLength="20" Grid.Column="2"  Grid.Row="1" IsReadOnly="True"  HorizontalAlignment="Left" Height="28"   
+                     Text="{Binding CurrentInspectInfo.RecSD, Converter={StaticResource  localize}}" VerticalAlignment="Bottom" Width="245" Margin="0,0,0,6"  />
+
+            <!--备用电源电压-->
+            <TextBlock Grid.Column="1" Grid.Row="5" HorizontalAlignment="Right"   
+                       Text="{Binding [ID_INSTALL_StandbyPowerVoltage], Source={StaticResource SR}}" VerticalAlignment="Center"  Style="{StaticResource ViewFont}"/>
+            <TextBox TabIndex="11" MaxLength="50" Grid.Column="2" Grid.Row="5" IsReadOnly="True"  HorizontalAlignment="Left" Height="28"   
+                     Text="{Binding CurrentInspectInfo.StandbyPower }" VerticalAlignment="Center" Width="245"  />
+
+            <!--紧急报警按钮2-->
+            <TextBlock Grid.Column="1" Grid.Row="3" HorizontalAlignment="Right"   
+                       Text="{Binding [ID_INSTALL_AlarmBtnTwoStatus], Source={StaticResource SR}}" VerticalAlignment="Center" Style="{StaticResource ViewFont}"  />
+            <TextBox TabIndex="7" MaxLength="20" Grid.Column="2" Grid.Row="3" IsReadOnly="True"  HorizontalAlignment="Left" Height="28"   
+                     Text="{Binding CurrentInspectInfo.Sensor2 , Converter={StaticResource  localize}}" VerticalAlignment="Center" Width="245"  />
+
+            <!--紧急报警按钮3-->
+            <TextBlock Grid.Column="1" Grid.Row="4" HorizontalAlignment="Right"   
+                       Text="{Binding [ID_INSTALL_AlarmBtnThreeStatus], Source={StaticResource SR}}" VerticalAlignment="Center" Style="{StaticResource ViewFont}"  />
+            <TextBox TabIndex="9" MaxLength="20" Grid.Column="2" Grid.Row="4" IsReadOnly="True"  HorizontalAlignment="Left" Height="28"   
+                     Text="{Binding CurrentInspectInfo.Sensor3 , Converter={StaticResource  localize}}" VerticalAlignment="Center" Width="245"  />
+
+            <!--紧急报警按钮1-->
+            <TextBlock Grid.Column="1" Grid.Row="2"  HorizontalAlignment="Right"   
+                       Text="{Binding [ID_INSTALL_AlarmBtnOneStatus], Source={StaticResource SR}}" VerticalAlignment="Center" Style="{StaticResource ViewFont}"  />
+            <TextBox TabIndex="5" MaxLength="20" Grid.Column="2" Grid.Row="2" IsReadOnly="True"  HorizontalAlignment="Left" Height="28"   
+                     Text="{Binding CurrentInspectInfo.Sensor1 , Converter={StaticResource  localize}}" VerticalAlignment="Center" Width="245"   />
+
+            <!--1通道视频情况-->
+            <TextBlock Grid.Column="1" Grid.Row="6" HorizontalAlignment="Right"   
+                       Text="{Binding [ID_INSTALL_OneVideoStatus], Source={StaticResource SR}}" VerticalAlignment="Center"  Style="{StaticResource ViewFont}" />
+            <TextBox TabIndex="13" MaxLength="100" Grid.Column="2" Grid.Row="6" IsReadOnly="True"  HorizontalAlignment="Left" Height="28"   
+                     Text="{Binding CurrentInspectInfo.Channel1 , Converter={StaticResource  localize}}" VerticalAlignment="Center" Width="245"  />
+            <!--2通道视频情况-->
+            <TextBlock Grid.Column="1" Grid.Row="7" HorizontalAlignment="Right"   
+                       Text="{Binding [ID_INSTALL_TwoVideoStatus], Source={StaticResource SR}}" VerticalAlignment="Center"  Style="{StaticResource ViewFont}"  />
+            <TextBox TabIndex="15" MaxLength="100" Grid.Column="2" Grid.Row="7" IsReadOnly="True"  HorizontalAlignment="Left" Height="28"   
+                     Text="{Binding CurrentInspectInfo.Channel2 , Converter={StaticResource  localize}}" VerticalAlignment="Center" Width="245"  />
+
+            <!--SIM卡状态-->
+            <TextBlock Grid.Column="1" Grid.Row="9" HorizontalAlignment="Right"   
+                       Text="{Binding [ID_INSTALL_SIM_Status], Source={StaticResource SR}}" VerticalAlignment="Center"  Style="{StaticResource ViewFont}"  />
+            <TextBox TabIndex="19" MaxLength="100" Grid.Column="2" Grid.Row="9" IsReadOnly="True"  HorizontalAlignment="Left" Height="28"   
+                     Text="{Binding CurrentInspectInfo.SimCard , Converter={StaticResource  localize}}" VerticalAlignment="Center" Width="245"  />
+            <!--当前机内温度-->
+            <TextBlock Grid.Column="1" Grid.Row="8" HorizontalAlignment="Right"   
+                       Text="{Binding [ID_INSTALL_CurrentInternalTemperature], Source={StaticResource SR}}" VerticalAlignment="Center"  Style="{StaticResource ViewFont}"/>
+            <TextBox TabIndex="17" MaxLength="100" Grid.Column="2" Grid.Row="8" IsReadOnly="True"  HorizontalAlignment="Left" Height="28"    
+                     Text="{Binding CurrentInspectInfo.CurInTemperature }" VerticalAlignment="Center" Width="245"  />
+
+            <!--GPS信息-->
+            <TextBlock Grid.Column="1" Grid.Row="10" HorizontalAlignment="Right"  
+            	Text="{Binding [ID_INSTALL_GPS_lnfo], Source={StaticResource SR}}" VerticalAlignment="Center"  Style="{StaticResource ViewFont}"/>
+            <TextBox TabIndex="21" MaxLength="100" Grid.Column="2" Grid.Row="10" IsReadOnly="True"  HorizontalAlignment="Left" Height="28"  
+            	Text="{Binding CurrentInspectInfo.GpsInfo, Converter={StaticResource  localize}}" VerticalAlignment="Center" Width="245"  />
+
+            <!--录像SD卡容量-->
+            <TextBlock Grid.Column="1" Grid.Row="11" HorizontalAlignment="Right"  
+            	Text="{Binding [ID_INSTALL_VedioSDCapacity],Source={StaticResource SR}}" VerticalAlignment="Center"  Style="{StaticResource ViewFont}"/>
+            <TextBox TabIndex="23" MaxLength="100" Grid.Column="2" Grid.Row="11" IsReadOnly="True"  HorizontalAlignment="Left" Height="28"  
+            	Text="{Binding CurrentInspectInfo.SdCapacity }" VerticalAlignment="Center" Width="245"  />
+
+            <!--返回-->
+            <StackPanel Grid.Column="0" Grid.ColumnSpan="4" Grid.Row="13"  VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Horizontal"  >
+                <Button TabIndex="28" Command="{Binding CommitCommand}" Tag="{Binding [Return], Source={StaticResource SR}}" HorizontalAlignment="Center"  VerticalAlignment="Center" MinWidth="100">
+                    <Image Source="/ExternalResource;component/Images/return.png" Stretch="None"/>
+                </Button>
+            </StackPanel>
+
+        </Grid>
+    </Grid>
+</UserControl>

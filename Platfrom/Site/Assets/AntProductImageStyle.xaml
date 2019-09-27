@@ -1,0 +1,77 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!--一级标题图标样式-->
+    <Style TargetType="Image" x:Key="TitleImageStyle">
+        <Setter Property="Width" Value="20"/>
+        <Setter Property="Height" Value="20"/>
+        <Setter Property="Margin" Value="5,5,5,5"/>
+        <Setter Property="Stretch" Value="Uniform"/>
+        <Setter Property="Source" Value="/ExternalResource;component/Images/daohangqianbiao.png"/>
+    </Style>
+
+
+    <!--二级标题图标样式-->
+    <Style TargetType="Image" x:Key="SecoundTitleImageStyle">
+        <Setter Property="Width" Value="16"/>
+        <Setter Property="Height" Value="16"/>
+        <Setter Property="Margin" Value="5,5,5,5"/>
+        <Setter Property="Stretch" Value="Uniform"/>
+        <Setter Property="Source" Value="/ExternalResource;component/Images/InfoModuleImage.png"/>
+    </Style>
+
+
+    <!--三级标题图标样式-->
+    <Style TargetType="Image" x:Key="ThreeTitleImageStyle">
+        <Setter Property="Width" Value="16"/>
+        <Setter Property="Height" Value="16"/>
+        <Setter Property="Margin" Value="5,5,5,5"/>
+        <Setter Property="Stretch" Value="Uniform"/>
+        <Setter Property="Source" Value="/ExternalResource;component/Images/ThreeInfoTitle.png"/>
+    </Style>
+
+
+
+    <!--组织机构小图标样式-->
+    <Style TargetType="Image" x:Key="OrganizationImageStyle">
+        <Setter Property="Width" Value="16"/>
+        <Setter Property="Height" Value="16"/>
+        <Setter Property="Margin" Value="5,5,10,5"/>
+        <Setter Property="Stretch" Value="Uniform"/>
+        <Setter Property="Source" Value="/ExternalResource;component/Images/zuzhijigou.png"/>
+    </Style>
+
+    <!--组织机构大图标样式-->
+    <Style TargetType="Image" x:Key="OrganizationBigImageStyle">
+        <Setter Property="Width" Value="20"/>
+        <Setter Property="Height" Value="20"/>
+        <Setter Property="Margin" Value="5,5,10,5"/>
+        <Setter Property="Stretch" Value="Uniform"/>
+        <Setter Property="Source" Value="/ExternalResource;component/Images/Organization.png"/>
+    </Style>
+
+
+
+    <!--二级标题中伸展图标样式-->
+    <Style TargetType="Image" x:Key="ExpendImageStyle">
+        <Setter Property="Width" Value="16"/>
+        <Setter Property="Height" Value="16"/>
+        <Setter Property="Margin" Value="5,5,5,5"/>
+        <Setter Property="Stretch" Value="Uniform"/>
+        <Setter Property="Source" Value="/ExternalResource;component/Images/GoExpend.png"/>
+    </Style>
+
+
+    <!--二级标题中收缩图标样式-->
+    <Style TargetType="Image" x:Key="ClloapseImageStyle">
+        <Setter Property="Width" Value="16"/>
+        <Setter Property="Height" Value="16"/>
+        <Setter Property="Margin" Value="5,5,5,5"/>
+        <Setter Property="Stretch" Value="Uniform"/>
+        <Setter Property="Source" Value="/ExternalResource;component/Images/GoUpCollapse.png"/>
+    </Style>
+
+
+
+</ResourceDictionary>

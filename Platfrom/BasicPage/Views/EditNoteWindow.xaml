@@ -1,0 +1,45 @@
+﻿<controls:ChildWindow x:Class="Gsafety.PTMS.BasicPage.Views.EditNoteWindow"
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+           Width="360" Height="270" 
+           Title="{Binding [EditNote], Source={StaticResource SR}}" Style="{StaticResource SelfChildenWindowStyle}">
+    <Grid x:Name="LayoutRoot" Style="{StaticResource ContentGridWhiteStyle}">
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <TextBox Name="txtNote" Grid.Row="0" VerticalAlignment="Center" 
+                 TextWrapping="Wrap" MaxLength="200"  HorizontalAlignment="Center" 
+                 Width="300" Height="144" Margin="29,10,29,23"/>
+
+        <Grid Grid.Row="3" Style="{StaticResource ContentGridWhiteStyle}" Margin="0,15,0,20">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Button x:Name="CancelButton" Width="100"
+                        Tag="{Binding [Cancel],  Source={StaticResource SR}}" 
+                        Click="CancelButton_Click"  
+                        HorizontalAlignment="Left"
+                        Grid.Column="2" VerticalAlignment="Center"  
+                        Content="{Binding [Cancel],  Source={StaticResource SR}}"
+                        Style="{StaticResource CancelButtonStyle}" Margin="10,0,0,0">
+            </Button>
+            
+            <Button x:Name="OKButton" Tag="{Binding [Confirm],  Source={StaticResource SR}}"
+                        Click="OKButton_Click" 
+                        HorizontalAlignment="Right"  
+                        VerticalAlignment="Center"
+                        Grid.Column="0" 
+                    Width="100"
+                        IsEnabled="{Binding IsCheckItems,Mode=OneWay}"  
+                        Content="{Binding [Confirm],  Source={StaticResource SR}}"
+                        Style="{StaticResource SureButtonStyle}">
+            </Button>
+        </Grid>
+    </Grid>
+</controls:ChildWindow>

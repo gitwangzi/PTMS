@@ -1,0 +1,706 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="CommandManageService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:2258/CommandManageService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:2258/CommandManageService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:2258/CommandManageService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Common.Data" />
+      <xsd:import schemaLocation="http://localhost:2258/CommandManageService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" />
+      <xsd:import schemaLocation="http://localhost:2258/CommandManageService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/System" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ICommandManageService_InsertHeartbeatRule_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertHeartbeatRule" />
+  </wsdl:message>
+  <wsdl:message name="ICommandManageService_InsertHeartbeatRule_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertHeartbeatRuleResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommandManageService_UpdateHeartbeatRule_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateHeartbeatRule" />
+  </wsdl:message>
+  <wsdl:message name="ICommandManageService_UpdateHeartbeatRule_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateHeartbeatRuleResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommandManageService_DeleteHeartbeatRuleByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteHeartbeatRuleByID" />
+  </wsdl:message>
+  <wsdl:message name="ICommandManageService_DeleteHeartbeatRuleByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteHeartbeatRuleByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommandManageService_GetHeartbeatRuleList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetHeartbeatRuleList" />
+  </wsdl:message>
+  <wsdl:message name="ICommandManageService_GetHeartbeatRuleList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetHeartbeatRuleListResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommandManageService_InsertHeartbeatVehicle_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertHeartbeatVehicle" />
+  </wsdl:message>
+  <wsdl:message name="ICommandManageService_InsertHeartbeatVehicle_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertHeartbeatVehicleResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommandManageService_DeleteHeartbeatVehicleByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteHeartbeatVehicleByID" />
+  </wsdl:message>
+  <wsdl:message name="ICommandManageService_DeleteHeartbeatVehicleByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteHeartbeatVehicleByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommandManageService_GetHeartbeatVehicleListByHeartBeatID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetHeartbeatVehicleListByHeartBeatID" />
+  </wsdl:message>
+  <wsdl:message name="ICommandManageService_GetHeartbeatVehicleListByHeartBeatID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetHeartbeatVehicleListByHeartBeatIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommandManageService_GetAllHeartbeatVehicleListByHeartBeatID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllHeartbeatVehicleListByHeartBeatID" />
+  </wsdl:message>
+  <wsdl:message name="ICommandManageService_GetAllHeartbeatVehicleListByHeartBeatID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllHeartbeatVehicleListByHeartBeatIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommandManageService_DeliverHeartBeatRuleToVehicle_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeliverHeartBeatRuleToVehicle" />
+  </wsdl:message>
+  <wsdl:message name="ICommandManageService_DeliverHeartBeatRuleToVehicle_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeliverHeartBeatRuleToVehicleResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommandManageService_InsertLocationReportRule_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertLocationReportRule" />
+  </wsdl:message>
+  <wsdl:message name="ICommandManageService_InsertLocationReportRule_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertLocationReportRuleResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommandManageService_UpdateLocationReportRule_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateLocationReportRule" />
+  </wsdl:message>
+  <wsdl:message name="ICommandManageService_UpdateLocationReportRule_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateLocationReportRuleResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommandManageService_DeleteLocationReportRuleByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteLocationReportRuleByID" />
+  </wsdl:message>
+  <wsdl:message name="ICommandManageService_DeleteLocationReportRuleByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteLocationReportRuleByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommandManageService_GetByNameLocationReportRuleList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetByNameLocationReportRuleList" />
+  </wsdl:message>
+  <wsdl:message name="ICommandManageService_GetByNameLocationReportRuleList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetByNameLocationReportRuleListResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommandManageService_InsertVideoRule_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertVideoRule" />
+  </wsdl:message>
+  <wsdl:message name="ICommandManageService_InsertVideoRule_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertVideoRuleResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommandManageService_UpdateVideoRule_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateVideoRule" />
+  </wsdl:message>
+  <wsdl:message name="ICommandManageService_UpdateVideoRule_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateVideoRuleResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommandManageService_DeleteVideoRuleByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteVideoRuleByID" />
+  </wsdl:message>
+  <wsdl:message name="ICommandManageService_DeleteVideoRuleByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteVideoRuleByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommandManageService_GetVideoRuleListByName_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetVideoRuleListByName" />
+  </wsdl:message>
+  <wsdl:message name="ICommandManageService_GetVideoRuleListByName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetVideoRuleListByNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommandManageService_InsertLocationReportVehicle_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertLocationReportVehicle" />
+  </wsdl:message>
+  <wsdl:message name="ICommandManageService_InsertLocationReportVehicle_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertLocationReportVehicleResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommandManageService_DeleteLocationReportVehicleByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteLocationReportVehicleByID" />
+  </wsdl:message>
+  <wsdl:message name="ICommandManageService_DeleteLocationReportVehicleByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteLocationReportVehicleByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommandManageService_GetLocationReportVehicleListByLocationReportID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLocationReportVehicleListByLocationReportID" />
+  </wsdl:message>
+  <wsdl:message name="ICommandManageService_GetLocationReportVehicleListByLocationReportID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLocationReportVehicleListByLocationReportIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommandManageService_GetAllLocationReportVehicleListByLocationReportID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllLocationReportVehicleListByLocationReportID" />
+  </wsdl:message>
+  <wsdl:message name="ICommandManageService_GetAllLocationReportVehicleListByLocationReportID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllLocationReportVehicleListByLocationReportIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommandManageService_DeliverLocationReportRuleToVehicle_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeliverLocationReportRuleToVehicle" />
+  </wsdl:message>
+  <wsdl:message name="ICommandManageService_DeliverLocationReportRuleToVehicle_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeliverLocationReportRuleToVehicleResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommandManageService_InsertVideoRuleVehicle_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertVideoRuleVehicle" />
+  </wsdl:message>
+  <wsdl:message name="ICommandManageService_InsertVideoRuleVehicle_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertVideoRuleVehicleResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommandManageService_DeleteVideoRuleVehicleByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteVideoRuleVehicleByID" />
+  </wsdl:message>
+  <wsdl:message name="ICommandManageService_DeleteVideoRuleVehicleByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteVideoRuleVehicleByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommandManageService_GetVideoRuleVehicleListByVideoRuleID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetVideoRuleVehicleListByVideoRuleID" />
+  </wsdl:message>
+  <wsdl:message name="ICommandManageService_GetVideoRuleVehicleListByVideoRuleID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetVideoRuleVehicleListByVideoRuleIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommandManageService_GetAllVideoRuleVehicleListByVideoRuleID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllVideoRuleVehicleListByVideoRuleID" />
+  </wsdl:message>
+  <wsdl:message name="ICommandManageService_GetAllVideoRuleVehicleListByVideoRuleID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllVideoRuleVehicleListByVideoRuleIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommandManageService_DeliverVideoRuleToVehicle_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeliverVideoRuleToVehicle" />
+  </wsdl:message>
+  <wsdl:message name="ICommandManageService_DeliverVideoRuleToVehicle_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeliverVideoRuleToVehicleResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommandManageService_InsertSpeedLimit_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertSpeedLimit" />
+  </wsdl:message>
+  <wsdl:message name="ICommandManageService_InsertSpeedLimit_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertSpeedLimitResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommandManageService_UpdateSpeedLimit_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateSpeedLimit" />
+  </wsdl:message>
+  <wsdl:message name="ICommandManageService_UpdateSpeedLimit_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateSpeedLimitResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommandManageService_DeleteSpeedLimitByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteSpeedLimitByID" />
+  </wsdl:message>
+  <wsdl:message name="ICommandManageService_DeleteSpeedLimitByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteSpeedLimitByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommandManageService_GetSpeedLimitListByName_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSpeedLimitListByName" />
+  </wsdl:message>
+  <wsdl:message name="ICommandManageService_GetSpeedLimitListByName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSpeedLimitListByNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommandManageService_InsertVehicleSpeed_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertVehicleSpeed" />
+  </wsdl:message>
+  <wsdl:message name="ICommandManageService_InsertVehicleSpeed_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertVehicleSpeedResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommandManageService_DeleteVehicleSpeedByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteVehicleSpeedByID" />
+  </wsdl:message>
+  <wsdl:message name="ICommandManageService_DeleteVehicleSpeedByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteVehicleSpeedByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommandManageService_GetAllVehicleSpeedListBySpeedID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllVehicleSpeedListBySpeedID" />
+  </wsdl:message>
+  <wsdl:message name="ICommandManageService_GetAllVehicleSpeedListBySpeedID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllVehicleSpeedListBySpeedIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommandManageService_GetVehicleSpeedListBySpeedID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetVehicleSpeedListBySpeedID" />
+  </wsdl:message>
+  <wsdl:message name="ICommandManageService_GetVehicleSpeedListBySpeedID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetVehicleSpeedListBySpeedIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommandManageService_DeliverSpeedLimitToVehicle_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeliverSpeedLimitToVehicle" />
+  </wsdl:message>
+  <wsdl:message name="ICommandManageService_DeliverSpeedLimitToVehicle_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeliverSpeedLimitToVehicleResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ICommandManageService">
+    <wsdl:operation name="InsertHeartbeatRule">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHeartbeatRule/InsertHeartbeatRule" message="tns:ICommandManageService_InsertHeartbeatRule_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHeartbeatRule/InsertHeartbeatRuleResponse" message="tns:ICommandManageService_InsertHeartbeatRule_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateHeartbeatRule">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHeartbeatRule/UpdateHeartbeatRule" message="tns:ICommandManageService_UpdateHeartbeatRule_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHeartbeatRule/UpdateHeartbeatRuleResponse" message="tns:ICommandManageService_UpdateHeartbeatRule_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteHeartbeatRuleByID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHeartbeatRule/DeleteHeartbeatRuleByID" message="tns:ICommandManageService_DeleteHeartbeatRuleByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHeartbeatRule/DeleteHeartbeatRuleByIDResponse" message="tns:ICommandManageService_DeleteHeartbeatRuleByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetHeartbeatRuleList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHeartbeatRule/GetHeartbeatRuleList" message="tns:ICommandManageService_GetHeartbeatRuleList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHeartbeatRule/GetHeartbeatRuleListResponse" message="tns:ICommandManageService_GetHeartbeatRuleList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertHeartbeatVehicle">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHeartbeatVehicle/InsertHeartbeatVehicle" message="tns:ICommandManageService_InsertHeartbeatVehicle_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHeartbeatVehicle/InsertHeartbeatVehicleResponse" message="tns:ICommandManageService_InsertHeartbeatVehicle_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteHeartbeatVehicleByID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHeartbeatVehicle/DeleteHeartbeatVehicleByID" message="tns:ICommandManageService_DeleteHeartbeatVehicleByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHeartbeatVehicle/DeleteHeartbeatVehicleByIDResponse" message="tns:ICommandManageService_DeleteHeartbeatVehicleByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetHeartbeatVehicleListByHeartBeatID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHeartbeatVehicle/GetHeartbeatVehicleListByHeartBeatID" message="tns:ICommandManageService_GetHeartbeatVehicleListByHeartBeatID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHeartbeatVehicle/GetHeartbeatVehicleListByHeartBeatIDResponse" message="tns:ICommandManageService_GetHeartbeatVehicleListByHeartBeatID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllHeartbeatVehicleListByHeartBeatID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHeartbeatVehicle/GetAllHeartbeatVehicleListByHeartBeatID" message="tns:ICommandManageService_GetAllHeartbeatVehicleListByHeartBeatID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHeartbeatVehicle/GetAllHeartbeatVehicleListByHeartBeatIDResponse" message="tns:ICommandManageService_GetAllHeartbeatVehicleListByHeartBeatID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeliverHeartBeatRuleToVehicle">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHeartbeatVehicle/DeliverHeartBeatRuleToVehicle" message="tns:ICommandManageService_DeliverHeartBeatRuleToVehicle_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHeartbeatVehicle/DeliverHeartBeatRuleToVehicleResponse" message="tns:ICommandManageService_DeliverHeartBeatRuleToVehicle_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertLocationReportRule">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILocationReportRuleService/InsertLocationReportRule" message="tns:ICommandManageService_InsertLocationReportRule_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILocationReportRuleService/InsertLocationReportRuleResponse" message="tns:ICommandManageService_InsertLocationReportRule_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateLocationReportRule">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILocationReportRuleService/UpdateLocationReportRule" message="tns:ICommandManageService_UpdateLocationReportRule_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILocationReportRuleService/UpdateLocationReportRuleResponse" message="tns:ICommandManageService_UpdateLocationReportRule_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteLocationReportRuleByID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILocationReportRuleService/DeleteLocationReportRuleByID" message="tns:ICommandManageService_DeleteLocationReportRuleByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILocationReportRuleService/DeleteLocationReportRuleByIDResponse" message="tns:ICommandManageService_DeleteLocationReportRuleByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetByNameLocationReportRuleList">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILocationReportRuleService/GetByNameLocationReportRuleList" message="tns:ICommandManageService_GetByNameLocationReportRuleList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILocationReportRuleService/GetByNameLocationReportRuleListResponse" message="tns:ICommandManageService_GetByNameLocationReportRuleList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertVideoRule">
+      <wsdl:input wsaw:Action="http://tempuri.org/IVideoRule/InsertVideoRule" message="tns:ICommandManageService_InsertVideoRule_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IVideoRule/InsertVideoRuleResponse" message="tns:ICommandManageService_InsertVideoRule_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateVideoRule">
+      <wsdl:input wsaw:Action="http://tempuri.org/IVideoRule/UpdateVideoRule" message="tns:ICommandManageService_UpdateVideoRule_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IVideoRule/UpdateVideoRuleResponse" message="tns:ICommandManageService_UpdateVideoRule_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteVideoRuleByID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IVideoRule/DeleteVideoRuleByID" message="tns:ICommandManageService_DeleteVideoRuleByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IVideoRule/DeleteVideoRuleByIDResponse" message="tns:ICommandManageService_DeleteVideoRuleByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetVideoRuleListByName">
+      <wsdl:input wsaw:Action="http://tempuri.org/IVideoRule/GetVideoRuleListByName" message="tns:ICommandManageService_GetVideoRuleListByName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IVideoRule/GetVideoRuleListByNameResponse" message="tns:ICommandManageService_GetVideoRuleListByName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertLocationReportVehicle">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILocationReportVehicle/InsertLocationReportVehicle" message="tns:ICommandManageService_InsertLocationReportVehicle_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILocationReportVehicle/InsertLocationReportVehicleResponse" message="tns:ICommandManageService_InsertLocationReportVehicle_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteLocationReportVehicleByID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILocationReportVehicle/DeleteLocationReportVehicleByID" message="tns:ICommandManageService_DeleteLocationReportVehicleByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILocationReportVehicle/DeleteLocationReportVehicleByIDResponse" message="tns:ICommandManageService_DeleteLocationReportVehicleByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLocationReportVehicleListByLocationReportID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILocationReportVehicle/GetLocationReportVehicleListByLocationReportID" message="tns:ICommandManageService_GetLocationReportVehicleListByLocationReportID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILocationReportVehicle/GetLocationReportVehicleListByLocationReportIDResponse" message="tns:ICommandManageService_GetLocationReportVehicleListByLocationReportID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllLocationReportVehicleListByLocationReportID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILocationReportVehicle/GetAllLocationReportVehicleListByLocationReportID" message="tns:ICommandManageService_GetAllLocationReportVehicleListByLocationReportID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILocationReportVehicle/GetAllLocationReportVehicleListByLocationReportIDResponse" message="tns:ICommandManageService_GetAllLocationReportVehicleListByLocationReportID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeliverLocationReportRuleToVehicle">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILocationReportVehicle/DeliverLocationReportRuleToVehicle" message="tns:ICommandManageService_DeliverLocationReportRuleToVehicle_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILocationReportVehicle/DeliverLocationReportRuleToVehicleResponse" message="tns:ICommandManageService_DeliverLocationReportRuleToVehicle_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertVideoRuleVehicle">
+      <wsdl:input wsaw:Action="http://tempuri.org/IVideoRuleVehicle/InsertVideoRuleVehicle" message="tns:ICommandManageService_InsertVideoRuleVehicle_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IVideoRuleVehicle/InsertVideoRuleVehicleResponse" message="tns:ICommandManageService_InsertVideoRuleVehicle_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteVideoRuleVehicleByID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IVideoRuleVehicle/DeleteVideoRuleVehicleByID" message="tns:ICommandManageService_DeleteVideoRuleVehicleByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IVideoRuleVehicle/DeleteVideoRuleVehicleByIDResponse" message="tns:ICommandManageService_DeleteVideoRuleVehicleByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetVideoRuleVehicleListByVideoRuleID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IVideoRuleVehicle/GetVideoRuleVehicleListByVideoRuleID" message="tns:ICommandManageService_GetVideoRuleVehicleListByVideoRuleID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IVideoRuleVehicle/GetVideoRuleVehicleListByVideoRuleIDResponse" message="tns:ICommandManageService_GetVideoRuleVehicleListByVideoRuleID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllVideoRuleVehicleListByVideoRuleID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IVideoRuleVehicle/GetAllVideoRuleVehicleListByVideoRuleID" message="tns:ICommandManageService_GetAllVideoRuleVehicleListByVideoRuleID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IVideoRuleVehicle/GetAllVideoRuleVehicleListByVideoRuleIDResponse" message="tns:ICommandManageService_GetAllVideoRuleVehicleListByVideoRuleID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeliverVideoRuleToVehicle">
+      <wsdl:input wsaw:Action="http://tempuri.org/IVideoRuleVehicle/DeliverVideoRuleToVehicle" message="tns:ICommandManageService_DeliverVideoRuleToVehicle_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IVideoRuleVehicle/DeliverVideoRuleToVehicleResponse" message="tns:ICommandManageService_DeliverVideoRuleToVehicle_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertSpeedLimit">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISpeedLimit/InsertSpeedLimit" message="tns:ICommandManageService_InsertSpeedLimit_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISpeedLimit/InsertSpeedLimitResponse" message="tns:ICommandManageService_InsertSpeedLimit_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSpeedLimit">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISpeedLimit/UpdateSpeedLimit" message="tns:ICommandManageService_UpdateSpeedLimit_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISpeedLimit/UpdateSpeedLimitResponse" message="tns:ICommandManageService_UpdateSpeedLimit_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSpeedLimitByID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISpeedLimit/DeleteSpeedLimitByID" message="tns:ICommandManageService_DeleteSpeedLimitByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISpeedLimit/DeleteSpeedLimitByIDResponse" message="tns:ICommandManageService_DeleteSpeedLimitByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSpeedLimitListByName">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISpeedLimit/GetSpeedLimitListByName" message="tns:ICommandManageService_GetSpeedLimitListByName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISpeedLimit/GetSpeedLimitListByNameResponse" message="tns:ICommandManageService_GetSpeedLimitListByName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertVehicleSpeed">
+      <wsdl:input wsaw:Action="http://tempuri.org/IVehicleSpeed/InsertVehicleSpeed" message="tns:ICommandManageService_InsertVehicleSpeed_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IVehicleSpeed/InsertVehicleSpeedResponse" message="tns:ICommandManageService_InsertVehicleSpeed_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteVehicleSpeedByID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IVehicleSpeed/DeleteVehicleSpeedByID" message="tns:ICommandManageService_DeleteVehicleSpeedByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IVehicleSpeed/DeleteVehicleSpeedByIDResponse" message="tns:ICommandManageService_DeleteVehicleSpeedByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllVehicleSpeedListBySpeedID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IVehicleSpeed/GetAllVehicleSpeedListBySpeedID" message="tns:ICommandManageService_GetAllVehicleSpeedListBySpeedID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IVehicleSpeed/GetAllVehicleSpeedListBySpeedIDResponse" message="tns:ICommandManageService_GetAllVehicleSpeedListBySpeedID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetVehicleSpeedListBySpeedID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IVehicleSpeed/GetVehicleSpeedListBySpeedID" message="tns:ICommandManageService_GetVehicleSpeedListBySpeedID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IVehicleSpeed/GetVehicleSpeedListBySpeedIDResponse" message="tns:ICommandManageService_GetVehicleSpeedListBySpeedID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeliverSpeedLimitToVehicle">
+      <wsdl:input wsaw:Action="http://tempuri.org/IVehicleSpeed/DeliverSpeedLimitToVehicle" message="tns:ICommandManageService_DeliverSpeedLimitToVehicle_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IVehicleSpeed/DeliverSpeedLimitToVehicleResponse" message="tns:ICommandManageService_DeliverSpeedLimitToVehicle_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_ICommandManageService" type="tns:ICommandManageService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="InsertHeartbeatRule">
+      <soap:operation soapAction="http://tempuri.org/IHeartbeatRule/InsertHeartbeatRule" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateHeartbeatRule">
+      <soap:operation soapAction="http://tempuri.org/IHeartbeatRule/UpdateHeartbeatRule" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteHeartbeatRuleByID">
+      <soap:operation soapAction="http://tempuri.org/IHeartbeatRule/DeleteHeartbeatRuleByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHeartbeatRuleList">
+      <soap:operation soapAction="http://tempuri.org/IHeartbeatRule/GetHeartbeatRuleList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertHeartbeatVehicle">
+      <soap:operation soapAction="http://tempuri.org/IHeartbeatVehicle/InsertHeartbeatVehicle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteHeartbeatVehicleByID">
+      <soap:operation soapAction="http://tempuri.org/IHeartbeatVehicle/DeleteHeartbeatVehicleByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHeartbeatVehicleListByHeartBeatID">
+      <soap:operation soapAction="http://tempuri.org/IHeartbeatVehicle/GetHeartbeatVehicleListByHeartBeatID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllHeartbeatVehicleListByHeartBeatID">
+      <soap:operation soapAction="http://tempuri.org/IHeartbeatVehicle/GetAllHeartbeatVehicleListByHeartBeatID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeliverHeartBeatRuleToVehicle">
+      <soap:operation soapAction="http://tempuri.org/IHeartbeatVehicle/DeliverHeartBeatRuleToVehicle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertLocationReportRule">
+      <soap:operation soapAction="http://tempuri.org/ILocationReportRuleService/InsertLocationReportRule" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateLocationReportRule">
+      <soap:operation soapAction="http://tempuri.org/ILocationReportRuleService/UpdateLocationReportRule" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteLocationReportRuleByID">
+      <soap:operation soapAction="http://tempuri.org/ILocationReportRuleService/DeleteLocationReportRuleByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetByNameLocationReportRuleList">
+      <soap:operation soapAction="http://tempuri.org/ILocationReportRuleService/GetByNameLocationReportRuleList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertVideoRule">
+      <soap:operation soapAction="http://tempuri.org/IVideoRule/InsertVideoRule" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateVideoRule">
+      <soap:operation soapAction="http://tempuri.org/IVideoRule/UpdateVideoRule" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteVideoRuleByID">
+      <soap:operation soapAction="http://tempuri.org/IVideoRule/DeleteVideoRuleByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVideoRuleListByName">
+      <soap:operation soapAction="http://tempuri.org/IVideoRule/GetVideoRuleListByName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertLocationReportVehicle">
+      <soap:operation soapAction="http://tempuri.org/ILocationReportVehicle/InsertLocationReportVehicle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteLocationReportVehicleByID">
+      <soap:operation soapAction="http://tempuri.org/ILocationReportVehicle/DeleteLocationReportVehicleByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLocationReportVehicleListByLocationReportID">
+      <soap:operation soapAction="http://tempuri.org/ILocationReportVehicle/GetLocationReportVehicleListByLocationReportID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllLocationReportVehicleListByLocationReportID">
+      <soap:operation soapAction="http://tempuri.org/ILocationReportVehicle/GetAllLocationReportVehicleListByLocationReportID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeliverLocationReportRuleToVehicle">
+      <soap:operation soapAction="http://tempuri.org/ILocationReportVehicle/DeliverLocationReportRuleToVehicle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertVideoRuleVehicle">
+      <soap:operation soapAction="http://tempuri.org/IVideoRuleVehicle/InsertVideoRuleVehicle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteVideoRuleVehicleByID">
+      <soap:operation soapAction="http://tempuri.org/IVideoRuleVehicle/DeleteVideoRuleVehicleByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVideoRuleVehicleListByVideoRuleID">
+      <soap:operation soapAction="http://tempuri.org/IVideoRuleVehicle/GetVideoRuleVehicleListByVideoRuleID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllVideoRuleVehicleListByVideoRuleID">
+      <soap:operation soapAction="http://tempuri.org/IVideoRuleVehicle/GetAllVideoRuleVehicleListByVideoRuleID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeliverVideoRuleToVehicle">
+      <soap:operation soapAction="http://tempuri.org/IVideoRuleVehicle/DeliverVideoRuleToVehicle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertSpeedLimit">
+      <soap:operation soapAction="http://tempuri.org/ISpeedLimit/InsertSpeedLimit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSpeedLimit">
+      <soap:operation soapAction="http://tempuri.org/ISpeedLimit/UpdateSpeedLimit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSpeedLimitByID">
+      <soap:operation soapAction="http://tempuri.org/ISpeedLimit/DeleteSpeedLimitByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSpeedLimitListByName">
+      <soap:operation soapAction="http://tempuri.org/ISpeedLimit/GetSpeedLimitListByName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertVehicleSpeed">
+      <soap:operation soapAction="http://tempuri.org/IVehicleSpeed/InsertVehicleSpeed" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteVehicleSpeedByID">
+      <soap:operation soapAction="http://tempuri.org/IVehicleSpeed/DeleteVehicleSpeedByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllVehicleSpeedListBySpeedID">
+      <soap:operation soapAction="http://tempuri.org/IVehicleSpeed/GetAllVehicleSpeedListBySpeedID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVehicleSpeedListBySpeedID">
+      <soap:operation soapAction="http://tempuri.org/IVehicleSpeed/GetVehicleSpeedListBySpeedID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeliverSpeedLimitToVehicle">
+      <soap:operation soapAction="http://tempuri.org/IVehicleSpeed/DeliverSpeedLimitToVehicle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CommandManageService">
+    <wsdl:port name="BasicHttpBinding_ICommandManageService" binding="tns:BasicHttpBinding_ICommandManageService">
+      <soap:address location="http://localhost:2258/CommandManageService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/DevExpress.XtraPrinting.XamlExport" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/DevExpress.XtraPrinting.XamlExport" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:simpleType name="XamlCompatibility">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Silverlight" />
+      <xs:enumeration value="WPF" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="XamlCompatibility" nillable="true" type="tns:XamlCompatibility" />
+</xs:schema>

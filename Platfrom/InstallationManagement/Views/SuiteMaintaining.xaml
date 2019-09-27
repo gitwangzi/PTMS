@@ -1,0 +1,108 @@
+﻿<UserControl x:Class="Gsafety.PTMS.Installation.Views.SuiteMaintaining"
+    xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="800" d:DesignWidth="1000">
+
+    <Grid x:Name="LayoutRoot" Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="55"/>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="28"/>
+        </Grid.RowDefinitions>
+        <Border BorderBrush="{StaticResource MenuBarLine}" Background="{StaticResource NavBarBG}" Height="35" VerticalAlignment="Top" Grid.Row="0"  BorderThickness="0,1,0,1"/>
+        <Image Source="/InstallationManagement;component/Images/a07b.png" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,0,0,0" Stretch="None"/>
+        <TextBlock TextWrapping="Wrap" Text="{Binding [ID_INSTALL_SuiteMaintaining], Source={StaticResource SR}}"  VerticalAlignment="Center" HorizontalAlignment="Left" Margin="36,0,0,0" Style="{StaticResource Menu2TextBlock}" RenderTransformOrigin="0.5,0.5">
+            <TextBlock.RenderTransform>
+                <CompositeTransform Rotation="-0.176"/>
+            </TextBlock.RenderTransform>
+        </TextBlock>
+        <Grid Grid.Row="1" Background="#FFd0dcea">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition Width="150"/>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="165"/>
+                <ColumnDefinition Width="150"/>
+                <ColumnDefinition Width="50*"/>
+            </Grid.ColumnDefinitions>
+            <!--License plate number-->
+            <TextBlock Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,5,0" TextWrapping="Wrap" 
+                       Text="{Binding [ID_INSTALL_CarNumber], Source={StaticResource SR}}" Style="{StaticResource ViewFont}"/>
+            <TextBox TabIndex="1" MaxLength="25" Text="{Binding VehicleNumber, Mode=TwoWay}"  HorizontalAlignment="Left" Height="24" Margin="5,0,0,0" TextWrapping="Wrap" VerticalAlignment="Center" Width="145" Grid.Column="2"/>
+            <TextBlock Grid.Column="3" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,5,0" TextWrapping="Wrap" 
+                       Text="{Binding [ID_INSTALL_SuiteID], Source={StaticResource SR}}" Style="{StaticResource ViewFont}"/>
+            <TextBox TabIndex="1" MaxLength="30" Text="{Binding SuiteID, Mode=TwoWay}"  HorizontalAlignment="Left" Height="24" Margin="5,0,0,0" TextWrapping="Wrap" VerticalAlignment="Center" Width="145" Grid.Column="4"/>
+
+            <!--Query button-->
+            <Button TabIndex="5" x:Name="btnQuery"  Command="{Binding QueryCommand}" Tag="{Binding [ID_INSTALL_Query], Source={StaticResource SR}}" HorizontalAlignment="Right" Margin="21,10,0,8" VerticalAlignment="Center" Grid.Column="5" MinWidth="100" Width="100" Height="18">
+                <Image x:Name="imQuery" Source="/InstallationManagement;component/Images/seach.png" Stretch="None"/>
+            </Button>
+        </Grid>
+        <Border BorderBrush="{StaticResource MenuBarLine}" Background="{StaticResource NavBarBG}" Height="35" VerticalAlignment="Top" Grid.Row="2" Margin="0" BorderThickness="0,1,0,1"/>
+
+        <Image VerticalAlignment="Center" HorizontalAlignment="Left" Source="/InstallationManagement;component/Images/a07b.png" Grid.Row="2" Stretch="None" Margin="10,0,0,0"/>
+        <TextBlock TextWrapping="Wrap" Text="{Binding [ID_INSTALL_SuiteMaintainingList], Source={StaticResource SR}}" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="36,0,0,0" Style="{StaticResource Menu2TextBlock}" Grid.Row="2"/>
+
+        <sdk:DataGrid  CellStyle="{StaticResource DataGridCellStyle}"  x:Name="MaintainningDataGrid" IsReadOnly="True" Grid.Row="2" AutoGenerateColumns="False" SelectedItem="{Binding CurrentMaintainingRecord, Mode=TwoWay}" ItemsSource="{Binding SuitMaitainingList}" Background="Transparent" Margin="0,33,0,2" Grid.RowSpan="2">
+            <sdk:DataGrid.Columns>
+                <sdk:DataGridTextColumn Header="ID_INSTALL_CarNumber"   CanUserSort="True"  Width="*"   Binding="{Binding VehicleID}">
+                </sdk:DataGridTextColumn>
+                <sdk:DataGridTextColumn Header="ID_INSTALL_SUITE_MenuTitleNum"    CanUserSort="True"  Width="*"  Binding="{Binding SuiteId}">
+
+                </sdk:DataGridTextColumn>
+                <sdk:DataGridTextColumn Header="ID_INSTALL_StartMaintainDate"  CanUserSort="True"  Width="*"  Binding="{Binding ArrivalTime}">
+
+                </sdk:DataGridTextColumn>
+
+                <sdk:DataGridTextColumn Header="ID_INSTALL_MaintainPerson"  CanUserSort="True"  Width="*"  Binding="{Binding Maintainer}">
+
+                </sdk:DataGridTextColumn>
+                <sdk:DataGridTemplateColumn Header="ID_INSTALL_Operation" Width="120" >
+
+                    <sdk:DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <Button Style="{StaticResource ANTBaseInfoGridBtn}" IsEnabled="{Binding EnableSimpleMaintance}" Command="{Binding DataContext.SimpleMaintenanceCommand, RelativeSource={RelativeSource AncestorType=sdk:DataGrid}}" 
+                                       ToolTipService.ToolTip="{Binding [Maintain_SimpleMaintenance], Source={StaticResource SR}}"  HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,10,0">
+                                    <Image Source="/InstallationManagement;component/Images/note.png" Stretch="None"  Width="18" Height="18" />
+
+                                </Button>
+                                <Button Style="{StaticResource ANTBaseInfoGridBtn}"  Command="{Binding DataContext.SubstitutionMaintenanceCommand, RelativeSource={RelativeSource AncestorType=sdk:DataGrid}}" 
+                                        ToolTipService.ToolTip="{Binding [Maintain_SubstitutionMaintenance], Source={StaticResource SR}}"  HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,10,0">
+                                    <Image Source="/InstallationManagement;component/Images/note.png" Stretch="None"  />
+                                </Button>
+
+                                <Button Style="{StaticResource ANTBaseInfoGridBtn}" Command="{Binding DataContext.ScrappedRegistrationCommand, RelativeSource={RelativeSource AncestorType=sdk:DataGrid}}"  
+                                       ToolTipService.ToolTip="{Binding [Maintain_ScrappedRegistration], Source={StaticResource SR}}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,10,0">
+                                    <Image Source="/InstallationManagement;component/Images/note.png" Stretch="None" Width="16" Height="16"/>
+                                </Button>
+                            </StackPanel>
+                        </DataTemplate>
+                    </sdk:DataGridTemplateColumn.CellTemplate>
+                </sdk:DataGridTemplateColumn>
+            </sdk:DataGrid.Columns>
+        </sdk:DataGrid>
+        <Border BorderBrush="{StaticResource BorderBrushDeep}" Background="{StaticResource OptionBgColorBrush}" BorderThickness="1" Height="28" Grid.Row="4"  VerticalAlignment="Center" Width="Auto">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="400"/>
+                    <ColumnDefinition Width="130*"/>
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,0,0">
+                    <TextBlock HorizontalAlignment="Left" Margin="0,0,5,0" Grid.Row="4" TextWrapping="Wrap" Text="{Binding [PageSize], Source={StaticResource SR}}" VerticalAlignment="Center" Foreground="Black" FontSize="12"/>
+                    <ComboBox SelectedItem="{Binding PageSizeValue, Mode=TwoWay}"  Height="26" ItemsSource="{Binding PageSizeList}" Margin="0,0,0,0" Width="50" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                    <sdk:DataPager PageIndex="{Binding PageIndex, Mode=TwoWay}" Name="DataPager1" IsTotalItemCountFixed="True" Height="26" Margin="0,0,0,0" PageSize="{Binding PageSizeValue,Mode=TwoWay}" Grid.Row="1" Source="{Binding ItemCount, Mode=TwoWay}" VerticalAlignment="Center"  HorizontalAlignment="Center" />
+                </StackPanel>
+            </Grid>
+
+        </Border>
+    </Grid>
+</UserControl>

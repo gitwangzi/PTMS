@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="VehicleMonitorService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:2258/VehicleMonitorService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:2258/VehicleMonitorService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:2258/VehicleMonitorService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" />
+      <xsd:import schemaLocation="http://localhost:2258/VehicleMonitorService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/System" />
+      <xsd:import schemaLocation="http://localhost:2258/VehicleMonitorService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Monitor.Contract.Data" />
+      <xsd:import schemaLocation="http://localhost:2258/VehicleMonitorService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Common.Data" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IVehicleMonitorService_GetVehicleAlert_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetVehicleAlert" />
+  </wsdl:message>
+  <wsdl:message name="IVehicleMonitorService_GetVehicleAlert_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetVehicleAlertResponse" />
+  </wsdl:message>
+  <wsdl:message name="IVehicleMonitorService_GetLastMonitorGPS_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLastMonitorGPS" />
+  </wsdl:message>
+  <wsdl:message name="IVehicleMonitorService_GetLastMonitorGPS_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLastMonitorGPSResponse" />
+  </wsdl:message>
+  <wsdl:message name="IVehicleMonitorService_GetMonitorGPSTrack_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMonitorGPSTrack" />
+  </wsdl:message>
+  <wsdl:message name="IVehicleMonitorService_GetMonitorGPSTrack_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMonitorGPSTrackResponse" />
+  </wsdl:message>
+  <wsdl:message name="IVehicleMonitorService_ValidateSuiteGPS_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateSuiteGPS" />
+  </wsdl:message>
+  <wsdl:message name="IVehicleMonitorService_ValidateSuiteGPS_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateSuiteGPSResponse" />
+  </wsdl:message>
+  <wsdl:message name="IVehicleMonitorService_ValidateGPSGPS_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateGPSGPS" />
+  </wsdl:message>
+  <wsdl:message name="IVehicleMonitorService_ValidateGPSGPS_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateGPSGPSResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IVehicleMonitorService">
+    <wsdl:operation name="GetVehicleAlert">
+      <wsdl:input wsaw:Action="http://tempuri.org/IVehicleMonitorService/GetVehicleAlert" message="tns:IVehicleMonitorService_GetVehicleAlert_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IVehicleMonitorService/GetVehicleAlertResponse" message="tns:IVehicleMonitorService_GetVehicleAlert_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLastMonitorGPS">
+      <wsdl:input wsaw:Action="http://tempuri.org/IVehicleMonitorService/GetLastMonitorGPS" message="tns:IVehicleMonitorService_GetLastMonitorGPS_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IVehicleMonitorService/GetLastMonitorGPSResponse" message="tns:IVehicleMonitorService_GetLastMonitorGPS_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMonitorGPSTrack">
+      <wsdl:input wsaw:Action="http://tempuri.org/IVehicleMonitorService/GetMonitorGPSTrack" message="tns:IVehicleMonitorService_GetMonitorGPSTrack_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IVehicleMonitorService/GetMonitorGPSTrackResponse" message="tns:IVehicleMonitorService_GetMonitorGPSTrack_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidateSuiteGPS">
+      <wsdl:input wsaw:Action="http://tempuri.org/IVehicleMonitorService/ValidateSuiteGPS" message="tns:IVehicleMonitorService_ValidateSuiteGPS_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IVehicleMonitorService/ValidateSuiteGPSResponse" message="tns:IVehicleMonitorService_ValidateSuiteGPS_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidateGPSGPS">
+      <wsdl:input wsaw:Action="http://tempuri.org/IVehicleMonitorService/ValidateGPSGPS" message="tns:IVehicleMonitorService_ValidateGPSGPS_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IVehicleMonitorService/ValidateGPSGPSResponse" message="tns:IVehicleMonitorService_ValidateGPSGPS_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IVehicleMonitorService" type="tns:IVehicleMonitorService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetVehicleAlert">
+      <soap:operation soapAction="http://tempuri.org/IVehicleMonitorService/GetVehicleAlert" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLastMonitorGPS">
+      <soap:operation soapAction="http://tempuri.org/IVehicleMonitorService/GetLastMonitorGPS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMonitorGPSTrack">
+      <soap:operation soapAction="http://tempuri.org/IVehicleMonitorService/GetMonitorGPSTrack" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateSuiteGPS">
+      <soap:operation soapAction="http://tempuri.org/IVehicleMonitorService/ValidateSuiteGPS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateGPSGPS">
+      <soap:operation soapAction="http://tempuri.org/IVehicleMonitorService/ValidateGPSGPS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="VehicleMonitorService">
+    <wsdl:port name="BasicHttpBinding_IVehicleMonitorService" binding="tns:BasicHttpBinding_IVehicleMonitorService">
+      <soap:address location="http://localhost:2258/VehicleMonitorService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

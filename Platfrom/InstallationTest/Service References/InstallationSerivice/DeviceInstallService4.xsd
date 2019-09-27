@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Installation.Contract" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Installation.Contract" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="InstallationAudit">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AlarmCheck" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="AlarmId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Approver" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ApproverTime" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Content" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GpsCheck" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsSuccess" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="SelfInspectCheck" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="SelfInspectId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SuiteID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VehicleID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VideoCheck" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="VideoFileId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VideoFileSize" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="VideoQualityCheck" nillable="true" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="InstallationAudit" nillable="true" type="tns:InstallationAudit" />
+  <xs:complexType name="SelfInspectInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ANT_SN" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Channel1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Channel2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Channel3" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Channel4" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CurInTemperature" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CurVoltage" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GpsInfo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="InspectTime" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="MdvrCoreId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Module3G" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RecSD" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SdCapacity" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SelfInspectID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Sensor1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Sensor2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Sensor3" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SimCard" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StandbyPower" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SuiteId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VehicleId" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SelfInspectInfo" nillable="true" type="tns:SelfInspectInfo" />
+  <xs:complexType name="InstallInfoResult">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:InstallationInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Audit" nillable="true" type="tns:InstallationAudit" />
+          <xs:element minOccurs="0" name="Installation" nillable="true" type="tns:InstallationInfo" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="InstallInfoResult" nillable="true" type="tns:InstallInfoResult" />
+  <xs:complexType name="InstallationInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ANT_SN" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CheckStep" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="CreateTime" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="FinishTime" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="InstallationStaff" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="InstallationStationId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="InstallationStationName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MdvrCoreId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Note" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RecordStaff" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SuiteID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SuiteKey" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VehicleID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VehicleType" nillable="true" type="xs:short" />
+      <xs:element minOccurs="0" name="VehicleTypeName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="InstallationInfo" nillable="true" type="tns:InstallationInfo" />
+  <xs:complexType name="ArrayOfInstallationInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="InstallationInfo" nillable="true" type="tns:InstallationInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfInstallationInfo" nillable="true" type="tns:ArrayOfInstallationInfo" />
+  <xs:complexType name="ArrayOfInstallationAuditCollect">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="InstallationAuditCollect" nillable="true" type="tns:InstallationAuditCollect" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfInstallationAuditCollect" nillable="true" type="tns:ArrayOfInstallationAuditCollect" />
+  <xs:complexType name="InstallationAuditCollect">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AlarmCheck" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Approver" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ApproverTime" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Content" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GpsCheck" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="IsSuccess" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="SelfInspectCheck" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="SuiteID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VehicleID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VideoCheck" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="VideoQualityCheck" nillable="true" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="InstallationAuditCollect" nillable="true" type="tns:InstallationAuditCollect" />
+  <xs:complexType name="ArrayOfInstallationAudit">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="InstallationAudit" nillable="true" type="tns:InstallationAudit" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfInstallationAudit" nillable="true" type="tns:ArrayOfInstallationAudit" />
+  <xs:complexType name="ArrayOfSelfInspectInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SelfInspectInfo" nillable="true" type="tns:SelfInspectInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSelfInspectInfo" nillable="true" type="tns:ArrayOfSelfInspectInfo" />
+</xs:schema>

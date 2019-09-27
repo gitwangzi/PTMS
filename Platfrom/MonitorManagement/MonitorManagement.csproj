@@ -1,0 +1,331 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{EE34332D-FD84-4EA1-A7F1-5DA103700F6E}</ProjectGuid>
+    <ProjectTypeGuids>{A1591282-1198-4647-A2B1-27E5FF5F6F3B};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Gsafety.Ant.Monitor</RootNamespace>
+    <AssemblyName>MonitorManagement</AssemblyName>
+    <TargetFrameworkIdentifier>Silverlight</TargetFrameworkIdentifier>
+    <TargetFrameworkVersion>v5.0</TargetFrameworkVersion>
+    <SilverlightVersion>$(TargetFrameworkVersion)</SilverlightVersion>
+    <SilverlightApplication>false</SilverlightApplication>
+    <ValidateXaml>true</ValidateXaml>
+    <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
+    <ExpressionBlendVersion>5.2.30810.0</ExpressionBlendVersion>
+  </PropertyGroup>
+  <!-- This property group is only here to support building this project using the 
+       MSBuild 3.5 toolset. In order to work correctly with this older toolset, it needs 
+       to set the TargetFrameworkVersion to v3.5 -->
+  <PropertyGroup Condition="'$(MSBuildToolsVersion)' == '3.5'">
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ESRI.ArcGIS.Client, Version=10.1.1.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Assemblies\ESRI.ArcGIS.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="ESRI.ArcGIS.Client.Behaviors, Version=10.1.1.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Assemblies\ESRI.ArcGIS.Client.Behaviors.dll</HintPath>
+    </Reference>
+    <Reference Include="ESRI.ArcGIS.Client.Bing, Version=10.1.1.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Assemblies\ESRI.ArcGIS.Client.Bing.dll</HintPath>
+    </Reference>
+    <Reference Include="ESRI.ArcGIS.Client.Toolkit, Version=10.1.1.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Assemblies\ESRI.ArcGIS.Client.Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="Jounce">
+      <HintPath>..\Assemblies\Jounce.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CompilerServices.AsyncTargetingPack.Silverlight5">
+      <HintPath>..\Assemblies\Microsoft.CompilerServices.AsyncTargetingPack.Silverlight5.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Expression.Interactions, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Assemblies\Microsoft.Expression.Interactions.dll</HintPath>
+    </Reference>
+    <Reference Include="mscorlib" />
+    <Reference Include="System.ComponentModel.Composition, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.ComponentModel.Composition.Initialization, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.ComponentModel.DataAnnotations, Version=5.0.5.0, Culture=neutral, PublicKeyToken=ddd0da4d3e678217, processorArchitecture=MSIL" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Web" />
+    <Reference Include="System.ServiceModel.Web.Extensions, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows" />
+    <Reference Include="system" />
+    <Reference Include="System.Core">
+      <HintPath>$(TargetFrameworkDirectory)System.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Controls, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.Data, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.Data.Input, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.Input, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="system.windows.controls.input.toolkit, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="system.windows.controls.layout.toolkit, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>C:\Program Files (x86)\Microsoft SDKs\Silverlight\v5.0\Toolkit\dec11\Bin\System.Windows.Controls.Layout.Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Controls.Navigation, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.Toolkit, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Data, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Interactivity, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Assemblies\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Windows.Browser" />
+    <Reference Include="System.Xml.Linq, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Xml.Serialization, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Converts\LocateVehicleStateConvert.cs" />
+    <Compile Include="Converts\TraceImageStateConvert.cs" />
+    <Compile Include="Converts\VisibilityStateConvert.cs" />
+    <Compile Include="Fakes\Models\AlarmHandlerDispayArgs.cs" />
+    <Compile Include="Fakes\Models\AlarmInfoType.cs" />
+    <Compile Include="Fakes\Models\AlertHandleDisplayArgs.cs" />
+    <Compile Include="Fakes\Models\ManualAlarmHandleDisplayArgs.cs" />
+    <Compile Include="Fakes\Models\VehicleAlertType.cs" />
+    <Compile Include="Fakes\Models\SelectFenceDispayArgs.cs" />
+    <Compile Include="MonitorBinding.cs" />
+    <Compile Include="MonitorName.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\AlarmHandleViewModel.cs" />
+    <Compile Include="ViewModels\AlarmInfoVm.cs" />
+    <Compile Include="ViewModels\AlertDetailPageViewModel.cs" />
+    <Compile Include="ViewModels\AntProductMonitorMainPageViewModel.cs" />
+    <Compile Include="ViewModels\AntProductMonitorMainPageViewModel_Alarm.cs" />
+    <Compile Include="ViewModels\AntProductMonitorMainPageViewModel_Alert.cs" />
+    <Compile Include="ViewModels\AntProductMonitorMainPageViewModel_Device.cs" />
+    <Compile Include="ViewModels\AntProductMonitorMainPageViewMode_MonitorGroup.cs" />
+    <Compile Include="ViewModels\DeviceAlertDetailPageViewModel.cs" />
+    <Compile Include="ViewModels\ManualAlarmViewModel.cs" />
+    <Compile Include="ViewModels\MonitorMainPageVm.cs" />
+    <Compile Include="ViewModels\SelectFenceViewModel.cs" />
+    <Compile Include="ViewModels\SendPhoneMsgViewModel.cs" />
+    <Compile Include="ViewModels\VehicleInfoVm.cs" />
+    <Compile Include="ViewModels\AlertHandleViewModel.cs" />
+    <Compile Include="Views\ChildSendMail.xaml.cs">
+      <DependentUpon>ChildSendMail.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MonitorGroupEdit.xaml.cs">
+      <DependentUpon>MonitorGroupEdit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MonitorGroupManagerView.xaml.cs">
+      <DependentUpon>MonitorGroupManagerView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AlarmInfoPage.xaml.cs">
+      <DependentUpon>AlarmInfoPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AlertDetailPage.xaml.cs">
+      <DependentUpon>AlertDetailPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AntProductMonitorMainPage.xaml.cs">
+      <DependentUpon>AntProductMonitorMainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SelectFence.xaml.cs">
+      <DependentUpon>SelectFence.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SendPhoneMsgWindow.xaml.cs">
+      <DependentUpon>SendPhoneMsgWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\VehicleInfoPage.xaml.cs">
+      <DependentUpon>VehicleInfoPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AlarmHandlePage.xaml.cs">
+      <DependentUpon>AlarmHandlePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AlertHandlePage.xaml.cs">
+      <DependentUpon>AlertHandlePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MonitorHandleNoteManagerView.xaml.cs">
+      <DependentUpon>MonitorHandleNoteManagerView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MonitorNoteEdit.xaml.cs">
+      <DependentUpon>MonitorNoteEdit.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Views\ChildSendMail.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\MonitorGroupEdit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MonitorGroupManagerView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AlarmInfoPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\AlertDetailPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\AntProductMonitorMainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SelectFence.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SendPhoneMsgWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\VehicleInfoPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AlarmHandlePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\AlertHandlePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\MonitorHandleNoteManagerView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\MonitorNoteEdit.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BaseLib\BaseLib.csproj">
+      <Project>{f6106c3b-65a3-45a0-ac41-80fb7c127c1f}</Project>
+      <Name>BaseLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BasicPage\BasicPage.csproj">
+      <Project>{336f0b83-4fda-40a9-b09a-c598b6e90d69}</Project>
+      <Name>BasicPage</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CommMessage\CommMessage.csproj">
+      <Project>{6e8e7e73-2eb1-4d7c-9273-f81fc2d30a10}</Project>
+      <Name>CommMessage</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CommonControl\Controls.csproj">
+      <Project>{E5A6C07A-D661-4528-866F-922C00081BDE}</Project>
+      <Name>Controls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Constants\Constants.csproj">
+      <Project>{96a43019-0ee2-4b44-b688-96dd0f418b19}</Project>
+      <Name>Constants</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Converts\Converts.csproj">
+      <Project>{e43eb997-b440-4fed-b261-4fbc7e2b6880}</Project>
+      <Name>Converts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Enums\Enums.csproj">
+      <Project>{3e850ec1-7a17-4b42-be32-efd1382d337e}</Project>
+      <Name>Enums</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ExternalResource\ExternalResource.csproj">
+      <Project>{0900ebee-ffff-4067-817c-b40d49fa76c9}</Project>
+      <Name>ExternalResource</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GisManagement\GisManagement.csproj">
+      <Project>{dd30ac09-fa9c-4ca3-84f2-7ab4a1bee971}</Project>
+      <Name>GisManagement</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Librarys\Librarys.csproj">
+      <Project>{80fb8b20-0514-46d0-adc4-99abf4246f5b}</Project>
+      <Name>Librarys</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Localization\Localization.csproj">
+      <Project>{3765593e-f466-42af-b3bb-56d825954072}</Project>
+      <Name>Localization</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Models\Models.csproj">
+      <Project>{44ebb496-2c26-475f-ad39-0117cc7f31f3}</Project>
+      <Name>Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ServiceReference\ServiceReference.csproj">
+      <Project>{116e9ab2-db01-41d6-bd5e-805cac206b32}</Project>
+      <Name>ServiceReference</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Share\Share.csproj">
+      <Project>{84fc8750-50d0-40ba-a5b8-be0bb014057e}</Project>
+      <Name>Share</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Utilities\Utilities.csproj">
+      <Project>{a9d13f4e-3f78-48cf-9081-e12c108de4b4}</Project>
+      <Name>Utilities</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\CancelMonitor.png" />
+    <Resource Include="Images\GpsMonitor.png" />
+    <Resource Include="Images\Monitor.png" />
+    <Resource Include="Images\remove.png" />
+    <Resource Include="Images\rename.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\add.png" />
+    <Resource Include="Images\arrow-down.png" />
+    <Resource Include="Images\arrow-up.png" />
+    <Resource Include="Images\delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\checkbox_no.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ok.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Fakes Include="Fakes\SyedMehrozAlam.CustomControls.fakes" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{A1591282-1198-4647-A2B1-27E5FF5F6F3B}">
+        <SilverlightProjectProperties />
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

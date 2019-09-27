@@ -1,0 +1,392 @@
+﻿<controls:ChildWindow x:Class="Gsafety.Ant.BaseInformation.Views.Organization.AddVehicleDetailWindow"
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+           Width="500" Height="630" 
+           Title="{Binding Title}"
+           Style="{StaticResource SelfChildenWindowWhiteStyle}">
+
+    <Grid x:Name="LayoutRoot" Style="{StaticResource ContentGridWhiteStyle}">
+
+        <Grid.RowDefinitions>
+            <RowDefinition  Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="15"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="20"/>
+        </Grid.RowDefinitions>
+
+
+        <Grid Grid.Row="1" Margin="0,20,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition Height="10"/>
+                <RowDefinition/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Text="{Binding [BelongOrganizationName], Source={StaticResource SR}}" 
+                       Grid.Column="1"
+                       Grid.Row="0"
+                       HorizontalAlignment="Right"
+                       Margin="0,3,20,3"
+                       VerticalAlignment="Center"/>
+            <ComboBox Grid.Column="2"
+                     Grid.Row="0"
+                     Width="250"
+                     Margin="0,3,0,3" 
+                      Style="{StaticResource lightComboBox}"
+                     ItemsSource="{Binding Organizations}"
+                     DisplayMemberPath="Name"
+                     SelectedItem="{Binding Organization,Mode=TwoWay, NotifyOnValidationError=True,ValidatesOnDataErrors=True}"
+                     ToolTipService.ToolTip="{Binding Organization.Name}"
+                     HorizontalAlignment="Stretch"
+                      VerticalAlignment="Center"                    
+                     />
+
+            <TextBlock Text="{Binding [VehicleNumber], Source={StaticResource SR}}" 
+                       Grid.Column="1"
+                       Grid.Row="1"
+                       HorizontalAlignment="Right"
+                       Margin="0,3,20,3"
+                       VerticalAlignment="Center"/>
+            <TextBox Grid.Column="2"
+                     Grid.Row="1"
+                     Margin="0,3,0,3"
+                     MaxLength="20"
+                     Width="250"
+                     x:Name="VehicleID"
+                     TextChanged="VehicleID_TextChanged_1"
+                     Text="{Binding VehicleId,Mode=TwoWay, NotifyOnValidationError=True,ValidatesOnDataErrors=True}"
+                     IsReadOnly="{Binding IsVehicleReadOnly}"/>
+
+            <TextBlock Text="{Binding [VIN], Source={StaticResource SR}}" 
+                       Grid.Column="1"
+                       Grid.Row="2"
+                       HorizontalAlignment="Right"
+                       Margin="0,3,20,3"
+                       VerticalAlignment="Center"/>
+            <TextBox Grid.Column="2"
+                     Grid.Row="2"
+                     Margin="0,3,0,3"
+                     MaxLength="50"
+                     Width="250"
+                     x:Name="VehicleSn"
+                     TextChanged="VehicleSn_TextChanged_1"
+                     Text="{Binding VehicleSn,Mode=TwoWay, NotifyOnValidationError=True,ValidatesOnDataErrors=True}"
+                     IsReadOnly="{Binding IsReadOnly}"/>
+
+            <TextBlock Text="{Binding [EngineNo], Source={StaticResource SR}}" 
+                       Grid.Column="1"
+                       Grid.Row="3"
+                       HorizontalAlignment="Right"
+                       Margin="0,3,20,3"
+                       VerticalAlignment="Center"/>
+            <TextBox Grid.Column="2"
+                     Grid.Row="3"
+                     MaxLength="50"
+                     Margin="0,3,0,3"
+                     Width="250"
+                     x:Name="EndineId"
+                     TextChanged="EndineId_TextChanged_1"
+                     Text="{Binding EngineId,Mode=TwoWay, NotifyOnValidationError=True,ValidatesOnDataErrors=True}"
+                     IsReadOnly="{Binding IsReadOnly}"/>
+
+            <TextBlock Text="{Binding [VehicleType], Source={StaticResource SR}}" 
+                       Grid.Column="1"
+                       Grid.Row="4"
+                       HorizontalAlignment="Right"
+                       Margin="0,3,20,3"
+                       VerticalAlignment="Center"/>
+            <ComboBox Grid.Column="2"
+                     Grid.Row="4"
+                      Width="250"
+                     Margin="0,3,0,3"
+                      Style="{StaticResource lightComboBox}"
+                     ItemsSource="{Binding ZVehicleType}"
+                     DisplayMemberPath="Value"
+                     SelectedItem="{Binding VType,Mode=TwoWay, NotifyOnValidationError=True,ValidatesOnDataErrors=True}"
+                     ToolTipService.ToolTip="{Binding VType.Value}"
+                     HorizontalAlignment="Stretch"
+                      VerticalAlignment="Center"
+                     IsEnabled="{Binding IsEnabled}"  Name="comboStatus">
+            </ComboBox>
+
+            <TextBlock Text="{Binding [AdministrativeArea], Source={StaticResource SR}}" 
+                       Grid.Column="1"
+                       Grid.Row="5"
+                       HorizontalAlignment="Right"
+                       Margin="0,3,20,3"
+                       VerticalAlignment="Center"/>
+
+            <ComboBox Grid.Row="5" Grid.Column="2" Margin="0,3,0,3"                 
+                     ItemsSource="{Binding Provinces}"
+                     DisplayMemberPath="Name"
+                      Style="{StaticResource lightComboBox}"
+                     SelectedItem="{Binding Province,Mode=TwoWay, NotifyOnValidationError=True,ValidatesOnDataErrors=True}"
+                     Width="250"
+                     ToolTipService.ToolTip="{Binding Province.Name}"
+                     HorizontalAlignment="Stretch"
+                      VerticalAlignment="Center"
+                     IsEnabled="{Binding IsEnabled}"  Name="comboStatus2" />
+
+            <ComboBox Grid.Row="6"
+                Grid.Column="2" Margin="0,3,0,3"                  
+                     ItemsSource="{Binding Cities}"
+                      Style="{StaticResource lightComboBox}"
+                     DisplayMemberPath="Name"
+                     SelectedItem="{Binding City,Mode=TwoWay, NotifyOnValidationError=True,ValidatesOnDataErrors=True}"
+                     Width="250"
+                     ToolTipService.ToolTip="{Binding City.Name}"
+                     HorizontalAlignment="Stretch"
+                     VerticalAlignment="Center"
+                     IsEnabled="{Binding IsEnabled}"  Name="comboStatus3"/>
+
+            <TextBlock Text="{Binding [VehicleBrandTypes], Source={StaticResource SR}}" 
+                       Grid.Column="1"
+                       Grid.Row="7"
+                       HorizontalAlignment="Right"
+                       Margin="0,3,20,3"
+                       VerticalAlignment="Center"/>
+            <TextBox Grid.Column="2"
+                     Grid.Row="7"
+                     Margin="0,3,0,3"
+                     MaxLength="100"
+                     Width="250"
+                     x:Name="BrandModel"
+                     TextChanged="BrandModel_TextChanged_1"
+                     Text="{Binding BrandModel,Mode=TwoWay, NotifyOnValidationError=True,ValidatesOnDataErrors=True}"
+                     IsReadOnly="{Binding IsReadOnly}"/>
+
+            <TextBlock Text="{Binding [YearLimit], Source={StaticResource SR}}" 
+                       Grid.Column="1"
+                       Grid.Row="8"
+                       HorizontalAlignment="Right"
+                       Margin="0,5,20,5"
+                       VerticalAlignment="Center"/>
+            <TextBox Grid.Column="2"
+                     Grid.Row="8"
+                     Margin="0,3,0,3"
+                     MaxLength="10"
+                     Width="250"
+                     x:Name="StartYear"
+                     TextChanged="StartYear_TextChanged_1"
+                     Text="{Binding StartYear,Mode=TwoWay, NotifyOnValidationError=True,ValidatesOnDataErrors=True}"
+                     IsReadOnly="{Binding IsReadOnly}"/>
+
+            <TextBlock Text="{Binding [ServiceType], Source={StaticResource SR}}" 
+                       Grid.Column="1"
+                       Grid.Row="9"
+                       HorizontalAlignment="Right"
+                       Margin="0,3,20,3"
+                       VerticalAlignment="Center"/>
+            <ComboBox Grid.Column="2"
+                      Style="{StaticResource lightComboBox}"
+                     Grid.Row="9"
+                     Margin="0,3,0,3"
+                      Width="250"
+                     ItemsSource="{Binding ZVehicleServiceType}"
+                     DisplayMemberPath="Value"
+                     SelectedItem="{Binding VServiceType,Mode=TwoWay, NotifyOnValidationError=True,ValidatesOnDataErrors=True}"
+                      ToolTipService.ToolTip="{Binding VServiceType.Key}"
+                     HorizontalAlignment="Stretch"
+                     IsEnabled="{Binding IsEnabled}" />
+
+            <TextBlock Text="{Binding [RunningArea], Source={StaticResource SR}}" 
+                       Grid.Column="1"
+                       Grid.Row="10"
+                       HorizontalAlignment="Right"
+                       Margin="0,3,20,3"
+                       VerticalAlignment="Center"/>
+            <TextBox Grid.Column="2"
+                     Grid.Row="10"
+                     Margin="0,3,0,3"
+                     MaxLength="512"
+                     Width="250"
+                     x:Name="Region"
+                     TextChanged="Region_TextChanged_1"
+                     Text="{Binding Region,Mode=TwoWay, NotifyOnValidationError=True,ValidatesOnDataErrors=True}"
+                     IsReadOnly="{Binding IsReadOnly}"/>
+
+            <TextBlock Text="{Binding [OperatingLicense], Source={StaticResource SR}}" 
+                       Grid.Column="1"
+                       Grid.Row="11"
+                       HorizontalAlignment="Right"
+                       Margin="0,3,20,3"
+                       VerticalAlignment="Center"/>
+            <TextBox Grid.Column="2"
+                     Grid.Row="11"
+                     Margin="0,3,0,3"
+                     MaxLength="100"
+                     Width="250"
+                     x:Name="OperationLicense"
+                     TextChanged="OperationLicense_TextChanged_1"
+                     Text="{Binding OperationLicense,Mode=TwoWay, NotifyOnValidationError=True,ValidatesOnDataErrors=True}"
+                     IsReadOnly="{Binding IsReadOnly}"/>
+
+            <!--<TextBlock Text="{Binding [VehicleCondition], Source={StaticResource SR}}" 
+                       Grid.Column="1"
+                       Grid.Row="12"
+                       HorizontalAlignment="Right"
+                       Margin="0,3,20,3"
+                       VerticalAlignment="Center"/>
+            <ComboBox Grid.Column="2"
+                     Grid.Row="12"
+                     Margin="0,3,0,3"
+                     ItemsSource="{Binding ZVehicleStatus}"
+                     DisplayMemberPath="Value"
+                     SelectedItem="{Binding VStatus,Mode=TwoWay, NotifyOnValidationError=True,ValidatesOnDataErrors=True}"
+                     Foreground="White"
+                     HorizontalAlignment="Stretch"
+                     IsEnabled="{Binding IsEnabled,Mode=TwoWay}"/>-->
+
+            <TextBlock Text="{Binding [VehicleHost], Source={StaticResource SR}}" 
+                       Grid.Column="1"
+                       Grid.Row="13"
+                       HorizontalAlignment="Right"
+                       Margin="0,3,20,3"
+                       VerticalAlignment="Center"/>
+            <TextBox Grid.Column="2"
+                     Grid.Row="13"
+                     Margin="0,3,0,3"
+                     MaxLength="512"
+                     Width="250"
+                     x:Name="Owner"
+                     TextChanged="Owner_TextChanged_1"
+                     Text="{Binding Owner,Mode=TwoWay, NotifyOnValidationError=True,ValidatesOnDataErrors=True}"
+                     IsReadOnly="{Binding IsReadOnly}"/>
+
+            <TextBlock Text="{Binding [BASEINFO_ContactPerson], Source={StaticResource SR}}" 
+                       Grid.Column="1"
+                       Grid.Row="14"
+                       HorizontalAlignment="Right"
+                       Margin="0,3,20,3"
+                       VerticalAlignment="Center"/>
+            <TextBox Grid.Column="2"
+                     Grid.Row="14"
+                     MaxLength="50"
+                     Margin="0,3,0,3"
+                     Width="250"
+                     x:Name="Contact"
+                     TextChanged="Contact_TextChanged_1"
+                     Text="{Binding Contact,Mode=TwoWay, NotifyOnValidationError=True,ValidatesOnDataErrors=True}"
+                     IsReadOnly="{Binding IsReadOnly}"/>
+
+            <TextBlock Text="{Binding [ContactPhone], Source={StaticResource SR}}" 
+                       Grid.Column="1"
+                       Grid.Row="15"
+                       HorizontalAlignment="Right"
+                       Margin="0,3,20,3"
+                       VerticalAlignment="Center"/>
+            <TextBox Grid.Column="2"
+                     Grid.Row="15"
+                     MaxLength="50"
+                     Margin="0,3,0,3"
+                     Width="250"
+                     x:Name="ContactPhone"
+                     TextChanged="ContactPhone_TextChanged_1"
+                     Text="{Binding ContactPhone,Mode=TwoWay, NotifyOnValidationError=True,ValidatesOnDataErrors=True}"
+                     IsReadOnly="{Binding IsReadOnly}"/>
+
+            <TextBlock Text="{Binding [Email], Source={StaticResource SR}}" 
+                       Grid.Column="1"
+                       Grid.Row="16"
+                       HorizontalAlignment="Right"
+                       Margin="0,3,20,3"
+                       VerticalAlignment="Center"/>
+            <TextBox Grid.Column="2"
+                     Grid.Row="16"
+                     MaxLength="100"
+                     Margin="0,3,0,3"
+                     Width="250"
+                     x:Name="ContactEmail"
+                     TextChanged="ContactEmail_TextChanged_1"
+                     Text="{Binding ContactEmail,Mode=TwoWay, NotifyOnValidationError=True,ValidatesOnDataErrors=True}"
+                     IsReadOnly="{Binding IsReadOnly}"/>
+
+            <TextBlock Text="{Binding [Address], Source={StaticResource SR}}" 
+                       Grid.Column="1"
+                       Grid.Row="17"
+                       HorizontalAlignment="Right"
+                       Margin="0,3,20,3"
+                       VerticalAlignment="Center"/>
+            <TextBox Grid.Column="2"
+                     Grid.Row="17"
+                     Margin="0,3,0,3"
+                     MaxLength="512"
+                     Width="250"
+                     x:Name="ContactAddress"
+                     TextChanged="ContactAddress_TextChanged_1"
+                     Text="{Binding ContactAddress,Mode=TwoWay, NotifyOnValidationError=True,ValidatesOnDataErrors=True}"
+                     IsReadOnly="{Binding IsReadOnly}"/>
+
+
+
+        </Grid>
+
+        <Grid 
+            Grid.Row="3" Grid.Column="2"
+            Style="{StaticResource ContentGridWhiteStyle}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1.2*"/>
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Button Grid.Column="0"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Center"
+                        Content="{Binding [Save], Source={StaticResource SR}}"
+                        Style="{StaticResource SaveButtonStyle}"
+                        Visibility="{Binding SaveButtonVisibility}"
+                        IsEnabled="{Binding IsCanCommit}"
+                        Command="{Binding CommitCommand}"/>
+
+            <Button Grid.Column="2"
+                    Style="{StaticResource ResertButtonStyle}"
+                    Content="{Binding [Resert], Source={StaticResource SR}}" 
+                    Visibility="{Binding ResertButtonVisibility}"
+                    Command="{Binding ResetCommand}"/>
+            <Button Grid.Column="4"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Center"
+                        Content="{Binding [MANAGE_Return], Source={StaticResource SR}}"
+                        Style="{StaticResource BackButtonStyle}"
+                        Click="CancelButton_Click"
+                        />
+
+        </Grid>
+
+
+
+    </Grid>
+
+
+</controls:ChildWindow>

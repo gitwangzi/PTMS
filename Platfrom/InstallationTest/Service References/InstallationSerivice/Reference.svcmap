@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="f1a11f17-b882-4654-8dbc-87eba1b125a1" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:26444/DeviceInstallService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="DeviceInstallService.xsd" MetadataType="Schema" ID="ac2fc0fd-4fc9-4c3c-adfd-203e24343699" SourceId="1" SourceUrl="http://localhost:26444/DeviceInstallService.svc?xsd=xsd3" />
+    <MetadataFile FileName="DeviceInstallService1.xsd" MetadataType="Schema" ID="d6ff9aa3-8a80-4b12-bbad-544cec09bacd" SourceId="1" SourceUrl="http://localhost:26444/DeviceInstallService.svc?xsd=xsd1" />
+    <MetadataFile FileName="DeviceInstallService2.xsd" MetadataType="Schema" ID="40da102b-e11d-4e4f-bcb8-f5a7d6c2bc19" SourceId="1" SourceUrl="http://localhost:26444/DeviceInstallService.svc?xsd=xsd2" />
+    <MetadataFile FileName="DeviceInstallService.wsdl" MetadataType="Wsdl" ID="54628792-cca5-43ab-877d-a95aeec51d04" SourceId="1" SourceUrl="http://localhost:26444/DeviceInstallService.svc?wsdl" />
+    <MetadataFile FileName="DeviceInstallService3.xsd" MetadataType="Schema" ID="6d183f3b-ca0b-4df1-8c9b-a9684a046da8" SourceId="1" SourceUrl="http://localhost:26444/DeviceInstallService.svc?xsd=xsd0" />
+    <MetadataFile FileName="DeviceInstallService4.xsd" MetadataType="Schema" ID="57e9b7cb-256f-4461-8288-c60069cac675" SourceId="1" SourceUrl="http://localhost:26444/DeviceInstallService.svc?xsd=xsd4" />
+    <MetadataFile FileName="DeviceInstallService.disco" MetadataType="Disco" ID="14689445-b5f1-4c33-b4ba-5cf4fc1c4c78" SourceId="1" SourceUrl="http://localhost:26444/DeviceInstallService.svc?disco" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

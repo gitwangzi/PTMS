@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="DistrictService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:2258/DistrictService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:2258/DistrictService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:2258/DistrictService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" />
+      <xsd:import schemaLocation="http://localhost:2258/DistrictService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/System" />
+      <xsd:import schemaLocation="http://localhost:2258/DistrictService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.BaseInformation.Contract.Data" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IDistrictService_GetDistrict_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDistrict" />
+  </wsdl:message>
+  <wsdl:message name="IDistrictService_GetDistrict_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDistrictResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDistrictService_GetProvinceAndCity_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProvinceAndCity" />
+  </wsdl:message>
+  <wsdl:message name="IDistrictService_GetProvinceAndCity_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProvinceAndCityResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDistrictService_AddUserAuthority_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddUserAuthority" />
+  </wsdl:message>
+  <wsdl:message name="IDistrictService_AddUserAuthority_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddUserAuthorityResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDistrictService_DeleteUserAuthority_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteUserAuthority" />
+  </wsdl:message>
+  <wsdl:message name="IDistrictService_DeleteUserAuthority_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteUserAuthorityResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDistrictService_UpdateUserAuthority_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateUserAuthority" />
+  </wsdl:message>
+  <wsdl:message name="IDistrictService_UpdateUserAuthority_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateUserAuthorityResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDistrictService_GetUserAuthorityFuzzy_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserAuthorityFuzzy" />
+  </wsdl:message>
+  <wsdl:message name="IDistrictService_GetUserAuthorityFuzzy_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserAuthorityFuzzyResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDistrictService_GetDistrictByAuthority_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDistrictByAuthority" />
+  </wsdl:message>
+  <wsdl:message name="IDistrictService_GetDistrictByAuthority_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDistrictByAuthorityResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDistrictService_GetFuncItem_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFuncItem" />
+  </wsdl:message>
+  <wsdl:message name="IDistrictService_GetFuncItem_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFuncItemResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDistrictService_GetFuncByRole_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFuncByRole" />
+  </wsdl:message>
+  <wsdl:message name="IDistrictService_GetFuncByRole_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFuncByRoleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDistrictService_UpdateRoleFunc_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateRoleFunc" />
+  </wsdl:message>
+  <wsdl:message name="IDistrictService_UpdateRoleFunc_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateRoleFuncResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IDistrictService">
+    <wsdl:operation name="GetDistrict">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDistrictService/GetDistrict" message="tns:IDistrictService_GetDistrict_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDistrictService/GetDistrictResponse" message="tns:IDistrictService_GetDistrict_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProvinceAndCity">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDistrictService/GetProvinceAndCity" message="tns:IDistrictService_GetProvinceAndCity_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDistrictService/GetProvinceAndCityResponse" message="tns:IDistrictService_GetProvinceAndCity_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddUserAuthority">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDistrictService/AddUserAuthority" message="tns:IDistrictService_AddUserAuthority_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDistrictService/AddUserAuthorityResponse" message="tns:IDistrictService_AddUserAuthority_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUserAuthority">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDistrictService/DeleteUserAuthority" message="tns:IDistrictService_DeleteUserAuthority_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDistrictService/DeleteUserAuthorityResponse" message="tns:IDistrictService_DeleteUserAuthority_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUserAuthority">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDistrictService/UpdateUserAuthority" message="tns:IDistrictService_UpdateUserAuthority_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDistrictService/UpdateUserAuthorityResponse" message="tns:IDistrictService_UpdateUserAuthority_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserAuthorityFuzzy">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDistrictService/GetUserAuthorityFuzzy" message="tns:IDistrictService_GetUserAuthorityFuzzy_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDistrictService/GetUserAuthorityFuzzyResponse" message="tns:IDistrictService_GetUserAuthorityFuzzy_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDistrictByAuthority">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDistrictService/GetDistrictByAuthority" message="tns:IDistrictService_GetDistrictByAuthority_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDistrictService/GetDistrictByAuthorityResponse" message="tns:IDistrictService_GetDistrictByAuthority_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFuncItem">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDistrictService/GetFuncItem" message="tns:IDistrictService_GetFuncItem_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDistrictService/GetFuncItemResponse" message="tns:IDistrictService_GetFuncItem_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFuncByRole">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDistrictService/GetFuncByRole" message="tns:IDistrictService_GetFuncByRole_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDistrictService/GetFuncByRoleResponse" message="tns:IDistrictService_GetFuncByRole_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateRoleFunc">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDistrictService/UpdateRoleFunc" message="tns:IDistrictService_UpdateRoleFunc_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDistrictService/UpdateRoleFuncResponse" message="tns:IDistrictService_UpdateRoleFunc_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IDistrictService" type="tns:IDistrictService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetDistrict">
+      <soap:operation soapAction="http://tempuri.org/IDistrictService/GetDistrict" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProvinceAndCity">
+      <soap:operation soapAction="http://tempuri.org/IDistrictService/GetProvinceAndCity" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddUserAuthority">
+      <soap:operation soapAction="http://tempuri.org/IDistrictService/AddUserAuthority" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUserAuthority">
+      <soap:operation soapAction="http://tempuri.org/IDistrictService/DeleteUserAuthority" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUserAuthority">
+      <soap:operation soapAction="http://tempuri.org/IDistrictService/UpdateUserAuthority" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserAuthorityFuzzy">
+      <soap:operation soapAction="http://tempuri.org/IDistrictService/GetUserAuthorityFuzzy" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDistrictByAuthority">
+      <soap:operation soapAction="http://tempuri.org/IDistrictService/GetDistrictByAuthority" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFuncItem">
+      <soap:operation soapAction="http://tempuri.org/IDistrictService/GetFuncItem" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFuncByRole">
+      <soap:operation soapAction="http://tempuri.org/IDistrictService/GetFuncByRole" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateRoleFunc">
+      <soap:operation soapAction="http://tempuri.org/IDistrictService/UpdateRoleFunc" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="DistrictService">
+    <wsdl:port name="BasicHttpBinding_IDistrictService" binding="tns:BasicHttpBinding_IDistrictService">
+      <soap:address location="http://localhost:2258/DistrictService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

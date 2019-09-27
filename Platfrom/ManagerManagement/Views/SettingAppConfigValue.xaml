@@ -1,0 +1,97 @@
+﻿<sdk:Page 
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+           xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+           xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
+     xmlns:toolkit="http://schemas.microsoft.com/winfx/2006/xaml/presentation/toolkit" 
+         
+           xmlns:local="clr-namespace:Gsafety.PTMS.AppConfig.Views" x:Class="Gsafety.PTMS.AppConfig.Views.SettingAppConfigValue" 
+         
+           mc:Ignorable="d"
+           d:DesignWidth="680" d:DesignHeight="480"
+           Title="SettingAppConfigValue Page">
+    <toolkit:BusyIndicator x:Name="bi_root" VerticalAlignment="Top" HorizontalAlignment="Stretch">
+        <Grid HorizontalAlignment="Stretch">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="35"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Border Height="35" Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Top"  Margin="0" BorderThickness="0,1,0,1" BorderBrush="{StaticResource MenuBarLine}" Background="{StaticResource NavBarBG}">
+            </Border>
+            <Image Source="/ExternalResource;component/Images/navigation.png" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,0,0,0" Stretch="None"/>
+
+            <Grid Grid.Row="1" x:Name="LayoutRoot" MinHeight="480" HorizontalAlignment="Stretch" >
+                <Grid.Resources>
+                    <Style TargetType="Border" >
+                        <Setter Property="BorderThickness" Value="1"/>
+                        <Setter Property="CornerRadius" Value="5"/>
+                        <Setter Property="BorderBrush" Value="Gray" />
+                        <Setter Property="Margin" Value="8"/>
+                    </Style>
+                    <Style x:Key="caption_text" TargetType="sdk:Label" >
+                        <Setter Property="Background" Value="#ccc" />
+                        <Setter Property="FontSize" Value="13" />
+                    </Style>
+                </Grid.Resources>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="280"/>
+                    <ColumnDefinition Width="458*"/>
+                </Grid.ColumnDefinitions>
+                <Border  Grid.Column="0" MinWidth="260" BorderBrush="#FF95a9cb" Background="White" BorderThickness="1"  HorizontalAlignment="Stretch" >
+                    <Border.Effect>
+                        <DropShadowEffect Color="#FFA3B0C7" ShadowDepth="1.2"/>
+                    </Border.Effect>
+                 
+                        <StackPanel x:Name="sp_left_continer"  Margin="0,0,0,0">
+                        <Border CornerRadius="4,4,0,0" BorderThickness="1" Width="260" Height="32" Margin="0,0,0,0" HorizontalAlignment="Stretch" BorderBrush="#ffffffff" Grid.Row="0" >
+                            <Border.Background>
+                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                    <GradientStop Color="#ffb0cef3" Offset="0"/>
+                                    <GradientStop Color="#ff94aacc" Offset="1"/>
+                                </LinearGradientBrush>
+                            </Border.Background>
+
+                            <sdk:Label FontSize="13" Content="选择分类" Margin="5,0,0,0"/>
+                        </Border>
+
+                        <ScrollViewer VerticalScrollBarVisibility="Auto" BorderThickness="0">
+                                <ListBox x:Name="lb_cata" ItemsSource="{Binding}"  Height="371" BorderThickness="0" SelectionChanged="lb_cata_SelectionChanged">
+                                    <ListBox.ItemTemplate>
+                                        <DataTemplate>
+                                            <StackPanel Orientation="Horizontal" >
+                                                <Image Source="/AppConfigManagement;component/Images/setting.png"/>
+                                                <TextBlock Text="{Binding Value.SECTION_NAME}" />
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </ListBox.ItemTemplate>
+                                </ListBox>
+                            </ScrollViewer>
+                        <sdk:Label Content="说明" FontSize="13" Background="#ffa0badd" Height="32" VerticalAlignment="Center" Padding="5" />
+                            <TextBlock x:Name="tb_cataDesc" TextWrapping="Wrap"  Text="{Binding SelectedValue.Value.SECTION_DESC, ElementName=lb_cata}"/>
+
+                        </StackPanel>
+                </Border>
+
+                <Border Grid.Column="1" Background="{StaticResource DetailBG}" CornerRadius="5" Padding="8" BorderBrush="#ff95a9cb" BorderThickness="1" >
+                    <Border.Effect>
+                        <DropShadowEffect Color="#FFA3B0C7" ShadowDepth="1.2"/>
+                    </Border.Effect>
+                    <Grid >
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="29*"/>
+                            <RowDefinition Height="2*"/>
+                            <RowDefinition Height="2*"/>
+                        </Grid.RowDefinitions>
+                        <ScrollViewer VerticalScrollBarVisibility="Auto" BorderThickness="0,0,0,1">
+                            <local:ConfigSettingValue_Control Grid.Row="0"  x:Name="cfv_detail" />
+                        </ScrollViewer>
+                        <Button Content="确定" Name="btn_save"   HorizontalAlignment="Right"  Grid.Row="2" VerticalAlignment="Top" Width="75" Click="btn_save_Click"/>
+                    </Grid>
+                </Border>
+
+            </Grid>
+        </Grid>
+    </toolkit:BusyIndicator>
+</sdk:Page>

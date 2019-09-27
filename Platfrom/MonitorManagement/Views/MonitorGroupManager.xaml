@@ -1,0 +1,80 @@
+﻿<controls:ChildWindow x:Class="Gsafety.PTMS.Monitor.Views.MonitorGroupManager"
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk" 
+           xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+           Width="400" Height="320"   Closing="ChildWindow_Closing_1" Style="{StaticResource ChildWindowStyle}"
+            Title="{Binding [MONITOR_MonitorGourpManager], Source={StaticResource SR}}">
+    <Grid x:Name="LayoutRoot" BindingValidationError="LayoutRoot_BindingValidationError">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="190"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <!--<ColumnDefinition Width="45"></ColumnDefinition>-->
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Row="0" HorizontalAlignment="Right" VerticalAlignment="Center" >
+            <Button  x:Name="BtnAddExtent" Style="{StaticResource Main_center_ButtonStyle}" Tag="{Binding [Add],  Source={StaticResource SR}}"  Click="BtnAddExtent_Click" >
+                <Image x:Name="Addpng" Source="/ExternalResource;component/Images/Main_add.png" Stretch="Fill" Width="22" Height="22"/>
+            </Button>
+        </StackPanel>
+        <Grid Grid.Column="0" Grid.Row="1">
+            <sdk:DataGrid Name="GroupListView"  AutoGenerateColumns="False"  CanUserSortColumns="True" IsReadOnly="True"
+                          ColumnHeaderStyle="{StaticResource DataGridColumnHeaderStyle}" CellStyle="{StaticResource DataGridCellStyle}" 
+                          GridLinesVisibility="Horizontal" HorizontalGridLinesBrush="#FFDCDAD5" RowStyle="{StaticResource DataGridRowStyle}">
+                <sdk:DataGrid.Columns>
+                    <sdk:DataGridTemplateColumn  Header="MONITOR_GroupName" Width="150" >
+                        <sdk:DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel>
+                                    <TextBox Name="groupName" Text="{Binding GroupName,Mode=TwoWay,ValidatesOnDataErrors=True, ValidatesOnExceptions=true, NotifyOnValidationError=true}" MaxLength="20" />
+                                </StackPanel>
+                            </DataTemplate>
+                        </sdk:DataGridTemplateColumn.CellTemplate>
+                    </sdk:DataGridTemplateColumn>
+                    <sdk:DataGridTemplateColumn Header="MONITOR_GroupNote" Width="120" >
+                        <sdk:DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel>
+                                    <TextBox Text="{Binding Note,Mode=TwoWay,ValidatesOnDataErrors=True, ValidatesOnExceptions=true, NotifyOnValidationError=true}" ToolTipService.ToolTip="{Binding Note,Mode=TwoWay}" MaxLength="200"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </sdk:DataGridTemplateColumn.CellTemplate>
+                    </sdk:DataGridTemplateColumn>
+                    <sdk:DataGridTemplateColumn Header="MONITOR_GroupOperation" Width="120*" >
+                        <sdk:DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                    <Button x:Name="BtnDeleExtent" Grid.Column="0" Click="BtnDeleExtent_Click" Style="{StaticResource ANTBaseInfoGridBtn}">
+                                        <Image x:Name="Delepng"  Source="/ExternalResource;component/Images/DataGrid_dele.png" Stretch="None"  />
+                                    </Button>
+                                    <Button x:Name="BtnUpExtent" IsEnabled="{Binding UP_IsEnabled,Mode=TwoWay, NotifyOnValidationError=true}"  Grid.Column="1" Click="BtnUpExtent_Click" Style="{StaticResource ANTBaseInfoGridBtn}">
+                                        <Image x:Name="Uppng" Source="/ExternalResource;component/Images/DataGrid_up.png" Stretch="None"  />
+                                    </Button>
+                                    <Button  x:Name="BtnDownExtent" IsEnabled="{Binding DOWN_IsEnabled,Mode=TwoWay, NotifyOnValidationError=true}" Grid.Column="2" Click="BtnDownExtent_Click" Style="{StaticResource ANTBaseInfoGridBtn}">
+                                        <Image x:Name="Downpng" Source="/ExternalResource;component/Images/DataGrid_down.png" Stretch="None"   />
+                                    </Button>
+                                </StackPanel>
+                            </DataTemplate>
+                        </sdk:DataGridTemplateColumn.CellTemplate>
+                    </sdk:DataGridTemplateColumn>
+                </sdk:DataGrid.Columns>
+            </sdk:DataGrid>
+        </Grid>
+        <!--</Grid>-->
+        <Grid Grid.Row="2" VerticalAlignment="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="CancelButton" Grid.Column="1" Tag="{Binding [Cancel],  Source={StaticResource SR}}" Click="CancelButton_Click"  HorizontalAlignment="Left" Margin="4,15,0,0" Grid.Row="1" Style="{StaticResource Search_ButtonStyle}">
+                <Image Height="15" Source="/ExternalResource;component/Images/MainPage_canel.png" Stretch="Fill" Width="15"/>
+            </Button>
+            <Button x:Name="OKButton" Grid.Column="0" Tag="{Binding [Confirm],  Source={StaticResource SR}}" Click="OKButton_Click"  HorizontalAlignment="Right" Margin="0,15,4,0" VerticalAlignment="Center" Grid.Row="1" Style="{StaticResource Search_ButtonStyle}">
+                <Image Height="15" Source="/ExternalResource;component/Images/MainPage_complete.png" Stretch="Fill" Width="15"/>
+            </Button>
+        </Grid>
+    </Grid>
+</controls:ChildWindow>

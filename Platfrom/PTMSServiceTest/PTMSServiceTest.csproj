@@ -1,0 +1,233 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4FF32AC2-D66B-4F05-B699-705725640DC0}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PTMSServiceTest</RootNamespace>
+    <AssemblyName>PTMSServiceTest</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+    <ReferencePath>$(ProgramFiles)\Common Files\microsoft shared\VSTT\$(VisualStudioVersion)\UITestExtensionPackages</ReferencePath>
+    <IsCodedUITest>False</IsCodedUITest>
+    <TestProjectType>UnitTest</TestProjectType>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\Assemblies\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\Assemblies\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Formatting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Activation" />
+    <Reference Include="System.ServiceModel.Routing" />
+    <Reference Include="System.ServiceModel.Web" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <Choose>
+    <When Condition="('$(VisualStudioVersion)' == '10.0' or '$(VisualStudioVersion)' == '') and '$(TargetFrameworkVersion)' == 'v3.5'">
+      <ItemGroup>
+        <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+      </ItemGroup>
+    </When>
+    <Otherwise>
+      <ItemGroup>
+        <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework" />
+      </ItemGroup>
+    </Otherwise>
+  </Choose>
+  <ItemGroup>
+    <Compile Include="AccountServiceTest.cs" />
+    <Compile Include="OrderClientServiceTest.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AlarmContract\AlarmContract.csproj">
+      <Project>{C1648BB6-2DDC-4DB3-B532-3383F4EBF4A2}</Project>
+      <Name>AlarmContract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AlarmRepository\AlarmRepository.csproj">
+      <Project>{BE352CB3-0734-4B42-8AC6-E5B34D8BEA80}</Project>
+      <Name>AlarmRepository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AlertContract\AlertContract.csproj">
+      <Project>{008BEF84-FB4B-4C9D-8239-804A4D662075}</Project>
+      <Name>AlertContract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AlertRepository\AlertRepository.csproj">
+      <Project>{7484996A-8719-406B-9D5A-088FD07AA116}</Project>
+      <Name>AlertRepository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BaseContract\BaseContract.csproj">
+      <Project>{A6C2A532-546D-4DAE-8AA3-4C01DE81F462}</Project>
+      <Name>BaseContract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BaseInformationContract\BaseInformationContract.csproj">
+      <Project>{679E0B68-FECA-4A96-9313-19E24C1D46B6}</Project>
+      <Name>BaseInformationContract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BaseInformationRepository\BaseInformationRepository.csproj">
+      <Project>{A5EFA9EC-EF89-49BD-AA35-913CB278FEAE}</Project>
+      <Name>BaseInformationRepository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BaseInfo\BaseInfo.csproj">
+      <Project>{1A55AF1B-1BE4-47B2-80F5-0B1E48EF087D}</Project>
+      <Name>BaseInfo</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Common.Data\Common.Data.csproj">
+      <Project>{2b4caa14-181a-4b8d-9dc6-891bea684735}</Project>
+      <Name>Common.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataModel\DBEntity.csproj">
+      <Project>{B8EDEF26-D01B-42CC-9A6F-5802D4C5F43C}</Project>
+      <Name>DBEntity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\InstallationContract\InstallationContract.csproj">
+      <Project>{622EAA0E-AFE9-4CD4-B09B-CDD4910F0D46}</Project>
+      <Name>InstallationContract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\InstallationRepository\InstallationRepository.csproj">
+      <Project>{175B500B-3B98-43BC-884D-A4B28992340F}</Project>
+      <Name>InstallationRepository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IntegrationContract\IntegrationContract.csproj">
+      <Project>{CAD14F54-9375-47B6-BA53-71588AA2637A}</Project>
+      <Name>IntegrationContract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IntegrationRepository\IntegrationRepository.csproj">
+      <Project>{E3DA9A3E-50C9-4F10-91F1-0D0142E112EA}</Project>
+      <Name>IntegrationRepository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LogManage\LogManage.csproj">
+      <Project>{48E5A665-A6C2-49A2-96D3-031EAA67DE3D}</Project>
+      <Name>LogManage</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ManagerContract\ManagerContract.csproj">
+      <Project>{5955C031-5415-457C-95D3-B06E38279572}</Project>
+      <Name>ManagerContract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ManagerRepository\ManagerRepository.csproj">
+      <Project>{5A9E13D9-65A4-405E-A6D3-FE05FEE1367E}</Project>
+      <Name>ManagerRepository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MessageContract\MessageContract.csproj">
+      <Project>{E9A83F02-F0DD-4C92-B47D-1F894C2D3C9A}</Project>
+      <Name>MessageContract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MonitorContract\MonitorContract.csproj">
+      <Project>{66024DDA-BAE4-442A-838E-953BF716CC90}</Project>
+      <Name>MonitorContract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MonitorRepository\MonitorRepository.csproj">
+      <Project>{7963DE26-E2F7-4C67-83E6-0545732D4FB8}</Project>
+      <Name>MonitorRepository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PTMSService\PTMSService.csproj">
+      <Project>{6e5d05db-c3da-4a70-a8ba-a7c79f8e462a}</Project>
+      <Name>PTMSService</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SecuritySuiteContract\SecuritySuiteContract.csproj">
+      <Project>{633F50BE-FCC6-4B05-9B4F-5D9CEC137B43}</Project>
+      <Name>SecuritySuiteContract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SecuritySuiteRepository\SecuritySuiteRepository.csproj">
+      <Project>{15AF8443-29C7-47F0-BF2D-6C5FD427B0D8}</Project>
+      <Name>SecuritySuiteRepository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TrafficContract\TrafficContract.csproj">
+      <Project>{A4C2FB20-3486-4529-A83A-715D0DCDA065}</Project>
+      <Name>TrafficContract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TrafficRepository\TrafficRepository.csproj">
+      <Project>{7188174E-9A81-44DE-B585-B03FEBD2842C}</Project>
+      <Name>TrafficRepository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Util\Util.csproj">
+      <Project>{84A8E879-776A-42BC-8DE9-10FA339CB331}</Project>
+      <Name>Util</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VideoLogContract\VideoLogContract.csproj">
+      <Project>{17A79074-DB99-44FB-8575-1C6AD34702C6}</Project>
+      <Name>VideoLogContract</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\DataModel\App.Config">
+      <Link>App.Config</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <Choose>
+    <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
+      <ItemGroup>
+        <Reference Include="Microsoft.VisualStudio.QualityTools.CodedUITestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+        <Reference Include="Microsoft.VisualStudio.TestTools.UITest.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+        <Reference Include="Microsoft.VisualStudio.TestTools.UITest.Extension, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+        <Reference Include="Microsoft.VisualStudio.TestTools.UITesting, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

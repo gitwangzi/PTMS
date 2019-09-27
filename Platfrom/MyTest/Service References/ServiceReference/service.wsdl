@@ -1,0 +1,316 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="MessageService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="CustomBinding_IMessageServiceExt_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <msb:BinaryEncoding xmlns:msb="http://schemas.microsoft.com/ws/06/2004/mspolicy/netbinary1">
+        </msb:BinaryEncoding>
+        <wsaw:UsingAddressing>
+        </wsaw:UsingAddressing>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import namespace="http://tempuri.org/" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Common.Data" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Message.Contract" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Message.Contract.Data" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IMessageServiceExt_CompleteAlarm_InputMessage">
+    <wsdl:part name="parameters" element="tns:CompleteAlarm" />
+  </wsdl:message>
+  <wsdl:message name="IMessageServiceExt_CompleteAlarm_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CompleteAlarmResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMessageServiceExt_CompleteAlert_InputMessage">
+    <wsdl:part name="parameters" element="tns:CompleteAlert" />
+  </wsdl:message>
+  <wsdl:message name="IMessageServiceExt_CompleteAlert_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CompleteAlertResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMessageServiceExt_SendGetVideoListCMD_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendGetVideoListCMD" />
+  </wsdl:message>
+  <wsdl:message name="IMessageServiceExt_SendGetVideoListCMD_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendGetVideoListCMDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMessageServiceExt_SendDownloadMdvrFile_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendDownloadMdvrFile" />
+  </wsdl:message>
+  <wsdl:message name="IMessageServiceExt_SendDownloadMdvrFile_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendDownloadMdvrFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMessageServiceExt_MonitorVehicle_InputMessage">
+    <wsdl:part name="parameters" element="tns:MonitorVehicle" />
+  </wsdl:message>
+  <wsdl:message name="IMessageServiceExt_MonitorVehicle_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MonitorVehicleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMessageServiceExt_UnMonitorVehicle_InputMessage">
+    <wsdl:part name="parameters" element="tns:UnMonitorVehicle" />
+  </wsdl:message>
+  <wsdl:message name="IMessageServiceExt_UnMonitorVehicle_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UnMonitorVehicleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMessageServiceExt_BeginInstallSuite_InputMessage">
+    <wsdl:part name="parameters" element="tns:BeginInstallSuite" />
+  </wsdl:message>
+  <wsdl:message name="IMessageServiceExt_BeginInstallSuite_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BeginInstallSuiteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMessageServiceExt_CompleteInstallSuite_InputMessage">
+    <wsdl:part name="parameters" element="tns:CompleteInstallSuite" />
+  </wsdl:message>
+  <wsdl:message name="IMessageServiceExt_CompleteInstallSuite_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CompleteInstallSuiteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMessageServiceExt_RemoveInstallSuite_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveInstallSuite" />
+  </wsdl:message>
+  <wsdl:message name="IMessageServiceExt_RemoveInstallSuite_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveInstallSuiteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMessageServiceExt_BeginInstallGPS_InputMessage">
+    <wsdl:part name="parameters" element="tns:BeginInstallGPS" />
+  </wsdl:message>
+  <wsdl:message name="IMessageServiceExt_BeginInstallGPS_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BeginInstallGPSResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMessageServiceExt_CompleteInstallGPS_InputMessage">
+    <wsdl:part name="parameters" element="tns:CompleteInstallGPS" />
+  </wsdl:message>
+  <wsdl:message name="IMessageServiceExt_CompleteInstallGPS_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CompleteInstallGPSResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMessageServiceExt_RemoveInstallGPS_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveInstallGPS" />
+  </wsdl:message>
+  <wsdl:message name="IMessageServiceExt_RemoveInstallGPS_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveInstallGPSResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMessageServiceExt_Register_InputMessage">
+    <wsdl:part name="parameters" element="tns:Register" />
+  </wsdl:message>
+  <wsdl:message name="IMessageServiceExt_Register_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RegisterResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMessageServiceExt_ClientStatusChange_InputMessage">
+    <wsdl:part name="parameters" element="tns:ClientStatusChange" />
+  </wsdl:message>
+  <wsdl:message name="IMessageServiceExt_ClientStatusChange_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ClientStatusChangeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMessageServiceExt_MessageCallBack_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:MessageCallBack" />
+  </wsdl:message>
+  <wsdl:portType name="IMessageServiceExt">
+    <wsdl:operation name="CompleteAlarm">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMessageAlarm/CompleteAlarm" message="tns:IMessageServiceExt_CompleteAlarm_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMessageAlarm/CompleteAlarmResponse" message="tns:IMessageServiceExt_CompleteAlarm_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CompleteAlert">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMessageAlart/CompleteAlert" message="tns:IMessageServiceExt_CompleteAlert_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMessageAlart/CompleteAlertResponse" message="tns:IMessageServiceExt_CompleteAlert_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendGetVideoListCMD">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMessageCommand/SendGetVideoListCMD" message="tns:IMessageServiceExt_SendGetVideoListCMD_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMessageCommand/SendGetVideoListCMDResponse" message="tns:IMessageServiceExt_SendGetVideoListCMD_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendDownloadMdvrFile">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMessageCommand/SendDownloadMdvrFile" message="tns:IMessageServiceExt_SendDownloadMdvrFile_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMessageCommand/SendDownloadMdvrFileResponse" message="tns:IMessageServiceExt_SendDownloadMdvrFile_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MonitorVehicle">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMessageGPS/MonitorVehicle" message="tns:IMessageServiceExt_MonitorVehicle_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMessageGPS/MonitorVehicleResponse" message="tns:IMessageServiceExt_MonitorVehicle_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UnMonitorVehicle">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMessageGPS/UnMonitorVehicle" message="tns:IMessageServiceExt_UnMonitorVehicle_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMessageGPS/UnMonitorVehicleResponse" message="tns:IMessageServiceExt_UnMonitorVehicle_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BeginInstallSuite">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMessageInstall/BeginInstallSuite" message="tns:IMessageServiceExt_BeginInstallSuite_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMessageInstall/BeginInstallSuiteResponse" message="tns:IMessageServiceExt_BeginInstallSuite_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CompleteInstallSuite">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMessageInstall/CompleteInstallSuite" message="tns:IMessageServiceExt_CompleteInstallSuite_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMessageInstall/CompleteInstallSuiteResponse" message="tns:IMessageServiceExt_CompleteInstallSuite_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveInstallSuite">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMessageInstall/RemoveInstallSuite" message="tns:IMessageServiceExt_RemoveInstallSuite_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMessageInstall/RemoveInstallSuiteResponse" message="tns:IMessageServiceExt_RemoveInstallSuite_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BeginInstallGPS">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMessageInstall/BeginInstallGPS" message="tns:IMessageServiceExt_BeginInstallGPS_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMessageInstall/BeginInstallGPSResponse" message="tns:IMessageServiceExt_BeginInstallGPS_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CompleteInstallGPS">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMessageInstall/CompleteInstallGPS" message="tns:IMessageServiceExt_CompleteInstallGPS_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMessageInstall/CompleteInstallGPSResponse" message="tns:IMessageServiceExt_CompleteInstallGPS_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveInstallGPS">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMessageInstall/RemoveInstallGPS" message="tns:IMessageServiceExt_RemoveInstallGPS_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMessageInstall/RemoveInstallGPSResponse" message="tns:IMessageServiceExt_RemoveInstallGPS_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Register">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMessageManagement/Register" message="tns:IMessageServiceExt_Register_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMessageManagement/RegisterResponse" message="tns:IMessageServiceExt_Register_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ClientStatusChange">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMessageManagement/ClientStatusChange" message="tns:IMessageServiceExt_ClientStatusChange_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMessageManagement/ClientStatusChangeResponse" message="tns:IMessageServiceExt_ClientStatusChange_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MessageCallBack">
+      <wsdl:output wsaw:Action="http://tempuri.org/IMessageServiceExt/MessageCallBack" message="tns:IMessageServiceExt_MessageCallBack_OutputCallbackMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CustomBinding_IMessageServiceExt" type="tns:IMessageServiceExt">
+    <wsp:PolicyReference URI="#CustomBinding_IMessageServiceExt_policy">
+    </wsp:PolicyReference>
+    <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
+    <wsdl:operation name="CompleteAlarm">
+      <soap12:operation soapAction="http://tempuri.org/IMessageAlarm/CompleteAlarm" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CompleteAlert">
+      <soap12:operation soapAction="http://tempuri.org/IMessageAlart/CompleteAlert" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendGetVideoListCMD">
+      <soap12:operation soapAction="http://tempuri.org/IMessageCommand/SendGetVideoListCMD" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendDownloadMdvrFile">
+      <soap12:operation soapAction="http://tempuri.org/IMessageCommand/SendDownloadMdvrFile" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MonitorVehicle">
+      <soap12:operation soapAction="http://tempuri.org/IMessageGPS/MonitorVehicle" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UnMonitorVehicle">
+      <soap12:operation soapAction="http://tempuri.org/IMessageGPS/UnMonitorVehicle" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BeginInstallSuite">
+      <soap12:operation soapAction="http://tempuri.org/IMessageInstall/BeginInstallSuite" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CompleteInstallSuite">
+      <soap12:operation soapAction="http://tempuri.org/IMessageInstall/CompleteInstallSuite" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveInstallSuite">
+      <soap12:operation soapAction="http://tempuri.org/IMessageInstall/RemoveInstallSuite" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BeginInstallGPS">
+      <soap12:operation soapAction="http://tempuri.org/IMessageInstall/BeginInstallGPS" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CompleteInstallGPS">
+      <soap12:operation soapAction="http://tempuri.org/IMessageInstall/CompleteInstallGPS" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveInstallGPS">
+      <soap12:operation soapAction="http://tempuri.org/IMessageInstall/RemoveInstallGPS" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Register">
+      <soap12:operation soapAction="http://tempuri.org/IMessageManagement/Register" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ClientStatusChange">
+      <soap12:operation soapAction="http://tempuri.org/IMessageManagement/ClientStatusChange" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MessageCallBack">
+      <soap12:operation soapAction="http://tempuri.org/IMessageServiceExt/MessageCallBack" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="MessageService">
+    <wsdl:port name="CustomBinding_IMessageServiceExt" binding="tns:CustomBinding_IMessageServiceExt">
+      <soap12:address location="net.tcp://localhost:4503/MessageService" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>net.tcp://localhost:4503/MessageService</wsa10:Address>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

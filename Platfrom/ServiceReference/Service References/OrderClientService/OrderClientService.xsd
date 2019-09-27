@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:2258/OrderClientService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Common.Data" />
+  <xs:import schemaLocation="http://localhost:2258/OrderClientService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" />
+  <xs:import schemaLocation="http://localhost:2258/OrderClientService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.BaseInformation.Contract.Models" />
+  <xs:element name="InsertOrderClient">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Common.Data" minOccurs="0" name="model" nillable="true" type="q1:OrderClientEx" />
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Common.Data" minOccurs="0" name="log" nillable="true" type="q2:LogManager" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsertOrderClientResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" minOccurs="0" name="InsertOrderClientResult" nillable="true" type="q3:SingleMessageOfboolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateOrderClient">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Common.Data" minOccurs="0" name="model" nillable="true" type="q4:OrderClientEx" />
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Common.Data" minOccurs="0" name="log" nillable="true" type="q5:LogManager" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateOrderClientResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" minOccurs="0" name="UpdateOrderClientResult" nillable="true" type="q6:SingleMessageOfboolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetOrderClientExList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.BaseInformation.Contract.Models" minOccurs="0" name="obj" nillable="true" type="q7:OrderClientManagerQueryModel" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetOrderClientExListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" minOccurs="0" name="GetOrderClientExListResult" nillable="true" type="q8:MultiMessageOfOrderClientExi7Zg_POJ5" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ResetPassword">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="orderClientID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="newPassword" nillable="true" type="xs:string" />
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Common.Data" minOccurs="0" name="log" nillable="true" type="q9:LogManager" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ResetPasswordResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" minOccurs="0" name="ResetPasswordResult" nillable="true" type="q10:SingleMessageOfboolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetOrderClientStatus">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="orderClientID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="enable" type="xs:boolean" />
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Common.Data" minOccurs="0" name="log" nillable="true" type="q11:LogManager" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetOrderClientStatusResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" minOccurs="0" name="SetOrderClientStatusResult" nillable="true" type="q12:SingleMessageOfboolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetOrderClient">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetOrderClientResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" minOccurs="0" name="GetOrderClientResult" nillable="true" type="q13:SingleMessageOfOrderClienti7Zg_POJ5" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

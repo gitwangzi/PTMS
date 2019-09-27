@@ -1,0 +1,89 @@
+﻿<UserControl x:Class="Gsafety.PTMS.Installation.Views.VehicleOnline"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
+    xmlns:Converter="clr-namespace:Gsafety.Common.Converts;assembly=Converts"
+    xmlns:lc="clr-namespace:Gsafety.PTMS.Bases.Enums;assembly=Enums"
+    mc:Ignorable="d"
+    d:DesignHeight="800" d:DesignWidth="1000">
+    <UserControl.Resources>
+        <lc:VehicleConverter x:Key="localize"></lc:VehicleConverter>
+    </UserControl.Resources>
+
+    <Grid x:Name="LayoutRoot" Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="28"/>
+        </Grid.RowDefinitions>
+        <Border BorderThickness="0,1,0,1" Style="{StaticResource TopBorderStyle}"  Height="40" Grid.RowSpan="3" Grid.Row="0"  VerticalAlignment="Top" >
+        </Border>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding [SUITE_OnLine], Source={StaticResource SR}}" VerticalAlignment="Center" Margin="36,0,0,0" Style="{StaticResource MainPage_Main_tle_TextBlockStyle}"/>
+        <Image Stretch="None" Source="/SecuritySuiteManagement;component/Images/a07b.png" Margin="10,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" />
+        <Border Style="{StaticResource GridBorderStyle}" Grid.Row="1" >
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="150"/>
+                    <ColumnDefinition Width="200"/>
+                    <ColumnDefinition Width="150"/>
+                    <ColumnDefinition Width="200"/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="2"/>
+                    <ColumnDefinition Width="150"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"/>
+                </Grid.RowDefinitions>
+                <TextBlock HorizontalAlignment="Right" Margin="0,0,5,0" TextWrapping="Wrap" Text="{Binding [CarNumber], Source={StaticResource SR}}" VerticalAlignment="Center" Style="{StaticResource MainPage_Main_search_TextBlockStyle}" Grid.Column="0"/>
+                <TextBox TabIndex="1" MaxLength="25" Text="{Binding VehicleID, Mode=TwoWay}"  HorizontalAlignment="Left" Height="24" Margin="5,0,0,0" TextWrapping="Wrap" VerticalAlignment="Center" Width="170" Grid.Column="1"/>
+                <Image HorizontalAlignment="Left" Grid.RowSpan="2" VerticalAlignment="Center" Grid.Column="5" Width="2" Source="/ExternalResource;component/Images/MainPage_line31.png"/>
+                <Button TabIndex="3" x:Name="btnQuery"  Command="{Binding QueryCommand, Mode=TwoWay}" Tag="{Binding [Query], Source={StaticResource SR}}" HorizontalAlignment="Right" Margin="0,0,40,0" VerticalAlignment="Center" Style="{StaticResource Search_ButtonStyle}" Grid.Column="6">
+                    <Image x:Name="imQuery" Source="/ExternalResource;component/Images/MainPage_search.png" Stretch="Fill" Width="14" Height="14"/>
+                </Button>
+            </Grid>
+                
+        </Border>
+        <Border Style="{StaticResource MiddleBorderStyle}" Height="35" Grid.Row="2"  VerticalAlignment="Top">
+        </Border>
+        <Image Stretch="None" Source="/SecuritySuiteManagement;component/Images/a07b.png" Margin="10,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="2"/>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding [SUITE_OnLine],Source={StaticResource SR}}" VerticalAlignment="Center" Margin="36,0,0,0" Style="{StaticResource MainPage_Main_tle_TextBlockStyle}" Grid.Row="2"/>
+
+        <Grid Grid.Row="3">
+            <sdk:DataGrid IsReadOnly="True" AutoGenerateColumns="False" x:Name="VehicleOnlineGrid" ItemsSource="{Binding SuiteStatusInfoPage}" SelectedItem="{Binding CurrentSuiteStatus, Mode=TwoWay}"
+                          Background="Transparent" ColumnHeaderStyle="{StaticResource DataGridColumnHeaderStyle}" CellStyle="{StaticResource DataGridCellStyle}"
+                          GridLinesVisibility="Horizontal" HorizontalGridLinesBrush="#FFDCDAD5" RowStyle="{StaticResource DataGridRowStyle}">
+                <sdk:DataGrid.Columns>
+                    <sdk:DataGridTextColumn Binding="{Binding VehicleID, Mode=TwoWay}" Header="CarNumber" CanUserSort="True" Width="*" >
+
+                    </sdk:DataGridTextColumn>
+                    <sdk:DataGridTextColumn Binding="{Binding VehicleType, Mode=TwoWay, ConverterParameter=VehicleType, Converter={ StaticResource  localize}}" Header="VehicleType" CanUserSort="True" Width="*" >
+
+                    </sdk:DataGridTextColumn>
+                    <sdk:DataGridTextColumn Binding="{Binding StatusChangeTime, Mode=TwoWay, StringFormat=yyyy-MM-dd HH:mm:ss}" Header="SUITE_OnlineTime" CanUserSort="True" Width="*" >
+
+                    </sdk:DataGridTextColumn>
+                    <sdk:DataGridTextColumn Binding="{Binding StatusTimeSpan, Mode=TwoWay, StringFormat=\{0:dd\\D\\-hh\\H\\-mm\\M\}}" Header="SUITE_OnlineTimeSpan" CanUserSort="True" Width="Auto" >
+
+                    </sdk:DataGridTextColumn>
+                    <sdk:DataGridTextColumn Binding="{Binding Owner, Mode=TwoWay}" Header="BASEINFO_VehicleOwner" CanUserSort="True" Width="*" >
+
+                    </sdk:DataGridTextColumn>
+                    <sdk:DataGridTextColumn Binding="{Binding OwnerPhone, Mode=TwoWay}" Header="BASEINFO_Contact" CanUserSort="True" Width="*" >
+
+                    </sdk:DataGridTextColumn>
+                </sdk:DataGrid.Columns>
+            </sdk:DataGrid>
+        </Grid>
+        <Border Style="{StaticResource BottonBorderStyle}" BorderThickness="1" Height="28" Grid.Row="4"  VerticalAlignment="Center" Width="Auto">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,0,0">
+                <TextBlock HorizontalAlignment="Left" Margin="0,0,5,0" Grid.Row="4" TextWrapping="Wrap" Text="{Binding [PageSize], Source={StaticResource SR}}" VerticalAlignment="Center" Style="{StaticResource DataGrid_Page_TextBlockStyle}"/>
+                <ComboBox SelectedItem="{Binding PageSizeValue,Mode=TwoWay}" ItemsSource="{Binding PageSizeList}" Height="26" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Center" Width="50" Style="{StaticResource DataGrid_Page_ComboBoxStyle}"/>
+                <sdk:DataPager DisplayMode="FirstLastPreviousNext" Grid.Row="4" PageIndex="-1" IsTotalItemCountFixed="True" PageSize="{Binding PageSizeValue,Mode=OneWay}" Source="{Binding SuiteStatusInfoPage, Mode=TwoWay}"  Height="26" Margin="0,0,0,0"/>
+            </StackPanel>
+        </Border>
+    </Grid>
+</UserControl>

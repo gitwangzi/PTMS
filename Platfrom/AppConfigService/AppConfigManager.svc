@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="Gsafety.Ant.AppConfig.Service.AppConfigManager" CodeBehind="AppConfigManager.svc.cs" %>

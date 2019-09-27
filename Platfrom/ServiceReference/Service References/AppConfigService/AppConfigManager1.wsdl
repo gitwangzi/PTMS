@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="AppConfigManager" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:2258/AppConfigManager.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:2258/AppConfigManager.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:2258/AppConfigManager.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Manager.Contract.Data" />
+      <xsd:import schemaLocation="http://localhost:2258/AppConfigManager.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://localhost:2258/AppConfigManager.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" />
+      <xsd:import schemaLocation="http://localhost:2258/AppConfigManager.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/System" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IAppConfigManager_GetAllSections_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllSections" />
+  </wsdl:message>
+  <wsdl:message name="IAppConfigManager_GetAllSections_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllSectionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAppConfigManager_GetSectionByName_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSectionByName" />
+  </wsdl:message>
+  <wsdl:message name="IAppConfigManager_GetSectionByName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSectionByNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAppConfigManager_AddSection_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddSection" />
+  </wsdl:message>
+  <wsdl:message name="IAppConfigManager_AddSection_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddSectionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAppConfigManager_UpdateSection_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateSection" />
+  </wsdl:message>
+  <wsdl:message name="IAppConfigManager_UpdateSection_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateSectionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAppConfigManager_DeleteSection_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteSection" />
+  </wsdl:message>
+  <wsdl:message name="IAppConfigManager_DeleteSection_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteSectionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAppConfigManager_DeleteSectionById_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteSectionById" />
+  </wsdl:message>
+  <wsdl:message name="IAppConfigManager_DeleteSectionById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteSectionByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAppConfigManager_IsValidName_InputMessage">
+    <wsdl:part name="parameters" element="tns:IsValidName" />
+  </wsdl:message>
+  <wsdl:message name="IAppConfigManager_IsValidName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IsValidNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAppConfigManager_GetappConfigInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetappConfigInfo" />
+  </wsdl:message>
+  <wsdl:message name="IAppConfigManager_GetappConfigInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetappConfigInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAppConfigManager_UpdateConfig_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateConfig" />
+  </wsdl:message>
+  <wsdl:message name="IAppConfigManager_UpdateConfig_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateConfigResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAppConfigManager_GetappEmailInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetappEmailInfo" />
+  </wsdl:message>
+  <wsdl:message name="IAppConfigManager_GetappEmailInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetappEmailInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAppConfigManager_GetConfigInfoBytype_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetConfigInfoBytype" />
+  </wsdl:message>
+  <wsdl:message name="IAppConfigManager_GetConfigInfoBytype_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetConfigInfoBytypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAppConfigManager_UpdateAllSection_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateAllSection" />
+  </wsdl:message>
+  <wsdl:message name="IAppConfigManager_UpdateAllSection_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateAllSectionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAppConfigManager_GetConfigInfoBySectionName_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetConfigInfoBySectionName" />
+  </wsdl:message>
+  <wsdl:message name="IAppConfigManager_GetConfigInfoBySectionName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetConfigInfoBySectionNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAppConfigManager_GetSetInfoBydesc_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSetInfoBydesc" />
+  </wsdl:message>
+  <wsdl:message name="IAppConfigManager_GetSetInfoBydesc_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSetInfoBydescResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IAppConfigManager">
+    <wsdl:operation name="GetAllSections">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAppConfigManager/GetAllSections" message="tns:IAppConfigManager_GetAllSections_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAppConfigManager/GetAllSectionsResponse" message="tns:IAppConfigManager_GetAllSections_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSectionByName">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAppConfigManager/GetSectionByName" message="tns:IAppConfigManager_GetSectionByName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAppConfigManager/GetSectionByNameResponse" message="tns:IAppConfigManager_GetSectionByName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddSection">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAppConfigManager/AddSection" message="tns:IAppConfigManager_AddSection_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAppConfigManager/AddSectionResponse" message="tns:IAppConfigManager_AddSection_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSection">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAppConfigManager/UpdateSection" message="tns:IAppConfigManager_UpdateSection_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAppConfigManager/UpdateSectionResponse" message="tns:IAppConfigManager_UpdateSection_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSection">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAppConfigManager/DeleteSection" message="tns:IAppConfigManager_DeleteSection_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAppConfigManager/DeleteSectionResponse" message="tns:IAppConfigManager_DeleteSection_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSectionById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAppConfigManager/DeleteSectionById" message="tns:IAppConfigManager_DeleteSectionById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAppConfigManager/DeleteSectionByIdResponse" message="tns:IAppConfigManager_DeleteSectionById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IsValidName">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAppConfigManager/IsValidName" message="tns:IAppConfigManager_IsValidName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAppConfigManager/IsValidNameResponse" message="tns:IAppConfigManager_IsValidName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetappConfigInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAppConfigManager/GetappConfigInfo" message="tns:IAppConfigManager_GetappConfigInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAppConfigManager/GetappConfigInfoResponse" message="tns:IAppConfigManager_GetappConfigInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateConfig">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAppConfigManager/UpdateConfig" message="tns:IAppConfigManager_UpdateConfig_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAppConfigManager/UpdateConfigResponse" message="tns:IAppConfigManager_UpdateConfig_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetappEmailInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAppConfigManager/GetappEmailInfo" message="tns:IAppConfigManager_GetappEmailInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAppConfigManager/GetappEmailInfoResponse" message="tns:IAppConfigManager_GetappEmailInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetConfigInfoBytype">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAppConfigManager/GetConfigInfoBytype" message="tns:IAppConfigManager_GetConfigInfoBytype_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAppConfigManager/GetConfigInfoBytypeResponse" message="tns:IAppConfigManager_GetConfigInfoBytype_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAllSection">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAppConfigManager/UpdateAllSection" message="tns:IAppConfigManager_UpdateAllSection_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAppConfigManager/UpdateAllSectionResponse" message="tns:IAppConfigManager_UpdateAllSection_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetConfigInfoBySectionName">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAppConfigManager/GetConfigInfoBySectionName" message="tns:IAppConfigManager_GetConfigInfoBySectionName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAppConfigManager/GetConfigInfoBySectionNameResponse" message="tns:IAppConfigManager_GetConfigInfoBySectionName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSetInfoBydesc">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAppConfigManager/GetSetInfoBydesc" message="tns:IAppConfigManager_GetSetInfoBydesc_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAppConfigManager/GetSetInfoBydescResponse" message="tns:IAppConfigManager_GetSetInfoBydesc_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IAppConfigManager" type="tns:IAppConfigManager">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetAllSections">
+      <soap:operation soapAction="http://tempuri.org/IAppConfigManager/GetAllSections" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSectionByName">
+      <soap:operation soapAction="http://tempuri.org/IAppConfigManager/GetSectionByName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddSection">
+      <soap:operation soapAction="http://tempuri.org/IAppConfigManager/AddSection" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSection">
+      <soap:operation soapAction="http://tempuri.org/IAppConfigManager/UpdateSection" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSection">
+      <soap:operation soapAction="http://tempuri.org/IAppConfigManager/DeleteSection" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSectionById">
+      <soap:operation soapAction="http://tempuri.org/IAppConfigManager/DeleteSectionById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsValidName">
+      <soap:operation soapAction="http://tempuri.org/IAppConfigManager/IsValidName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetappConfigInfo">
+      <soap:operation soapAction="http://tempuri.org/IAppConfigManager/GetappConfigInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateConfig">
+      <soap:operation soapAction="http://tempuri.org/IAppConfigManager/UpdateConfig" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetappEmailInfo">
+      <soap:operation soapAction="http://tempuri.org/IAppConfigManager/GetappEmailInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetConfigInfoBytype">
+      <soap:operation soapAction="http://tempuri.org/IAppConfigManager/GetConfigInfoBytype" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAllSection">
+      <soap:operation soapAction="http://tempuri.org/IAppConfigManager/UpdateAllSection" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetConfigInfoBySectionName">
+      <soap:operation soapAction="http://tempuri.org/IAppConfigManager/GetConfigInfoBySectionName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSetInfoBydesc">
+      <soap:operation soapAction="http://tempuri.org/IAppConfigManager/GetSetInfoBydesc" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="AppConfigManager">
+    <wsdl:port name="BasicHttpBinding_IAppConfigManager" binding="tns:BasicHttpBinding_IAppConfigManager">
+      <soap:address location="http://localhost:2258/AppConfigManager.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

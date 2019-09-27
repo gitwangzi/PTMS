@@ -1,0 +1,673 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="DeviceInstallService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:2258/DeviceInstallService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:2258/DeviceInstallService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:2258/DeviceInstallService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" />
+      <xsd:import schemaLocation="http://localhost:2258/DeviceInstallService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/System" />
+      <xsd:import schemaLocation="http://localhost:2258/DeviceInstallService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Installation.Contract" />
+      <xsd:import schemaLocation="http://localhost:2258/DeviceInstallService.svc?xsd=xsd5" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://localhost:2258/DeviceInstallService.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Installation.Contract.Data" />
+      <xsd:import schemaLocation="http://localhost:2258/DeviceInstallService.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Common.Data" />
+      <xsd:import schemaLocation="http://localhost:2258/DeviceInstallService.svc?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/Gs.PTMS.Common.Data.Enum" />
+      <xsd:import schemaLocation="http://localhost:2258/DeviceInstallService.svc?xsd=xsd9" namespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Common.Data.Enum" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IDeviceInstallService_GetInstallingSuiteVehicleId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetInstallingSuiteVehicleId" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceInstallService_GetInstallingSuiteVehicleId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetInstallingSuiteVehicleIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceInstallService_GetInstallationResult_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetInstallationResult" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceInstallService_GetInstallationResult_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetInstallationResultResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceInstallService_GetInstallationDetail_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetInstallationDetail" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceInstallService_GetInstallationDetail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetInstallationDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceInstallService_GetGPSInstallationDetail_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetGPSInstallationDetail" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceInstallService_GetGPSInstallationDetail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetGPSInstallationDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceInstallService_AddInstallation_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddInstallation" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceInstallService_AddInstallation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddInstallationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceInstallService_UpdateInstallation_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateInstallation" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceInstallService_UpdateInstallation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateInstallationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceInstallService_DeleteInstallation_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteInstallation" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceInstallService_DeleteInstallation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteInstallationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceInstallService_AddInstallationAudit_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddInstallationAudit" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceInstallService_AddInstallationAudit_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddInstallationAuditResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceInstallService_DeleteInstallationAudit_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteInstallationAudit" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceInstallService_DeleteInstallationAudit_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteInstallationAuditResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceInstallService_GetInstallationInProgress_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetInstallationInProgress" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceInstallService_GetInstallationInProgress_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetInstallationInProgressResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceInstallService_GetInstallationInProgressEx_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetInstallationInProgressEx" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceInstallService_GetInstallationInProgressEx_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetInstallationInProgressExResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceInstallService_GetGPSInstallationInProgressEx_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetGPSInstallationInProgressEx" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceInstallService_GetGPSInstallationInProgressEx_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetGPSInstallationInProgressExResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceInstallService_GetInstallationFinished_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetInstallationFinished" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceInstallService_GetInstallationFinished_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetInstallationFinishedResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceInstallService_GetInstallationFinishedEx_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetInstallationFinishedEx" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceInstallService_GetInstallationFinishedEx_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetInstallationFinishedExResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceInstallService_GetGPSInstallationFinished_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetGPSInstallationFinished" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceInstallService_GetGPSInstallationFinished_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetGPSInstallationFinishedResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceInstallService_GetInstallationFinishedEx1_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetInstallationFinishedEx1" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceInstallService_GetInstallationFinishedEx1_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetInstallationFinishedEx1Response" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceInstallService_GetInstallationAudit_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetInstallationAudit" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceInstallService_GetInstallationAudit_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetInstallationAuditResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceInstallService_GetInstallationInProgressFuzzy_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetInstallationInProgressFuzzy" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceInstallService_GetInstallationInProgressFuzzy_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetInstallationInProgressFuzzyResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceInstallService_GetInstallationFinishedFuzzy_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetInstallationFinishedFuzzy" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceInstallService_GetInstallationFinishedFuzzy_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetInstallationFinishedFuzzyResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceInstallService_CheckMediaFile_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckMediaFile" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceInstallService_CheckMediaFile_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckMediaFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceInstallService_SubmitForStep1_InputMessage">
+    <wsdl:part name="parameters" element="tns:SubmitForStep1" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceInstallService_SubmitForStep1_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SubmitForStep1Response" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceInstallService_SubmitForStep2_InputMessage">
+    <wsdl:part name="parameters" element="tns:SubmitForStep2" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceInstallService_SubmitForStep2_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SubmitForStep2Response" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceInstallService_SubmitForStep4_InputMessage">
+    <wsdl:part name="parameters" element="tns:SubmitForStep4" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceInstallService_SubmitForStep4_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SubmitForStep4Response" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceInstallService_SubmitForStep6_InputMessage">
+    <wsdl:part name="parameters" element="tns:SubmitForStep6" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceInstallService_SubmitForStep6_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SubmitForStep6Response" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceInstallService_SubmitForMaintenance_InputMessage">
+    <wsdl:part name="parameters" element="tns:SubmitForMaintenance" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceInstallService_SubmitForMaintenance_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SubmitForMaintenanceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceInstallService_SubmitForDelete_InputMessage">
+    <wsdl:part name="parameters" element="tns:SubmitForDelete" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceInstallService_SubmitForDelete_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SubmitForDeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceInstallService_GetCameraInfoByMdvrID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCameraInfoByMdvrID" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceInstallService_GetCameraInfoByMdvrID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCameraInfoByMdvrIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceInstallService_SubmitGPSForStep1_InputMessage">
+    <wsdl:part name="parameters" element="tns:SubmitGPSForStep1" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceInstallService_SubmitGPSForStep1_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SubmitGPSForStep1Response" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceInstallService_SubmitGPSForStep2_InputMessage">
+    <wsdl:part name="parameters" element="tns:SubmitGPSForStep2" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceInstallService_SubmitGPSForStep2_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SubmitGPSForStep2Response" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceInstallService_SubmitGPSForStep3_InputMessage">
+    <wsdl:part name="parameters" element="tns:SubmitGPSForStep3" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceInstallService_SubmitGPSForStep3_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SubmitGPSForStep3Response" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceInstallService_SubmitGPSForStep4_InputMessage">
+    <wsdl:part name="parameters" element="tns:SubmitGPSForStep4" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceInstallService_SubmitGPSForStep4_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SubmitGPSForStep4Response" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceInstallService_GetAlarmParaCommandResult_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAlarmParaCommandResult" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceInstallService_GetAlarmParaCommandResult_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAlarmParaCommandResultResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceInstallService_GetInstallStatisticsViewList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetInstallStatisticsViewList" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceInstallService_GetInstallStatisticsViewList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetInstallStatisticsViewListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceInstallService_GetDeviceAlertStatisticsViewList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDeviceAlertStatisticsViewList" />
+  </wsdl:message>
+  <wsdl:message name="IDeviceInstallService_GetDeviceAlertStatisticsViewList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDeviceAlertStatisticsViewListResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IDeviceInstallService">
+    <wsdl:operation name="GetInstallingSuiteVehicleId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDeviceInstallService/GetInstallingSuiteVehicleId" message="tns:IDeviceInstallService_GetInstallingSuiteVehicleId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDeviceInstallService/GetInstallingSuiteVehicleIdResponse" message="tns:IDeviceInstallService_GetInstallingSuiteVehicleId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInstallationResult">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDeviceInstallService/GetInstallationResult" message="tns:IDeviceInstallService_GetInstallationResult_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDeviceInstallService/GetInstallationResultResponse" message="tns:IDeviceInstallService_GetInstallationResult_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInstallationDetail">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDeviceInstallService/GetInstallationDetail" message="tns:IDeviceInstallService_GetInstallationDetail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDeviceInstallService/GetInstallationDetailResponse" message="tns:IDeviceInstallService_GetInstallationDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGPSInstallationDetail">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDeviceInstallService/GetGPSInstallationDetail" message="tns:IDeviceInstallService_GetGPSInstallationDetail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDeviceInstallService/GetGPSInstallationDetailResponse" message="tns:IDeviceInstallService_GetGPSInstallationDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddInstallation">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDeviceInstallService/AddInstallation" message="tns:IDeviceInstallService_AddInstallation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDeviceInstallService/AddInstallationResponse" message="tns:IDeviceInstallService_AddInstallation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateInstallation">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDeviceInstallService/UpdateInstallation" message="tns:IDeviceInstallService_UpdateInstallation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDeviceInstallService/UpdateInstallationResponse" message="tns:IDeviceInstallService_UpdateInstallation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteInstallation">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDeviceInstallService/DeleteInstallation" message="tns:IDeviceInstallService_DeleteInstallation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDeviceInstallService/DeleteInstallationResponse" message="tns:IDeviceInstallService_DeleteInstallation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddInstallationAudit">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDeviceInstallService/AddInstallationAudit" message="tns:IDeviceInstallService_AddInstallationAudit_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDeviceInstallService/AddInstallationAuditResponse" message="tns:IDeviceInstallService_AddInstallationAudit_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteInstallationAudit">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDeviceInstallService/DeleteInstallationAudit" message="tns:IDeviceInstallService_DeleteInstallationAudit_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDeviceInstallService/DeleteInstallationAuditResponse" message="tns:IDeviceInstallService_DeleteInstallationAudit_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInstallationInProgress">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDeviceInstallService/GetInstallationInProgress" message="tns:IDeviceInstallService_GetInstallationInProgress_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDeviceInstallService/GetInstallationInProgressResponse" message="tns:IDeviceInstallService_GetInstallationInProgress_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInstallationInProgressEx">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDeviceInstallService/GetInstallationInProgressEx" message="tns:IDeviceInstallService_GetInstallationInProgressEx_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDeviceInstallService/GetInstallationInProgressExResponse" message="tns:IDeviceInstallService_GetInstallationInProgressEx_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGPSInstallationInProgressEx">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDeviceInstallService/GetGPSInstallationInProgressEx" message="tns:IDeviceInstallService_GetGPSInstallationInProgressEx_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDeviceInstallService/GetGPSInstallationInProgressExResponse" message="tns:IDeviceInstallService_GetGPSInstallationInProgressEx_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInstallationFinished">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDeviceInstallService/GetInstallationFinished" message="tns:IDeviceInstallService_GetInstallationFinished_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDeviceInstallService/GetInstallationFinishedResponse" message="tns:IDeviceInstallService_GetInstallationFinished_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInstallationFinishedEx">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDeviceInstallService/GetInstallationFinishedEx" message="tns:IDeviceInstallService_GetInstallationFinishedEx_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDeviceInstallService/GetInstallationFinishedExResponse" message="tns:IDeviceInstallService_GetInstallationFinishedEx_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGPSInstallationFinished">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDeviceInstallService/GetGPSInstallationFinished" message="tns:IDeviceInstallService_GetGPSInstallationFinished_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDeviceInstallService/GetGPSInstallationFinishedResponse" message="tns:IDeviceInstallService_GetGPSInstallationFinished_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInstallationFinishedEx1">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDeviceInstallService/GetInstallationFinishedEx1" message="tns:IDeviceInstallService_GetInstallationFinishedEx1_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDeviceInstallService/GetInstallationFinishedEx1Response" message="tns:IDeviceInstallService_GetInstallationFinishedEx1_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInstallationAudit">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDeviceInstallService/GetInstallationAudit" message="tns:IDeviceInstallService_GetInstallationAudit_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDeviceInstallService/GetInstallationAuditResponse" message="tns:IDeviceInstallService_GetInstallationAudit_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInstallationInProgressFuzzy">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDeviceInstallService/GetInstallationInProgressFuzzy" message="tns:IDeviceInstallService_GetInstallationInProgressFuzzy_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDeviceInstallService/GetInstallationInProgressFuzzyResponse" message="tns:IDeviceInstallService_GetInstallationInProgressFuzzy_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInstallationFinishedFuzzy">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDeviceInstallService/GetInstallationFinishedFuzzy" message="tns:IDeviceInstallService_GetInstallationFinishedFuzzy_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDeviceInstallService/GetInstallationFinishedFuzzyResponse" message="tns:IDeviceInstallService_GetInstallationFinishedFuzzy_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckMediaFile">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDeviceInstallService/CheckMediaFile" message="tns:IDeviceInstallService_CheckMediaFile_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDeviceInstallService/CheckMediaFileResponse" message="tns:IDeviceInstallService_CheckMediaFile_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SubmitForStep1">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDeviceInstallService/SubmitForStep1" message="tns:IDeviceInstallService_SubmitForStep1_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDeviceInstallService/SubmitForStep1Response" message="tns:IDeviceInstallService_SubmitForStep1_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SubmitForStep2">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDeviceInstallService/SubmitForStep2" message="tns:IDeviceInstallService_SubmitForStep2_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDeviceInstallService/SubmitForStep2Response" message="tns:IDeviceInstallService_SubmitForStep2_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SubmitForStep4">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDeviceInstallService/SubmitForStep4" message="tns:IDeviceInstallService_SubmitForStep4_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDeviceInstallService/SubmitForStep4Response" message="tns:IDeviceInstallService_SubmitForStep4_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SubmitForStep6">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDeviceInstallService/SubmitForStep6" message="tns:IDeviceInstallService_SubmitForStep6_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDeviceInstallService/SubmitForStep6Response" message="tns:IDeviceInstallService_SubmitForStep6_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SubmitForMaintenance">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDeviceInstallService/SubmitForMaintenance" message="tns:IDeviceInstallService_SubmitForMaintenance_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDeviceInstallService/SubmitForMaintenanceResponse" message="tns:IDeviceInstallService_SubmitForMaintenance_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SubmitForDelete">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDeviceInstallService/SubmitForDelete" message="tns:IDeviceInstallService_SubmitForDelete_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDeviceInstallService/SubmitForDeleteResponse" message="tns:IDeviceInstallService_SubmitForDelete_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCameraInfoByMdvrID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDeviceInstallService/GetCameraInfoByMdvrID" message="tns:IDeviceInstallService_GetCameraInfoByMdvrID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDeviceInstallService/GetCameraInfoByMdvrIDResponse" message="tns:IDeviceInstallService_GetCameraInfoByMdvrID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SubmitGPSForStep1">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDeviceInstallService/SubmitGPSForStep1" message="tns:IDeviceInstallService_SubmitGPSForStep1_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDeviceInstallService/SubmitGPSForStep1Response" message="tns:IDeviceInstallService_SubmitGPSForStep1_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SubmitGPSForStep2">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDeviceInstallService/SubmitGPSForStep2" message="tns:IDeviceInstallService_SubmitGPSForStep2_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDeviceInstallService/SubmitGPSForStep2Response" message="tns:IDeviceInstallService_SubmitGPSForStep2_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SubmitGPSForStep3">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDeviceInstallService/SubmitGPSForStep3" message="tns:IDeviceInstallService_SubmitGPSForStep3_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDeviceInstallService/SubmitGPSForStep3Response" message="tns:IDeviceInstallService_SubmitGPSForStep3_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SubmitGPSForStep4">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDeviceInstallService/SubmitGPSForStep4" message="tns:IDeviceInstallService_SubmitGPSForStep4_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDeviceInstallService/SubmitGPSForStep4Response" message="tns:IDeviceInstallService_SubmitGPSForStep4_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAlarmParaCommandResult">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDeviceInstallService/GetAlarmParaCommandResult" message="tns:IDeviceInstallService_GetAlarmParaCommandResult_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDeviceInstallService/GetAlarmParaCommandResultResponse" message="tns:IDeviceInstallService_GetAlarmParaCommandResult_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInstallStatisticsViewList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDeviceInstallService/GetInstallStatisticsViewList" message="tns:IDeviceInstallService_GetInstallStatisticsViewList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDeviceInstallService/GetInstallStatisticsViewListResponse" message="tns:IDeviceInstallService_GetInstallStatisticsViewList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDeviceAlertStatisticsViewList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDeviceInstallService/GetDeviceAlertStatisticsViewList" message="tns:IDeviceInstallService_GetDeviceAlertStatisticsViewList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDeviceInstallService/GetDeviceAlertStatisticsViewListResponse" message="tns:IDeviceInstallService_GetDeviceAlertStatisticsViewList_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IDeviceInstallService" type="tns:IDeviceInstallService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetInstallingSuiteVehicleId">
+      <soap:operation soapAction="http://tempuri.org/IDeviceInstallService/GetInstallingSuiteVehicleId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInstallationResult">
+      <soap:operation soapAction="http://tempuri.org/IDeviceInstallService/GetInstallationResult" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInstallationDetail">
+      <soap:operation soapAction="http://tempuri.org/IDeviceInstallService/GetInstallationDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGPSInstallationDetail">
+      <soap:operation soapAction="http://tempuri.org/IDeviceInstallService/GetGPSInstallationDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddInstallation">
+      <soap:operation soapAction="http://tempuri.org/IDeviceInstallService/AddInstallation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateInstallation">
+      <soap:operation soapAction="http://tempuri.org/IDeviceInstallService/UpdateInstallation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteInstallation">
+      <soap:operation soapAction="http://tempuri.org/IDeviceInstallService/DeleteInstallation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddInstallationAudit">
+      <soap:operation soapAction="http://tempuri.org/IDeviceInstallService/AddInstallationAudit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteInstallationAudit">
+      <soap:operation soapAction="http://tempuri.org/IDeviceInstallService/DeleteInstallationAudit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInstallationInProgress">
+      <soap:operation soapAction="http://tempuri.org/IDeviceInstallService/GetInstallationInProgress" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInstallationInProgressEx">
+      <soap:operation soapAction="http://tempuri.org/IDeviceInstallService/GetInstallationInProgressEx" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGPSInstallationInProgressEx">
+      <soap:operation soapAction="http://tempuri.org/IDeviceInstallService/GetGPSInstallationInProgressEx" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInstallationFinished">
+      <soap:operation soapAction="http://tempuri.org/IDeviceInstallService/GetInstallationFinished" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInstallationFinishedEx">
+      <soap:operation soapAction="http://tempuri.org/IDeviceInstallService/GetInstallationFinishedEx" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGPSInstallationFinished">
+      <soap:operation soapAction="http://tempuri.org/IDeviceInstallService/GetGPSInstallationFinished" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInstallationFinishedEx1">
+      <soap:operation soapAction="http://tempuri.org/IDeviceInstallService/GetInstallationFinishedEx1" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInstallationAudit">
+      <soap:operation soapAction="http://tempuri.org/IDeviceInstallService/GetInstallationAudit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInstallationInProgressFuzzy">
+      <soap:operation soapAction="http://tempuri.org/IDeviceInstallService/GetInstallationInProgressFuzzy" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInstallationFinishedFuzzy">
+      <soap:operation soapAction="http://tempuri.org/IDeviceInstallService/GetInstallationFinishedFuzzy" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckMediaFile">
+      <soap:operation soapAction="http://tempuri.org/IDeviceInstallService/CheckMediaFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SubmitForStep1">
+      <soap:operation soapAction="http://tempuri.org/IDeviceInstallService/SubmitForStep1" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SubmitForStep2">
+      <soap:operation soapAction="http://tempuri.org/IDeviceInstallService/SubmitForStep2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SubmitForStep4">
+      <soap:operation soapAction="http://tempuri.org/IDeviceInstallService/SubmitForStep4" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SubmitForStep6">
+      <soap:operation soapAction="http://tempuri.org/IDeviceInstallService/SubmitForStep6" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SubmitForMaintenance">
+      <soap:operation soapAction="http://tempuri.org/IDeviceInstallService/SubmitForMaintenance" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SubmitForDelete">
+      <soap:operation soapAction="http://tempuri.org/IDeviceInstallService/SubmitForDelete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCameraInfoByMdvrID">
+      <soap:operation soapAction="http://tempuri.org/IDeviceInstallService/GetCameraInfoByMdvrID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SubmitGPSForStep1">
+      <soap:operation soapAction="http://tempuri.org/IDeviceInstallService/SubmitGPSForStep1" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SubmitGPSForStep2">
+      <soap:operation soapAction="http://tempuri.org/IDeviceInstallService/SubmitGPSForStep2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SubmitGPSForStep3">
+      <soap:operation soapAction="http://tempuri.org/IDeviceInstallService/SubmitGPSForStep3" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SubmitGPSForStep4">
+      <soap:operation soapAction="http://tempuri.org/IDeviceInstallService/SubmitGPSForStep4" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAlarmParaCommandResult">
+      <soap:operation soapAction="http://tempuri.org/IDeviceInstallService/GetAlarmParaCommandResult" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInstallStatisticsViewList">
+      <soap:operation soapAction="http://tempuri.org/IDeviceInstallService/GetInstallStatisticsViewList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDeviceAlertStatisticsViewList">
+      <soap:operation soapAction="http://tempuri.org/IDeviceInstallService/GetDeviceAlertStatisticsViewList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="DeviceInstallService">
+    <wsdl:port name="BasicHttpBinding_IDeviceInstallService" binding="tns:BasicHttpBinding_IDeviceInstallService">
+      <soap:address location="http://localhost:2258/DeviceInstallService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

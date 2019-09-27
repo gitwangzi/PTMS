@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.BaseInformation.Contract.Data" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.BaseInformation.Contract.Data" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:26443/InstallStaffService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:simpleType name="MaintenanceStaffType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="InstallationPersonnel">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="MaintenancePersonnel">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="AlmightyPersonnel">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">3</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="MaintenanceStaffType" nillable="true" type="tns:MaintenanceStaffType" />
+  <xs:complexType name="ArrayOfInstallStaffBasicInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="InstallStaffBasicInfo" nillable="true" type="tns:InstallStaffBasicInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfInstallStaffBasicInfo" nillable="true" type="tns:ArrayOfInstallStaffBasicInfo" />
+  <xs:complexType name="InstallStaffBasicInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="InstallStaffBasicInfo" nillable="true" type="tns:InstallStaffBasicInfo" />
+</xs:schema>

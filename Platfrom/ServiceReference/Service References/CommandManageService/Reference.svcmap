@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="c33b418e-1183-4cbf-a92b-b72883a8567b" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>true</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.ObjectModel.ObservableCollection`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>false</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:2258/CommandManageService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="CommandManageService7.xsd" MetadataType="Schema" ID="71753b30-ec8d-4dae-98d6-90b203bf44ea" SourceId="1" SourceUrl="http://localhost:2258/CommandManageService.svc?xsd=xsd4" />
+    <MetadataFile FileName="CommandManageService1.disco" MetadataType="Disco" ID="4a8e3e62-d5af-4e8b-a85b-102b0548ad75" SourceId="1" SourceUrl="http://localhost:2258/CommandManageService.svc?disco" />
+    <MetadataFile FileName="CommandManageService73.xsd" MetadataType="Schema" ID="d257201d-94ec-410d-b4c1-23f3872e54a4" SourceId="1" SourceUrl="http://localhost:2258/CommandManageService.svc?xsd=xsd3" />
+    <MetadataFile FileName="CommandManageService74.xsd" MetadataType="Schema" ID="e592fc94-b4ec-4790-999a-a62465d84efa" SourceId="1" SourceUrl="http://localhost:2258/CommandManageService.svc?xsd=xsd2" />
+    <MetadataFile FileName="CommandManageService75.xsd" MetadataType="Schema" ID="31a66098-c062-49be-85c9-bf9352cbe093" SourceId="1" SourceUrl="http://localhost:2258/CommandManageService.svc?xsd=xsd0" />
+    <MetadataFile FileName="CommandManageService76.xsd" MetadataType="Schema" ID="3d0f8398-539b-4dba-aa75-866927116949" SourceId="1" SourceUrl="http://localhost:2258/CommandManageService.svc?xsd=xsd1" />
+    <MetadataFile FileName="CommandManageService1.wsdl" MetadataType="Wsdl" ID="bfadc4c8-bd29-4416-aeff-2e413c2374a8" SourceId="1" SourceUrl="http://localhost:2258/CommandManageService.svc?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

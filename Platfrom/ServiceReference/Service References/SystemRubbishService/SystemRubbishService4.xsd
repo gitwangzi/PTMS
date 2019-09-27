@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:2259/SystemRubbishService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/System" />
+  <xs:import schemaLocation="http://localhost:2259/SystemRubbishService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Common.Data" />
+  <xs:import schemaLocation="http://localhost:2259/SystemRubbishService.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Manager.Contract.Data" />
+  <xs:complexType name="MultiMessageOfVehiclei7Zg_POJ5">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="MultiMessageOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="Vehicle" Namespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Common.Data" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ErrorDetailMsg" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ErrorMsg" nillable="true" type="xs:string" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="ExceptionMessage" nillable="true" type="q1:Exception" />
+      <xs:element minOccurs="0" name="IsSuccess" type="xs:boolean" />
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Common.Data" minOccurs="0" name="Result" nillable="true" type="q2:ArrayOfVehicle" />
+      <xs:element minOccurs="0" name="TotalRecord" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MultiMessageOfVehiclei7Zg_POJ5" nillable="true" type="tns:MultiMessageOfVehiclei7Zg_POJ5" />
+  <xs:complexType name="SingleMessageOfboolean">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="SingleMessageOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="boolean" Namespace="http://www.w3.org/2001/XMLSchema" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ErrorDetailMsg" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ErrorMsg" nillable="true" type="xs:string" />
+      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="ExceptionMessage" nillable="true" type="q3:Exception" />
+      <xs:element minOccurs="0" name="IsSuccess" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Result" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SingleMessageOfboolean" nillable="true" type="tns:SingleMessageOfboolean" />
+  <xs:complexType name="MultiMessageOfDevSuitei7Zg_POJ5">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="MultiMessageOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="DevSuite" Namespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Common.Data" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ErrorDetailMsg" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ErrorMsg" nillable="true" type="xs:string" />
+      <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="ExceptionMessage" nillable="true" type="q4:Exception" />
+      <xs:element minOccurs="0" name="IsSuccess" type="xs:boolean" />
+      <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Common.Data" minOccurs="0" name="Result" nillable="true" type="q5:ArrayOfDevSuite" />
+      <xs:element minOccurs="0" name="TotalRecord" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MultiMessageOfDevSuitei7Zg_POJ5" nillable="true" type="tns:MultiMessageOfDevSuitei7Zg_POJ5" />
+  <xs:complexType name="MultiMessageOfGUser7ZhGgAvu">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="MultiMessageOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="GUser" Namespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Manager.Contract.Data" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ErrorDetailMsg" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ErrorMsg" nillable="true" type="xs:string" />
+      <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="ExceptionMessage" nillable="true" type="q6:Exception" />
+      <xs:element minOccurs="0" name="IsSuccess" type="xs:boolean" />
+      <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Manager.Contract.Data" minOccurs="0" name="Result" nillable="true" type="q7:ArrayOfGUser" />
+      <xs:element minOccurs="0" name="TotalRecord" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MultiMessageOfGUser7ZhGgAvu" nillable="true" type="tns:MultiMessageOfGUser7ZhGgAvu" />
+</xs:schema>

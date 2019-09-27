@@ -1,0 +1,93 @@
+﻿<UserControl x:Class="GisManagement.Views.SpatialQuery"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"                  
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
+    xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity" xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions"         
+    mc:Ignorable="d"
+    d:DesignHeight="80" d:DesignWidth="600" MinWidth="600">
+
+    <Border x:Name="border" Style="{StaticResource GridBorderStyle}">
+        <Border.RenderTransform>
+            <CompositeTransform/>
+        </Border.RenderTransform>
+        <Border.Effect>
+            <DropShadowEffect ShadowDepth="3" Direction="-120" Color="#FF8A9AAC" BlurRadius="10"/>
+        </Border.Effect>
+        <Grid x:Name="LayoutRoot" Margin="1,-9,-1,9" Background="#e1e1e1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="22"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="1" Margin="5,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="120"></ColumnDefinition>
+                    <ColumnDefinition Width="400"></ColumnDefinition>
+                    <ColumnDefinition Width="80"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <TextBox Grid.Row="0" Grid.Column="0" IsReadOnly="True" ToolTipService.ToolTip="选择查询类型" Text="{Binding Path=ContentType.Value}"></TextBox>
+                <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding QueryContent,Mode=TwoWay}"></TextBox>
+                <Button Grid.Row="0" Grid.Column="2" Content="查询" Command="{Binding SpatialQueryCommand}"></Button>
+            </Grid>
+
+            <Grid Grid.Row="2" Margin="5,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="120"></ColumnDefinition>
+                    <ColumnDefinition Width="400"></ColumnDefinition>
+                    <ColumnDefinition Width="80"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <ScrollViewer Grid.Column="0" x:Name="SelectSearchType" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Auto" Visibility="Visible" Height="1006">
+                    <sdk:DataGrid SelectedItem="{Binding}" ItemsSource="{Binding}">
+                        <sdk:DataGrid.Columns>
+                            <sdk:DataGridTextColumn Binding="{Binding}"></sdk:DataGridTextColumn>
+                        </sdk:DataGrid.Columns>
+                    </sdk:DataGrid>
+                </ScrollViewer>
+
+                <ScrollViewer Grid.Column="1" x:Name="SelectSearchContent" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Auto" Visibility="Visible" Height="100600">
+                    <sdk:DataGrid ItemsSource="{Binding QuerytContentList,Mode=TwoWay}" SelectedItem="{Binding Path=Value,Mode=TwoWay}">
+                        <sdk:DataGrid.Columns>
+                            <sdk:DataGridTextColumn Binding="{Binding Path=Key}"></sdk:DataGridTextColumn>
+                            <sdk:DataGridTextColumn Binding="{Binding Path=Value,Mode=TwoWay}"></sdk:DataGridTextColumn>
+                        </sdk:DataGrid.Columns>
+                    </sdk:DataGrid>
+                </ScrollViewer>
+            </Grid>
+
+
+            <!--<Grid Margin="4,0,8,0" Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <sdk:Label FontSize="14" FontFamily ="Segoe UI"  Foreground="#FF6E6E6E" FontWeight ="Bold"  Grid.Row="0" Content="查询类型" HorizontalAlignment="Right" Margin="0,0,5,0" VerticalAlignment="Center"/>
+                
+                <ComboBox x:Name="layser"  Grid.Row="0" Grid.Column="1" ItemsSource="{Binding LayersInfoList}" DisplayMemberPath="LayerName" SelectedItem="{Binding SelectLayersInfo, Mode=TwoWay}" HorizontalAlignment="Left" Margin="5,0,0,0" VerticalAlignment="Center" Width="170" Style="{StaticResource MainPage_Main_Search_ComboBoxStyle}"/>
+
+                <TextBox  Grid.Row="1" Grid.Column="0" Text="{Binding SearchText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left"  Margin="5,0,0,0" TextWrapping="Wrap"  VerticalAlignment="Center" Width="170"/>
+
+                <Button x:Name="ExecuteButton" HorizontalAlignment="Right" Margin="5,3,5,3" Command="{Binding SpatialQueryCommand}" IsEnabled="{Binding CanQuery}" Grid.Column="1" Grid.Row="1" />
+
+            </Grid>-->
+            <!--<sdk:DataGrid x:Name="PlaceNameResult" Grid.Row="2" AutoGenerateColumns="False"  BorderThickness="1" HorizontalScrollBarVisibility="Hidden" IsReadOnly="True"  ItemsSource="{Binding QueryResultList}" SelectedItem="{Binding UserSelectedRow, Mode=TwoWay}" GridLinesVisibility="All" Margin="3,0,3,3"
+                          ColumnHeaderStyle="{StaticResource DataGridColumnHeaderStyle}" CellStyle="{StaticResource DataGridCellStyle}" HorizontalGridLinesBrush="#FFDCDAD5" RowStyle="{StaticResource DataGridRowStyle}">
+                <sdk:DataGrid.Columns>
+                    <sdk:DataGridTextColumn Binding="{Binding LayerName}"  Header="SpaticalQueryResult_LayerName" Width="100"/>
+                    <sdk:DataGridTextColumn Binding="{Binding Value}" Header="SpaticalQueryResult_PlaceName" Width="*" />
+                </sdk:DataGrid.Columns>
+            </sdk:DataGrid>-->
+        </Grid>
+    </Border>
+</UserControl>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Integration.Contract.Data" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Integration.Contract.Data" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ArrayOfHistoryItemForVideoAppeal">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="HistoryItemForVideoAppeal" nillable="true" type="tns:HistoryItemForVideoAppeal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfHistoryItemForVideoAppeal" nillable="true" type="tns:ArrayOfHistoryItemForVideoAppeal" />
+  <xs:complexType name="HistoryItemForVideoAppeal">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Address" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AppealTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Channel" type="xs:int" />
+      <xs:element minOccurs="0" name="Dealer" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Device" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EndTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="FilePath" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsTrueAlarm" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Latitude" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Longitude" type="xs:decimal" />
+      <xs:element minOccurs="0" name="MDVR" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Mobile" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Reportor" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StartTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="VideoType" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="HistoryItemForVideoAppeal" nillable="true" type="tns:HistoryItemForVideoAppeal" />
+  <xs:complexType name="ArrayOfRealTimeChannelInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RealTimeChannelInfo" nillable="true" type="tns:RealTimeChannelInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRealTimeChannelInfo" nillable="true" type="tns:ArrayOfRealTimeChannelInfo" />
+  <xs:complexType name="RealTimeChannelInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ChannelID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MdvrID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OneKey15Enabled" type="xs:boolean" />
+      <xs:element minOccurs="0" name="VehicleSN" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RealTimeChannelInfo" nillable="true" type="tns:RealTimeChannelInfo" />
+</xs:schema>

@@ -1,0 +1,379 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F8DA4D4D-25E8-4820-9DD1-8C458BD9BBA7}</ProjectGuid>
+    <ProjectTypeGuids>{A1591282-1198-4647-A2B1-27E5FF5F6F3B};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Gsafety.Ant.Maintain</RootNamespace>
+    <AssemblyName>MaintainManagement</AssemblyName>
+    <TargetFrameworkIdentifier>Silverlight</TargetFrameworkIdentifier>
+    <TargetFrameworkVersion>v5.0</TargetFrameworkVersion>
+    <SilverlightVersion>$(TargetFrameworkVersion)</SilverlightVersion>
+    <SilverlightApplication>false</SilverlightApplication>
+    <ValidateXaml>true</ValidateXaml>
+    <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
+  </PropertyGroup>
+  <!-- This property group is only here to support building this project using the 
+       MSBuild 3.5 toolset. In order to work correctly with this older toolset, it needs 
+       to set the TargetFrameworkVersion to v3.5 -->
+  <PropertyGroup Condition="'$(MSBuildToolsVersion)' == '3.5'">
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Jounce">
+      <HintPath>..\Assemblies\Jounce.dll</HintPath>
+    </Reference>
+    <Reference Include="mscorlib" />
+    <Reference Include="System.ComponentModel.Composition, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.ComponentModel.DataAnnotations, Version=5.0.5.0, Culture=neutral, PublicKeyToken=ddd0da4d3e678217, processorArchitecture=MSIL" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Web" />
+    <Reference Include="System.Windows" />
+    <Reference Include="system" />
+    <Reference Include="System.Core">
+      <HintPath>$(TargetFrameworkDirectory)System.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Controls, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.Data, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.Data.Input, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="system.windows.controls.toolkit, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.Toolkit.Internals, Version=4.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Data, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Windows.Browser" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="MaintainBinding.cs" />
+    <Compile Include="MaintainCommon.cs" />
+    <Compile Include="MaintainName.cs" />
+    <Compile Include="PagedResult.cs" />
+    <Compile Include="PagedServerCollection.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\MaintenanceHandleDetailVm.cs" />
+    <Compile Include="ViewModels\MaintenanceHandleVm.cs" />
+    <Compile Include="ViewModels\HandleRecordDetailVm.cs" />
+    <Compile Include="ViewModels\HandleRecordVm.cs" />
+    <Compile Include="ViewModels\MaintainInfo.cs" />
+    <Compile Include="ViewModels\MaintainRecordReportVM.cs" />
+    <Compile Include="ViewModels\MaintainRecordVm.cs" />
+    <Compile Include="ViewModels\MaintenanceDetailViewModel.cs" />
+    <Compile Include="ViewModels\MaintenanceListViewModel.cs" />
+    <Compile Include="ViewModels\MaintenanceScrapVm.cs" />
+    <Compile Include="ViewModels\MaintenanceSimpleVm.cs" />
+    <Compile Include="ViewModels\SecuritySuiteViewModel\SuiteInspectDisplayVm.cs" />
+    <Compile Include="ViewModels\SecuritySuiteViewModel\SuiteInspectVm.cs" />
+    <Compile Include="ViewModels\SecuritySuiteViewModel\SuiteInstallingVm.cs" />
+    <Compile Include="ViewModels\SecuritySuiteViewModel\SuiteRunningDisplayVm.cs" />
+    <Compile Include="ViewModels\SecuritySuiteViewModel\SuiteRunningVm.cs" />
+    <Compile Include="ViewModels\SuiteLifeDetailVm.cs" />
+    <Compile Include="ViewModels\SuiteLifeVm.cs" />
+    <Compile Include="ViewModels\SuiteAlertInfoVm.cs" />
+    <Compile Include="ViewModels\SuiteHistoryRecordVm.cs" />
+    <Compile Include="ViewModels\SecuritySuiteViewModel\SecuritySuiteDisplayVm.cs" />
+    <Compile Include="ViewModels\SecuritySuiteViewModel\SecuritySuiteVm.cs" />
+    <Compile Include="ViewModels\SuiteUpgradeViewModel\UpgradeRecordDisplayVm.cs" />
+    <Compile Include="ViewModels\SuiteUpgradeViewModel\UpgradeRecordVm.cs" />
+    <Compile Include="ViewModels\SuiteUpgradeViewModel\UpgradeOvertimeVm.cs" />
+    <Compile Include="ViewModels\SuiteUpgradeViewModel\SuiteUpgradeVm.cs" />
+    <Compile Include="ViewModels\SuiteUpgradeViewModel\UpgradeStatusVm.cs" />
+    <Compile Include="ViewModels\SuiteUpgradeViewModel\VersionMappingAddVm.cs" />
+    <Compile Include="ViewModels\SuiteUpgradeViewModel\VersionMappingVm.cs" />
+    <Compile Include="ViewModels\SuiteUpgradeViewModel\VersionMappingEditVm.cs" />
+    <Compile Include="Views\MaintenanceHandleDetail.xaml.cs">
+      <DependentUpon>MaintenanceHandleDetail.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MaintenanceHandle.xaml.cs">
+      <DependentUpon>MaintenanceHandle.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\HandleRecord.xaml.cs">
+      <DependentUpon>HandleRecord.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\HandleRecordDetail.xaml.cs">
+      <DependentUpon>HandleRecordDetail.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MaintainRecord.xaml.cs">
+      <DependentUpon>MaintainRecord.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MaintainRecordReport.xaml.cs">
+      <DependentUpon>MaintainRecordReport.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MaintenanceDetailView.xaml.cs">
+      <DependentUpon>MaintenanceDetailView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MaintenanceListView.xaml.cs">
+      <DependentUpon>MaintenanceListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MaintenanceScrapView.xaml.cs">
+      <DependentUpon>MaintenanceScrapView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MaintenanceSimpleView.xaml.cs">
+      <DependentUpon>MaintenanceSimpleView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SecuritySuiteView\SuiteInspect.xaml.cs">
+      <DependentUpon>SuiteInspect.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SecuritySuiteView\SuiteInspectDisplay.xaml.cs">
+      <DependentUpon>SuiteInspectDisplay.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SecuritySuiteView\SuiteInstalling.xaml.cs">
+      <DependentUpon>SuiteInstalling.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SecuritySuiteView\SuiteRunning.xaml.cs">
+      <DependentUpon>SuiteRunning.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SecuritySuiteView\SuiteRunningDisplay.xaml.cs">
+      <DependentUpon>SuiteRunningDisplay.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SuiteLife.xaml.cs">
+      <DependentUpon>SuiteLife.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SuiteLifeDetail.xaml.cs">
+      <DependentUpon>SuiteLifeDetail.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SuiteAlertInfo.xaml.cs">
+      <DependentUpon>SuiteAlertInfo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SuiteHistoryRecord.xaml.cs">
+      <DependentUpon>SuiteHistoryRecord.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SecuritySuiteView\SecuritySuite.xaml.cs">
+      <DependentUpon>SecuritySuite.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SecuritySuiteView\SecuritySuiteDisplay.xaml.cs">
+      <DependentUpon>SecuritySuiteDisplay.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SuiteUpgradeView\SuiteUpgrade.xaml.cs">
+      <DependentUpon>SuiteUpgrade.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SuiteUpgradeView\UpgradeRecord.xaml.cs">
+      <DependentUpon>UpgradeRecord.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SuiteUpgradeView\UpgradeRecordDispaly.xaml.cs">
+      <DependentUpon>UpgradeRecordDispaly.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SuiteUpgradeView\UpgradeOvertime.xaml.cs">
+      <DependentUpon>UpgradeOvertime.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SuiteUpgradeView\UpgradeStatus.xaml.cs">
+      <DependentUpon>UpgradeStatus.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SuiteUpgradeView\VersionMappingAdd.xaml.cs">
+      <DependentUpon>VersionMappingAdd.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SuiteUpgradeView\VersionMapping.xaml.cs">
+      <DependentUpon>VersionMapping.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SuiteUpgradeView\VersionMappingEdit.xaml.cs">
+      <DependentUpon>VersionMappingEdit.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Views\MaintenanceHandleDetail.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MaintenanceHandle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\HandleRecord.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\HandleRecordDetail.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MaintainRecord.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\MaintainRecordReport.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\MaintenanceDetailView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\MaintenanceListView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\MaintenanceScrapView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MaintenanceSimpleView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SecuritySuiteView\SuiteInspect.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SecuritySuiteView\SuiteInspectDisplay.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SecuritySuiteView\SuiteInstalling.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SecuritySuiteView\SuiteRunning.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SecuritySuiteView\SuiteRunningDisplay.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SuiteLife.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SuiteLifeDetail.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SuiteAlertInfo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SuiteHistoryRecord.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SecuritySuiteView\SecuritySuite.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SecuritySuiteView\SecuritySuiteDisplay.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SuiteUpgradeView\SuiteUpgrade.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SuiteUpgradeView\UpgradeRecord.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SuiteUpgradeView\UpgradeRecordDispaly.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SuiteUpgradeView\UpgradeOvertime.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SuiteUpgradeView\UpgradeStatus.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SuiteUpgradeView\VersionMappingAdd.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SuiteUpgradeView\VersionMapping.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SuiteUpgradeView\VersionMappingEdit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CommonControl\Controls.csproj">
+      <Project>{e5a6c07a-d661-4528-866f-922c00081bde}</Project>
+      <Name>Controls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Constants\Constants.csproj">
+      <Project>{96a43019-0ee2-4b44-b688-96dd0f418b19}</Project>
+      <Name>Constants</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Converts\Converts.csproj">
+      <Project>{e43eb997-b440-4fed-b261-4fbc7e2b6880}</Project>
+      <Name>Converts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Enums\Enums.csproj">
+      <Project>{3e850ec1-7a17-4b42-be32-efd1382d337e}</Project>
+      <Name>Enums</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Localization\Localization.csproj">
+      <Project>{3765593e-f466-42af-b3bb-56d825954072}</Project>
+      <Name>Localization</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Models\Models.csproj">
+      <Project>{44ebb496-2c26-475f-ad39-0117cc7f31f3}</Project>
+      <Name>Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SecuritySuiteManagement\SecuritySuiteManagement.csproj">
+      <Project>{32d63b53-11e6-42a1-9fb4-17e5387ea0bd}</Project>
+      <Name>SecuritySuiteManagement</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ServiceReference\ServiceReference.csproj">
+      <Project>{116e9ab2-db01-41d6-bd5e-805cac206b32}</Project>
+      <Name>ServiceReference</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Share\Share.csproj">
+      <Project>{84fc8750-50d0-40ba-a5b8-be0bb014057e}</Project>
+      <Name>Share</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Style\Style.csproj">
+      <Project>{f08f2f97-3982-4877-9672-b0b599c829fc}</Project>
+      <Name>Style</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{A1591282-1198-4647-A2B1-27E5FF5F6F3B}">
+        <SilverlightProjectProperties />
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,300 @@
+﻿<UserControl xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk" x:Class="Gsafety.PTMS.Alert.Views.AlertDetailPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"  
+	xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions"
+    xmlns:cv="clr-namespace:Gsafety.Common.Converts;assembly=Converts"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="520" d:DesignWidth="480" MinWidth="320">
+    <UserControl.Resources>
+        <cv:GPSLatChangeDisplayConvert x:Key="LatConvert"/>
+        <cv:GPSLonChangeDisplayConvert x:Key="Longitude"/>
+        <cv:SpeedAndDirConverter x:Key="SpeedAndDir"/>
+    </UserControl.Resources>
+    <Grid >
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="VisualStateGroup">
+                <VisualState x:Name="MinStory">
+                    <Storyboard>
+                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)" Storyboard.TargetName="AlertInfoBorder">
+                            <EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+                            <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="0"/>
+                        </DoubleAnimationUsingKeyFrames>
+                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)" Storyboard.TargetName="AlertInfoBorder">
+                            <EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+                            <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="0"/>
+                        </DoubleAnimationUsingKeyFrames>
+
+                    </Storyboard>
+                </VisualState>
+                <VisualState x:Name="MaxStory">
+                    <Storyboard>
+                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)" Storyboard.TargetName="AlertInfoBorder">
+                            <EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+                            <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
+                            <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="1"/>
+                        </DoubleAnimationUsingKeyFrames>
+                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)" Storyboard.TargetName="AlertInfoBorder">
+                            <EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+                            <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
+                            <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="1"/>
+                        </DoubleAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="AlertInfoBorder">
+                            <DiscreteObjectKeyFrame KeyTime="0">
+                                <DiscreteObjectKeyFrame.Value>
+                                    <Visibility>Collapsed</Visibility>
+                                </DiscreteObjectKeyFrame.Value>
+                            </DiscreteObjectKeyFrame>
+                            <DiscreteObjectKeyFrame KeyTime="0:0:0.2">
+                                <DiscreteObjectKeyFrame.Value>
+                                    <Visibility>Visible</Visibility>
+                                </DiscreteObjectKeyFrame.Value>
+                            </DiscreteObjectKeyFrame>
+                        </ObjectAnimationUsingKeyFrames>
+
+                    </Storyboard>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+
+        <Border x:Name="AlertInfoBorder">
+            <Border.RenderTransform>
+                <CompositeTransform/>
+            </Border.RenderTransform>
+            <Grid x:Name="LayoutRoot" Background="#FFE5E5E5" Margin="0">
+                <Grid x:Name="MainContent"  RenderTransformOrigin="0,0">
+                    <Grid.Effect>
+                        <DropShadowEffect BlurRadius="8" ShadowDepth="1" Opacity="0.6" Direction="315"/>
+                    </Grid.Effect>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40"/>
+
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Border Style="{StaticResource Pop-up layer_tle_BorderStyle}" Grid.Row="0">
+                        <Grid x:Name="Header" Height="40" Grid.Row="0" VerticalAlignment="Top">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="10"/>
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition Width="48"/>
+                            </Grid.ColumnDefinitions>
+                            <Image Grid.Column="1" x:Name="Ico" Source="{Binding PicUrl}"  Width="29" Height="29"  HorizontalAlignment="Left"/>
+                            <TextBlock Grid.Column="2" VerticalAlignment="Center" Text="{Binding Title}" FontWeight="Bold" Margin="10,0,0,0" Style="{StaticResource MainPage_menu_tle_TextBlockStyle}" HorizontalAlignment="Left"></TextBlock>
+                            <Image Grid.Column="3" x:Name="MinIco" Source="/ExternalResource;component/Images/Pop-up-layer_tle_close.png" Stretch="None">
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="MouseLeftButtonDown">
+                                        <ei:GoToStateAction StateName="MinStory"/>
+                                        <ei:ChangePropertyAction TargetObject="{Binding}" PropertyName="IsOpen" Value="False"></ei:ChangePropertyAction>
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
+                            </Image>
+                        </Grid>
+                    </Border>
+                    <sdk:TabControl Grid.Row="1" Margin="0,0,0,0" Style="{StaticResource TabControlStyle}" SelectedIndex="{Binding SelectItemIndex,Mode=TwoWay}">
+                        <sdk:TabItem Header="{Binding [ALERT_DetailInfo],Source={StaticResource SR}}" Style="{StaticResource TabItemStyle}" IsSelected="{Binding DetailSelect}" Visibility="{Binding AlertDetailVisible}" Margin="0,9,0,-9">
+                            <Grid >
+                                <Grid.RowDefinitions>
+
+                                    <RowDefinition Height="*"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Grid Grid.Row="1">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="5"></RowDefinition>
+                                        <RowDefinition Height="30"></RowDefinition>
+                                        <RowDefinition Height="30"></RowDefinition>
+                                        <RowDefinition Height="30"></RowDefinition>
+                                        <RowDefinition Height="30"></RowDefinition>
+                                        <RowDefinition Height="30"></RowDefinition>
+                                        <RowDefinition Height="30"></RowDefinition>
+                                        <RowDefinition Height="30"></RowDefinition>
+                                        <RowDefinition Height="30"></RowDefinition>
+                                        <RowDefinition Height="30"></RowDefinition>
+                                        <RowDefinition Height="30"></RowDefinition>
+                                        <RowDefinition Height="30"></RowDefinition>
+                                        <RowDefinition Height="30"></RowDefinition>
+                                        <RowDefinition Height="30"></RowDefinition>
+                                        <RowDefinition Height="5"></RowDefinition>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="150" ></ColumnDefinition>
+                                        <ColumnDefinition Width="29*"></ColumnDefinition>
+                                        <ColumnDefinition Width="5*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <StackPanel Grid.Row="1" Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Right">
+                                        <TextBlock Style="{StaticResource MainPage_Main_search_TextBlockStyle}"  Text="{Binding [ALERT_ProvinceName],Source={StaticResource SR}}" VerticalAlignment="Center"  ></TextBlock>
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal" Margin="10,0,0,0" Grid.ColumnSpan="2">
+                                        <TextBlock Style="{StaticResource MainPage_Main_search_TextBlockStyle}"  Text="{Binding AlertInfo.ProvinceName,Mode=TwoWay}" VerticalAlignment="Center"></TextBlock>
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="2" Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Right">
+                                        <TextBlock Style="{StaticResource MainPage_Main_search_TextBlockStyle}"  Text="{Binding [ALERT_CityName],Source={StaticResource SR}}" VerticalAlignment="Center"  ></TextBlock>
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal" Margin="10,0,0,0" Grid.ColumnSpan="2">
+                                        <TextBlock Style="{StaticResource MainPage_Main_search_TextBlockStyle}"  Text="{Binding AlertInfo.CityName,Mode=TwoWay}" VerticalAlignment="Center"></TextBlock>
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="3" Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Right">
+                                        <TextBlock Style="{StaticResource MainPage_Main_search_TextBlockStyle}"  Text="{Binding [ALERT_VehicleOwner],Source={StaticResource SR}}" VerticalAlignment="Center"  ></TextBlock>
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="3" Grid.Column="1" Orientation="Horizontal" Margin="10,0,0,0" Grid.ColumnSpan="2">
+                                        <TextBlock Style="{StaticResource MainPage_Main_search_TextBlockStyle}"  Text="{Binding AlertInfo.VehicleOwner,Mode=TwoWay}" ToolTipService.ToolTip="{Binding AlertInfo.VehicleOwner}"  Width="350" VerticalAlignment="Center"></TextBlock>
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="4" Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Right">
+                                        <TextBlock Style="{StaticResource MainPage_Main_search_TextBlockStyle}"  Text="{Binding [ALERT_Phone],Source={StaticResource SR}}" VerticalAlignment="Center"  ></TextBlock>
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="4" Grid.Column="1" Orientation="Horizontal" Margin="10,0,0,0" Grid.ColumnSpan="2">
+                                        <TextBlock Style="{StaticResource MainPage_Main_search_TextBlockStyle}"  Text="{Binding AlertInfo.Owner_Phone,Mode=TwoWay}" ToolTipService.ToolTip="{Binding AlertInfo.Owner_Phone}"  Width="350" VerticalAlignment="Center"></TextBlock>
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="5" Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Right">
+                                        <TextBlock Style="{StaticResource MainPage_Main_search_TextBlockStyle}"  Text="{Binding [ALERT_VehicleId],Source={StaticResource SR}}" VerticalAlignment="Center"  ></TextBlock>
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="5" Grid.Column="1" Orientation="Horizontal" Margin="10,0,0,0" Grid.ColumnSpan="2">
+                                        <TextBlock Style="{StaticResource MainPage_Main_search_TextBlockStyle}"  Text="{Binding AlertInfo.VehicleId,Mode=TwoWay}" VerticalAlignment="Center"></TextBlock>
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="6" Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Right">
+                                        <TextBlock Style="{StaticResource MainPage_Main_search_TextBlockStyle}"  Text="{Binding [ALERT_SecuritySuitID], Source={StaticResource SR}}" VerticalAlignment="Center"  Margin="0,6,0,5"  />
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="6" Grid.Column="1" Orientation="Horizontal" Margin="10,0,0,0" Grid.ColumnSpan="2">
+                                        <TextBlock Style="{StaticResource MainPage_Main_search_TextBlockStyle}"  Text="{Binding AlertInfo.SuiteId,Mode=TwoWay}" VerticalAlignment="Center"></TextBlock>
+                                    </StackPanel>
+
+                                    <StackPanel Grid.Row="7" Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Right">
+                                        <TextBlock Style="{StaticResource MainPage_Main_search_TextBlockStyle}"  Text="{Binding [ALERT_ALERTTime],Source={StaticResource SR}}" VerticalAlignment="Center"  ></TextBlock>
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="7" Grid.Column="1" Orientation="Horizontal" Margin="10,0,0,0" Grid.ColumnSpan="2">
+                                        <TextBlock Style="{StaticResource MainPage_Main_search_TextBlockStyle}"  Text="{Binding AlertInfo.AlertTime,Mode=TwoWay,StringFormat=dd-MM-yyyy HH:mm:ss}" VerticalAlignment="Center"></TextBlock>
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="8" Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Right">
+                                        <TextBlock Style="{StaticResource MainPage_Main_search_TextBlockStyle}"  Text="{Binding [ALERT_AlertType],Source={StaticResource SR}}" VerticalAlignment="Center"  ></TextBlock>
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="8" Grid.Column="1" Orientation="Horizontal" Margin="10,0,0,0" Grid.ColumnSpan="2">
+                                        <TextBlock Style="{StaticResource MainPage_Main_search_TextBlockStyle}"  Text="{Binding AlertType,Mode=TwoWay}" VerticalAlignment="Center"></TextBlock>
+                                    </StackPanel>
+
+                                    <StackPanel Grid.Row="9" Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Right">
+                                        <TextBlock Style="{StaticResource MainPage_Main_search_TextBlockStyle}"  Text="{Binding [GIS_Lon],Source={StaticResource SR}}" VerticalAlignment="Center"  ></TextBlock>
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="9" Grid.Column="1" Orientation="Horizontal" Margin="10,0,0,0" Grid.ColumnSpan="2">
+                                        <TextBlock Style="{StaticResource MainPage_Main_search_TextBlockStyle}"  Text="{Binding AlertInfo.Longitude,Converter={StaticResource Longitude},Mode=TwoWay}" VerticalAlignment="Center"></TextBlock>
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="10" Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Right" Margin="-7,0,0,0">
+                                        <TextBlock Style="{StaticResource MainPage_Main_search_TextBlockStyle}"  Text="{Binding [GIS_Lat],Source={StaticResource SR}}" VerticalAlignment="Center"  ></TextBlock>
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="10" Grid.Column="1" Orientation="Horizontal" Margin="10,0,0,0" Grid.ColumnSpan="2">
+                                        <TextBlock Style="{StaticResource MainPage_Main_search_TextBlockStyle}"  Text="{Binding AlertInfo.Latitude,Converter={StaticResource LatConvert},Mode=TwoWay}" VerticalAlignment="Center"></TextBlock>
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="11" Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Right">
+                                        <TextBlock Style="{StaticResource MainPage_Main_search_TextBlockStyle}"  Text="{Binding [ALERT_Speed],Source={StaticResource SR}}" VerticalAlignment="Center"  ></TextBlock>
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="11" Grid.Column="1" Orientation="Horizontal" Margin="10,0,0,0" Grid.ColumnSpan="2">
+                                        <TextBlock Style="{StaticResource MainPage_Main_search_TextBlockStyle}"  Text="{Binding AlertInfo.Speed,Converter={StaticResource SpeedAndDir},Mode=TwoWay}" VerticalAlignment="Center"></TextBlock>
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="12" Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Right">
+                                        <TextBlock Style="{StaticResource MainPage_Main_search_TextBlockStyle}"  Text="{Binding [ALERT_Dir],Source={StaticResource SR}}" VerticalAlignment="Center"  ></TextBlock>
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="12" Grid.Column="1" Orientation="Horizontal" Margin="10,0,0,0" Grid.ColumnSpan="2">
+                                        <TextBlock Style="{StaticResource MainPage_Main_search_TextBlockStyle}"  Text="{Binding AlertInfo.Direction,Converter={StaticResource SpeedAndDir},Mode=TwoWay}" VerticalAlignment="Center"></TextBlock>
+                                    </StackPanel>
+                                </Grid>
+                            </Grid>
+                        </sdk:TabItem>
+                        <sdk:TabItem Header ="{Binding [ALERT_AlertHandleResult],Source={StaticResource SR}}" Style="{StaticResource TabItemStyle}" IsSelected="{Binding HandleSelect}" Visibility="{Binding HandleresultVisible}" Margin="0,9,0,-9">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <!--<RowDefinition Height="45"></RowDefinition>-->
+                                    <RowDefinition Height="*"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <!--<Border Grid.Row="0" Height="45" BorderThickness="0,1,1,1" BorderBrush="{StaticResource MenuBarLine}" Background="{StaticResource NavBarBG}">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Style="{StaticResource MainPage_Main_search_TextBlockStyle}"  Text="报警信息详情" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="5,0,0,0" Style="{StaticResource Menu2TextBlock}"></TextBlock>
+                        </StackPanel>
+                    </Border>-->
+                                <Grid Grid.Row="1">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="10"></RowDefinition>
+                                        <RowDefinition Height="30"></RowDefinition>
+                                        <RowDefinition Height="30"></RowDefinition>
+                                        <RowDefinition Height="30"></RowDefinition>
+                                        <RowDefinition Height="30"></RowDefinition>
+                                        <RowDefinition Height="30"></RowDefinition>
+                                        <RowDefinition Height="30"></RowDefinition>
+                                        <RowDefinition Height="30"></RowDefinition>
+                                        <RowDefinition Height="30"></RowDefinition>
+                                        <RowDefinition Height="30"></RowDefinition>
+                                        <RowDefinition Height="*"></RowDefinition>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="6" />
+                                        <ColumnDefinition Width="10"/>
+                                        <ColumnDefinition Width="26"/>
+                                        <ColumnDefinition Width="100"/>
+                                        <ColumnDefinition Width="10"/>
+                                        <ColumnDefinition Width="250"/>
+                                        <ColumnDefinition Width="20*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <StackPanel Grid.Row="1" Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Right" Grid.ColumnSpan="2">
+                                        <TextBlock Style="{StaticResource MainPage_Main_search_TextBlockStyle}"  Text="{Binding [ALERT_ProvinceName],Source={StaticResource SR}}" VerticalAlignment="Center"  ></TextBlock>
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="1" Grid.Column="5" Orientation="Horizontal" Margin="0,0,0,0" Grid.ColumnSpan="2">
+                                        <TextBlock Style="{StaticResource MainPage_Main_search_TextBlockStyle}"  Text="{Binding AlertInfo.ProvinceName,Mode=TwoWay}" VerticalAlignment="Center"></TextBlock>
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="2" Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Right" Grid.ColumnSpan="2">
+                                        <TextBlock Style="{StaticResource MainPage_Main_search_TextBlockStyle}"  Text="{Binding [ALERT_CityName],Source={StaticResource SR}}" VerticalAlignment="Top" Margin="0,6,0,0"  ></TextBlock>
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="2" Grid.Column="5" Orientation="Horizontal" Margin="0,0,0,0" Grid.ColumnSpan="2">
+                                        <TextBlock Style="{StaticResource MainPage_Main_search_TextBlockStyle}"  Text="{Binding AlertInfo.CityName,Mode=TwoWay}" VerticalAlignment="Center"></TextBlock>
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="3" Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Right" Grid.ColumnSpan="2">
+                                        <TextBlock Style="{StaticResource MainPage_Main_search_TextBlockStyle}"  Text="{Binding [ALERT_VehicleId],Source={StaticResource SR}}" VerticalAlignment="Center"  ></TextBlock>
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="3" Grid.Column="5" Orientation="Horizontal" Margin="0,0,0,0" Grid.ColumnSpan="2">
+                                        <TextBlock Style="{StaticResource MainPage_Main_search_TextBlockStyle}"  Text="{Binding AlertInfo.VehicleId,Mode=TwoWay}" VerticalAlignment="Center"></TextBlock>
+                                    </StackPanel>
+                                    <!--<StackPanel Grid.Row="5" Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Right" Grid.ColumnSpan="2">
+                                        <TextBlock Style="{StaticResource MainPage_Main_search_TextBlockStyle}"  Text="告警号" VerticalAlignment="Center"  ></TextBlock>
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="5" Grid.Column="5" Orientation="Horizontal" Margin="5,0,0,0" Grid.ColumnSpan="2">
+                                        <TextBlock Style="{StaticResource MainPage_Main_search_TextBlockStyle}"  Text="{Binding AlertHandle.BUSINESS_ALERT_ID,Mode=TwoWay}" VerticalAlignment="Center"></TextBlock>
+                                    </StackPanel>-->
+                                    <StackPanel Grid.Row="4" Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Right" Grid.ColumnSpan="2">
+                                        <TextBlock Style="{StaticResource MainPage_Main_search_TextBlockStyle}"  Text="{Binding [ALERT_HandlePerson],Source={StaticResource SR}}" VerticalAlignment="Center"  ></TextBlock>
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="4" Grid.Column="5" Orientation="Horizontal" Margin="0,0,0,0" Grid.ColumnSpan="2">
+                                        <TextBlock Style="{StaticResource MainPage_Main_search_TextBlockStyle}"  Text="{Binding AlertHandle.DisposeStaff,Mode=TwoWay}" VerticalAlignment="Center"></TextBlock>
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="5" Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Right" Grid.ColumnSpan="2">
+                                        <TextBlock Style="{StaticResource MainPage_Main_search_TextBlockStyle}"  Text="{Binding [ALERT_HandelTime],Source={StaticResource SR} }" VerticalAlignment="Center"  ></TextBlock>
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="5" Grid.Column="5" Orientation="Horizontal" Margin="0,0,0,0" Grid.ColumnSpan="2">
+                                        <TextBlock Style="{StaticResource MainPage_Main_search_TextBlockStyle}"  Text="{Binding AlertHandle.DisposeTime,Mode=TwoWay,StringFormat=dd-MM-yyyy HH:mm:ss}" VerticalAlignment="Center"></TextBlock>
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="6" Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Right" Grid.ColumnSpan="2">
+                                        <TextBlock Style="{StaticResource MainPage_Main_search_TextBlockStyle}"  Text="{Binding [ALERT_HandleContent],Source={StaticResource SR}}" VerticalAlignment="Center"  ></TextBlock>
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="6" Grid.Column="5" Grid.RowSpan="4" Orientation="Horizontal" Margin="0,0,0,10" Grid.ColumnSpan="2">
+                                        <TextBox  Text="{Binding AlertHandle.Content,Mode=TwoWay}" IsReadOnly="True"  TextWrapping="Wrap" VerticalAlignment="Center" AcceptsReturn="True"  Height="110" Width="237" HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Auto"/>
+                                    </StackPanel>
+                                </Grid>
+                            </Grid>
+                        </sdk:TabItem>
+                    </sdk:TabControl>
+                </Grid>
+            </Grid>
+        </Border>
+
+        <Image x:Name="MaxIcoc"  Visibility="Collapsed" >
+            <i:Interaction.Triggers>
+                <ei:DataTrigger  Binding="{Binding IsVisual}" Value="True">
+                    <ei:GoToStateAction StateName="MaxStory"/>
+                    <ei:ChangePropertyAction TargetObject="{Binding}" PropertyName="IsOpen" Value="True"></ei:ChangePropertyAction>
+                </ei:DataTrigger>
+                <ei:DataTrigger  Binding="{Binding IsVisual}" Value="False">
+                    <ei:GoToStateAction StateName="MinStory"/>
+                    <ei:ChangePropertyAction TargetObject="{Binding}" PropertyName="IsOpen" Value="False"></ei:ChangePropertyAction>
+                </ei:DataTrigger>
+            </i:Interaction.Triggers>
+        </Image>
+    </Grid>
+</UserControl>

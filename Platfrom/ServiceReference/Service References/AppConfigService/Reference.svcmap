@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="b982e7dc-cf13-47e9-b4c2-f39df6bda5ea" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>true</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.ObjectModel.ObservableCollection`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>false</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:2258/AppConfigManager.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="AppConfigManager6.xsd" MetadataType="Schema" ID="ea57dd23-cf57-4042-abaa-5e26a108507a" SourceId="1" SourceUrl="http://localhost:2258/AppConfigManager.svc?xsd=xsd4" />
+    <MetadataFile FileName="AppConfigManager61.xsd" MetadataType="Schema" ID="0a249e81-dc44-40bf-a700-4210ff1f79b6" SourceId="1" SourceUrl="http://localhost:2258/AppConfigManager.svc?xsd=xsd0" />
+    <MetadataFile FileName="AppConfigManager1.disco" MetadataType="Disco" ID="9a23175f-e568-4847-ae98-c5cec49c1af2" SourceId="1" SourceUrl="http://localhost:2258/AppConfigManager.svc?disco" />
+    <MetadataFile FileName="AppConfigManager62.xsd" MetadataType="Schema" ID="34dc5479-f3f2-42c2-9efa-3a73966631b1" SourceId="1" SourceUrl="http://localhost:2258/AppConfigManager.svc?xsd=xsd3" />
+    <MetadataFile FileName="AppConfigManager63.xsd" MetadataType="Schema" ID="d9e4e259-d8c9-4b75-8b1b-b0fff872d0c7" SourceId="1" SourceUrl="http://localhost:2258/AppConfigManager.svc?xsd=xsd2" />
+    <MetadataFile FileName="AppConfigManager64.xsd" MetadataType="Schema" ID="2d6b0c02-404e-421b-a46c-b2d78a2fb442" SourceId="1" SourceUrl="http://localhost:2258/AppConfigManager.svc?xsd=xsd1" />
+    <MetadataFile FileName="AppConfigManager1.wsdl" MetadataType="Wsdl" ID="49e34334-2767-4ab3-a33e-6430db9465e4" SourceId="1" SourceUrl="http://localhost:2258/AppConfigManager.svc?wsdl" />
+    <MetadataFile FileName="AppConfigManager65.xsd" MetadataType="Schema" ID="10ceae30-9855-41e9-a65c-2fd733b180fe" SourceId="1" SourceUrl="http://localhost:2258/AppConfigManager.svc?xsd=xsd5" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

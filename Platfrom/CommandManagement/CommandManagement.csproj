@@ -1,0 +1,209 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1A479D0A-FED0-4921-A2CB-1B7B2E1C99A3}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Gsafety.PTMS.CommandManagement</RootNamespace>
+    <AssemblyName>CommandManagement</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>发布\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>E:\Release\PTMS CommandManagement Setup\CommandManagement\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>3</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\Assemblies\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Assemblies\log4net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="RabbitMQ.Client">
+      <HintPath>..\Assemblies\RabbitMQ.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="RabbitMQ.ServiceModel">
+      <HintPath>..\Assemblies\RabbitMQ.ServiceModel.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.Install" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Data.OracleClient" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BusinessAttribute.cs" />
+    <Compile Include="CommandManager.cs" />
+    <Compile Include="ConfigInfo.cs" />
+    <Compile Include="LocationMonitorManager.cs" />
+    <Compile Include="Management\BasicCommandManager.cs" />
+    <Compile Include="Management\BasicInfoManager.cs" />
+    <Compile Include="Management\C57CommandManager.cs" />
+    <Compile Include="Management\ElectricFenceCommand.cs" />
+    <Compile Include="Management\FenceCommandManager.cs" />
+    <Compile Include="Management\OverSpeedCommand.cs" />
+    <Compile Include="Management\OverSpeedCommandManager.cs" />
+    <Compile Include="MessageProcessing.cs" />
+    <Compile Include="MethodHelper.cs" />
+    <Compile Include="OracleHelper.cs" />
+    <Compile Include="ProjectInstaller.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ProjectInstaller.Designer.cs">
+      <DependentUpon>ProjectInstaller.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CommandManagementService.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CommandManagementService.Designer.cs">
+      <DependentUpon>CommandManagementService.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SendingManager.cs" />
+    <Compile Include="SuiteStatusInfoManage.cs" />
+    <Compile Include="TimeoutActionHelper.cs" />
+    <Compile Include="TimeoutHelper.cs" />
+    <Compile Include="TrafficReplySource.cs" />
+    <Compile Include="WaitSendManager.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ProjectInstaller.resx">
+      <DependentUpon>ProjectInstaller.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CommandManagementService.resx">
+      <DependentUpon>CommandManagementService.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BaseContract\BaseContract.csproj">
+      <Project>{a6c2a532-546d-4dae-8aa3-4c01de81f462}</Project>
+      <Name>BaseContract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BaseInformationContract\BaseInformationContract.csproj">
+      <Project>{679e0b68-feca-4a96-9313-19e24c1d46b6}</Project>
+      <Name>BaseInformationContract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BaseInformationRepository\BaseInformationRepository.csproj">
+      <Project>{a5efa9ec-ef89-49bd-aa35-913cb278feae}</Project>
+      <Name>BaseInformationRepository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BaseInfo\BaseInfo.csproj">
+      <Project>{1a55af1b-1be4-47b2-80f5-0b1e48ef087d}</Project>
+      <Name>BaseInfo</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CommandRepository\CommandRepository.csproj">
+      <Project>{3fd75299-687a-4489-904f-31108c46aad9}</Project>
+      <Name>CommandRepository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Common.Data\Common.Data.csproj">
+      <Project>{2b4caa14-181a-4b8d-9dc6-891bea684735}</Project>
+      <Name>Common.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataModel\DBEntity.csproj">
+      <Project>{b8edef26-d01b-42cc-9a6f-5802d4c5f43c}</Project>
+      <Name>DBEntity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Helper\Helper.csproj">
+      <Project>{82c03cd2-b56c-4b17-85fe-92c9444d116c}</Project>
+      <Name>Helper</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LogManage\LogManage.csproj">
+      <Project>{48e5a665-a6c2-49a2-96d3-031eaa67de3d}</Project>
+      <Name>LogManage</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MessageContract\MessageContract.csproj">
+      <Project>{e9a83f02-f0dd-4c92-b47d-1f894c2d3c9a}</Project>
+      <Name>MessageContract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MQManage\MQHelper.csproj">
+      <Project>{b8da0d16-008a-4c6b-9edb-97175e663e24}</Project>
+      <Name>MQHelper</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TrafficRepository\TrafficRepository.csproj">
+      <Project>{7188174e-9a81-44de-b585-b03febd2842c}</Project>
+      <Name>TrafficRepository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Util\Util.csproj">
+      <Project>{84a8e879-776a-42bc-8de9-10fa339cb331}</Project>
+      <Name>Util</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5 %28x86 和 x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

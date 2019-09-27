@@ -1,0 +1,197 @@
+﻿<UserControl
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:converter="clr-namespace:Gsafety.Common.Converts;assembly=Converts"
+    xmlns:Controls="clr-namespace:Gsafety.Common.Controls;assembly=CommonControls" 
+    x:Class="Gsafety.PTMS.BaseInformation.Views.SuiteInfoManage"
+    mc:Ignorable="d"
+    d:DesignHeight="1000" d:DesignWidth="1000">
+    <UserControl.Resources>
+        <converter:VisibilityConverter  x:Key="visibility"/>
+        <converter:LocalizedStringConverter  x:Key="localize"/>
+    </UserControl.Resources>
+
+    <Grid x:Name="LayoutRoot" Background="Transparent"  Width="Auto" Height="Auto">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Border Height="40" VerticalAlignment="Top" Grid.Row="0" Margin="0" Style="{StaticResource PageBorderStyle}">
+            <Image Source="/ExternalResource;component/Images/navigation.png" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,0,0,0" Stretch="None"/>
+        </Border>
+        <TextBlock Text="{Binding Title}" HorizontalAlignment="Left"   VerticalAlignment="Center" Style="{StaticResource MainPage_Main_tle_TextBlockStyle}" Margin="36,0,0,0"/>
+
+        <ScrollViewer Grid.Row="1" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+            <Grid HorizontalAlignment="Center"  VerticalAlignment="Top" Width="950">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="35"/>
+                    <RowDefinition Height="390"/>
+                    <RowDefinition Height="35"/>
+                    <RowDefinition Height="96.343"/>
+                    <RowDefinition Height="40"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="34"/>
+                        <RowDefinition Height="1"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock TextWrapping="Wrap" Text="{Binding [BASEINFO_CEIECSuiteInfo], Source={StaticResource SR}}" VerticalAlignment="Center" Style="{StaticResource MainPage_Main_search_TextBlockStyle}" Margin="10,0,0,0" Grid.Column="1"/>
+                    <Path Grid.Column="1" Data="M104,10 L1000,10" Height="1" Stretch="Fill" UseLayoutRounding="False" VerticalAlignment="Center" Stroke="#FFBBBCBC" Grid.Row="1"/>
+                </Grid>
+
+                <Grid HorizontalAlignment="Center"  VerticalAlignment="Center" Grid.Row="1" Margin="23,15,22,15">
+                    <Grid.RowDefinitions>
+
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+
+                        <ColumnDefinition Width="210"/>
+                        <ColumnDefinition Width="240"/>
+                        <ColumnDefinition Width="220"/>
+                        <ColumnDefinition Width="215*"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <!--SuiteID-->
+                    <TextBlock HorizontalAlignment="Right" 
+                       Text="{Binding [BASEINFO_SuiteID], Source={StaticResource SR}}" VerticalAlignment="Center" Style="{StaticResource MainPage_Main_search_TextBlockStyle}" Height="17" Margin="0,0,5,0"/>
+                    <TextBox Style="{StaticResource MainPage_Main_TextBoxStyle}" TabIndex="1" MaxLength="25" IsReadOnly="{Binding KeyIsReadOnly}" Grid.Column="1"  HorizontalAlignment="Left" 
+                     Text="{Binding SuiteId, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" Width="235" Margin="0,14,0,0" />
+                    <!--MDVR_SN-->
+                    <TextBlock  Grid.Column="2"  HorizontalAlignment="Right"   
+                        Text="{Binding [BASEINFO_MDVR_SN], Source={StaticResource SR}}" VerticalAlignment="Center"  Style="{StaticResource MainPage_Main_search_TextBlockStyle}" Height="17"  Margin="0,0,5,0"/>
+                    <TextBox Style="{StaticResource MainPage_Main_TextBoxStyle}" TabIndex="2" MaxLength="20" Grid.Column="3" IsReadOnly="{Binding IsReadOnly}"  HorizontalAlignment="Left"  
+                     Text="{Binding MdvrId, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" Width="235" Grid.ColumnSpan="2" Margin="0,7,-15,7" />
+                    <!--MDVR-->
+                    <TextBlock Grid.Row="1" HorizontalAlignment="Right"   
+                       Text="{Binding [BASEINFO_MDVR_CORE_SN], Source={StaticResource SR}}" VerticalAlignment="Center" Style="{StaticResource MainPage_Main_search_TextBlockStyle}" Height="17" Margin="0,12,5,11" />
+                    <TextBox Style="{StaticResource MainPage_Main_TextBoxStyle}" TabIndex="3" MaxLength="10" Grid.Column="1"  Grid.Row="1" IsReadOnly="{Binding IsReadOnly}"  HorizontalAlignment="Left" 
+                     Text="{Binding MdvrCoreId, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" Width="235" />
+                    <!--DeviceType-->
+                    <TextBlock Grid.Column="2" Grid.Row="1"  HorizontalAlignment="Right"   Text="{Binding [BASEINFO_DeviceType], Source={StaticResource SR}}" VerticalAlignment="Center" Style="{StaticResource MainPage_Main_search_TextBlockStyle}" Height="17" Margin="0,12,5,11" />
+                    <TextBox Style="{StaticResource MainPage_Main_TextBoxStyle}" Visibility="{Binding IsView}"  TabIndex="4" MaxLength="50" Grid.Column="3" Grid.Row="1" IsReadOnly="True"  HorizontalAlignment="Left" 
+                     Text="{Binding CurrentDeviceType.ShowName}" Width="235" VerticalAlignment="Center" />
+                    <!--<ComboBox  Visibility="{Binding IsView, Converter={StaticResource visibility}}"  TabIndex="4" SelectedValue="{Binding CurrentVehicleType, Mode=TwoWay}" ItemsSource="{Binding VehicleTypeList}" Grid.Column="4" Grid.Row="2" HorizontalAlignment="Left"   VerticalAlignment="Center" Width="245" Height="25" />-->
+                    <ComboBox TabIndex="4" IsEnabled="False" Visibility="{Binding IsView, Converter={StaticResource visibility}}" SelectedItem="{Binding CurrentDeviceType, Mode=TwoWay}" ItemsSource="{Binding DeviceTypeList}" Grid.Row="1" Grid.Column="3"  HorizontalAlignment="Left" VerticalAlignment="Center" Width="234" Foreground="Black" Style="{StaticResource MainPage_Main_Search_ComboBoxStyle}" Margin="0,8,0,7">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding ShowName}"/>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                    <!--Camera1-->
+                    <TextBlock Grid.Row="2"  HorizontalAlignment="Right"   Text="{Binding [BASEINFO_Camera1], Source={StaticResource SR}}" VerticalAlignment="Center" Style="{StaticResource MainPage_Main_search_TextBlockStyle}" Height="17" Margin="0,12,5,11" />
+                    <TextBox Style="{StaticResource MainPage_Main_TextBoxStyle}" TabIndex="5" MaxLength="25" Grid.Column="1" Grid.Row="2" IsReadOnly="{Binding IsReadOnly}"  HorizontalAlignment="Left"
+                     Text="{Binding CurrentSecuritySuite.Camera1Id, Mode=TwoWay}" VerticalAlignment="Center" Width="235"  />
+
+
+                    <!--Camera2-->
+                    <TextBlock Grid.Column="2" Grid.Row="2"  HorizontalAlignment="Right"   
+                       Text="{Binding [BASEINFO_Camera2], Source={StaticResource SR}}" VerticalAlignment="Center" Style="{StaticResource MainPage_Main_search_TextBlockStyle}" Height="17" Margin="0,12,5,11" />
+                    <TextBox Style="{StaticResource MainPage_Main_TextBoxStyle}" TabIndex="6" MaxLength="25" Grid.Column="3" Grid.Row="2" IsReadOnly="{Binding IsReadOnly}"  HorizontalAlignment="Left"  
+                        Text="{Binding CurrentSecuritySuite.Camera2Id, Mode=TwoWay}" Width="235" VerticalAlignment="Center" Grid.ColumnSpan="2" Margin="0,7,-15,7" />
+
+                    <!--Camera3-->
+                    <TextBlock Grid.Column="0" Grid.Row="3" HorizontalAlignment="Right" 
+                                   Text="{Binding [BASEINFO_Camera3],Source={StaticResource SR}}" VerticalAlignment="Center" Style="{StaticResource MainPage_Main_search_TextBlockStyle}" Height="17" Margin="0,12,5,11" />
+                    <TextBox Style="{StaticResource MainPage_Main_TextBoxStyle}" TabIndex="5" MaxLength="25" Grid.Column="1" Grid.Row="3" IsReadOnly="{Binding IsReadOnly}"  HorizontalAlignment="Left" 
+                     Text="{Binding CurrentSecuritySuite.Camera3Id, Mode=TwoWay}" VerticalAlignment="Center" Width="235"  />
+                    <!--Camera4-->
+                    <TextBlock Grid.Column="2" Grid.Row="3" HorizontalAlignment="Right" 
+                                   Text="{Binding [BASEINFO_Camera4],Source={StaticResource SR}}" VerticalAlignment="Center" Style="{StaticResource MainPage_Main_search_TextBlockStyle}" Height="17" Margin="0,12,5,11" />
+                    <TextBox Style="{StaticResource MainPage_Main_TextBoxStyle}" TabIndex="5" MaxLength="25" Grid.Column="3" Grid.Row="3" IsReadOnly="{Binding IsReadOnly}"  HorizontalAlignment="Left"
+                     Text="{Binding CurrentSecuritySuite.Camera4Id, Mode=TwoWay}" VerticalAlignment="Center" Width="235" Grid.ColumnSpan="2" Margin="0,7,-15,7"  />
+                    <!--AlarmButton1-->
+                    <TextBlock Grid.Row="4" HorizontalAlignment="Right"   
+                       Text="{Binding [BASEINFO_AlarmButton1], Source={StaticResource SR}}" VerticalAlignment="Center" Style="{StaticResource MainPage_Main_search_TextBlockStyle}" Height="17" Margin="0,12,5,11" />
+                    <TextBox Style="{StaticResource MainPage_Main_TextBoxStyle}" TabIndex="7" MaxLength="20" Grid.Column="1" Grid.Row="4" IsReadOnly="{Binding IsReadOnly}"  HorizontalAlignment="Left" 
+                     Text="{Binding CurrentSecuritySuite.AlarmButton1Id, Mode=TwoWay}" VerticalAlignment="Center" Width="235" />
+                    <!--AlarmButton2-->
+                    <!--AlarmButton3-->
+                    <!--DOOR_SWITCH_SENSOR-->
+                    <TextBlock Grid.Column="2" Grid.Row="4" HorizontalAlignment="Right"   
+                       Text="{Binding [BASEINFO_DOOR_SWITCH_SENSOR], Source={StaticResource SR}}" VerticalAlignment="Center" Style="{StaticResource MainPage_Main_search_TextBlockStyle}" Height="17" Margin="0,11,5,12" />
+                    <TextBox Style="{StaticResource MainPage_Main_TextBoxStyle}" TabIndex="10" MaxLength="50" Grid.Column="3" Grid.Row="4" IsReadOnly="{Binding IsReadOnly}"  HorizontalAlignment="Left"
+                     Text="{Binding CurrentSecuritySuite.DoorSensorId, Mode=TwoWay}" VerticalAlignment="Center" Width="235" Grid.ColumnSpan="2" Margin="0,7,-15,7" />
+
+                    <!--SdCardId-->
+                    <TextBlock Grid.Row="5" HorizontalAlignment="Right"   
+                       Text="{Binding [BASEINFO_SdCardId], Source={StaticResource SR}}" VerticalAlignment="Center"  Style="{StaticResource MainPage_Main_search_TextBlockStyle}" Height="17" Margin="0,10,5,13" />
+                    <TextBox Style="{StaticResource MainPage_Main_TextBoxStyle}" TabIndex="11" MaxLength="50" Grid.Column="1" Grid.Row="5" IsReadOnly="{Binding IsReadOnly}"  HorizontalAlignment="Left"
+                     Text="{Binding CurrentSecuritySuite.SdCardId, Mode=TwoWay}" VerticalAlignment="Center" Width="235" />
+                    <!--UPS-->
+                    <TextBlock Grid.Column="2"  Grid.Row="5" HorizontalAlignment="Right"   
+                       Text="{Binding [BASEINFO_UPS], Source={StaticResource SR}}" VerticalAlignment="Center" Style="{StaticResource MainPage_Main_search_TextBlockStyle}" Height="17" Margin="0,10,5,13" />
+                    <TextBox Style="{StaticResource MainPage_Main_TextBoxStyle}" TabIndex="12" MaxLength="50" Grid.Column="3"  Grid.Row="5" IsReadOnly="{Binding IsReadOnly}"  HorizontalAlignment="Left"  
+                     Text="{Binding CurrentSecuritySuite.UpsId, Mode=TwoWay}" VerticalAlignment="Center" Width="235" Grid.ColumnSpan="2" Margin="0,7,-15,7" />
+                    <!--MDVR SIM-->
+                    <TextBlock Grid.Row="6" HorizontalAlignment="Right"  
+            	        Text="{Binding [BASEINFO_MdvrSimId], Source={StaticResource SR}}" VerticalAlignment="Center"  Style="{StaticResource MainPage_Main_search_TextBlockStyle}" Height="17" Margin="0,12,5,11" />
+                    <TextBox Style="{StaticResource MainPage_Main_TextBoxStyle}" TabIndex="13" MaxLength="100" Grid.Column="1" Grid.Row="6" IsReadOnly="{Binding IsReadOnly}"  HorizontalAlignment="Left"
+            	        Text="{Binding CurrentSecuritySuite.MdvrSimId, Mode=TwoWay}" VerticalAlignment="Center" Width="235" />
+                    <!--MDVR -->
+                    <TextBlock Grid.Column="2" Grid.Row="6" HorizontalAlignment="Right"   
+            	        Text="{Binding [BASEINFO_MdvrSimPhoneNumber], Source={StaticResource SR}}" VerticalAlignment="Center"  Style="{StaticResource MainPage_Main_search_TextBlockStyle}"  Height="17" Margin="0,12,5,11" />
+                    <TextBox Style="{StaticResource MainPage_Main_TextBoxStyle}" TabIndex="14" MaxLength="20" Grid.Column="3" Grid.Row="6" IsReadOnly="{Binding IsReadOnly}"  HorizontalAlignment="Left" 
+            	        Text="{Binding CurrentSecuritySuite.MdvrSimPhoneNumber, Mode=TwoWay}" VerticalAlignment="Center" Width="235" Grid.ColumnSpan="2" Margin="0,7,-15,7" />
+                    <!--Version-->
+                    <TextBlock Grid.Row="7" HorizontalAlignment="Right"   
+                       Text="{Binding [BASEINFO_SoftwareVersion], Source={StaticResource SR}}" VerticalAlignment="Center"  Style="{StaticResource MainPage_Main_search_TextBlockStyle}" Height="17" Margin="0,12,5,11" />
+                    <TextBox Style="{StaticResource MainPage_Main_TextBoxStyle}" TabIndex="15" MaxLength="100" Grid.Column="1" Grid.Row="7" IsReadOnly="{Binding IsReadOnly}"  HorizontalAlignment="Left"   
+                        Text="{Binding CurrentSecuritySuite.SoftwareVersion, Mode=TwoWay}" VerticalAlignment="Center" Width="235" Margin="0,6"/>
+                    <!--SuiteStatus-->
+                    <TextBlock Grid.Column="2" Grid.Row="7" HorizontalAlignment="Right"   
+            	        Text="{Binding [BASEINFO_SuiteStatus], Source={StaticResource SR}}" VerticalAlignment="Center"  Style="{StaticResource MainPage_Main_search_TextBlockStyle}" Height="20" Margin="0,10,5,10"/>
+                    <TextBox Style="{StaticResource MainPage_Main_TextBoxStyle}"  MaxLength="100" Grid.Column="3" Grid.Row="7" IsReadOnly="True"  HorizontalAlignment="Left"
+            	        Text="{Binding CurrentSecuritySuite.status,  ConverterParameter=CurrentSecuritySuite.status, Converter={ StaticResource  localize}}" VerticalAlignment="Center" Width="235" Margin="0,7,-15,7" Grid.ColumnSpan="2"/>
+                </Grid>
+
+                <Grid Grid.Row="2">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="34"/>
+                        <RowDefinition Height="1"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock TextWrapping="Wrap" Text="{Binding [Note], Source={StaticResource SR}}" VerticalAlignment="Center" Style="{StaticResource MainPage_Main_search_TextBlockStyle}" Margin="10,0,0,0" Grid.Column="1"/>
+                    <Path Grid.Column="1" Data="M104,10 L1000,10" HorizontalAlignment="Left" Height="1" Stretch="Fill" UseLayoutRounding="False" VerticalAlignment="Center" Stroke="#FFBBBCBC" Grid.Row="1"/>
+                </Grid>
+
+                <Grid Grid.Row="3" HorizontalAlignment="Center"  VerticalAlignment="Center" Margin="23,0,22,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="210"/>
+                        <ColumnDefinition Width="230"/>
+                        <ColumnDefinition Width="210"/>
+                        <ColumnDefinition Width="230*"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" Text="{Binding [BASEINFO_ Content],Source={StaticResource SR}}" Style="{StaticResource MainPage_Main_search_TextBlockStyle}" Margin="0,15,5,0" HorizontalAlignment="Right" VerticalAlignment="Top"/>
+                    <TextBox  Style="{StaticResource MainPage_Main_TextBoxStyle_h}" Grid.Column="1" Grid.ColumnSpan="4" TabIndex="25" MaxLength="2000"  TextWrapping="Wrap" IsReadOnly="{Binding IsReadOnly}"  HorizontalAlignment="Left" Height="70"  VerticalScrollBarVisibility="Auto" 
+                     Text="{Binding  CurrentSecuritySuite.Note, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnDataErrors=True}" VerticalAlignment="Center" Width="688" Margin="0,0,-17,0"  />
+                </Grid>
+
+                <StackPanel Grid.Column="0" Grid.Row="4"   Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,0,0,0" >
+                    <Button TabIndex="26" Visibility="{Binding IsView, Converter={StaticResource visibility}}" Command="{Binding CommitCommand}"  Tag="{Binding [Finish], Source={StaticResource SR}}" HorizontalAlignment="Left" Margin="0,0,8,0"  VerticalAlignment="Center" Style="{StaticResource Search_ButtonStyle}">
+                        <Image Source="/ExternalResource;component/Images/MainPage_complete.png" Stretch="Fill" Width="15" Height="15"/>
+                    </Button>
+                    <Button TabIndex="27" Visibility="{Binding IsView, Converter={StaticResource visibility}}" Command="{Binding ResetCommand}"  Tag="{Binding [Reset], Source={StaticResource SR}}" HorizontalAlignment="Left" Margin="0,0,8,0" VerticalAlignment="Center" Style="{StaticResource Search_ButtonStyle}">
+                        <Image Source="/ExternalResource;component/Images/MainPage_reset.png" Stretch="Fill" Width="15" Height="15"/>
+                    </Button>
+                    <Button TabIndex="28" Command="{Binding ReturnCommand}" Tag="{Binding [Return], Source={StaticResource SR}}" HorizontalAlignment="Left" VerticalAlignment="Center" Style="{StaticResource Search_ButtonStyle}">
+                        <Image Source="/ExternalResource;component/Images/MainPage_return.png" Stretch="Fill" Width="15" Height="15"/>
+                    </Button>
+                </StackPanel>
+            </Grid>
+        </ScrollViewer>
+    </Grid>
+</UserControl>

@@ -1,0 +1,272 @@
+﻿<navigation:Page xmlns:toolkit="http://schemas.microsoft.com/winfx/2006/xaml/presentation/toolkit"  x:Class="Gsafety.PTMS.PTMS.LoginPage" 
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+           xmlns:share="clr-namespace:Gsafety.PTMS.Share;assembly=Share"
+           mc:Ignorable="d"
+           xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+           d:DesignWidth="1440" d:DesignHeight="900"
+           Title="LoginPage Page">
+
+    <toolkit:BusyIndicator x:Name="dataLoading" 
+                           IsBusy="{Binding IsBusy}" 
+                           Style="{StaticResource BusyIndicatorRoundedStyle}">
+        <Grid x:Name="LayoutRoot" >
+
+            <Grid.Background>
+                <!--产品版本-->
+                <!--<ImageBrush  ImageSource="/ExternalResource;component/Images/LoginBackground22.jpg"/>-->
+                <ImageBrush  ImageSource="/ExternalResource;component/NewLogo/login-bg.png"/>
+            </Grid.Background>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="500"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="1030"/>                
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+
+            <Image Source="/ExternalResource;component/Images/yuqing-logo.png" 
+                             
+                             HorizontalAlignment="Right" Grid.Row="0" Grid.Column="1" Width="200" Height="50" Grid.ColumnSpan="2" Margin="0,10,72,140"
+                          
+                               
+                     />
+            <!--Logo-->
+            <Grid Grid.Row="1"
+              Grid.Column="1">
+                <!--<Grid.RowDefinitions>
+                    <RowDefinition Height="0"/>
+                    <RowDefinition Height="200"/>
+                    <RowDefinition Height="0"/>
+                </Grid.RowDefinitions>-->
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="550"></ColumnDefinition>
+                    <ColumnDefinition Width="30"></ColumnDefinition>
+                    <ColumnDefinition Width="450"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <Grid Grid.Row="0" >
+                    <!--<Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>-->
+                    
+                    
+
+                    <Image Source="/ExternalResource;component/NewLogo/logo.png" 
+                              Width="350"  HorizontalAlignment="Left"
+                               Grid.Row="0"
+                          
+                               
+                     />
+
+                    <!--<Image Source="/ExternalResource;component/Images/Loginlogo.png" 
+                               Stretch="Fill"
+                               Grid.Row="0"
+                               Width="100" 
+                     />-->
+                    <!--<TextBlock Text="{Binding [LoginWelcomeMessage],Source={StaticResource SR}}"
+                                   Grid.Row="1"
+                                   HorizontalAlignment="Center"
+                                TextAlignment="Center"
+                           VerticalAlignment="Center"
+                           Foreground="White"
+                           FontSize="28"
+                               Width="400"
+                             
+                               TextWrapping="Wrap"
+                           FontWeight="Bold"
+                               FontFamily="Microsoft YaHei"/>-->
+                </Grid>
+
+                <Grid Grid.Row="1" >
+                    <!--<Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>-->
+
+
+
+                    <!--<Image Source="/ExternalResource;component/NewLogo/logo.png" 
+                               Stretch="Fill"
+                               Grid.Row="0"
+                               
+                     />-->
+
+                    <!--<Image Source="/ExternalResource;component/Images/Loginlogo.png" 
+                               Stretch="Fill"
+                               Grid.Row="0"
+                               Width="100" 
+                     />-->
+                    <TextBlock Text="{Binding [LoginWelcomeMessage],Source={StaticResource SR}}"
+                                   Grid.Row="1"
+                                   HorizontalAlignment="Left"
+                                TextAlignment="Left"
+                           VerticalAlignment="Top"
+                           Foreground="White"
+                           FontSize="28"
+                               Width="550"
+                             
+                               TextWrapping="Wrap"
+                           FontWeight="Bold"
+                               FontFamily="Microsoft YaHei"/>
+                </Grid>
+                <Grid Grid.Row="0" Grid.RowSpan="2"
+              Grid.Column="2"
+              x:Name="loginControl"
+              HorizontalAlignment="Stretch" 
+              Height="400" 
+              VerticalAlignment="Stretch" 
+              Width="400">
+
+                    <Grid.Background>
+
+                        <!--产品版本-->
+                        <SolidColorBrush Color="#F8F8F8"/>
+
+                    </Grid.Background>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="2*"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock FontSize="24" Foreground="#222222" FontWeight="Bold" Width="200"  VerticalAlignment="Bottom" TextAlignment="Left"  Margin="-100,0,0,0" Text="{Binding [LOGIN_Login],Source={StaticResource SR}}"></TextBlock>
+
+                    <Grid Grid.Row="1" Margin="0,20,0,0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock FontSize="16" Grid.Row="0"   Grid.Column="1" Foreground="#666666" Width="200"  VerticalAlignment="Bottom" TextAlignment="Left"  Margin="-100,0,0,0" Text="{Binding [MAINPAGE_UserName],Source={StaticResource SR}}"></TextBlock>
+                            <TextBox Grid.Row="1" 
+                         Name="tbUserName" 
+                         Text="{Binding UserName, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" 
+                         Grid.Column="1"
+                         Width="300"
+                         Margin="20,20,20,10"
+                             Height="50"
+                           Background="#F8F8F8"
+                             BorderBrush="#CCCCCC"
+                             BorderThickness="0"/>
+                        <Border Grid.Row="1"  Width="300" Margin="0,10,0,0" Grid.Column="1" BorderThickness="1"  BorderBrush="#666666" Height="1"></Border>
+
+                        <TextBlock FontSize="16" Grid.Row="2"   Grid.Column="1" Foreground="#666666" Width="200"  VerticalAlignment="Bottom" TextAlignment="Left"  Margin="-100,0,0,0" Text="{Binding [MANAGE_User_Password],Source={StaticResource SR}}"></TextBlock>
+
+                        <PasswordBox Grid.Row="3"
+                                 Grid.Column="1"
+                                 Height="50"
+                                      BorderThickness="0"
+                                  VerticalContentAlignment="Center"
+                                  Name="tbPassWord"
+                                 Password="{Binding Password, Mode=TwoWay}" 
+                                 Width="300"
+                                 Margin="20,20,20,20"
+                                 Padding="0"
+                                     Background="#F8F8F8"
+                                 Style="{StaticResource LoginPasswordBoxStyle}"
+                                 />
+                        <!--Style="{StaticResource LoginPasswordBoxStyle}"-->
+                        <Border Grid.Row="3"  Width="300" Margin="0,0,0,0" Grid.Column="1" BorderThickness="1"  BorderBrush="#666666" Height="1"></Border>
+
+
+                    </Grid>
+
+                    <StackPanel Grid.Row="2" 
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center">
+
+                        <Grid>
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="20"/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock Grid.Column="1" 
+                                   HorizontalAlignment="Left"  
+                                   TextWrapping="Wrap" 
+                                   Text="{Binding Message, Mode=OneWay}" 
+                                   VerticalAlignment="Top" 
+                                   Foreground="#FFFF0014" 
+                                   FontFamily="Segoe UI" 
+                                   FontSize="14"/>
+
+                            <Image x:Name="loginImg" 
+                               HorizontalAlignment="Center" 
+                               Visibility="Collapsed" 
+                               Height="16" 
+                               VerticalAlignment="Top" 
+                               Width="16" 
+                               Margin="0,3,0,0" 
+                               Source="/ExternalResource;component/Images/login_ico.png"/>
+                        </Grid>
+
+                    </StackPanel>
+
+                    <Grid Grid.Row="3">
+                        <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                        <Button Grid.Column="0"
+                        x:Name="LoginButton" 
+                                Content="{Binding [LOGIN_Login],Source={StaticResource SR}}" 
+                                Command="{Binding LoginCommand}"
+                        HorizontalAlignment="Right" Height="46" Width="150"
+                        VerticalAlignment="Center"
+                        Style="{StaticResource LoginButtonStyle}"
+                        Click="LoginButton_Click"/>
+                        <Button Grid.Column="2"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Center" Height="46" Width="150"
+                        Content="{Binding [Exit],Source={StaticResource SR}}"
+                        Style="{StaticResource LoginResertButtonStyle}"
+                        Command="{Binding ReturnCommand}" 
+                        Click="Reset_Click"/>
+                    </Grid>
+
+                </Grid>
+            </Grid>
+
+            
+
+            <!--<Grid Grid.Row="2"
+              Grid.Column="1"
+              Height="100"
+              Width="410"
+              VerticalAlignment="Top">
+                <Grid.Background>
+                    <ImageBrush ImageSource="/ExternalResource;component/Images/LoginBackground3.png"
+                            Stretch="UniformToFill"/>
+                </Grid.Background>
+            </Grid>-->
+
+
+        </Grid>
+
+    </toolkit:BusyIndicator>
+</navigation:Page>

@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:2259/VehicleAlertService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" />
+  <xs:import schemaLocation="http://localhost:2259/VehicleAlertService.svc?xsd=xsd5" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="http://localhost:2259/VehicleAlertService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Alert.Contract.Data" />
+  <xs:import schemaLocation="http://localhost:2259/VehicleAlertService.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Common.Data" />
+  <xs:element name="GetVehicleHandledAlert">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="proviceCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="cityCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="companyCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="vehicleId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="startTime" nillable="true" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="endTime" nillable="true" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="alertType" type="xs:int" />
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" minOccurs="0" name="pagingInfo" nillable="true" type="q1:PagingInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetVehicleHandledAlertResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" minOccurs="0" name="GetVehicleHandledAlertResult" nillable="true" type="q2:MultiMessageOfVehicleAlertExWem2IK3v" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllBusinessAlert">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="vehicleId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="startTime" nillable="true" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="endTime" nillable="true" type="xs:dateTime" />
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" minOccurs="0" name="pagingInfo" nillable="true" type="q3:PagingInfo" />
+        <xs:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="orgnizations" nillable="true" type="q4:ArrayOfstring" />
+        <xs:element minOccurs="0" name="alerttype" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllBusinessAlertResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" minOccurs="0" name="GetAllBusinessAlertResult" nillable="true" type="q5:MultiMessageOfBusinessAlertExi7Zg_POJ5" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddVechileAlertTreatment">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Alert.Contract.Data" minOccurs="0" name="alertTreatment" nillable="true" type="q6:VehicleAlertTreatment" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddVechileAlertTreatmentResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" minOccurs="0" name="AddVechileAlertTreatmentResult" nillable="true" type="q7:SingleMessageOfboolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetVehicleAlertDetail">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="vehicleAlertId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetVehicleAlertDetailResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" minOccurs="0" name="GetVehicleAlertDetailResult" nillable="true" type="q8:SingleMessageOfVehicleAlertDetailWem2IK3v" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetVehicleFenceAlert">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="vehicleID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="fenceID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="alertType" type="xs:short" />
+        <xs:element minOccurs="0" name="startTime" nillable="true" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="endTime" nillable="true" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetVehicleFenceAlertResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" minOccurs="0" name="GetVehicleFenceAlertResult" nillable="true" type="q9:MultiMessageOfVehicleFenceAlertWem2IK3v" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUnHandleAlertByClient">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="clientID" nillable="true" type="xs:string" />
+        <xs:element xmlns:q10="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="orgnizations" nillable="true" type="q10:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUnHandleAlertByClientResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" minOccurs="0" name="GetUnHandleAlertByClientResult" nillable="true" type="q11:MultiMessageOfBusinessAlertExi7Zg_POJ5" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsertBusinessAlertHandle">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Common.Data" minOccurs="0" name="model" nillable="true" type="q12:BusinessAlertHandle" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsertBusinessAlertHandleResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" minOccurs="0" name="InsertBusinessAlertHandleResult" nillable="true" type="q13:SingleMessageOfAlertHandleResulti7Zg_POJ5" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBusinessAlertHandleByAlertID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="alertID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBusinessAlertHandleByAlertIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" minOccurs="0" name="GetBusinessAlertHandleByAlertIDResult" nillable="true" type="q14:SingleMessageOfBusinessAlertHandlei7Zg_POJ5" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetVehicleAlertDisposeInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="vehicleId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="clientId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetVehicleAlertDisposeInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" minOccurs="0" name="GetVehicleAlertDisposeInfoResult" nillable="true" type="q15:SingleMessageOfBusinessAlertExi7Zg_POJ5" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

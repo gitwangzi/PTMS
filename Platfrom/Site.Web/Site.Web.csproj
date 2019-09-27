@@ -1,0 +1,675 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{4137C2F1-66AB-4887-895C-4208EFD0CF23}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PTMS.Web</RootNamespace>
+    <AssemblyName>PTMS.Web</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <SilverlightApplicationList>{724921C4-3FFC-40D4-8224-80D2DEBA7477}|..\AntFrame\AntFrame.csproj|ClientBin|False</SilverlightApplicationList>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="clientaccesspolicy.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ClientBin\Site.xap" />
+    <Content Include="Default.aspx" />
+    <Content Include="GISLayerSearch.xml" />
+    <Content Include="Help\zh-CN\banner.html" />
+    <Content Include="Help\zh-CN\contr\gis_eye_userguide_001.html" />
+    <Content Include="Help\zh-CN\contr\gis_eye_userguide_002.html" />
+    <Content Include="Help\zh-CN\contr\gis_eye_userguide_003.html" />
+    <Content Include="Help\zh-CN\contr\gis_eye_userguide_004.html" />
+    <Content Include="Help\zh-CN\contr\gis_eye_userguide_005.html" />
+    <Content Include="Help\zh-CN\contr\gis_eye_userguide_006.html" />
+    <Content Include="Help\zh-CN\contr\gis_eye_userguide_007.html" />
+    <Content Include="Help\zh-CN\contr\gis_eye_userguide_008.html" />
+    <Content Include="Help\zh-CN\contr\gis_eye_userguide_009.html" />
+    <Content Include="Help\zh-CN\contr\gis_eye_userguide_010.html" />
+    <Content Include="Help\zh-CN\contr\gis_eye_userguide_011.html" />
+    <Content Include="Help\zh-CN\contr\gis_eye_userguide_012.html" />
+    <Content Include="Help\zh-CN\contr\gis_eye_userguide_013.html" />
+    <Content Include="Help\zh-CN\contr\gis_eye_userguide_014.html" />
+    <Content Include="Help\zh-CN\contr\gis_eye_userguide_015.html" />
+    <Content Include="Help\zh-CN\contr\gis_eye_userguide_016.html" />
+    <Content Include="Help\zh-CN\contr\gis_eye_userguide_017.html" />
+    <Content Include="Help\zh-CN\contr\gis_eye_userguide_018.html" />
+    <Content Include="Help\zh-CN\css\dmc.css" />
+    <Content Include="Help\zh-CN\css\styler.css" />
+    <Content Include="Help\zh-CN\default.htm" />
+    <Content Include="Help\zh-CN\frame_main.html" />
+    <Content Include="Help\zh-CN\frame_tabs.html" />
+    <Content Include="Help\zh-CN\frame_views.html" />
+    <Content Include="Help\zh-CN\graphics\gentext\icon-note.gif" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_004_icon01.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_004_icon02.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_004_icon03.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_004_icon04.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_004_icon05.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_004_icon07.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_004_icon08.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_004_icon09.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_012_fig01.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_013_fig01.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_014_fig01.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_015_fig01.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_016_fig01.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_020_fig01.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_021_fig01.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_023_fig01.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_023_icon02.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_023_icon03.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_023_icon04.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_023_icon05.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_023_icon06.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_023_icon07.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_023_icon08.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_023_icon09.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_023_icon10.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_025_fig01.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_025_icon01.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_025_icon02.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_025_icon03.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_025_icon04.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_025_icon05.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_025_icon06.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_025_icon07.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_025_icon08.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_025_icon09.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_025_icon10.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_025_icon11.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_025_icon12.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_026_icon01.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_026_icon02.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_026_icon03.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_026_icon04.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_026_icon05.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_026_icon06.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_026_icon07.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_026_icon08.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_026_icon09.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_026_icon10.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_026_icon11.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_027_fig01.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_028_fig01.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_029_fig01.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_029_fig02.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_029_fig03.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_029_fig04.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_029_icon01.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_029_icon02.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_029_icon03.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_029_icon04.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_029_icon05.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_029_icon06.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_029_icon07.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_030_fig01.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_031_fig01.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_032_fig01.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_032_fig02.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_032_icon01.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_032_icon02.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_032_icon03.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_032_icon04.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_033_icon02.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_034_fig01.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_034_icon01.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_034_icon02.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_034_icon03.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_034_icon04.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_035_fig01.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_035_fig02.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_037_fig01.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_037_fig02.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_037_icon01.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_037_icon02.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_038_fig01.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_038_icon01.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_039_fig01.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_039_icon01.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_040_fig01.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_040_fig02.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_040_fig03.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_040_icon01.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_040_icon02.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_040_icon03.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_040_icon04.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_040_icon05.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_041_fig01.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_041_icon01.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_041_icon02.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_041_icon03.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_042_fig01.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_042_fig02.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_042_icon01.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_042_icon02.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_042_icon03.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_042_icon04.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_042_icon05.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_042_icon06.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_043_fig01.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_043_icon01.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_044_fig01.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_044_fig02.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_044_icon01.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_044_icon02.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_045_fig01.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_046_fig01.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_046_icon01.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_046_icon02.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_046_icon03.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_046_icon04.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_046_icon05.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_046_icon06.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_046_icon07.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_046_icon08.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_047_fig01.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_049_fig01.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_049_fig02.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_050_fig01.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_050_icon01.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_051_fig01.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_051_icon01.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_051_icon02.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_051_icon03.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_051_icon04.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_052_fig01.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_052_icon01.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_054_fig01.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_055_icon01.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_055_icon02.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_055_icon03.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_055_icon04.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_056_fig01.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_057_fig01.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_058_fig01.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_060_fig01.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_062_fig01.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_065_icon01.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_066_fig01.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_067_icon01.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_069_icon01.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_072_fig01.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_078_fig01.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_084_icon01.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_085_fig01.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_087_fig01.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_087_icon01.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_088_icon01.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_090_fig01.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_090_icon01.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_091_fig01.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_091_icon01.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_091_icon02.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_091_icon03.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_091_icon04.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_091_icon05.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_092_fig01.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_092_fig02.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_092_fig03.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_092_icon01.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_092_icon02.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_092_icon03.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_092_icon04.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_092_icon05.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_092_icon06.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_093_icon01.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_094_icon01.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_095_fig01.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_095_fig02.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_095_icon01.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_096_fig01.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_098_fig01.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_107_fig01.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_109_fig01.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_114_icon01.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_115_fig01.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_116_fig01.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_123_fig01.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_130_icon01.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_131_fig01.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_131_fig02.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_131_icon01.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_132_fig01.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_132_fig02.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_133_fig01.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_134_fig01.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_134_fig02.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_135_icon01.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_137_fig01.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_137_icon01.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_137_icon02.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_137_icon03.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_137_icon04.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_141_fig01.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_144_fig01.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_144_icon01.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_144_icon02.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_144_icon03.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_144_icon04.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_144_icon05.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_145_fig01.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_145_fig02.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_145_icon01.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_145_icon02.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_145_icon03.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_145_icon04.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_145_icon05.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_146_fig01.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_146_fig02.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_146_fig03.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_146_icon01.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_146_icon02.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_146_icon03.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_149_icon01.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_149_icon02.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_149_icon03.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_149_icon04.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_149_icon05.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_154_icon01.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_156_fig01.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_156_icon01.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_157_fig01.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_157_fig02.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_157_icon01.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_157_icon02.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_158_fig01.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_159_fig01.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_161_fig01.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_164_fig01.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_174_fig01.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_175_fig01.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_175_icon01.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_175_icon02.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_175_icon03.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_175_icon04.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_175_icon05.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_177_fig01.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_178_fig01.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_178_icon01.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_179_fig01.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_180_fig01.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_181_fig01.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_182_fig01.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_183_fig01.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_184_fig01.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_186_icon01.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_188_fig01.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_190_fig01.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_191_fig01.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_192_fig01.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_193_fig01.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_194_fig01.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_195_fig01.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_201_fig01.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_202_fig01.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_205_fig01.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_209_fig01.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_210_fig01.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_212_fig01.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_213_fig01.png" />
+    <Content Include="Help\zh-CN\graphics\gis_eye_userguide_214_fig01.png" />
+    <Content Include="Help\zh-CN\images\banner.jpg" />
+    <Content Include="Help\zh-CN\images\down.gif" />
+    <Content Include="Help\zh-CN\images\e_down.gif" />
+    <Content Include="Help\zh-CN\images\e_up.gif" />
+    <Content Include="Help\zh-CN\images\html_doc.gif" />
+    <Content Include="Help\zh-CN\images\indexterm.gif" />
+    <Content Include="Help\zh-CN\images\next.gif" />
+    <Content Include="Help\zh-CN\images\outline.gif" />
+    <Content Include="Help\zh-CN\images\pdf_doc.gif" />
+    <Content Include="Help\zh-CN\images\prev.gif" />
+    <Content Include="Help\zh-CN\images\ptc.gif" />
+    <Content Include="Help\zh-CN\images\toc_closed.gif" />
+    <Content Include="Help\zh-CN\images\toc_open.gif" />
+    <Content Include="Help\zh-CN\images\topic.gif" />
+    <Content Include="Help\zh-CN\images\up.gif" />
+    <Content Include="Help\zh-CN\javascript\framesize.js" />
+    <Content Include="Help\zh-CN\javascript\indexterm.js" />
+    <Content Include="Help\zh-CN\javascript\indextermevents.js" />
+    <Content Include="Help\zh-CN\javascript\profile.js" />
+    <Content Include="Help\zh-CN\javascript\tab.js" />
+    <Content Include="Help\zh-CN\javascript\tree.js" />
+    <Content Include="Help\zh-CN\javascript\utils.js" />
+    <Content Include="Help\zh-CN\MaintainAdmin\gis_eye_userguide_172.html" />
+    <Content Include="Help\zh-CN\MaintainAdmin\gis_eye_userguide_173.html" />
+    <Content Include="Help\zh-CN\MaintainAdmin\gis_eye_userguide_174.html" />
+    <Content Include="Help\zh-CN\MaintainAdmin\gis_eye_userguide_175.html" />
+    <Content Include="Help\zh-CN\MaintainAdmin\gis_eye_userguide_176.html" />
+    <Content Include="Help\zh-CN\MaintainAdmin\gis_eye_userguide_177.html" />
+    <Content Include="Help\zh-CN\MaintainAdmin\gis_eye_userguide_178.html" />
+    <Content Include="Help\zh-CN\MaintainAdmin\gis_eye_userguide_179.html" />
+    <Content Include="Help\zh-CN\MaintainAdmin\gis_eye_userguide_180.html" />
+    <Content Include="Help\zh-CN\MaintainAdmin\gis_eye_userguide_181.html" />
+    <Content Include="Help\zh-CN\MaintainAdmin\gis_eye_userguide_182.html" />
+    <Content Include="Help\zh-CN\MaintainAdmin\gis_eye_userguide_183.html" />
+    <Content Include="Help\zh-CN\MaintainAdmin\gis_eye_userguide_184.html" />
+    <Content Include="Help\zh-CN\MaintainAdmin\gis_eye_userguide_185.html" />
+    <Content Include="Help\zh-CN\MaintainAdmin\gis_eye_userguide_186.html" />
+    <Content Include="Help\zh-CN\MaintainAdmin\gis_eye_userguide_187.html" />
+    <Content Include="Help\zh-CN\MaintainAdmin\gis_eye_userguide_188.html" />
+    <Content Include="Help\zh-CN\MaintainAdmin\gis_eye_userguide_189.html" />
+    <Content Include="Help\zh-CN\MaintainAdmin\gis_eye_userguide_190.html" />
+    <Content Include="Help\zh-CN\MaintainAdmin\gis_eye_userguide_191.html" />
+    <Content Include="Help\zh-CN\MaintainAdmin\gis_eye_userguide_192.html" />
+    <Content Include="Help\zh-CN\MaintainAdmin\gis_eye_userguide_193.html" />
+    <Content Include="Help\zh-CN\MaintainAdmin\gis_eye_userguide_194.html" />
+    <Content Include="Help\zh-CN\MaintainAdmin\gis_eye_userguide_195.html" />
+    <Content Include="Help\zh-CN\MaintainAdmin\gis_eye_userguide_196.html" />
+    <Content Include="Help\zh-CN\MaintainAdmin\gis_eye_userguide_197.html" />
+    <Content Include="Help\zh-CN\MaintainAdmin\gis_eye_userguide_198.html" />
+    <Content Include="Help\zh-CN\MaintainAdmin\gis_eye_userguide_199.html" />
+    <Content Include="Help\zh-CN\MaintainAdmin\gis_eye_userguide_200.html" />
+    <Content Include="Help\zh-CN\MaintainAdmin\gis_eye_userguide_201.html" />
+    <Content Include="Help\zh-CN\MaintainAdmin\gis_eye_userguide_202.html" />
+    <Content Include="Help\zh-CN\MaintainAdmin\gis_eye_userguide_203.html" />
+    <Content Include="Help\zh-CN\MaintainAdmin\gis_eye_userguide_204.html" />
+    <Content Include="Help\zh-CN\MaintainAdmin\gis_eye_userguide_205.html" />
+    <Content Include="Help\zh-CN\MaintainAdmin\gis_eye_userguide_206.html" />
+    <Content Include="Help\zh-CN\MaintainAdmin\gis_eye_userguide_207.html" />
+    <Content Include="Help\zh-CN\MaintainAdmin\gis_eye_userguide_208.html" />
+    <Content Include="Help\zh-CN\MaintainAdmin\gis_eye_userguide_209.html" />
+    <Content Include="Help\zh-CN\MaintainAdmin\gis_eye_userguide_210.html" />
+    <Content Include="Help\zh-CN\MaintainAdmin\gis_eye_userguide_211.html" />
+    <Content Include="Help\zh-CN\MaintainAdmin\gis_eye_userguide_212.html" />
+    <Content Include="Help\zh-CN\MaintainAdmin\gis_eye_userguide_213.html" />
+    <Content Include="Help\zh-CN\MaintainAdmin\gis_eye_userguide_214.html" />
+    <Content Include="Help\zh-CN\MaintainAdmin\gis_eye_userguide_215.html" />
+    <Content Include="Help\zh-CN\MaintainAdmin\gis_eye_userguide_216.html" />
+    <Content Include="Help\zh-CN\MaintainAdmin\gis_eye_userguide_217.html" />
+    <Content Include="Help\zh-CN\MaintainAdmin\gis_eye_userguide_218.html" />
+    <Content Include="Help\zh-CN\MaintainAdmin\gis_eye_userguide_219.html" />
+    <Content Include="Help\zh-CN\MaintainAdmin\gis_eye_userguide_220.html" />
+    <Content Include="Help\zh-CN\MaintainMonitor\gis_eye_userguide_221.html" />
+    <Content Include="Help\zh-CN\SecurityAdmin\gis_eye_userguide_019.html" />
+    <Content Include="Help\zh-CN\SecurityAdmin\gis_eye_userguide_020.html" />
+    <Content Include="Help\zh-CN\SecurityAdmin\gis_eye_userguide_021.html" />
+    <Content Include="Help\zh-CN\SecurityAdmin\gis_eye_userguide_022.html" />
+    <Content Include="Help\zh-CN\SecurityAdmin\gis_eye_userguide_023.html" />
+    <Content Include="Help\zh-CN\SecurityAdmin\gis_eye_userguide_024.html" />
+    <Content Include="Help\zh-CN\SecurityAdmin\gis_eye_userguide_025.html" />
+    <Content Include="Help\zh-CN\SecurityAdmin\gis_eye_userguide_026.html" />
+    <Content Include="Help\zh-CN\SecurityAdmin\gis_eye_userguide_027.html" />
+    <Content Include="Help\zh-CN\SecurityAdmin\gis_eye_userguide_028.html" />
+    <Content Include="Help\zh-CN\SecurityAdmin\gis_eye_userguide_029.html" />
+    <Content Include="Help\zh-CN\SecurityAdmin\gis_eye_userguide_030.html" />
+    <Content Include="Help\zh-CN\SecurityAdmin\gis_eye_userguide_031.html" />
+    <Content Include="Help\zh-CN\SecurityAdmin\gis_eye_userguide_032.html" />
+    <Content Include="Help\zh-CN\SecurityAdmin\gis_eye_userguide_033.html" />
+    <Content Include="Help\zh-CN\SecurityAdmin\gis_eye_userguide_034.html" />
+    <Content Include="Help\zh-CN\SecurityAdmin\gis_eye_userguide_035.html" />
+    <Content Include="Help\zh-CN\SecurityAdmin\gis_eye_userguide_036.html" />
+    <Content Include="Help\zh-CN\SecurityAdmin\gis_eye_userguide_037.html" />
+    <Content Include="Help\zh-CN\SecurityAdmin\gis_eye_userguide_038.html" />
+    <Content Include="Help\zh-CN\SecurityAdmin\gis_eye_userguide_039.html" />
+    <Content Include="Help\zh-CN\SecurityAdmin\gis_eye_userguide_040.html" />
+    <Content Include="Help\zh-CN\SecurityAdmin\gis_eye_userguide_041.html" />
+    <Content Include="Help\zh-CN\SecurityAdmin\gis_eye_userguide_042.html" />
+    <Content Include="Help\zh-CN\SecurityAdmin\gis_eye_userguide_043.html" />
+    <Content Include="Help\zh-CN\SecurityAdmin\gis_eye_userguide_044.html" />
+    <Content Include="Help\zh-CN\SecurityAdmin\gis_eye_userguide_045.html" />
+    <Content Include="Help\zh-CN\SecurityAdmin\gis_eye_userguide_046.html" />
+    <Content Include="Help\zh-CN\SecurityAdmin\gis_eye_userguide_047.html" />
+    <Content Include="Help\zh-CN\SecurityAdmin\gis_eye_userguide_048.html" />
+    <Content Include="Help\zh-CN\SecurityAdmin\gis_eye_userguide_049.html" />
+    <Content Include="Help\zh-CN\SecurityAdmin\gis_eye_userguide_050.html" />
+    <Content Include="Help\zh-CN\SecurityAdmin\gis_eye_userguide_051.html" />
+    <Content Include="Help\zh-CN\SecurityAdmin\gis_eye_userguide_052.html" />
+    <Content Include="Help\zh-CN\SecurityAdmin\gis_eye_userguide_053.html" />
+    <Content Include="Help\zh-CN\SecurityAdmin\gis_eye_userguide_054.html" />
+    <Content Include="Help\zh-CN\SecurityAdmin\gis_eye_userguide_055.html" />
+    <Content Include="Help\zh-CN\SecurityAdmin\gis_eye_userguide_056.html" />
+    <Content Include="Help\zh-CN\SecurityAdmin\gis_eye_userguide_057.html" />
+    <Content Include="Help\zh-CN\SecurityAdmin\gis_eye_userguide_058.html" />
+    <Content Include="Help\zh-CN\SecurityAdmin\gis_eye_userguide_059.html" />
+    <Content Include="Help\zh-CN\SecurityAdmin\gis_eye_userguide_060.html" />
+    <Content Include="Help\zh-CN\SecurityAdmin\gis_eye_userguide_061.html" />
+    <Content Include="Help\zh-CN\SecurityAdmin\gis_eye_userguide_062.html" />
+    <Content Include="Help\zh-CN\SecurityAdmin\gis_eye_userguide_063.html" />
+    <Content Include="Help\zh-CN\SecurityAdmin\gis_eye_userguide_064.html" />
+    <Content Include="Help\zh-CN\SecurityAdmin\gis_eye_userguide_065.html" />
+    <Content Include="Help\zh-CN\SecurityAdmin\gis_eye_userguide_066.html" />
+    <Content Include="Help\zh-CN\SecurityAdmin\gis_eye_userguide_067.html" />
+    <Content Include="Help\zh-CN\SecurityAdmin\gis_eye_userguide_068.html" />
+    <Content Include="Help\zh-CN\SecurityAdmin\gis_eye_userguide_069.html" />
+    <Content Include="Help\zh-CN\SecurityAdmin\gis_eye_userguide_070.html" />
+    <Content Include="Help\zh-CN\SecurityAdmin\gis_eye_userguide_071.html" />
+    <Content Include="Help\zh-CN\SecurityAdmin\gis_eye_userguide_072.html" />
+    <Content Include="Help\zh-CN\SecurityAdmin\gis_eye_userguide_073.html" />
+    <Content Include="Help\zh-CN\SecurityAdmin\gis_eye_userguide_074.html" />
+    <Content Include="Help\zh-CN\SecurityAdmin\gis_eye_userguide_075.html" />
+    <Content Include="Help\zh-CN\SecurityAdmin\gis_eye_userguide_076.html" />
+    <Content Include="Help\zh-CN\SecurityAdmin\gis_eye_userguide_077.html" />
+    <Content Include="Help\zh-CN\SecurityAdmin\gis_eye_userguide_078.html" />
+    <Content Include="Help\zh-CN\SecurityAdmin\gis_eye_userguide_079.html" />
+    <Content Include="Help\zh-CN\SecurityAdmin\gis_eye_userguide_080.html" />
+    <Content Include="Help\zh-CN\SecurityAdmin\gis_eye_userguide_081.html" />
+    <Content Include="Help\zh-CN\SecurityAdmin\gis_eye_userguide_082.html" />
+    <Content Include="Help\zh-CN\SecurityAdmin\gis_eye_userguide_083.html" />
+    <Content Include="Help\zh-CN\SecurityAdmin\gis_eye_userguide_084.html" />
+    <Content Include="Help\zh-CN\SecurityAdmin\gis_eye_userguide_085.html" />
+    <Content Include="Help\zh-CN\SecurityAdmin\gis_eye_userguide_086.html" />
+    <Content Include="Help\zh-CN\SecurityAdmin\gis_eye_userguide_087.html" />
+    <Content Include="Help\zh-CN\SecurityAdmin\gis_eye_userguide_088.html" />
+    <Content Include="Help\zh-CN\SecurityAdmin\gis_eye_userguide_089.html" />
+    <Content Include="Help\zh-CN\SecurityAdmin\gis_eye_userguide_090.html" />
+    <Content Include="Help\zh-CN\SecurityAdmin\gis_eye_userguide_091.html" />
+    <Content Include="Help\zh-CN\SecurityAdmin\gis_eye_userguide_092.html" />
+    <Content Include="Help\zh-CN\SecurityAdmin\gis_eye_userguide_093.html" />
+    <Content Include="Help\zh-CN\SecurityAdmin\gis_eye_userguide_094.html" />
+    <Content Include="Help\zh-CN\SecurityAdmin\gis_eye_userguide_095.html" />
+    <Content Include="Help\zh-CN\SecurityAdmin\gis_eye_userguide_096.html" />
+    <Content Include="Help\zh-CN\SecurityAdmin\gis_eye_userguide_097.html" />
+    <Content Include="Help\zh-CN\SecurityAdmin\gis_eye_userguide_098.html" />
+    <Content Include="Help\zh-CN\SecurityAdmin\gis_eye_userguide_099.html" />
+    <Content Include="Help\zh-CN\SecurityAdmin\gis_eye_userguide_100.html" />
+    <Content Include="Help\zh-CN\SecurityAdmin\gis_eye_userguide_101.html" />
+    <Content Include="Help\zh-CN\SecurityAdmin\gis_eye_userguide_102.html" />
+    <Content Include="Help\zh-CN\SecurityAdmin\gis_eye_userguide_103.html" />
+    <Content Include="Help\zh-CN\SecurityAdmin\gis_eye_userguide_104.html" />
+    <Content Include="Help\zh-CN\SecurityAdmin\gis_eye_userguide_105.html" />
+    <Content Include="Help\zh-CN\SecurityAdmin\gis_eye_userguide_106.html" />
+    <Content Include="Help\zh-CN\SecurityAdmin\gis_eye_userguide_107.html" />
+    <Content Include="Help\zh-CN\SecurityAdmin\gis_eye_userguide_108.html" />
+    <Content Include="Help\zh-CN\SecurityAdmin\gis_eye_userguide_109.html" />
+    <Content Include="Help\zh-CN\SecurityAdmin\gis_eye_userguide_110.html" />
+    <Content Include="Help\zh-CN\SecurityAdmin\gis_eye_userguide_111.html" />
+    <Content Include="Help\zh-CN\SecurityAdmin\gis_eye_userguide_112.html" />
+    <Content Include="Help\zh-CN\SecurityAdmin\gis_eye_userguide_113.html" />
+    <Content Include="Help\zh-CN\SecurityAdmin\gis_eye_userguide_114.html" />
+    <Content Include="Help\zh-CN\SecurityAdmin\gis_eye_userguide_115.html" />
+    <Content Include="Help\zh-CN\SecurityAdmin\gis_eye_userguide_116.html" />
+    <Content Include="Help\zh-CN\SecurityAdmin\gis_eye_userguide_117.html" />
+    <Content Include="Help\zh-CN\SecurityAdmin\gis_eye_userguide_118.html" />
+    <Content Include="Help\zh-CN\SecurityAdmin\gis_eye_userguide_119.html" />
+    <Content Include="Help\zh-CN\SecurityAdmin\gis_eye_userguide_120.html" />
+    <Content Include="Help\zh-CN\SecurityAdmin\gis_eye_userguide_121.html" />
+    <Content Include="Help\zh-CN\SecurityAdmin\gis_eye_userguide_122.html" />
+    <Content Include="Help\zh-CN\SecurityAdmin\gis_eye_userguide_123.html" />
+    <Content Include="Help\zh-CN\SecurityAdmin\gis_eye_userguide_124.html" />
+    <Content Include="Help\zh-CN\SecurityAdmin\gis_eye_userguide_125.html" />
+    <Content Include="Help\zh-CN\SecurityAdmin\gis_eye_userguide_126.html" />
+    <Content Include="Help\zh-CN\SecurityAdmin\gis_eye_userguide_127.html" />
+    <Content Include="Help\zh-CN\SecurityAdmin\gis_eye_userguide_128.html" />
+    <Content Include="Help\zh-CN\SecurityAdmin\gis_eye_userguide_129.html" />
+    <Content Include="Help\zh-CN\SecurityAdmin\gis_eye_userguide_130.html" />
+    <Content Include="Help\zh-CN\SecurityAdmin\gis_eye_userguide_131.html" />
+    <Content Include="Help\zh-CN\SecurityAdmin\gis_eye_userguide_132.html" />
+    <Content Include="Help\zh-CN\SecurityAdmin\gis_eye_userguide_133.html" />
+    <Content Include="Help\zh-CN\SecurityAdmin\gis_eye_userguide_134.html" />
+    <Content Include="Help\zh-CN\SecurityAdmin\gis_eye_userguide_135.html" />
+    <Content Include="Help\zh-CN\SecurityAdmin\gis_eye_userguide_136.html" />
+    <Content Include="Help\zh-CN\SecurityAdmin\gis_eye_userguide_137.html" />
+    <Content Include="Help\zh-CN\SecurityAdmin\gis_eye_userguide_138.html" />
+    <Content Include="Help\zh-CN\SecurityAdmin\gis_eye_userguide_139.html" />
+    <Content Include="Help\zh-CN\SecurityAdmin\gis_eye_userguide_140.html" />
+    <Content Include="Help\zh-CN\SecurityAdmin\gis_eye_userguide_141.html" />
+    <Content Include="Help\zh-CN\SecurityAdmin\gis_eye_userguide_142.html" />
+    <Content Include="Help\zh-CN\SecurityAdmin\gis_eye_userguide_143.html" />
+    <Content Include="Help\zh-CN\SecurityAdmin\gis_eye_userguide_144.html" />
+    <Content Include="Help\zh-CN\SecurityAdmin\gis_eye_userguide_145.html" />
+    <Content Include="Help\zh-CN\SecurityAdmin\gis_eye_userguide_146.html" />
+    <Content Include="Help\zh-CN\SecurityAdmin\gis_eye_userguide_154.html" />
+    <Content Include="Help\zh-CN\SecurityAdmin\gis_eye_userguide_155.html" />
+    <Content Include="Help\zh-CN\SecurityAdmin\gis_eye_userguide_156.html" />
+    <Content Include="Help\zh-CN\SecurityAdmin\gis_eye_userguide_157.html" />
+    <Content Include="Help\zh-CN\SecurityAdmin\gis_eye_userguide_158.html" />
+    <Content Include="Help\zh-CN\SecurityAdmin\gis_eye_userguide_159.html" />
+    <Content Include="Help\zh-CN\SecurityAdmin\gis_eye_userguide_160.html" />
+    <Content Include="Help\zh-CN\SecurityAdmin\gis_eye_userguide_161.html" />
+    <Content Include="Help\zh-CN\SecurityAdmin\gis_eye_userguide_162.html" />
+    <Content Include="Help\zh-CN\SecurityAdmin\gis_eye_userguide_163.html" />
+    <Content Include="Help\zh-CN\SecurityAdmin\gis_eye_userguide_164.html" />
+    <Content Include="Help\zh-CN\SecurityAdmin\gis_eye_userguide_165.html" />
+    <Content Include="Help\zh-CN\SecurityAdmin\gis_eye_userguide_166.html" />
+    <Content Include="Help\zh-CN\SecurityAdmin\gis_eye_userguide_167.html" />
+    <Content Include="Help\zh-CN\SecurityAdmin\gis_eye_userguide_168.html" />
+    <Content Include="Help\zh-CN\SecurityAdmin\gis_eye_userguide_169.html" />
+    <Content Include="Help\zh-CN\SecurityAdmin\gis_eye_userguide_170.html" />
+    <Content Include="Help\zh-CN\SecurityMonitor\gis_eye_userguide_171.html" />
+    <Content Include="Help\zh-CN\tabs.html" />
+    <Content Include="Help\zh-CN\toolbar_index_term.html" />
+    <Content Include="Help\zh-CN\toolbar_toc.html" />
+    <Content Include="Help\zh-CN\views.html" />
+    <Content Include="Help\zh-CN\view_index_term.html" />
+    <Content Include="Help\zh-CN\view_profile.html" />
+    <Content Include="Help\zh-CN\view_toc.html" />
+    <Content Include="SDK\Silverlight.exe" />
+    <Content Include="SDK\sliverlight.jpg" />
+    <Content Include="ServiceConfig.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Silverlight.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DownTemplate\安全套件.xlsx" />
+    <Content Include="DownTemplate\SecuritySuite.xlsx" />
+    <Content Include="DownTemplate\SetupStation.xlsm" />
+    <Content Include="DownTemplate\Vehicle.xlsm" />
+    <Content Include="DownTemplate\安装点.xlsm" />
+    <Content Include="DownTemplate\车辆.xlsm" />
+    <Content Include="DownTemplate\GPSDevice.xlsx" />
+    <Content Include="DownTemplate\定位设备.xlsx" />
+    <Content Include="DownTemplate\Elpuntodemontaje.xlsm" />
+    <Content Include="DownTemplate\ElVehicle.xlsm" />
+    <Content Include="DownTemplate\LaSuitdeSeguridad.xlsx" />
+    <Content Include="DownTemplate\LocalizaciondeEquipos.xlsx" />
+    <Content Include="DownTemplate\驾驶员.xlsx" />
+    <Content Include="DownTemplate\Conductor.xlsx" />
+    <Content Include="DownTemplate\Drivers.xlsx" />
+    <None Include="Properties\PublishProfiles\PTMS WebSite.pubxml" />
+    <Content Include="Site_TemporaryKey.pfx" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Help\en-US\" />
+    <Folder Include="Help\es-ES\" />
+    <Folder Include="Help\zh-CN\Tools\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>Site_TemporaryKey.pfx</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>False</AutoAssignPort>
+          <DevelopmentServerPort>20909</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:20909/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

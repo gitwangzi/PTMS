@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.SecuritySuite.Contract.Data" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.SecuritySuite.Contract.Data" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:2258/VehicleStatusService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="ArrayOfVehicleStatus">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="VehicleStatus" nillable="true" type="tns:VehicleStatus" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfVehicleStatus" nillable="true" type="tns:ArrayOfVehicleStatus" />
+  <xs:complexType name="VehicleStatus">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AbnormalCause" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CarNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CarType" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="IsOnline" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="MdvrCoreId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Status" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="SutieInfoId" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="VehicleStatus" nillable="true" type="tns:VehicleStatus" />
+  <xs:complexType name="ArrayOfSuiteStatus">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SuiteStatus" nillable="true" type="tns:SuiteStatus" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSuiteStatus" nillable="true" type="tns:ArrayOfSuiteStatus" />
+  <xs:complexType name="SuiteStatus">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Latitude" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Longitude" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MdvrCoreID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OnlineStatus" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Owner" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OwnerPhone" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StatusChangeTime" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="StatusTimeSpan" type="ser:duration" />
+      <xs:element minOccurs="0" name="SuiteID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VehicleID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VehicleType" nillable="true" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SuiteStatus" nillable="true" type="tns:SuiteStatus" />
+  <xs:complexType name="ArrayOfInitialSuiteMangement">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="InitialSuiteMangement" nillable="true" type="tns:InitialSuiteMangement" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfInitialSuiteMangement" nillable="true" type="tns:ArrayOfInitialSuiteMangement" />
+  <xs:complexType name="InitialSuiteMangement">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CurrentStatus" nillable="true" type="xs:short" />
+      <xs:element minOccurs="0" name="MdvrCoreId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SuiteID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SuiteINFOID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TempCurrentStatus" nillable="true" type="xs:short" />
+      <xs:element minOccurs="0" name="UserInfo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VehicleID" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="InitialSuiteMangement" nillable="true" type="tns:InitialSuiteMangement" />
+  <xs:complexType name="SuiteMangementInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CurrentStatus" nillable="true" type="xs:short" />
+      <xs:element minOccurs="0" name="MdvrCoreId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StatusChange" nillable="true" type="xs:short" />
+      <xs:element minOccurs="0" name="SuiteID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SuiteINFOID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserInfo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VehicleID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="changeReason" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SuiteMangementInfo" nillable="true" type="tns:SuiteMangementInfo" />
+</xs:schema>

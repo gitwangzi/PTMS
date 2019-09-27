@@ -1,0 +1,878 @@
+﻿<UserControl x:Class="Gsafety.PTMS.Monitor.Views.VehicleInfoPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"  
+    xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions"
+    xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"  
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:converter="clr-namespace:Gsafety.Common.Converts;assembly=Converts"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d" d:DesignWidth="500" Width="auto" Height="auto"  d:DesignHeight="500">
+    <UserControl.Resources>
+        <converter:LocalizedStringConverter  x:Key="localize"></converter:LocalizedStringConverter>
+        <converter:ServiceTypeConverter x:Key="ServiceTypeConverter"/>
+
+        <Style TargetType="sdk:DataGridColumnHeader" x:Key="NoHeaderColumnHeaderStyle">
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="BorderThickness" Value="0"></Setter>
+            <Setter Property="VerticalContentAlignment" Value="Stretch"/>
+            <Setter Property="Height" Value="0"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="sdk:DataGridColumnHeader">
+                        <Border BorderBrush="#F0F0F2"
+                            BorderThickness="0"
+                            x:Name="ColumnHeaderBorder">
+                            <Border.Background>
+                                <LinearGradientBrush StartPoint="0,0.5" EndPoint="0,1.0">
+                                    <!--<GradientStop Color="#353a44" Offset="0.5"/>
+                                <GradientStop Color="#22252c" Offset="1.0"/>-->
+                                    <GradientStop Color="#F0F0F2" Offset="0.5"/>
+                                    <GradientStop Color="#F0F0F2" Offset="1.0"/>
+                                </LinearGradientBrush>
+                            </Border.Background>
+
+                            <StackPanel Background="{TemplateBinding Background}"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center">
+                                <ContentPresenter>
+                                    <ContentPresenter.Content>
+                                        <TextBlock Text="{TemplateBinding Content}"
+                                                Foreground="#e3dfdf"
+                                                HorizontalAlignment="Stretch"
+                                                VerticalAlignment="Stretch"
+                                                FontSize="12"
+                                               FontWeight="Bold"/>
+                                    </ContentPresenter.Content>
+                                </ContentPresenter>
+                            </StackPanel>
+                        </Border>
+
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+
+        </Style>
+
+        <!--DataGrid控件行样式-->
+        <Style TargetType="sdk:DataGridRow">
+
+            <Setter Property="IsTabStop" Value="False" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="sdk:DataGridRow">
+                        <sdk:DataGridFrozenGrid Name="Root">
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="CommonStates">
+                                    <VisualState x:Name="Normal">
+                                        <Storyboard>
+                                            <DoubleAnimation Storyboard.TargetName="BackgroundRectangle" Storyboard.TargetProperty="Opacity" Duration="0" To="0"/>
+                                        </Storyboard>
+                                    </VisualState>
+
+                                    <VisualState x:Name="NormalAlternatingRow">
+                                        <Storyboard>
+                                            <DoubleAnimation Storyboard.TargetName="BackgroundRectangle" 
+                                                         Storyboard.TargetProperty="Opacity" Duration="0" To="0"/>
+                                        </Storyboard>
+                                    </VisualState>
+                                    <!--设置鼠标滑过的颜色-->
+                                    <VisualState x:Name="MouseOver">
+                                        <Storyboard>
+                                            <DoubleAnimation Storyboard.TargetName="BackgroundRectangle" 
+                                                         Storyboard.TargetProperty="Opacity" Duration="0" To=".5"/>
+
+                                            <ColorAnimation Duration="0" Storyboard.TargetName="BackgroundRectangle" 
+                                                        Storyboard.TargetProperty="(Fill).Color" To="#3a3e42"/>
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="NormalSelected">
+                                        <Storyboard>
+                                            <DoubleAnimation Storyboard.TargetName="BackgroundRectangle" 
+                                                         Storyboard.TargetProperty="Opacity" Duration="0" To="1"/>
+                                            <ColorAnimation Duration="0" Storyboard.TargetName="BackgroundRectangle" 
+                                                        Storyboard.TargetProperty="(Fill).Color" To="#3a3e42"/>
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="MouseOverSelected">
+                                        <Storyboard>
+                                            <DoubleAnimation Storyboard.TargetName="BackgroundRectangle" 
+                                                         Storyboard.TargetProperty="Opacity" Duration="0" To="1"/>
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="UnfocusedSelected">
+                                        <Storyboard>
+                                            <DoubleAnimation Storyboard.TargetName="BackgroundRectangle" 
+                                                         Storyboard.TargetProperty="Opacity" Duration="0" To="1"/>
+
+                                            <ColorAnimation Duration="0" Storyboard.TargetName="BackgroundRectangle" 
+                                                        Storyboard.TargetProperty="(Fill).Color" To="#3a3e42"/>
+                                        </Storyboard>
+                                    </VisualState>
+                                </VisualStateGroup>
+                                <VisualStateGroup x:Name="ValidationStates">
+                                    <VisualState x:Name="Valid"/>
+                                    <VisualState x:Name="Invalid">
+                                        <Storyboard>
+                                            <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetName="BackgroundRectangle" Storyboard.TargetProperty="Visibility">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="Collapsed"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <DoubleAnimation Storyboard.TargetName="InvalidVisualElement" Storyboard.TargetProperty="Opacity" Duration="0" To="1"/>
+                                        </Storyboard>
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <!--<RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>-->
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+
+                            <Grid.Resources>
+                                <Storyboard x:Key="DetailsVisibleTransition">
+                                    <DoubleAnimation Storyboard.TargetName="DetailsPresenter" Storyboard.TargetProperty="ContentHeight" Duration="00:00:0.1" />
+                                </Storyboard>
+                            </Grid.Resources>
+
+                            <Rectangle x:Name="BackgroundRectangle" Grid.RowSpan="2" Grid.ColumnSpan="2" Opacity="0" Fill="#1E2226"/>
+                            <Rectangle x:Name="InvalidVisualElement" Grid.RowSpan="2" Grid.ColumnSpan="2" Opacity="0" Fill="#1E2226"/>
+                            <sdk:DataGridRowHeader Grid.RowSpan="3" Name="RowHeader" sdk:DataGridFrozenGrid.IsFrozen="True" />
+                            <sdk:DataGridCellsPresenter Grid.Column="1" Name="CellsPresenter" sdk:DataGridFrozenGrid.IsFrozen="True" />
+                            <sdk:DataGridDetailsPresenter Grid.Row="1" Grid.Column="1" Name="DetailsPresenter" />
+                            <Rectangle Grid.Row="2" Grid.Column="1" Name="BottomGridLine" HorizontalAlignment="Stretch" Height="1" />
+                        </sdk:DataGridFrozenGrid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+
+        </Style>
+
+
+        <Style TargetType="sdk:DataGridCell">
+            <Setter Property="Background" Value="#1E2226" />
+            <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+            <Setter Property="VerticalContentAlignment" Value="Center" />
+            <Setter Property="IsTabStop" Value="False" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="sdk:DataGridCell">
+                        <Grid Name="Root" Background="{TemplateBinding Background}">
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="CurrentStates">
+                                    <VisualState x:Name="Regular" />
+                                    <VisualState x:Name="Current">
+                                        <Storyboard>
+                                            <DoubleAnimation Storyboard.TargetName="FocusVisual" Storyboard.TargetProperty="Opacity" To="1" Duration="0" />
+                                            <ColorAnimation Storyboard.TargetName="FocusVisual"
+                                                        Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)"
+                                                        To="#1E2226" Duration="0"/>
+                                            <!--单元格的边框-->
+                                            <ColorAnimation Storyboard.TargetName="FocusVisual"
+                                                        Storyboard.TargetProperty="(Shape.Stroke).(SolidColorBrush.Color)"
+                                                        To="#1E2226" Duration="0"/>
+                                        </Storyboard>
+                                    </VisualState>
+                                </VisualStateGroup>
+                                <VisualStateGroup x:Name="ValidationStates">
+                                    <VisualState x:Name="Valid"/>
+                                    <VisualState x:Name="Invalid">
+                                        <Storyboard>
+                                            <DoubleAnimation Storyboard.TargetName="InvalidVisualElement" Storyboard.TargetProperty="Opacity" Duration="0" To="1"/>
+                                            <ColorAnimation Storyboard.TargetName="FocusVisual" Storyboard.TargetProperty="(Fill).Color" Duration="0" To="#1E2226"/>
+                                        </Storyboard>
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+
+                            <Rectangle Name="FocusVisual" Stroke="#1E2226" StrokeThickness="1" Fill="#1E2226" HorizontalAlignment="Stretch" 
+                               VerticalAlignment="Stretch" IsHitTestVisible="false" Opacity="0" />
+
+                            <ContentPresenter
+                                    Content="{TemplateBinding Content}"
+                                    ContentTemplate="{TemplateBinding ContentTemplate}"
+                                    HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                    VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                    Margin="{TemplateBinding Padding}" />
+
+                            <Rectangle x:Name="InvalidVisualElement" IsHitTestVisible="False" StrokeThickness="1" Stroke="#1E2226" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Opacity="0"/>
+
+                            <Rectangle Name="RightGridLine" Grid.Column="1" VerticalAlignment="Stretch" Width="1" />
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="DataGridStyleRxx2" TargetType="sdk:DataGrid">
+            <Setter Property="HorizontalGridLinesBrush" Value="#2b3038"/>
+            <Setter Property="VerticalGridLinesBrush" Value="#2b3038"/>
+            <Setter Property="HorizontalScrollBarVisibility" Value="Hidden"/>
+            <Setter Property="VerticalScrollBarVisibility" Value="Auto"/>
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+            <Setter Property ="VerticalAlignment" Value="Stretch"/>
+            <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+            <Setter Property="VerticalContentAlignment" Value="Stretch"/>
+            <Setter Property="Background" Value="#1E2226"/>
+            <Setter Property="AutoGenerateColumns" Value="False"/>
+            <Setter Property="IsReadOnly" Value="True"/>
+            <Setter Property="GridLinesVisibility" Value="All"/>
+            <Setter Property="RowBackground" Value="#272C32"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="AlternatingRowBackground" Value="#1E2226"/>
+            <Setter Property="HeadersVisibility" Value="Column"/>
+            <Setter Property="SelectionMode" Value="Extended"/>
+            <Setter Property="CanUserReorderColumns" Value="True"/>
+            <Setter Property="CanUserResizeColumns" Value="True"/>
+            <Setter Property="CanUserSortColumns" Value="True"/>
+            <Setter Property="RowDetailsVisibilityMode" Value="VisibleWhenSelected"/>
+            <Setter Property="BorderBrush">
+                <Setter.Value>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#1E2226" Offset="0"/>
+                        <GradientStop Color="#1E2226" Offset="0.375"/>
+                        <GradientStop Color="#1E2226" Offset="0.375"/>
+                        <GradientStop Color="#1E2226" Offset="1"/>
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="DragIndicatorStyle">
+                <Setter.Value>
+                    <Style TargetType="ContentControl">
+                        <Setter Property="Foreground" Value="#7FFFFFFF"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="ContentControl">
+                                    <Grid>
+                                        <VisualStateManager.VisualStateGroups>
+                                            <VisualStateGroup x:Name="SortStates">
+                                                <VisualState x:Name="Unsorted"/>
+                                                <VisualState x:Name="SortAscending">
+                                                    <Storyboard>
+                                                        <DoubleAnimation Duration="0" To="1.0" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="SortIcon"/>
+                                                    </Storyboard>
+                                                </VisualState>
+                                                <VisualState x:Name="SortDescending">
+                                                    <Storyboard>
+                                                        <DoubleAnimation Duration="0" To="1.0" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="SortIcon"/>
+                                                        <DoubleAnimation Duration="0" To="-.9" Storyboard.TargetProperty="(RenderTransform).ScaleY" Storyboard.TargetName="SortIcon"/>
+                                                    </Storyboard>
+                                                </VisualState>
+                                            </VisualStateGroup>
+                                        </VisualStateManager.VisualStateGroups>
+                                        <Rectangle x:Name="BackgroundRectangle" Grid.ColumnSpan="2" Fill="#1E2226" Stretch="Fill"/>
+                                        <Rectangle x:Name="BackgroundGradient" Grid.ColumnSpan="2" Opacity="0" Stretch="Fill">
+                                            <Rectangle.Fill>
+                                                <LinearGradientBrush EndPoint=".7,1" StartPoint=".7,0">
+                                                    <GradientStop Color="#1E2226" Offset="0.015"/>
+                                                    <GradientStop Color="#1E2226" Offset="0.375"/>
+                                                    <GradientStop Color="#1E2226" Offset="0.6"/>
+                                                    <GradientStop Color="#1E2226" Offset="1"/>
+                                                </LinearGradientBrush>
+                                            </Rectangle.Fill>
+                                        </Rectangle>
+                                        <Grid HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition/>
+                                                <ColumnDefinition Width="Auto"/>
+                                            </Grid.ColumnDefinitions>
+                                            <ContentPresenter Content="{TemplateBinding Content}"/>
+                                            <Path x:Name="SortIcon" Grid.Column="1" Data="F1 M -5.215,6.099L 5.215,6.099L 0,0L -5.215,6.099 Z " Fill="#7FFFFFFF" HorizontalAlignment="Left" Margin="4,0,0,0" Opacity="0" RenderTransformOrigin=".5,.5" Stretch="Uniform" VerticalAlignment="Center" Width="8">
+                                                <Path.RenderTransform>
+                                                    <ScaleTransform ScaleY=".9" ScaleX=".9"/>
+                                                </Path.RenderTransform>
+                                            </Path>
+                                        </Grid>
+                                    </Grid>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="DropLocationIndicatorStyle">
+                <Setter.Value>
+                    <Style TargetType="ContentControl">
+                        <Setter Property="Background" Value="#FF3F4346"/>
+                        <Setter Property="Width" Value="2"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="ContentControl">
+                                    <Rectangle Fill="{TemplateBinding Background}" Height="{TemplateBinding Height}" Width="{TemplateBinding Width}"/>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="IsTabStop" Value="True"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="sdk:DataGrid">
+                        <Grid>
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="CommonStates">
+                                    <VisualState x:Name="Normal"/>
+                                    <VisualState x:Name="Disabled">
+                                        <Storyboard>
+                                            <DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="DisabledVisualElement"/>
+                                        </Storyboard>
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                            <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="2">
+                                <Grid x:Name="Root" Background="{TemplateBinding Background}">
+                                    <Grid.Resources>
+                                        <ControlTemplate x:Key="TopLeftHeaderTemplate" TargetType="sdk:DataGridColumnHeader">
+                                            <Grid x:Name="Root">
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition/>
+                                                    <RowDefinition/>
+                                                    <RowDefinition Height="Auto"/>
+                                                </Grid.RowDefinitions>
+                                                <Border BorderBrush="#1E2226" BorderThickness="0,0,1,0" Background="#1E2226" Grid.RowSpan="2">
+                                                    <Rectangle Stretch="Fill" StrokeThickness="1">
+                                                        <Rectangle.Fill>
+                                                            <LinearGradientBrush EndPoint=".7,1" StartPoint=".7,0">
+                                                                <GradientStop Color="#1E2226" Offset="0.015"/>
+                                                                <GradientStop Color="#1E2226" Offset="0.375"/>
+                                                                <GradientStop Color="#1E2226" Offset="0.6"/>
+                                                                <GradientStop Color="#1E2226" Offset="1"/>
+                                                            </LinearGradientBrush>
+                                                        </Rectangle.Fill>
+                                                    </Rectangle>
+                                                </Border>
+                                                <Rectangle Fill="#1E2226" Height="1" Grid.RowSpan="2" StrokeThickness="1" VerticalAlignment="Bottom" Width="Auto"/>
+                                            </Grid>
+                                        </ControlTemplate>
+                                        <ControlTemplate x:Key="TopRightHeaderTemplate" TargetType="sdk:DataGridColumnHeader">
+                                            <Grid x:Name="RootElement">
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition/>
+                                                    <RowDefinition/>
+                                                    <RowDefinition Height="Auto"/>
+                                                </Grid.RowDefinitions>
+                                                <Border BorderBrush="#484f58" BorderThickness="1,0,0,0" Background="#FF1F3B53" Grid.RowSpan="2">
+                                                    <!--垂直滚动条上的小块-->
+                                                    <Rectangle Stretch="Fill">
+                                                        <Rectangle.Fill>
+                                                            <!--<LinearGradientBrush EndPoint=".7,1" StartPoint=".7,0">
+                                                            <GradientStop Color="#FF1F3B53" Offset="0.015"/>
+                                                            <GradientStop Color="#FF1F3B53" Offset="0.375"/>
+                                                            <GradientStop Color="#FF1F3B53" Offset="0.6"/>
+                                                            <GradientStop Color="#FF1F3B53" Offset="1"/>
+                                                        </LinearGradientBrush>-->
+                                                            <LinearGradientBrush StartPoint="0,0.5" EndPoint="0,1.0">
+                                                                <!--<GradientStop Color="#353a44" Offset="0.5"/>
+                                <GradientStop Color="#22252c" Offset="1.0"/>-->
+                                                                <GradientStop Color="#939496" Offset="0.5"/>
+                                                                <GradientStop Color="#939496" Offset="1.0"/>
+                                                            </LinearGradientBrush>
+                                                        </Rectangle.Fill>
+                                                    </Rectangle>
+                                                </Border>
+                                            </Grid>
+                                        </ControlTemplate>
+                                    </Grid.Resources>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <sdk:DataGridColumnHeader x:Name="TopLeftCornerHeader" Template="{StaticResource TopLeftHeaderTemplate}" Width="22"/>
+                                    <sdk:DataGridColumnHeadersPresenter x:Name="ColumnHeadersPresenter" Grid.Column="1"/>
+                                    <sdk:DataGridColumnHeader x:Name="TopRightCornerHeader" Grid.Column="2" Template="{StaticResource TopRightHeaderTemplate}"/>
+                                    <Rectangle x:Name="ColumnHeadersAndRowsSeparator" Grid.ColumnSpan="3" Fill="#1E2226" Height="1" StrokeThickness="1" VerticalAlignment="Bottom" Width="Auto"/>
+                                    <sdk:DataGridRowsPresenter x:Name="RowsPresenter" Grid.ColumnSpan="2" Grid.Row="1"/>
+                                    <Rectangle x:Name="BottomRightCorner" Grid.Column="2" Fill="#FFE9EEF4" Grid.Row="2"/>
+                                    <Rectangle x:Name="BottomLeftCorner" Grid.ColumnSpan="2" Fill="#FFE9EEF4" Grid.Row="2"/>
+                                    <ScrollBar x:Name="VerticalScrollbar" Grid.Column="2" Margin="0,-1,-1,-1" Orientation="Vertical" Grid.Row="1" Width="18" 
+                                           Style="{StaticResource SelfScrollBarStyle2}"/>
+                                    <Grid Grid.Column="1" Grid.Row="2">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition/>
+                                        </Grid.ColumnDefinitions>
+                                        <Rectangle x:Name="FrozenColumnScrollBarSpacer"/>
+                                        <ScrollBar x:Name="HorizontalScrollbar" Grid.Column="1" Height="18" Margin="-1,0,-1,-1" Orientation="Horizontal"/>
+                                    </Grid>
+                                    <sdk:ValidationSummary x:Name="ValidationSummary" Grid.ColumnSpan="3" MaxHeight="90" Grid.Row="3"/>
+                                </Grid>
+                            </Border>
+                            <Border x:Name="DisabledVisualElement" Background="#8C1c1f23" CornerRadius="2" HorizontalAlignment="Stretch" Height="Auto" IsHitTestVisible="False" Opacity="0" VerticalAlignment="Stretch" Width="Auto"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+
+        <Style x:Key="ScrollViewerStyle" TargetType="ScrollViewer">
+            <Setter Property="HorizontalContentAlignment" Value="Left"/>
+            <Setter Property="VerticalContentAlignment" Value="Top"/>
+            <Setter Property="VerticalScrollBarVisibility" Value="Visible"/>
+            <Setter Property="Padding" Value="4"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="BorderBrush">
+                <Setter.Value>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FFA3AEB9" Offset="0"/>
+                        <GradientStop Color="#FF8399A9" Offset="0.375"/>
+                        <GradientStop Color="#FF718597" Offset="0.375"/>
+                        <GradientStop Color="#FF617584" Offset="1"/>
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ScrollViewer">
+                        <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="2">
+                            <Grid Background="{TemplateBinding Background}">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <ScrollContentPresenter x:Name="ScrollContentPresenter" 
+                                                        Cursor="{TemplateBinding Cursor}" 
+                                                        ContentTemplate="{TemplateBinding ContentTemplate}" Margin="{TemplateBinding Padding}"/>
+                                <Rectangle Grid.Column="1" Fill="#FFE9EEF4" Grid.Row="1"/>
+                                <ScrollBar x:Name="VerticalScrollBar" 
+                                           Grid.Column="1" 
+                                           Maximum="{TemplateBinding ScrollableHeight}" 
+                                           Margin="0,-1,-1,-1" Minimum="0" 
+                                           Orientation="Vertical" 
+                                           Grid.Row="0"
+                                           Visibility="{TemplateBinding ComputedVerticalScrollBarVisibility}" 
+                                           Value="{TemplateBinding VerticalOffset}" ViewportSize="{TemplateBinding ViewportHeight}" 
+                                           Width="18" 
+                                           Style="{StaticResource SelfScrollBarStyle2}"/>
+                                <ScrollBar x:Name="HorizontalScrollBar" 
+                                           Grid.Column="0" Height="18" 
+                                           IsTabStop="False" 
+                                           Maximum="{TemplateBinding ScrollableWidth}" 
+                                           Margin="-1,0,-1,-1" Minimum="0" 
+                                           Orientation="Horizontal" 
+                                           Grid.Row="1" 
+                                           Visibility="{TemplateBinding ComputedHorizontalScrollBarVisibility}" 
+                                           Value="{TemplateBinding HorizontalOffset}" 
+                                           ViewportSize="{TemplateBinding ViewportWidth}"/>
+                            </Grid>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+
+
+    </UserControl.Resources>
+    <Grid>
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="VisualStateGroup">
+                <VisualState x:Name="MinStory">
+                    <Storyboard>
+                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)" Storyboard.TargetName="VehicleInfoBorder">
+                            <EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+                            <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="0"/>
+                        </DoubleAnimationUsingKeyFrames>
+                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)" Storyboard.TargetName="VehicleInfoBorder">
+                            <EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+                            <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="0"/>
+                        </DoubleAnimationUsingKeyFrames>
+                    </Storyboard>
+                </VisualState>
+                <VisualState x:Name="MaxStory">
+                    <Storyboard>
+                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)" Storyboard.TargetName="VehicleInfoBorder">
+                            <EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+                            <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
+                            <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="1"/>
+                        </DoubleAnimationUsingKeyFrames>
+                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)" Storyboard.TargetName="VehicleInfoBorder">
+                            <EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+                            <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
+                            <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="1"/>
+                        </DoubleAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="VehicleInfoBorder">
+                            <DiscreteObjectKeyFrame KeyTime="0">
+                                <DiscreteObjectKeyFrame.Value>
+                                    <Visibility>Collapsed</Visibility>
+                                </DiscreteObjectKeyFrame.Value>
+                            </DiscreteObjectKeyFrame>
+                            <DiscreteObjectKeyFrame KeyTime="0:0:0.2">
+                                <DiscreteObjectKeyFrame.Value>
+                                    <Visibility>Visible</Visibility>
+                                </DiscreteObjectKeyFrame.Value>
+                            </DiscreteObjectKeyFrame>
+                        </ObjectAnimationUsingKeyFrames>
+                    </Storyboard>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+        <Border x:Name="VehicleInfoBorder" BorderThickness="0" Margin="0,0,0,0" RenderTransformOrigin="0,0"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Stretch" Background="#272c32">
+            <Border.RenderTransform>
+                <CompositeTransform ScaleX="0" ScaleY="0" TranslateY="0"/>
+            </Border.RenderTransform>
+            <Grid x:Name="LayoutRoot"  Margin="0" Height="Auto" VerticalAlignment="Top">
+                <Grid.Effect>
+                    <DropShadowEffect BlurRadius="8" ShadowDepth="1" Opacity="0.6" Direction="315"/>
+                </Grid.Effect>
+
+                <Grid x:Name="MainContent"  RenderTransformOrigin="0,0" Height="auto" VerticalAlignment="Top">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid Grid.Row="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="5"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="10"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Grid.Background>
+                            <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                                <GradientStop Color="#1E2226" Offset="0.0"/>
+                                <GradientStop Color="#1E2226" Offset="1.0"/>
+                            </LinearGradientBrush>
+                        </Grid.Background>
+
+
+                        <Image Grid.Column="1" Style="{StaticResource SecoundTitleImageStyle}"/>
+                        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" 
+                                       Text="{Binding [InfoShow], Source={StaticResource SR}}" 
+                                       VerticalAlignment="Center" Grid.Column="2" Margin="0,0,0,0" 
+                                       FontSize="13"
+                                       FontWeight="Bold" Style="{StaticResource TextBlockLightStyle}"/>
+                        <Image Grid.Column="3" Style="{StaticResource ClloapseImageStyle}" x:Name="OperatorCollapseGridImage"
+                               MouseLeftButtonDown="OperatorGridImage_OnMouseLeftButtonDown"/>
+                        <Image Grid.Column="3" Style="{StaticResource ExpendImageStyle}" x:Name="OperatorExpendGridImage"
+                               Visibility="Collapsed"
+                               MouseLeftButtonDown="OperatorExpendGridImage_OnMouseLeftButtonDown"/>
+
+                    </Grid>
+
+                    <ScrollViewer Grid.Row="1" Style="{StaticResource ScrollViewerRightStyle}" Height="300"
+                                  x:Name="ShowInfoScrollViewer">
+
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+
+
+                            <Grid Grid.Row="0" x:Name="ExpendCollaspeInfoGrid" >
+
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+
+                                <Grid x:Name="ThreeTitleGrid" Grid.Row="0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="5"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="25"/>
+                                        <ColumnDefinition Width="10"/>
+                                    </Grid.ColumnDefinitions>
+
+
+                                    <Image Grid.Column="1" Style="{StaticResource ThreeTitleImageStyle}"/>
+                                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" 
+                                       Text="{Binding [MONITOR_BaseInfo], Source={StaticResource SR}}" 
+                                       VerticalAlignment="Center" Grid.Column="2" Margin="0,0,0,0" 
+                                       FontSize="12"
+                                       FontWeight="Bold" Style="{StaticResource TextBlockLightStyle}"/>
+
+
+                                </Grid>
+
+
+                                <Grid x:Name="ShowInfoGrid" Grid.Row="1">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="10"></RowDefinition>
+                                        <RowDefinition Height="Auto"></RowDefinition>
+                                        <RowDefinition Height="Auto"></RowDefinition>
+                                        <RowDefinition Height="Auto"></RowDefinition>
+                                        <RowDefinition Height="Auto"></RowDefinition>
+                                        <RowDefinition Height="Auto"></RowDefinition>
+                                        <RowDefinition Height="Auto"></RowDefinition>
+                                        <RowDefinition Height="Auto"></RowDefinition>
+                                        <RowDefinition Height="Auto"></RowDefinition>
+                                        <RowDefinition Height="Auto"></RowDefinition>
+                                        <RowDefinition Height="Auto"></RowDefinition>
+                                        <RowDefinition Height="15"></RowDefinition>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="1.6*"></ColumnDefinition>
+                                        <ColumnDefinition Width="2*"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <!--<TextBlock Grid.Row="1" 
+                                   Grid.Column="0" 
+                                   Text="{Binding [TRAFFIC_Province], Source={StaticResource SR}}"
+                                   
+                                   Margin="0,0,5,0" HorizontalAlignment="Right" VerticalAlignment="Center" 
+                                   TextAlignment="Right"/>
+                            <TextBlock Grid.Row="1" Grid.Column="1" 
+                                   Text="{Binding CurrentVehicle.ProvinceName,Mode=TwoWay}" 
+                                   Margin="5,0,0,0"
+                                   VerticalAlignment="Center"  
+                                   TextAlignment="Left" />
+
+                            <TextBlock Grid.Row="2" 
+                                   Grid.Column="0" 
+                                   Text="{Binding [TRAFFIC_City], Source={StaticResource SR}}"  
+                                   Margin="0,0,5,0" 
+                                   HorizontalAlignment="Right"  VerticalAlignment="Center"  
+                                   TextAlignment="Right" />
+
+                            <TextBlock Grid.Row="2" Grid.Column="1" 
+                                   Text="{Binding CurrentVehicle.CityName,Mode=TwoWay}" 
+                                   Margin="5,0,0,0"
+                                   VerticalAlignment="Center" TextAlignment="Left" 
+                                   />-->
+
+                                    <TextBlock Grid.Row="1" Grid.Column="0" 
+                                               Text="{Binding [CarNumber], Source={StaticResource SR}}" 
+                                               Margin="0,0,10,3" VerticalAlignment="Center"   
+                                               HorizontalAlignment="Right"  TextAlignment="Right"  Style="{StaticResource TextBlockLightStyle}"/>
+
+                                    <TextBlock Grid.Row="1" Grid.Column="1" 
+                                               Text="{Binding CurrentVehicle.VehicleId}" Margin="10,0,0,3"
+                                               VerticalAlignment="Center" TextAlignment="Left" 
+                                               ToolTipService.ToolTip="{Binding CurrentVehicle.VehicleId}" Style="{StaticResource TextBlockLightStyle}"/>
+
+                                    <TextBlock Grid.Row="2" Grid.Column="0" 
+                                               Text="{Binding [OrganizationName], Source={StaticResource SR}}" 
+                                               Margin="0,3,10,3" VerticalAlignment="Center"   
+                                               HorizontalAlignment="Right"  TextAlignment="Right" Style="{StaticResource TextBlockLightStyle}" />
+
+                                    <TextBlock Grid.Row="2" Grid.Column="1" 
+                                                Text="{Binding CurrentVehicle.OrganizationName}"
+                                                Margin="10,3,0,3"
+                                                VerticalAlignment="Center" TextAlignment="Left" 
+                                               ToolTipService.ToolTip="{Binding CurrentVehicle.OrganizationName}" Style="{StaticResource TextBlockLightStyle}"/>
+
+
+                                    <TextBlock Grid.Row="3" Grid.Column="0" 
+                                               Text="{Binding [MONITOR_VehicleType], Source={StaticResource SR}}" 
+                                               Margin="0,3,10,3" HorizontalAlignment="Right"  VerticalAlignment="Center"   
+                                               TextAlignment="Right"  Style="{StaticResource TextBlockLightStyle}"/>
+
+                                    <TextBlock Grid.Row="3" Grid.Column="1" 
+                                               Text="{Binding CurrentVehicle.VehicleTypeDescribe,Converter={StaticResource  localize}}" Margin="10,3,0,3"
+                                               VerticalAlignment="Center" TextAlignment="Left"
+                                               ToolTipService.ToolTip="{Binding CurrentVehicle.VehicleTypeDescribe,Converter={StaticResource  localize}}" Style="{StaticResource TextBlockLightStyle}"/>
+
+
+                                    <TextBlock Grid.Row="4" 
+                                               Grid.Column="0" 
+                                               Text="{Binding [SpaticalQuery_Dist], Source={StaticResource SR}}" 
+                                               Margin="0,3,10,3" HorizontalAlignment="Right" VerticalAlignment="Center" 
+                                               TextAlignment="Right" Style="{StaticResource TextBlockLightStyle}"/>
+                                    <TextBlock Grid.Row="4" Grid.Column="1" 
+                                               Text="{Binding DistrictCode}" 
+                                               Margin="10,3,0,3"
+                                               VerticalAlignment="Center"  
+                                               TextAlignment="Left" 
+                                               ToolTipService.ToolTip="{Binding DistrictCode}" Style="{StaticResource TextBlockLightStyle}"/>
+
+
+
+                                    <TextBlock Grid.Row="5" Grid.Column="1" 
+                                   Text="{Binding CurrentVehicle.CityName}" 
+                                   Margin="10,3,0,3"
+                                   VerticalAlignment="Center" TextAlignment="Left" 
+                                       Visibility="Collapsed" ToolTipService.ToolTip="{Binding CurrentVehicle.CityName}" Style="{StaticResource TextBlockLightStyle}"
+                                   />
+
+                                    <TextBlock Grid.Row="6" Grid.Column="0" 
+                                   Text="{Binding [MONITOR_VehicleHBrand], Source={StaticResource SR}}"  
+                                   Margin="0,3,10,3" HorizontalAlignment="Right" VerticalAlignment="Center"  
+                                   TextAlignment="Right"  Style="{StaticResource TextBlockLightStyle}"/>
+
+                                    <TextBlock Grid.Row="6" Grid.Column="1" 
+                                   Text="{Binding CurrentVehicle.BrandModel}" Margin="10,3,0,3"
+                                   VerticalAlignment="Center" TextAlignment="Left" 
+                                               ToolTipService.ToolTip="{Binding CurrentVehicle.BrandModel}" Style="{StaticResource TextBlockLightStyle}"/>
+
+
+
+                                    <TextBlock Grid.Row="7" Grid.Column="0" 
+                                   Text="{Binding [ServiceType], Source={StaticResource SR}}" 
+                                   Margin="0,3,10,3" HorizontalAlignment="Right"  
+                                   VerticalAlignment="Center"  TextAlignment="Right" Style="{StaticResource TextBlockLightStyle}" />
+
+
+                                    <TextBlock Grid.Row="7" Grid.Column="1" 
+                                   Text="{Binding CurrentVehicle.VehicleServiceType,Converter={StaticResource  ServiceTypeConverter}}"
+                                       Margin="10,3,0,3"
+                                   VerticalAlignment="Center" TextAlignment="Left" 
+                                               ToolTipService.ToolTip="{Binding CurrentVehicle.VehicleServiceType,Converter={StaticResource  ServiceTypeConverter}}" Style="{StaticResource TextBlockLightStyle}"/>
+
+                                    <TextBlock Grid.Row="8" Grid.Column="0" 
+                                   Text="{Binding [MONITOR_VehicleHost], Source={StaticResource SR}}"  
+                                   Margin="0,3,10,3" HorizontalAlignment="Right"  
+                                   VerticalAlignment="Center"   
+                                   TextAlignment="Right"  Style="{StaticResource TextBlockLightStyle}"/>
+
+                                    <TextBlock Grid.Row="8" Grid.Column="1" 
+                                   Text="{Binding CurrentVehicle.Owner}" 
+                                       Margin="10,3,0,3"
+                                   VerticalAlignment="Center" TextAlignment="Left" ToolTipService.ToolTip="{Binding CurrentVehicle.Owner}" Style="{StaticResource TextBlockLightStyle}"/>
+
+                                    <TextBlock  Grid.Row="9" Grid.Column="0" 
+                                    Text="{Binding [ALARM_Phone], Source={StaticResource SR}}" 
+                                    Margin="0,3,10,3" HorizontalAlignment="Right" 
+                                    VerticalAlignment="Center"   
+                                    TextAlignment="Right"  Style="{StaticResource TextBlockLightStyle}"/>
+
+                                    <TextBlock Grid.Row="9" Grid.Column="1" 
+                                   Text="{Binding CurrentVehicle.ContactPhone}"
+                                       Margin="10,3,0,3"
+                                    VerticalAlignment="Center" TextAlignment="Left" 
+                                               ToolTipService.ToolTip="{Binding CurrentVehicle.ContactPhone}" Style="{StaticResource TextBlockLightStyle}"/>
+
+                                    <TextBlock  Grid.Row="10" 
+                                                Grid.Column="0" 
+                                                Text="{Binding [Note], Source={StaticResource SR}}"  
+                                                Margin="0,3,10,3" HorizontalAlignment="Right" 
+                                                VerticalAlignment="Center"   
+                                                TextAlignment="Right" 
+                                                Visibility="{Binding IsNoteVisibility}" Style="{StaticResource TextBlockLightStyle}"/>
+
+                                    <TextBlock Grid.Row="10" 
+                                               Grid.Column="1" 
+                                       TextWrapping="Wrap"
+                                        Text="{Binding CurrentVehicle.Note}"  Margin="10,3,0,3"
+                                        VerticalAlignment="Center" TextAlignment="Left" 
+                                               HorizontalAlignment="Left"
+                                               Visibility="{Binding IsNoteVisibility}"
+                                               ToolTipService.ToolTip="{Binding CurrentVehicle.Note}" Style="{StaticResource TextBlockLightStyle}"/>
+
+                                </Grid>
+
+                            </Grid>
+
+                            <Grid Grid.Row="2" x:Name="DriverDataGridGrid">
+
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+
+                                <Grid Grid.Row="0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="5"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="25"/>
+                                        <ColumnDefinition Width="10"/>
+                                    </Grid.ColumnDefinitions>
+
+
+                                    <Image Grid.Column="1" Style="{StaticResource ThreeTitleImageStyle}"/>
+                                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" 
+                                       Text="{Binding [DriverInfo], Source={StaticResource SR}}"
+                                       VerticalAlignment="Center" Grid.Column="2" Margin="0,0,0,0" 
+                                       FontSize="12"
+                                       FontWeight="Bold"
+                                        Style="{StaticResource TextBlockLightStyle}"/>
+
+
+                                </Grid>
+
+                                <sdk:DataGrid Grid.Row="1"  Style="{StaticResource DataGridStyleRxx2}"
+                                      ItemsSource="{Binding ChauffeurList}"
+                                      GridLinesVisibility="None"
+                                      CanUserResizeColumns="False"
+                                      Margin="0,7,0,10">
+
+                                    <sdk:DataGrid.Columns>
+                                        <sdk:DataGridTemplateColumn  Width="1.2*" HeaderStyle="{StaticResource NoHeaderColumnHeaderStyle}">
+                                            <sdk:DataGridTemplateColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <TextBlock  Text="{Binding Name}" 
+                                                        Margin="0,3,10,3" 
+                                                        VerticalAlignment="Center"   
+                                                        HorizontalAlignment="Right"  
+                                                        TextAlignment="Right"  Height="Auto"
+                                                                ToolTipService.ToolTip="{Binding Name}" Style="{StaticResource TextBlockLightStyle}"/>
+                                                </DataTemplate>
+                                            </sdk:DataGridTemplateColumn.CellTemplate>
+                                        </sdk:DataGridTemplateColumn>
+
+                                        <sdk:DataGridTemplateColumn  Width="2*" HeaderStyle="{StaticResource NoHeaderColumnHeaderStyle}">
+                                            <sdk:DataGridTemplateColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <TextBlock  Text="{Binding Phone}" 
+                                                        Margin="10,3,0,3" 
+                                                        VerticalAlignment="Center"   
+                                                        HorizontalAlignment="Left"  
+                                                        TextAlignment="Left"  Height="Auto"
+                                                                ToolTipService.ToolTip="{Binding Phone}" Style="{StaticResource TextBlockLightStyle}"/>
+                                                </DataTemplate>
+                                            </sdk:DataGridTemplateColumn.CellTemplate>
+                                        </sdk:DataGridTemplateColumn>
+
+                                    </sdk:DataGrid.Columns>
+                                </sdk:DataGrid>
+
+                            </Grid>
+
+                        </Grid>
+
+                    </ScrollViewer>
+
+
+
+
+
+
+                </Grid>
+            </Grid>
+        </Border>
+        <Image Margin="0,0,0,0" >
+            <i:Interaction.Triggers>
+                <ei:DataTrigger  Binding="{Binding IsVisual}" Value="True">
+                    <ei:GoToStateAction StateName="MaxStory"/>
+                    <ei:ChangePropertyAction TargetObject="{Binding}" PropertyName="IsOpen" Value="True"></ei:ChangePropertyAction>
+                </ei:DataTrigger>
+                <ei:DataTrigger  Binding="{Binding IsVisual}" Value="False">
+                    <ei:GoToStateAction StateName="MinStory"/>
+                    <ei:ChangePropertyAction TargetObject="{Binding}" PropertyName="IsOpen" Value="False"></ei:ChangePropertyAction>
+                </ei:DataTrigger>
+            </i:Interaction.Triggers>
+        </Image>
+
+    </Grid>
+</UserControl>

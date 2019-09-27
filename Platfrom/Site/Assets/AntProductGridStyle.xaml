@@ -1,0 +1,187 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!--主界面第一行Grid样式-->
+    <Style TargetType="Grid" x:Key="MainViewFirstRowGridStyle">
+        <Setter Property="HorizontalAlignment" Value="Stretch"/>
+        <Setter Property="VerticalAlignment" Value="Stretch"/>
+        <Setter Property="Background">
+            <Setter.Value>
+                <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                    <GradientStop Color="#0099cb" Offset="0.0"/>
+                    <GradientStop Color="#0099cb" Offset="1.0"/>
+                </LinearGradientBrush>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--主界面第一级导航Grid样式-->
+    <Style TargetType="Grid" x:Key="MainViewFirstLevelNativeGridStyle">
+        <Setter Property="HorizontalAlignment" Value="Stretch"/>
+        <Setter Property="VerticalAlignment" Value="Stretch"/>
+        <Setter Property="Background">
+            <Setter.Value>
+                <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                    <GradientStop Color="#3E4651" Offset="0.0"/>
+                    <GradientStop Color="#1C1F24" Offset="1.0"/>
+                </LinearGradientBrush>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--界面第一级标题Grid样式-->
+    <Style TargetType="Grid" x:Key="ViewFirstTitleGridStyle">
+        <Setter Property="HorizontalAlignment" Value="Stretch"/>
+        <Setter Property="VerticalAlignment" Value="Stretch"/>
+        <Setter Property="Background">
+            <Setter.Value>
+                <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                    <!--<GradientStop Color="#353A44" Offset="0.0"/>
+                    <GradientStop Color="#22252C" Offset="1.0"/>-->
+                    <GradientStop Color="#1E2126" Offset="0.0"/>
+                    <GradientStop Color="#1E2126" Offset="1.0"/>
+                </LinearGradientBrush>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--界面第一级标题Grid样式灰-->
+    <Style TargetType="Grid" x:Key="ViewFirstTitleGrayGridStyle">
+        <Setter Property="HorizontalAlignment" Value="Stretch"/>
+        <Setter Property="VerticalAlignment" Value="Stretch"/>
+        <Setter Property="Background">
+            <Setter.Value>
+                <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                    <!--<GradientStop Color="#353A44" Offset="0.0"/>
+                    <GradientStop Color="#22252C" Offset="1.0"/>-->
+                    <GradientStop Color="#EFF0F2" Offset="0.0"/>
+                    <GradientStop Color="#EFF0F2" Offset="1.0"/>
+                </LinearGradientBrush>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--界面第一级标题Grid样式白-->
+    <Style TargetType="Grid" x:Key="ViewFirstTitleWhiteGridStyle">
+        <Setter Property="HorizontalAlignment" Value="Stretch"/>
+        <Setter Property="VerticalAlignment" Value="Stretch"/>
+        <Setter Property="Background">
+            <Setter.Value>
+                <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                    <!--<GradientStop Color="#353A44" Offset="0.0"/>
+                    <GradientStop Color="#22252C" Offset="1.0"/>-->
+                    <GradientStop Color="#FFFFFF" Offset="0.0"/>
+                    <GradientStop Color="#EEEEEE" Offset="1.0"/>
+                </LinearGradientBrush>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--一级Grid的样式-->
+    <Style TargetType="Grid" x:Key="FirstLevelGridStyle">
+        <Setter Property="HorizontalAlignment" Value="Stretch"/>
+        <Setter Property="VerticalAlignment" Value="Stretch"/>
+        <Setter Property="Background" Value="#51504f"/>
+    </Style>
+
+    <!--内容Grid的样式-->
+
+    <Style TargetType="Grid" x:Key="ContentGridStyle">
+        <Setter Property="HorizontalAlignment" Value="Stretch"/>
+        <Setter Property="VerticalAlignment" Value="Stretch"/>
+        <!--<Setter Property="Background" Value="#353d46"/>-->
+        <Setter Property="Background" Value="#272C32"/>
+    </Style>
+
+    <!--内容Grid的样式白-->
+    <Style TargetType="Grid" x:Key="ContentGridWhiteStyle">
+        <Setter Property="HorizontalAlignment" Value="Stretch"/>
+        <Setter Property="VerticalAlignment" Value="Stretch"/>
+        <!--<Setter Property="Background" Value="#353d46"/>-->
+        <Setter Property="Background" Value="#ffffff"/>
+    </Style>
+
+    <!--查询内容Grid的样式-->
+
+    <Style TargetType="Grid" x:Key="SearchContentGridStyle">
+        <Setter Property="HorizontalAlignment" Value="Stretch"/>
+        <Setter Property="VerticalAlignment" Value="Stretch"/>
+        <!--<Setter Property="Background" Value="#353d46"/>-->
+        <Setter Property="Background" Value="#eff0f2"/>
+    </Style>
+
+    <!--Accordion项中使用的Grid的样式-->
+
+    <Style TargetType="Grid" x:Key="AccordionItemGridStyle">
+        <Setter Property="HorizontalAlignment" Value="Stretch"/>
+        <Setter Property="VerticalAlignment" Value="Stretch"/>
+        <Setter Property="Background" Value="#272c32"/>
+    </Style>
+
+
+    <!--系统界面第一级标题Grid样式V2.0-->
+    <Style TargetType="Grid" x:Key="SystemViewFirstTitleGridStyle">
+        <Setter Property="HorizontalAlignment" Value="Stretch"/>
+        <Setter Property="VerticalAlignment" Value="Stretch"/>
+        <Setter Property="Background">
+            <Setter.Value>
+                <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                    <GradientStop Color="#383f49" Offset="0.0"/>
+                    <GradientStop Color="#1d2025" Offset="1.0"/>
+                </LinearGradientBrush>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+
+    <!--系统界面第二级标题Grid样式V2.0-->
+    <Style TargetType="Grid" x:Key="SystemViewSecoundTitleGridStyle">
+        <Setter Property="HorizontalAlignment" Value="Stretch"/>
+        <Setter Property="VerticalAlignment" Value="Stretch"/>
+        <Setter Property="Background">
+            <Setter.Value>
+                <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                    <GradientStop Color="#262A33" Offset="0.0"/>
+                    <GradientStop Color="#181D23" Offset="1.0"/>
+                </LinearGradientBrush>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+
+    <!--系统界面信息展示Grid样式V2.0-->
+    <Style TargetType="Grid" x:Key="SystemInfoShowGridStyle">
+        <Setter Property="HorizontalAlignment" Value="Stretch"/>
+        <Setter Property="VerticalAlignment" Value="Stretch"/>
+        <Setter Property="Background" Value="#1e2226">
+           
+        </Setter>
+    </Style>
+
+    <!--系统界面信息右侧展示Grid样式V2.0-->
+    <Style TargetType="Grid" x:Key="SystemRightInfoShowGridStyle">
+        <Setter Property="HorizontalAlignment" Value="Stretch"/>
+        <Setter Property="VerticalAlignment" Value="Stretch"/>
+        <Setter Property="Background" Value="#272C32">
+
+        </Setter>
+    </Style>
+
+    <Style TargetType="Grid" x:Key="GisToolBarGridStyle">
+        <Setter Property="HorizontalAlignment" Value="Stretch"/>
+        <Setter Property="VerticalAlignment" Value="Stretch"/>
+        <!--<Setter Property="Background" Value="Black"></Setter>-->
+        <Setter Property="Background">
+            <Setter.Value>
+                <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                    <GradientStop Color="#3b424c" Offset="0.0"/>
+                    <GradientStop Color="#232830" Offset="1.0"/>
+                </LinearGradientBrush>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+
+
+</ResourceDictionary>

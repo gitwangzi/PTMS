@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="DevGpsService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:2258/DevGpsService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:2258/DevGpsService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:2258/DevGpsService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Common.Data" />
+      <xsd:import schemaLocation="http://localhost:2258/DevGpsService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Common.Enum" />
+      <xsd:import schemaLocation="http://localhost:2258/DevGpsService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" />
+      <xsd:import schemaLocation="http://localhost:2258/DevGpsService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/System" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IDevGpsService_InsertDevGps_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertDevGps" />
+  </wsdl:message>
+  <wsdl:message name="IDevGpsService_InsertDevGps_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertDevGpsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDevGpsService_UpdateDevGps_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateDevGps" />
+  </wsdl:message>
+  <wsdl:message name="IDevGpsService_UpdateDevGps_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateDevGpsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDevGpsService_DeleteDevGpsByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteDevGpsByID" />
+  </wsdl:message>
+  <wsdl:message name="IDevGpsService_DeleteDevGpsByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteDevGpsByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDevGpsService_GetDevGps_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDevGps" />
+  </wsdl:message>
+  <wsdl:message name="IDevGpsService_GetDevGps_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDevGpsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDevGpsService_GetDevGpsBySN_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDevGpsBySN" />
+  </wsdl:message>
+  <wsdl:message name="IDevGpsService_GetDevGpsBySN_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDevGpsBySNResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDevGpsService_GetDevGpsList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDevGpsList" />
+  </wsdl:message>
+  <wsdl:message name="IDevGpsService_GetDevGpsList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDevGpsListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDevGpsService_GetByNameDevGpsList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetByNameDevGpsList" />
+  </wsdl:message>
+  <wsdl:message name="IDevGpsService_GetByNameDevGpsList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetByNameDevGpsListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDevGpsService_BatchAddDevGps_InputMessage">
+    <wsdl:part name="parameters" element="tns:BatchAddDevGps" />
+  </wsdl:message>
+  <wsdl:message name="IDevGpsService_BatchAddDevGps_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BatchAddDevGpsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDevGpsService_CheckDevGpsExist_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckDevGpsExist" />
+  </wsdl:message>
+  <wsdl:message name="IDevGpsService_CheckDevGpsExist_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckDevGpsExistResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IDevGpsService">
+    <wsdl:operation name="InsertDevGps">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDevGpsService/InsertDevGps" message="tns:IDevGpsService_InsertDevGps_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDevGpsService/InsertDevGpsResponse" message="tns:IDevGpsService_InsertDevGps_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDevGps">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDevGpsService/UpdateDevGps" message="tns:IDevGpsService_UpdateDevGps_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDevGpsService/UpdateDevGpsResponse" message="tns:IDevGpsService_UpdateDevGps_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDevGpsByID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDevGpsService/DeleteDevGpsByID" message="tns:IDevGpsService_DeleteDevGpsByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDevGpsService/DeleteDevGpsByIDResponse" message="tns:IDevGpsService_DeleteDevGpsByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDevGps">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDevGpsService/GetDevGps" message="tns:IDevGpsService_GetDevGps_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDevGpsService/GetDevGpsResponse" message="tns:IDevGpsService_GetDevGps_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDevGpsBySN">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDevGpsService/GetDevGpsBySN" message="tns:IDevGpsService_GetDevGpsBySN_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDevGpsService/GetDevGpsBySNResponse" message="tns:IDevGpsService_GetDevGpsBySN_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDevGpsList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDevGpsService/GetDevGpsList" message="tns:IDevGpsService_GetDevGpsList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDevGpsService/GetDevGpsListResponse" message="tns:IDevGpsService_GetDevGpsList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetByNameDevGpsList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDevGpsService/GetByNameDevGpsList" message="tns:IDevGpsService_GetByNameDevGpsList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDevGpsService/GetByNameDevGpsListResponse" message="tns:IDevGpsService_GetByNameDevGpsList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BatchAddDevGps">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDevGpsService/BatchAddDevGps" message="tns:IDevGpsService_BatchAddDevGps_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDevGpsService/BatchAddDevGpsResponse" message="tns:IDevGpsService_BatchAddDevGps_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckDevGpsExist">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDevGpsService/CheckDevGpsExist" message="tns:IDevGpsService_CheckDevGpsExist_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDevGpsService/CheckDevGpsExistResponse" message="tns:IDevGpsService_CheckDevGpsExist_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IDevGpsService" type="tns:IDevGpsService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="InsertDevGps">
+      <soap:operation soapAction="http://tempuri.org/IDevGpsService/InsertDevGps" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDevGps">
+      <soap:operation soapAction="http://tempuri.org/IDevGpsService/UpdateDevGps" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDevGpsByID">
+      <soap:operation soapAction="http://tempuri.org/IDevGpsService/DeleteDevGpsByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDevGps">
+      <soap:operation soapAction="http://tempuri.org/IDevGpsService/GetDevGps" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDevGpsBySN">
+      <soap:operation soapAction="http://tempuri.org/IDevGpsService/GetDevGpsBySN" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDevGpsList">
+      <soap:operation soapAction="http://tempuri.org/IDevGpsService/GetDevGpsList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetByNameDevGpsList">
+      <soap:operation soapAction="http://tempuri.org/IDevGpsService/GetByNameDevGpsList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BatchAddDevGps">
+      <soap:operation soapAction="http://tempuri.org/IDevGpsService/BatchAddDevGps" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckDevGpsExist">
+      <soap:operation soapAction="http://tempuri.org/IDevGpsService/CheckDevGpsExist" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="DevGpsService">
+    <wsdl:port name="BasicHttpBinding_IDevGpsService" binding="tns:BasicHttpBinding_IDevGpsService">
+      <soap:address location="http://localhost:2258/DevGpsService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

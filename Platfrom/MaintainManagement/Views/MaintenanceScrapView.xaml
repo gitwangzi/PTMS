@@ -1,0 +1,66 @@
+﻿<UserControl x:Class="Gsafety.PTMS.Maintain.Views.MaintenanceScrapView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="800" d:DesignWidth="1000">
+
+    <Grid x:Name="LayoutRoot" Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Border BorderBrush="{StaticResource MenuBarLine}" Background="{StaticResource NavBarBG}" Height="35" VerticalAlignment="Top" Grid.Row="0"  BorderThickness="0,1,0,1"/>
+        <Image Source="/InstallationManagement;component/Images/a07b.png" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,0,0,0" Stretch="None"/>
+        <TextBlock TextWrapping="Wrap" Text="{Binding [SUITE_MaintainRecordInfo], Source={StaticResource SR}}"  VerticalAlignment="Center" HorizontalAlignment="Left" Margin="36,0,0,0" Style="{StaticResource Menu2TextBlock}" >
+        </TextBlock>
+
+        <Grid Grid.Row="1" Background="White">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="48"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="200"/>
+                <RowDefinition Height="35"/>
+                <RowDefinition Height="35"/>
+                <RowDefinition Height="35"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition Width="158"/>
+                <ColumnDefinition Width="192"/>
+                <ColumnDefinition Width="250"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <!--维修时间 *-->
+            <TextBlock HorizontalAlignment="Right" Text="{Binding [MaintainTime], Source={StaticResource SR}}" VerticalAlignment="Center" Grid.Row="1" Grid.Column="2" Style="{StaticResource ViewFont}" Height="17" />
+            <TextBox TabIndex="1" MaxLength="100" IsReadOnly="True" Grid.Column="3" Grid.Row="1" HorizontalAlignment="Left" Height="30" 
+				Text="{Binding MaintainTime, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" Width="245"/>
+            
+            <!--安全套件编号*-->
+            <TextBlock HorizontalAlignment="Right" Text="{Binding [ID_INSTALL_SuiteID], Source={StaticResource SR}}" VerticalAlignment="Center" Grid.Row="2" Grid.Column="2" Style="{StaticResource ViewFont}" Height="17" />
+            <TextBox TabIndex="1" MaxLength="100" IsReadOnly="True" Grid.Column="3" Grid.Row="2"  HorizontalAlignment="Left" Height="30" 
+				Text="{Binding SuiteId, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" Width="245"/>
+
+            <!--维修人 *-->
+            <TextBlock HorizontalAlignment="Right" Text="{Binding [ID_INSTALL_SUITE_Maintainer], Source={StaticResource SR}}" VerticalAlignment="Center" Grid.Row="3" Grid.Column="2" Style="{StaticResource ViewFont}" Height="17" />
+            <TextBox TabIndex="1" MaxLength="100" IsReadOnly="True" Grid.Column="3" Grid.Row="3"  HorizontalAlignment="Left" Height="30" 
+				Text="{Binding Maintainer, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" Width="245"/>
+
+            <!--备注 *-->
+            <TextBlock HorizontalAlignment="Right" Text="{Binding [ID_INSTALL_Note], Source={StaticResource SR}}" VerticalAlignment="Center" Grid.Row="4" Grid.Column="2" Style="{StaticResource ViewFont}" Height="17" />
+            <TextBox TabIndex="1" MaxLength="2000" IsReadOnly="True" Grid.Column="3" Grid.Row="4"  HorizontalAlignment="Left" VerticalAlignment="Center" Height="170"  TextWrapping="Wrap" 
+				Text="{Binding Note, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Grid.ColumnSpan="2" Width="500" VerticalScrollBarVisibility="Auto"  />
+
+            <StackPanel Grid.Column="3" Grid.ColumnSpan="2" Grid.Row="5" Height="35"  Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="35,0,385,0">
+                <Button TabIndex="11"  Command="{Binding CommitCommand}" Tag="{Binding [Return], Source={StaticResource SR}}" HorizontalAlignment="Center" VerticalAlignment="Center" MinWidth="100" Margin="5,0,5,0">
+                    <Image Source="/ExternalResource;component/Images/return.png" Stretch="None"/>
+                </Button>
+            </StackPanel>
+
+        </Grid>
+    </Grid>
+</UserControl>

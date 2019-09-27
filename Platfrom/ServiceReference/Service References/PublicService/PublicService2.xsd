@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.PublicService.Contract" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.PublicService.Contract" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="LostRegistry">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Address" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ClientID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Content" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CreateTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Keyword" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LostIdcard" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LostName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LostPhone" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LostTime" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="LostRegistry" nillable="true" type="tns:LostRegistry" />
+  <xs:complexType name="ArrayOfLostRegistry">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="LostRegistry" nillable="true" type="tns:LostRegistry" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfLostRegistry" nillable="true" type="tns:ArrayOfLostRegistry" />
+  <xs:complexType name="RunMdvrMessage">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ClientId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Content" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CreateTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Creator" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsVisible" type="xs:boolean" />
+      <xs:element minOccurs="0" name="MessageTitle" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MessageType" type="xs:short" />
+      <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RunMdvrMessage" nillable="true" type="tns:RunMdvrMessage" />
+  <xs:complexType name="ArrayOfRunMdvrMessage">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RunMdvrMessage" nillable="true" type="tns:RunMdvrMessage" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRunMdvrMessage" nillable="true" type="tns:ArrayOfRunMdvrMessage" />
+  <xs:complexType name="RunAppMessage">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CanDelete" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ClientId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CreateTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Creator" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MessageTitle" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MessageType" type="xs:short" />
+      <xs:element minOccurs="0" name="ShowMsgType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VehicleId" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RunAppMessage" nillable="true" type="tns:RunAppMessage" />
+  <xs:complexType name="ArrayOfRunAppMessage">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RunAppMessage" nillable="true" type="tns:RunAppMessage" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRunAppMessage" nillable="true" type="tns:ArrayOfRunAppMessage" />
+</xs:schema>

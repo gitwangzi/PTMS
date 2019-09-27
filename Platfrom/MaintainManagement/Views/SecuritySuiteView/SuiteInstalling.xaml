@@ -1,0 +1,88 @@
+﻿<UserControl x:Class="Gsafety.PTMS.Maintain.Views.SecuritySuiteView.SuiteInstalling"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:Converter="clr-namespace:Gsafety.Common.Converts;assembly=Converts"
+    mc:Ignorable="d"
+    d:DesignHeight="800" d:DesignWidth="1000">
+    <UserControl.Resources>
+        <Converter:ToVehicleType x:Key="ToVehicleType"></Converter:ToVehicleType>
+        <Converter:InstallStepTypeToString x:Key="InstallStepConverter" />
+    </UserControl.Resources>
+    <Grid x:Name="LayoutRoot" Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="28"/>
+        </Grid.RowDefinitions>
+        <Border BorderBrush="{StaticResource MenuBarLine}" Background="{StaticResource NavBarBG}" Height="35" VerticalAlignment="Top" Grid.Row="0"  BorderThickness="0,1,0,1"/>
+        <Image Source="/InstallationManagement;component/Images/a07b.png" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,0,0,0" Stretch="None"/>
+        <TextBlock Text="{Binding [MAINTAIN_SuiteInstalling], Source={StaticResource SR}}"  VerticalAlignment="Center" HorizontalAlignment="Left" Margin="36,0,0,0" Style="{StaticResource Menu2TextBlock}"/>
+
+        <Grid Grid.Row="1" Background="#FFd0dcea">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <!--安全套件号-->
+            <TextBlock HorizontalAlignment="Right" VerticalAlignment="Center"  
+                       Text="{Binding [ID_INSTALL_SUITE_MenuTitleNum], Source={StaticResource SR}}" Style="{StaticResource ViewFont}" Margin="0,16,8,16"/>
+            <TextBox TabIndex="2" MaxLength="25" Text="{Binding SuiteId, Mode=TwoWay}"  HorizontalAlignment="Left" Height="22" VerticalAlignment="Center" Width="180" Grid.Column="1" FontSize="11" Margin="0,14"/>
+            <!--查询按钮-->
+            <Button TabIndex="5" x:Name="btnQuery"  Command="{Binding QueryCommand}" Tag="{Binding [ID_INSTALL_Query], Source={StaticResource SR}}" HorizontalAlignment="Left"  VerticalAlignment="Center" Grid.Column="2" MinWidth="100" Margin="0,13,90,13">
+                <Image x:Name="imQuery" Source="/InstallationManagement;component/Images/seach.png" Stretch="None"/>
+            </Button>
+        </Grid>
+
+        <Border BorderBrush="{StaticResource MenuBarLine}" Background="{StaticResource NavBarBG}" Height="35" VerticalAlignment="Top" Grid.Row="2" Margin="0" BorderThickness="0,1,0,1"/>
+
+        <Image VerticalAlignment="Center" HorizontalAlignment="Left" Source="/InstallationManagement;component/Images/a07b.png" Grid.Row="2" Stretch="None" Margin="10,0,0,0"/>
+        <TextBlock Text="{Binding [MAINTAIN_SuiteInstallingList], Source={StaticResource SR}}" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="36,0,0,0" Style="{StaticResource Menu2TextBlock}" Grid.Row="2"/>
+
+
+        <sdk:DataGrid  CellStyle="{StaticResource DataGridCellStyle}"  x:Name="SuiteInstallingDataGrid" IsReadOnly="True" Grid.Row="3" AutoGenerateColumns="False" SelectedItem="{Binding CurrentInstallRecord, Mode=TwoWay}" ItemsSource="{Binding PSC_InstallingInfo}" Background="Transparent">
+            <sdk:DataGrid.Columns>
+                <sdk:DataGridTextColumn Header="ID_INSTALL_CarNumber"  Binding="{Binding VehicleID}" Width="*" >
+                 
+                </sdk:DataGridTextColumn>
+                <sdk:DataGridTextColumn Header="ID_INSTALL_SUITE_MenuTitleNum" Binding="{Binding SuiteID}" Width="*" >
+                   
+                </sdk:DataGridTextColumn>
+                <sdk:DataGridTextColumn Header="ID_INSTALL_CarStyle" Binding="{Binding VehicleType,Converter={StaticResource ToVehicleType}}" Width="*" >
+                  
+                </sdk:DataGridTextColumn>
+                <sdk:DataGridTextColumn Header="ID_INSTALL_MDVR_CORE_SN" Binding="{Binding MdvrCoreId}" Width="*" >
+                  
+                </sdk:DataGridTextColumn>
+                <sdk:DataGridTextColumn Header="ID_INSTALL_User_InstallStation" Binding="{Binding InstallationStationName}" Width="*" >
+                   
+                </sdk:DataGridTextColumn>
+                <sdk:DataGridTextColumn Header="ID_INSTALL_SetupStaff" Binding="{Binding InstallationStaff}" Width="*" >
+                  
+                </sdk:DataGridTextColumn>
+                <sdk:DataGridTextColumn Header="ID_INSTALL_InstallTime" Binding="{Binding CreateTime, StringFormat=yyyy-MM-dd HH:mm:ss}" Width="160" >
+                
+                </sdk:DataGridTextColumn>
+                <sdk:DataGridTextColumn Header="ID_INSTALL_CheckStep"  Binding="{Binding CheckStep, Converter={StaticResource InstallStepConverter}}" Width="*" >
+                  
+                </sdk:DataGridTextColumn>
+            </sdk:DataGrid.Columns>
+        </sdk:DataGrid>
+        <Border BorderBrush="{StaticResource BorderBrushDeep}" Background="{StaticResource OptionBgColorBrush}" BorderThickness="1" Height="28" Grid.Row="4"  VerticalAlignment="Center" Width="Auto">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,0,0">
+                <TextBlock HorizontalAlignment="Left" Margin="0,0,5,0" Grid.Row="4" Text="{Binding [PageSize], Source={StaticResource SR}}" VerticalAlignment="Center" Foreground="Black" FontSize="12"/>
+                <ComboBox SelectedItem="{Binding PageSizeValue,Mode=TwoWay}"  Height="26" ItemsSource="{Binding PageSizeList}" Margin="0,0,0,0" Width="50" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                <sdk:DataPager PageIndex="-1" Name="DataPager1"   Height="26" Margin="0,0,0,0" PageSize="{Binding PageSizeValue,Mode=OneWay}" Grid.Row="1" Source="{Binding PSC_InstallingInfo, Mode=TwoWay}" VerticalAlignment="Center"  HorizontalAlignment="Center" />
+            </StackPanel>
+        </Border>
+
+    </Grid>
+</UserControl>

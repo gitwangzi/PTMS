@@ -1,0 +1,240 @@
+﻿<UserControl x:Class="Gsafety.PTMS.Maintain.Views.SecuritySuiteDisplay"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:converter="clr-namespace:Gsafety.Common.Converts;assembly=Converts"
+    xmlns:Controls="clr-namespace:Gsafety.Common.Controls;assembly=CommonControls" 
+    mc:Ignorable="d"
+    d:DesignHeight="800" d:DesignWidth="1000">
+    <UserControl.Resources>
+        <converter:LocalizedStringConverter  x:Key="localize"></converter:LocalizedStringConverter>
+    </UserControl.Resources>
+
+    <Grid x:Name="LayoutRoot" Background="Transparent"  Width="Auto" Height="Auto">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Border  Background="{StaticResource BlueBgStyleBrush}"  Grid.RowSpan="2">
+        </Border>
+        <Border Height="35" VerticalAlignment="Top" Grid.Row="0" Margin="0" BorderThickness="0,1,0,1" BorderBrush="{StaticResource MenuBarLine}" Background="{StaticResource NavBarBG}">
+            <Image Source="/ExternalResource;component/Images/a07b.png" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,0,0,0" Stretch="None"/>
+        </Border>
+        <TextBlock Text="{Binding [BASEINFO_LookSuite], Source={StaticResource SR}}" HorizontalAlignment="Left"   VerticalAlignment="Center" Style="{StaticResource Menu2TextBlock}" Margin="36,0,0,0"/>
+        <Image Source="/ANT;component/Images/a07b.png" HorizontalAlignment="Left" VerticalAlignment="Center" Stretch="None" Margin="10,0,0,0"/>
+
+        <Grid Grid.Row="1" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="10"/>
+                <RowDefinition Height="350"/>
+                <RowDefinition Height="150"/>
+                <RowDefinition Height="110"/>
+                <RowDefinition Height="110"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Controls:GroupBox Header="{Binding [MAINTAIN_CEIECSuite],Source={StaticResource SR}}" HorizontalAlignment="Center"  Grid.Row="1" VerticalAlignment="Top" Height="350" Width="950">
+                <Grid HorizontalAlignment="Center"  VerticalAlignment="Center" >
+                    <Grid.RowDefinitions>
+
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+
+                        <ColumnDefinition Width="200"/>
+                        <ColumnDefinition Width="250"/>
+                        <ColumnDefinition Width="200"/>
+                        <ColumnDefinition Width="250*"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <!--安全套件-->
+                    <TextBlock HorizontalAlignment="Right" 
+                       Text="{Binding [BASEINFO_SuiteID], Source={StaticResource SR}}" VerticalAlignment="Center" Style="{StaticResource ViewFont}" Height="17" />
+                    <TextBox TabIndex="1" MaxLength="20" IsReadOnly="True" Grid.Column="1"  HorizontalAlignment="Left" Height="28"  
+                     Text="{Binding CurrentSecuritySuite.SuiteId}" VerticalAlignment="Center" Width="245" />
+                    <!--MDVR主机-->
+                    <TextBlock  Grid.Column="2"  HorizontalAlignment="Right"   
+                        Text="{Binding [BASEINFO_MDVR_SN], Source={StaticResource SR}}" VerticalAlignment="Center"  Style="{StaticResource ViewFont}" Height="17"  />
+                    <TextBox TabIndex="2" MaxLength="20" Grid.Column="3" IsReadOnly="True"  HorizontalAlignment="Left" Height="28"  
+                     Text="{Binding CurrentSecuritySuite.MdvrId}" VerticalAlignment="Center" Width="245" />
+                    <!--MDVR芯片-->
+                    <TextBlock Grid.Row="1" HorizontalAlignment="Right"   
+                       Text="{Binding [BASEINFO_MDVR_CORE_SN], Source={StaticResource SR}}" VerticalAlignment="Center" Style="{StaticResource ViewFont}" Height="17" Margin="0,12,8,11" />
+                    <TextBox TabIndex="3" MaxLength="20" Grid.Column="1"  Grid.Row="1" IsReadOnly="True"  HorizontalAlignment="Left" Height="28"   
+                     Text="{Binding CurrentSecuritySuite.MdvrCoreId}" VerticalAlignment="Center" Width="245" />
+                    <!--UPS-->
+                    <TextBlock Grid.Column="2"  Grid.Row="5" HorizontalAlignment="Right"   
+                       Text="{Binding [BASEINFO_UPS], Source={StaticResource SR}}" VerticalAlignment="Center" Style="{StaticResource ViewFont}" Height="17" Margin="0,10,10,13" />
+                    <TextBox TabIndex="12" MaxLength="50" Grid.Column="3"  Grid.Row="5" IsReadOnly="True"  HorizontalAlignment="Left" Height="28"   
+                     Text="{Binding CurrentSecuritySuite.UpsId}" VerticalAlignment="Center" Width="245" />
+
+                    <!--SD卡-->
+                    <TextBlock Grid.Row="5" HorizontalAlignment="Right"   
+                       Text="{Binding [BASEINFO_SdCardId], Source={StaticResource SR}}" VerticalAlignment="Center"  Style="{StaticResource ViewFont}" Height="17" Margin="0,10,9,13" />
+                    <TextBox TabIndex="11" MaxLength="50" Grid.Column="1" Grid.Row="5" IsReadOnly="True"  HorizontalAlignment="Left" Height="28"   
+                     Text="{Binding CurrentSecuritySuite.SdCardId}" VerticalAlignment="Center" Width="245" />
+
+                    <!--报警按钮1-->
+                    <TextBlock Grid.Row="3" HorizontalAlignment="Right"   
+                       Text="{Binding [BASEINFO_AlarmButton1], Source={StaticResource SR}}" VerticalAlignment="Center" Style="{StaticResource ViewFont}" Height="17" Margin="0,12,5,11" />
+                    <TextBox TabIndex="7" MaxLength="20" Grid.Column="1" Grid.Row="3" IsReadOnly="True"  HorizontalAlignment="Left" Height="28"   
+                     Text="{Binding CurrentSecuritySuite.AlarmButton1Id}" VerticalAlignment="Center" Width="245" />
+                    <!--报警按钮2-->
+                    <TextBlock Grid.Column="2" Grid.Row="3" HorizontalAlignment="Right"   Text="{Binding [BASEINFO_AlarmButton2], Source={StaticResource SR}}" VerticalAlignment="Center" Style="{StaticResource ViewFont}" Height="17" Margin="0,12,5,11" />
+                    <TextBox TabIndex="8" MaxLength="20" Grid.Column="3" Grid.Row="3" IsReadOnly="True"  HorizontalAlignment="Left" Height="28"   
+                     Text="{Binding CurrentSecuritySuite.AlarmButton2Id}" VerticalAlignment="Center" Width="245" />
+                    <!--报警按钮3-->
+                    <TextBlock Grid.Row="4" HorizontalAlignment="Right"   
+                       Text="{Binding [BASEINFO_AlarmButton3], Source={StaticResource SR}}" VerticalAlignment="Center" Style="{StaticResource ViewFont}" Height="17" Margin="0,13,4,10" />
+                    <TextBox TabIndex="9" MaxLength="20" Grid.Column="1" Grid.Row="4" IsReadOnly="True"  HorizontalAlignment="Left" Height="28"   
+                     Text="{Binding CurrentSecuritySuite.AlarmButton3Id}" VerticalAlignment="Center" Width="245" />
+                    <!--开关门传感器-->
+                    <TextBlock Grid.Column="2" Grid.Row="4" HorizontalAlignment="Right"   
+                       Text="{Binding [BASEINFO_DOOR_SWITCH_SENSOR], Source={StaticResource SR}}" VerticalAlignment="Center" Style="{StaticResource ViewFont}" Height="17" Margin="0,11,10,12" />
+                    <TextBox TabIndex="10" MaxLength="50" Grid.Column="3" Grid.Row="4" IsReadOnly="True"  HorizontalAlignment="Left" Height="28"   
+                     Text="{Binding CurrentSecuritySuite.DoorSensorId}" VerticalAlignment="Center" Width="245" />
+
+                    <!--摄像头序列号1-->
+                    <TextBlock Grid.Row="2"  HorizontalAlignment="Right"   Text="{Binding [BASEINFO_Camera1], Source={StaticResource SR}}" VerticalAlignment="Center" Style="{StaticResource ViewFont}" Height="17" Margin="0,12,5,11" />
+                    <TextBox TabIndex="5" MaxLength="20" Grid.Column="1" Grid.Row="2" IsReadOnly="True"  HorizontalAlignment="Left" Height="28"   
+                     Text="{Binding CurrentSecuritySuite.Camera1Id;}" VerticalAlignment="Center" Width="245"  />
+
+                    <!--设备用途-->
+                    <TextBlock Grid.Column="2" Grid.Row="1"  HorizontalAlignment="Right"   Text="{Binding [BASEINFO_DeviceType], Source={StaticResource SR}}" VerticalAlignment="Center" Style="{StaticResource ViewFont}" Height="17" Margin="0,12,8,11" />
+                    <TextBox TabIndex="4" MaxLength="50" Grid.Column="3" Grid.Row="1" IsReadOnly="True"  HorizontalAlignment="Left" Height="28"   
+                     Text="{Binding CurrentSecuritySuite.DeviceType, Converter={ StaticResource  localize}}" Width="245" VerticalAlignment="Center" />
+
+                    <!--摄像头序列号2-->
+                    <TextBlock Grid.Column="2" Grid.Row="2"  HorizontalAlignment="Right"   
+                       Text="{Binding [BASEINFO_Camera2], Source={StaticResource SR}}" VerticalAlignment="Center" Style="{StaticResource ViewFont}" Height="17" Margin="0,12,5,11" />
+                    <TextBox TabIndex="6" MaxLength="20" Grid.Column="3" Grid.Row="2" IsReadOnly="True"  HorizontalAlignment="Left" Height="28"   
+                        Text="{Binding CurrentSecuritySuite.Camera2Id;}" Width="245" VerticalAlignment="Center" />
+                    <!--MDVR SIM卡号-->
+                    <TextBlock Grid.Row="6" HorizontalAlignment="Right"  
+            	        Text="{Binding [BASEINFO_MdvrSimId], Source={StaticResource SR}}" VerticalAlignment="Center"  Style="{StaticResource ViewFont}" Height="17" Margin="0,12,6,11" />
+                    <TextBox TabIndex="13" MaxLength="100" Grid.Column="1" Grid.Row="6" IsReadOnly="True"  HorizontalAlignment="Left" Height="28"  
+            	        Text="{Binding CurrentSecuritySuite.MdvrSimId}" VerticalAlignment="Center" Width="245" />
+                    <!--MDVR 电话卡号-->
+                    <TextBlock Grid.Column="2" Grid.Row="6" HorizontalAlignment="Right"   
+            	        Text="{Binding [BASEINFO_MdvrSimPhoneNumber], Source={StaticResource SR}}" VerticalAlignment="Center"  Style="{StaticResource ViewFont}"  Height="17" Margin="0,12,6,11" />
+                    <TextBox TabIndex="14" MaxLength="20" Grid.Column="3" Grid.Row="6" IsReadOnly="True"  HorizontalAlignment="Left" Height="28"   
+            	        Text="{Binding CurrentSecuritySuite.MdvrSimPhoneNumber}" VerticalAlignment="Center" Width="245" />
+                    <!--版本号-->
+                    <TextBlock Grid.Row="7" HorizontalAlignment="Right"   
+                       Text="{Binding [BASEINFO_SoftwareVersion], Source={StaticResource SR}}" VerticalAlignment="Center"  Style="{StaticResource ViewFont}" Height="17" Margin="0,12,8,11" />
+                    <TextBox TabIndex="15" MaxLength="100" Grid.Column="1" Grid.Row="7" IsReadOnly="True"  HorizontalAlignment="Left" Height="28"   
+                        Text="{Binding CurrentSecuritySuite.SoftwareVersion}" VerticalAlignment="Center" Width="245" Margin="0,6"/>
+                    <!--安全套件状态-->
+                    <TextBlock Grid.Column="2" Grid.Row="7" HorizontalAlignment="Right"   
+            	        Text="{Binding [BASEINFO_SuiteStatus], Source={StaticResource SR}}" VerticalAlignment="Center"  Style="{StaticResource ViewFont}" Height="20" Margin="0,10,10,10"/>
+                    <TextBox  MaxLength="100" Grid.Column="3" Grid.Row="7" IsReadOnly="True"  HorizontalAlignment="Left" Height="28"  
+            	        Text="{Binding CurrentSecuritySuite.status,  Converter={ StaticResource  localize}}" VerticalAlignment="Center" Width="245" Margin="0,6"/>
+                </Grid>
+
+            </Controls:GroupBox>
+            <Controls:GroupBox Header="{Binding [MAINTAIN_ANTSuiteID],Source={StaticResource SR}}" HorizontalAlignment="Center"  Grid.Row="2" VerticalAlignment="Top" Height="150" Width="950">
+                <Grid HorizontalAlignment="Center"  VerticalAlignment="Center" >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="200"/>
+                        <ColumnDefinition Width="250"/>
+                        <ColumnDefinition Width="200"/>
+                        <ColumnDefinition Width="250*"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <!--ANT主机-->
+                    <TextBlock Grid.Row="0" HorizontalAlignment="Right"   
+                       Text="{Binding [BASEINFO_ANT_SN], Source={StaticResource SR}}" VerticalAlignment="Center"  Style="{StaticResource ViewFont}" Height="17" Margin="0,12,8,11" />
+                    <TextBox TabIndex="16" MaxLength="100" Grid.Column="1" Grid.Row="0" IsReadOnly="True"  HorizontalAlignment="Left" Height="28"   
+                     Text="{Binding CurrentSecuritySuite.AntId}" VerticalAlignment="Center" Width="245" />
+                    <!--ANT UPS-->
+                    <TextBlock Grid.Column="2" Grid.Row="0" HorizontalAlignment="Right"   
+                       Text="{Binding [BASEINFO_ANT_UPS], Source={StaticResource SR}}" VerticalAlignment="Center"  Style="{StaticResource ViewFont}" Height="17" Margin="0,12,8,11" />
+                    <TextBox TabIndex="17" MaxLength="100" Grid.Column="3" Grid.Row="0" IsReadOnly="True"  HorizontalAlignment="Left" Height="28"   
+                     Text="{Binding CurrentSecuritySuite.AntUpsId}" VerticalAlignment="Center" Width="245" />
+                    <!--ANT摄像头1-->
+                    <TextBlock Grid.Row="1" HorizontalAlignment="Right"   
+                       Text="{Binding [BASEINFO_ANT_Camera1], Source={StaticResource SR}}" VerticalAlignment="Center"  Style="{StaticResource ViewFont}" Margin="0,11,6,11" />
+                    <TextBox TabIndex="18" MaxLength="100" Grid.Column="1" Grid.Row="1" IsReadOnly="True"  HorizontalAlignment="Left" Height="28"   
+                     Text="{Binding CurrentSecuritySuite.AntCamera1Id}" VerticalAlignment="Center" Width="245" />
+                    <!--ANT摄像头2-->
+                    <TextBlock Grid.Column="2" Grid.Row="1" HorizontalAlignment="Right"   
+                       Text="{Binding [BASEINFO_ANT_Camera2], Source={StaticResource SR}}" VerticalAlignment="Center"  Style="{StaticResource ViewFont}" Height="17" Margin="0,12,6,11" />
+                    <TextBox TabIndex="19" MaxLength="100" Grid.Column="3" Grid.Row="1" IsReadOnly="True"  HorizontalAlignment="Left" Height="28"   
+                     Text="{Binding CurrentSecuritySuite.AntCamera2Id}" VerticalAlignment="Center" Width="245" />
+                    <!--ANT SD卡-->
+                    <TextBlock Grid.Row="2" HorizontalAlignment="Right"   
+                       Text="{Binding [BASEINFO_ANT_SD_Card], Source={StaticResource SR}}" VerticalAlignment="Center"  Style="{StaticResource ViewFont}" Height="17" />
+                    <TextBox TabIndex="20" MaxLength="100" Grid.Column="1" Grid.Row="2" IsReadOnly="True"  HorizontalAlignment="Left" Height="28"   
+                     Text="{Binding CurrentSecuritySuite.AntSdCardId}" VerticalAlignment="Center" Width="245" />
+
+                    <!--ANT开关门传感器-->
+                    <TextBlock Grid.Column="2" Grid.Row="2" HorizontalAlignment="Right"   
+                       Text="{Binding [BASEINFO_ANTInfraredSensor], Source={StaticResource SR}}" VerticalAlignment="Center"  Style="{StaticResource ViewFont}" Height="17" />
+                    <TextBox TabIndex="21" MaxLength="100" Grid.Column="3" Grid.Row="2" IsReadOnly="True"  HorizontalAlignment="Left" Height="28"   
+                     Text="{Binding CurrentSecuritySuite.AntDoorSensorId}" VerticalAlignment="Center" Width="245" />
+
+                </Grid>
+            </Controls:GroupBox>
+            <Controls:GroupBox Header="ANT RAPTOR GPS" HorizontalAlignment="Center"  Grid.Row="3" VerticalAlignment="Top" Height="110" Width="950">
+                <Grid HorizontalAlignment="Center"  VerticalAlignment="Center" >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="200"/>
+                        <ColumnDefinition Width="250"/>
+                        <ColumnDefinition Width="200"/>
+                        <ColumnDefinition Width="250*"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <!--ANT RAPTOR GPS IEEI号-->
+                    <TextBlock Grid.Row="0" HorizontalAlignment="Right"   
+                       Text="{Binding [BASEINFO_AntGpsId], Source={StaticResource SR}}" VerticalAlignment="Center"  Style="{StaticResource ViewFont}" Height="17"  />
+                    <TextBox TabIndex="22" MaxLength="100" Grid.Column="1" Grid.Row="0" IsReadOnly="True"  HorizontalAlignment="Left" Height="28"    
+                     Text="{Binding CurrentSecuritySuite.AntGpsId}" VerticalAlignment="Center" Width="245" />
+                    <!--ANT RAPTOR SIM卡号-->
+                    <TextBlock Grid.Row="1" HorizontalAlignment="Right"  
+            	Text="{Binding [BASEINFO_AntGpsSimId],Source={StaticResource SR}}" VerticalAlignment="Center"  Style="{StaticResource ViewFont}" Height="17" />
+                    <TextBox TabIndex="24" MaxLength="100" Grid.Column="1" Grid.Row="1" IsReadOnly="True"  HorizontalAlignment="Left" Height="28"  
+            	Text="{Binding CurrentSecuritySuite.AntGpsSimId}" VerticalAlignment="Center" Width="245" />
+
+                    <!--ANT RAPTOR SIM卡手机号-->
+                    <TextBlock Grid.Column="2" Grid.Row="0" HorizontalAlignment="Right"   
+            	Text="{Binding [BASEINFO_AntSimPhoneNumber],Source={StaticResource SR}}" VerticalAlignment="Center"  Style="{StaticResource ViewFont}"  Height="20" />
+                    <TextBox TabIndex="23" MaxLength="20" Grid.Column="3" Grid.Row="0" IsReadOnly="True"  HorizontalAlignment="Left" Height="28"  
+            	Text="{Binding CurrentSecuritySuite.AntSimPhoneNumber}" VerticalAlignment="Center" Width="245" />
+                </Grid>
+            </Controls:GroupBox>
+            <Controls:GroupBox Header="{Binding [Note], Source={StaticResource SR}}" HorizontalAlignment="Center"  Grid.Row="4" VerticalAlignment="Center" Height="110" Width="950">
+                <TextBox TabIndex="25" MaxLength="2000"  TextWrapping="Wrap" IsReadOnly="True"  HorizontalAlignment="Center" Height="75"  VerticalScrollBarVisibility="Auto" 
+                     Text="{Binding  CurrentSecuritySuite.Note, NotifyOnValidationError=True, ValidatesOnDataErrors=True}" VerticalAlignment="Center" Width="900" />
+            </Controls:GroupBox>
+
+            <StackPanel Grid.Column="0"  Grid.Row="5"  VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Horizontal" >
+                <Button TabIndex="28" Command="{Binding CommitCommand}" Tag="{Binding [Return], Source={StaticResource SR}}" HorizontalAlignment="Left" Margin="5,0,0,0" VerticalAlignment="Center" MinWidth="100">
+                    <Image Source="/ExternalResource;component/Images/return.png" Stretch="None"/>
+                </Button>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</UserControl>

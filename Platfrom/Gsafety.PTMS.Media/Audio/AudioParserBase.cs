@@ -1,0 +1,181 @@
+using System;
+using System.Diagnostics;
+using System.Threading;
+using Gsafety.PTMS.Media.TransportStream.TsParser;
+using Gsafety.PTMS.Media.TransportStream.TsParser.Utility;
+
+namespace Gsafety.PTMS.Media.Audio
+{
+    public abstract class AudioParserBase : IAudioParser
+    {
+        protected readonly IAudioFrameHeader _frameHeader;
+        protected int _badBytes;
+        protected Action<IAudioFrameHeader> _configurationHandler;
+        protected bool _hasSeenValidFrames;
+        protected int _index;
+        protected bool _isConfigured;
+        int _isDisposed;
+        protected TsPesPacket _packet;
+        protected ITsPesPacketPool _pesPacketPool;
+        TimeSpan? _position;
+        protected int _startIndex;
+        protected Action<TsPesPacket> _submitPacket;
+
+        protected AudioParserBase(IAudioFrameHeader frameHeader, ITsPesPacketPool pesPacketPool, Action<IAudioFrameHeader> configurationHandler, Action<TsPesPacket> submitPacket)
+        {
+            if (frameHeader == null)
+                throw new ArgumentNullException("frameHeader");
+            if (pesPacketPool == null)
+                throw new ArgumentNullException("pesPacketPool");
+            if (configurationHandler == null)
+                throw new ArgumentNullException("configurationHandler");
+            if (submitPacket == null)
+                throw new ArgumentNullException("submitPacket");
+
+            _frameHeader = frameHeader;
+            _pesPacketPool = pesPacketPool;
+            _configurationHandler = configurationHandler;
+            _submitPacket = submitPacket;
+        }
+
+        public TimeSpan StartPosition { get; set; }
+
+        public TimeSpan? Position
+        {
+            get { return _position; }
+            set { _position = value; }
+        }
+
+        public void Dispose()
+        {
+            if (0 != Interlocked.Exchange(ref _isDisposed, 1))
+                return;
+
+            Dispose(true);
+
+            GC.SuppressFinalize(this);
+        }
+
+        public virtual void FlushBuffers()
+        {
+            FreeBuffer();
+
+            _hasSeenValidFrames = false;
+            _badBytes = 0;
+        }
+
+        public abstract void ProcessData(byte[] buffer, int offset, int length);
+
+        protected virtual void SubmitFrame()
+        {
+            Debug.Assert(_index >= _startIndex, "_index less than _startIndex");
+
+            var length = _index - _startIndex;
+
+            if (length > 0)
+            {
+                TsPesPacket packet;
+
+                if (_index + 128 >= _packet.Buffer.Length)
+                {
+                    packet = _packet;
+                    _packet = null;
+
+                    packet.Length = length;
+                    packet.Index = _startIndex;
+                }
+                else
+                    packet = _pesPacketPool.CopyPesPacket(_packet, _startIndex, length);
+
+                if (!Position.HasValue)
+                    Position = StartPosition;
+
+                packet.PresentationTimestamp = Position.Value;
+                packet.Duration = _frameHeader.Duration;
+
+                Position += _frameHeader.Duration;
+
+                _submitPacket(packet);
+
+                _hasSeenValidFrames = true;
+                _badBytes = 0;
+            }
+
+            _startIndex = _index;
+
+            EnsureBufferSpace(128);
+        }
+
+        protected void EnsureBufferSpace(int length)
+        {
+            if (null == _packet)
+            {
+                _index = 0;
+                _startIndex = 0;
+                _packet = null;
+                _packet = CreatePacket(length);
+
+                return;
+            }
+
+            if (_index + length <= _packet.Buffer.Length)
+                return;
+
+            var newPacket = CreatePacket(length);
+
+            if (_index > _startIndex)
+            {
+                // Copy the partial frame to the new buffer.
+                _index -= _startIndex;
+
+                Array.Copy(_packet.Buffer, _startIndex, newPacket.Buffer, 0, _index);
+            }
+            else
+                _index = 0;
+
+            _startIndex = 0;
+
+            _packet.Length = 0;
+            _pesPacketPool.FreePesPacket(_packet);
+
+            _packet = newPacket;
+        }
+
+        TsPesPacket CreatePacket(int length)
+        {
+            var packet = _pesPacketPool.AllocatePesPacket(length);
+
+            packet.Length = packet.Buffer.Length;
+
+            return packet;
+        }
+
+        void FreeBuffer()
+        {
+            if (null != _packet)
+            {
+                var packet = _packet;
+
+                _packet = null;
+
+                packet.Length = 0;
+                _pesPacketPool.FreePesPacket(packet);
+            }
+
+            _startIndex = 0;
+            _index = 0;
+        }
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (!disposing)
+                return;
+
+            FreeBuffer();
+
+            _pesPacketPool = null;
+            _configurationHandler = null;
+            _submitPacket = null;
+        }
+    }
+}

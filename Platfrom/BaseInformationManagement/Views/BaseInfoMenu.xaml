@@ -1,0 +1,52 @@
+﻿<UserControl x:Class="Gsafety.PTMS.BaseInformation.Views.BaseInfoMenu"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:toolkit="http://schemas.microsoft.com/winfx/2006/xaml/presentation/toolkit"
+    xmlns:Controls="clr-namespace:PTMS.Common.Controls;assembly=CommonControl" 
+    mc:Ignorable="d"
+    d:DesignHeight="300" d:DesignWidth="400">
+
+    <Grid x:Name="LayoutRoot">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Border Grid.Row="0" Height="40" BorderThickness="0,1,0,1">
+            <Grid>
+                <Grid.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF29C7E5" Offset="0.017"/>
+                        <GradientStop Color="#FF0053A0" Offset="1"/>
+                        <GradientStop Color="#FF1B8FCA" Offset="0.037"/>
+                    </LinearGradientBrush>
+                </Grid.Background>
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/ExternalResource;component/Images/MainPage_menu_baseinfor.png" Stretch="None" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="8,4,0,6"/>
+                    <TextBlock Text="{Binding [MAINPAGE_BaseInforsh], Source={StaticResource SR}}" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="5,0,0,0" Style="{StaticResource MainPage_menu_tle_TextBlockStyle}"/>
+                </StackPanel>
+            </Grid>
+        </Border>
+        <Border Grid.Row="1" Background="#FFF5F6F6"  BorderBrush="#FFAEB4BA" BorderThickness="1">
+            <Grid>
+                <StackPanel Width="Auto">
+                    <ItemsControl x:Name="BaseInfoMenuControl" ItemsSource="{Binding Path=BaseInfoMenuItems}">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <StackPanel Orientation="Vertical" Margin="0"/>
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate >
+                                <HyperlinkButton x:Name="Link1" Style="{StaticResource Menu_HyperlinkButtonStyle}" 
+                                     NavigateUri="{Binding Uri}" TargetName="BaseInfoContentFrame" Content="{Binding MenuTitle}"/>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </StackPanel>
+            </Grid>
+        </Border>
+        
+    </Grid>
+</UserControl>

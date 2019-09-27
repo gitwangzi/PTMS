@@ -1,0 +1,182 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E9A83F02-F0DD-4C92-B47D-1F894C2D3C9A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Gsafety.PTMS.Message.Contract</RootNamespace>
+    <AssemblyName>MessageContract</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\Assemblies\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Contract\Alarm\IMessageAlarm.cs" />
+    <Compile Include="Contract\Alert\IMessageAlart.cs" />
+    <Compile Include="Contract\Command\IMessageCommand.cs" />
+    <Compile Include="Contract\GPS\IMessageGPS.cs" />
+    <Compile Include="Contract\Install\IMessageInstall.cs" />
+    <Compile Include="Contract\Management\IMessageLogin.cs" />
+    <Compile Include="Contract\Monitor\IMessageMonitor.cs" />
+    <Compile Include="Contract\User\IMessageUser.cs" />
+    <Compile Include="Data\Alarm\AlarmInfo.cs" />
+    <Compile Include="Data\Alarm\ArcGisResult.cs" />
+    <Compile Include="Data\Alarm\ECU911Dispose.cs" />
+    <Compile Include="Data\Alarm\ECU911Mapping.cs" />
+    <Compile Include="Data\Alert\CameraNoSignalAlert.cs" />
+    <Compile Include="Data\Alert\CameraOcclusionAlert.cs" />
+    <Compile Include="Data\Alert\FireAlert.cs" />
+    <Compile Include="Data\Alert\OpenOrCloseDoorAbnormalAlert.cs" />
+    <Compile Include="Data\Alert\RegionAlert.cs" />
+    <Compile Include="Data\Alert\RemoveDeviceSuiteAlertNotify.cs" />
+    <Compile Include="Data\Alert\TemperatureAlert.cs" />
+    <Compile Include="Data\Alert\MdvrMemoryCardErrorAlert.cs" />
+    <Compile Include="Data\Alert\OverSpeedAlert.cs" />
+    <Compile Include="Data\Alert\GpsReceiverFaultAlert.cs" />
+    <Compile Include="Data\Alert\VoltageAbnormalAlert.cs" />
+    <Compile Include="Data\BaseInformation\ReturnInfo.cs" />
+    <Compile Include="Data\BaseInformation\RuleInfo.cs" />
+    <Compile Include="Data\BaseInformation\SimpleSuiteInfo.cs" />
+    <Compile Include="Data\BaseInformation\WorkingSuiteInfo.cs" />
+    <Compile Include="Data\CommandManage\AbnormalDoorSendUpModel.cs" />
+    <Compile Include="Data\CommandManage\OneKeyAlarmSendUpModel.cs" />
+    <Compile Include="Data\CommandManage\SaveSendUpModel.cs" />
+    <Compile Include="Data\CommandManage\SaveVehicleFenceModel.cs" />
+    <Compile Include="Data\CommandManage\SaveVehicleSpeedModel.cs" />
+    <Compile Include="Data\CommandManage\SendInfomationCMD.cs" />
+    <Compile Include="Data\CommandManage\SendInfomationModel.cs" />
+    <Compile Include="Data\CommandManage\SendInfomationType.cs" />
+    <Compile Include="Data\CommandManage\SettingAbnormalDoorCMD.cs" />
+    <Compile Include="Data\CommandManage\SettingDelayAlarmCMD.cs" />
+    <Compile Include="Data\CommandManage\SettingOneKeyAlarmCMD.cs" />
+    <Compile Include="Data\CommandManage\SettingOverSpeedModel.cs" />
+    <Compile Include="Data\CommandManage\SettingTemperatureCMD.cs" />
+    <Compile Include="Data\CommandManage\GpsSendType.cs" />
+    <Compile Include="Data\CommandManage\GpsSendUpModel.cs" />
+    <Compile Include="Data\CommandManage\SettingGpsSendUpCMD.cs" />
+    <Compile Include="Data\CommandManage\TemperatureMarkType.cs" />
+    <Compile Include="Data\CommandManage\TemperatureSendUpModel.cs" />
+    <Compile Include="Data\Command\RuleResultInfo.cs" />
+    <Compile Include="Data\Command\SendingCommand.cs" />
+    <Compile Include="Data\Command\WaitSendCommand.cs" />
+    <Compile Include="Data\DeleteRule\RuleDeleteModel.cs" />
+    <Compile Include="Data\Group\ChangeGroup.cs" />
+    <Compile Include="Data\Group\ChangeGroupVechile.cs" />
+    <Compile Include="Data\HeartbeatInfo.cs" />
+    <Compile Include="Data\Maintain\SuiteRunintStatusCMD.cs" />
+    <Compile Include="Data\Maintain\SuiteRunningDetail.cs" />
+    <Compile Include="Data\Maintain\UpgradeStatusCMD.cs" />
+    <Compile Include="Data\Maintain\UpgradeStatusReply.cs" />
+    <Compile Include="Data\Monitor\C64Relpy.cs" />
+    <Compile Include="Data\Monitor\C78Reply.cs" />
+    <Compile Include="Data\Monitor\C80Reply.cs" />
+    <Compile Include="Data\Monitor\C82Reply.cs" />
+    <Compile Include="Data\Monitor\PTMSGPS.cs" />
+    <Compile Include="Data\Monitor\C30CMD.cs" />
+    <Compile Include="Data\Monitor\C30Reply.cs" />
+    <Compile Include="Data\Monitor\CancelLocationMonitorCMD.cs" />
+    <Compile Include="Data\Monitor\EndLocationMonitor.cs" />
+    <Compile Include="Data\Monitor\LocationMonitorCMD.cs" />
+    <Compile Include="Data\Monitor\LocationMonitorEndType.cs" />
+    <Compile Include="Data\Traffic\ElectircFenceSendUpModel.cs" />
+    <Compile Include="Data\Traffic\ElectricFenceCMD.cs" />
+    <Compile Include="Data\Traffic\ElectricFenceReply.cs" />
+    <Compile Include="Data\Monitor\OnOffline.cs" />
+    <Compile Include="Data\Alarm\ReMomedAlarm.cs" />
+    <Compile Include="Data\Installation\InspectInfo.cs" />
+    <Compile Include="Data\Monitor\TransparentCMD.cs" />
+    <Compile Include="Data\Maintain\UpgradeCMD.cs" />
+    <Compile Include="Data\Maintain\UpgradeReply.cs" />
+    <Compile Include="Data\Maintain\UpgradeResult.cs" />
+    <Compile Include="Data\Traffic\FenceCMDExpandInfo.cs" />
+    <Compile Include="Data\Traffic\OverSpeedSendUpModel.cs" />
+    <Compile Include="Data\Traffic\RapterMileage.cs" />
+    <Compile Include="Data\Traffic\RouteCMD.cs" />
+    <Compile Include="Data\Traffic\SettingOverSpeedCMD.cs" />
+    <Compile Include="Data\Traffic\SettingOverSpeedReply.cs" />
+    <Compile Include="Data\Traffic\TravelPlanCMD.cs" />
+    <Compile Include="Data\UserMessage\ChangeUser.cs" />
+    <Compile Include="Data\UserMessage\DeleteInstall.cs" />
+    <Compile Include="Data\UserMessage\DeleteUser.cs" />
+    <Compile Include="Data\UserMessage\DeviceInstall.cs" />
+    <Compile Include="Data\UserMessage\DeviceMaintain.cs" />
+    <Compile Include="Data\UserMessage\HandingAlarm.cs" />
+    <Compile Include="Data\UserMessage\HandingAlert.cs" />
+    <Compile Include="Data\UserMessage\CompleteAlert.cs" />
+    <Compile Include="Data\UserMessage\RealAlarm.cs" />
+    <Compile Include="Data\UserMessage\StartInstall.cs" />
+    <Compile Include="Data\UserMessage\UpgradeNotify.cs" />
+    <Compile Include="Data\Video\DownloadFile.cs" />
+    <Compile Include="Data\Video\DownloadFileReply.cs" />
+    <Compile Include="Data\Video\MdvrFileListResult.cs" />
+    <Compile Include="Data\Video\QueryMdvrFileList.cs" />
+    <Compile Include="Data\Video\VideoListResult.cs" />
+    <Compile Include="Contract\IMessageCallBackExt.cs" />
+    <Compile Include="Contract\IMessageService.cs" />
+    <Compile Include="Contract\IMessageServiceExt.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BaseContract\BaseContract.csproj">
+      <Project>{a6c2a532-546d-4dae-8aa3-4c01de81f462}</Project>
+      <Name>BaseContract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Common.Data\Common.Data.csproj">
+      <Project>{2b4caa14-181a-4b8d-9dc6-891bea684735}</Project>
+      <Name>Common.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataModel\DBEntity.csproj">
+      <Project>{b8edef26-d01b-42cc-9a6f-5802d4c5f43c}</Project>
+      <Name>DBEntity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Util\Util.csproj">
+      <Project>{84a8e879-776a-42bc-8de9-10fa339cb331}</Project>
+      <Name>Util</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

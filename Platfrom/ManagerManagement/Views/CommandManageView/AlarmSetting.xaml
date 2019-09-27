@@ -1,0 +1,113 @@
+﻿<UserControl
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"          
+           xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
+           xmlns:dp="clr-namespace:Gsafety.Common.Controls;assembly=CommonControls"
+           x:Class="Gsafety.PTMS.Manager.Views.CommandManageView.AlarmSetting"
+           xmlns:convert="clr-namespace:Gsafety.Common.Converts;assembly=Converts"
+           mc:Ignorable="d"
+           d:DesignWidth="1000" d:DesignHeight="600">
+    <UserControl.Resources>
+        <convert:BoolToEnable x:Key="boolToEnable"/>
+    </UserControl.Resources>
+    <Grid x:Name="LayoutRoot">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition/>
+            <RowDefinition Height="26"/>
+        </Grid.RowDefinitions>
+
+        <Border  BorderThickness="1"  Style="{StaticResource TopBorderStyle}"  Grid.Row="0" >
+        </Border>
+        <TextBlock TextWrapping="Wrap" Text="{Binding [MANAGER_AlarmSetting],Source={StaticResource SR}}" Style="{StaticResource MainPage_Main_tle_TextBlockStyle}" HorizontalAlignment="Left" Margin="30,0,0,0" VerticalAlignment="Center"  Width="128" Height="21"/>
+        <Image Source="/ExternalResource;component/Images/navigation.png" Stretch="None" Grid.Row="0" HorizontalAlignment="Left" Margin="10,0,0,0" Width="11"/>
+
+        <Border  Height="50"  Style="{StaticResource GridBorderStyle}" VerticalAlignment="Top" Grid.Row="1">
+            <Grid  Height="50" Grid.Row="1" VerticalAlignment="Top" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="150"/>
+                    <ColumnDefinition Width="200"/>
+                    <ColumnDefinition Width="150"/>
+                    <ColumnDefinition Width="200"/>
+                    <ColumnDefinition/>                   
+                    <ColumnDefinition Width="180"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Margin="0,0,5,0" Text="{Binding [MANAGER_RuleName],Source={StaticResource SR}}" Style="{StaticResource MainPage_Main_search_TextBlockStyle}" VerticalAlignment="Center" Grid.Column="0" HorizontalAlignment="Right" />
+                <TextBox HorizontalAlignment="Left"  Margin="5,0,0,0"  Text="{Binding ruleName,Mode=TwoWay}" VerticalAlignment="Center"  Width="170"  Grid.Column="1" Style="{StaticResource MainPage_Main_TextBoxStyle}" MaxLength="20"/>
+                <Image HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Column="5" Width="2" Source="/ExternalResource;component/Images/MainPage_line31.png"/>
+                <Button  HorizontalAlignment="Right" Margin="30,0,40,0" Command="{Binding QueryCommand}" Style="{StaticResource Search_ButtonStyle}" Tag="{Binding [Query], Source={StaticResource SR}}" Grid.Column="6">
+                    <Image Source="/ExternalResource;component/Images/MainPage_search.png" Stretch="Fill" Width="14" Height="14"/>
+                </Button>
+            </Grid>
+        </Border>
+        <Border Style="{StaticResource MiddleBorderStyle}" BorderThickness="1"  Grid.Row="2"  >
+            <Button Command="{Binding AddCommand}" Tag="{Binding [MANAGE_Add], Source={StaticResource SR}}" HorizontalAlignment="Right" VerticalAlignment="Center" MinWidth="100" Margin="0,0,20,0" Style="{StaticResource Main_center_ButtonStyle}">
+                <Image Source="/ExternalResource;component/Images/Main_add.png" Stretch="Fill" Width="22" Height="22"/>
+            </Button>
+        </Border>
+        <Image Source="/ExternalResource;component/Images/navigation.png" Stretch="None" Grid.Row="2" HorizontalAlignment="Left" Margin="10,0,0,0" Width="11"/>
+        <TextBlock HorizontalAlignment="Left" Text="{Binding [MANAGER_AlarmSettingList],Source={StaticResource SR}}" Style="{StaticResource MainPage_Main_tle_TextBlockStyle}"  Margin="30,0,0,0" Grid.Row="2" VerticalAlignment="Center" />
+        <sdk:DataGrid   x:Name="alarmSettingDataGrid" Grid.Row="3" ColumnHeaderStyle="{StaticResource DataGridColumnHeaderStyle}" ItemsSource="{Binding alarmSettingList,Mode=TwoWay}" SelectedItem="{Binding alarmSettingData,Mode=TwoWay}"
+                        CellStyle="{StaticResource DataGridCellStyle}" RowStyle="{StaticResource DataGridRowStyle}" AutoGenerateColumns="False" IsReadOnly="True" Background="Transparent" GridLinesVisibility="Horizontal" HorizontalGridLinesBrush="#FFDCDAD5" Margin="0,0,0,1">
+            <sdk:DataGrid.Columns>
+                <sdk:DataGridTextColumn Binding="{Binding Alarm_RuleName}" Header="MANAGER_RuleName" Width="150" CanUserSort="True" >
+                </sdk:DataGridTextColumn>
+
+                <sdk:DataGridTextColumn Binding="{Binding Alarm_ButtonTime}" Header="MANAGER_ValidButtonTime" Width="250" CanUserSort="True" >
+                </sdk:DataGridTextColumn>
+
+                <sdk:DataGridTextColumn Binding="{Binding Alarm_Normal}" Header="MANAGER_NormalSetting" Width="200" CanUserSort="True" >
+                </sdk:DataGridTextColumn>
+
+                <sdk:DataGridTextColumn Binding="{Binding Alarm_VehcileCount}" Header="MANAGER_GpsSetting_Total" Width="200" CanUserSort="True" >
+                </sdk:DataGridTextColumn>
+
+                <sdk:DataGridTemplateColumn Header="MANAGER_User_Operate" Width="*" CanUserSort="True">
+                    <sdk:DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                <Button x:Name="detail" Style="{StaticResource ANTBaseInfoGridBtn}" Command="{Binding DataContext.DetailCommand, RelativeSource={RelativeSource AncestorType=sdk:DataGrid}}" VerticalAlignment="Center" HorizontalAlignment="Center"
+                                        ToolTipService.ToolTip="{Binding [MANAGER_LookDetail],Source={StaticResource SR}}" Margin="0,0,10,0">
+                                    <Image Source="/ExternalResource;component/Images/DataGrid_detail.png" Stretch="None"   />
+                                </Button>
+
+                                <Button Style="{StaticResource ANTBaseInfoGridBtn}" ToolTipService.ToolTip="{Binding [MANAGER_Modify], Source={StaticResource SR}}" Command="{Binding DataContext.ModifyCommand,  RelativeSource={RelativeSource AncestorType=sdk:DataGrid}}"  Margin="0,0,10,0" IsEnabled="{Binding Alarm_IsDefault,Converter={StaticResource boolToEnable}}">
+                                    <Image Source="/ExternalResource;component/Images/DataGrid_edit.png" Stretch="None" />
+                                </Button>
+
+                                <Button Style="{StaticResource ANTBaseInfoGridBtn}" ToolTipService.ToolTip="{Binding [Manager_toVehicle], Source={StaticResource SR}}" Command="{Binding DataContext.ToVehicleCommand,  RelativeSource={RelativeSource AncestorType=sdk:DataGrid}}"  Margin="0,0,10,0" >
+                                    <Image Source="/ExternalResource;component/Images/DataGrid_vehicle.png" Stretch="None" />
+                                </Button>
+
+                                <Button Style="{StaticResource ANTBaseInfoGridBtn}" ToolTipService.ToolTip="{Binding [MANAGER_Rule_No_Relation_Tip], Source={StaticResource SR}}" Command="{Binding DataContext.DefaultCommand,RelativeSource={RelativeSource AncestorType=sdk:DataGrid}}" IsEnabled="{Binding Alarm_IsDefault,Converter={StaticResource boolToEnable}}" Margin="0,0,10,0" >
+                                    <Image Source="/ExternalResource;component/Images/DataGrid_return.png" Stretch="None" />
+                                </Button>
+
+                                <Button Style="{StaticResource ANTBaseInfoGridBtn}" ToolTipService.ToolTip="{Binding [MANAGE_Delete], Source={StaticResource SR}}" Command="{Binding DataContext.DeleteCommand,  
+                                    RelativeSource={RelativeSource AncestorType=sdk:DataGrid}}"  Margin="0,0,10,0" IsEnabled="{Binding Alarm_IsDefault,Converter={StaticResource boolToEnable}}">
+                                    <Image Source="/ExternalResource;component/Images/DataGrid_dele.png" Stretch="None"/>
+                                </Button>
+                            </StackPanel>
+                        </DataTemplate>
+                    </sdk:DataGridTemplateColumn.CellTemplate>
+                </sdk:DataGridTemplateColumn>
+            </sdk:DataGrid.Columns>
+        </sdk:DataGrid>
+
+        <Border Grid.Row="4" Style="{StaticResource BottonBorderStyle}" >
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" >
+                <TextBlock HorizontalAlignment="Left"  Text="{Binding [PageSize], Source={StaticResource SR}}" Style="{StaticResource DataGrid_Page_TextBlockStyle}" VerticalAlignment="Center" />
+                <ComboBox SelectedItem="{Binding PageSizeValue, Mode=TwoWay}" Style="{StaticResource DataGrid_Page_ComboBoxStyle}"  ItemsSource="{Binding PageSizeList}" VerticalAlignment="Center" Width="50" Height="25"/>
+                <sdk:DataPager Source="{Binding alarmSettingList,Mode=TwoWay}" PageSize="{Binding PageSizeValue,Mode=TwoWay}" IsTotalItemCountFixed="True" />
+            </StackPanel>
+        </Border>
+
+
+
+
+    </Grid>
+</UserControl>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Installation.Contract.Data" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Installation.Contract.Data" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="Step1Package">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ClientID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CreateTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="InstallationStaff" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="InstallationStationId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Note" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RecordStaff" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Step" type="xs:int" />
+      <xs:element minOccurs="0" name="VehicleId" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Step1Package" nillable="true" type="tns:Step1Package" />
+  <xs:complexType name="Step2Package">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AbnormalCause" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AlarmCheck" type="xs:short" />
+      <xs:element minOccurs="0" name="ClientID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GpsCheck" type="xs:short" />
+      <xs:element minOccurs="0" name="InstallID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsSuccess" type="xs:short" />
+      <xs:element minOccurs="0" name="MDVR_CORE_SN" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OnlineFlag" type="xs:short" />
+      <xs:element minOccurs="0" name="Organization" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SelfInspectCheck" type="xs:short" />
+      <xs:element minOccurs="0" name="SuiteId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SuiteKey" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SuiteStatus" type="xs:short" />
+      <xs:element minOccurs="0" name="SuiteSwitchTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="VehicleId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VideoCheck" type="xs:short" />
+      <xs:element minOccurs="0" name="VideoQualityCheck" type="xs:short" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Step2Package" nillable="true" type="tns:Step2Package" />
+  <xs:complexType name="Step6Package">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CheckStep" type="xs:short" />
+      <xs:element minOccurs="0" name="FinishTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MdvrCoreId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Status" type="xs:short" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Step6Package" nillable="true" type="tns:Step6Package" />
+  <xs:complexType name="MaintenancePackage">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DeviceStatus" type="xs:short" />
+      <xs:element minOccurs="0" name="InstallID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SuiteId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SuiteKey" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MaintenancePackage" nillable="true" type="tns:MaintenancePackage" />
+  <xs:complexType name="DeletePackage">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="InstallID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SuiteKey" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DeletePackage" nillable="true" type="tns:DeletePackage" />
+</xs:schema>

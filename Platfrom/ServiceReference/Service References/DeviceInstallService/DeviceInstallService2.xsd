@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Gs.PTMS.Common.Data.Enum" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Gs.PTMS.Common.Data.Enum" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:simpleType name="CameraInstallLocationEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="OuterBefore" />
+      <xs:enumeration value="InnerLeftDriver" />
+      <xs:enumeration value="InnerRightDriver" />
+      <xs:enumeration value="InnerCenter" />
+      <xs:enumeration value="OuterLeft" />
+      <xs:enumeration value="OuterRight" />
+      <xs:enumeration value="InnerBehind" />
+      <xs:enumeration value="OuterBehind" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="CameraInstallLocationEnum" nillable="true" type="tns:CameraInstallLocationEnum" />
+</xs:schema>

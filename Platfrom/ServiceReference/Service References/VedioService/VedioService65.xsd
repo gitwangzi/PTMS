@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:2258/VedioService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Common.Data" />
+  <xs:import schemaLocation="http://localhost:2258/VedioService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" />
+  <xs:import schemaLocation="http://localhost:2258/VedioService.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Integration.Contract" />
+  <xs:import schemaLocation="http://localhost:2258/VedioService.svc?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Common.Data.Data.Video" />
+  <xs:import schemaLocation="http://localhost:2258/VedioService.svc?xsd=xsd5" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:element name="QueryServerFileList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Common.Data" minOccurs="0" name="arg" nillable="true" type="q1:QueryServerFileListArgs" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="QueryServerFileListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" minOccurs="0" name="QueryServerFileListResult" nillable="true" type="q2:MultiMessageOfQueryServerFileListMessagei7Zg_POJ5" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="QueryHistoryVideoList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="vehicleid" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="startTime" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="endTime" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+        <xs:element minOccurs="0" name="pageValue" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="QueryHistoryVideoListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" minOccurs="0" name="QueryHistoryVideoListResult" nillable="true" type="q3:MultiMessageOfQueryServerFileListMessagei7Zg_POJ5" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="QueryDownloadStatus">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Common.Data" minOccurs="0" name="arg" nillable="true" type="q4:QueryDownloadStatusArgs" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="QueryDownloadStatusResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" minOccurs="0" name="QueryDownloadStatusResult" nillable="true" type="q5:MultiMessageOfQueryDownloadStatusMessagei7Zg_POJ5" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckAlarmVideo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Integration.Contract" minOccurs="0" name="arg" nillable="true" type="q6:CheckAlarmVideoArgs" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckAlarmVideoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" minOccurs="0" name="CheckAlarmVideoResult" nillable="true" type="q7:SingleMessageOfArrayOfKeyValueOfintbooleanuHEDJ7Dj" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetHistoryItemForVideoAppeal">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="starttime" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="endtime" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetHistoryItemForVideoAppealResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" minOccurs="0" name="GetHistoryItemForVideoAppealResult" nillable="true" type="q8:MultiMessageOfHistoryItemForVideoAppealA5zhs20f" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAlarmFiftyVideoAppeal">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AlarmId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAlarmFiftyVideoAppealResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" minOccurs="0" name="GetAlarmFiftyVideoAppealResult" nillable="true" type="q9:MultiMessageOfQueryServerFileListMessagei7Zg_POJ5" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateVideoNote">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="videoID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="note" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateVideoNoteResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" minOccurs="0" name="UpdateVideoNoteResult" nillable="true" type="q10:SingleMessageOfboolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPhotoList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Common.Data.Data.Video" minOccurs="0" name="arg" nillable="true" type="q11:QueryPhotoFileListArgs" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPhotoListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" minOccurs="0" name="GetPhotoListResult" nillable="true" type="q12:MultiMessageOfPhotoi7Zg_POJ5" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetPhotoMark">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="list" nillable="true" type="q13:ArrayOfstring" />
+        <xs:element minOccurs="0" name="status" type="xs:int" />
+        <xs:element minOccurs="0" name="note" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetPhotoMarkResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" minOccurs="0" name="SetPhotoMarkResult" nillable="true" type="q14:SingleMessageOfboolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeletePhoto">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q15="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="list" nillable="true" type="q15:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeletePhotoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" minOccurs="0" name="DeletePhotoResult" nillable="true" type="q16:SingleMessageOfboolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetChannelByVehicleSN">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="vehcilesn" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetChannelByVehicleSNResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" minOccurs="0" name="GetChannelByVehicleSNResult" nillable="true" type="q17:MultiMessageOfRealTimeChannelInfoA5zhs20f" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

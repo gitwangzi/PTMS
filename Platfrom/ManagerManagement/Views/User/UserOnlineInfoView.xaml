@@ -1,0 +1,176 @@
+﻿<UserControl xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"  x:Class="Gsafety.PTMS.Manager.Views.User.UserOnlineInfoView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+             xmlns:Converter="clr-namespace:Gsafety.Common.Converts;assembly=Converts"
+             xmlns:Converts="clr-namespace:Gsafety.Common.Converts;assembly=Converts"
+    d:DesignHeight="700" d:DesignWidth="800">
+
+    <UserControl.Resources>
+        <Converter:FunItemVisibilityConverter x:Key="FunItemVisibilityConverter"/>
+        <Converts:DateTimeConverFormate x:Key="DateTimeConverFormate"/>
+        <Converts:LongDateTimeFormate x:Key="LongDateTimeFormate"/>
+    </UserControl.Resources>
+
+    <Grid x:Name="LayoutRoot" Style="{StaticResource ContentGridWhiteStyle}" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="1"/>
+        </Grid.RowDefinitions>
+
+        <Grid Style="{StaticResource ViewFirstTitleWhiteGridStyle}"
+              Height="35"
+              Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <!--<Image Grid.Column="0" Stretch="Uniform"
+                   Margin="5,5,5,5"
+                   Width="20"
+                   Source="/ExternalResource;component/Images/ReportDocument.png"/>-->
+            <Image Grid.Column="0"
+                   Style="{StaticResource TitleImageStyle}"/>
+            <TextBlock Text="{Binding [UserOnLineManager], Source={StaticResource SR}}" 
+                       Style="{StaticResource SecondTitleTextBlockWhiteStyle}"
+                       Grid.Column="1"/>
+
+
+        </Grid>
+
+        <Grid Grid.Row="1" Style="{StaticResource SearchContentGridStyle}" Height="35">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="1.5*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="1.5*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Text="{Binding [User_UserName], Source={StaticResource SR}}"
+                       Grid.Column="0"
+                       Margin="0,5,5,5" Style="{StaticResource TextBlockBlackStyle}"
+                       HorizontalAlignment="Right"
+                       VerticalAlignment="Center"/>
+            <TextBox Grid.Column="1"
+                     HorizontalAlignment="Stretch"
+                     VerticalAlignment="Center"
+                     Margin="0,5,0,5" MaxLength="20"
+                     Text="{Binding SearchByName,Mode=TwoWay}"/>
+
+            <Button Grid.Column="2"
+                    Style="{StaticResource SearchButtonCommonStyle}"
+                    ToolTipService.ToolTip="{Binding [VDM_Search], Source={StaticResource SR}}"
+                    Command="{Binding BtnSearchCommand}"/>
+
+        </Grid>
+
+        <Grid Grid.Row="2"
+              Style="{StaticResource ViewFirstTitleWhiteGridStyle}"
+              Height="35">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>          
+            <Image Grid.Column="0"
+                   Style="{StaticResource TitleImageStyle}"/>
+            <TextBlock Text="{Binding [UserOnLineList], Source={StaticResource SR}}" 
+                       Style="{StaticResource ThreeTitleTextBlockWhiteStyle}"
+                       Grid.Column="1"/>       
+        </Grid>
+
+
+        <sdk:DataGrid  Grid.Row="3"
+                       x:Name="ListDataGrid" 
+                       IsReadOnly="True"
+                      AutoGenerateColumns="False"
+                      ItemsSource="{Binding Data}" Style="{StaticResource DataGridWhiteStyleRxx}"
+                      SelectedItem="{Binding CurrentUserOnline,Mode=TwoWay}">
+            <sdk:DataGrid.Columns>
+
+                <sdk:DataGridTextColumn  
+                                        HeaderStyle="{StaticResource ColumnHeaderWhiteStyle}"
+                                        Header="LoginName"
+                                        Visibility="Visible" 
+                                        Width="*"
+                                        Binding="{Binding UserName}">
+
+                </sdk:DataGridTextColumn>
+
+                <sdk:DataGridTextColumn  
+                                        HeaderStyle="{StaticResource ColumnHeaderWhiteStyle}"
+                                        Header="MANAGER_UserType"
+                                        Visibility="Visible" 
+                                        Width="*"
+                                        Binding="{Binding RoleName}">
+
+                </sdk:DataGridTextColumn>
+
+
+                <sdk:DataGridTextColumn  Header="MANAGER_LoginTime" 
+                                        HeaderStyle="{StaticResource ColumnHeaderWhiteStyle}"
+                                        Visibility="Visible"
+                                        Width="*"
+                                        Binding="{Binding OnlineTime,Converter={StaticResource LongDateTimeFormate}}"/>
+
+                <sdk:DataGridTextColumn  Header="OnlineTime" 
+                                        HeaderStyle="{StaticResource ColumnHeaderWhiteStyle}"
+                                        Visibility="Visible"
+                                        Width="*"
+                                        Binding="{Binding OnlineTimeSpan}"/>
+
+            </sdk:DataGrid.Columns>
+
+        </sdk:DataGrid>
+
+
+        <Border Grid.Row="4" BorderThickness="0.5" Height="35" >
+            <Grid Style="{StaticResource SearchContentGridStyle}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock HorizontalAlignment="Right" Margin="0,0,5,0"   
+                           Text="{Binding [PageSize], Source={StaticResource SR}}" VerticalAlignment="Center" 
+                           Grid.Column="0"/>
+                
+                <ComboBox SelectedItem="{Binding PageSizeValue,Mode=TwoWay}"  
+                          ItemsSource="{Binding PageSizeList}" HorizontalAlignment="Right" 
+                          Style="{StaticResource lightComboBox}"
+                          Height="20" VerticalAlignment="Center" Width="50" Background="{Binding ElementName=ListDataGrid, Path=Background}"
+                          Grid.Column="1"/>
+
+                <TextBlock Grid.Column="2"
+                       Text="{Binding [Total],Source={StaticResource SR}}"
+                       HorizontalAlignment="Right"
+                       VerticalAlignment="Center"
+                       Margin="5,0,5,0"/>
+
+                <TextBlock Text="{Binding Data.ItemCount}" Grid.Column="3"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       Margin="5,0,5,0"/>
+
+                <sdk:DataPager Grid.Column="4"
+                           Source="{Binding Data}"
+                           PageSize="{Binding PageSizeValue}"
+                           Height="25"
+                           Background="{Binding ElementName=ListDataGrid, Path=Background}"
+                           HorizontalAlignment="Stretch"
+                           VerticalAlignment="Center"/>
+            </Grid>
+        </Border>
+    </Grid>
+</UserControl>

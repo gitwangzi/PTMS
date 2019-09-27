@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Common.Data" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Common.Data" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:2258/BscDevSuiteService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Common.Enum" />
+  <xs:complexType name="DevSuite">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BscDevSuiteParts" nillable="true" type="tns:ArrayOfDevSuitePart" />
+      <xs:element minOccurs="0" name="ClientID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CreateTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DisplayInstallStatus" nillable="true" type="xs:string" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Common.Enum" minOccurs="0" name="InstallStatus" type="q1:InstallStatusType" />
+      <xs:element minOccurs="0" name="MdvrCoreSn" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MdvrSim" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MdvrSimMobile" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MdvrSn" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Model" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Note" nillable="true" type="xs:string" />
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Common.Enum" minOccurs="0" name="Protocol" type="q2:ProtocolTypeEnum" />
+      <xs:element minOccurs="0" name="SdSn" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SoftwareVersion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Status" type="xs:short" />
+      <xs:element minOccurs="0" name="SuiteID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SuiteInfoID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UpsSn" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VehicleID" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DevSuite" nillable="true" type="tns:DevSuite" />
+  <xs:complexType name="ArrayOfDevSuitePart">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DevSuitePart" nillable="true" type="tns:DevSuitePart" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDevSuitePart" nillable="true" type="tns:ArrayOfDevSuitePart" />
+  <xs:complexType name="DevSuitePart">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CreateTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Model" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PartSn" nillable="true" type="xs:string" />
+      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Common.Enum" minOccurs="0" name="PartType" type="q3:BscDevSuitePartTypeEnum" />
+      <xs:element minOccurs="0" name="ProduceTime" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ShowParttype" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SuiteInfoID" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DevSuitePart" nillable="true" type="tns:DevSuitePart" />
+  <xs:complexType name="ArrayOfDevSuite">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DevSuite" nillable="true" type="tns:DevSuite" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDevSuite" nillable="true" type="tns:ArrayOfDevSuite" />
+</xs:schema>

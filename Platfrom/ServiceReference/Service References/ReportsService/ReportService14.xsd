@@ -1,0 +1,347 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/DevExpress.XtraPrinting" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/DevExpress.XtraPrinting" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:2038/ReportService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import schemaLocation="http://localhost:2038/ReportService.svc?xsd=xsd9" namespace="http://schemas.datacontract.org/2004/07/DevExpress.XtraReports.UI" />
+  <xs:import schemaLocation="http://localhost:2038/ReportService.svc?xsd=xsd10" namespace="http://schemas.datacontract.org/2004/07/System.Drawing.Drawing2D" />
+  <xs:import schemaLocation="http://localhost:2038/ReportService.svc?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/DevExpress.DocumentServices.ServiceModel.DataContracts.Xpf.Designer" />
+  <xs:simpleType name="ExportFormat">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Pdf" />
+      <xs:enumeration value="Htm" />
+      <xs:enumeration value="Mht" />
+      <xs:enumeration value="Rtf" />
+      <xs:enumeration value="Xls" />
+      <xs:enumeration value="Xlsx" />
+      <xs:enumeration value="Csv" />
+      <xs:enumeration value="Txt" />
+      <xs:enumeration value="Image" />
+      <xs:enumeration value="Xps" />
+      <xs:enumeration value="Prnx" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ExportFormat" nillable="true" type="tns:ExportFormat" />
+  <xs:simpleType name="BorderSide">
+    <xs:list>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="None">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">0</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="Left">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="Top">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="Right">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">4</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="Bottom">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">8</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="All">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">15</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:list>
+  </xs:simpleType>
+  <xs:element name="BorderSide" nillable="true" type="tns:BorderSide" />
+  <xs:complexType name="LineSpecifics">
+    <xs:annotation>
+      <xs:appinfo>
+        <IsValueType xmlns="http://schemas.microsoft.com/2003/10/Serialization/">true</IsValueType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ColorARGB" type="xs:int" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/DevExpress.XtraReports.UI" minOccurs="0" name="LineDirection" type="q1:LineDirection" />
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/System.Drawing.Drawing2D" minOccurs="0" name="LineStyle" type="q2:DashStyle" />
+      <xs:element minOccurs="0" name="LineWidth" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="LineSpecifics" nillable="true" type="tns:LineSpecifics" />
+  <xs:simpleType name="TextAlignment">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="TopLeft">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="TopCenter">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="TopRight">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">4</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="MiddleLeft">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">16</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="MiddleCenter">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">32</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="MiddleRight">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">64</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="BottomLeft">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">256</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="BottomCenter">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">512</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="BottomRight">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1024</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="TopJustify">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2048</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="MiddleJustify">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">4096</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="BottomJustify">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">8096</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="TextAlignment" nillable="true" type="tns:TextAlignment" />
+  <xs:simpleType name="BorderDashStyle">
+    <xs:annotation>
+      <xs:appinfo>
+        <ActualType Name="unsignedByte" Namespace="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Solid" />
+      <xs:enumeration value="Dash" />
+      <xs:enumeration value="Dot" />
+      <xs:enumeration value="DashDot" />
+      <xs:enumeration value="DashDotDot" />
+      <xs:enumeration value="Double" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="BorderDashStyle" nillable="true" type="tns:BorderDashStyle" />
+  <xs:complexType name="ShapeSpecifics">
+    <xs:annotation>
+      <xs:appinfo>
+        <IsValueType xmlns="http://schemas.microsoft.com/2003/10/Serialization/">true</IsValueType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Angle" type="xs:int" />
+      <xs:element minOccurs="0" name="FillColorARGB" type="xs:int" />
+      <xs:element minOccurs="0" name="Fillet" type="xs:int" />
+      <xs:element minOccurs="0" name="LineWidth" type="xs:int" />
+      <xs:element minOccurs="0" name="NumberOfSides" type="xs:int" />
+      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/DevExpress.DocumentServices.ServiceModel.DataContracts.Xpf.Designer" minOccurs="0" name="ShapeKind" type="q3:ShapeKind" />
+      <xs:element minOccurs="0" name="StarPointCount" type="xs:int" />
+      <xs:element minOccurs="0" name="StretchShape" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ShapeSpecifics" nillable="true" type="tns:ShapeSpecifics" />
+  <xs:complexType name="ArrayOfHtmlExportMode">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="HtmlExportMode" type="tns:HtmlExportMode" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfHtmlExportMode" nillable="true" type="tns:ArrayOfHtmlExportMode" />
+  <xs:simpleType name="HtmlExportMode">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="SingleFile" />
+      <xs:enumeration value="SingleFilePageByPage" />
+      <xs:enumeration value="DifferentFiles" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="HtmlExportMode" nillable="true" type="tns:HtmlExportMode" />
+  <xs:complexType name="ArrayOfImageExportMode">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ImageExportMode" type="tns:ImageExportMode" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfImageExportMode" nillable="true" type="tns:ArrayOfImageExportMode" />
+  <xs:simpleType name="ImageExportMode">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="SingleFile" />
+      <xs:enumeration value="SingleFilePageByPage" />
+      <xs:enumeration value="DifferentFiles" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ImageExportMode" nillable="true" type="tns:ImageExportMode" />
+  <xs:complexType name="ArrayOfRtfExportMode">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RtfExportMode" type="tns:RtfExportMode" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRtfExportMode" nillable="true" type="tns:ArrayOfRtfExportMode" />
+  <xs:simpleType name="RtfExportMode">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="SingleFile" />
+      <xs:enumeration value="SingleFilePageByPage" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="RtfExportMode" nillable="true" type="tns:RtfExportMode" />
+  <xs:complexType name="ArrayOfXlsExportMode">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="XlsExportMode" type="tns:XlsExportMode" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfXlsExportMode" nillable="true" type="tns:ArrayOfXlsExportMode" />
+  <xs:simpleType name="XlsExportMode">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="SingleFile" />
+      <xs:enumeration value="DifferentFiles" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="XlsExportMode" nillable="true" type="tns:XlsExportMode" />
+  <xs:complexType name="ArrayOfXlsxExportMode">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="XlsxExportMode" type="tns:XlsxExportMode" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfXlsxExportMode" nillable="true" type="tns:ArrayOfXlsxExportMode" />
+  <xs:simpleType name="XlsxExportMode">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="SingleFile" />
+      <xs:enumeration value="SingleFilePageByPage" />
+      <xs:enumeration value="DifferentFiles" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="XlsxExportMode" nillable="true" type="tns:XlsxExportMode" />
+  <xs:simpleType name="ExportOptionKind">
+    <xs:annotation>
+      <xs:appinfo>
+        <ActualType Name="long" Namespace="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:list>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="PdfPageRange" />
+          <xs:enumeration value="PdfCompressed" />
+          <xs:enumeration value="PdfShowPrintDialogOnOpen" />
+          <xs:enumeration value="PdfNeverEmbeddedFonts" />
+          <xs:enumeration value="PdfPasswordSecurityOptions" />
+          <xs:enumeration value="PdfSignatureOptions" />
+          <xs:enumeration value="PdfConvertImagesToJpeg" />
+          <xs:enumeration value="PdfImageQuality" />
+          <xs:enumeration value="PdfDocumentAuthor" />
+          <xs:enumeration value="PdfDocumentApplication" />
+          <xs:enumeration value="PdfDocumentTitle" />
+          <xs:enumeration value="PdfDocumentSubject" />
+          <xs:enumeration value="PdfDocumentKeywords" />
+          <xs:enumeration value="HtmlExportMode" />
+          <xs:enumeration value="HtmlCharacterSet" />
+          <xs:enumeration value="HtmlTitle" />
+          <xs:enumeration value="HtmlRemoveSecondarySymbols" />
+          <xs:enumeration value="HtmlEmbedImagesInHTML" />
+          <xs:enumeration value="HtmlPageRange" />
+          <xs:enumeration value="HtmlPageBorderWidth" />
+          <xs:enumeration value="HtmlPageBorderColor" />
+          <xs:enumeration value="HtmlTableLayout" />
+          <xs:enumeration value="RtfExportMode" />
+          <xs:enumeration value="RtfPageRange" />
+          <xs:enumeration value="RtfExportWatermarks" />
+          <xs:enumeration value="XlsExportMode" />
+          <xs:enumeration value="XlsPageRange" />
+          <xs:enumeration value="XlsxExportMode" />
+          <xs:enumeration value="XlsxPageRange" />
+          <xs:enumeration value="TextSeparator" />
+          <xs:enumeration value="TextEncoding" />
+          <xs:enumeration value="TextQuoteStringsWithSeparators" />
+          <xs:enumeration value="TextExportMode" />
+          <xs:enumeration value="XlsShowGridLines" />
+          <xs:enumeration value="XlsUseNativeFormat" />
+          <xs:enumeration value="XlsExportHyperlinks" />
+          <xs:enumeration value="XlsRawDataMode" />
+          <xs:enumeration value="XlsSheetName" />
+          <xs:enumeration value="ImageExportMode" />
+          <xs:enumeration value="ImagePageRange" />
+          <xs:enumeration value="ImagePageBorderWidth" />
+          <xs:enumeration value="ImagePageBorderColor" />
+          <xs:enumeration value="ImageFormat" />
+          <xs:enumeration value="ImageResolution" />
+          <xs:enumeration value="NativeFormatCompressed" />
+          <xs:enumeration value="XpsPageRange" />
+          <xs:enumeration value="XpsCompression" />
+          <xs:enumeration value="XpsDocumentCreator" />
+          <xs:enumeration value="XpsDocumentCategory" />
+          <xs:enumeration value="XpsDocumentTitle" />
+          <xs:enumeration value="XpsDocumentSubject" />
+          <xs:enumeration value="XpsDocumentKeywords" />
+          <xs:enumeration value="XpsDocumentVersion" />
+          <xs:enumeration value="XpsDocumentDescription" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:list>
+  </xs:simpleType>
+  <xs:element name="ExportOptionKind" nillable="true" type="tns:ExportOptionKind" />
+</xs:schema>

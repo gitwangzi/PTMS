@@ -1,0 +1,276 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Gsafety.Ant.Message.Contract.Data" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Gsafety.Ant.Message.Contract.Data" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" />
+  <xs:complexType name="OpenOrCloseDoorAbnormalAlert">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" base="q1:AlertBaseModel">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="DoorOperation" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DoorType" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LimitSpeed" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TimeZone" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TriggerSpeed" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="OpenOrCloseDoorAbnormalAlert" nillable="true" type="tns:OpenOrCloseDoorAbnormalAlert" />
+  <xs:complexType name="VoltageAbnormalAlert">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q2="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" base="q2:AlertBaseModel">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CurrentVoltage" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="MaxVoltage" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="MinVoltage" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="VoltageAbnormalAlert" nillable="true" type="tns:VoltageAbnormalAlert" />
+  <xs:complexType name="InspectInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Channel1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Channel2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Channel3" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Channel4" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CurInTemperature" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CurVoltage" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Direction" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GpsInfo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GpsTime" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="GpsValid" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="InspectID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="InspectTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Latitude" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Longitude" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MdvrCoreId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Module3G" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Note" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RecSD" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SdCapacity" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Sensor1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Sensor2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Sensor3" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SimCard" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Speed" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StandbyPower" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="InspectInfo" nillable="true" type="tns:InspectInfo" />
+  <xs:complexType name="GPS">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Context" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Direction" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DistrictCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DriveSign" type="xs:int" />
+      <xs:element minOccurs="0" name="GPSTime" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="GPSValid" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Latitude" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Longitude" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MdvrCoreId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Speed" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SuiteInfoId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VehicleId" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GPS" nillable="true" type="tns:GPS" />
+  <xs:complexType name="OnOffline">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Context" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Direction" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GPSTime" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="GPSValid" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsOnLine" type="xs:int" />
+      <xs:element minOccurs="0" name="Latitude" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Longitude" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MdvrCoreId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Speed" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SuiteInfoId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VehicleId" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="OnOffline" nillable="true" type="tns:OnOffline" />
+  <xs:complexType name="ElectricFenceCMD">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q3="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" base="q3:DownwardBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Action" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DataPacketCount" type="xs:int" />
+          <xs:element minOccurs="0" name="DataPacketID" type="xs:int" />
+          <xs:element minOccurs="0" name="Fence" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FenceId" type="xs:int" />
+          <xs:element minOccurs="0" name="PacketID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SendTime" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Speed" type="xs:int" />
+          <xs:element minOccurs="0" name="Type" type="xs:int" />
+          <xs:element minOccurs="0" name="ValidTime" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ElectricFenceCMD" nillable="true" type="tns:ElectricFenceCMD" />
+  <xs:complexType name="CameraOcclusionAlert">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q4="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" base="q4:AlertBaseModel">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ChannelId" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CameraOcclusionAlert" nillable="true" type="tns:CameraOcclusionAlert" />
+  <xs:complexType name="UpgradeCMD">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q5="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" base="q5:DownwardBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="DataPacketCount" type="xs:int" />
+          <xs:element minOccurs="0" name="FTPAddress" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FileName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="MD5Code" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Operator" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Port" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SendTime" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UUId" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="UpgradeCMD" nillable="true" type="tns:UpgradeCMD" />
+  <xs:complexType name="AlarmInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AlarmGuid" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AlarmStatus" type="xs:int" />
+      <xs:element minOccurs="0" name="AlarmTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="BusinessType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CityName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CompanyID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CompanyName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Context" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Direction" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DistrictCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GpsTime" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="GpsValid" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="HandleResult" type="xs:int" />
+      <xs:element minOccurs="0" name="HandleTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsTrueAlarm" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Latitude" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Longitude" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MdvrCoreId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ProvinceName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Speed" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SuiteID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SuiteInfoID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VehicleId" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AlarmInfo" nillable="true" type="tns:AlarmInfo" />
+  <xs:complexType name="HandingAlarm">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AlarmTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Vehicle_Id" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="HandingAlarm" nillable="true" type="tns:HandingAlarm" />
+  <xs:complexType name="CameraNoSignalAlert">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q6="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" base="q6:AlertBaseModel">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ChannelId" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CameraNoSignalAlert" nillable="true" type="tns:CameraNoSignalAlert" />
+  <xs:complexType name="FireAlert">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q7="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" base="q7:AlertBaseModel">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="FireType" type="xs:short" />
+          <xs:element minOccurs="0" name="TimeZone" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="FireAlert" nillable="true" type="tns:FireAlert" />
+  <xs:complexType name="GpsReceiverFaultAlert">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q8="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" base="q8:AlertBaseModel">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GpsReceiverFaultAlert" nillable="true" type="tns:GpsReceiverFaultAlert" />
+  <xs:complexType name="MdvrMemoryCardErrorAlert">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q9="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" base="q9:AlertBaseModel">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ErrorCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ErrorMessage" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="HardDiskId" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MdvrMemoryCardErrorAlert" nillable="true" type="tns:MdvrMemoryCardErrorAlert" />
+  <xs:complexType name="OverSpeedAlert">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q10="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" base="q10:AlertBaseModel">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ContinueTime" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CurrentSpeed" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="HistoryMaxSpeed" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="HistoryMinSpeed" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="MaxSpeed" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="MinSpeed" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SpeedAlertType" type="xs:short" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="OverSpeedAlert" nillable="true" type="tns:OverSpeedAlert" />
+  <xs:complexType name="RegionAlert">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q11="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" base="q11:AlertBaseModel">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="EntryOrExitSign" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FenceId" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FenceName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FenceSign" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RegionAlertStatus" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SubRegionAlertType" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RegionAlert" nillable="true" type="tns:RegionAlert" />
+  <xs:complexType name="RemoveDeviceSuiteAlertNotify">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q12="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" base="q12:AlertBaseModel">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="UserDefinedAlertId" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UserDefinedAlertName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="removeBusinessAlertType" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="removeDeviceAlertType" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="removeUserDefinedAlertType" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RemoveDeviceSuiteAlertNotify" nillable="true" type="tns:RemoveDeviceSuiteAlertNotify" />
+  <xs:complexType name="TemperatureAlert">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q13="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" base="q13:AlertBaseModel">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CurrentTemperature" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="MaxTemperature" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="MinTemperature" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TemperatureType" type="xs:short" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="TemperatureAlert" nillable="true" type="tns:TemperatureAlert" />
+</xs:schema>

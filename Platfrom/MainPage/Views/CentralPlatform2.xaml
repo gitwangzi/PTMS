@@ -1,0 +1,351 @@
+﻿<UserControl xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"  x:Class="Gsafety.Ant.MainPage.Views.CentralPlatform2"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:convert="clr-namespace:Gsafety.PTMS.MainPage.Converts"
+    mc:Ignorable="d"
+    d:DesignHeight="900" d:DesignWidth="1440">
+    <UserControl.Resources>
+        <convert:SoundButtonVisibleConvert x:Key="soundButtonVisible" />
+        <convert:ServerStatusConvert x:Key="ServerStatusDescription" />
+        <Style x:Key="MainPage_HyperlinkButtonStyle" TargetType="HyperlinkButton">
+            <Setter Property="Foreground" Value="#FF73A9D8"/>
+            <Setter Property="Padding" Value="0,0,0,0"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="HyperlinkButton">
+                        <Grid Background="{TemplateBinding Background}" Cursor="{TemplateBinding Cursor}">
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="CommonStates">
+                                    <VisualStateGroup.Transitions>
+                                        <VisualTransition GeneratedDuration="0"/>
+                                    </VisualStateGroup.Transitions>
+                                    <VisualState x:Name="Normal"/>
+                                    <VisualState x:Name="Pressed">
+                                        <Storyboard>
+                                            <ColorAnimation Storyboard.TargetName="BgBorder"
+                                                        Storyboard.TargetProperty="(Grid.Background).(SolidColorBrush.Color)"
+                                                        To="#1e2124" Duration="0">
+
+                                            </ColorAnimation>
+
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="MouseOver">
+                                        <Storyboard>
+                                            <ColorAnimation Storyboard.TargetName="BgBorder"
+                                                        Storyboard.TargetProperty="(Grid.Background).(SolidColorBrush.Color)"
+                                                        To="#2f353e" Duration="0">
+
+                                            </ColorAnimation>
+
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="Disabled"/>
+                                </VisualStateGroup>
+                                <VisualStateGroup x:Name="FocusStates">
+                                    <VisualState x:Name="Focused">
+                                        <Storyboard>
+                                            <ColorAnimation Storyboard.TargetName="BgBorder"
+                                                        Storyboard.TargetProperty="(Grid.Background).(SolidColorBrush.Color)"
+                                                        To="#1e2124" Duration="0">
+
+                                            </ColorAnimation>
+
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="Unfocused"/>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                            <Border x:Name="Border" BorderThickness="1" Width="129" Height="72" CornerRadius="3" BorderBrush="Gray" Visibility="Collapsed">
+                                <Border.Background>
+                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                        <GradientStop/>
+                                        <GradientStop Offset="1"/>
+                                    </LinearGradientBrush>
+                                </Border.Background>
+                            </Border>
+                            <Grid  x:Name="BgBorder" Background="#242930" >
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="40"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <ContentPresenter x:Name="contentPresenter" ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Bottom" />
+                                <TextBlock x:Name="textBlock" HorizontalAlignment="Center" VerticalAlignment="Center" Text="{TemplateBinding Tag}" Foreground="White" FontFamily="Segoe UI" FontSize="15" FontWeight="Bold" Grid.Column="1"/>
+                            </Grid>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
+    <Grid Name="rootGrid">
+        <Grid x:Name="LayoutRoot" Style="{StaticResource ContentGridStyle}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="60"/>              
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <!--第一行-->
+            <Grid Grid.Row="0" Style="{StaticResource MainViewFirstRowGridStyle}">
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="500"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto" MinWidth="275"/>
+                </Grid.ColumnDefinitions>
+
+                <!--logo-->
+                <Grid Grid.Column="0" Width="500">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="500"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Button Grid.Column="0" IsEnabled="False" Style="{StaticResource LogButtonStyle}"
+                        x:Name="LogButton"
+                        Click="LogButton_OnClick"/>
+
+                    <Button Grid.Column="0" IsEnabled="False" Style="{StaticResource LogoEnButtonStyle}"
+                        x:Name="LogoEnButton"
+                        Click="LogButton_OnClick"
+                            Visibility="Collapsed"/>
+                    <Button Grid.Column="0" IsEnabled="False" Style="{StaticResource LogoEsButtonStyle}"
+                        x:Name="LogoESButton"
+                        Click="LogButton_OnClick"
+                           Visibility="Collapsed"/>
+                    <Button Grid.Column="0" IsEnabled="False" Style="{StaticResource LogoPyButtonStyle}"
+                        x:Name="LogoByButton"
+                        Click="LogButton_OnClick"
+                           Visibility="Collapsed"/>
+                </Grid>
+
+
+                <!--展示信息-->
+
+                <Grid Column="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="0"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="40"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Image Source="/ExternalResource;component/Images/UserLoginInfo.png" 
+                           Stretch="Fill" 
+                           VerticalAlignment="Center" 
+                           HorizontalAlignment="Left" 
+                           Margin="5,5,5,5"
+                           Height="20"
+                           Width="20"
+                           Grid.Column="1"/>
+                    <TextBlock Text="{Binding AuthenticationInfo.UserName}"
+                           Grid.Column="2"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Center"
+                           Foreground="#FFFFFF"
+                           Margin="5,5,5,5"/>
+
+                    <Image Source="/ExternalResource;component/Images/ServiceOnlineStatusServicing.png" 
+                           Stretch="Fill" 
+                           VerticalAlignment="Center" 
+                           HorizontalAlignment="Left" 
+                           Margin="5,5,5,5"
+                           Height="20"
+                           Width="20"
+                           Grid.Column="4"/>
+                    <TextBlock Text="{Binding MessageServiceCurrentStatus,Converter={StaticResource ServerStatusDescription}}"
+                           Grid.Column="5"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Center"
+                           Foreground="#FFFFFF"
+                           Margin="5,5,5,5"/>
+
+                    <Image Source="/ExternalResource;component/Images/xiaoche.png" 
+                           Stretch="Fill" 
+                           VerticalAlignment="Center" 
+                           HorizontalAlignment="Left" 
+                           Margin="5,5,10,5"
+                           Height="20"
+                           Width="20"
+                           Grid.Column="7"/>
+
+                    <StackPanel Orientation="Vertical" Grid.Column="8"
+                            HorizontalAlignment="Stretch"
+                            VerticalAlignment="Center">
+                        <!--<TextBlock Text="30%" 
+                               HorizontalAlignment="Left"
+                               VerticalAlignment="Center"
+                               Margin="10,5,0,0"/>-->
+                        <ProgressBar 
+                                     Width="150"
+                                     Height="15"
+                                     Margin="0,2,0,0"
+                            Tag="{Binding VehicleOrganizationManage.OnlineRate}"
+                            Minimum="0"
+                            Maximum="{Binding VehicleOrganizationManage.TotalCount}"
+                            Value="{Binding VehicleOrganizationManage.OnlineCount}"
+                            Style="{StaticResource ProgressBarStyle}" />
+                    </StackPanel>
+
+                    <TextBlock Text="{Binding VehicleOrganizationManage.TotalCount}" Grid.Column="9"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Left"
+                           Foreground="#FFFFFF"
+                           Margin="10,0,0,0"/>
+                </Grid>
+
+                <!--操作图标-->
+
+                <Grid Grid.Column="3">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="53"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Button ToolTipService.ToolTip="{Binding [MessageInfo], Source={StaticResource SR}}"
+                        Style="{StaticResource MessageInfoButtonCommonStyle}"  Margin="10 0"   
+                        Grid.Column="2"/>
+
+                    <Button ToolTipService.ToolTip="{Binding [MAINPAGE_UserInformant], Source={StaticResource SR}}"
+                        Style="{StaticResource MessageInfoButtonCommonStyle}"
+                        Grid.Column="3"  Margin="10 0"   
+                        Command="{Binding Path=DataContext.UserInformationCommmand,ElementName=LayoutRoot}"
+                        >
+                        <Image Stretch="Uniform"
+                           Source="/ExternalResource;component/Images/MouseOverUserLoginDetailInfo.png"/>
+                    </Button>
+
+                    <Button ToolTipService.ToolTip="{Binding [MAINPAGE_ChangePassword], Source={StaticResource SR}}"
+                        Style="{StaticResource ChangPwdButtonCommonStyle}"  Margin="10 0"   
+                        Grid.Column="4"
+                        Command="{Binding Path=DataContext.ChangePasswordCommand,ElementName=LayoutRoot}"
+                        />
+
+                    <!--<Button ToolTipService.ToolTip="{Binding [Silence], Source={StaticResource SR}}"
+                        Style="{StaticResource AlertButtonCommonStyle}"  Margin="10 0"   
+                        Command="{Binding Path=DataContext.AlertCommand,ElementName=LayoutRoot}"
+                        Grid.Column="4" Visibility="{Binding IsAlertVisibility,Converter={StaticResource soundButtonVisible}}"/>
+
+                    <Button ToolTipService.ToolTip="{Binding [Silence], Source={StaticResource SR}}"
+                        Style="{StaticResource SilenceButtonCommonStyle}"  Margin="10 0"   
+                        Command="{Binding Path=DataContext.SilenceCommand,ElementName=LayoutRoot}"
+                        Grid.Column="4" Visibility="{Binding IsSilenceVisibility,Converter={StaticResource soundButtonVisible}}"/>-->
+
+                    <Button ToolTipService.ToolTip="{Binding [Help], Source={StaticResource SR}}"
+                            Style="{StaticResource HelpButtonCommonStyle}"
+                             Margin="10 0"   
+                            Grid.Column="5" 
+                            x:Name="btnHelp"
+                            Click="btnHelp_Click"/>
+
+                    <Button ToolTipService.ToolTip="{Binding [MAINPAGE_Recycle], Source={StaticResource SR}}"
+                        Style="{StaticResource MessageInfoButtonCommonStyle}"
+                        Grid.Column="6"  Margin="10 0"   
+                        Command="{Binding Path=DataContext.RecycleCommmand,ElementName=LayoutRoot}"
+                        >
+                        <Image Stretch="Uniform"
+                           Source="/ExternalResource;component/Images/GisDelete.png"/>
+                    </Button>
+
+                    <Border Grid.Column="7" Background="#1EFFFFFF" Width="53">
+                        <Button ToolTipService.ToolTip="{Binding [Exit], Source={StaticResource SR}}"
+                        Style="{StaticResource ExitButtonCommonStyle}"
+                        Command="{Binding ExitCommand}"/>
+                    </Border>
+
+                </Grid>
+            </Grid>
+            <Grid Grid.Row="1">
+                <Border x:Name="LinksBorder"  HorizontalAlignment="Stretch" Canvas.ZIndex="2" BorderThickness="1">
+                    <StackPanel x:Name="LinksStackPanel" Orientation="Horizontal">
+                        <HyperlinkButton MinWidth="130" x:Name="MoniterLink" Style="{StaticResource MainPage_HyperlinkButtonStyle}" ToolTipService.ToolTip="{Binding [LivingMonitorMenu], Source={StaticResource SR}}" Tag="{Binding [LivingMonitorMenu], Source={StaticResource SR}}"
+							Click="MoniorButton_OnClick" TargetName="SuperFrame" Command="{Binding MonitorCommand}">
+                            <StackPanel Orientation="Vertical">
+                                <Image Source="/ExternalResource;component/Images/MenuMonitor.png" Margin="0,0,0,5" Width="30" Height="30"></Image>
+                            </StackPanel>
+                        </HyperlinkButton>
+                        <HyperlinkButton  MinWidth="130" x:Name="OneKeyLink" Style="{StaticResource MainPage_HyperlinkButtonStyle}" ToolTipService.ToolTip="{Binding [HistoryQueryMenu], Source={StaticResource SR}}" Tag="{Binding [HistoryQueryMenu], Source={StaticResource SR}}"
+							 Click="HistoryQueryButton_OnClick" TargetName="SuperFrame" Command="{Binding OneKeyCommand}"  >
+                            <StackPanel Orientation="Vertical">
+                                <Image Margin="0,0,0,5" Source="/ExternalResource;component/Images/MenuHistoryQuery.png" Width="30" Height="30"  ></Image>
+                            </StackPanel>
+                        </HyperlinkButton>
+
+                        <HyperlinkButton  MinWidth="130" x:Name="TrafficLink" Style="{StaticResource MainPage_HyperlinkButtonStyle}" ToolTipService.ToolTip="{Binding [TrafficeManageMenu], Source={StaticResource SR}}" Tag="{Binding [TrafficeManageMenu], Source={StaticResource SR}}"
+							 Click="TrafficManageButton_OnClick" TargetName="SuperFrame" Command="{Binding TrafficCommand}" >
+                            <StackPanel Orientation="Vertical">
+                                <Image Margin="0,0,0,5" Source="/ExternalResource;component/Images/MenuTrafiicManage.png"  Width="30" Height="30" ></Image>
+                            </StackPanel>
+                        </HyperlinkButton>
+
+                        <HyperlinkButton  MinWidth="130" x:Name="BaseinfoLink" Style="{StaticResource MainPage_HyperlinkButtonStyle}" ToolTipService.ToolTip="{Binding [BasicInfoMenu], Source={StaticResource SR}}" Tag="{Binding [BasicInfoMenu], Source={StaticResource SR}}"
+							 Click="BaseInfoButton_OnClick" TargetName="SuperFrame" Command="{Binding OneKeyCommand}"  >
+                            <StackPanel Orientation="Vertical">
+                                <Image Margin="0,0,0,5" Source="/ExternalResource;component/Images/MenuBaseInfor.png" Width="30" Height="30"  ></Image>
+                            </StackPanel>
+                        </HyperlinkButton>
+
+                        <HyperlinkButton  MinWidth="130" x:Name="ReportLink" Style="{StaticResource MainPage_HyperlinkButtonStyle}" ToolTipService.ToolTip="{Binding [StatisticsReportMenu], Source={StaticResource SR}}" Tag="{Binding [StatisticsReportMenu], Source={StaticResource SR}}" 
+							Click="StatisticReportButton_OnClick" TargetName="SuperFrame">
+                            <StackPanel Orientation="Vertical">
+                                <Image Margin="0,0,0,5" Source="/ExternalResource;component/Images/MenuStatisticReport.png"
+                           Width="30" Height="30"></Image>
+                            </StackPanel>
+                        </HyperlinkButton>
+                        <HyperlinkButton  MinWidth="130" x:Name="VedioWallLink" Style="{StaticResource MainPage_HyperlinkButtonStyle}" ToolTipService.ToolTip="{Binding [VedioWallMenu], Source={StaticResource SR}}" Tag="{Binding [VedioWallMenu], Source={StaticResource SR}}"
+							 Click="VedioWallButton_OnClick" TargetName="SuperFrame">
+                            <StackPanel Orientation="Vertical">
+                                <Image Margin="0,0,0,5" Source="/ExternalResource;component/Images/MenuVedioManagement.png"  Width="30" Height="30"></Image>
+                            </StackPanel>
+                        </HyperlinkButton>
+
+                        <!--Visibility="{Binding ManagerVisibility}"-->
+                        <HyperlinkButton  MinWidth="130"  x:Name="MangerLink" Style="{StaticResource MainPage_HyperlinkButtonStyle}" ToolTipService.ToolTip="{Binding [SystemManageMenu], Source={StaticResource SR}}" Tag="{Binding [SystemManageMenu], Source={StaticResource SR}}"
+							Click="SystemManageButton_OnClick" TargetName="SuperFrame">
+                            <StackPanel Orientation="Vertical">
+                                <Image Margin="0,0,0,5" Source="/ExternalResource;component/Images/MenuSystemManage.png"  
+                           Width="30" Height="30" HorizontalAlignment="Left" 
+                           VerticalAlignment="Center"></Image>
+                            </StackPanel>
+                        </HyperlinkButton>
+                    </StackPanel>
+                </Border>
+
+            </Grid>
+
+            <sdk:Frame Grid.Row="2"
+                   JournalOwnership="OwnsJournal"
+                   x:Name="SuperFrame">
+                <sdk:Frame.UriMapper>
+                    <sdk:UriMapper>
+                        <!--<sdk:UriMapping Uri=""
+                                        MappedUri="/HistoryQueryManagement;component/Page1.xaml"></sdk:UriMapping>-->
+
+                        <sdk:UriMapping Uri="/{pageName}" MappedUri="/MainPage;component/Views/CentralNavigationer2.xaml?view={pageName}"/>
+                    </sdk:UriMapper>
+                </sdk:Frame.UriMapper>
+
+            </sdk:Frame>
+
+        </Grid>
+    </Grid>
+</UserControl>

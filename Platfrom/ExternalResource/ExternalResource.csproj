@@ -1,0 +1,1245 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{0900EBEE-FFFF-4067-817C-B40D49FA76C9}</ProjectGuid>
+    <ProjectTypeGuids>{A1591282-1198-4647-A2B1-27E5FF5F6F3B};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Gsafety.Common.ExternalResource</RootNamespace>
+    <AssemblyName>ExternalResource</AssemblyName>
+    <TargetFrameworkIdentifier>Silverlight</TargetFrameworkIdentifier>
+    <TargetFrameworkVersion>v5.0</TargetFrameworkVersion>
+    <SilverlightVersion>$(TargetFrameworkVersion)</SilverlightVersion>
+    <SilverlightApplication>false</SilverlightApplication>
+    <ValidateXaml>true</ValidateXaml>
+    <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
+  </PropertyGroup>
+  <!-- This property group is only here to support building this project using the 
+       MSBuild 3.5 toolset. In order to work correctly with this older toolset, it needs 
+       to set the TargetFrameworkVersion to v3.5 -->
+  <PropertyGroup Condition="'$(MSBuildToolsVersion)' == '3.5'">
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="mscorlib" />
+    <Reference Include="System.Windows" />
+    <Reference Include="system" />
+    <Reference Include="System.Core">
+      <HintPath>$(TargetFrameworkDirectory)System.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Windows.Browser" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Login_key.png" />
+    <Resource Include="Images\Login_user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\notice_blue.png" />
+    <Resource Include="Images\notice_red.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\camcorder_image.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\navigation.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\seach.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\clipboard-list.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ok.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\return.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\camera01_mouseover.png" />
+    <Resource Include="Images\mangerCarBtn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\exclamation_frame.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\onLineBus.png" />
+    <Resource Include="Images\outLineBus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ui-text-field-password.png" />
+    <Resource Include="Images\user--pencil.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\exclamation_unframe.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\close.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\camera01.png" />
+    <Resource Include="Images\camera02.png" />
+    <Resource Include="Images\document-911.png" />
+    <Resource Include="Images\document-clock.png" />
+    <Resource Include="Images\vedio151.png" />
+    <Resource Include="Images\vedio152.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\onLinePublicBus.png" />
+    <Resource Include="Images\onLineTaxi.png" />
+    <Resource Include="Images\outLinepublicBus.png" />
+    <Resource Include="Images\OutLineTaxi.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\alarm.png" />
+    <Resource Include="Images\alert.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\locate.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\onlineBusMin.png" />
+    <Resource Include="Images\onlineTaxiMin.png" />
+    <Resource Include="Images\onlineIntercityBusMin.png" />
+    <Resource Include="Images\outlineBusMin.png" />
+    <Resource Include="Images\outlineTaxiMin.png" />
+    <Resource Include="Images\outlineIntercityBusMin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\back_icobox.png" />
+    <Resource Include="Images\cancel_icobox.png" />
+    <Resource Include="Images\do_icobox.png" />
+    <Resource Include="Images\save_icobox.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\info.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\slidearrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\slidearrow06.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\car.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Line.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\messageClose.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\dispose.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Mark_Line.png" />
+    <Resource Include="Images\Mark_Point.png" />
+    <Resource Include="Images\Un_Mark_Line.png" />
+    <Resource Include="Images\Un_Mark_Point.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\v_play.png" />
+    <Resource Include="Images\v_unplay.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\v_download.png" />
+    <Resource Include="Images\v_undownload.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\v_save.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\camera02_mouseover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\UnHandle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\locateremove.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\StopScheDule.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\checkbox_no.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\login_bg.png" />
+    <Resource Include="Images\login_login.png" />
+    <Resource Include="Images\login_password.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\MenuAlarm.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\login_reset.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\MainPage_menu_arrowleft.png" />
+    <Resource Include="Images\MainPage_menu_info.png" />
+    <Resource Include="Images\MainPage_menu_monitor.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\MainPage_menu_bg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\MainPage_bus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Pop-up-layer_tle_close.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\MainPage_search_gray.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\MainPage_minus.png" />
+    <Resource Include="Images\MainPage_plus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\MainPage_search_gray_bg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\MainPage_menu_arrow.png" />
+    <Resource Include="Images\MainPage_menu_arrow_o.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\MainPage_line.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\MainPage_search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Main_add.png" />
+    <Resource Include="Images\Main_downloadtemplate.png" />
+    <Resource Include="Images\Main_export.png" />
+    <Resource Include="Images\Main_import.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\MainPage_complete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\MainPage_reset.png" />
+    <Resource Include="Images\MainPage_return.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\MainPage_menu_alarm.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\MainPage_menu_baseinfor.png" />
+    <Resource Include="Images\MainPage_menu_download.png" />
+    <Resource Include="Images\MainPage_menu_manager.png" />
+    <Resource Include="Images\MainPage_menu_state.png" />
+    <Resource Include="Images\MainPage_menu_suite.png" />
+    <Resource Include="Images\MainPage_menu_vehiclealarm.png" />
+    <Resource Include="Images\MainPage_menu_wall.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\MainPage_menu_traffic.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\MainPage_canel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\DataGrid_historical-video.png" />
+    <Resource Include="Images\DataGrid_historical.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\DataGrid_favorite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\DataGrid_position.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\DataGrid_track.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\MainPage_line31.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\MainPage_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\layer_print.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\MainPage_menu_info_orange.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\DataGrid_in.png" />
+    <Resource Include="Images\DataGrid_in_red.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\DataGrid_deal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\DataGrid_detail.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\DataGrid_dele.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\MainPage_menu_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\DataGrid_track1.png" />
+    <Resource Include="Images\DataGrid_video1.png" />
+    <Resource Include="Images\DataGrid_video2.png" />
+    <Resource Include="Images\DataGrid_video3.png" />
+    <Resource Include="Images\DataGrid_video4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\DataGrid_unfavorite.png" />
+    <Resource Include="Images\DataGrid_historical_download.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\DataGrid_abnormal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\DataGrid_edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\DataGrid_Scrap.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\DataGrid_repair.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\DataGrid_working.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\DataGrid_Not_installed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\DataGrid_down.png" />
+    <Resource Include="Images\DataGrid_up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\DataGrid_15video1.png" />
+    <Resource Include="Images\DataGrid_15video2.png" />
+    <Resource Include="Images\DataGrid_15video3.png" />
+    <Resource Include="Images\DataGrid_15video4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\DataGrid_polygon.png" />
+    <Resource Include="Images\DataGrid_reset.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\DataGrid_pause.png" />
+    <Resource Include="Images\DataGrid_play.png" />
+    <Resource Include="Images\DataGrid_stop.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\DataGrid_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Bus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Localize_Car .png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Gis_previous.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Gis_rectangle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Gis_circle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Gis_magnify.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Gis_point.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Gis_track.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Gis_latter.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Gis_global.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Gis_distance.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Gis_area.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Gis_plotting.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Gis_scrap.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Gis_print.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Gis_polygon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\IntercityBus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\scale_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\print_pic.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\print_map.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\OverMap.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\DataGrid_fence.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\checkbox_in.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\DataGrid_vehicle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\DataGrid_return.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\DataGrid_return_white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\login_ico.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\BusLocaltion.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\MainPage_alarm.png" />
+    <Resource Include="Images\MainPage_baseinfor.png" />
+    <Resource Include="Images\MainPage_close-account.png" />
+    <Resource Include="Images\MainPage_download.png" />
+    <Resource Include="Images\MainPage_info.png" />
+    <Resource Include="Images\MainPage_manager.png" />
+    <Resource Include="Images\MainPage_message.png" />
+    <Resource Include="Images\MainPage_monitor.png" />
+    <Resource Include="Images\MainPage_sound.png" />
+    <Resource Include="Images\MainPage_sound_off.png" />
+    <Resource Include="Images\MainPage_state.png" />
+    <Resource Include="Images\MainPage_suite.png" />
+    <Resource Include="Images\MainPage_userconfig.png" />
+    <Resource Include="Images\MainPage_users.png" />
+    <Resource Include="Images\MainPage_vehiclealarm.png" />
+    <Resource Include="Images\MainPage_wall.png" />
+    <Resource Include="Images\MenuAlarm-new.png" />
+    <Resource Include="Images\MenuVehicleAlarm-new.png" />
+    <Resource Include="Images\refresh.png" />
+    <Resource Include="Images\soundPic0.png" />
+    <Resource Include="Images\soundPic1.png" />
+    <Resource Include="Images\UserInfo.png" />
+    <Resource Include="Images\users.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\banner_line.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\installlogo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\install_complete_blue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\break.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Traffic_send.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Traffic_failed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\loginFullBg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\LoginPwd.png" />
+    <Resource Include="Images\loginUser.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\sd.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\bb.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\AUser.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ANoSound.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\AAlert.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\AClose.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\MenuMonitor.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\caidanleft.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\fanhui.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Nativewenjian.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\pre_1.png" />
+    <Resource Include="Images\pre_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Globe_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\distance_1.png" />
+    <Resource Include="Images\draw.png" />
+    <Resource Include="Images\max_01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\reset_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Adviceprint_map.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\PolygonSelect.png" />
+    <Resource Include="Images\RectangleSelect.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\CircleSelect.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\search_ico.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\path_ico.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\DistSwitch.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Application.png" />
+    <Resource Include="Images\bianji.png" />
+    <Resource Include="Images\bianjituxing.png" />
+    <Resource Include="Images\bianjixingzhuang.png" />
+    <Resource Include="Images\biaohui.png" />
+    <Resource Include="Images\blue.png" />
+    <Resource Include="Images\ButtonAdd.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\caidanright.png" />
+    <Resource Include="Images\caidanxiangshang.png" />
+    <Resource Include="Images\chakanxiangqin.png" />
+    <Resource Include="Images\chongzhi.png" />
+    <Resource Include="Images\chongzhimima.png" />
+    <Resource Include="Images\cksp1.png" />
+    <Resource Include="Images\daochu.png" />
+    <Resource Include="Images\daohangqianbiao.png" />
+    <Resource Include="Images\dayin.png" />
+    <Resource Include="Images\Detail.png" />
+    <Resource Include="Images\DownLoad.png" />
+    <Resource Include="Images\dw.png" />
+    <Resource Include="Images\Export.png" />
+    <Resource Include="Images\ExportList.png" />
+    <Resource Include="Images\gray.png" />
+    <Resource Include="Images\guiji.png" />
+    <Resource Include="Images\kaitong.png" />
+    <Resource Include="Images\left.png" />
+    <Resource Include="Images\lishishipin.png" />
+    <Resource Include="Images\mobanxiazai.png" />
+    <Resource Include="Images\Organization.png" />
+    <Resource Include="Images\piliangdaoru.png" />
+    <Resource Include="Images\ReportDocument.png" />
+    <Resource Include="Images\ReportLeft.png" />
+    <Resource Include="Images\ReportRight.png" />
+    <Resource Include="Images\ReportUp.png" />
+    <Resource Include="Images\right.png" />
+    <Resource Include="Images\sanji.png" />
+    <Resource Include="Images\ScreenFour.png" />
+    <Resource Include="Images\ScreenNine.png" />
+    <Resource Include="Images\ScreenOne.png" />
+    <Resource Include="Images\ScreenSixteen.png" />
+    <Resource Include="Images\search.png" />
+    <Resource Include="Images\shanchu.png" />
+    <Resource Include="Images\shanchu20.png" />
+    <Resource Include="Images\shangchuan.png" />
+    <Resource Include="Images\shengfen.png" />
+    <Resource Include="Images\shishishipin.png" />
+    <Resource Include="Images\shitu1.png" />
+    <Resource Include="Images\shitu16.png" />
+    <Resource Include="Images\shitu4.png" />
+    <Resource Include="Images\shitu9.png" />
+    <Resource Include="Images\spck.png" />
+    <Resource Include="Images\TemplateDownLoad.png" />
+    <Resource Include="Images\tianjia.png" />
+    <Resource Include="Images\up.png" />
+    <Resource Include="Images\UpLoad.png" />
+    <Resource Include="Images\xianlu.png" />
+    <Resource Include="Images\xiazai.png" />
+    <Resource Include="Images\xt_duigou.png" />
+    <Resource Include="Images\xt_shanchu.png" />
+    <Resource Include="Images\xt_tianjia.png" />
+    <Resource Include="Images\yun_chongzhimima.png" />
+    <Resource Include="Images\yun_kaitong.png" />
+    <Resource Include="Images\yun_tianjia.png" />
+    <Resource Include="Images\yun_zanting.png" />
+    <Resource Include="Images\yun——bianji.png" />
+    <Resource Include="Images\zanting.png" />
+    <Resource Include="Images\zuzhijigou.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Exit.png" />
+    <Resource Include="Images\MessageInfo.png" />
+    <Resource Include="Images\ServiceOnlineStatus.png" />
+    <Resource Include="Images\Silence.png" />
+    <Resource Include="Images\UserLoginInfo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\MenuBaseInfor.png" />
+    <Resource Include="Images\MenuHistoryQuery.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\MenuPublicService.png" />
+    <Resource Include="Images\MenuStatisticReport.png" />
+    <Resource Include="Images\MenuSystemManage.png" />
+    <Resource Include="Images\MenuTrafiicManage.png" />
+    <Resource Include="Images\MenuVedioManagement.png" />
+    <Resource Include="Images\MenuVedioWall.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\chaojiguanli.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ServiceNotOnlineStatus.png" />
+    <Resource Include="Images\UserLoginDetailInfo.png" />
+    <Resource Include="Images\UserNotLoginInfo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\xiaoche.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\loginBackground1.png" />
+    <Resource Include="Images\LoginBackground2.png" />
+    <Resource Include="Images\LoginBackground3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\LoginBackground1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\GisCircleSelect.png" />
+    <Resource Include="Images\GisDelete.png" />
+    <Resource Include="Images\GisDistince.png" />
+    <Resource Include="Images\GisDistSwitch.png" />
+    <Resource Include="Images\GisDraw.png" />
+    <Resource Include="Images\GisgGlobe.png" />
+    <Resource Include="Images\Gisleft.png" />
+    <Resource Include="Images\GisMaxDistince.png" />
+    <Resource Include="Images\GisPath.png" />
+    <Resource Include="Images\GisPolygonSelect.png" />
+    <Resource Include="Images\GisPrint.png" />
+    <Resource Include="Images\GisRectangleSelect.png" />
+    <Resource Include="Images\GisRight.png" />
+    <Resource Include="Images\GisSearch.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\dingwei.png" />
+    <Resource Include="Images\jiankongshipin.png" />
+    <Resource Include="Images\lishiguiji.png" />
+    <Resource Include="Images\xingshifangxiang.png" />
+    <Resource Include="Images\zhuizong.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\5_03.png" />
+    <Resource Include="Images\5_05.png" />
+    <Resource Include="Images\5_07.png" />
+    <Resource Include="Images\5_09.png" />
+    <Resource Include="Images\slideShow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ServiceOnlineStatusServicing.png" />
+    <Resource Include="Images\ServiceOnlineStatusUnServicing.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\DisableMessageInfo.png" />
+    <Resource Include="Images\MouseOverMessageInfo.png" />
+    <Resource Include="Images\NormalMessageInfo.png" />
+    <Resource Include="Images\PressedMessageInfo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\DisableExit.png" />
+    <Resource Include="Images\DisableSilence.png" />
+    <Resource Include="Images\DisableUserLoginDetailInfo.png" />
+    <Resource Include="Images\MouseOverExit.png" />
+    <Resource Include="Images\MouseOverSilence.png" />
+    <Resource Include="Images\MouseOverUserLoginDetailInfo.png" />
+    <Resource Include="Images\NormalExit.png" />
+    <Resource Include="Images\NormalSilence.png" />
+    <Resource Include="Images\NormalUserLoginDetailInfo.png" />
+    <Resource Include="Images\PressedExit.png" />
+    <Resource Include="Images\PressedSilence.png" />
+    <Resource Include="Images\PressedUserLoginDetailInfo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Mouse.png" />
+    <Resource Include="Images\MouseOverEdit.png" />
+    <Resource Include="Images\NormalEdit.png" />
+    <Resource Include="Images\Press.png" />
+    <Resource Include="Images\PressedEdit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\DisableEdit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\DisableAdd.png" />
+    <Resource Include="Images\MouseOverAdd.png" />
+    <Resource Include="Images\NormalAdd.png" />
+    <Resource Include="Images\PressedAdd.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\MouseOverEdit2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Loginlogo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\MouseOver.png" />
+    <Resource Include="Images\MouseOver1.png" />
+    <Resource Include="Images\MouseOver2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\CloseImage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\camera_gis.png" />
+    <Resource Include="Images\DisableShowAdd.png" />
+    <Resource Include="Images\DisableShowDelete.png" />
+    <Resource Include="Images\DisableShowGoDown.png" />
+    <Resource Include="Images\DisableShowGoUp.png" />
+    <Resource Include="Images\MouseOverShowAdd.png" />
+    <Resource Include="Images\MouseOverShowDelete.png" />
+    <Resource Include="Images\MouseOverShowGoDown.png" />
+    <Resource Include="Images\MouseOverShowGoUp.png" />
+    <Resource Include="Images\NormalShowAdd.png" />
+    <Resource Include="Images\NormalShowDelete.png" />
+    <Resource Include="Images\NormalShowGoDown.png" />
+    <Resource Include="Images\NormalShowGoUp.png" />
+    <Resource Include="Images\PressedShowAdd.png" />
+    <Resource Include="Images\PressedShowDelete.png" />
+    <Resource Include="Images\PressedShowGoDown.png" />
+    <Resource Include="Images\PressedShowGoUp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\DisableShowPause.png" />
+    <Resource Include="Images\DisableShowPlay.png" />
+    <Resource Include="Images\DisableShowStop.png" />
+    <Resource Include="Images\MouseOverShowPause.png" />
+    <Resource Include="Images\MouseOverShowPlay.png" />
+    <Resource Include="Images\MouseOverShowStop.png" />
+    <Resource Include="Images\NormalShowPause.png" />
+    <Resource Include="Images\NormalShowPlay.png" />
+    <Resource Include="Images\NormalShowStop.png" />
+    <Resource Include="Images\PressedShowPause.png" />
+    <Resource Include="Images\PressedShowPlay.png" />
+    <Resource Include="Images\PressedShowStop.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\DisableFindAddress.png" />
+    <Resource Include="Images\DisableGISArea.png" />
+    <Resource Include="Images\DisableGISClearDisplay.png" />
+    <Resource Include="Images\DisableGISDraw.png" />
+    <Resource Include="Images\DisableGISExportMap.png" />
+    <Resource Include="Images\DisableGISGlobe.png" />
+    <Resource Include="Images\DisableGISLength.png" />
+    <Resource Include="Images\DisableGISNextExtent.png" />
+    <Resource Include="Images\DisableGISOpenHistoryTrace.png" />
+    <Resource Include="Images\DisableGISPreExtent.png" />
+    <Resource Include="Images\Disable区域定位.png" />
+    <Resource Include="Images\Disable打印图片.png" />
+    <Resource Include="Images\Disable打印地图1.png" />
+    <Resource Include="Images\MouseOverFindAddress.png" />
+    <Resource Include="Images\MouseOverGISArea.png" />
+    <Resource Include="Images\MouseOverGISClearDisplay.png" />
+    <Resource Include="Images\MouseOverGISDraw.png" />
+    <Resource Include="Images\MouseOverGISExportMap.png" />
+    <Resource Include="Images\MouseOverGISGlobe.png" />
+    <Resource Include="Images\MouseOverGISLength.png" />
+    <Resource Include="Images\MouseOverGISNextExtent.png" />
+    <Resource Include="Images\MouseOverGISOpenHistoryTrace.png" />
+    <Resource Include="Images\MouseOverGISPreExtent.png" />
+    <Resource Include="Images\MouseOver区域定位.png" />
+    <Resource Include="Images\MouseOver打印图片.png" />
+    <Resource Include="Images\MouseOver打印地图1.png" />
+    <Resource Include="Images\NormalFindAddress.png" />
+    <Resource Include="Images\NormalGISArea.png" />
+    <Resource Include="Images\NormalGISClearDisplay.png" />
+    <Resource Include="Images\NormalGISDraw.png" />
+    <Resource Include="Images\NormalGISExportMap.png" />
+    <Resource Include="Images\NormalGISGlobe.png" />
+    <Resource Include="Images\NormalGISLength.png" />
+    <Resource Include="Images\NormalGISNextExtent.png" />
+    <Resource Include="Images\NormalGISOpenHistoryTrace.png" />
+    <Resource Include="Images\NormalGISPreExtent.png" />
+    <Resource Include="Images\Normal区域定位.png" />
+    <Resource Include="Images\Normal打印图片.png" />
+    <Resource Include="Images\Normal打印地图.png" />
+    <Resource Include="Images\PressedFindAddress.png" />
+    <Resource Include="Images\PressedGISArea.png" />
+    <Resource Include="Images\PressedGISClearDisplay.png" />
+    <Resource Include="Images\PressedGISDraw.png" />
+    <Resource Include="Images\PressedGISExportMap.png" />
+    <Resource Include="Images\PressedGISGlobe.png" />
+    <Resource Include="Images\PressedGISLength.png" />
+    <Resource Include="Images\PressedGISNextExtent.png" />
+    <Resource Include="Images\PressedGISOpenHistoryTrace.png" />
+    <Resource Include="Images\PressedGISPreExtent.png" />
+    <Resource Include="Images\Pressed区域定位.png" />
+    <Resource Include="Images\Pressed打印地图.png" />
+    <Resource Include="Images\Pressed打印地图1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\DisableSearch.png" />
+    <Resource Include="Images\MouseOverSearch.png" />
+    <Resource Include="Images\NormalSearch.png" />
+    <Resource Include="Images\PressedSearch.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\DisableMonitorVedio.png" />
+    <Resource Include="Images\MouseOverMonitorVedio.png" />
+    <Resource Include="Images\NormalMonitorVedio.png" />
+    <Resource Include="Images\PressedMonitorVedio.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\DisableHistoryRote.png" />
+    <Resource Include="Images\DisableTrack.png" />
+    <Resource Include="Images\MouseOverHistoryRote.png" />
+    <Resource Include="Images\MouseOverTrack.png" />
+    <Resource Include="Images\NormalHistoryRote.png" />
+    <Resource Include="Images\NormalTrack.png" />
+    <Resource Include="Images\Pressed.png" />
+    <Resource Include="Images\PressedHistoryRote.png" />
+    <Resource Include="Images\PressedTrack.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\DisableLocate.png" />
+    <Resource Include="Images\MouseOverLocate.png" />
+    <Resource Include="Images\NormalLocate.png" />
+    <Resource Include="Images\PressedLocate.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\DisableHistoryVedio.png" />
+    <Resource Include="Images\MouseOverHistoryVedio.png" />
+    <Resource Include="Images\NormalHistoryVedio.png" />
+    <Resource Include="Images\PressedHistoryVedio.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\DisableVehicleDetailInfo.png" />
+    <Resource Include="Images\MouseOverVehicleDetailInfo.png" />
+    <Resource Include="Images\NormalVehicleDetailInfo.png" />
+    <Resource Include="Images\PressedVehicleDetailInfo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\DisableElectronicFence.png" />
+    <Resource Include="Images\MouseOverElectronicFence.png" />
+    <Resource Include="Images\NormalElectronicFence.png" />
+    <Resource Include="Images\PressedElectronicFence.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\DisableDriveLine.png" />
+    <Resource Include="Images\MouseOverDriveLine.png" />
+    <Resource Include="Images\NormalDriveLine.png" />
+    <Resource Include="Images\PressedDriveLine.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\VehicleOnline.png" />
+    <Resource Include="Images\VehicleOutline.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\DisableFocusOn.png" />
+    <Resource Include="Images\MouseOverFocusOn.png" />
+    <Resource Include="Images\NormalFocusOn.png" />
+    <Resource Include="Images\PressedFocusOn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\DisableSendMessage.png" />
+    <Resource Include="Images\MouseOverSendMessage.png" />
+    <Resource Include="Images\NormalSendMessage.png" />
+    <Resource Include="Images\PressedSendMessage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\DisableHandAlarm.png" />
+    <Resource Include="Images\MouseOverHandAlarm.png" />
+    <Resource Include="Images\NormalHandAlarm.png" />
+    <Resource Include="Images\PressedHandAlarm.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\DisableAlarmDisposed.png" />
+    <Resource Include="Images\MouseOverAlarmDisposed.png" />
+    <Resource Include="Images\NormalAlarmDisposed.png" />
+    <Resource Include="Images\PressedAlarmDisposed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\FixChecked.png" />
+    <Resource Include="Images\FixUnChecked.png" />
+    <Resource Include="Images\HistoryRote.png" />
+    <Resource Include="Images\TraceChecked.png" />
+    <Resource Include="Images\TraceUnchecked.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\DisableDeleteFocusOn.png" />
+    <Resource Include="Images\MouseOverDeleteFocusOn.png" />
+    <Resource Include="Images\NormalDeleteFocusOn.png" />
+    <Resource Include="Images\PressedDeleteFocusOn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\VehicleAlarmFlag.png" />
+    <Resource Include="Images\Camera\CameraBus.png" />
+    <Resource Include="Images\Camera\DisableCamera.png" />
+    <Resource Include="Images\Camera\MouseOverCamera.png" />
+    <Resource Include="Images\Camera\NormalCamera.png" />
+    <Resource Include="Images\Camera\PressedCamera.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\slideUpShow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\slideDownShow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\DisableAbandoned.png" />
+    <Resource Include="Images\DisableIssued.png" />
+    <Resource Include="Images\MouseOverAbandoned.png" />
+    <Resource Include="Images\MouseOverIssued.png" />
+    <Resource Include="Images\NormalAbandoned.png" />
+    <Resource Include="Images\NormalIssued.png" />
+    <Resource Include="Images\PressedAbandoned.png" />
+    <Resource Include="Images\PressedIssued.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\DisableCopy.png" />
+    <Resource Include="Images\DisableEditLimit.png" />
+    <Resource Include="Images\DisableEditShape.png" />
+    <Resource Include="Images\DisablePlot.png" />
+    <Resource Include="Images\MouseOverCopy.png" />
+    <Resource Include="Images\MouseOverEditLimit.png" />
+    <Resource Include="Images\MouseOverEditShape.png" />
+    <Resource Include="Images\MouseOverPlot.png" />
+    <Resource Include="Images\NormalCopy.png" />
+    <Resource Include="Images\NormalEditLimit.png" />
+    <Resource Include="Images\NormalEditShape.png" />
+    <Resource Include="Images\NormalPlot.png" />
+    <Resource Include="Images\PressedCopy.png" />
+    <Resource Include="Images\PressedEditLimit.png" />
+    <Resource Include="Images\PressedEditShape.png" />
+    <Resource Include="Images\PressedPlot.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Camera\DisableVideoWall1.png" />
+    <Resource Include="Images\Camera\DisableVideoWall16.png" />
+    <Resource Include="Images\Camera\DisableVideoWall4.png" />
+    <Resource Include="Images\Camera\DisableVideoWall9.png" />
+    <Resource Include="Images\RealVideo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\GPSSource_Mobile.png" />
+    <Resource Include="Images\GPSSource_GPS.png" />
+    <Resource Include="Images\GPSSource_Suite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\InfoModuleImage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ThreeInfoTitle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\GoUpCollapse.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\GoExpend.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\RightHide.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\GoLeftslideShow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\NormalDeviceAlarm.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\UnNormalPlot.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\DisableShowEdit.png" />
+    <Resource Include="Images\MouseOverShowEdit.png" />
+    <Resource Include="Images\NormalShowEdit.png" />
+    <Resource Include="Images\PressedShowEdit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\DisableContinuteInstall.png" />
+    <Resource Include="Images\MouseOverContinuteInstall.png" />
+    <Resource Include="Images\NormalContinuteInstall.png" />
+    <Resource Include="Images\PressedContinuteInstall.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\LoginBackground22.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\LoginBackground22.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\MenuInstall.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Video\AlarmVideo.png" />
+    <Resource Include="Images\Video\DownloadingVideo.png" />
+    <Resource Include="Images\Video\ServerVideo.png" />
+    <Resource Include="Images\Video\UnDownloadVideo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\DisableDownLoadToServer.png" />
+    <Resource Include="Images\MouseOverDownLoadToServer.png" />
+    <Resource Include="Images\NormalDownLoadToServer.png" />
+    <Resource Include="Images\PressedDownLoadToServer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\DisableChangPwd.png" />
+    <Resource Include="Images\MouseOverChangPwd.png" />
+    <Resource Include="Images\NormalChangPwd.png" />
+    <Resource Include="Images\PressedChangPwd.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\DisableHelp.png" />
+    <Resource Include="Images\MouseOverHelp.png" />
+    <Resource Include="Images\NormalHelp.png" />
+    <Resource Include="Images\PressedHelp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\DisableRefrush.png" />
+    <Resource Include="Images\MouseOverRefrush.png" />
+    <Resource Include="Images\NormalRefrush.png" />
+    <Resource Include="Images\PressedRefrush.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\DisableSound.png" />
+    <Resource Include="Images\MouseOverSound.png" />
+    <Resource Include="Images\NormalSound.png" />
+    <Resource Include="Images\PressedSound.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\LittleOrganization.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\DisableUserOrganization.png" />
+    <Resource Include="Images\MouseOverUserOrganization.png" />
+    <Resource Include="Images\NormalUserOrganization.png" />
+    <Resource Include="Images\PressedUserOrganization.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\DisableEditRole.png" />
+    <Resource Include="Images\MouseOverEditRole.png" />
+    <Resource Include="Images\NormalEditRole.png" />
+    <Resource Include="Images\PressedEditRole.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\LogoEn.png" />
+    <Resource Include="Images\LogoEs.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\NavBG.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\history0.png" />
+    <Resource Include="Images\pinUncheck.png" />
+    <Resource Include="Images\pinUnfix.png" />
+    <Resource Include="Images\play.png" />
+    <Resource Include="Images\Trackcheck0.png" />
+    <Resource Include="Images\TrackUncheck0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Camera\cameraBG.png" />
+    <Resource Include="Images\Camera\cameraDown.png" />
+    <Resource Include="Images\Camera\cameraLeft.png" />
+    <Resource Include="Images\Camera\cameraRight.png" />
+    <Resource Include="Images\Camera\cameraUp.png" />
+    <Resource Include="Images\Camera\overshotMouseOver.png" />
+    <Resource Include="Images\Camera\serialMouseOver.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Camera\Liststar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Camera\NormalStar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\DisablePhotoDelete.png" />
+    <Resource Include="Images\DisablePhotoMarkButton.png" />
+    <Resource Include="Images\MouseOverPhotoDelete.png" />
+    <Resource Include="Images\MouseOverPhotoMarkButton.png" />
+    <Resource Include="Images\NormalPhotoDelete.png" />
+    <Resource Include="Images\NormalPhotoMarkButton.png" />
+    <Resource Include="Images\PressedPhotoDelete.png" />
+    <Resource Include="Images\PressedPhotoMarkButton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Camera\More_CN.png" />
+    <Resource Include="Images\Camera\More_EN.png" />
+    <Resource Include="Images\Camera\More_ES.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Camera\DisableCapturePhoto.png" />
+    <Resource Include="Images\Camera\MouseOverCapturePhoto.png" />
+    <Resource Include="Images\Camera\NormalCapturePhoto.png" />
+    <Resource Include="Images\Camera\PressedCapturePhoto.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\InOutAera.png" />
+    <Resource Include="Images\InOutRoute.png" />
+    <Resource Include="Images\OverSpeed.png" />
+    <Resource Include="Images\RouteOffset.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\NormalMobileAlarm.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\AlarmHandled.png" />
+    <Resource Include="Images\AlarmMyself.png" />
+    <Resource Include="Images\AlarmNoUser.png" />
+    <Resource Include="Images\AlarmOthers.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Location.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\DisableAlarmVedio.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\MouseOverAlarmVedio.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\PressedAlarmVedio.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\NormalAlarmVideo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\DisableBind.png" />
+    <Resource Include="Images\MouseOverBind.png" />
+    <Resource Include="Images\NormalBind.png" />
+    <Resource Include="Images\PressedBind.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\DisableDriverInfo.png" />
+    <Resource Include="Images\MouseOverDriverInfo.png" />
+    <Resource Include="Images\NormalDriverInfo.png" />
+    <Resource Include="Images\PressedDriverInfo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Camera\CameraSelected.png" />
+    <Resource Include="Images\Camera\CameraUnSelected.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\LogoPy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\logo54.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\MouseOverBlackIssued.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\MouseOverBlackEdit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Camera\CameraBus1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Gisup.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Imageadd.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="NewLogo\login-bg.png" />
+    <Resource Include="NewLogo\logo-s.png" />
+    <Resource Include="NewLogo\logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\VehicleUnAlarmFlag.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Globe_switch.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\yuqing-logo.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{A1591282-1198-4647-A2B1-27E5FF5F6F3B}">
+        <SilverlightProjectProperties />
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

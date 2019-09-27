@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="AlertBaseModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AlertTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="AlertType" type="xs:short" />
+      <xs:element minOccurs="0" name="Cmd" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Context" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CreateTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Direction" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GpsTime" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="GpsValid" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Latitude" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Longitude" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MdvrCoreSN" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Speed" type="xs:double" />
+      <xs:element minOccurs="0" name="Status" type="xs:short" />
+      <xs:element minOccurs="0" name="SuitInfoID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SuitStatus" type="xs:short" />
+      <xs:element minOccurs="0" name="VehicleID" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AlertBaseModel" nillable="true" type="tns:AlertBaseModel" />
+  <xs:complexType name="DownwardBase">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CmType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Cmd" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DvId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GpsTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="MsgId" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DownwardBase" nillable="true" type="tns:DownwardBase" />
+</xs:schema>

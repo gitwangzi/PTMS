@@ -1,0 +1,223 @@
+﻿<UserControl x:Class="Gsafety.PTMS.Monitor.Views.SelectFence"
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+           xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"          
+           xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"  
+	       xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions"             
+           xmlns:Converts="clr-namespace:Gsafety.Common.Converts;assembly=Converts"
+           xmlns:CommonControls="clr-namespace:Gsafety.Common.Controls;assembly=CommonControls" 
+           xmlns:share="clr-namespace:Gsafety.PTMS.Share;assembly=Share"
+           Width="400" Height="300">
+    <!--Style="{StaticResource ChildWindowStyle}"-->
+    <UserControl.Resources>     
+        <Converts:MarkConvert x:Key="MarkConvert"/>
+    </UserControl.Resources>
+    <Grid x:Name="HandlePage" Style="{StaticResource ContentGridWhiteStyle}">
+        <Grid.RenderTransform>
+            <CompositeTransform/>
+        </Grid.RenderTransform>
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="VisualStateGroup">
+                <VisualState x:Name="MinStory">
+                    <Storyboard>
+                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)" Storyboard.TargetName="HandlePage">
+                            <EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+                            <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="0"/>
+                        </DoubleAnimationUsingKeyFrames>
+                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)" Storyboard.TargetName="HandlePage">
+                            <EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+                            <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="0"/>
+                        </DoubleAnimationUsingKeyFrames>
+                    </Storyboard>
+                </VisualState>
+                <VisualState x:Name="MaxStory">
+                    <Storyboard>
+                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)" Storyboard.TargetName="HandlePage">
+                            <EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+                            <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
+                            <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="1"/>
+                        </DoubleAnimationUsingKeyFrames>
+                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)" Storyboard.TargetName="HandlePage">
+                            <EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+                            <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
+                            <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="1"/>
+                        </DoubleAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="HandlePage">
+                            <DiscreteObjectKeyFrame KeyTime="0">
+                                <DiscreteObjectKeyFrame.Value>
+                                    <Visibility>Collapsed</Visibility>
+                                </DiscreteObjectKeyFrame.Value>
+                            </DiscreteObjectKeyFrame>
+                            <DiscreteObjectKeyFrame KeyTime="0:0:0.2">
+                                <DiscreteObjectKeyFrame.Value>
+                                    <Visibility>Visible</Visibility>
+                                </DiscreteObjectKeyFrame.Value>
+                            </DiscreteObjectKeyFrame>
+                        </ObjectAnimationUsingKeyFrames>
+                    </Storyboard>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="Auto"/>           
+        </Grid.RowDefinitions>
+        <Grid x:Name="Header" Height="30">
+
+            <Grid.Background>
+                <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                    <GradientStop Color="#FFFFFF" Offset="0.0"/>
+                    <GradientStop Color="#EEEEEE" Offset="1.0"/>
+                </LinearGradientBrush>
+            </Grid.Background>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition Width="30"/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="10"/>
+            </Grid.ColumnDefinitions>
+            <Image Grid.Column="1" x:Name="Ico" Source="{Binding PicUrl}" HorizontalAlignment="Left" Width="29" Height="29"/>
+            <TextBlock   Grid.Column="2" VerticalAlignment="Center" Text="{Binding Title}" FontWeight="Bold" Margin="10,0,0,0" Style="{StaticResource MainPage_menu_title_TextBlockDark}"></TextBlock>
+            <Image Grid.Column="3" x:Name="MinIco" Source="/ExternalResource;component/Images/CloseImage.png" Stretch="None" Opacity="0.8"
+                       Height="16" Width="16">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="MouseLeftButtonDown">
+                        <ei:GoToStateAction StateName="MinStory"/>
+                        <ei:ChangePropertyAction TargetObject="{Binding}" PropertyName="SelectFenceIsOpen" Value="False"></ei:ChangePropertyAction>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </Image>
+        </Grid>
+        <Grid Grid.Row="1" Height="270" Style="{StaticResource ContentGridWhiteStyle}" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="80"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+        <Grid HorizontalAlignment="Left" Style="{StaticResource SearchContentGridStyle}" Grid.Row="0" share:ButtonServices.DefaultButton="{Binding ElementName=ElectricFenceSearch}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="65"/>
+                    <ColumnDefinition Width="285"/>
+                    <ColumnDefinition Width="50"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0" 
+                                           Grid.Row="1" Text="{Binding [TRAFFIC_ElectricFence_Name], Source={StaticResource SR}}" 
+                                           VerticalAlignment="Center" HorizontalAlignment="Left" Height="16" Margin="10,6,0,8" Width="24" />
+
+                <TextBox MaxLength="200"  Grid.Column="1" Grid.Row="1"
+                                             Foreground="Black"
+                                         Text="{Binding QueryFenceText, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" 
+                                         Margin="10,3,12,2"  ToolTipService.ToolTip="{Binding [TRAFFIC_Query_NameTip], Source={StaticResource SR}}" Height="Auto" 
+                                         />
+
+
+                <Button Name="ElectricFenceSearch" Grid.Column="2" Grid.Row="1" HorizontalAlignment="Left" Command="{Binding QueryFenceCommand}"                                         
+                                        Style="{StaticResource SearchButtonCommonStyle}" Margin="5,5,0,5"/>
+
+
+                <!--<TextBlock  Grid.Column="0" Grid.Row="2"   Text="{Binding [MONITOR_VehicleId], Source={StaticResource SR}}" 
+                                            VerticalAlignment="Center" HorizontalAlignment="Right"/>
+
+                <TextBox Width="200"    Foreground="Black"  MaxLength="20" Grid.Column="1" Grid.Row="2" Text="{Binding QueryFenceVehicleId, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"  Margin="10,0,0,0" ToolTipService.ToolTip="{Binding [TRAFFIC_Query_VehicleTip], Source={StaticResource SR}}"  />-->
+            </Grid>
+
+            <Grid Grid.Row="1" Margin="0,0,0,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="30"/>
+                </Grid.RowDefinitions>
+                <sdk:DataGrid  Grid.Row="0" x:Name="FenceDataGrid"
+                               CanUserResizeColumns="False"
+                                               AutoGenerateColumns="False" 
+                                               ItemsSource="{Binding FenceSourePage}"  
+                                               SelectedItem="{Binding SelectItem,Mode=TwoWay}"   IsReadOnly="True"
+                                               ColumnHeaderStyle="{StaticResource ColumnHeaderWhiteStyle}" 
+                                               Style="{StaticResource DataGridWhiteStyleRxx}"
+                                             >
+                    <sdk:DataGrid.Columns>
+
+                    <sdk:DataGridTemplateColumn 	HeaderStyle="{StaticResource ColumnHeaderWhiteStyle}" Header="TRAFFIC_ElectricFence_Name" Width="3*">
+                            <sdk:DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    
+                                    <TextBlock TextAlignment="Left" Text="{Binding DisplayName}" ToolTipService.ToolTip="{Binding DisplayName}"  Width="400" HorizontalAlignment="Left"
+                                                               VerticalAlignment="Center" 
+                                                              />
+                                </DataTemplate>
+                            </sdk:DataGridTemplateColumn.CellTemplate>
+                        </sdk:DataGridTemplateColumn>
+
+                    <sdk:DataGridTemplateColumn HeaderStyle="{StaticResource ColumnHeaderWhiteStyle}" Header="ALARM_Operater" Width="*">
+                            <sdk:DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Width="100" VerticalAlignment="Center">
+                                        <Button Style="{StaticResource ANTBaseInfoGridBtn}" 
+                                                                Cursor="Hand" Name="MarkFenceGraphic"  
+                                                                ToolTipService.ToolTip="{Binding [Mark], Source={StaticResource SR}}" 
+                                                                VerticalAlignment="Center" 
+                                                                Command="{Binding DataContext.MarkFenceGraphicCommand,RelativeSource={RelativeSource AncestorType=sdk:DataGrid}}"
+                                                                CommandParameter="{Binding}"
+                                                                Margin="2,0,2,0">
+                                            <Image Source="{Binding IsmarkFenceGraphic,Converter={StaticResource MarkConvert}}" 
+                                                                   Stretch="None" Width="16" Height="16" />
+                                        </Button>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </sdk:DataGridTemplateColumn.CellTemplate>
+                        </sdk:DataGridTemplateColumn>
+                    </sdk:DataGrid.Columns>
+                </sdk:DataGrid>
+
+
+                <Border BorderBrush="#FF617584" Grid.Row="1" BorderThickness="0.5">
+                <Grid Style="{StaticResource SearchContentGridStyle}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Column="0"
+                                                Text="{Binding [Total],Source={StaticResource SR}}"
+                                                HorizontalAlignment="Right"
+                                                VerticalAlignment="Center"
+                                                Margin="0,2,10,2"/>
+                        <TextBlock Text="{Binding FenceCount}" Grid.Column="1"
+                                                HorizontalAlignment="Left"
+                                                VerticalAlignment="Center"
+                                                Margin="0,2,10,2" />
+                        <sdk:DataPager 
+                                                Grid.Column="2"
+                                                Margin="0,0,0,0"
+                                                Height="25"
+                                                Foreground="Black" 
+                                                Source="{Binding FenceSourePage}"
+                                                PageSize="30"                                              
+                                                HorizontalAlignment="Stretch"
+                                                VerticalAlignment="Center"/>
+                    </Grid>
+
+                </Border>
+
+
+            </Grid>
+        </Grid>
+        <Image x:Name="MaxIco">
+            <i:Interaction.Triggers>
+                <ei:DataTrigger  Binding="{Binding SelectFenceIsVisual}" Value="True">
+                    <ei:GoToStateAction StateName="MaxStory"/>
+                    <ei:ChangePropertyAction TargetObject="{Binding}" PropertyName="SelectFenceIsOpen" Value="True"></ei:ChangePropertyAction>
+                </ei:DataTrigger>
+                <ei:DataTrigger  Binding="{Binding SelectFenceIsVisual}" Value="False">
+                    <ei:GoToStateAction StateName="MinStory"/>
+                    <ei:ChangePropertyAction TargetObject="{Binding}" PropertyName="SelectFenceIsOpen" Value="False"></ei:ChangePropertyAction>
+                </ei:DataTrigger>
+            </i:Interaction.Triggers>
+        </Image>
+    </Grid>
+</UserControl>

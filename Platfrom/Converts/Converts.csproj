@@ -1,0 +1,185 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E43EB997-B440-4FED-B261-4FBC7E2B6880}</ProjectGuid>
+    <ProjectTypeGuids>{A1591282-1198-4647-A2B1-27E5FF5F6F3B};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Gsafety.Common.Converts</RootNamespace>
+    <AssemblyName>Converts</AssemblyName>
+    <TargetFrameworkIdentifier>Silverlight</TargetFrameworkIdentifier>
+    <TargetFrameworkVersion>v5.0</TargetFrameworkVersion>
+    <SilverlightVersion>$(TargetFrameworkVersion)</SilverlightVersion>
+    <SilverlightApplication>false</SilverlightApplication>
+    <ValidateXaml>true</ValidateXaml>
+    <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
+  </PropertyGroup>
+  <!-- This property group is only here to support building this project using the 
+       MSBuild 3.5 toolset. In order to work correctly with this older toolset, it needs 
+       to set the TargetFrameworkVersion to v3.5 -->
+  <PropertyGroup Condition="'$(MSBuildToolsVersion)' == '3.5'">
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Jounce, Version=2.0.0.29523, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Assemblies\Jounce.dll</HintPath>
+    </Reference>
+    <Reference Include="mscorlib" />
+    <Reference Include="System.Windows" />
+    <Reference Include="system" />
+    <Reference Include="System.Core">
+      <HintPath>$(TargetFrameworkDirectory)System.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Windows.Browser" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AlarmForegroundConveter.cs" />
+    <Compile Include="AlarmlocationConverter.cs" />
+    <Compile Include="AlarmSourceToImageConverter.cs" />
+    <Compile Include="AlertStatusConverter.cs" />
+    <Compile Include="ApealDisoseConverter.cs" />
+    <Compile Include="AppealAbleConverter.cs" />
+    <Compile Include="BoolCoverterToColorConverter.cs" />
+    <Compile Include="BusinessAlertTypeConverter.cs" />
+    <Compile Include="CameraInstallLocationConverter.cs" />
+    <Compile Include="CameraStatusConverter.cs" />
+    <Compile Include="ChannelConverter.cs" />
+    <Compile Include="CommandStateEnumConverter.cs" />
+    <Compile Include="DateTimeConverter.cs" />
+    <Compile Include="DeliverCommandConverter.cs" />
+    <Compile Include="DeliverStatusConvert.cs" />
+    <Compile Include="DeviceTypeConverter.cs" />
+    <Compile Include="FunItemEnableConverter.cs" />
+    <Compile Include="FunItemVisibilityConverter.cs" />
+    <Compile Include="GPSDisplayForegroundConveter.cs" />
+    <Compile Include="GPSLatChangeDisplayConvert.cs" />
+    <Compile Include="GPSLonChangeDisplayConvert.cs" />
+    <Compile Include="GPSSourceConvert.cs" />
+    <Compile Include="GpsStatusConverter.cs" />
+    <Compile Include="InstallStatusColorConverter.cs" />
+    <Compile Include="GeneralColourStateConvert.cs" />
+    <Compile Include="InstallStepTypeToString.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ListToStringConverter.cs" />
+    <Compile Include="MainPageMenuConvert.cs" />
+    <Compile Include="MaintainRoleEnableConverter.cs" />
+    <Compile Include="MaintanceTypeConverter.cs" />
+    <Compile Include="MarkConvert.cs" />
+    <Compile Include="ObjectIsNullConverter.cs" />
+    <Compile Include="OperateTypeConveter.cs" />
+    <Compile Include="OrderClientEndDateToColor.cs" />
+    <Compile Include="PlayMusicConverter.cs" />
+    <Compile Include="RadioButonConvert.cs" />
+    <Compile Include="ReportStrategyConverter.cs" />
+    <Compile Include="ServiceTypeConverter.cs" />
+    <Compile Include="SpeedAndDirConverter.cs" />
+    <Compile Include="StringToColorConvert.cs" />
+    <Compile Include="SysExitConverter.cs" />
+    <Compile Include="TargetNullValueConverter.cs" />
+    <Compile Include="ToRepairType.cs" />
+    <Compile Include="TrafficDeleteCommandConverter.cs" />
+    <Compile Include="TranslateConvert.cs" />
+    <Compile Include="TrueOrFalse.cs" />
+    <Compile Include="VehicleSelectConvert.cs" />
+    <Compile Include="VehicleStateToMinImage.cs" />
+    <Compile Include="MultiBinding\BindingUtil.cs" />
+    <Compile Include="BoolToVisibility.cs" />
+    <Compile Include="DisplayFloatConvert.cs" />
+    <Compile Include="DisplayLatConvert.cs" />
+    <Compile Include="DisplayLonConvert.cs" />
+    <Compile Include="DisplayValidConvert.cs" />
+    <Compile Include="EnumToStringConverter.cs" />
+    <Compile Include="MultiBinding\IMultiValueConverter.cs" />
+    <Compile Include="IsConverter.cs" />
+    <Compile Include="LocalizedStringConverter.cs" />
+    <Compile Include="MultiBinding\MultiBinding.cs" />
+    <Compile Include="MultiBinding\MultiBindings.cs" />
+    <Compile Include="PassConverter.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ToVehicleAlertType.cs" />
+    <Compile Include="VehicleTreenodeLenght.cs" />
+    <Compile Include="LanguageToImage.cs" />
+    <Compile Include="VisibilityConverter.cs" />
+    <Compile Include="DateToColor.cs" />
+    <Compile Include="VehicleCountToView.cs" />
+    <Compile Include="VehicleOnLineConverter.cs" />
+    <Compile Include="BusinessAlertTypeImageConverter.cs" />
+    <Compile Include="AlarmSourceToVisibilityConverter.cs" />
+    <Compile Include="DeleteCommandEnableConverter.cs" />
+    <Compile Include="AlarmLevelConverter.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CommMessage\CommMessage.csproj">
+      <Project>{6e8e7e73-2eb1-4d7c-9273-f81fc2d30a10}</Project>
+      <Name>CommMessage</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Enums\Enums.csproj">
+      <Project>{3e850ec1-7a17-4b42-be32-efd1382d337e}</Project>
+      <Name>Enums</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Librarys\Librarys.csproj">
+      <Project>{80fb8b20-0514-46d0-adc4-99abf4246f5b}</Project>
+      <Name>Librarys</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Localization\Localization.csproj">
+      <Project>{3765593e-f466-42af-b3bb-56d825954072}</Project>
+      <Name>Localization</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Models\Models.csproj">
+      <Project>{44ebb496-2c26-475f-ad39-0117cc7f31f3}</Project>
+      <Name>Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ServiceReference\ServiceReference.csproj">
+      <Project>{116e9ab2-db01-41d6-bd5e-805cac206b32}</Project>
+      <Name>ServiceReference</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Share\Share.csproj">
+      <Project>{84fc8750-50d0-40ba-a5b8-be0bb014057e}</Project>
+      <Name>Share</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{A1591282-1198-4647-A2B1-27E5FF5F6F3B}">
+        <SilverlightProjectProperties />
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

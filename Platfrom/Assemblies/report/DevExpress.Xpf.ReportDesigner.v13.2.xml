@@ -1,0 +1,4963 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>DevExpress.Xpf.ReportDesigner.v13.2</name>
+    </assembly>
+    <members>
+        <member name="T:DevExpress.Xpf.ReportDesigner.Services.IPageContentProvider">
+
+            <summary>
+                <para>Provides functionality for classes that allow managing page content.
+
+</para>
+            </summary>
+
+        </member>
+        <member name="P:DevExpress.Xpf.ReportDesigner.Services.IPageContentProvider.PageContent">
+            <summary>
+                <para>Provides access to the content of a page.
+</para>
+            </summary>
+            <value>A <see cref="T:System.Windows.FrameworkElement"/> object.
+</value>
+
+
+        </member>
+        <member name="E:DevExpress.Xpf.ReportDesigner.Services.IPageContentProvider.PageContentChanged">
+            <summary>
+                <para>Occurs after the page content is changed.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.ReportDesigner.Services.IPageContentProvider.RaisePageContentChanged">
+            <summary>
+                <para>Raises the <see cref="E:DevExpress.Xpf.ReportDesigner.Services.IPageContentProvider.PageContentChanged"/> event.
+
+</para>
+            </summary>
+
+
+        </member>
+        <member name="T:DevExpress.Xpf.ReportDesigner.Services.IChangeService">
+
+            <summary>
+                <para>Provides functionality for services that maintain all changes executed by a user.
+
+</para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.Xpf.ReportDesigner.Services.IChangeService.AlignBottom(System.String,System.String[])">
+            <summary>
+                <para>Aligns the bottom edges of the specified controls.
+</para>
+            </summary>
+            <param name="primaryControlName">
+		A <see cref="T:System.String"/> value, specifying the primary control name.
+
+            </param>
+            <param name="otherControlNames">
+		An array of <see cref="T:System.String"/> values, specifying the other control names.
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.ReportDesigner.Services.IChangeService.AlignEqualSpacingHorizontally(System.String,System.String[])">
+            <summary>
+                <para>Makes horizontal spacing between specified controls equal to one another.
+
+</para>
+            </summary>
+            <param name="primaryControlName">
+		A <see cref="T:System.String"/> value, specifying the primary control name.
+
+            </param>
+            <param name="otherControlNames">
+		An array of <see cref="T:System.String"/> values, specifying the other control names.
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.ReportDesigner.Services.IChangeService.AlignEqualSpacingVertically(System.String,System.String[])">
+            <summary>
+                <para>Makes vertical spacing between specified controls equal to one another.
+
+</para>
+            </summary>
+            <param name="primaryControlName">
+		A <see cref="T:System.String"/> value, specifying the primary control name.
+
+            </param>
+            <param name="otherControlNames">
+		An array of <see cref="T:System.String"/> values, specifying the other control names.
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.ReportDesigner.Services.IChangeService.AlignHorizontalCenter(System.String,System.String[])">
+            <summary>
+                <para>Aligns the centers of the specified controls horizontally.
+</para>
+            </summary>
+            <param name="primaryControlName">
+		A <see cref="T:System.String"/> value, specifying the primary control name.
+
+            </param>
+            <param name="otherControlNames">
+		An array of <see cref="T:System.String"/> values, specifying the other control names.
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.ReportDesigner.Services.IChangeService.AlignLeft(System.String,System.String[])">
+            <summary>
+                <para>Aligns the left edges of the specified controls.
+</para>
+            </summary>
+            <param name="primaryControlName">
+		A <see cref="T:System.String"/> value, specifying the primary control name.
+
+            </param>
+            <param name="otherControlNames">
+		An array of <see cref="T:System.String"/> values, specifying the other control names.
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.ReportDesigner.Services.IChangeService.AlignRight(System.String,System.String[])">
+            <summary>
+                <para>Aligns the right edges of the specified controls.
+</para>
+            </summary>
+            <param name="primaryControlName">
+		A <see cref="T:System.String"/> value, specifying the primary control name.
+
+            </param>
+            <param name="otherControlNames">
+		An array of <see cref="T:System.String"/> values, specifying the other control names.
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.ReportDesigner.Services.IChangeService.AlignTop(System.String,System.String[])">
+            <summary>
+                <para>Aligns the top edges of the specified controls.
+</para>
+            </summary>
+            <param name="primaryControlName">
+		A <see cref="T:System.String"/> value, specifying the primary control name.
+
+            </param>
+            <param name="otherControlNames">
+		An array of <see cref="T:System.String"/> values, specifying the other control names.
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.ReportDesigner.Services.IChangeService.AlignVerticalCenter(System.String,System.String[])">
+            <summary>
+                <para>Aligns the centers of the specified controls vertically.
+</para>
+            </summary>
+            <param name="primaryControlName">
+		A <see cref="T:System.String"/> value, specifying the primary control name.
+
+            </param>
+            <param name="otherControlNames">
+		An array of <see cref="T:System.String"/> values, specifying the other control names.
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.ReportDesigner.Services.IChangeService.AssignWatermark(DevExpress.XtraPrinting.Drawing.Watermark)">
+            <summary>
+                <para>Assigns an object storing the document's watermark settings.
+</para>
+            </summary>
+            <param name="watermark">
+		A <b>DevExpress.XtraPrinting.Drawing.Watermark</b> object.
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.ReportDesigner.Services.IChangeService.AssignXRBinding(System.String,DevExpress.DocumentServices.ServiceModel.DataContracts.Xpf.Designer.XRBindingProxy)">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+            <param name="primaryControlName">
+		 [To be supplied] 
+            </param>
+            <param name="binding">
+		 [To be supplied] 
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.ReportDesigner.Services.IChangeService.BringToFront(System.String,System.String[])">
+            <summary>
+                <para>Brings the specified controls to the front.
+</para>
+            </summary>
+            <param name="primaryControlName">
+		A <see cref="T:System.String"/> value, specifying the primary control name.
+
+            </param>
+            <param name="otherControlNames">
+		An array of <see cref="T:System.String"/> values, specifying the other control names.
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.ReportDesigner.Services.IChangeService.ChangeBackColor(System.String,System.Windows.Media.Color)">
+            <summary>
+                <para>Changes the background color of the specified control.
+</para>
+            </summary>
+            <param name="controlName">
+		A <see cref="T:System.String"/> value, specifying the control name.
+
+            </param>
+            <param name="backColor">
+		A <see cref="T:System.Drawing.Color"/> structure.
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.ReportDesigner.Services.IChangeService.ChangeBorderColor(System.String,System.Windows.Media.Color)">
+            <summary>
+                <para>Changes the border color of the specified control.
+</para>
+            </summary>
+            <param name="controlName">
+		A <see cref="T:System.String"/> value, specifying the control name.
+
+            </param>
+            <param name="borderColor">
+		A <see cref="T:System.Drawing.Color"/> structure.
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.ReportDesigner.Services.IChangeService.ChangeBorderDashStyle(System.String,DevExpress.XtraPrinting.BorderDashStyle)">
+            <summary>
+                <para>Changes the borders dash style of the specified control.
+</para>
+            </summary>
+            <param name="controlName">
+		A <see cref="T:System.String"/> value, specifying the control name.
+
+            </param>
+            <param name="borderDashStyle">
+		A <b>DevExpress.XtraPrinting.BorderDashStyle</b> enumeration value.
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.ReportDesigner.Services.IChangeService.ChangeBorders(System.String,DevExpress.XtraPrinting.BorderSide)">
+            <summary>
+                <para>Changes the borders of the specified control.
+
+</para>
+            </summary>
+            <param name="controlName">
+		A <see cref="T:System.String"/> value, specifying the control name.
+
+            </param>
+            <param name="side">
+		A <b>DevExpress.XtraPrinting.BorderSide</b> enumeration value.
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.ReportDesigner.Services.IChangeService.ChangeBorderWidth(System.String,System.Int32)">
+            <summary>
+                <para>Changes the border width of the specified control.
+</para>
+            </summary>
+            <param name="controlName">
+		A <see cref="T:System.String"/> value, specifying the control name.
+
+            </param>
+            <param name="borderWidth">
+		A <see cref="T:System.Int32"/> value, specifying the width of the control border.
+
+            </param>
+
+
+        </member>
+        <member name="E:DevExpress.Xpf.ReportDesigner.Services.IChangeService.Changed">
+            <summary>
+                <para>Occurs after any change is made.
+
+</para>
+            </summary>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.ReportDesigner.Services.IChangeService.ChangeDataSource(System.String)">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+            <param name="dataSourceName">
+		 [To be supplied] 
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.ReportDesigner.Services.IChangeService.ChangeFont(System.String,System.String,System.Double,DevExpress.Xpf.Drawing.FontStyle)">
+            <summary>
+                <para>Changes the font of the specified control.
+</para>
+            </summary>
+            <param name="controlName">
+		A <see cref="T:System.String"/> value, specifying the control name.
+
+            </param>
+            <param name="fontFamilyName">
+		A <see cref="T:System.String"/> value, specifying the font family name.
+
+            </param>
+            <param name="fontSize">
+		A <see cref="T:System.Double"/> value, specifying the font size.
+
+            </param>
+            <param name="fontStyle">
+		A <b>DevExpress.Xpf.Drawing.FontStyle</b> enumeration value.
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.ReportDesigner.Services.IChangeService.ChangeFontFamily(System.String,System.String)">
+            <summary>
+                <para>Changes the font family of the specified control.
+</para>
+            </summary>
+            <param name="controlName">
+		A <see cref="T:System.String"/> value, specifying the control name.
+
+            </param>
+            <param name="fontFamilyName">
+		A <see cref="T:System.String"/> value, specifying the font family name.
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.ReportDesigner.Services.IChangeService.ChangeFontSize(System.String,System.Double)">
+            <summary>
+                <para>Changes the font size of the specified control.
+</para>
+            </summary>
+            <param name="controlName">
+		A <see cref="T:System.String"/> value, specifying the control name.
+
+            </param>
+            <param name="fontSize">
+		A <see cref="T:System.Double"/> value, specifying the font size.
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.ReportDesigner.Services.IChangeService.ChangeFontStyle(System.String,DevExpress.Xpf.Drawing.FontStyle)">
+            <summary>
+                <para>Changes the font style of the specified control.
+</para>
+            </summary>
+            <param name="controlName">
+		A <see cref="T:System.String"/> value, specifying the control name.
+
+            </param>
+            <param name="fontStyle">
+		A <b>DevExpress.Xpf.Drawing.FontStyle</b> enumeration value.
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.ReportDesigner.Services.IChangeService.ChangeForeColor(System.String,System.Windows.Media.Color)">
+            <summary>
+                <para>Changes the text color of the specified control.
+</para>
+            </summary>
+            <param name="controlName">
+		A <see cref="T:System.String"/> value, specifying the control name.
+
+            </param>
+            <param name="foreColor">
+		A <see cref="T:System.Drawing.Color"/> structure.
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.ReportDesigner.Services.IChangeService.ChangeImage(System.String,System.Byte[])">
+            <summary>
+                <para>Changes the image color of the specified control.
+</para>
+            </summary>
+            <param name="controlName">
+		A <see cref="T:System.String"/> value, specifying the control name.
+
+            </param>
+            <param name="image">
+		An array of <see cref="T:System.Byte"/> values.
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.ReportDesigner.Services.IChangeService.ChangeLine(System.String,DevExpress.XtraReports.UI.LineDirection,DevExpress.Xpf.Drawing.Drawing2D.DashStyle,System.Int32,System.Int32)">
+            <summary>
+                <para>Changes the layout of the line control.
+</para>
+            </summary>
+            <param name="controlName">
+		A <see cref="T:System.String"/> value, specifying the control name.
+
+            </param>
+            <param name="lineDirection">
+		A <b>DevExpress.XtraReports.UI.LineDirection</b> enumeration value.
+
+            </param>
+            <param name="lineStyle">
+		A <b>DevExpress.Xpf.Drawing.Drawing2D.DashStyle</b> enumeration value.
+
+            </param>
+            <param name="lineWidth">
+		A <see cref="T:System.Int32"/> value, specifying the line width.
+
+            </param>
+            <param name="color">
+		A <see cref="T:System.Int32"/> value, specifying the line color.
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.ReportDesigner.Services.IChangeService.ChangeMargins(System.Int32,System.Int32)">
+            <summary>
+                <para>Changes the margins of the specified control.
+
+</para>
+            </summary>
+            <param name="leftChange">
+		A <see cref="T:System.Int32"/> value.
+
+            </param>
+            <param name="rightChange">
+		A <see cref="T:System.Int32"/> value.
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.ReportDesigner.Services.IChangeService.ChangePageSettings(DevExpress.XtraPrinting.XtraPageSettingsBase)">
+            <summary>
+                <para>Changes the report page settings.
+</para>
+            </summary>
+            <param name="pageSettings">
+		A <b>DevExpress.XtraPrinting.XtraPageSettingsBase</b> object.
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.ReportDesigner.Services.IChangeService.ChangeShape(System.String,DevExpress.DocumentServices.ServiceModel.DataContracts.Xpf.Designer.ShapeKind,System.Int32,System.Int32,System.Boolean,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+            <param name="controlName">
+		 [To be supplied] 
+            </param>
+            <param name="shapeType">
+		 [To be supplied] 
+            </param>
+            <param name="color">
+		 [To be supplied] 
+            </param>
+            <param name="angle">
+		 [To be supplied] 
+            </param>
+            <param name="isStretchShape">
+		 [To be supplied] 
+            </param>
+            <param name="lineWidth">
+		 [To be supplied] 
+            </param>
+            <param name="fillet">
+		 [To be supplied] 
+            </param>
+            <param name="starPointCount">
+		 [To be supplied] 
+            </param>
+            <param name="numberOfSides">
+		 [To be supplied] 
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.ReportDesigner.Services.IChangeService.ChangeText(System.String,System.String,System.Boolean)">
+            <summary>
+                <para>Changes the text of the specified control.
+</para>
+            </summary>
+            <param name="controlName">
+		A <see cref="T:System.String"/> value, specifying the control name.
+
+            </param>
+            <param name="newText">
+		A <see cref="T:System.String"/> value, specifying the new text of the control.
+
+            </param>
+            <param name="isMultiline">
+		A <see cref="T:System.Boolean"/> value, specifying whether or not the text can be viewed as a single line.
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.ReportDesigner.Services.IChangeService.ChangeTextAlignment(System.String,DevExpress.XtraPrinting.TextAlignment)">
+            <summary>
+                <para>Changes the text alignment of the specified control.
+</para>
+            </summary>
+            <param name="controlName">
+		A <see cref="T:System.String"/> value, specifying the control name.
+
+            </param>
+            <param name="textAlignment">
+		A <b>DevExpress.XtraPrinting.TextAlignment</b> enumeration value.
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.ReportDesigner.Services.IChangeService.ClearImage(System.String)">
+            <summary>
+                <para>Removes an image from the specified Picture Box.
+</para>
+            </summary>
+            <param name="controlName">
+		A <see cref="T:System.String"/> value, specifying the control name.
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.ReportDesigner.Services.IChangeService.CommitChanges">
+            <summary>
+                <para>Applies all changes made to the service.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.ReportDesigner.Services.IChangeService.DecreaseHorizontalSpacing(System.String,System.String[])">
+            <summary>
+                <para>Decreases horizontal spacing between the specified controls.
+</para>
+            </summary>
+            <param name="primaryControlName">
+		A <see cref="T:System.String"/> value, specifying the primary control name.
+
+            </param>
+            <param name="otherControlNames">
+		An array of <see cref="T:System.String"/> values, specifying the other control names.
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.ReportDesigner.Services.IChangeService.DecreaseVerticalSpacing(System.String,System.String[])">
+            <summary>
+                <para>Decreases vertical spacing between the specified controls.
+</para>
+            </summary>
+            <param name="primaryControlName">
+		A <see cref="T:System.String"/> value, specifying the primary control name.
+
+            </param>
+            <param name="otherControlNames">
+		An array of <see cref="T:System.String"/> values, specifying the other control names.
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.ReportDesigner.Services.IChangeService.Delete(System.String)">
+            <summary>
+                <para>Deletes the specified control.
+</para>
+            </summary>
+            <param name="controlName">
+		A <see cref="T:System.String"/> value, specifying the control name.
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.ReportDesigner.Services.IChangeService.DropControl(System.String,System.Double,System.Double,DevExpress.Printing.Core.FieldListNodeSpecifics)">
+            <summary>
+                <para>Adds a control onto the design surface corresponding to the type of the appropriate Field List node.
+</para>
+            </summary>
+            <param name="parentName">
+		A <see cref="T:System.String"/> value, specifying the parent name.
+
+            </param>
+            <param name="left">
+		A <see cref="T:System.Dobule"/> value, specifying the position of the control's left corner.
+
+            </param>
+            <param name="top">
+		A <see cref="T:System.Dobule"/> value, specifying the position of the control's top corner.
+
+            </param>
+            <param name="specifics">
+		A <b>DevExpress.Printing.Core.FieldListNodeSpecifics</b> enumeration value, specifying the type of the Field List node.
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.ReportDesigner.Services.IChangeService.DropField(System.String,System.Double,System.Double,DevExpress.DocumentServices.ServiceModel.DataContracts.Xpf.Designer.FieldInfo,DevExpress.DocumentServices.ServiceModel.DataContracts.Xpf.Designer.FieldInfo[])">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+            <param name="parentName">
+		 [To be supplied] 
+            </param>
+            <param name="left">
+		 [To be supplied] 
+            </param>
+            <param name="top">
+		 [To be supplied] 
+            </param>
+            <param name="fieldInfo">
+		 [To be supplied] 
+            </param>
+            <param name="cellFieldInfos">
+		 [To be supplied] 
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.ReportDesigner.Services.IChangeService.IncreaseHorizontalSpacing(System.String,System.String[])">
+            <summary>
+                <para>Increases horizontal spacing between the specified controls.
+</para>
+            </summary>
+            <param name="primaryControlName">
+		A <see cref="T:System.String"/> value, specifying the primary control name.
+
+            </param>
+            <param name="otherControlNames">
+		An array of <see cref="T:System.String"/> values, specifying the other control names.
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.ReportDesigner.Services.IChangeService.IncreaseVerticalSpacing(System.String,System.String[])">
+            <summary>
+                <para>Increases the vertical spacing between the specified controls.
+</para>
+            </summary>
+            <param name="primaryControlName">
+		A <see cref="T:System.String"/> value, specifying the primary control name.
+
+            </param>
+            <param name="otherControlNames">
+		An array of <see cref="T:System.String"/> values, specifying the other control names.
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.ReportDesigner.Services.IChangeService.LayoutCenterHorizontally(System.String,System.String[])">
+            <summary>
+                <para>Horizontally centers the specified controls.
+</para>
+            </summary>
+            <param name="primaryControlName">
+		A <see cref="T:System.String"/> value, specifying the primary control name.
+
+            </param>
+            <param name="otherControlNames">
+		An array of <see cref="T:System.String"/> values, specifying the other control names.
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.ReportDesigner.Services.IChangeService.LayoutCenterVertically(System.String,System.String[])">
+            <summary>
+                <para>Vertically centers the specified controls.
+</para>
+            </summary>
+            <param name="primaryControlName">
+		A <see cref="T:System.String"/> value, specifying the primary control name.
+
+            </param>
+            <param name="otherControlNames">
+		An array of <see cref="T:System.String"/> values, specifying the other control names.
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.ReportDesigner.Services.IChangeService.LayoutSameHeight(System.String,System.String[])">
+            <summary>
+                <para>Provides for the specified controls to have the same height.
+
+</para>
+            </summary>
+            <param name="primaryControlName">
+		A <see cref="T:System.String"/> value, specifying the primary control name.
+
+            </param>
+            <param name="otherControlNames">
+		An array of <see cref="T:System.String"/> values, specifying the other control names.
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.ReportDesigner.Services.IChangeService.LayoutSameSize(System.String,System.String[])">
+            <summary>
+                <para>Provides for the specified controls to have the same size.
+
+</para>
+            </summary>
+            <param name="primaryControlName">
+		A <see cref="T:System.String"/> value, specifying the primary control name.
+
+            </param>
+            <param name="otherControlNames">
+		An array of <see cref="T:System.String"/> values, specifying the other control names.
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.ReportDesigner.Services.IChangeService.LayoutSameWidth(System.String,System.String[])">
+            <summary>
+                <para>Provides for the specified controls to have the same width.
+
+</para>
+            </summary>
+            <param name="primaryControlName">
+		A <see cref="T:System.String"/> value, specifying the primary control name.
+
+            </param>
+            <param name="otherControlNames">
+		An array of <see cref="T:System.String"/> values, specifying the other control names.
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.ReportDesigner.Services.IChangeService.Move(System.String,System.String,System.Double,System.Double)">
+            <summary>
+                <para>Moves the specified control.
+</para>
+            </summary>
+            <param name="controlName">
+		A <see cref="T:System.String"/> value, specifying the control name.
+
+            </param>
+            <param name="parentName">
+		A <see cref="T:System.String"/> value, specifying the parent name.
+
+            </param>
+            <param name="left">
+		 [To be supplied] 
+            </param>
+            <param name="top">
+		 [To be supplied] 
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.ReportDesigner.Services.IChangeService.RemoveHorizontalSpacing(System.String,System.String[])">
+            <summary>
+                <para>Removes all horizontal spacing between the specified controls.
+
+</para>
+            </summary>
+            <param name="primaryControlName">
+		A <see cref="T:System.String"/> value, specifying the primary control name.
+
+            </param>
+            <param name="otherControlNames">
+		An array of <see cref="T:System.String"/> values, specifying the other control names.
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.ReportDesigner.Services.IChangeService.RemoveVerticalSpacing(System.String,System.String[])">
+            <summary>
+                <para>Removes all vertical spacing between the specified controls.
+
+</para>
+            </summary>
+            <param name="primaryControlName">
+		A <see cref="T:System.String"/> value, specifying the primary control name.
+
+            </param>
+            <param name="otherControlNames">
+		An array of <see cref="T:System.String"/> values, specifying the other control names.
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.ReportDesigner.Services.IChangeService.Resize(System.String,System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+                <para>Changes the size of the specified control.
+</para>
+            </summary>
+            <param name="controlName">
+		A <see cref="T:System.String"/> value, specifying the control name.
+
+            </param>
+            <param name="offsetX">
+		A <see cref="T:System.Double"/> value.
+
+            </param>
+            <param name="offsetY">
+		A <see cref="T:System.Double"/> value.
+
+            </param>
+            <param name="widthChange">
+		A <see cref="T:System.Double"/> value.
+
+            </param>
+            <param name="heightChange">
+		A <see cref="T:System.Double"/> value.
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.ReportDesigner.Services.IChangeService.SendToBack(System.String,System.String[])">
+            <summary>
+                <para>Sends the specified controls to the back.
+</para>
+            </summary>
+            <param name="primaryControlName">
+		A <see cref="T:System.String"/> value, specifying the primary control name.
+
+            </param>
+            <param name="otherControlNames">
+		An array of <see cref="T:System.String"/> values, specifying the other control names.
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.ReportDesigner.Services.IChangeService.Shift(System.String,System.Double,System.Double)">
+            <summary>
+                <para>Shifts the specified control.
+</para>
+            </summary>
+            <param name="controlName">
+		A <see cref="T:System.String"/> value, specifying the control name.
+
+            </param>
+            <param name="offsetX">
+		A <see cref="T:System.Double"/> value.
+
+            </param>
+            <param name="offsetY">
+		A <see cref="T:System.Double"/> value.
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.ReportDesigner.Services.IChangeService.TriggerCustomAction(DevExpress.DocumentServices.ServiceModel.DataContracts.Xpf.Designer.EditActionBase)">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+            <param name="editActionBase">
+		 [To be supplied] 
+            </param>
+
+
+        </member>
+        <member name="T:DevExpress.Xpf.ReportDesigner.Services.EditorsPopupService">
+
+            <summary>
+                <para>A service that maintains all pop-up tooltips on the client.
+</para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.Xpf.ReportDesigner.Services.EditorsPopupService.#ctor">
+            <summary>
+                <para>Initializes a new instance of the EditorsPopupService class with default settings.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.ReportDesigner.Services.EditorsPopupService.ClosePopup">
+            <summary>
+                <para>Closes the pop-up dialog.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="T:DevExpress.Xpf.ReportDesigner.EditorServices">
+
+            <summary>
+                <para>A service that maintains all editors on the client.
+</para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.Xpf.ReportDesigner.EditorServices.#ctor">
+            <summary>
+                <para>Initializes a new instance of the EditorServices class with default settings.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.ReportDesigner.EditorServices.ChangeService">
+            <summary>
+                <para>Returns a service that maintains all changes executed by a user.
+
+</para>
+            </summary>
+            <value>An object implementing the <see cref="T:DevExpress.Xpf.ReportDesigner.Services.IChangeService"/> interface.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.ReportDesigner.EditorServices.DialogService">
+            <summary>
+                <para>Returns a service that maintains all dialogs on the client.
+</para>
+            </summary>
+            <value>An object implementing the <see cref="T:DevExpress.Xpf.Printing.IDialogService"/> interface.
+</value>
+
+
+        </member>
+        <member name="E:DevExpress.Xpf.ReportDesigner.EditorServices.EditorBeforeClose">
+            <summary>
+                <para>Occurs before closing the editor.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.ReportDesigner.EditorServices.EditorsPopupService">
+            <summary>
+                <para>Returns a service that maintains all pop-up tooltips on the client.
+</para>
+            </summary>
+            <value>An <see cref="T:DevExpress.Xpf.ReportDesigner.Services.EditorsPopupService"/> object.
+</value>
+
+
+        </member>
+        <member name="T:DevExpress.Xpf.ReportDesigner.IReportControlEditorCreator">
+
+            <summary>
+                <para>If implemented by a class, allows for adding custom editors to a control's actions list, accessible via the smart tag.
+
+</para>
+            </summary>
+
+        </member>
+        <member name="P:DevExpress.Xpf.ReportDesigner.IReportControlEditorCreator.Caption">
+            <summary>
+                <para>Specifies a caption for the tab where a custom editor resides in a control's actions list (accessible via the smart tag).
+</para>
+            </summary>
+            <value>A <see cref="T:System.String"/> value.
+</value>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.ReportDesigner.IReportControlEditorCreator.CreateEditor(DevExpress.Xpf.ReportDesigner.ReportControlInfo,DevExpress.Xpf.ReportDesigner.EditorServices,System.Collections.Generic.IDictionary`2)">
+            <summary>
+                <para>Creates a custom editor and adds it to a control's actions list.
+</para>
+            </summary>
+            <param name="controlInfo">
+		A <see cref="T:DevExpress.Xpf.ReportDesigner.ReportControlInfo"/> object.
+
+            </param>
+            <param name="services">
+		An <see cref="T:DevExpress.Xpf.ReportDesigner.EditorServices"/> object.
+
+            </param>
+            <param name="customProperties">
+		An object implementing the <see cref="T:System.Collections.IDictionary"/> interface.
+
+            </param>
+            <returns>A <see cref="T:System.Windows.Controls.Control"/> object.
+</returns>
+
+
+        </member>
+        <member name="T:DevExpress.Xpf.ReportDesigner.ReportDesignerCommandContainer">
+
+            <summary>
+                <para>Contains all commands used in a Silverlight Report Designer. 
+</para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.Xpf.ReportDesigner.ReportDesignerCommandContainer.#ctor(DevExpress.Utils.IoC.IntegrityContainer)">
+            <summary>
+                <para>Initializes a new instance of the ReportDesignerCommandContainer class with the specified settings.
+</para>
+            </summary>
+            <param name="designServices">
+		An <see cref="T:DevExpress.Utils.IoC.IntegrityContainer"/> object.
+
+            </param>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.ReportDesigner.ReportDesignerCommandContainer.DesignServices">
+            <summary>
+                <para>Provides access to a service container.
+</para>
+            </summary>
+            <value>An <see cref="T:DevExpress.Utils.IoC.IntegrityContainer"/> object.
+</value>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.ReportDesigner.ReportDesignerCommandContainer.GetCommand(DevExpress.Xpf.ReportDesigner.ReportDesignerCommand)">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+            <param name="command">
+		 [To be supplied] 
+            </param>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.ReportDesigner.ReportDesignerCommandContainer.Initialize">
+            <summary>
+                <para>Performs basic initialization of the created ReportDesignerCommandContainer object.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.ReportDesigner.ReportDesignerCommandContainer.Item(System.String)">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+            <param name="id">
+		 [To be supplied] 
+            </param>
+            <value> [To be supplied] </value>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.ReportDesigner.ReportDesignerCommandContainer.RaiseAllCommandsChanged">
+            <summary>
+                <para>For internal use.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="T:DevExpress.Xpf.ReportDesigner.ServiceModel.ReportDesignerServiceClientFactory">
+
+            <summary>
+                <para>Provides functionality for the client factory of the report service.
+</para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.Xpf.ReportDesigner.ServiceModel.ReportDesignerServiceClientFactory.#ctor(System.ServiceModel.EndpointAddress,System.ServiceModel.Channels.Binding)">
+            <summary>
+                <para>Initializes a new instance of the ReportDesignerServiceClientFactory class with specified settings.
+</para>
+            </summary>
+            <param name="remoteAddress">
+		A <see cref="T:System.ServiceModel.EndpointAddress"/> object.
+
+            </param>
+            <param name="binding">
+		A <see cref="T:System.ServiceModel.Channels.Binding"/> object.
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.ReportDesigner.ServiceModel.ReportDesignerServiceClientFactory.#ctor(System.String)">
+            <summary>
+                <para>Initializes a new instance of the ReportDesignerServiceClientFactory class with specified settings.
+</para>
+            </summary>
+            <param name="endpointConfigurationName">
+		A <see cref="T:System.String"/> value.
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.ReportDesigner.ServiceModel.ReportDesignerServiceClientFactory.#ctor(System.String,System.ServiceModel.EndpointAddress)">
+            <summary>
+                <para>Initializes a new instance of the ReportDesignerServiceClientFactory class with specified settings.
+</para>
+            </summary>
+            <param name="endpointConfigurationName">
+		A <see cref="T:System.String"/> value.
+
+            </param>
+            <param name="remoteAddress">
+		A <see cref="T:System.ServiceModel.EndpointAddress"/> object.
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.ReportDesigner.ServiceModel.ReportDesignerServiceClientFactory.#ctor(System.ServiceModel.EndpointAddress)">
+            <summary>
+                <para>Initializes a new instance of the ReportDesignerServiceClientFactory class with specified settings.
+</para>
+            </summary>
+            <param name="remoteAddress">
+		A <see cref="T:System.ServiceModel.EndpointAddress"/> object.
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.ReportDesigner.ServiceModel.ReportDesignerServiceClientFactory.Create">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="T:DevExpress.Xpf.ReportDesigner.ServiceModel.IReportDesignerServiceClientFactory">
+
+            <summary>
+                <para>If implemented by a class, provides functionality for the client factory of the report service.
+</para>
+            </summary>
+
+        </member>
+        <member name="T:DevExpress.Xpf.ReportDesigner.CustomizeReportControlEditorEventArgs">
+
+            <summary>
+                <para>Provides data for the <see cref="E:DevExpress.Xpf.ReportDesigner.ReportDesignerViewModel.CustomizeReportControlEditor"/> event.
+</para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.Xpf.ReportDesigner.CustomizeReportControlEditorEventArgs.#ctor(System.Windows.FrameworkElement,System.Collections.Generic.IList`1)">
+            <summary>
+                <para>Initializes a new instance of the CustomizeReportControlEditorEventArgs class with the specified settings.
+</para>
+            </summary>
+            <param name="target">
+		A <see cref="T:System.Windows.FrameworkElement"/> object. This value is assigned to the <see cref="P:DevExpress.Xpf.ReportDesigner.CustomizeReportControlEditorEventArgs.Target"/> property.
+
+            </param>
+            <param name="editorCreators">
+		A collection of objects implementing the <see cref="T:DevExpress.Xpf.ReportDesigner.IReportControlEditorCreator"/> interface. This value is assigned to the <see cref="P:DevExpress.Xpf.ReportDesigner.CustomizeReportControlEditorEventArgs.EditorCreators"/> property.
+
+            </param>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.ReportDesigner.CustomizeReportControlEditorEventArgs.EditorCreators">
+            <summary>
+                <para>Gets a provider of custom editors for a control.
+</para>
+            </summary>
+            <value>A collection of objects implementing the <see cref="T:DevExpress.Xpf.ReportDesigner.IReportControlEditorCreator"/> interface. 
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.ReportDesigner.CustomizeReportControlEditorEventArgs.Target">
+            <summary>
+                <para>Gets the control for which a custom editor is created.
+</para>
+            </summary>
+            <value>A <see cref="T:System.Windows.FrameworkElement"/> object. 
+</value>
+
+
+        </member>
+        <member name="T:DevExpress.Xpf.ReportDesigner.DragFieldListNodeEventArgs">
+
+            <summary>
+                <para>For internal use. Provides data for the <see cref="E:DevExpress.Xpf.ReportDesigner.FieldListControl.DragFieldListNode"/> and <see cref="E:DevExpress.Xpf.ReportDesigner.FieldListControl.DropFieldListNode"/> events.
+</para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.Xpf.ReportDesigner.DragFieldListNodeEventArgs.#ctor(System.Windows.Input.MouseEventArgs,DevExpress.Xpf.ReportDesigner.Native.IFieldListNode,System.Windows.FrameworkElement)">
+            <summary>
+                <para>For internal use.
+</para>
+            </summary>
+            <param name="mouseEventArgs">
+		 
+
+            </param>
+            <param name="fieldListNode">
+		 
+
+            </param>
+            <param name="source">
+		 
+
+            </param>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.ReportDesigner.DragFieldListNodeEventArgs.FieldListNode">
+            <summary>
+                <para>For internal use.
+</para>
+            </summary>
+            <value> 
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.ReportDesigner.DragFieldListNodeEventArgs.MouseEventArgs">
+            <summary>
+                <para>Returns an object that provides information about the Field List related event arguments.
+</para>
+            </summary>
+            <value>A <see cref="T:System.Windows.Input.MouseEventArgs"/> object.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.ReportDesigner.DragFieldListNodeEventArgs.Source">
+            <summary>
+                <para>Returns an object that is the Field List related event source (a Field List node that is being dragged/dropped).
+</para>
+            </summary>
+            <value>A <see cref="T:System.Windows.FrameworkElement"/> object.
+</value>
+
+
+        </member>
+        <member name="T:DevExpress.Xpf.ReportDesigner.XRControlTypeNames">
+
+            <summary>
+                <para>For internal use. Stores the full type names of XtraReports controls for use in the Field List of a Silverlight Report Designer.
+
+</para>
+            </summary>
+
+        </member>
+        <member name="P:DevExpress.Xpf.ReportDesigner.XRControlTypeNames.XRChartTypeName">
+            <summary>
+                <para>Specifies the type name of the DevExpress.XtraReports.UI.XRChart control.
+</para>
+            </summary>
+            <value>A <see cref="T:System.String"/> value.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.ReportDesigner.XRControlTypeNames.XRCheckBoxTypeName">
+            <summary>
+                <para>Specifies the type name of the DevExpress.XtraReports.UI.XRCheckBox control.
+</para>
+            </summary>
+            <value>A <see cref="T:System.String"/> value.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.ReportDesigner.XRControlTypeNames.XRControlTypeName">
+            <summary>
+                <para>Specifies the type name of an XtraReports control.
+</para>
+            </summary>
+            <value>A <see cref="T:System.String"/> value.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.ReportDesigner.XRControlTypeNames.XRLabelTypeName">
+            <summary>
+                <para>Specifies the type name of the DevExpress.XtraReports.UI.XRLabel control.
+</para>
+            </summary>
+            <value>A <see cref="T:System.String"/> value.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.ReportDesigner.XRControlTypeNames.XRLineTypeName">
+            <summary>
+                <para>Specifies the type name of the DevExpress.XtraReports.UI.XRLine control.
+</para>
+            </summary>
+            <value>A <see cref="T:System.String"/> value.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.ReportDesigner.XRControlTypeNames.XRPageBreakTypeName">
+            <summary>
+                <para>Specifies the type name of the DevExpress.XtraReports.UI.XRPageBreak control.
+</para>
+            </summary>
+            <value>A <see cref="T:System.String"/> value.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.ReportDesigner.XRControlTypeNames.XRPageInfoTypeName">
+            <summary>
+                <para>Specifies the type name of the DevExpress.XtraReports.UI.XRPageInfo control.
+</para>
+            </summary>
+            <value>A <see cref="T:System.String"/> value.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.ReportDesigner.XRControlTypeNames.XRPanelTypeName">
+            <summary>
+                <para>Specifies the type name of the DevExpress.XtraReports.UI.XRPanel control.
+</para>
+            </summary>
+            <value>A <see cref="T:System.String"/> value.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.ReportDesigner.XRControlTypeNames.XRPictureBoxTypeName">
+            <summary>
+                <para>Specifies the type name of the DevExpress.XtraReports.UI.XRPictureBox control.
+</para>
+            </summary>
+            <value>A <see cref="T:System.String"/> value.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.ReportDesigner.XRControlTypeNames.XRPivotGridTypeName">
+            <summary>
+                <para>Specifies the type name of the DevExpress.XtraReports.UI.XRPivotGrid control.
+</para>
+            </summary>
+            <value>A <see cref="T:System.String"/> value.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.ReportDesigner.XRControlTypeNames.XRRichTextBoxTypeName">
+            <summary>
+                <para>Specifies the type name of the DevExpress.XtraReports.UI.XRTextBox control.
+</para>
+            </summary>
+            <value>A <see cref="T:System.String"/> value.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.ReportDesigner.XRControlTypeNames.XRRichTextTypeName">
+            <summary>
+                <para>Specifies the type name of the DevExpress.XtraReports.UI.XRRichText control.
+</para>
+            </summary>
+            <value>A <see cref="T:System.String"/> value.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.ReportDesigner.XRControlTypeNames.XRShapeTypeName">
+            <summary>
+                <para>Specifies the type name of the DevExpress.XtraReports.UI.XRShape control.
+</para>
+            </summary>
+            <value>A <see cref="T:System.String"/> value.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.ReportDesigner.XRControlTypeNames.XRSubreportTypeName">
+            <summary>
+                <para>Specifies the type name of the DevExpress.XtraReports.UI.XRSubreport control.
+</para>
+            </summary>
+            <value>A <see cref="T:System.String"/> value.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.ReportDesigner.XRControlTypeNames.XRTableCellTypeName">
+            <summary>
+                <para>Specifies the type name of the DevExpress.XtraReports.UI.XRTableCell control.
+</para>
+            </summary>
+            <value>A <see cref="T:System.String"/> value.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.ReportDesigner.XRControlTypeNames.XRTableRowTypeName">
+            <summary>
+                <para>Specifies the type name of the DevExpress.XtraReports.UI.XRTableRow control.
+</para>
+            </summary>
+            <value>A <see cref="T:System.String"/> value.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.ReportDesigner.XRControlTypeNames.XRTableTypeName">
+            <summary>
+                <para>Specifies the type name of the DevExpress.XtraReports.UI.XRTable control.
+</para>
+            </summary>
+            <value>A <see cref="T:System.String"/> value.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.ReportDesigner.XRControlTypeNames.XRZipCodeTypeName">
+            <summary>
+                <para>Specifies the type name of the DevExpress.XtraReports.UI.XRZipCode control.
+</para>
+            </summary>
+            <value>A <see cref="T:System.String"/> value.
+</value>
+
+
+        </member>
+        <member name="T:DevExpress.Xpf.ReportDesigner.ReportControlInfo">
+
+            <summary>
+                <para>For internal use. Defines an internal name for every report control in a Silverlight Report Designer.
+</para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.Xpf.ReportDesigner.ReportControlInfo.#ctor(System.Windows.FrameworkElement,System.String,System.String)">
+            <summary>
+                <para>Initializes a new instance of the ReportControlInfo class with the specified settings.
+</para>
+            </summary>
+            <param name="element">
+		A <see cref="T:System.Windows.FrameworkElement"/> object. This value is assigned to the <see cref="P:DevExpress.Xpf.ReportDesigner.ReportControlInfo.Element"/> property.
+
+            </param>
+            <param name="name">
+		A <see cref="T:System.String"/> value. This value is assigned to the <see cref="P:DevExpress.Xpf.ReportDesigner.ReportControlInfo.DesignName"/> property.
+
+            </param>
+            <param name="typeName">
+		A <see cref="T:System.String"/> value. This value is assigned to the <see cref="P:DevExpress.Xpf.ReportDesigner.ReportControlInfo.TypeName"/> property.
+
+            </param>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.ReportDesigner.ReportControlInfo.DesignName">
+            <summary>
+                <para>Specifies the design name of a control.
+</para>
+            </summary>
+            <value>A <see cref="T:System.String"/> value.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.ReportDesigner.ReportControlInfo.Element">
+            <summary>
+                <para>Identifies a control.
+</para>
+            </summary>
+            <value>A <see cref="T:System.Windows.FrameworkElement"/> object.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.ReportDesigner.ReportControlInfo.TypeName">
+            <summary>
+                <para>Specifies the type name of a control.
+</para>
+            </summary>
+            <value>A <see cref="T:System.String"/> value.
+</value>
+
+
+        </member>
+        <member name="T:DevExpress.Xpf.ReportDesigner.FieldListControl">
+
+            <summary>
+                <para>For internal use. 
+</para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.Xpf.ReportDesigner.FieldListControl.#ctor">
+            <summary>
+                <para>Initializes a new instance of the FieldListControl class with default settings.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="E:DevExpress.Xpf.ReportDesigner.FieldListControl.DragFieldListNode">
+            <summary>
+                <para>Occurs when a user drags an item from the Field List using the mouse.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="E:DevExpress.Xpf.ReportDesigner.FieldListControl.DragFieldListNodeStarted">
+            <summary>
+                <para>Occurs when a user starts dragging an item from the Field List using the mouse.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="E:DevExpress.Xpf.ReportDesigner.FieldListControl.DropFieldListNode">
+            <summary>
+                <para>Occurs when a user drops an item from the Field List onto the report design surface.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.ReportDesigner.FieldListControl.ExpandRootNodes">
+            <summary>
+                <para>This is a dependency property. 
+</para>
+            </summary>
+            <value> [To be supplied] </value>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.FieldListControl.ExpandRootNodesProperty">
+            <summary>
+                <para>Identifies the  dependency property.
+</para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.ReportDesigner.FieldListControl.FieldListNode(System.Windows.DependencyObject)">
+            <summary>
+                <para>For internal use.
+</para>
+            </summary>
+            <value> 
+</value>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.FieldListControl.FieldListNodeProperty">
+            <summary>
+                <para>Identifies the  dependency property.
+</para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.ReportDesigner.FieldListControl.GetFieldListNode(System.Windows.DependencyObject)">
+            <summary>
+                <para>For internal use.
+</para>
+            </summary>
+            <param name="obj">
+		 
+
+            </param>
+            <returns> 
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.ReportDesigner.FieldListControl.InitializeComponent">
+            <summary>
+                <para>For internal use. Initializes the FieldListControl from XAML.
+
+</para>
+            </summary>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.ReportDesigner.FieldListControl.PrepareForClosing">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.ReportDesigner.FieldListControl.SetFieldListNode(System.Windows.DependencyObject,DevExpress.Xpf.ReportDesigner.Native.IFieldListNode)">
+            <summary>
+                <para>For internal use.
+</para>
+            </summary>
+            <param name="obj">
+		 
+
+            </param>
+            <param name="value">
+		 
+
+            </param>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.ReportDesigner.FieldListControl.ViewModel">
+            <summary>
+                <para>This is a dependency property. 
+</para>
+            </summary>
+            <value> [To be supplied] </value>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.FieldListControl.ViewModelProperty">
+            <summary>
+                <para>Identifies the  dependency property.
+</para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="T:DevExpress.Xpf.ReportDesigner.DesignerCustomCursors">
+
+            <summary>
+                <para>Provides properties that allow specifying custom cursors for a Silverlight Report Designer.
+</para>
+            </summary>
+
+        </member>
+        <member name="P:DevExpress.Xpf.ReportDesigner.DesignerCustomCursors.DragAddCursor">
+            <summary>
+                <para>Provides access to a custom cursor object displayed while an item is being dragged.
+</para>
+            </summary>
+            <value>A <see cref="T:DevExpress.Xpf.Printing.CustomCursor"/> object.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.ReportDesigner.DesignerCustomCursors.DragBindCursor">
+            <summary>
+                <para>Provides access to a custom cursor object displayed while dragging a data-bound item.
+</para>
+            </summary>
+            <value>A <see cref="T:DevExpress.Xpf.Printing.CustomCursor"/> object.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.ReportDesigner.DesignerCustomCursors.SizeAllCursor">
+            <summary>
+                <para>Provides access to a custom cursor object displayed while an item is being re-sized.
+</para>
+            </summary>
+            <value>A <see cref="T:DevExpress.Xpf.Printing.CustomCursor"/> object.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.ReportDesigner.DesignerCustomCursors.UnavailableCursor">
+            <summary>
+                <para>Provides access to a custom cursor object displayed when an action cannot be performed over an item.
+</para>
+            </summary>
+            <value>A <see cref="T:DevExpress.Xpf.Printing.CustomCursor"/> object.
+</value>
+
+
+        </member>
+        <member name="T:DevExpress.Xpf.ReportDesigner.BarManagerCustomization">
+
+            <summary>
+                <para>Provides functionality for customization of the Document Preview toolbar.
+</para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.Xpf.ReportDesigner.BarManagerCustomization.GetTemplate(System.Windows.DependencyObject)">
+            <summary>
+                <para>Gets the value of the <see cref="P:DevExpress.Xpf.ReportDesigner.BarManagerCustomization.Template"/> attached property from a given object.
+
+
+
+</para>
+            </summary>
+            <param name="obj">
+		An object whose Template property's value must be returned.
+
+            </param>
+            <returns>The value of the Template attached property for the specified object.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.ReportDesigner.BarManagerCustomization.SetTemplate(System.Windows.DependencyObject,System.Windows.DataTemplate)">
+            <summary>
+                <para>Sets the value of the <see cref="P:DevExpress.Xpf.ReportDesigner.BarManagerCustomization.Template"/> attached property for a given object.
+</para>
+            </summary>
+            <param name="obj">
+		An object for which the Template attached property is set.
+
+            </param>
+            <param name="value">
+		The value for the Template attached property.
+
+            </param>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.ReportDesigner.BarManagerCustomization.Template(System.Windows.DependencyObject)">
+            <summary>
+                <para>Gets or sets the <see cref="T:DevExpress.Xpf.Bars.BarManager"/>'s customization template. This is a dependency property. This is an attached property.
+
+
+</para>
+            </summary>
+            <value>A <see cref="T:System.Windows.DataTemplate"/> object.
+</value>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.BarManagerCustomization.TemplateProperty">
+            <summary>
+                <para>Identifies the  dependency property.
+</para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="T:DevExpress.Xpf.ReportDesigner.ReportDesignerCommand">
+
+            <summary>
+                <para>Lists the commands available in a Report Designer for Silverlight.
+</para>
+            </summary>
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerCommand.AlignBottom">
+            <summary>
+                <para>Aligns the bottom edges of the selected controls.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerCommand.AlignHorizontalCenter">
+            <summary>
+                <para>Center-aligns the selected controls horizontally.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerCommand.AlignLeft">
+            <summary>
+                <para>Aligns the left edges of the selected controls.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerCommand.AlignRight">
+            <summary>
+                <para>Aligns the right edges of the selected controls.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerCommand.AlignTop">
+            <summary>
+                <para>Aligns the top edges of the selected controls.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerCommand.AlignVerticalCenter">
+            <summary>
+                <para>Center-aligns the selected controls vertically.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerCommand.BackColor">
+            <summary>
+                <para>Changes the background color of the selected control(s).
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerCommand.BordersAll">
+            <summary>
+                <para>Enables all borders.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerCommand.BordersBottom">
+            <summary>
+                <para>Changes the settings for the bottom border.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerCommand.BordersLeft">
+            <summary>
+                <para>Changes the settings of the left border.
+
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerCommand.BordersNone">
+            <summary>
+                <para>Disables all borders.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerCommand.BordersRight">
+            <summary>
+                <para>Changes the settings of the right border.
+
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerCommand.BordersTop">
+            <summary>
+                <para>Changes the settings for the top border.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerCommand.BringToFront">
+            <summary>
+                <para>Brings the selected control(s) to the front.
+
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerCommand.Delete">
+            <summary>
+                <para>Deletes the selected control(s).
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerCommand.DiscardChanges">
+            <summary>
+                <para>Discards all changes made to the report.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerCommand.EditWatermark">
+            <summary>
+                <para>Runs the Watermark dialog.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerCommand.FontBold">
+            <summary>
+                <para>Makes the font bold.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerCommand.FontFamilyName">
+            <summary>
+                <para>Changes the font family name.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerCommand.FontItalic">
+            <summary>
+                <para>Makes the font italic.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerCommand.FontSize">
+            <summary>
+                <para>Changes the font size.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerCommand.FontUnderline">
+            <summary>
+                <para>Makes the font underlined.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerCommand.ForeColor">
+            <summary>
+                <para>Changes the foreground color of the selected control(s).
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerCommand.LaunchWizard">
+            <summary>
+                <para>Launches the Report Wizard.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerCommand.LayoutCenterHorizontally">
+            <summary>
+                <para>Horizontally centers the selected control(s) within a band.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerCommand.LayoutCenterVertically">
+            <summary>
+                <para>Vertically centers the selected control(s) within a band.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerCommand.LayoutDecreaseHorizontalSpacing">
+            <summary>
+                <para>Decreases the horizontal spacing between the selected controls.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerCommand.LayoutDecreaseVerticalSpacing">
+            <summary>
+                <para>Decreases the vertical spacing between the selected controls.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerCommand.LayoutEqualSpacingHorizontally">
+            <summary>
+                <para>Equalizes the horizontal spacing between the selected controls.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerCommand.LayoutEqualSpacingVertically">
+            <summary>
+                <para>Equalizes the vertical spacing between the selected controls.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerCommand.LayoutIncreaseHorizontalSpacing">
+            <summary>
+                <para>Increases the horizontal spacing between the selected controls.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerCommand.LayoutIncreaseVerticalSpacing">
+            <summary>
+                <para>Increases the vertical spacing between the selected controls.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerCommand.LayoutRemoveHorizontalSpacing">
+            <summary>
+                <para>Removes the horizontal spacing between the selected controls.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerCommand.LayoutRemoveVerticalSpacing">
+            <summary>
+                <para>Removes the vertical spacing between the selected controls.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerCommand.LayoutSameHeight">
+            <summary>
+                <para>Equalizes the height of the selected controls.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerCommand.LayoutSameSize">
+            <summary>
+                <para>Equalizes the size of the selected controls.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerCommand.LayoutSameWidth">
+            <summary>
+                <para>Equalizes the width of the selected controls.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerCommand.MoveDown">
+            <summary>
+                <para>Moves the selected control(s) down.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerCommand.MoveLeft">
+            <summary>
+                <para>Moves the selected control(s) to the left.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerCommand.MoveRight">
+            <summary>
+                <para>Moves the selected control(s) to the right.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerCommand.MoveUp">
+            <summary>
+                <para>Moves the selected control(s) up.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerCommand.PageSetup">
+            <summary>
+                <para>Runs the Page Setup dialog.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerCommand.Save">
+            <summary>
+                <para>Saves the changes made to the current report.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerCommand.SelectParent">
+            <summary>
+                <para>Switches the selection from the currently selected control back to its parent (executed by pressing ESC for a selected control).
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerCommand.SendToBack">
+            <summary>
+                <para>Sends the selected control(s) to back.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerCommand.SizeDown">
+            <summary>
+                <para>Decreases the height of the selected control(s).
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerCommand.SizeLeft">
+            <summary>
+                <para>Changes the width of the selected control(s) to the left.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerCommand.SizeRight">
+            <summary>
+                <para>Changes the width of the selected control(s) to the right.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerCommand.SizeUp">
+            <summary>
+                <para>Increases the height of the selected control(s).
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerCommand.TextAlignCenter">
+            <summary>
+                <para>Center-aligns the text.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerCommand.TextAlignJustify">
+            <summary>
+                <para>Justifies the text.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerCommand.TextAlignLeft">
+            <summary>
+                <para>Left-aligns the text.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerCommand.TextAlignRight">
+            <summary>
+                <para>Right-aligns the text.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="T:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId">
+
+            <summary>
+                <para>Contains values corresponding to strings that can be localized.
+</para>
+            </summary>
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.AlignBottom_Caption">
+            <summary>
+                <para>The caption of a control alignment button in the Alignment toolbar.
+
+<para><b>Default value</b>: "Align Bottoms"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.AlignBottom_Hint">
+            <summary>
+                <para>The tooltip of a control alignment button in the Alignment toolbar.
+
+<para><b>Default value</b>: "Align the bottoms of the selected controls"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.AlignLeft_Caption">
+            <summary>
+                <para>The caption of a control alignment button in the Alignment toolbar.
+
+<para><b>Default value</b>: "Align Lefts"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.AlignLeft_Hint">
+            <summary>
+                <para>The tooltip of a control alignment button in the Alignment toolbar.
+
+<para><b>Default value</b>: "Left align the selected controls"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.AlignMiddle_Caption">
+            <summary>
+                <para>The caption of a control alignment button in the Alignment toolbar.
+
+<para><b>Default value</b>: "Align Middles"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.AlignMiddle_Hint">
+            <summary>
+                <para>The tooltip of a control alignment button in the Alignment toolbar.
+
+<para><b>Default value</b>: "Align the centers of the selected controls horizontally"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.AlignRight_Caption">
+            <summary>
+                <para>The caption of a control alignment button in the Alignment toolbar.
+
+<para><b>Default value</b>: "Align Rights"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.AlignRight_Hint">
+            <summary>
+                <para>The tooltip of a control alignment button in the Alignment toolbar.
+
+<para><b>Default value</b>: "Right align the selected controls"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.AlignTop_Caption">
+            <summary>
+                <para>The caption of a control alignment button in the Alignment toolbar.
+
+<para><b>Default value</b>: "Align Tops"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.AlignTop_Hint">
+            <summary>
+                <para>The tooltip of a control alignment button in the Alignment toolbar.
+
+<para><b>Default value</b>: "Align the tops of the selected controls"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.AlignVerticalCenter_Caption">
+            <summary>
+                <para>The caption of a control alignment button in the Alignment toolbar.
+
+<para><b>Default value</b>: "Align Centers"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.AlignVerticalCenter_Hint">
+            <summary>
+                <para>The tooltip of a control alignment button in the Alignment toolbar.
+
+<para><b>Default value</b>: "Align the centers of the selected controls vertically"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.BackColor_Caption">
+            <summary>
+                <para>The caption of a background color adjustment button in the Font toolbar.
+
+<para><b>Default value</b>: "Background Color"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.BackColor_Hint">
+            <summary>
+                <para>The tooltip of a background color adjustment button in the Font toolbar.
+
+<para><b>Default value</b>: "Change the background color"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.BindingEditorCaption">
+            <summary>
+                <para>The caption of the Binding editor.
+
+<para><b>Default value</b>: "Binding"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.BorderColor_Caption">
+            <summary>
+                <para>The caption of a border color adjustment button in the Borders toolbar.
+
+<para><b>Default value</b>: "Color"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.BorderColor_Hint">
+            <summary>
+                <para>The tooltip of a border color adjustment button in the Borders toolbar.
+
+<para><b>Default value</b>: "Specify the color of an element's border"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.BorderDashStyle_Hint">
+            <summary>
+                <para>The tooltip of a border dash style adjustment button in the Borders toolbar.
+
+<para><b>Default value</b>: "Specify the dash style for an element's border"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.BorderLineWidth_Hint">
+            <summary>
+                <para>The tooltip of a border width adjustment button in the Borders toolbar.
+
+<para><b>Default value</b>: "Specify the width of an element's border"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.Borders_Caption">
+            <summary>
+                <para>The caption of a border selection button in the Borders toolbar.
+
+<para><b>Default value</b>: "Borders"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.Borders_Hint">
+            <summary>
+                <para>The tooltip of a border selection button in the Borders toolbar.
+
+<para><b>Default value</b>: "Edit border settings of an element"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.BordersAll_Caption">
+            <summary>
+                <para>The caption of a border setting item in the Borders drop-down menu.
+
+<para><b>Default value</b>: "All Borders"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.BordersBottom_Caption">
+            <summary>
+                <para>The caption of a border setting item in the Borders drop-down menu.
+
+<para><b>Default value</b>: "Bottom Border"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.BordersLeft_Caption">
+            <summary>
+                <para>The caption of a border setting item in the Borders drop-down menu.
+
+<para><b>Default value</b>: "Left Border"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.BordersNone_Caption">
+            <summary>
+                <para>The caption of a border setting item in the Borders drop-down menu.
+
+<para><b>Default value</b>: "No Border"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.BordersRight_Caption">
+            <summary>
+                <para>The caption of a border setting item in the Borders drop-down menu.
+
+<para><b>Default value</b>: "Right Border"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.BordersTop_Caption">
+            <summary>
+                <para>The caption of a border setting item in the Borders drop-down menu.
+
+<para><b>Default value</b>: "Top Border"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.CommandContainer_Indexer_EmptyOrNullId">
+            <summary>
+                <para><para>The text of exception thrown when trying to obtain a command from a <see cref="T:DevExpress.Xpf.ReportDesigner.ReportDesignerCommandContainer"/> by an empty or null string.</para>
+
+<para><b>Default value</b>: "The command's id is null or empty"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.CommandContainer_Indexer_InvalidId">
+            <summary>
+                <para><para>The text of exception thrown when trying to obtain a non-existing command from a <see cref="T:DevExpress.Xpf.ReportDesigner.ReportDesignerCommandContainer"/>.</para>
+
+<para><b>Default value</b>: "The command's id is invalid"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.DiscardReportChanges_Caption">
+            <summary>
+                <para>The caption of the Discard Changes button in the Report toolbar.
+
+<para><b>Default value</b>: "Discard Changes"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.DiscardReportChanges_Hint">
+            <summary>
+                <para>The tooltip of the Discard Changes button in the Report toolbar.
+
+<para><b>Default value</b>: "Discard all changes done after the document last saving"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.EditWatermark_Caption">
+            <summary>
+                <para>The caption of the Watermark button in the Page Options toolbar.
+
+<para><b>Default value</b>: "Watermark"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.EditWatermark_Hint">
+            <summary>
+                <para>The tooltip of the Watermark button in the Page Options toolbar.
+
+<para><b>Default value</b>: "Edit watermark"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.Error">
+            <summary>
+                <para><para><b>Default value</b>: "Error"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.FieldList_ControlCheckboxNode">
+            <summary>
+                <para>The caption of a check box control in the Field List.
+
+<para><b>Default value</b>: "Check Box"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.FieldList_ControlFieldsNode">
+            <summary>
+                <para>The caption of a check box control in the Field List.
+
+<para><b>Default value</b>: "Control Fields"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.FieldList_ControlLabelNode">
+            <summary>
+                <para>The caption of a label control in the Field List.
+
+<para><b>Default value</b>: "Label"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.FieldList_ControlLineNode">
+            <summary>
+                <para>The caption of a line control in the Field List.
+
+<para><b>Default value</b>: "Line"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.FieldList_ControlPictureNode">
+            <summary>
+                <para>The caption of a picture box control in the Field List.
+
+<para><b>Default value</b>: "Picture Box"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.FieldList_ControlShapeNode">
+            <summary>
+                <para>The caption of a shape control in the Field List.
+
+<para><b>Default value</b>: "Shape"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.FieldList_DummyNode">
+            <summary>
+                <para>The caption of a dummy node in the Field List.
+
+<para><b>Default value</b>: "..."</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.FieldList_NoneNode">
+            <summary>
+                <para>The caption of the None item in the Field List.
+
+<para><b>Default value</b>: "None"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.FieldListPanel_Caption">
+            <summary>
+                <para>The caption of the Field List panel.
+
+<para><b>Default value</b>: "Field List"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.FontBold_Caption">
+            <summary>
+                <para>The caption of the Bold option in the Font toolbar.
+
+<para><b>Default value</b>: "Bold"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.FontBold_Hint">
+            <summary>
+                <para>The tooltip of the Bold option in the Font toolbar.
+
+<para><b>Default value</b>: "Make the selected text bold"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.FontItalic_Caption">
+            <summary>
+                <para>The caption of the Italic option in the Font toolbar.
+
+<para><b>Default value</b>: "Italic"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.FontItalic_Hint">
+            <summary>
+                <para>The tooltip of the Italic option in the Font toolbar.
+
+<para><b>Default value</b>: "Italicize the text"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.FontName_Caption">
+            <summary>
+                <para>The caption of the font face selector in the Font toolbar.
+
+<para><b>Default value</b>: "Font"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.FontName_Hint">
+            <summary>
+                <para>The tooltip of the font face selector in the Font toolbar.
+
+<para><b>Default value</b>: "Change the font face"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.FontSize_Caption">
+            <summary>
+                <para>The caption of the font size selector in the Font toolbar.
+
+<para><b>Default value</b>: "Font Size"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.FontSize_Hint">
+            <summary>
+                <para>The tooltip of the font size selector in the Font toolbar.
+
+<para><b>Default value</b>: "Change the font size"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.FontUnderline_Caption">
+            <summary>
+                <para>The caption of the Underline option in the Font toolbar.
+
+<para><b>Default value</b>: "Underline"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.FontUnderline_Hint">
+            <summary>
+                <para>The tooltip of the Underline option in the Font toolbar.
+
+<para><b>Default value</b>: "Underline the selected text"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.ForeColor_Caption">
+            <summary>
+                <para>The caption of a foreground color adjustment button in the Font toolbar.
+
+<para><b>Default value</b>: "Foreground Color"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.ForeColor_Hint">
+            <summary>
+                <para>The tooltip of a foreground color adjustment button in the Font toolbar.
+
+<para><b>Default value</b>: "Change the foreground color"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.ImageEditorCaption">
+            <summary>
+                <para>The caption of the Image tab in the Picture Box editor.
+
+<para><b>Default value</b>: "Image"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.ImageEditorClear">
+            <summary>
+                <para>The caption of the Clear button in the Image tab of the Picture Box editor.
+
+<para><b>Default value</b>: "Clear"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.ImageEditorLoad">
+            <summary>
+                <para>The caption of the Load button in the Image tab of the Picture Box editor.
+
+<para><b>Default value</b>: "Load"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.ImageLoadError">
+            <summary>
+                <para>The text of an error message shown when an image cannot be loaded via the Picture Box editor.
+
+<para><b>Default value</b>: "An error occurred while loading an image"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.JustifyCenter_Caption">
+            <summary>
+                <para>The caption of the Center Text button in the Font toolbar.
+
+<para><b>Default value</b>: "Center Text"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.JustifyCenter_Hint">
+            <summary>
+                <para>The tooltip of the Center Text button in the Font toolbar.
+
+<para><b>Default value</b>: "Center text"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.JustifyJustify_Caption">
+            <summary>
+                <para>The caption of the Justify button in the Font toolbar.
+
+<para><b>Default value</b>: "Justify"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.JustifyJustify_Hint">
+            <summary>
+                <para>The tooltip of the Justify button in the Font toolbar.
+
+<para><b>Default value</b>: "Align text to both the left and right sides, adding extra space between words as necessary"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.JustifyLeft_Caption">
+            <summary>
+                <para>The caption of the Left-Align Text button in the Font toolbar.
+
+<para><b>Default value</b>: "Left-Align Text"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.JustifyLeft_Hint">
+            <summary>
+                <para>The tooltip of the Left-Align Text button in the Font toolbar.
+
+<para><b>Default value</b>: "Align text to the left"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.JustifyRight_Caption">
+            <summary>
+                <para>The caption of the Right-Align Text button in the Font toolbar.
+
+<para><b>Default value</b>: "Right-Align Text"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.JustifyRight_Hint">
+            <summary>
+                <para>The tooltip of the Right-Align Text button in the Font toolbar.
+
+<para><b>Default value</b>: "Align text to the right"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.LayoutBringToFront_Caption">
+            <summary>
+                <para>The caption of an option in the Layout toolbar.
+
+<para><b>Default value</b>: "Bring to Front"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.LayoutBringToFront_Hint">
+            <summary>
+                <para>The tootip of an option in the Layout toolbar.
+
+<para><b>Default value</b>: "Bring the selected controls to the front"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.LayoutCenterHorizontally_Caption">
+            <summary>
+                <para>The caption of an option in the Layout toolbar.
+
+<para><b>Default value</b>: "Center Horizontally"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.LayoutCenterHorizontally_Hint">
+            <summary>
+                <para>The tooltip of an option in the Layout toolbar.
+
+<para><b>Default value</b>: "Horizontally center the selected controls within a band"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.LayoutCenterVertically_Caption">
+            <summary>
+                <para>The caption of an option in the Layout toolbar.
+
+<para><b>Default value</b>: "Center Vertically"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.LayoutCenterVertically_Hint">
+            <summary>
+                <para>The tooltip of an option in the Layout toolbar.
+
+<para><b>Default value</b>: "Vertically center the selected controls within a band"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.LayoutDecreaseHorizontalSpace_Caption">
+            <summary>
+                <para>The caption of an option in the Layout toolbar.
+
+<para><b>Default value</b>: "Increase Horizontal Spacing"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.LayoutDecreaseHorizontalSpace_Hint">
+            <summary>
+                <para>The tooltip of an option in the Layout toolbar.
+
+<para><b>Default value</b>: "Decrease the horizontal spacing between the selected controls"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.LayoutDecreaseVerticalSpacing_Caption">
+            <summary>
+                <para>The caption of an option in the Layout toolbar.
+
+<para><b>Default value</b>: "Decrease Vertical Spacing"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.LayoutDecreaseVerticalSpacing_Hint">
+            <summary>
+                <para>The tooltip of an option in the Layout toolbar.
+
+<para><b>Default value</b>: "Decrease the vertical spacing between the selected controls"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.LayoutEquateHorizontalSpace_Caption">
+            <summary>
+                <para>The caption of an option in the Layout toolbar.
+
+<para><b>Default value</b>: "Make Horizontal Spacing Equal"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.LayoutEquateHorizontalSpace_Hint">
+            <summary>
+                <para>The tooltip of an option in the Layout toolbar.
+
+<para><b>Default value</b>: "Make the horizontal spacing between the selected controls equal"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.LayoutEquateVerticalSpacing_Caption">
+            <summary>
+                <para>The caption of an option in the Layout toolbar.
+
+<para><b>Default value</b>: "Make Vertical Spacing Equal"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.LayoutEquateVerticalSpacing_Hint">
+            <summary>
+                <para>The tooltip of an option in the Layout toolbar.
+
+<para><b>Default value</b>: "Make the vertical spacing between the selected controls equal"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.LayoutIncreaseHorizontalSpace_Caption">
+            <summary>
+                <para>The caption of an option in the Layout toolbar.
+
+<para><b>Default value</b>: "Increase Horizontal Spacing"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.LayoutIncreaseHorizontalSpace_Hint">
+            <summary>
+                <para>The tooltip of an option in the Layout toolbar.
+
+<para><b>Default value</b>: "Increase the horizontal spacing between the selected controls"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.LayoutIncreaseVerticalSpacing_Caption">
+            <summary>
+                <para>The caption of an option in the Layout toolbar.
+
+<para><b>Default value</b>: "Make Vertical Spacing Equal"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.LayoutIncreaseVerticalSpacing_Hint">
+            <summary>
+                <para>The tooltip of an option in the Layout toolbar.
+
+<para><b>Default value</b>: "Make the vertical spacing between the selected controls equal"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.LayoutRemoveHorizontalSpace_Caption">
+            <summary>
+                <para>The caption of an option in the Layout toolbar.
+
+<para><b>Default value</b>: "Remove Horizontal Spacing"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.LayoutRemoveHorizontalSpace_Hint">
+            <summary>
+                <para>The tooltip of an option in the Layout toolbar.
+
+<para><b>Default value</b>: "Remove the horizontal spacing between the selected controls"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.LayoutRemoveVerticalSpacing_Caption">
+            <summary>
+                <para>The caption of an option in the Layout toolbar.
+
+<para><b>Default value</b>: "Center Horizontally"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.LayoutRemoveVerticalSpacing_Hint">
+            <summary>
+                <para>The tooltip of an option in the Layout toolbar.
+
+<para><b>Default value</b>: "Horizontally center the selected controls within a band"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.LayoutSameHeight_Caption">
+            <summary>
+                <para>The caption of an option in the Layout toolbar.
+
+<para><b>Default value</b>: "Make Same Height"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.LayoutSameHeight_Hint">
+            <summary>
+                <para>The tooltip of an option in the Layout toolbar.
+
+<para><b>Default value</b>: "Make the selected controls have the same height"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.LayoutSameSize_Caption">
+            <summary>
+                <para>The caption of an option in the Layout toolbar.
+
+<para><b>Default value</b>: "Make Same Size"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.LayoutSameSize_Hint">
+            <summary>
+                <para>The tooltip of an option in the Layout toolbar.
+
+<para><b>Default value</b>: "Make the selected controls have the same size"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.LayoutSameWidth_Caption">
+            <summary>
+                <para>The caption of an option in the Layout toolbar.
+
+<para><b>Default value</b>: "Make Same Width"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.LayoutSameWidth_Hint">
+            <summary>
+                <para>The tooltip of an option in the Layout toolbar.
+
+<para><b>Default value</b>: "Make the selected controls have the same width"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.LayoutSendToBack_Caption">
+            <summary>
+                <para>The caption of an option in the Layout toolbar.
+
+<para><b>Default value</b>: "Send to Back"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.LayoutSendToBack_Hint">
+            <summary>
+                <para>The tooltip of an option in the Layout toolbar.
+
+<para><b>Default value</b>: "Move the selected controls to the back"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.LineEditor_Color">
+            <summary>
+                <para>The caption of the Foreground Color property in the actions list that is accessible via a Line's smart tag.
+
+<para><b>Default value</b>: "Foreground color: "</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.LineEditor_LineDirection">
+            <summary>
+                <para>The caption of the Line Direction property in the actions list that is accessible via a Line's smart tag.
+
+<para><b>Default value</b>: "Line direction: "</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.LineEditor_LineStyle">
+            <summary>
+                <para>The caption of the Line Style property in the actions list that is accessible via a Line's smart tag.
+
+<para><b>Default value</b>: "Line style: "</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.LineEditor_LineWidth">
+            <summary>
+                <para>The caption of the Line Width property in the actions list that is accessible via a Line's smart tag.
+
+<para><b>Default value</b>: "Line width: "</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.LineEditorCaption">
+            <summary>
+                <para>The caption of a Line's actions list that is accessible via its smart tag.
+
+<para><b>Default value</b>: "Line"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.NewReportWizard_Caption">
+            <summary>
+                <para>The caption of the New Report Via Wizard button in the Report toolbar.
+
+<para><b>Default value</b>: "New Report via Wizard..."</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.NewReportWizard_Hint">
+            <summary>
+                <para>The tooltip of the New Report Via Wizard button in the Report toolbar.
+
+<para><b>Default value</b>: "Launch the report wizard to create a new report"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.OpenReport_Caption">
+            <summary>
+                <para>The caption of the Open Report button in the Report toolbar.
+
+<para><b>Default value</b>: "Open..."</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.OpenReport_Hint">
+            <summary>
+                <para>The tooltip of the Open Report button in the Report toolbar.
+
+<para><b>Default value</b>: "Open a report"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.PageGroupAlignment_Caption">
+            <summary>
+                <para>The caption of the Alignment toolbar.
+
+<para><b>Default value</b>: "Alignment"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.PageGroupBorders_Caption">
+            <summary>
+                <para>The caption of the Borders toolbar.
+
+<para><b>Default value</b>: "Borders"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.PageGroupDesign_Caption">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.PageGroupFont_Caption">
+            <summary>
+                <para>The caption of the Font toolbar.
+
+<para><b>Default value</b>: "Font"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.PageGroupLayout_Caption">
+            <summary>
+                <para>The caption of the Layout toolbar.
+
+<para><b>Default value</b>: "Layout"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.PageGroupPageOptions_Caption">
+            <summary>
+                <para>The caption of the Page Options toolbar.
+
+<para><b>Default value</b>: "Page options"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.PageGroupPanels_Caption">
+            <summary>
+                <para>The caption of the Panels toolbar.
+
+<para><b>Default value</b>: "Panels"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.PageGroupReport_Caption">
+            <summary>
+                <para>The caption of the Report toolbar.
+
+<para><b>Default value</b>: "Report"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.PageGroupZoom_Caption">
+            <summary>
+                <para>The caption of the Zoom toolbar.
+
+<para><b>Default value</b>: "Zoom"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.PageSetup_Caption">
+            <summary>
+                <para>The caption of the Page Setup button in the Page Options toolbar.
+
+<para><b>Default value</b>: "Page Setup"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.PageSetup_Hint">
+            <summary>
+                <para>The tooltip of the Page Setup button in the Page Options toolbar.
+
+<para><b>Default value</b>: "Show the Page Setup dialog"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.ReportWizard_AddConnection">
+            <summary>
+                <para>The title of the data connection Wizard page.
+
+<para><b>Default value</b>: "Add connection..."</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.ReportWizard_AddGroupingLvl">
+            <summary>
+                <para>The title of the group creation Wizard page.
+
+<para><b>Default value</b>: "Create Groups"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.ReportWizard_AddGroupingLvl_Description">
+            <summary>
+                <para>The text of the group creation Wizard page.
+
+<para><b>Default value</b>: "Create multiple groups, each with a single field value, or define several fields in the same group."</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.ReportWizard_AdjustFields">
+            <summary>
+                <para>The caption of an option on the layout selection Wizard page.
+
+<para><b>Default value</b>: "Adjust the field width so all fields fit onto a page"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.ReportWizard_AlignLeft1">
+            <summary>
+                <para>An option on the layout selection Wizard page.
+
+<para><b>Default value</b>: "Align Left 1"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.ReportWizard_AlignLeft2">
+            <summary>
+                <para>An option on the layout selection Wizard page.
+
+<para><b>Default value</b>: "Align Left 2"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.ReportWizard_AvailableFields">
+            <summary>
+                <para>The title of the available field list on the columns selection Wizard page.
+
+<para><b>Default value</b>: "Available fields"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.ReportWizard_AvailableItems">
+            <summary>
+                <para>The caption of the available tables list on the "Choose a Table or View" Wizard page.
+
+<para><b>Default value</b>: "Available items"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.ReportWizard_Avg">
+            <summary>
+                <para>The caption of a summary function.
+
+<para><b>Default value</b>: "Avg"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.ReportWizard_ChooseColumns">
+            <summary>
+                <para>The title of the columns selection Wizard page.
+
+<para><b>Default value</b>: "Choose Columns to Display in Your Report"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.ReportWizard_ChooseColumns_Description">
+            <summary>
+                <para>The text of the columns selection Wizard page.
+
+<para><b>Default value</b>: "Select the columns you want to display within your report."</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.ReportWizard_ChooseDataConnection">
+            <summary>
+                <para>The caption of the available data sources list on the "Choose a Datasource" Wizard page.
+
+<para><b>Default value</b>: "Available items"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.ReportWizard_ChooseReportType">
+            <summary>
+                <para>The title of the report type selection Wizard page.
+
+<para><b>Default value</b>: "Choose a Report Type"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.ReportWizard_ChooseReportType_Description">
+            <summary>
+                <para>The text of the report type selection Wizard page.
+
+<para><b>Default value</b>: "Select the report type you wish to create."</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.ReportWizard_ChooseSummaryOptions">
+            <summary>
+                <para>The title of the summary function configuration Wizard page.
+
+<para><b>Default value</b>: "Choose summary options"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.ReportWizard_ChooseSummaryOptions_Description">
+            <summary>
+                <para><para><b>Default value</b>: "What summary functions would you like to calculate?"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.ReportWizard_ChooseTableOrView">
+            <summary>
+                <para>The title of the "Choose a Table or View" Wizard page.
+
+<para><b>Default value</b>: "Choose a Table or View"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.ReportWizard_ChooseTableOrView_Description">
+            <summary>
+                <para>The text of the "Choose a Table or View" Wizard page.
+
+<para><b>Default value</b>: "The table or view you choose determines which columns will be available in your report."</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.ReportWizard_Count">
+            <summary>
+                <para>The caption of a summary function.
+
+<para><b>Default value</b>: "Count"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.ReportWizard_CreateANewDataset">
+            <summary>
+                <para>The title of the "Choose a Datasource" Wizard page.
+
+<para><b>Default value</b>: "Choose a Datasource"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.ReportWizard_CreateANewDataset_Description">
+            <summary>
+                <para>The text of the "Choose a Datasource" Wizard page.
+
+<para><b>Default value</b>: "Select a datasource to use in your report."</para>
+
+
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.ReportWizard_Fields">
+            <summary>
+                <para>The title of the field selector on the group creation Wizard page.
+
+<para><b>Default value</b>: "Fields"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.ReportWizard_FieldsToDisplay">
+            <summary>
+                <para>The title of the field selector on the columns selection Wizard page.
+
+<para><b>Default value</b>: "Fields to display in a report"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.ReportWizard_Height">
+            <summary>
+                <para>For internal use.
+
+<para><b>Default value</b>: "Height: "</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.ReportWizard_HorizontalPitch">
+            <summary>
+                <para>For internal use.
+
+<para><b>Default value</b>: "Horizontal Pitch:"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.ReportWizard_IgnoreNull">
+            <summary>
+                <para>For internal use.
+
+<para><b>Default value</b>: "Ignore null values"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.ReportWizard_InputDatasetName">
+            <summary>
+                <para>For internal use.
+
+<para><b>Default value</b>: "Input dataset name"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.ReportWizard_LabelHeight">
+            <summary>
+                <para>For internal use.
+
+<para><b>Default value</b>: "Label Height:"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.ReportWizard_LabelInformation">
+            <summary>
+                <para>For internal use.
+
+<para><b>Default value</b>: "Label information"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.ReportWizard_LabelInformation_Description">
+            <summary>
+                <para>For internal use.
+
+<para><b>Default value</b>: "Select one of the predefined labels by specifying the Product and its ID"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.ReportWizard_LabelOptions">
+            <summary>
+                <para>For internal use.
+
+<para><b>Default value</b>: "Customize the Label's Options"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.ReportWizard_LabelOptions_Description">
+            <summary>
+                <para>For internal use.
+
+<para><b>Default value</b>: "You can adjust the label's parameters here if required."</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.ReportWizard_LabelProducts">
+            <summary>
+                <para>For internal use.
+
+<para><b>Default value</b>: "Label products"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.ReportWizard_LabelWidth">
+            <summary>
+                <para>For internal use.
+
+<para><b>Default value</b>: "Label Width:"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.ReportWizard_Landscape">
+            <summary>
+                <para>The caption of the Landscape option on the layout selection Wizard page.
+
+<para><b>Default value</b>: "Landscape"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.ReportWizard_Max">
+            <summary>
+                <para>The caption of a summary function.
+
+<para><b>Default value</b>: "Max"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.ReportWizard_Min">
+            <summary>
+                <para>The caption of a summary function.
+
+<para><b>Default value</b>: "Min"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.ReportWizard_Outline1">
+            <summary>
+                <para>An option on the layout selection Wizard page.
+
+<para><b>Default value</b>: "Outline 1"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.ReportWizard_Outline2">
+            <summary>
+                <para>An option on the layout selection Wizard page.
+
+<para><b>Default value</b>: "Outline 2"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.ReportWizard_PageSize">
+            <summary>
+                <para>For internal use.
+
+<para><b>Default value</b>: "Page Size: "</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.ReportWizard_PageType">
+            <summary>
+                <para>For internal use.
+
+<para><b>Default value</b>: "Page type: "</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.ReportWizard_Portrait">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.ReportWizard_ProductNumber">
+            <summary>
+                <para>For internal use.
+
+<para><b>Default value</b>: "Product number"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.ReportWizard_ReportComplete">
+            <summary>
+                <para>The title of the final Wizard page.
+
+<para><b>Default value</b>: "The Report is Complete"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.ReportWizard_ReportComplete_Description">
+            <summary>
+                <para>The text of the final Wizard page.
+
+<para><b>Default value</b>: "We have all the information needed to process the report."</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.ReportWizard_ReportLayout">
+            <summary>
+                <para>The title of the report layout selection Wizard page.
+
+<para><b>Default value</b>: "Choose a Report Layout"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.ReportWizard_ReportLayout_Description">
+            <summary>
+                <para>The text of the report layout selection Wizard page.
+
+<para><b>Default value</b>: "The report layout specifies the manner in which selected data fields are arranged on individual pages."</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.ReportWizard_ReportStyle">
+            <summary>
+                <para>The title of the report style selection Wizard page.
+
+<para><b>Default value</b>: "Choose a Report Style"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.ReportWizard_ReportStyle_Description">
+            <summary>
+                <para>The text of the report style selection Wizard page.
+
+<para><b>Default value</b>: "The report style specifies the appearance of your report."</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.ReportWizard_ReportTitle">
+            <summary>
+                <para>The caption of the report title editor on the final Wizard page.
+
+<para><b>Default value</b>: "Specify the report's title"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.ReportWizard_ReportTypeLabel">
+            <summary>
+                <para>For internal use.
+
+<para><b>Default value</b>: "Label report"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.ReportWizard_ReportTypeStandard">
+            <summary>
+                <para>For internal use.
+
+<para><b>Default value</b>: "Standard report"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.ReportWizard_SideMargin">
+            <summary>
+                <para>For internal use.
+
+<para><b>Default value</b>: "Side Margin:"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.ReportWizard_Stepped">
+            <summary>
+                <para>An option on the layout selection Wizard page.
+
+<para><b>Default value</b>: "Stepped"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.ReportWizard_StyleBold">
+            <summary>
+                <para>An option on the report style selection Wizard page.
+
+<para><b>Default value</b>: "Bold"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.ReportWizard_StyleCasual">
+            <summary>
+                <para>An option on the report style selection Wizard page.
+
+<para><b>Default value</b>: "Casual"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.ReportWizard_StyleCompact">
+            <summary>
+                <para>An option on the report style selection Wizard page.
+
+<para><b>Default value</b>: "Compact"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.ReportWizard_StyleCorporate">
+            <summary>
+                <para>An option on the report style selection Wizard page.
+
+<para><b>Default value</b>: "Corporate"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.ReportWizard_StyleFormal">
+            <summary>
+                <para>An option on the report style selection Wizard page.
+
+<para><b>Default value</b>: "Formal"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.ReportWizard_Sum">
+            <summary>
+                <para>The caption of a summary function.
+
+<para><b>Default value</b>: "Sum"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.ReportWizard_Tables">
+            <summary>
+                <para>The title of table list on the "Choose a Table or View" Wizard page.
+
+<para><b>Default value</b>: "Tables"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.ReportWizard_TopMargin">
+            <summary>
+                <para>For internal use.
+
+<para><b>Default value</b>: "Top Margin:"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.ReportWizard_VerticalPitch">
+            <summary>
+                <para>For internal use.
+
+<para><b>Default value</b>: "Vertical Pitch:"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.ReportWizard_Views">
+            <summary>
+                <para>For internal use.
+
+<para><b>Default value</b>: "Views"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.ReportWizard_Width">
+            <summary>
+                <para>For internal use.
+
+<para><b>Default value</b>: "Width: "</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.ReportWizard_WindowTitle">
+            <summary>
+                <para>The title of a Report Wizard window.
+
+<para><b>Default value</b>: "Report Wizard"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.ReportWizard_WizardWelcome">
+            <summary>
+                <para>The Welcome page title in the Report Wizard.
+
+<para><b>Default value</b>: "Welcome to the Report Wizard"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.ReportWizard_WizardWelcome_Description">
+            <summary>
+                <para>The Welcome page description in the Report Wizard.
+
+<para><b>Default value</b>: "This wizard helps you automatically create a report based upon the options you select."</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.SaveReport_Caption">
+            <summary>
+                <para>The caption of the Save Changes button in the Report toolbar.
+
+<para><b>Default value</b>: "Save Changes"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.SaveReport_Hint">
+            <summary>
+                <para>The tooltip of the Save Changes button in the Report toolbar.
+
+<para><b>Default value</b>: "Save the changes to the document"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.ShapeEditor_Angle">
+            <summary>
+                <para>The caption of the Angle property in the actions list that is accessible via a Shape's smart tag.
+
+<para><b>Default value</b>: "Angle: "</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.ShapeEditor_FillColor">
+            <summary>
+                <para>The caption of the Fill Color property in the actions list that is accessible via a Shape's smart tag.
+
+<para><b>Default value</b>: "Fill color: "</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.ShapeEditor_Fillet">
+            <summary>
+                <para>The caption of the Fillet property in the actions list that is accessible via a Shape's smart tag.
+
+<para><b>Default value</b>: "Fillet: "</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.ShapeEditor_LineWidth">
+            <summary>
+                <para>The caption of the Line Width property in the actions list that is accessible via a Shape's smart tag.
+
+<para><b>Default value</b>: "Line width: "</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.ShapeEditor_NumberOfSides">
+            <summary>
+                <para>The caption of the Number Of Sides property in the actions list that is accessible via a Shape's smart tag.
+
+<para><b>Default value</b>: "The number of sides: "</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.ShapeEditor_StarPointCount">
+            <summary>
+                <para>The caption of the Number Of Star Points property in the actions list that is accessible via a Shape's smart tag.
+
+<para><b>Default value</b>: "The number of star points: "</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.ShapeEditor_Stretch">
+            <summary>
+                <para>The caption of the Stretch property in the actions list that is accessible via a Shape's smart tag.
+
+<para><b>Default value</b>: "Stretch: "</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.ShapeEditor_Type">
+            <summary>
+                <para>The caption of the Shape property in the actions list that is accessible via a Shape's smart tag.
+
+<para><b>Default value</b>: "Shape: "</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.ShapeEditorCaption">
+            <summary>
+                <para>The caption of a Shape's actions list that is accessible via its smart tag.
+
+<para><b>Default value</b>: "Shape"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.ShowControlDesignBorder_Caption">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.ShowControlDesignBorder_Hint">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.ShowFieldList_Caption">
+            <summary>
+                <para>The caption of the Field List button in the Panels toolbar.
+
+<para><b>Default value</b>: "Field List"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.ShowFieldList_Hint">
+            <summary>
+                <para>The tooltip of the Field List button in the Panels toolbar.
+
+<para><b>Default value</b>: "Show the Field List"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.StatusInfoDisplayText">
+            <summary>
+                <para>The content displayed in the status bar.
+
+<para><b>Default value</b>: "x={0} y={1}   {2} pixels x {3} pixels"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.Zoom_Caption">
+            <summary>
+                <para>The caption of the Zoom drop-down list in the Zoom toolbar.
+
+<para><b>Default value</b>: "Zoom"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.Zoom_Hint">
+            <summary>
+                <para>The tooltip of the Zoom drop-down list in the Zoom toolbar.
+
+<para><b>Default value</b>: "Change the zoom factor of the report designer"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.ZoomIn_Caption">
+            <summary>
+                <para>The caption of the Zoom In button in the Zoom toolbar.
+
+<para><b>Default value</b>: "Zoom In"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.ZoomIn_Hint">
+            <summary>
+                <para>The tooltip of the Zoom In button in the Zoom toolbar.
+
+<para><b>Default value</b>: "Zoom in to get a close-up view of the report"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.ZoomOut_Caption">
+            <summary>
+                <para>The caption of the Zoom Out button in the Zoom toolbar.
+
+<para><b>Default value</b>: "Zoom Out"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId.ZoomOut_Hint">
+            <summary>
+                <para>The caption of the Zoom Out button in the Zoom toolbar.
+
+<para><b>Default value</b>: "Zoom out to see more of the report at a reduced size"</para>
+</para>
+            </summary>
+
+
+        </member>
+        <member name="T:DevExpress.Xpf.ReportDesigner.ReportDesignerStringIdExtension">
+
+            <summary>
+                <para>For internal use. Specifies a markup extension used for a Silverlight Report Designer's localization
+</para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.Xpf.ReportDesigner.ReportDesignerStringIdExtension.#ctor">
+            <summary>
+                <para>Initializes a new instance of the ReportDesignerStringIdExtension class with default settings.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.ReportDesigner.ReportDesignerStringIdExtension.ProvideValue(System.IServiceProvider)">
+            <summary>
+                <para>Used to obtain a localized string based on the string ID defined via the <see cref="P:DevExpress.Xpf.ReportDesigner.ReportDesignerStringIdExtension.StringId"/> property.
+</para>
+            </summary>
+            <param name="serviceProvider">
+		An object implementing the <see cref="T:System.IServiceProvider"/> interface.
+
+            </param>
+            <returns>A <see cref="T:System.Object"/> value containing a localized string.
+</returns>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.ReportDesigner.ReportDesignerStringIdExtension.StringId">
+            <summary>
+                <para>Used to specify a <see cref="T:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId"/> enumeration value in XAML
+</para>
+            </summary>
+            <value>A <see cref="T:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId"/> enumeration, specifying a unique string identifier.
+</value>
+
+
+        </member>
+        <member name="T:DevExpress.Xpf.ReportDesigner.ReportDesignerResXLocalizer">
+
+            <summary>
+                <para>The default localizer to translate the Report Designer's resources.
+</para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.Xpf.ReportDesigner.ReportDesignerResXLocalizer.#ctor">
+            <summary>
+                <para>Initializes a new instance of the ReportDesignerResXLocalizer class with default settings.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="T:DevExpress.Xpf.ReportDesigner.ReportDesignerLocalizer">
+
+            <summary>
+                <para>Provides the means to localize the Report Designer's user interface elements.
+
+</para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.Xpf.ReportDesigner.ReportDesignerLocalizer.#ctor">
+            <summary>
+                <para>Initializes a new instance of the ReportDesignerLocalizer class with default settings.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.ReportDesigner.ReportDesignerLocalizer.CreateDefaultLocalizer">
+            <summary>
+                <para>Returns a Localizer object representing resources based on the thread's language and regional settings (culture).
+
+</para>
+            </summary>
+            <returns>A <b>DevExpress.Utils.Localization.XtraLocalizer&lt;<see cref="T:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId"/>&gt;</b>  object representing resources based on the thread's culture.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.ReportDesigner.ReportDesignerLocalizer.CreateResXLocalizer">
+            <summary>
+                <para>For internal use. Provides resources based on the thread's culture.
+</para>
+            </summary>
+            <returns>Returns an <b>XtraLocalizer</b> object representing resources based on the thread's language and regional settings (culture). 
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.ReportDesigner.ReportDesignerLocalizer.GetString(DevExpress.Xpf.ReportDesigner.ReportDesignerStringId)">
+            <summary>
+                <para>Returns a localized string for the given string identifier.
+</para>
+            </summary>
+            <param name="id">
+		A <see cref="T:DevExpress.Xpf.ReportDesigner.ReportDesignerStringId"/> enumeration value identifying the string to localize.
+
+            </param>
+            <returns>A <see cref="T:System.String"/> corresponding to the specified identifier.
+</returns>
+
+
+        </member>
+        <member name="T:DevExpress.Xpf.ReportDesigner.Services.IReportWizardLauncherService">
+
+            <summary>
+                <para>Launches a Report Wizard, and after its steps are completed sends the obtained information to the server, where a new report based on these settings is created.
+</para>
+            </summary>
+
+        </member>
+        <member name="E:DevExpress.Xpf.ReportDesigner.Services.IReportWizardLauncherService.Completed">
+            <summary>
+                <para>Occurs after the Wizard has been completely launched.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.ReportDesigner.Services.IReportWizardLauncherService.Start(DevExpress.Data.XtraReports.ServiceModel.IReportWizardServiceClient)">
+            <summary>
+                <para>Launches the Wizard for the specified client. 
+</para>
+            </summary>
+            <param name="client">
+		An object implementing the <a href="http://documentation.devexpress.com/#CoreLibraries/clsDevExpressDataXtraReportsServiceModelIReportWizardServiceClienttopic">IReportWizardServiceClient</a> interface.
+
+            </param>
+
+
+        </member>
+        <member name="T:DevExpress.Xpf.ReportDesigner.ReportDesignerViewModel">
+
+            <summary>
+                <para>Provides the view model functionality for a Silverlight Report Designer.
+</para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.Xpf.ReportDesigner.ReportDesignerViewModel.#ctor">
+            <summary>
+                <para>Initializes a new instance of the ReportDesignerViewModel class with default settings.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.ReportDesigner.ReportDesignerViewModel.BackColor">
+            <summary>
+                <para>Specifies the background color for report controls.
+</para>
+            </summary>
+            <value>A <see cref="T:System.Windows.Media.Color"/> structure.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.ReportDesigner.ReportDesignerViewModel.BorderColor">
+            <summary>
+                <para>Specifies the border color for report controls.
+</para>
+            </summary>
+            <value>A <see cref="T:System.Windows.Media.Color"/> structure.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.ReportDesigner.ReportDesignerViewModel.BorderDashStyle">
+            <summary>
+                <para>Specifies the border dash style for report controls.
+</para>
+            </summary>
+            <value>A <b>DevExpress.XtraPrinting.BorderDashStyle</b> enumeration value.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.ReportDesigner.ReportDesignerViewModel.BorderDashStyles">
+            <summary>
+                <para>Specifies the available border dash styles for report controls.
+</para>
+            </summary>
+            <value>An array of DevExpress.XtraPrinting.BorderDashStyle enumeration values.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.ReportDesigner.ReportDesignerViewModel.BorderWidth">
+            <summary>
+                <para>Specifies the border width for report controls.
+</para>
+            </summary>
+            <value>An integer value.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.ReportDesigner.ReportDesignerViewModel.BorderWidthValues">
+            <summary>
+                <para>Specifies the available border width values for report controls.
+</para>
+            </summary>
+            <value>An array of integer values.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.ReportDesigner.ReportDesignerViewModel.CanEditBorderProperties">
+            <summary>
+                <para>Defines whether or not it is possible to modify a control's border settings.
+</para>
+            </summary>
+            <value><b>true</b> to enable border-related options in the Report Designer; otherwise <b>false</b>.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.ReportDesigner.ReportDesignerViewModel.CanEditBorderSides">
+            <summary>
+                <para>Defines whether or not it is possible to modify individual border side properties for a control.
+</para>
+            </summary>
+            <value><b>true</b> to enable individual border side editors in the Report Designer; otherwise <b>false</b>.
+</value>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.ReportDesigner.ReportDesignerViewModel.Clear">
+            <summary>
+                <para>Clears the current report editing session.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.ReportDesigner.ReportDesignerViewModel.CommandContainer">
+            <summary>
+                <para>Provides access to an object that stores all commands used in a Silverlight Report Designer.
+</para>
+            </summary>
+            <value>A <see cref="T:DevExpress.Xpf.ReportDesigner.ReportDesignerCommandContainer"/> object.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.ReportDesigner.ReportDesignerViewModel.CursorService">
+            <summary>
+                <para>Specifies a WCF service that provides cursor settings for various report editing actions.
+</para>
+            </summary>
+            <value>An object implementing the <see cref="T:DevExpress.Xpf.Printing.ICursorService"/> interface.
+</value>
+
+
+        </member>
+        <member name="E:DevExpress.Xpf.ReportDesigner.ReportDesignerViewModel.CustomizeReportControlEditor">
+            <summary>
+                <para>Occurs after a control is selected in a Report Designer.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.ReportDesigner.ReportDesignerViewModel.DesignServices">
+            <summary>
+                <para>For internal use. Specifies a container for a Report Designer's services.
+</para>
+            </summary>
+            <value> 
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.ReportDesigner.ReportDesignerViewModel.DialogService">
+            <summary>
+                <para>Specifies a WCF service that provides settings for various dialogs.
+</para>
+            </summary>
+            <value>An object implementing the <see cref="T:DevExpress.Xpf.Printing.IDialogService"/> interface.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.ReportDesigner.ReportDesignerViewModel.FieldListControlViewModel">
+            <summary>
+                <para>For internal use.
+</para>
+            </summary>
+            <value> 
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.ReportDesigner.ReportDesignerViewModel.FontName">
+            <summary>
+                <para>Specifies the font name for report controls.
+</para>
+            </summary>
+            <value>A <see cref="T:System.String"/> value, specifying the font name.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.ReportDesigner.ReportDesignerViewModel.FontNames">
+            <summary>
+                <para>Specifies the available font names for report controls.
+</para>
+            </summary>
+            <value>A collection of <see cref="T:System.String"/> values, specifying the font names.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.ReportDesigner.ReportDesignerViewModel.FontSize">
+            <summary>
+                <para>Specifies the font size for report controls.
+</para>
+            </summary>
+            <value>An integer value, specifying the font size.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.ReportDesigner.ReportDesignerViewModel.FontSizes">
+            <summary>
+                <para>Specifies the available font size values for report controls.
+</para>
+            </summary>
+            <value>A collection of <see cref="T:System.Int32"/> structures, specifying the font size values.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.ReportDesigner.ReportDesignerViewModel.ForeColor">
+            <summary>
+                <para>Specifies the foreground color for report controls.
+</para>
+            </summary>
+            <value>A <see cref="T:System.Windows.Media.Color"/> structure.
+</value>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.ReportDesigner.ReportDesignerViewModel.HandleDragFieldListNode(DevExpress.Xpf.ReportDesigner.DragFieldListNodeEventArgs)">
+            <summary>
+                <para>Handles the <see cref="E:DevExpress.Xpf.ReportDesigner.FieldListControl.DragFieldListNode"/> event.
+</para>
+            </summary>
+            <param name="e">
+		A <see cref="T:DevExpress.Xpf.ReportDesigner.DragFieldListNodeEventArgs"/> object.
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.ReportDesigner.ReportDesignerViewModel.HandleDropFieldListNode(DevExpress.Xpf.ReportDesigner.DragFieldListNodeEventArgs)">
+            <summary>
+                <para>Handles the <see cref="E:DevExpress.Xpf.ReportDesigner.FieldListControl.DropFieldListNode"/> event.
+</para>
+            </summary>
+            <param name="e">
+		A <see cref="T:DevExpress.Xpf.ReportDesigner.DragFieldListNodeEventArgs"/> object.
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.ReportDesigner.ReportDesignerViewModel.HandlePreviewMouseLeftButtonDown(System.Windows.Input.MouseButtonEventArgs,System.Windows.FrameworkElement)">
+            <summary>
+                <para>For internal use. Intended to support hit-testing in a Report Designer.
+</para>
+            </summary>
+            <param name="e">
+		A <see cref="T:System.Windows.Input.MouseButtonEventArgs"/> object.
+
+            </param>
+            <param name="source">
+		A <see cref="T:System.Windows.FrameworkElement"/> object.
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.ReportDesigner.ReportDesignerViewModel.HandlePreviewMouseLeftButtonUp(System.Windows.Input.MouseButtonEventArgs,System.Windows.FrameworkElement)">
+            <summary>
+                <para>For internal use. Intended to support hit-testing in a Report Designer.
+</para>
+            </summary>
+            <param name="e">
+		A <see cref="T:System.Windows.Input.MouseButtonEventArgs"/> object.
+
+            </param>
+            <param name="source">
+		A <see cref="T:System.Windows.FrameworkElement"/> object.
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.ReportDesigner.ReportDesignerViewModel.HandlePreviewMouseMove(System.Windows.Input.MouseEventArgs,System.Windows.FrameworkElement)">
+            <summary>
+                <para>For internal use. Intended to support hit-testing in a Silverlight Report Designer.
+</para>
+            </summary>
+            <param name="e">
+		A <see cref="T:System.Windows.Input.MouseEventArgs"/> object.
+
+            </param>
+            <param name="source">
+		A <see cref="T:System.Windows.FrameworkElement"/> object.
+
+            </param>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.ReportDesigner.ReportDesignerViewModel.InputController">
+            <summary>
+                <para>Provides access to the input controller associated with the ReportDesignerViewModel.
+</para>
+            </summary>
+            <value>An <see cref="T:DevExpress.Xpf.Printing.InputController"/> object.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.ReportDesigner.ReportDesignerViewModel.InstanceIdentity">
+            <summary>
+                <para>Specifies the report identifier.
+</para>
+            </summary>
+            <value>An <a href="http://documentation.devexpress.com/#CoreLibraries/clsDevExpressXpfPrintingServiceModelDataContractsInstanceIdentitytopic">InstanceIdentity</a> object.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.ReportDesigner.ReportDesignerViewModel.IsCreating">
+            <summary>
+                <para>Returns a value specifying whether or not a report is still being created.
+</para>
+            </summary>
+            <value><b>true</b> if the report is still being created; otherwise <b>false</b>.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.ReportDesigner.ReportDesignerViewModel.IsFieldListVisible">
+            <summary>
+                <para>Specifies whether or not the Field List panel is visible.
+</para>
+            </summary>
+            <value><b>true</b> if the Field List is visible; otherwise <b>false</b>.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.ReportDesigner.ReportDesignerViewModel.PageCount">
+            <summary>
+                <para>Provides access to the number of pages in a report document.
+</para>
+            </summary>
+            <value>An integer value, specifying the page count.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.ReportDesigner.ReportDesignerViewModel.ReportName">
+            <summary>
+                <para>Specifies the report name.
+</para>
+            </summary>
+            <value>A <see cref="T:System.String"/> value, specifying the report name.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.ReportDesigner.ReportDesignerViewModel.ServiceClientFactory">
+            <summary>
+                <para>Specifies the client factory for a Report Service.
+</para>
+            </summary>
+            <value>An object implementing the <see cref="T:DevExpress.Xpf.ReportDesigner.ServiceModel.IReportDesignerServiceClientFactory"/> interface (typically, this is a <see cref="T:DevExpress.Xpf.ReportDesigner.ServiceModel.ReportDesignerServiceClientFactory"/> object).
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.ReportDesigner.ReportDesignerViewModel.ServiceUri">
+            <summary>
+                <para>Specifies the universal resource identifier (URI) of the Report Service defined for ReportDesignerViewModel.
+</para>
+            </summary>
+            <value>A <see cref="T:System.String"/> value, specifying the Report Service URI.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.ReportDesigner.ReportDesignerViewModel.SessionId">
+            <summary>
+                <para>Identifies a report editing session.
+</para>
+            </summary>
+            <value>A <see cref="T:System.String"/> value, identifying the report editing session.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.ReportDesigner.ReportDesignerViewModel.ShowControlDesignBorders">
+            <summary>
+                <para>Specifies whether or not to show the boundaries of report controls in a Report Designer.
+</para>
+            </summary>
+            <value><b>true</b> to highlight the boundaries of report controls; otherwise <b>false</b>.
+</value>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.ReportDesigner.ReportDesignerViewModel.StartDesign">
+            <summary>
+                <para>Starts a new report editing session with a Silverlight Report Designer.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="E:DevExpress.Xpf.ReportDesigner.ReportDesignerViewModel.StartDesignError">
+            <summary>
+                <para>Occurs if a server error appears when a new report editing session is started.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.ReportDesigner.ReportDesignerViewModel.StatusInfoDisplayText">
+            <summary>
+                <para>The text displayed in the status bar of a Report Designer, corresponding to the action currently being performed.
+</para>
+            </summary>
+            <value>A <see cref="T:System.String"/> value.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.ReportDesigner.ReportDesignerViewModel.UseSimpleScrolling">
+            <summary>
+                <para>Specifies whether or not a simple scrolling mode should be used for the document.
+</para>
+            </summary>
+            <value><b>true</b> to use simple scrolling; otherwise <b>false</b>.
+</value>
+
+
+        </member>
+        <member name="T:DevExpress.Xpf.ReportDesigner.ReportDesigner">
+
+            <summary>
+                <para>Provides functionality for the Silverlight Report Designer.
+</para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.Xpf.ReportDesigner.ReportDesigner.#ctor">
+            <summary>
+                <para>Initializes a new instance of the ReportDesigner class with the default settings.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.ReportDesigner.ReportDesigner.AutoStartDesign">
+            <summary>
+                <para>Allows for an automatic start of a report editing session after the Designer is loaded. This is a dependency property.
+</para>
+            </summary>
+            <value><b>true</b> to automatically start the design session; otherwise <b>false</b>.
+</value>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesigner.AutoStartDesignProperty">
+            <summary>
+                <para>Identifies the  dependency property.
+</para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.ReportDesigner.ReportDesigner.DesignerPreviewControl">
+            <summary>
+                <para>For internal use.
+</para>
+            </summary>
+            <value> 
+</value>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.ReportDesigner.ReportDesigner.InitializeComponent">
+            <summary>
+                <para>Initializes a Silverlight Report Designer.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.ReportDesigner.ReportDesigner.Model">
+            <summary>
+                <para>Specifies a view model for a Silverlight Report Designer. This is a dependency property.
+</para>
+            </summary>
+            <value>A <see cref="T:DevExpress.Xpf.ReportDesigner.ReportDesignerViewModel"/> object.
+</value>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesigner.ModelProperty">
+            <summary>
+                <para>Identifies the  dependency property.
+</para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.ReportDesigner.ReportDesigner.ReportName">
+            <summary>
+                <para>Specifies a fully-qualified report name. This is a dependency property.
+</para>
+            </summary>
+            <value>A <see cref="T:System.String"/> value.
+</value>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesigner.ReportNameProperty">
+            <summary>
+                <para>Identifies the  dependency property.
+</para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.ReportDesigner.ReportDesigner.Ribbon">
+            <summary>
+                <para>Provides access to the Ribbon Control of a Silverlight Report Designer.
+</para>
+            </summary>
+            <value>A <see cref="T:DevExpress.Xpf.Ribbon.RibbonControl"/> object.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.ReportDesigner.ReportDesigner.ServiceUri">
+            <summary>
+                <para>Specifies a report service endpoint address. This is a dependency property.
+</para>
+            </summary>
+            <value>A <see cref="T:System.String"/> value.
+</value>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.ReportDesigner.ReportDesigner.ServiceUriProperty">
+            <summary>
+                <para>Identifies the  dependency property.
+</para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.ReportDesigner.ReportDesigner.SessionId">
+            <summary>
+                <para>Identifies a report editing session, which allows you to preview a report that is being edited in the Designer in a Document Preview.
+</para>
+            </summary>
+            <value>A <see cref="T:System.String"/> value.
+</value>
+
+
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="LogService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:2258/LogService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:2258/LogService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:2258/LogService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/LogServiceContract.Data" />
+      <xsd:import schemaLocation="http://localhost:2258/LogService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" />
+      <xsd:import schemaLocation="http://localhost:2258/LogService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/System" />
+      <xsd:import schemaLocation="http://localhost:2258/LogService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Common.Data" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ILogData_InsertLogData_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertLogData" />
+  </wsdl:message>
+  <wsdl:message name="ILogData_InsertLogData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertLogDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILogData_UpdateLogData_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateLogData" />
+  </wsdl:message>
+  <wsdl:message name="ILogData_UpdateLogData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateLogDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILogData_DeleteLogDataByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteLogDataByID" />
+  </wsdl:message>
+  <wsdl:message name="ILogData_DeleteLogDataByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteLogDataByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILogData_GetLogDataList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLogDataList" />
+  </wsdl:message>
+  <wsdl:message name="ILogData_GetLogDataList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLogDataListResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILogData_GetLogDataListByCondition_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLogDataListByCondition" />
+  </wsdl:message>
+  <wsdl:message name="ILogData_GetLogDataListByCondition_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLogDataListByConditionResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILogManager_GetLogManagerList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLogManagerList" />
+  </wsdl:message>
+  <wsdl:message name="ILogManager_GetLogManagerList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLogManagerListResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILogManager_GetLogManagerListByCondition_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLogManagerListByCondition" />
+  </wsdl:message>
+  <wsdl:message name="ILogManager_GetLogManagerListByCondition_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLogManagerListByConditionResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ILogData">
+    <wsdl:operation name="InsertLogData">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILogData/InsertLogData" message="tns:ILogData_InsertLogData_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILogData/InsertLogDataResponse" message="tns:ILogData_InsertLogData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateLogData">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILogData/UpdateLogData" message="tns:ILogData_UpdateLogData_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILogData/UpdateLogDataResponse" message="tns:ILogData_UpdateLogData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteLogDataByID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILogData/DeleteLogDataByID" message="tns:ILogData_DeleteLogDataByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILogData/DeleteLogDataByIDResponse" message="tns:ILogData_DeleteLogDataByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLogDataList">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILogData/GetLogDataList" message="tns:ILogData_GetLogDataList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILogData/GetLogDataListResponse" message="tns:ILogData_GetLogDataList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLogDataListByCondition">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILogData/GetLogDataListByCondition" message="tns:ILogData_GetLogDataListByCondition_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILogData/GetLogDataListByConditionResponse" message="tns:ILogData_GetLogDataListByCondition_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="ILogManager">
+    <wsdl:operation name="GetLogManagerList">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILogManager/GetLogManagerList" message="tns:ILogManager_GetLogManagerList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILogManager/GetLogManagerListResponse" message="tns:ILogManager_GetLogManagerList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLogManagerListByCondition">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILogManager/GetLogManagerListByCondition" message="tns:ILogManager_GetLogManagerListByCondition_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILogManager/GetLogManagerListByConditionResponse" message="tns:ILogManager_GetLogManagerListByCondition_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_ILogData" type="tns:ILogData">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="InsertLogData">
+      <soap:operation soapAction="http://tempuri.org/ILogData/InsertLogData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateLogData">
+      <soap:operation soapAction="http://tempuri.org/ILogData/UpdateLogData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteLogDataByID">
+      <soap:operation soapAction="http://tempuri.org/ILogData/DeleteLogDataByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLogDataList">
+      <soap:operation soapAction="http://tempuri.org/ILogData/GetLogDataList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLogDataListByCondition">
+      <soap:operation soapAction="http://tempuri.org/ILogData/GetLogDataListByCondition" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BasicHttpBinding_ILogManager" type="tns:ILogManager">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetLogManagerList">
+      <soap:operation soapAction="http://tempuri.org/ILogManager/GetLogManagerList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLogManagerListByCondition">
+      <soap:operation soapAction="http://tempuri.org/ILogManager/GetLogManagerListByCondition" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="LogService">
+    <wsdl:port name="BasicHttpBinding_ILogData" binding="tns:BasicHttpBinding_ILogData">
+      <soap:address location="http://localhost:2258/LogService.svc" />
+    </wsdl:port>
+    <wsdl:port name="BasicHttpBinding_ILogManager" binding="tns:BasicHttpBinding_ILogManager">
+      <soap:address location="http://localhost:2258/LogService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

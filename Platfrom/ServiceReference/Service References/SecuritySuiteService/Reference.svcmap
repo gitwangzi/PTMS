@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="cd450807-dd74-43b3-ada2-f06e75111163" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>true</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.ObjectModel.ObservableCollection`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>false</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:2258/SecuritySuiteService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="SecuritySuiteService1.wsdl" MetadataType="Wsdl" ID="44735c64-0cd6-4cda-82aa-8ed7b9fb133f" SourceId="1" SourceUrl="http://localhost:2258/SecuritySuiteService.svc?wsdl" />
+    <MetadataFile FileName="SecuritySuiteService1.disco" MetadataType="Disco" ID="c91a2dc2-5983-4638-aceb-77682083f3c8" SourceId="1" SourceUrl="http://localhost:2258/SecuritySuiteService.svc?disco" />
+    <MetadataFile FileName="SecuritySuiteService.xsd" MetadataType="Schema" ID="9de9b188-e7f1-409e-a7aa-9bf26ef5b6dd" SourceId="1" SourceUrl="http://localhost:2258/SecuritySuiteService.svc?xsd=xsd0" />
+    <MetadataFile FileName="SecuritySuiteService1.xsd" MetadataType="Schema" ID="c2aa9a3e-6659-45b6-8a48-b0f1b40ec324" SourceId="1" SourceUrl="http://localhost:2258/SecuritySuiteService.svc?xsd=xsd3" />
+    <MetadataFile FileName="SecuritySuiteService2.xsd" MetadataType="Schema" ID="06048c11-a925-4b9c-8cbf-7bf2c124d5aa" SourceId="1" SourceUrl="http://localhost:2258/SecuritySuiteService.svc?xsd=xsd1" />
+    <MetadataFile FileName="SecuritySuiteService3.xsd" MetadataType="Schema" ID="cb9dfcf6-69da-43e5-9f90-fcd5ec54d489" SourceId="1" SourceUrl="http://localhost:2258/SecuritySuiteService.svc?xsd=xsd4" />
+    <MetadataFile FileName="SecuritySuiteService4.xsd" MetadataType="Schema" ID="f4feb7e1-ec57-44e0-ba25-7dc42bb73e53" SourceId="1" SourceUrl="http://localhost:2258/SecuritySuiteService.svc?xsd=xsd2" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
