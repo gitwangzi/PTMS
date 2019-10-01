@@ -120,6 +120,26 @@ namespace Gsafety.PTMS.Manager.ViewModels
             Length = InitialModel.Length.ToString();
         }
 
+
+        public void ValidProperty()
+        {
+            ValidateName(ExtractPropertyName(() => Name), _name);
+            if (ReportStrategy == 0)
+            {
+                ValidateInterval(ExtractPropertyName(() => Interval), _interval);
+            }
+            else if (ReportStrategy == 1)
+            {
+                ValidateLength(ExtractPropertyName(() => Length), _length);
+            }
+            else if (ReportStrategy == 2)
+            {
+                ValidateInterval(ExtractPropertyName(() => Interval), _interval);
+                ValidateLength(ExtractPropertyName(() => Length), _length);
+            }
+            ValidateLength(ExtractPropertyName(() => Length), _length);
+        }
+
         protected override void ValidateAll()
         {
             ValidateName(ExtractPropertyName(() => Name), _name);
@@ -403,7 +423,7 @@ namespace Gsafety.PTMS.Manager.ViewModels
                     ValidateLongFormat(prop, value);
                     long result;
                     if (long.TryParse(value, out result) && long.Parse(value) > 65535)
-                        base.SetError(prop, ApplicationContext.Instance.StringResourceReader.GetString(PTMSBaseViewModel.wrongformat));
+                        base.SetError(prop, ApplicationContext.Instance.StringResourceReader.GetString(ApplicationContext.Instance.StringResourceReader.GetString("IntervalFormat")));
                 }
             }
         }
@@ -430,7 +450,7 @@ namespace Gsafety.PTMS.Manager.ViewModels
                     ValidateLongFormat(prop, value);
                     long result;
                     if (long.TryParse(value, out result) && long.Parse(value) > 65535)
-                        base.SetError(prop, ApplicationContext.Instance.StringResourceReader.GetString(PTMSBaseViewModel.wrongformat));
+                        base.SetError(prop, ApplicationContext.Instance.StringResourceReader.GetString(ApplicationContext.Instance.StringResourceReader.GetString("DistanceFormat")));
                 }
             }
         }

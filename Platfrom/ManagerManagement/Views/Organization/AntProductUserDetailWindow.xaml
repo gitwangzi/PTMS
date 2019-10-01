@@ -93,7 +93,7 @@
                              PasswordChanged="Password_PasswordChanged_1"
                          Password="{Binding FirstPassword,Mode=TwoWay,ValidatesOnDataErrors=True,ValidatesOnExceptions=True,ValidatesOnNotifyDataErrors=True}"
                          Margin="0,5,0,5"
-                             MaxLength="50"
+                             MaxLength="20"
                              Style="{StaticResource LoginPasswordBoxStyle}"/>
 
                 <TextBlock Grid.Column="1"
@@ -112,7 +112,7 @@
                          Password="{Binding SecondPassword,Mode=TwoWay,ValidatesOnDataErrors=True,ValidatesOnExceptions=True,ValidatesOnNotifyDataErrors=True}"
                            Visibility="{Binding PasswordVisibility}"
                          Margin="0,5,0,5"
-                             MaxLength="50"
+                             MaxLength="20"
                              Style="{StaticResource LoginPasswordBoxStyle}"/>
 
                 <TextBlock Grid.Column="1"
@@ -130,7 +130,7 @@
                          IsReadOnly="{Binding IsReadOnly}"
                          Text="{Binding Phone, Mode=TwoWay}"
                          Margin="0,5,0,5"
-                         MaxLength="50"/>
+                         MaxLength="20"/>
 
                 <TextBlock Grid.Column="1"
                            Grid.Row="5" Style="{StaticResource TextBlockBlackStyle}"
@@ -147,7 +147,7 @@
                          IsReadOnly="{Binding IsReadOnly}"
                          Text="{Binding Mobile, Mode=TwoWay}"
                          Margin="0,5,0,5"
-                         MaxLength="50"/>
+                         MaxLength="20"/>
 
                 <TextBlock Grid.Column="1"
                            Grid.Row="6" Style="{StaticResource TextBlockBlackStyle}"

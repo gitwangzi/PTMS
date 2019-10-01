@@ -211,7 +211,13 @@ namespace Gsafety.PTMS.Manager.ViewModels.RoleManage
                     CurrentModel.IsPredefined = InitialModel.IsPredefined;
                     log.OperateContent = ApplicationContext.Instance.StringResourceReader.GetString("UpdateRole") + ":" + CurrentModel.Name;
                     RoleServiceClient _client = InitServiceClient();
-                    _client.UpdateRoleAsync(CurrentModel, log);
+
+                    bool IsUpdateRole = false;
+                    if(OriginRoleCategory !=CurrentModel.RoleCategory)
+                    {
+                        IsUpdateRole = true;
+                    }
+                    _client.UpdateRoleAsync(CurrentModel, IsUpdateRole,log);
                     break;
 
                 case "add":
@@ -246,6 +252,8 @@ namespace Gsafety.PTMS.Manager.ViewModels.RoleManage
             }
         }
 
+        private int OriginRoleCategory { get; set; }
+
         public new void ActivateView(string viewName, IDictionary<string, object> viewParameters)
         {
             try
@@ -266,11 +274,12 @@ namespace Gsafety.PTMS.Manager.ViewModels.RoleManage
                     case "update":
                         Title = ApplicationContext.Instance.StringResourceReader.GetString("Common_Update");
                         IsReadOnly = false;
-                        RoleSelectEnable = false;
+                        RoleSelectEnable = true;
                         ViewVisibility = Visibility.Visible;
                         InitialModel = viewParameters["model"] as Role;
                         InitialFromInitialModel();
 
+                        OriginRoleCategory = CurrentRoleCategory.EnumValue;
                         CurrentModel = new Role();
                         break;
                     case "add":

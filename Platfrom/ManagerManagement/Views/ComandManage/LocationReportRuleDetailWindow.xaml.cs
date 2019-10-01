@@ -75,6 +75,7 @@ System.Windows.Input.MouseButtonEventArgs e)
                 txtLength.Visibility = Visibility.Visible;
                 Length_Block.SetValue(Grid.RowProperty, 5);
                 txtLength.SetValue(Grid.RowProperty, 5);
+                this.viewModel.ValidProperty();
             }
             if (s.ToString() == "2")
             {
@@ -85,6 +86,8 @@ System.Windows.Input.MouseButtonEventArgs e)
                 txtLength.Visibility = Visibility.Visible;
                 Length_Block.SetValue(Grid.RowProperty, 6);
                 txtLength.SetValue(Grid.RowProperty, 6);
+
+                this.viewModel.ValidProperty();
             }
            
         }
