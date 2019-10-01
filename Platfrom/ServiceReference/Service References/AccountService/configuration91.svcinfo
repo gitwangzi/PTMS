@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="SUTbrlFiXeeEwO4uuYMwRPCLFhk=">
+<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="QJYvmfRXC42nfCC/YcxmiraLO14=">
   <bindingConfigurations>
     <bindingConfiguration bindingType="basicHttpBinding" name="BasicHttpBinding_IRoleService">
       <properties>
@@ -439,10 +439,10 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="BasicHttpBinding_IUserService1" contract="AccountService.IUserService" bindingType="basicHttpBinding" address="http://172.16.80.40:2258/AccountService.svc" bindingConfiguration="BasicHttpBinding_IUserService1">
+    <endpoint name="BasicHttpBinding_IUserService1" contract="AccountService.IUserService" bindingType="basicHttpBinding" address="http://localhost:2258/AccountService.svc" bindingConfiguration="BasicHttpBinding_IUserService1">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>http://172.16.80.40:2258/AccountService.svc</serializedValue>
+          <serializedValue>http://localhost:2258/AccountService.svc</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />
@@ -524,10 +524,10 @@
         </property>
       </properties>
     </endpoint>
-    <endpoint name="BasicHttpBinding_IRoleService" contract="AccountService.IRoleService" bindingType="basicHttpBinding" address="http://172.16.80.40:2258/AccountService.svc" bindingConfiguration="BasicHttpBinding_IRoleService">
+    <endpoint name="BasicHttpBinding_IRoleService" contract="AccountService.IRoleService" bindingType="basicHttpBinding" address="http://localhost:2258/AccountService.svc" bindingConfiguration="BasicHttpBinding_IRoleService">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>http://172.16.80.40:2258/AccountService.svc</serializedValue>
+          <serializedValue>http://localhost:2258/AccountService.svc</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />
@@ -609,10 +609,10 @@
         </property>
       </properties>
     </endpoint>
-    <endpoint name="BasicHttpBinding_IUsrDepartment" contract="AccountService.IUsrDepartment" bindingType="basicHttpBinding" address="http://172.16.80.40:2258/AccountService.svc" bindingConfiguration="BasicHttpBinding_IUsrDepartment1">
+    <endpoint name="BasicHttpBinding_IUsrDepartment" contract="AccountService.IUsrDepartment" bindingType="basicHttpBinding" address="http://localhost:2258/AccountService.svc" bindingConfiguration="BasicHttpBinding_IUsrDepartment1">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>http://172.16.80.40:2258/AccountService.svc</serializedValue>
+          <serializedValue>http://localhost:2258/AccountService.svc</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />
@@ -694,10 +694,10 @@
         </property>
       </properties>
     </endpoint>
-    <endpoint name="BasicHttpBinding_IUserOnline" contract="AccountService.IUserOnline" bindingType="basicHttpBinding" address="http://172.16.80.40:2258/AccountService.svc" bindingConfiguration="BasicHttpBinding_IUserOnline">
+    <endpoint name="BasicHttpBinding_IUserOnline" contract="AccountService.IUserOnline" bindingType="basicHttpBinding" address="http://localhost:2258/AccountService.svc" bindingConfiguration="BasicHttpBinding_IUserOnline">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>http://172.16.80.40:2258/AccountService.svc</serializedValue>
+          <serializedValue>http://localhost:2258/AccountService.svc</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />

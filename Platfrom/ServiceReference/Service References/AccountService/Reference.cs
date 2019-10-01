@@ -3757,7 +3757,7 @@ namespace Gsafety.PTMS.ServiceReference.AccountService {
         Gsafety.PTMS.ServiceReference.AccountService.SingleMessageOfboolean EndInsertRole(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IRoleService/UpdateRole", ReplyAction="http://tempuri.org/IRoleService/UpdateRoleResponse")]
-        System.IAsyncResult BeginUpdateRole(Gsafety.PTMS.ServiceReference.AccountService.Role model, Gsafety.PTMS.ServiceReference.AccountService.LogOperate logOperate, System.AsyncCallback callback, object asyncState);
+        System.IAsyncResult BeginUpdateRole(Gsafety.PTMS.ServiceReference.AccountService.Role model, bool IsUpdateRole, Gsafety.PTMS.ServiceReference.AccountService.LogOperate logOperate, System.AsyncCallback callback, object asyncState);
         
         Gsafety.PTMS.ServiceReference.AccountService.SingleMessageOfboolean EndUpdateRole(System.IAsyncResult result);
         
@@ -4089,8 +4089,8 @@ namespace Gsafety.PTMS.ServiceReference.AccountService {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.IAsyncResult Gsafety.PTMS.ServiceReference.AccountService.IRoleService.BeginUpdateRole(Gsafety.PTMS.ServiceReference.AccountService.Role model, Gsafety.PTMS.ServiceReference.AccountService.LogOperate logOperate, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginUpdateRole(model, logOperate, callback, asyncState);
+        System.IAsyncResult Gsafety.PTMS.ServiceReference.AccountService.IRoleService.BeginUpdateRole(Gsafety.PTMS.ServiceReference.AccountService.Role model, bool IsUpdateRole, Gsafety.PTMS.ServiceReference.AccountService.LogOperate logOperate, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginUpdateRole(model, IsUpdateRole, logOperate, callback, asyncState);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -4100,8 +4100,9 @@ namespace Gsafety.PTMS.ServiceReference.AccountService {
         
         private System.IAsyncResult OnBeginUpdateRole(object[] inValues, System.AsyncCallback callback, object asyncState) {
             Gsafety.PTMS.ServiceReference.AccountService.Role model = ((Gsafety.PTMS.ServiceReference.AccountService.Role)(inValues[0]));
-            Gsafety.PTMS.ServiceReference.AccountService.LogOperate logOperate = ((Gsafety.PTMS.ServiceReference.AccountService.LogOperate)(inValues[1]));
-            return ((Gsafety.PTMS.ServiceReference.AccountService.IRoleService)(this)).BeginUpdateRole(model, logOperate, callback, asyncState);
+            bool IsUpdateRole = ((bool)(inValues[1]));
+            Gsafety.PTMS.ServiceReference.AccountService.LogOperate logOperate = ((Gsafety.PTMS.ServiceReference.AccountService.LogOperate)(inValues[2]));
+            return ((Gsafety.PTMS.ServiceReference.AccountService.IRoleService)(this)).BeginUpdateRole(model, IsUpdateRole, logOperate, callback, asyncState);
         }
         
         private object[] OnEndUpdateRole(System.IAsyncResult result) {
@@ -4117,11 +4118,11 @@ namespace Gsafety.PTMS.ServiceReference.AccountService {
             }
         }
         
-        public void UpdateRoleAsync(Gsafety.PTMS.ServiceReference.AccountService.Role model, Gsafety.PTMS.ServiceReference.AccountService.LogOperate logOperate) {
-            this.UpdateRoleAsync(model, logOperate, null);
+        public void UpdateRoleAsync(Gsafety.PTMS.ServiceReference.AccountService.Role model, bool IsUpdateRole, Gsafety.PTMS.ServiceReference.AccountService.LogOperate logOperate) {
+            this.UpdateRoleAsync(model, IsUpdateRole, logOperate, null);
         }
         
-        public void UpdateRoleAsync(Gsafety.PTMS.ServiceReference.AccountService.Role model, Gsafety.PTMS.ServiceReference.AccountService.LogOperate logOperate, object userState) {
+        public void UpdateRoleAsync(Gsafety.PTMS.ServiceReference.AccountService.Role model, bool IsUpdateRole, Gsafety.PTMS.ServiceReference.AccountService.LogOperate logOperate, object userState) {
             if ((this.onBeginUpdateRoleDelegate == null)) {
                 this.onBeginUpdateRoleDelegate = new BeginOperationDelegate(this.OnBeginUpdateRole);
             }
@@ -4133,6 +4134,7 @@ namespace Gsafety.PTMS.ServiceReference.AccountService {
             }
             base.InvokeAsync(this.onBeginUpdateRoleDelegate, new object[] {
                         model,
+                        IsUpdateRole,
                         logOperate}, this.onEndUpdateRoleDelegate, this.onUpdateRoleCompletedDelegate, userState);
         }
         
@@ -4466,10 +4468,11 @@ namespace Gsafety.PTMS.ServiceReference.AccountService {
                 return _result;
             }
             
-            public System.IAsyncResult BeginUpdateRole(Gsafety.PTMS.ServiceReference.AccountService.Role model, Gsafety.PTMS.ServiceReference.AccountService.LogOperate logOperate, System.AsyncCallback callback, object asyncState) {
-                object[] _args = new object[2];
+            public System.IAsyncResult BeginUpdateRole(Gsafety.PTMS.ServiceReference.AccountService.Role model, bool IsUpdateRole, Gsafety.PTMS.ServiceReference.AccountService.LogOperate logOperate, System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[3];
                 _args[0] = model;
-                _args[1] = logOperate;
+                _args[1] = IsUpdateRole;
+                _args[2] = logOperate;
                 System.IAsyncResult _result = base.BeginInvoke("UpdateRole", _args, callback, asyncState);
                 return _result;
             }

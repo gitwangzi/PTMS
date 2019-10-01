@@ -20,19 +20,19 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://172.16.80.40:2258/AccountService.svc" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://localhost:2258/AccountService.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="AccountService88.xsd" MetadataType="Schema" ID="28746c83-6d20-411f-b116-27805ce370ff" SourceId="1" SourceUrl="http://172.16.80.40:2258/AccountService.svc?xsd=xsd3" />
-    <MetadataFile FileName="AccountService89.xsd" MetadataType="Schema" ID="d3f9d3e8-3855-4956-a90c-d28347c9d240" SourceId="1" SourceUrl="http://172.16.80.40:2258/AccountService.svc?xsd=xsd5" />
-    <MetadataFile FileName="AccountService810.xsd" MetadataType="Schema" ID="a95814f8-15b6-4efe-9a4a-3ac8ff270086" SourceId="1" SourceUrl="http://172.16.80.40:2258/AccountService.svc?xsd=xsd0" />
-    <MetadataFile FileName="AccountService811.xsd" MetadataType="Schema" ID="6b16e2ad-02b2-4bab-aa0f-9e24761efa4e" SourceId="1" SourceUrl="http://172.16.80.40:2258/AccountService.svc?xsd=xsd1" />
-    <MetadataFile FileName="AccountService812.xsd" MetadataType="Schema" ID="22e15d35-9af0-4c87-ab91-f994d4fcb310" SourceId="1" SourceUrl="http://172.16.80.40:2258/AccountService.svc?xsd=xsd7" />
-    <MetadataFile FileName="AccountService813.xsd" MetadataType="Schema" ID="0456f1b1-6ae3-4c8a-bcdb-f2b1e8603f4b" SourceId="1" SourceUrl="http://172.16.80.40:2258/AccountService.svc?xsd=xsd2" />
-    <MetadataFile FileName="AccountService814.xsd" MetadataType="Schema" ID="a687b6da-1304-439c-9469-6380702ae579" SourceId="1" SourceUrl="http://172.16.80.40:2258/AccountService.svc?xsd=xsd4" />
-    <MetadataFile FileName="AccountService815.xsd" MetadataType="Schema" ID="7ad8ae89-be48-4acc-b134-fd18a091e3d6" SourceId="1" SourceUrl="http://172.16.80.40:2258/AccountService.svc?xsd=xsd6" />
-    <MetadataFile FileName="AccountService11.disco" MetadataType="Disco" ID="572a97b0-0b5c-41f2-bbb8-bd1e20b4e69b" SourceId="1" SourceUrl="http://172.16.80.40:2258/AccountService.svc?disco" />
-    <MetadataFile FileName="AccountService11.wsdl" MetadataType="Wsdl" ID="a65c76ea-1de3-4975-b865-004b74c5e46e" SourceId="1" SourceUrl="http://172.16.80.40:2258/AccountService.svc?wsdl" />
+    <MetadataFile FileName="AccountService9.xsd" MetadataType="Schema" ID="d733f63d-0dde-493e-a59b-9ed906289a39" SourceId="1" SourceUrl="http://localhost:2258/AccountService.svc?xsd=xsd3" />
+    <MetadataFile FileName="AccountService2.wsdl" MetadataType="Wsdl" ID="c509b96b-7392-4ad2-a188-e6b002439d04" SourceId="1" SourceUrl="http://localhost:2258/AccountService.svc?wsdl" />
+    <MetadataFile FileName="AccountService10.xsd" MetadataType="Schema" ID="b41a7ad0-baf6-4e6c-8374-b000411bc65b" SourceId="1" SourceUrl="http://localhost:2258/AccountService.svc?xsd=xsd1" />
+    <MetadataFile FileName="AccountService11.xsd" MetadataType="Schema" ID="4f706d7a-8169-467f-a381-de6fc6b950c9" SourceId="1" SourceUrl="http://localhost:2258/AccountService.svc?xsd=xsd0" />
+    <MetadataFile FileName="AccountService12.xsd" MetadataType="Schema" ID="9e80f977-77e4-4301-8605-e6091ea46500" SourceId="1" SourceUrl="http://localhost:2258/AccountService.svc?xsd=xsd7" />
+    <MetadataFile FileName="AccountService13.xsd" MetadataType="Schema" ID="b2966956-228e-448e-bd4e-06f2cde01000" SourceId="1" SourceUrl="http://localhost:2258/AccountService.svc?xsd=xsd6" />
+    <MetadataFile FileName="AccountService14.xsd" MetadataType="Schema" ID="744e482b-fa60-41c5-8821-869398a9007e" SourceId="1" SourceUrl="http://localhost:2258/AccountService.svc?xsd=xsd5" />
+    <MetadataFile FileName="AccountService15.xsd" MetadataType="Schema" ID="7b60a539-05dd-4b9d-a5ce-bffe7b7b7b82" SourceId="1" SourceUrl="http://localhost:2258/AccountService.svc?xsd=xsd4" />
+    <MetadataFile FileName="AccountService16.xsd" MetadataType="Schema" ID="05c4d236-426f-40dc-98a6-5aafeb4ce18b" SourceId="1" SourceUrl="http://localhost:2258/AccountService.svc?xsd=xsd2" />
+    <MetadataFile FileName="AccountService2.disco" MetadataType="Disco" ID="715aa0aa-2d6f-48f8-9b18-e1f2487a9fc3" SourceId="1" SourceUrl="http://localhost:2258/AccountService.svc?disco" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
