@@ -872,8 +872,8 @@
                                 <Border x:Name="PopupBorder" 
                                     BorderBrush="{TemplateBinding BorderBrush}" 
                                     BorderThickness="{TemplateBinding BorderThickness}"
-                                    CornerRadius="3" HorizontalAlignment="Stretch" Height="Auto" 
-                                    Background="{TemplateBinding Background}">
+                                    CornerRadius="3" HorizontalAlignment="Stretch" Height="Auto" Width="250"
+                                    Background="{TemplateBinding Background}"> 
                                     <ScrollViewer x:Name="ScrollViewer" BorderThickness="0" Padding="1" Style="{StaticResource ScrollViewerStyleCustom}">
                                         <ItemsPresenter />
                                     </ScrollViewer>
