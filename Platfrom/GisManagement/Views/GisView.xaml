@@ -754,7 +754,7 @@
                                     </Grid.ColumnDefinitions>
 
                                     <TextBlock Text="{Binding [LocationQuery], Source={StaticResource SR}}" 
-                                           Grid.Column="1"
+                                           Grid.Column="1" Foreground="White"
                                                HorizontalAlignment="Left"
                                                VerticalAlignment="Center"
                                            />
@@ -782,7 +782,7 @@
                                          Margin="5,5,0,5"/>
 
                                 <Button Grid.Row="1" Grid.Column="1"
-                                    Style="{StaticResource SearchButtonCommonStyle}"
+                                    Style="{StaticResource SearchButtonCommonStyle_Query}"
                                     ToolTipService.ToolTip="{Binding [Search], Source={StaticResource SR}}"
                                     Command="{Binding SpatialQueryCommand}"
                                         HorizontalAlignment="Left"

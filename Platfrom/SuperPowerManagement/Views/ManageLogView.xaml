@@ -152,7 +152,7 @@
 
         </sdk:DataGrid>
 
-        <!--<sdk:DataPager x:Name="DataPager"
+        <!--<sdk:DataPager Style="{StaticResource DataPagerStyle}"   x:Name="DataPager"
                        Source="{Binding ElementName=ListDataGrid, Path=ItemsSource}"
                        Height="20"
                        Grid.Row="4"
@@ -189,7 +189,7 @@
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
                     Margin="5,0,5,0"/>
-                <sdk:DataPager 
+                <sdk:DataPager Style="{StaticResource DataPagerStyle}"   
                     Grid.Column="4"
                     Source="{Binding Data}"
                     PageSize="{Binding PageSizeValue}"

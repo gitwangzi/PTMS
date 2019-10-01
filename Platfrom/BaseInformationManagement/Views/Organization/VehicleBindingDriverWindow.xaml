@@ -77,7 +77,7 @@
                     HorizontalAlignment="Left"
                     VerticalAlignment="Center"
                     Margin="10,2,10,2"/>
-                <sdk:DataPager 
+                <sdk:DataPager Style="{StaticResource DataPagerStyle}"   
                 Grid.Column="4"
                 Height="25"
                     Source="{Binding Data}"

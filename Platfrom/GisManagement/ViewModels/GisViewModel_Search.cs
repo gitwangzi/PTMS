@@ -80,12 +80,12 @@ namespace GisManagement.ViewModels
 
             LocateTypeList = new List<SearchContentType>();
 
-            //LocateTypeList.Add(new SearchContentType()
-            //{
-            //    Key = MapSearchType.None,
-            //    //Value = "选择查询类型"
-            //    Value = ApplicationContext.Instance.StringResourceReader.GetString("PleaseSearchType")
-            //});
+            LocateTypeList.Add(new SearchContentType()
+            {
+                Key = MapSearchType.None,
+                //Value = "选择查询类型"
+                Value = ApplicationContext.Instance.StringResourceReader.GetString("BASEINFO_All")
+            });
 
             LocateTypeList.Add(new SearchContentType()
             {

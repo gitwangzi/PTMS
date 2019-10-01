@@ -107,7 +107,7 @@
                       Style="{StaticResource lightComboBox}"
                      DisplayMemberPath="Name"
                      SelectedItem="{Binding InstallStation,Mode=TwoWay}"
-                     Foreground="White"
+                     Foreground="Black"
                      HorizontalAlignment="Stretch"
                       VerticalAlignment="Center"
                        Name="comboStatus"/>
@@ -239,7 +239,7 @@
                     VerticalAlignment="Center"
                     Margin="5,0,5,0"/>
                 
-                <sdk:DataPager 
+                <sdk:DataPager Style="{StaticResource DataPagerStyle}"   
                     Grid.Column="4"
                     Source="{Binding Data}"
                     PageSize="{Binding PageSizeValue}"

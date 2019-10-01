@@ -11,6 +11,7 @@ using Gsafety.Ant.BaseInformation.Repository;
 using Gsafety.PTMS.BaseInfo;
 using Gsafety.PTMS.DBEntity;
 using Gsafety.PTMS.Common.Data;
+using Gsafety.PTMS.Common.Enum;
 
 namespace Gs.PTMS.Service
 {
@@ -172,7 +173,7 @@ namespace Gs.PTMS.Service
         /// <param name="clientID"></param>
         /// <param name="name"></param>
         /// <returns></returns>
-        public MultiMessage<DevGps> GetByNameDevGpsList(PagingInfo page, string clientID, string name, string vehicleID)
+        public MultiMessage<DevGps> GetByNameDevGpsList(PagingInfo page, string clientID, string name, string vehicleID, InstallStatusType? installStatus, string mdvrSim)
         {
             Info("GetByNameDevGpsList");
             Info(page.PageIndex.ToString());
@@ -182,7 +183,7 @@ namespace Gs.PTMS.Service
                 MultiMessage<DevGps> result = null;
                 using (var context = new PTMSEntities())
                 {
-                    result = DevGpsRepository.GetByNameDevGpsList(context, page.PageIndex, page.PageSize, clientID, name, vehicleID);
+                    result = DevGpsRepository.GetByNameDevGpsList(context, page.PageIndex, page.PageSize, clientID, name, vehicleID, installStatus,  mdvrSim);
                 }
                 Log<DevGps>(result);
                 return result;

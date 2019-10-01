@@ -40,10 +40,11 @@ namespace Gsafety.PTMS.Monitor.Views
             }
         }
 
-        public ChildSendMail()
+        public ChildSendMail(string title)
         {
             InitializeComponent();
             this.DataContext = this;
+            this.Title = title;
           
 
         }

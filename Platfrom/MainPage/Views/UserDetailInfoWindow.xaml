@@ -63,7 +63,7 @@
                            Text="{Binding [UserName], Source={StaticResource SR}}"/>
                 <TextBox Grid.Column="2"
                          Grid.Row="1"
-                         
+                         IsEnabled="False"
                          HorizontalAlignment="Stretch"
                          VerticalAlignment="Center"
                          IsReadOnly="{Binding IsReadOnly}"
@@ -80,6 +80,7 @@
                            Text="{Binding [Phone], Source={StaticResource SR}}"/>
                 <TextBox Grid.Column="2"
                          Grid.Row="2"
+                           IsEnabled="False"
                          HorizontalAlignment="Stretch"
                          VerticalAlignment="Center"
                          IsReadOnly="{Binding IsReadOnly}"
@@ -96,6 +97,7 @@
                            Text="{Binding [CellPhone], Source={StaticResource SR}}"/>
                 <TextBox Grid.Column="2"
                          Grid.Row="3"
+                           IsEnabled="False"
                          HorizontalAlignment="Stretch"
                          VerticalAlignment="Center"
                          IsReadOnly="{Binding IsReadOnly}"
@@ -112,6 +114,7 @@
                            Text="{Binding [Email], Source={StaticResource SR}}"/>
                 <TextBox Grid.Column="2"
                          Grid.Row="4"
+                           IsEnabled="False"
                          HorizontalAlignment="Stretch"
                          VerticalAlignment="Center"
                          IsReadOnly="{Binding IsReadOnly}"
@@ -128,6 +131,7 @@
                            Text="{Binding [Address], Source={StaticResource SR}}"/>
                 <TextBox Grid.Column="2"
                          Grid.Row="5"
+                           IsEnabled="False"
                          HorizontalAlignment="Stretch"
                          VerticalAlignment="Center"
                          IsReadOnly="{Binding IsReadOnly}"
@@ -144,6 +148,7 @@
                            Text="{Binding [Note], Source={StaticResource SR}}"/>
                 <TextBox Grid.Column="2"
                          Grid.Row="6"
+                           IsEnabled="False"
                          HorizontalAlignment="Stretch"
                          VerticalAlignment="Center"
                          IsReadOnly="{Binding IsReadOnly}"
@@ -152,28 +157,28 @@
                          Margin="0,5,0,5"
                          MaxLength="2000"/>
 
-                <Grid Grid.Column="2" 
+                <Grid 
                       Grid.Row="8"
-                      Style="{StaticResource ContentGridWhiteStyle}">
+                      Style="{StaticResource ContentGridWhiteStyle}" Grid.ColumnSpan="3" Margin="75,0,76,0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>
                         <ColumnDefinition Width="Auto"/>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
 
-                    <Button Grid.Column="0" TabIndex="0"
+                    <Button Visibility="Collapsed" Grid.Column="0" TabIndex="0"
                         HorizontalAlignment="Right"
                         VerticalAlignment="Center"
                         Content="{Binding [Done], Source={StaticResource SR}}"
                         Style="{StaticResource SaveButtonStyle}"
                         Command="{Binding CommitCommand}"
                         IsEnabled="{Binding IsCanCommit}"
-                        Visibility="{Binding ViewVisibility}"
+                   
                             Margin="0,0,10,0"/>
                     <Button Grid.Column="2"
                         HorizontalAlignment="Left"
                         VerticalAlignment="Center"
-                        Content="{Binding [Cancel], Source={StaticResource SR}}"
+                        Content="{Binding [Return], Source={StaticResource SR}}"
                         Click="CancelButton_Click"
                         Style="{StaticResource BackButtonStyle}"
                             Margin="10,0,0,0"/>

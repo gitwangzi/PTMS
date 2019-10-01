@@ -35,6 +35,7 @@
             </Grid.RowDefinitions>
 
             <Grid Grid.Row="1" Style="{StaticResource ContentGridWhiteStyle}">
+                
 
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
@@ -43,10 +44,11 @@
                     <ColumnDefinition Width="1.5*"/>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="1.5*"/>
+                    <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="1.5*"/>
                     <!--<ColumnDefinition Width="1.5*"/>-->
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="20"/>
+                   
+                    <ColumnDefinition Width="30"/>
                 </Grid.ColumnDefinitions>
 
                 <TextBlock Text="{Binding [VDM_CarNo], Source={StaticResource SR}}" 
@@ -81,7 +83,7 @@
                                     SelectedDate="{Binding StartTime, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}" />
 
                 <TextBlock  Name="lb_EndTime" HorizontalAlignment="Right"  
-                            Text="{Binding [Time], Source={StaticResource SR}}" 
+                            Text="{Binding [ALARM_StartTime], Source={StaticResource SR}}" 
                             Margin="0,5,5,5" VerticalAlignment="Center"   
                             Grid.Column="4"/>
 
@@ -93,6 +95,10 @@
                                         DisplayDateStart="{Binding SelectedDate, ElementName=dp_StartTime}" 
                                         Grid.Column="5"
                                         Margin="0,5,0,5"/>
+                <TextBlock  Name="lb_EndTime1" HorizontalAlignment="Right"  
+                            Text="{Binding [ALARM_EndTime], Source={StaticResource SR}}" 
+                            Margin="0,5,5,5" VerticalAlignment="Center"   
+                            Grid.Column="6"/>
 
                 <toolkit:TimePicker x:Name="tp_StartTime"  
                                     Format="Long" Value="{Binding StartTime, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}" 
@@ -107,7 +113,7 @@
 
                 <toolkit:TimePicker Name="tp_EndTime" Format="Long"
                                     Value="{Binding EndTime, Mode=TwoWay,ValidatesOnNotifyDataErrors=True,NotifyOnValidationError=True}" 
-                                    Grid.Column="6" VerticalAlignment="Center"
+                                    Grid.Column="7" VerticalAlignment="Center"
                                     HorizontalAlignment="Stretch"
                                     Margin="0,5,0,5">
                     <!--<toolkit:TimePicker.Popup>
@@ -115,7 +121,7 @@
                     </toolkit:TimePicker.Popup>-->
                 </toolkit:TimePicker>
 
-                <Button x:Name="btn_query" Grid.Column="7" Margin="5,5,0,5"  
+                <Button x:Name="btn_query" Grid.Column="8" Margin="5,5,0,5"  
                         Tag="{Binding [Query], Source={StaticResource SR}}"  
                         Command="{Binding QueryCommand}" Style="{StaticResource SearchButtonCommonStyle}"
                         >

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Common.Data" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Common.Data" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:2259/DevGpsService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Common.Enum" />
+  <xs:complexType name="DevGps">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ClientId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CreateTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Creator" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DisplayInstallStatus" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DistrictCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GpsSim" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GpsSn" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GpsUid" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ID" nillable="true" type="xs:string" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Common.Enum" minOccurs="0" name="InstallStatus" type="q1:InstallStatusType" />
+      <xs:element minOccurs="0" name="Status" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Valid" type="xs:decimal" />
+      <xs:element minOccurs="0" name="VehicleID" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DevGps" nillable="true" type="tns:DevGps" />
+  <xs:complexType name="ArrayOfDevGps">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DevGps" nillable="true" type="tns:DevGps" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDevGps" nillable="true" type="tns:ArrayOfDevGps" />
+</xs:schema>

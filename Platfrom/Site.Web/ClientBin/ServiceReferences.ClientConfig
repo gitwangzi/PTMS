@@ -336,9 +336,6 @@
       <endpoint address="http://localhost:2258/ChauffeurService.svc"
         binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IChauffeurService"
         contract="ChauffeurService.IChauffeurService" name="BasicHttpBinding_IChauffeurService" />
-      <endpoint address="http://localhost:2258/DevGpsService.svc" binding="basicHttpBinding"
-        bindingConfiguration="BasicHttpBinding_IDevGpsService" contract="DevGpsService.IDevGpsService"
-        name="BasicHttpBinding_IDevGpsService" />
       <endpoint address="http://localhost:2258/CommandManageService.svc"
         binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_ICommandManageService"
         contract="CommandManageService.ICommandManageService" name="BasicHttpBinding_ICommandManageService" />
@@ -460,6 +457,9 @@
       <endpoint address="http://localhost:2259/VehicleAlertService.svc"
         binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IVehicleAlertService"
         contract="VehicleAlertService.IVehicleAlertService" name="BasicHttpBinding_IVehicleAlertService" />
+      <endpoint address="http://localhost:2259/DevGpsService.svc" binding="basicHttpBinding"
+        bindingConfiguration="BasicHttpBinding_IDevGpsService" contract="DevGpsService.IDevGpsService"
+        name="BasicHttpBinding_IDevGpsService" />
     </client>
   </system.serviceModel>
 </configuration>

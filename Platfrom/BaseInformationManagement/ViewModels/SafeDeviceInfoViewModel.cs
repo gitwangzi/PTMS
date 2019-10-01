@@ -467,7 +467,7 @@ namespace Gsafety.Ant.BaseInformation.ViewModels
                 {
                     EnumValue = -1,
                     EnumName = "",
-                    ShowName = ApplicationContext.Instance.StringResourceReader.GetString("BASEINFO_PleaseSelect"),
+                    ShowName = ApplicationContext.Instance.StringResourceReader.GetString("BASEINFO_All"),
                 });
                 SelectInstallState = InstallStatusTypes[0];
                 foreach (var item in categorys)

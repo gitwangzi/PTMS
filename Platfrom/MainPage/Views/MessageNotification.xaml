@@ -147,7 +147,7 @@
                                   IsChecked="{Binding AlarmAutoDisplay, Mode=TwoWay}"  Margin="0,0,0,0" Grid.Column="0" FontSize="12"/>
                         <CheckBox Content="{Binding [MAINPAGE_Alarm_PlayMusic], Source={StaticResource SR}}" VerticalAlignment="Center" Margin="0,0,0,0" 
                                   IsChecked="{Binding AlarmAutoMusic, Mode=TwoWay}" Grid.Column="1" FontSize="12"/>
-                        <sdk:DataPager Height="25" PageSize="10" Grid.Column="2" 
+                        <sdk:DataPager Style="{StaticResource DataPagerStyle}"   Height="25" PageSize="10" Grid.Column="2" 
             				VerticalAlignment="Center"
             				DisplayMode="FirstLastPreviousNext" IsTotalItemCountFixed="True"
             				Source="{Binding AlarmInfoPagedCV, Mode=OneWay}" HorizontalAlignment="Right" Margin="0,0,0,0"/>
@@ -217,7 +217,7 @@
                                   IsChecked="{Binding AlertAutoDisplay, Mode=TwoWay}" Grid.Column="0" FontSize="12"/>
                         <CheckBox Content="{Binding [MAINPAGE_Alert_PlayMusic], Source={StaticResource SR}}" VerticalAlignment="Center" Margin="0,0,0,0" Grid.Column="1" FontSize="12"
                                   IsChecked="{Binding AlertAutoMusic, Mode=TwoWay}"/>
-                        <sdk:DataPager Height="22" PageSize="10" Grid.Column="2" 
+                        <sdk:DataPager Style="{StaticResource DataPagerStyle}"   Height="22" PageSize="10" Grid.Column="2" 
                                                VerticalAlignment="Center" IsTotalItemCountFixed="True"
                                                DisplayMode="FirstLastPreviousNext"
                                                Source="{Binding AlertInfoPagedCV, Mode=OneWay}" HorizontalAlignment="Right" Margin="0,0,0,0"/>

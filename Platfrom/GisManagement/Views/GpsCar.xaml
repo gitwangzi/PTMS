@@ -493,10 +493,10 @@ Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="arc1image
                 </Image>
             </Grid>
             <Grid x:Name="LocateShadowSelected" Visibility="Collapsed"  Margin="0,-40,0,0">
-                <ToggleButton x:Name="CarBtn1" Style="{StaticResource MonitorButtonStyle1}" Click="CarBtn1_Click" Width="100" Height="100" Margin="0,0,0,25" />
-                <ToggleButton x:Name="CarBtn2" Style="{StaticResource MonitorButtonStyle2}" Click="CarBtn2_Click" Width="100" Height="100" Margin="0,0,0,25" />
-                <ToggleButton x:Name="CarBtn3" Style="{StaticResource MonitorButtonStyle3}" Click="CarBtn3_Click" Width="100" Height="100" Margin="0,0,0,25"/>
-                <ToggleButton x:Name="CarBtn4" Style="{StaticResource MonitorButtonStyle4}" Click="CarBtn4_Click" Width="100" Height="100" Margin="0,0,0,25" IsEnabled="{Binding RelativeSource={RelativeSource Self}, Converter={StaticResource FunItemEnableConverter},ConverterParameter='02-09-01-01-01'}"/>
+                <ToggleButton x:Name="CarBtn1" Style="{StaticResource MonitorButtonStyle1}" ToolTipService.ToolTip="{Binding [Hide],Source={StaticResource SR}}" Click="CarBtn1_Click" Width="100" Height="100" Margin="0,0,0,25" />
+                <ToggleButton x:Name="CarBtn2" Style="{StaticResource MonitorButtonStyle2}" ToolTipService.ToolTip="{Binding [MONITOR_Trace],Source={StaticResource SR}}" Click="CarBtn2_Click" Width="100" Height="100" Margin="0,0,0,25" />
+                <ToggleButton x:Name="CarBtn3" Style="{StaticResource MonitorButtonStyle3}" ToolTipService.ToolTip="{Binding [Rpt_External_Access_COLSSSP],Source={StaticResource SR}}" Click="CarBtn3_Click" Width="100" Height="100" Margin="0,0,0,25"/>
+                <ToggleButton x:Name="CarBtn4" Style="{StaticResource MonitorButtonStyle4}" ToolTipService.ToolTip="{Binding [MONITOR_HistoricalRoute],Source={StaticResource SR}}" Click="CarBtn4_Click" Width="100" Height="100" Margin="0,0,0,25" IsEnabled="{Binding RelativeSource={RelativeSource Self}, Converter={StaticResource FunItemEnableConverter},ConverterParameter='02-09-01-01-01'}"/>
             </Grid>
         </Grid>
 

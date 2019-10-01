@@ -171,8 +171,8 @@ namespace Gsafety.PTMS.ReportManager
         public const string DeviceAlertByCityV = "DeviceAlertByCityView";
         public const string DeviceAlertByCityVm = "DeviceAlertByCityViewModel";
 
-        public const string DeviceAlertByVehicleV = "DeviceAlertByCityView";
-        public const string DeviceAlertByVehicleVm = "DeviceAlertByCityViewModel";
+        public const string DeviceAlertByVehicleV = "DeviceAlertByVehicleView";
+        public const string DeviceAlertByVehicleVm = "DeviceAlertByVehicleViewModel";
 
         public const string VehicleOfflineV = "VehicleOfflineView";
         public const string VehicleOfflineVm = "VehicleOfflineViewModel";
