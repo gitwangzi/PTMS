@@ -27,7 +27,7 @@ namespace Gsafety.PTMS.Manager.Contract
         /// </summary>
         /// <param name="model">角色表</param>
         [OperationContract]
-        SingleMessage<bool> UpdateRole(Role model, LogOperate logOperate);
+        SingleMessage<bool> UpdateRole(Role model, bool IsUpdateRole, LogOperate logOperate);
 
         /// <summary>
         /// 删除角色表
