@@ -533,11 +533,12 @@ namespace Gs.PTMS.Service
             }
         }
 
-        public SingleMessage<bool> UpdateRole(Role model, LogOperate logOperate)
+        public SingleMessage<bool> UpdateRole(Role model, bool isUpdateRole, LogOperate logOperate)
         {
             try
             {
                 Info("UpdateRole");
+                Info("UpdateRole: " + Convert.ToString(isUpdateRole));
                 Info("model:" + Convert.ToString(model));
                 SingleMessage<bool> result = null;
                 using (PTMSEntities context = new PTMSEntities())
@@ -547,7 +548,7 @@ namespace Gs.PTMS.Service
                     var scope = new TransactionScope(TransactionScopeOption.Required, optons);
                     try
                     {
-                        result = RoleRepository.UpdateRole(context, model);
+                        result = RoleRepository.UpdateRole(context, model, isUpdateRole);
                         if (result.IsSuccess)
                         {
                             logOperate.OperateType = (short)OperateTypeEnum.RoleManage;
