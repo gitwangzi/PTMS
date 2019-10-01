@@ -112,7 +112,7 @@ namespace Gsafety.PTMS.Manager.Repository
         /// <summary>
         /// 修改角色表
         /// </summary>
-        public static SingleMessage<bool> UpdateRole(PTMSEntities context, Role model)
+        public static SingleMessage<bool> UpdateRole(PTMSEntities context, Role model,bool isUpdateRole)
         {
             if (string.IsNullOrWhiteSpace(model.ID))
             {
@@ -134,6 +134,21 @@ namespace Gsafety.PTMS.Manager.Repository
             if (null == entity)
             {
                 return new SingleMessage<bool>(false, CommonErrorMessage.RoleNotExist);
+            }
+
+            if(isUpdateRole)
+            {
+                bool reference = context.USR_GUSER.Any(n => n.ROLE_ID == model.ID && n.VALID == (short)ValidEnum.Valid);
+                if (reference)
+                {
+                    return new SingleMessage<bool>(false, "UserReference");
+                }
+
+                List<USR_ROLE_FUNCS> funcs = context.USR_ROLE_FUNCS.Where(n => n.ROLE_ID == model.ID).ToList();
+                foreach (var item in funcs)
+                {
+                    context.USR_ROLE_FUNCS.Remove(item);
+                }
             }
 
             RoleUtility.UpdateEntity(entity, model, false);
