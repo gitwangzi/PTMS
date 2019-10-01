@@ -16,6 +16,8 @@ using System.Linq;
 using System.Reflection;
 using System.Windows;
 using System.Windows.Controls;
+using Gsafety.PTMS.Bases.Enums;
+using Gsafety.PTMS.Bases.Models;
 
 namespace Gsafety.Ant.BaseInformation.ViewModels
 {
@@ -33,6 +35,8 @@ namespace Gsafety.Ant.BaseInformation.ViewModels
                 RaisePropertyChanged(() => this.CurrentDevGps);
             }
         }
+
+        public List<EnumModel> InstallStatusTypes { get; set; }
 
         private string searchByName;
         /// <summary>
@@ -61,7 +65,27 @@ namespace Gsafety.Ant.BaseInformation.ViewModels
                 RaisePropertyChanged(() => VehicleSn);
             }
         }
+        private EnumModel _installState = null;
+        public EnumModel SelectInstallState
+        {
+            get { return _installState; }
+            set
+            {
+                _installState = value;
+                RaisePropertyChanged(() => SelectInstallState);
+            }
+        }
 
+         private string _mdvrSim = string.Empty;
+        public string MdvrSim
+        {
+            get { return _mdvrSim; }
+            set
+            {
+                _mdvrSim = value;
+                RaisePropertyChanged(() => MdvrSim);
+            }
+        }
         /// <summary>
         /// 初始化内容
         /// </summary>
@@ -71,6 +95,25 @@ namespace Gsafety.Ant.BaseInformation.ViewModels
             Url = new Uri(this.GetTemplateUrl(DownLoadType.GPSDevice));
             this.UploadBtnStatus = true;
             this.ExportBtnStatus = true;
+               var adapter = new EnumAdapter<Gsafety.PTMS.Bases.Enums.InstallStatusType>();
+                var categorys = adapter.GetEnumInfos();
+            InstallStatusTypes = new List<EnumModel>();
+                InstallStatusTypes.Add(new EnumModel()
+                {
+                    EnumValue = -1,
+                    EnumName = "",
+                    ShowName = ApplicationContext.Instance.StringResourceReader.GetString("BASEINFO_All"),
+                });
+                SelectInstallState = InstallStatusTypes[0];
+                foreach (var item in categorys)
+                {
+                    InstallStatusTypes.Add(new EnumModel()
+                    {
+                        EnumValue = item.Value,
+                        EnumName = item.Name,
+                        ShowName = item.LocalizedString,
+                    });
+                }
 
             AddVisibility = (Visibility)converter.Convert("02-04-01-04-01", null, "02-04-01-04-01", null);
             RaisePropertyChanged(() => AddVisibility);
@@ -207,6 +250,20 @@ namespace Gsafety.Ant.BaseInformation.ViewModels
             currentIndex = 1;
             Data.MoveToFirstPage();
         }
+        public Gsafety.PTMS.ServiceReference.DevGpsService.InstallStatusType? InstallStatus
+        {
+            get
+            {
+                if (SelectInstallState.EnumValue <= 0)
+                {
+                    return new Nullable<Gsafety.PTMS.ServiceReference.DevGpsService.InstallStatusType>();
+                }
+                else
+                {
+                    return (Gsafety.PTMS.ServiceReference.DevGpsService.InstallStatusType)SelectInstallState.EnumValue;
+                }
+            }
+        }
 
         /// <summary>
         /// 初始化分页数据
@@ -224,7 +281,7 @@ namespace Gsafety.Ant.BaseInformation.ViewModels
                     page.PageSize = pageSize;
 
                     DevGpsServiceClient client = InitialClient();
-                    client.GetByNameDevGpsListAsync(page, ApplicationContext.Instance.AuthenticationInfo.ClientID, SearchByName, this.VehicleSn);
+                    client.GetByNameDevGpsListAsync(page, ApplicationContext.Instance.AuthenticationInfo.ClientID, SearchByName, this.VehicleSn,InstallStatus,MdvrSim);
                 });
 
             }
@@ -325,13 +382,13 @@ namespace Gsafety.Ant.BaseInformation.ViewModels
                         item.CreateTime = item.CreateTime.ToLocalTime();
                         switch (item.InstallStatus)
                         {
-                            case InstallStatusType.UnInstall:
+                            case  Gsafety.PTMS.ServiceReference.DevGpsService.InstallStatusType.UnInstall:
                                 item.DisplayInstallStatus = ApplicationContext.Instance.StringResourceReader.GetString("UnInstall");
                                 break;
-                            case InstallStatusType.Installing:
+                            case Gsafety.PTMS.ServiceReference.DevGpsService.InstallStatusType.Installing:
                                 item.DisplayInstallStatus = ApplicationContext.Instance.StringResourceReader.GetString("Installing");
                                 break;
-                            case InstallStatusType.Installed:
+                            case Gsafety.PTMS.ServiceReference.DevGpsService.InstallStatusType.Installed:
                                 item.DisplayInstallStatus = ApplicationContext.Instance.StringResourceReader.GetString("Installed");
                                 break;
                             default:
@@ -496,13 +553,13 @@ namespace Gsafety.Ant.BaseInformation.ViewModels
                                 item.CreateTime = item.CreateTime.ToLocalTime();
                                 switch (item.InstallStatus)
                                 {
-                                    case InstallStatusType.UnInstall:
+                                    case Gsafety.PTMS.ServiceReference.DevGpsService.InstallStatusType.UnInstall:
                                         item.DisplayInstallStatus = ApplicationContext.Instance.StringResourceReader.GetString("UnInstall");
                                         break;
-                                    case InstallStatusType.Installing:
+                                    case Gsafety.PTMS.ServiceReference.DevGpsService.InstallStatusType.Installing:
                                         item.DisplayInstallStatus = ApplicationContext.Instance.StringResourceReader.GetString("Installing");
                                         break;
-                                    case InstallStatusType.Installed:
+                                    case Gsafety.PTMS.ServiceReference.DevGpsService.InstallStatusType.Installed:
                                         item.DisplayInstallStatus = ApplicationContext.Instance.StringResourceReader.GetString("Installed");
                                         break;
                                     default:
@@ -567,7 +624,7 @@ namespace Gsafety.Ant.BaseInformation.ViewModels
                 DevGps devGps = new DevGps();
                 devGps.ClientId = ApplicationContext.Instance.AuthenticationInfo.ClientID;
                 devGps.Creator = ApplicationContext.Instance.AuthenticationInfo.Account;
-                devGps.InstallStatus = InstallStatusType.UnInstall;
+                devGps.InstallStatus = Gsafety.PTMS.ServiceReference.DevGpsService.InstallStatusType.UnInstall;
                 devGps.GpsSn = uploadContent[i][0].ToString().Trim();
                 if (string.IsNullOrEmpty(devGps.GpsSn))
                 {

@@ -467,7 +467,7 @@ namespace Gsafety.Ant.BaseInformation.ViewModels
                 {
                     EnumValue = -1,
                     EnumName = "",
-                    ShowName = ApplicationContext.Instance.StringResourceReader.GetString("BASEINFO_PleaseSelect"),
+                    ShowName = ApplicationContext.Instance.StringResourceReader.GetString("BASEINFO_All"),
                 });
                 SelectInstallState = InstallStatusTypes[0];
                 foreach (var item in categorys)
@@ -875,7 +875,7 @@ namespace Gsafety.Ant.BaseInformation.ViewModels
                             Codes.Add("UpsSn");
                             Codes.Add("SdSn");
                             Codes.Add("SoftwareVersion");
-                            Codes.Add("Protocol");
+                            Codes.Add("Protocol"); 
                             Codes.Add("Note");
 
                             List<string> Names = new List<string>();
@@ -890,7 +890,7 @@ namespace Gsafety.Ant.BaseInformation.ViewModels
                             Names.Add(ApplicationContext.Instance.StringResourceReader.GetString("BASEINFO_UPS"));
                             Names.Add(ApplicationContext.Instance.StringResourceReader.GetString("BASEINFO_SdCardId"));
                             Names.Add(ApplicationContext.Instance.StringResourceReader.GetString("BASEINFO_SoftwareVersion"));
-                            Names.Add(ApplicationContext.Instance.StringResourceReader.GetString("XieYiLEIXING"));
+                            Names.Add(ApplicationContext.Instance.StringResourceReader.GetString("XieYiLEIXING"));                           
                             Names.Add(ApplicationContext.Instance.StringResourceReader.GetString("Note"));
 
                             int maxPartCount = e.Result.Result.Max(t => t.BscDevSuiteParts.Count);
@@ -900,11 +900,13 @@ namespace Gsafety.Ant.BaseInformation.ViewModels
                                 Codes.Add(string.Format("Name{0}", i.ToString()));
                                 Codes.Add(string.Format("Model{0}", i.ToString()));
                                 Codes.Add(string.Format("ProduceTime{0}", i.ToString()));
+                                Codes.Add(string.Format("PartType{0}", i.ToString()));
 
                                 Names.Add(string.Format(ApplicationContext.Instance.StringResourceReader.GetString("PartSn"), i.ToString()));
                                 Names.Add(string.Format(ApplicationContext.Instance.StringResourceReader.GetString("PartName"), i.ToString()));
                                 Names.Add(string.Format(ApplicationContext.Instance.StringResourceReader.GetString("PartModel"), i.ToString()));
                                 Names.Add(string.Format(ApplicationContext.Instance.StringResourceReader.GetString("PartProduceTime"), i.ToString()));
+                                Names.Add(string.Format(ApplicationContext.Instance.StringResourceReader.GetString("TargetProperty"), i.ToString()));
                             }
 
                             List<EnumsEx> eList = new List<EnumsEx>();
@@ -925,10 +927,14 @@ namespace Gsafety.Ant.BaseInformation.ViewModels
                             });
                             eList.Add(new EnumsEx { Code = "InstallStatus", Content = FieldEx2 });
 
+                      
+
                             List<Dictionary<string, string>> exportList = new List<Dictionary<string, string>>();
 
                             var adapter = new EnumAdapter<Gsafety.PTMS.Bases.Enums.ProtocolTypeEnum>();
                             var categorys = adapter.GetEnumInfos();
+                            var Devadapter = new EnumAdapter<Gsafety.PTMS.Enums.BscDevSuitePartTypeEnum>();
+                            var Devcategorys = Devadapter.GetEnumInfos();
                             foreach (var item in e.Result.Result)
                             {
                                 Dictionary<string, string> dic = new Dictionary<string, string>();
@@ -951,6 +957,7 @@ namespace Gsafety.Ant.BaseInformation.ViewModels
                                     dic.Add(string.Format("Name{0}", (i + 1).ToString()), item.BscDevSuiteParts[i].Name);
                                     dic.Add(string.Format("Model{0}", (i + 1).ToString()), item.BscDevSuiteParts[i].Model);
                                     dic.Add(string.Format("ProduceTime{0}", (i + 1).ToString()), item.BscDevSuiteParts[i].ProduceTime.HasValue ? item.BscDevSuiteParts[i].ProduceTime.Value.ToShortDateString() : null);
+                                    dic.Add(string.Format("PartType{0}", (i + 1).ToString()), Devcategorys.Where(t => t.Value == (short)item.BscDevSuiteParts[i].PartType).FirstOrDefault().Name);
                                 }
 
                                 exportList.Add(dic);

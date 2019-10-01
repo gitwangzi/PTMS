@@ -1,12 +1,15 @@
 ﻿<ResourceDictionary
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
      xmlns:local="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data"
 xmlns:primitives="clr-namespace:System.Windows.Controls.Primitives;assembly=System.Windows"
 xmlns:localprimitives="clr-namespace:System.Windows.Controls.Primitives;assembly=System.Windows.Controls.Data"
 xmlns:dataInput="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data.Input"
 xmlns:vsm="clr-namespace:System.Windows;assembly=System.Windows">
 
+  
+    
 
     <Style TargetType="local:DataPager">
         <Setter Property="Background" Value="#FFF2F3F4"/>
@@ -468,6 +471,12 @@ xmlns:vsm="clr-namespace:System.Windows;assembly=System.Windows">
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
+
+    </Style>
+    <Style x:Name="DataPagerStyle" TargetType="sdk:DataPager">
+
+        <Setter Property="DisplayMode" Value="FirstLastPreviousNextNumeric"></Setter>
+        <Setter Property="NumericButtonCount" Value="4"></Setter>
 
     </Style>
 

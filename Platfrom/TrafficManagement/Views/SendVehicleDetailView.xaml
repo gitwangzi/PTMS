@@ -134,7 +134,7 @@
                     HorizontalAlignment="Left"
                     VerticalAlignment="Center"
                     Margin="0,2,10,5"/>
-                <sdk:DataPager 
+                <sdk:DataPager Style="{StaticResource DataPagerStyle}"   
                 Grid.Column="2"
                     Source="{Binding Data}"
                     PageSize="10"

@@ -194,7 +194,7 @@ namespace Gsafety.Ant.BaseInformation.Repository
         }
 
 
-        public static MultiMessage<DevGps> GetByNameDevGpsList(PTMSEntities context, int pageIndex, int pageSize, string ClientID, string name, string vehicleID)
+        public static MultiMessage<DevGps> GetByNameDevGpsList(PTMSEntities context, int pageIndex, int pageSize, string ClientID, string name, string vehicleID,InstallStatusType? installStatus, string mdvrSim)
         {
             List<DevGps> result = new List<DevGps>();
 
@@ -207,6 +207,30 @@ namespace Gsafety.Ant.BaseInformation.Repository
             if (string.IsNullOrEmpty(vehicleID) == false)
             {
                 filter = filter.And(v => v.VEHICLE_ID.ToUpper().Contains(vehicleID.ToUpper()));
+            }
+
+            if (string.IsNullOrEmpty(mdvrSim) == false)
+            {
+                filter = filter.And(v => v.GPS_SIM.ToUpper().Contains(mdvrSim.ToUpper()));
+            }
+           
+            if (installStatus.HasValue)
+            {
+                if (installStatus.Value == InstallStatusType.UnInstall)
+                {
+                    filter = filter.And(v => v.STATUS.Equals((short)DeviceSuiteStatus.Initial));
+                   
+                }
+                else if (installStatus.Value == InstallStatusType.Installing)
+                {
+                    filter = filter.And(v => v.CHECKSTEP.HasValue && v.CHECKSTEP < 4);
+                   
+                }
+                else if (installStatus.Value == InstallStatusType.Installed)
+                {
+
+                    filter = filter.And(v => v.CHECKSTEP.HasValue && v.CHECKSTEP == 4);
+                }
             }
 
             int totalCount;

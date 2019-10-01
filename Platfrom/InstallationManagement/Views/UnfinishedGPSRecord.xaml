@@ -204,7 +204,7 @@
                           Height="20" ItemsSource="{Binding PageSizeList}" Style="{StaticResource lightComboBox}"
                           Margin="0,0,2,0" Width="50" VerticalAlignment="Center"
                           HorizontalAlignment="Center" />
-                <sdk:DataPager PageIndex="{Binding PageIndex, Mode=TwoWay}" 
+                <sdk:DataPager Style="{StaticResource DataPagerStyle}"   PageIndex="{Binding PageIndex, Mode=TwoWay}" 
                                Name="DataPager1" IsTotalItemCountFixed="True" 
                                Height="26" Margin="0,0,0,0"
                                Background="{Binding ElementName=SuiteDataGrid, Path=Background}"

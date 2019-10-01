@@ -6400,8 +6400,8 @@ donde se van a instalar la cámara.</comment>
     <comment>Hora</comment>
   </data>
   <data name="Rpt_Alarm_Title" xml:space="preserve">
-    <value>Informe de estadística de botón de pánico</value>
-    <comment>Informe de estadística de botón de pánico</comment>
+    <value>Informe de estadística de Alarma de vehicle</value>
+    <comment>Informe de estadística de Alarma de vehicle</comment>
   </data>
   <data name="Rpt_Alarm_Toatl" xml:space="preserve">
     <value>Cantidad total de alarmas</value>
@@ -9825,6 +9825,12 @@ luego puede eliminar la ruta!</comment>
   </data>
   <data name="MONITOR_SendEmail" xml:space="preserve">
     <value>Enviar correo</value>
+  </data>
+	<data name="MONITOR_AddEmail" xml:space="preserve">
+    <value>Agregar Destinatarios</value>
+  </data>
+	<data name="MONITOR_EditEmail" xml:space="preserve">
+    <value>Modificar Destinatarios</value>
   </data>
   <data name="IsRecover" xml:space="preserve">
     <value>¿Reducción definitiva?</value>

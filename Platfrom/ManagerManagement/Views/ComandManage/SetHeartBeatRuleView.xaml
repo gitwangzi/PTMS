@@ -200,7 +200,7 @@
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
                     Margin="5,0,5,0"/>
-                <sdk:DataPager 
+                <sdk:DataPager Style="{StaticResource DataPagerStyle}"   
                 Grid.Column="4"
                     Source="{Binding Data}"
                     PageSize="30"
@@ -328,7 +328,7 @@
                        VerticalAlignment="Center"
                        Margin="5,0,5,0"/>
 
-                <sdk:DataPager x:Name="DataPager2"
+                <sdk:DataPager Style="{StaticResource DataPagerStyle}"   x:Name="DataPager2"
                        Source="{Binding VehicleData}"
                        Height="25"
                        Grid.Column="2"

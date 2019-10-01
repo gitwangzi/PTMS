@@ -201,7 +201,7 @@ namespace Gsafety.Ant.Monitor.ViewModels
                 ZAlertTypes.Add(new VehicleAlertType()
                 {
                     Code = (int)DeviceAlertTypes.MAINTAIN_Full_N,
-                    Name = ApplicationContext.Instance.StringResourceReader.GetString("All")
+                    Name = ApplicationContext.Instance.StringResourceReader.GetString("BASEINFO_All")
                 });
                 ZAlertTypes.Add(new VehicleAlertType()
                 {

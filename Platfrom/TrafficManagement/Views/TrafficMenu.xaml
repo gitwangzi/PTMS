@@ -646,7 +646,7 @@
                                                 HorizontalAlignment="Left"
                                                 VerticalAlignment="Center"
                                                 Margin="0,2,10,2" Style="{StaticResource TextBlockLightStyle}"/>
-                                    <sdk:DataPager 
+                                    <sdk:DataPager Style="{StaticResource DataPagerStyle}"   
                                                 Grid.Column="2"
                                                 Margin="0,0,0,0"
                                                 Height="25"
@@ -842,7 +842,7 @@
                                                 HorizontalAlignment="Left"
                                                 VerticalAlignment="Center"
                                                 Margin="0,2,10,2" Style="{StaticResource TextBlockLightStyle}"/>
-                                    <sdk:DataPager 
+                                    <sdk:DataPager Style="{StaticResource DataPagerStyle}"   
                                                 Grid.Column="2"
                                                 Margin="0,0,0,0"
                                                 Height="25"
@@ -989,7 +989,7 @@
                                                 HorizontalAlignment="Left"
                                                 VerticalAlignment="Center"
                                                 Margin="0,2,10,2" Style="{StaticResource TextBlockLightStyle}"/>
-                                    <sdk:DataPager 
+                                    <sdk:DataPager Style="{StaticResource DataPagerStyle}"   
                                                 Grid.Column="2"
                                                 Margin="0,0,0,0"
                                                 Height="25"                                                                           

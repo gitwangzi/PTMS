@@ -512,23 +512,23 @@
     <None Include="Service References\CommandManageService\Gsafety.PTMS.ServiceReference.CommandManageService.SingleMessageOfboolean.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\DevGpsService\DevGpsService.wsdl" />
-    <None Include="Service References\DevGpsService\DevGpsService.xsd">
+    <None Include="Service References\DevGpsService\DevGpsService1.wsdl" />
+    <None Include="Service References\DevGpsService\DevGpsService6.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\DevGpsService\DevGpsService1.xsd">
+    <None Include="Service References\DevGpsService\DevGpsService61.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\DevGpsService\DevGpsService2.xsd">
+    <None Include="Service References\DevGpsService\DevGpsService62.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\DevGpsService\DevGpsService3.xsd">
+    <None Include="Service References\DevGpsService\DevGpsService63.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\DevGpsService\DevGpsService4.xsd">
+    <None Include="Service References\DevGpsService\DevGpsService64.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\DevGpsService\DevGpsService5.xsd">
+    <None Include="Service References\DevGpsService\DevGpsService65.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\DevGpsService\Gsafety.PTMS.ServiceReference.DevGpsService.MultiMessageOfDevGpsi7Zg_POJ5.datasource">
@@ -1638,7 +1638,6 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-    <None Include="Service References\DevGpsService\DevGpsService.disco" />
     <None Include="Service References\DevGpsService\configuration91.svcinfo" />
     <None Include="Service References\MessageServiceExt\configuration.svcinfo" />
     <None Include="Service References\MessageServiceExt\Reference.svcmap">
@@ -1715,6 +1714,7 @@
     </None>
     <None Include="Service References\TrafficManageService\TrafficManageService.disco" />
     <None Include="Service References\VehicleAlertService\VehicleAlertService.disco" />
+    <None Include="Service References\DevGpsService\DevGpsService1.disco" />
     <Content Include="ServiceReferences.ClientConfig">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <SubType>Designer</SubType>

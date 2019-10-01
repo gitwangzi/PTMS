@@ -122,7 +122,7 @@ namespace Gsafety.Ant.Monitor.ViewModels
             email.Name = "";
             email.Mail = "";
 
-            ChildSendMail child = new ChildSendMail();
+            ChildSendMail child = new ChildSendMail(ApplicationContext.Instance.StringResourceReader.GetString("MONITOR_AddEmail"));
             child.Edit(email);
             child.Closed += (m, n) =>
             {
@@ -181,7 +181,7 @@ namespace Gsafety.Ant.Monitor.ViewModels
                 AlarmEmailInfo email = SelectedPerson;
 
 
-                ChildSendMail child = new ChildSendMail();
+                ChildSendMail child = new ChildSendMail(ApplicationContext.Instance.StringResourceReader.GetString("MONITOR_EditEmail"));
                 child.Edit(email);
                 child.Closed += (m, n) =>
                 {

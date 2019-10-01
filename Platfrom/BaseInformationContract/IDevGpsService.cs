@@ -1,6 +1,7 @@
 ﻿using Gsafety.PTMS.Base.Contract.Data;
 using Gsafety.PTMS.BaseInformation.Contract.Data;
 using Gsafety.PTMS.Common.Data;
+using Gsafety.PTMS.Common.Enum;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -59,7 +60,7 @@ namespace Gsafety.PTMS.BaseInformation.Contract
         MultiMessage<DevGps> GetDevGpsList(PagingInfo page, string clientID);
 
         [OperationContract]
-        MultiMessage<DevGps> GetByNameDevGpsList(PagingInfo page, string clientID, string name,string vehicleID);
+        MultiMessage<DevGps> GetByNameDevGpsList(PagingInfo page, string clientID, string name,string vehicleID,InstallStatusType? installStatus, string mdvrSim);
 
         /// <summary>
         /// Add devGps in batch

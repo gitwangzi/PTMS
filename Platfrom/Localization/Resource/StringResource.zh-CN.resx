@@ -3693,7 +3693,7 @@
     <value>时间</value>
   </data>
   <data name="Rpt_Alarm_Title" xml:space="preserve">
-    <value>一键报警统计报表</value>
+    <value>车辆报警统计报表</value>
   </data>
   <data name="Rpt_Alarm_Toatl" xml:space="preserve">
     <value>报警总数</value>
@@ -7111,6 +7111,12 @@
   </data>
   <data name="MONITOR_SendEmail" xml:space="preserve">
     <value>发送邮件</value>
+  </data>
+	<data name="MONITOR_AddEmail" xml:space="preserve">
+    <value>添加收件人</value>
+  </data>
+	<data name="MONITOR_EditEmail" xml:space="preserve">
+    <value>编辑收件人</value>
   </data>
   <data name="StartTimeError" xml:space="preserve">
     <value>开始时间不能大于今天</value>

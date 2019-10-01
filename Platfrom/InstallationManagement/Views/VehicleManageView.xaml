@@ -317,7 +317,7 @@
                        VerticalAlignment="Center"
                            Margin="5,0,5,0"/>
 
-                    <sdk:DataPager x:Name="DataPager"
+                    <sdk:DataPager Style="{StaticResource DataPagerStyle}"   x:Name="DataPager"
                        Source="{Binding Data}"
                        Height="25"
                        Grid.Column="4"

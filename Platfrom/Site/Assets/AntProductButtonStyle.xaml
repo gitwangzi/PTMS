@@ -746,6 +746,72 @@
             </Setter.Value>
         </Setter>
     </Style>
+    <Style TargetType="Button" x:Key="SearchButtonCommonStyle_Query">
+        <Setter Property="Height" Value="20"/>
+        <Setter Property="Width" Value="20"/>
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="Margin" Value="5,5,5,5"/>
+        <Setter Property="Command" Value="{Binding SearchCommand}"></Setter>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <!--<Image Stretch="Uniform"
+                           Source="/ExternalResource;component/Images/tianjia.png"/>-->
+                    <Grid>
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="CommonStates">
+                                <VisualState x:Name="Normal"/>
+
+                                <VisualState x:Name="MouseOver">
+                                    <!--<Storyboard>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="image" Storyboard.TargetProperty="Source">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="/ExternalResource;component/Images/MouseOverSearch.png" />
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>-->
+                                </VisualState>
+
+                                <VisualState x:Name="Pressed">
+                                    <!--<Storyboard>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="image" Storyboard.TargetProperty="Source">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="/ExternalResource;component/Images/PressedSearch.png" />
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>-->
+                                </VisualState>
+
+                                <VisualState x:Name="Disabled">
+                                    <Storyboard>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="image" Storyboard.TargetProperty="Source">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="/ExternalResource;component/Images/NormalSearch.png" />
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+
+                            </VisualStateGroup>
+
+                            <VisualStateGroup x:Name="FocusStates">
+                                <VisualState x:Name="Focused">
+                                    <!--<Storyboard>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="image" Storyboard.TargetProperty="Source">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="/ExternalResource;component/Images/NormalSearch.png" />
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>-->
+                                </VisualState>
+                                <VisualState x:Name="Unfocused" />
+                            </VisualStateGroup>
+
+
+                        </VisualStateManager.VisualStateGroups>
+
+                        <Image Stretch="Uniform"
+                                   x:Name="image"
+                           Source="/ExternalResource;component/Images/NormalSearch.png"/>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
 
 
     <!--添加按钮样式-->
@@ -1251,7 +1317,7 @@
                                 <VisualState x:Name="MouseOver">
                                     <Storyboard>
                                         <ObjectAnimationUsingKeyFrames Storyboard.TargetName="image" Storyboard.TargetProperty="Source">
-                                            <DiscreteObjectKeyFrame KeyTime="0" Value="/ExternalResource;component/Images/MouseOverRefrush.png" />
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="/ExternalResource;component/Images/DisableRefrush.png" />
                                         </ObjectAnimationUsingKeyFrames>
                                     </Storyboard>
                                 </VisualState>
@@ -1259,7 +1325,7 @@
                                 <VisualState x:Name="Pressed">
                                     <Storyboard>
                                         <ObjectAnimationUsingKeyFrames Storyboard.TargetName="image" Storyboard.TargetProperty="Source">
-                                            <DiscreteObjectKeyFrame KeyTime="0" Value="/ExternalResource;component/Images/PressedRefrush.png" />
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="/ExternalResource;component/Images/DisableRefrush.png" />
                                         </ObjectAnimationUsingKeyFrames>
                                     </Storyboard>
                                 </VisualState>
@@ -1267,7 +1333,7 @@
                                 <VisualState x:Name="Disabled">
                                     <Storyboard>
                                         <ObjectAnimationUsingKeyFrames Storyboard.TargetName="image" Storyboard.TargetProperty="Source">
-                                            <DiscreteObjectKeyFrame KeyTime="0" Value="/ExternalResource;component/Images/NormalRefrush.png" />
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="/ExternalResource;component/Images/DisableRefrush.png" />
                                         </ObjectAnimationUsingKeyFrames>
                                     </Storyboard>
                                 </VisualState>
@@ -1278,7 +1344,7 @@
                                 <VisualState x:Name="Focused">
                                     <Storyboard>
                                         <ObjectAnimationUsingKeyFrames Storyboard.TargetName="image" Storyboard.TargetProperty="Source">
-                                            <DiscreteObjectKeyFrame KeyTime="0" Value="/ExternalResource;component/Images/PressedRefrush.png" />
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="/ExternalResource;component/Images/DisableRefrush.png" />
                                         </ObjectAnimationUsingKeyFrames>
                                     </Storyboard>
                                 </VisualState>

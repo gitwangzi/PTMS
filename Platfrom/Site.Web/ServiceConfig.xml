@@ -33,7 +33,7 @@
   <!--car business log wcf service address-->
   <add key="CarAlertDealLogServiceClient"  value="http://localhost:2259/LogManageService.svc"/>
   <!--mdvr log wcf service address-->
-  <add key="DeviceAlertDealLogServiceClient"  value="http://localhost:2259/LogManageService.svc"/> -*
+  <add key="DeviceAlertDealLogServiceClient"  value="http://localhost:2259/LogManageService.svc"/>
   <!--installation log service address-->
   <add key="InstallLogServiceClient"  value="http://localhost:2259/LogManageService.svc"/>
   <!--security suite management wcf service address-->
@@ -73,14 +73,14 @@
   <add key="UsrDepartmentClient" value="http://localhost:2259/AccountService.svc"/>
   <add key="UserOnlineClient" value="http://localhost:2259/AccountService.svc"/>
   <add key="OrganizationClient" value="http://localhost:2259/OrganizationService.svc"/>
-  <add key="ReportServiceClient" value="http://localhost:2038/ReportService.svc"/>
+  <add key="ReportServiceClient" value="http://localhost:2039/ReportService.svc"/>
   <add key="OrderClientServiceClient" value="http://localhost:2259/OrderClientService.svc"></add>
   <add key="BscDevSuiteServiceClient" value="http://localhost:2259/BscDevSuiteService.svc"></add>
   <add key="BscDevSuitePartServiceClient" value="http://localhost:2259/BscDevSuiteService.svc"></add>
   <add key="RunMonitorGroupServiceClient" value="http://localhost:2259/RunMonitorGroupService.svc"></add>
   <!--DevGps -->
   <add key="DevGpsServiceClient" value="http://localhost:2259/DevGpsService.svc"></add>
-  <add key="MessageServiceExtClient" value="net.tcp://172.22.10.164:4503/MessageService"></add>
+  <add key="MessageServiceExtClient" value="net.tcp://localhost:4503/MessageService"></add>
   <!--GIS About Service-->
   <add key="BscGeoPoiServiceClient" value="http://localhost:2259/BscGeoPoiService.svc"></add>
   <!--FoundRegistry -->
