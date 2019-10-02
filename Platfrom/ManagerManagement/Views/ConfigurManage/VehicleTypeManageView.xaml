@@ -61,7 +61,6 @@ xmlns:Converts="clr-namespace:Gsafety.Common.Converts;assembly=Converts"
                     VerticalAlignment="Center"
                     Text="{Binding SearchByName,Mode=TwoWay}" 
                     MaxLength="20"
-                    MaxWidth="250"
                     Margin="0,5,0,5"/>
             <Button Grid.Column="2"
                     Style="{StaticResource SearchButtonCommonStyle}"
@@ -101,7 +100,7 @@ xmlns:Converts="clr-namespace:Gsafety.Common.Converts;assembly=Converts"
                                         HeaderStyle="{StaticResource ColumnHeaderWhiteStyle}"
                                         Header="Common_Order"
                                         Visibility="Visible" 
-                                        Width="auto"
+                                        Width="80"
                                         Binding="{Binding Row}">
 
                 </sdk:DataGridTextColumn>

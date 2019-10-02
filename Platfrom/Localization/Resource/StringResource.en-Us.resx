@@ -1355,7 +1355,6 @@
   <data name="E13_DepartureRoute" xml:space="preserve">
     <value>Deviate from scheduled route.</value>
   </data>
-
   <data name="GIS_PlanRoute" xml:space="preserve">
     <value>scheduled route</value>
   </data>
@@ -1795,7 +1794,6 @@
   <data name="GIS_Globe" xml:space="preserve">
     <value>Full View</value>
   </data>
-
   <data name="GIS_GlobeSwitch" xml:space="preserve">
     <value>Switch Map</value>
   </data>
@@ -5458,7 +5456,7 @@
     <value>Please select the picture to be marked.</value>
   </data>
   <data name="VehicleMarkPhoto" xml:space="preserve">
-    <value>Picture</value>    
+    <value>Picture</value>
   </data>
   <data name="SelectMarkPhoto1" xml:space="preserve">
     <value>Please select the picture to be marked.</value>
@@ -5633,7 +5631,6 @@
     <value>By Month</value>
     <comment>按月统计</comment>
   </data>
-
   <data name="StatisticsByVehicle" xml:space="preserve">
     <value>By Vehicle</value>
   </data>
@@ -7221,5 +7218,11 @@
   </data>
   <data name="MAINPAGE_SystemRubbish" xml:space="preserve">
     <value>System dustbin</value>
+  </data>
+  <data name="DistanceFormat" xml:space="preserve">
+    <value>The length must be greater than 0 and less than 65535!</value>
+  </data>
+  <data name="IntervalFormat" xml:space="preserve">
+    <value>The time interval must be greater than 0 and less than 65535!</value>
   </data>
 </root>

@@ -153,7 +153,7 @@ namespace Gsafety.PTMS.Installation.ViewModels
             }
         }
 
-        private DateTime? _BeginDate = null;
+        private DateTime? _BeginDate = DateTime.Now.Date.AddMonths(-1);
         public DateTime? BeginDate
         {
             get

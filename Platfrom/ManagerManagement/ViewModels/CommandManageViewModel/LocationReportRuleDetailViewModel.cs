@@ -422,8 +422,8 @@ namespace Gsafety.PTMS.Manager.ViewModels
                 {
                     ValidateLongFormat(prop, value);
                     long result;
-                    if (long.TryParse(value, out result) && long.Parse(value) > 65535)
-                        base.SetError(prop, ApplicationContext.Instance.StringResourceReader.GetString(ApplicationContext.Instance.StringResourceReader.GetString("IntervalFormat")));
+                    if (long.TryParse(value, out result)&&(long.Parse(value) <= 0 || long.Parse(value) > 65535))
+                        base.SetError(prop, ApplicationContext.Instance.StringResourceReader.GetString("IntervalFormat"));
                 }
             }
         }
@@ -449,8 +449,8 @@ namespace Gsafety.PTMS.Manager.ViewModels
                 {
                     ValidateLongFormat(prop, value);
                     long result;
-                    if (long.TryParse(value, out result) && long.Parse(value) > 65535)
-                        base.SetError(prop, ApplicationContext.Instance.StringResourceReader.GetString(ApplicationContext.Instance.StringResourceReader.GetString("DistanceFormat")));
+                    if (long.TryParse(value, out result)&&(long.Parse(value) <= 0 ||  long.Parse(value) > 65535))
+                        base.SetError(prop, ApplicationContext.Instance.StringResourceReader.GetString("DistanceFormat"));
                 }
             }
         }
