@@ -99,7 +99,7 @@
 
                 <sdk:DataGridTextColumn  
                                         HeaderStyle="{StaticResource ColumnHeaderWhiteStyle}"
-                                        Header="LoginName"
+                                        Header="User_UserName"
                                         Visibility="Visible" 
                                         Width="*"
                                         Binding="{Binding UserName}">
@@ -108,7 +108,7 @@
 
                 <sdk:DataGridTextColumn  
                                         HeaderStyle="{StaticResource ColumnHeaderWhiteStyle}"
-                                        Header="MANAGER_UserType"
+                                        Header="MANAGER_UserRole"
                                         Visibility="Visible" 
                                         Width="*"
                                         Binding="{Binding RoleName}">
