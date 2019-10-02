@@ -86,7 +86,7 @@ namespace Gsafety.PTMS.Manager.ViewModels
 
         protected bool ExportDate()
         {
-            if (BeginTime >= EndTime)
+            if (BeginTime > EndTime)
             {
                 MessageBoxHelper.ShowDialog(ApplicationContext.Instance.StringResourceReader.GetString("TRAFFIC_TIP"),
                         ApplicationContext.Instance.StringResourceReader.GetString("LogQueryDateCondition"), MessageDialogButton.Ok);
