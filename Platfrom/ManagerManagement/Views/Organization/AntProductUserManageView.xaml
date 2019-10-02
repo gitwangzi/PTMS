@@ -118,7 +118,7 @@
 
                     <sdk:DataGridTextColumn  
                                         HeaderStyle="{StaticResource ColumnHeaderWhiteStyle}"
-                                        Header="User_UserName"
+                                        Header="UserName"
                                         Visibility="Visible" 
                                         Width="1.2*"
                                         Binding="{Binding UserName}">
