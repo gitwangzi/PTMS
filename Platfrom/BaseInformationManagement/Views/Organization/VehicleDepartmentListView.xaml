@@ -75,7 +75,7 @@
                      VerticalAlignment="Center"
                      Text="{Binding SearchOwner,Mode=TwoWay}" MaxLength="20"/>
 
-            <TextBlock Text="{Binding [Type], Source={StaticResource SR}}"
+            <TextBlock Text="{Binding [MONITOR_VehicleType], Source={StaticResource SR}}"
                                HorizontalAlignment="Right"
                                VerticalAlignment="Center"
                                Margin="0,5,5,5" Grid.Column="4"/>
@@ -134,8 +134,11 @@
                     Visibility="{Binding RelativeSource={RelativeSource Self}, Converter={StaticResource FunItemVisibilityConverter},ConverterParameter='02-04-01-01-10'}"
                     Style="{StaticResource ExpertButtonCommonStyle}" Command="{Binding ExportCommand}"/>
         </Grid>
-
-        <sdk:DataGrid Grid.Row="3" Background="#EFF0F2"
+        <!--sdk:DataGridTextColumn  Header="VehicleHost" HeaderStyle="{StaticResource ColumnHeaderWhiteStyle}"
+                                        Visibility="Visible"
+                                        Width="*"
+                                        Binding="{Binding Owner}"/>-->
+            <sdk:DataGrid Grid.Row="3" Background="#EFF0F2"
                        x:Name="ListDataGrid"
                        ItemsSource="{Binding Data}"
                        Style="{StaticResource DataGridWhiteStyleRxx}"
@@ -156,10 +159,17 @@
                                         Width="*"
                                         Binding="{Binding VehicleTypeDescribe}"/>
 
-                <sdk:DataGridTextColumn  Header="VehicleHost" HeaderStyle="{StaticResource ColumnHeaderWhiteStyle}"
-                                        Visibility="Visible"
-                                        Width="*"
-                                        Binding="{Binding Owner}"/>
+              
+                <sdk:DataGridTemplateColumn 	HeaderStyle="{StaticResource ColumnHeaderWhiteStyle}" Header="VehicleHost" Width="*">
+                    <sdk:DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+
+                                <TextBlock TextAlignment="Left" Text="{Binding Owner}" ToolTipService.ToolTip="{Binding Owner}"  Width="200" HorizontalAlignment="Left"
+                                                               VerticalAlignment="Center" 
+                                                              />
+                        </DataTemplate>
+                    </sdk:DataGridTemplateColumn.CellTemplate>
+                </sdk:DataGridTemplateColumn>
 
                 <sdk:DataGridTextColumn  Header="ALARM_Phone" HeaderStyle="{StaticResource ColumnHeaderWhiteStyle}"
                                         Visibility="Visible"

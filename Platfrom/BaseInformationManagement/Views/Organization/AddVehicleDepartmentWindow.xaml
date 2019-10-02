@@ -133,18 +133,24 @@
 
         <Grid Grid.Row="3"
                 Style="{StaticResource ContentGridWhiteStyle}">
+
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="1.2*"/>
-                
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="10"/>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="10"/>
+                <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <Button Grid.Column="1"
+            <Grid Grid.Column="1">
+
+                <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/> 
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Button Grid.Column="0"
                         HorizontalAlignment="Right"
                         VerticalAlignment="Center"
                         Content="{Binding [Save], Source={StaticResource SR}}"
@@ -153,10 +159,10 @@
                     Visibility="{Binding SaveButtonVisibility}"
                     Command="{Binding CommitCommand}"
                     />
-            <Button Grid.Column="3"
+            <Button Grid.Column="3" Visibility="Collapsed"
                     Style="{StaticResource ResertButtonStyle}"
                     Content="{Binding [Resert], Source={StaticResource SR}}" 
-                    Visibility="{Binding ResertButtonVisibility}"
+                   
                     Command="{Binding ResetCommand}"/>
             <Button Grid.Column="5"
                         HorizontalAlignment="Left"
@@ -165,8 +171,8 @@
                         Style="{StaticResource BackButtonStyle}"
                         Click="CancelButton_Click"/>
 
+           </Grid>
         </Grid>
-
 
 
     </Grid>

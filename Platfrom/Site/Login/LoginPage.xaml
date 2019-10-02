@@ -6,7 +6,7 @@
            xmlns:share="clr-namespace:Gsafety.PTMS.Share;assembly=Share"
            mc:Ignorable="d"
            xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
-           d:DesignWidth="1440" d:DesignHeight="900"
+           d:DesignWidth="1920" d:DesignHeight="1080"
            Title="LoginPage Page">
 
     <toolkit:BusyIndicator x:Name="dataLoading" 
@@ -31,14 +31,30 @@
                 <ColumnDefinition Width="1030"/>                
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
+            <Grid  Grid.Row="0" Grid.Column="2">
+                <StackPanel Height="80" VerticalAlignment="Top"  Orientation="Horizontal" Width="250" Margin="142,0,53,0">
 
-
-            <Image Source="/ExternalResource;component/Images/yuqing-logo.png" 
+                    <Image  Source="/ExternalResource;component/Images/yuqing-logo.png" 
                              
-                             HorizontalAlignment="Right" Grid.Row="0" Grid.Column="1" Width="200" Height="50" Grid.ColumnSpan="2" Margin="0,10,72,140"
+                		HorizontalAlignment="Right"  Width="200" Height="50"
+                          
+                               
+                     Margin="0,5,5,0"
                           
                                
                      />
+
+                    <Button 
+                		Height="30" Width="30"
+                		Content="{Binding [Exit], Source={StaticResource SR}}"
+                		Style="{StaticResource ExitButtonCommonStyle}"
+                		Command="{Binding ReturnCommand}" 
+                		Click="Reset_Click"  />
+                </StackPanel>
+            </Grid>
+
+
+          
             <!--Logo-->
             <Grid Grid.Row="1"
               Grid.Column="1">
@@ -236,17 +252,11 @@
                         x:Name="LoginButton" 
                                 Content="{Binding [LOGIN_Login],Source={StaticResource SR}}" 
                                 Command="{Binding LoginCommand}"
-                        HorizontalAlignment="Right" Height="46" Width="150"
+                        HorizontalAlignment="Right" Height="46" Width="296"
                         VerticalAlignment="Center"
                         Style="{StaticResource LoginButtonStyle}"
-                        Click="LoginButton_Click"/>
-                        <Button Grid.Column="2"
-                        HorizontalAlignment="Left"
-                        VerticalAlignment="Center" Height="46" Width="150"
-                        Content="{Binding [Exit],Source={StaticResource SR}}"
-                        Style="{StaticResource LoginResertButtonStyle}"
-                        Command="{Binding ReturnCommand}" 
-                        Click="Reset_Click"/>
+                        Click="LoginButton_Click" Grid.ColumnSpan="3" Margin="0,0,52,0"/>
+                        
                     </Grid>
 
                 </Grid>

@@ -882,11 +882,11 @@ namespace Gsafety.Ant.BaseInformation.ViewModels
                             Names.Add(ApplicationContext.Instance.StringResourceReader.GetString("BASEINFO_InstallStatus"));
                             Names.Add(ApplicationContext.Instance.StringResourceReader.GetString("BASEINFO_VehicleNumber"));
                             Names.Add(ApplicationContext.Instance.StringResourceReader.GetString("BASEINFO_SuiteID"));
-                            Names.Add(ApplicationContext.Instance.StringResourceReader.GetString("BASEINFO_MDVR_SN"));
-                            Names.Add(ApplicationContext.Instance.StringResourceReader.GetString("BASEINFO_MDVR_CORE_SN"));
+                            Names.Add(ApplicationContext.Instance.StringResourceReader.GetString("barcode"));
+                            Names.Add(ApplicationContext.Instance.StringResourceReader.GetString("DeviceNUm"));
                             Names.Add(ApplicationContext.Instance.StringResourceReader.GetString("SheBeiXingHao"));
                             Names.Add(ApplicationContext.Instance.StringResourceReader.GetString("BASEINFO_MdvrSimId"));
-                            Names.Add(ApplicationContext.Instance.StringResourceReader.GetString("BASEINFO_MdvrSimPhoneNumber"));
+                            Names.Add(ApplicationContext.Instance.StringResourceReader.GetString("MDVR_PhoneNum"));
                             Names.Add(ApplicationContext.Instance.StringResourceReader.GetString("BASEINFO_UPS"));
                             Names.Add(ApplicationContext.Instance.StringResourceReader.GetString("BASEINFO_SdCardId"));
                             Names.Add(ApplicationContext.Instance.StringResourceReader.GetString("BASEINFO_SoftwareVersion"));

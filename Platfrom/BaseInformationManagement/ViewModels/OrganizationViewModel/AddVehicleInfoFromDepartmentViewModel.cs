@@ -1001,12 +1001,28 @@ namespace Gsafety.Ant.BaseInformation.ViewModels.OrganizationViewModel
         private void ValidateContactPhone(string prop, string value)
         {
             ClearErrors(prop);
+            bool flag = true;
+            if (!string.IsNullOrEmpty(value))
+            {
+                int num = 0;
+                char[] cc = value.ToCharArray();
+                foreach (var item in cc)
+                {
+                    if (item != ' ' && item != '-' && item != '(' && item != ')')
+                        flag = flag && int.TryParse(item.ToString(), out num);
+                }
+            }
 
-            long result = 0;
-
-            if (!long.TryParse(value, out result))
+            if (!flag)
             {
                 base.SetError(prop, ApplicationContext.Instance.StringResourceReader.GetString(PTMSBaseViewModel.wrongformat));
+            }
+            else
+            {
+                if (value != null && value.Length > 12)
+                {
+                    base.SetError(prop, ApplicationContext.Instance.StringResourceReader.GetString("PhoneOverLength"));
+                }
             }
 
         }

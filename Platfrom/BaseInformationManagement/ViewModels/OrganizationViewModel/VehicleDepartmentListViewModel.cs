@@ -710,13 +710,13 @@ namespace Gsafety.Ant.BaseInformation.ViewModels.OrganizationViewModel
                                 Names.Add(ApplicationContext.Instance.StringResourceReader.GetString("BASEINFO_VehicleBrandModel"));
                                 Names.Add(ApplicationContext.Instance.StringResourceReader.GetString("BASEINFO_StartYear"));
                                 Names.Add(ApplicationContext.Instance.StringResourceReader.GetString("BASEINFO_ServiceType"));
-                                Names.Add(ApplicationContext.Instance.StringResourceReader.GetString("BASEINFO_Region"));
-                                Names.Add(ApplicationContext.Instance.StringResourceReader.GetString("BASEINFO_OperatingLicense"));
+                                Names.Add(ApplicationContext.Instance.StringResourceReader.GetString("RunningArea"));
+                                Names.Add(ApplicationContext.Instance.StringResourceReader.GetString("OperatingLicense"));
                                
                                 Names.Add(ApplicationContext.Instance.StringResourceReader.GetString("BASEINFO_VehicleOwner"));
                                 Names.Add(ApplicationContext.Instance.StringResourceReader.GetString("BASEINFO_ContactPerson"));
                                 Names.Add(ApplicationContext.Instance.StringResourceReader.GetString("BASEINFO_Phone"));
-                                Names.Add(ApplicationContext.Instance.StringResourceReader.GetString("BASEINFO_EMail"));
+                                Names.Add(ApplicationContext.Instance.StringResourceReader.GetString("Email"));
                                 Names.Add(ApplicationContext.Instance.StringResourceReader.GetString("BASEINFO_Address"));
                                 Names.Add(ApplicationContext.Instance.StringResourceReader.GetString("Note"));
 

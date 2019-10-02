@@ -751,7 +751,7 @@
     <value>规则:11个数字</value>
   </data>
   <data name="BASEINFO_PleaseSelect" xml:space="preserve">
-    <value>请选择</value>
+    <value>请选择组织机构</value>
   </data>
   <data name="BASEINFO_Province" xml:space="preserve">
     <value>省份</value>
@@ -6079,7 +6079,7 @@
     <value>绑定</value>
   </data>
   <data name="wrongformat" xml:space="preserve">
-    <value>格式错误或超出范围</value>
+    <value>格式错误</value>
   </data>
   <data name="RoleList" xml:space="preserve">
     <value>角色列表</value>

@@ -98,8 +98,9 @@ namespace GisManagement.ViewModels
             {
                 //MapPoint mapPoint =
                 //            ESRI.ArcGIS.Client.Bing.Transform.GeographicToWebMercator(new MapPoint(Convert.ToDouble(window.Longitude), Convert.ToDouble(window.Latitude)));
-                MapPoint mapPoint =
-                            Gsafety.Common.Transform.GeographicToWebMercator(new MapPoint(Convert.ToDouble(window.Longitude), Convert.ToDouble(window.Latitude)));
+                //MapPoint mapPoint =
+                //            Gsafety.Common.Transform.GeographicToWebMercator(new MapPoint(Convert.ToDouble(window.Longitude), Convert.ToDouble(window.Latitude)));
+                MapPoint mapPoint = new MapPoint(Convert.ToDouble(window.Longitude, System.Globalization.CultureInfo.InvariantCulture), Convert.ToDouble(window.Latitude, System.Globalization.CultureInfo.InvariantCulture));
                 Graphic anchor = new Graphic()
                 {
                     Geometry = mapPoint,
