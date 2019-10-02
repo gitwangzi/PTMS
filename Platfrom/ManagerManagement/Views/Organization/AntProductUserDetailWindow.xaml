@@ -130,7 +130,7 @@
                          IsReadOnly="{Binding IsReadOnly}"
                          Text="{Binding Phone, Mode=TwoWay}"
                          Margin="0,5,0,5"
-                         MaxLength="20"/>
+                         MaxLength="12"/>
 
                 <TextBlock Grid.Column="1"
                            Grid.Row="5" Style="{StaticResource TextBlockBlackStyle}"
@@ -147,7 +147,7 @@
                          IsReadOnly="{Binding IsReadOnly}"
                          Text="{Binding Mobile, Mode=TwoWay}"
                          Margin="0,5,0,5"
-                         MaxLength="20"/>
+                         MaxLength="12"/>
 
                 <TextBlock Grid.Column="1"
                            Grid.Row="6" Style="{StaticResource TextBlockBlackStyle}"
