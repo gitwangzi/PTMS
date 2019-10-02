@@ -443,7 +443,6 @@
     <value>Se ha enviado con éxito</value>
     <comment>Envió exitosamente</comment>
   </data>
-
   <data name="ALARM_PrintSuccess" xml:space="preserve">
     <value>Se ha imprimir con éxito</value>
   </data>
@@ -9826,10 +9825,10 @@ luego puede eliminar la ruta!</comment>
   <data name="MONITOR_SendEmail" xml:space="preserve">
     <value>Enviar correo</value>
   </data>
-	<data name="MONITOR_AddEmail" xml:space="preserve">
+  <data name="MONITOR_AddEmail" xml:space="preserve">
     <value>Agregar Destinatarios</value>
   </data>
-	<data name="MONITOR_EditEmail" xml:space="preserve">
+  <data name="MONITOR_EditEmail" xml:space="preserve">
     <value>Modificar Destinatarios</value>
   </data>
   <data name="IsRecover" xml:space="preserve">
@@ -9839,5 +9838,11 @@ luego puede eliminar la ruta!</comment>
   <data name="StartTimeError" xml:space="preserve">
     <value>No puede empezar más que hoy</value>
     <comment>No puede empezar más que hoy</comment>
+  </data>
+  <data name="DistanceFormat" xml:space="preserve">
+    <value>¡La longitud debe ser mayor que 0 y menor que 65535!</value>
+  </data>
+  <data name="IntervalFormat" xml:space="preserve">
+    <value>¡El intervalo de tiempo debe ser mayor que 0 y menor que 65535!</value>
   </data>
 </root>

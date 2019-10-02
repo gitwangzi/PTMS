@@ -1485,7 +1485,6 @@
   <data name="GIS_SaveEditGeometry" xml:space="preserve">
     <value>保存</value>
   </data>
-
   <data name="GIS_CancelEditGeometry" xml:space="preserve">
     <value>取消</value>
     <comment>取消</comment>
@@ -6281,7 +6280,6 @@
   <data name="AddAlarmNote" xml:space="preserve">
     <value>添加警情说明</value>
   </data>
-
   <data name="AlarmNote" xml:space="preserve">
     <value>警情说明</value>
   </data>
@@ -7112,13 +7110,19 @@
   <data name="MONITOR_SendEmail" xml:space="preserve">
     <value>发送邮件</value>
   </data>
-	<data name="MONITOR_AddEmail" xml:space="preserve">
+  <data name="MONITOR_AddEmail" xml:space="preserve">
     <value>添加收件人</value>
   </data>
-	<data name="MONITOR_EditEmail" xml:space="preserve">
+  <data name="MONITOR_EditEmail" xml:space="preserve">
     <value>编辑收件人</value>
   </data>
   <data name="StartTimeError" xml:space="preserve">
     <value>开始时间不能大于今天</value>
+  </data>
+  <data name="DistanceFormat" xml:space="preserve">
+    <value>长度必须大于0小于65535!</value>
+  </data>
+  <data name="IntervalFormat" xml:space="preserve">
+    <value>时间间隔必须大于0小于65535!</value>
   </data>
 </root>
