@@ -834,7 +834,7 @@ namespace Gsafety.PTMS.ManagerManagement.ViewModels
             }
             set
             {
-                this.ColorVisible = value;
+                this.colorVisible = value;
                 RaisePropertyChanged(() => this.ColorVisible);
             }
         }
