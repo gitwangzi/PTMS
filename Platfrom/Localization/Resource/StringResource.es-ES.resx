@@ -6811,11 +6811,11 @@ donde se van a instalar la cámara.</comment>
     <comment>Reproduce archivo de sonido o no</comment>
   </data>
   <data name="SafeDeiveAlertQuery" xml:space="preserve">
-    <value>Búsquda de alertas de suite de seguridad</value>
+    <value>Consulta de alarma del dispositivo</value>
     <comment>Consulta de alertas de kit de seguridad</comment>
   </data>
   <data name="SafeDeviceAlertStatistics" xml:space="preserve">
-    <value>Búsquda de alertas de suite de seguridad</value>
+    <value>Estadísticas de alarma del dispositivo</value>
     <comment>Estadística de alertas de kit de seguridad</comment>
   </data>
   <data name="SafeDeviceInstall" xml:space="preserve">
