@@ -94,8 +94,8 @@ namespace Gsafety.PTMS.BasicPage.Model
             }
             else if (ApplicationContext.Instance.AuthenticationInfo.Role.RoleCategory == (short)RoleCategory.MaintainAdmin || ApplicationContext.Instance.AuthenticationInfo.Role.RoleCategory == (short)RoleCategory.MaintainMonitor)
             {
-                orgClient.GetAllOrganizationCompleted += orgClient_GetAllOrganizationCompleted;
-                orgClient.GetAllOrganizationAsync(ApplicationContext.Instance.AuthenticationInfo.ClientID);
+                orgClient.GetOrganizationByUserCompleted += orgClient_GetOrganizationByUserCompleted;
+                orgClient.GetOrganizationByUserAsync(ApplicationContext.Instance.AuthenticationInfo.UserID);
             }
         }
 
