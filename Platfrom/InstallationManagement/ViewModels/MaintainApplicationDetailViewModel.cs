@@ -513,7 +513,7 @@ namespace Gsafety.PTMS.Installation.ViewModels
             if (!value.HasValue)
             {
                 if (IsChecked == true)
-                    base.SetError(prop, ApplicationContext.Instance.StringResourceReader.GetString(PTMSBaseViewModel.wrongformat));
+                    base.SetError(prop, ApplicationContext.Instance.StringResourceReader.GetString(LProxy.NotNull));
             }
         }
 
