@@ -268,7 +268,7 @@ namespace Gsafety.PTMS.Manager.ViewModels.SystemLog
                             Codes.Add("LogoutTime");
 
                             List<string> Names = new List<string>();
-                            Names.Add(ApplicationContext.Instance.StringResourceReader.GetString("User_LoginName"));
+                            Names.Add(ApplicationContext.Instance.StringResourceReader.GetString("User_UserName"));
                             Names.Add(ApplicationContext.Instance.StringResourceReader.GetString("MANAGER_UserType"));
                             Names.Add(ApplicationContext.Instance.StringResourceReader.GetString("MANAGER_LoginTime"));
                             Names.Add(ApplicationContext.Instance.StringResourceReader.GetString("MANAGER_LogoutTime"));
