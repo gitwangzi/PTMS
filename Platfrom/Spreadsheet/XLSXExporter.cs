@@ -146,7 +146,7 @@ namespace Gsafety.PTMS.Spreadsheet
                 contentrow++;
             }
 
-            doc.Workbook.Sheets[0].Sheet.Rows[contentrow + 1].Cells[0].SetValue(DateTime.Now.ToString());
+            //doc.Workbook.Sheets[0].Sheet.Rows[contentrow + 1].Cells[0].SetValue(DateTime.Now.ToString());
 
             using (IStreamProvider storage = new ZipStreamProvider(stream))
             {
@@ -223,7 +223,7 @@ namespace Gsafety.PTMS.Spreadsheet
                 contentrow++;
             }
 
-            doc.Workbook.Sheets[0].Sheet.Rows[contentrow + 1].Cells[0].SetValue(DateTime.Now.ToString());
+            //doc.Workbook.Sheets[0].Sheet.Rows[contentrow + 1].Cells[0].SetValue(DateTime.Now.ToString());
 
             using (IStreamProvider storage = new ZipStreamProvider(stream))
             {
@@ -265,7 +265,7 @@ namespace Gsafety.PTMS.Spreadsheet
                 contentrow++;
             }
 
-            doc.Workbook.Sheets[0].Sheet.Rows[contentrow + 1].Cells[0].SetValue(DateTime.Now.ToString());
+            //doc.Workbook.Sheets[0].Sheet.Rows[contentrow + 1].Cells[0].SetValue(DateTime.Now.ToString());
 
             using (IStreamProvider storage = new ZipStreamProvider(stream))
             {
