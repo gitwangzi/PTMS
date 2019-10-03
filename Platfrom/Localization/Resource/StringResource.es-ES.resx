@@ -4511,7 +4511,7 @@
     <comment>Hora de salida</comment>
   </data>
   <data name="MANAGER_LookDetail" xml:space="preserve">
-    <value>Ver detalles</value>
+    <value>Detalles</value>
     <comment>Ver detalles</comment>
   </data>
   <data name="MANAGER_MDVRID" xml:space="preserve">

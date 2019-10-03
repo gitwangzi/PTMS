@@ -4763,7 +4763,7 @@
     <value>联系人</value>
   </data>
   <data name="Detail" xml:space="preserve">
-    <value>查看详细</value>
+    <value>详情</value>
   </data>
   <data name="DeviceCount" xml:space="preserve">
     <value>设备数量</value>
