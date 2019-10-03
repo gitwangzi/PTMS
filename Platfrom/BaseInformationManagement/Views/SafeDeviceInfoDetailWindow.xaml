@@ -55,7 +55,7 @@
             </Grid.RowDefinitions>
 
 
-            <TextBlock Text="{Binding [BaseInfo_taojian], Source={StaticResource SR}}"
+            <TextBlock Text="{Binding [ID_INSTALL_SUITE_MenuTitleNum], Source={StaticResource SR}}"
                        Margin="0,5,20,5"
                        Grid.Column="1"
                        Grid.Row="0"
@@ -72,7 +72,7 @@
                      Text="{Binding SuiteID,Mode=TwoWay,NotifyOnValidationError=True,ValidatesOnDataErrors=True}"
                      Margin="0,5,0,5"/>
 
-            <TextBlock Text="{Binding [ID_INSTALL_MDVR_CORE_SN], Source={StaticResource SR}}"
+            <TextBlock Text="{Binding [DeviceNUm], Source={StaticResource SR}}"
                        Margin="0,5,20,5"
                        Grid.Column="1"
                        Grid.Row="1"
@@ -88,7 +88,7 @@
                      Text="{Binding MdvrCoreSn,Mode=TwoWay,NotifyOnValidationError=True,ValidatesOnDataErrors=True}"
                      Margin="0,5,0,5"/>
 
-            <TextBlock Text="{Binding [MDVR_TiaoMa], Source={StaticResource SR}}"
+            <TextBlock Text="{Binding [barcode], Source={StaticResource SR}}"
                        Margin="0,5,20,5"
                        Grid.Column="1"
                        Grid.Row="2"
@@ -255,6 +255,13 @@
 
         <Grid  Grid.Row="3"
             Style="{StaticResource ContentGridWhiteStyle}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="1">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="10"/>
@@ -276,7 +283,7 @@
                         HorizontalAlignment="Left"
                         VerticalAlignment="Center"
                         Content="{Binding [LOGIN_Reset], Source={StaticResource SR}}"
-                    Visibility="{Binding ViewVisibility}"
+                   Visibility="Collapsed"
                         Style="{StaticResource ResertButtonStyle}"
                     Command="{Binding ResetCommand}"/>
 
@@ -286,8 +293,9 @@
                         Content="{Binding [MANAGE_Return], Source={StaticResource SR}}"
                         Style="{StaticResource BackButtonStyle}"
                        Click="CancelButton_Click"/>
-
             </Grid>
+
+        </Grid>
 
         <!--</Grid>-->
 

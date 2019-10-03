@@ -106,7 +106,7 @@
             <Button Grid.Column="2"
 					Style="{StaticResource ResertButtonStyle}"
 					Content="{Binding [Resert], Source={StaticResource SR}}" 
-					Visibility="{Binding ResertButtonVisibility}"
+					Visibility="Collapsed"
 					Command="{Binding ResetCommand}"/>
             <Button Content="{Binding [Back], Source={StaticResource SR}}" 
 					Grid.Column="4"

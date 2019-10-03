@@ -134,7 +134,7 @@
                 <Button Grid.Column="0"
                         HorizontalAlignment="Right"
                         VerticalAlignment="Center"
-                        Content="{Binding [Done], Source={StaticResource SR}}"
+                        Content="{Binding [Save], Source={StaticResource SR}}"
                         Style="{StaticResource SaveButtonStyle}"
                     Visibility="{Binding ViewVisibility}"
                     IsEnabled="{Binding IsCanCommit}"

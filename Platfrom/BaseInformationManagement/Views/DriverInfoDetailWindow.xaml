@@ -204,11 +204,11 @@
                 
                 
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="10"/>
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="10"/>
-                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
 
                 <Button
@@ -224,7 +224,7 @@
                 <Button Grid.Column="2"
                                     Style="{StaticResource ResertButtonStyle}"
                                     Content="{Binding [Resert], Source={StaticResource SR}}" 
-                                    Visibility="{Binding ResertButtonVisibility}"
+                                   Visibility="Collapsed"
                                     Command="{Binding ResetCommand}"
                                     HorizontalAlignment="Center"
                                     />

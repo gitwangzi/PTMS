@@ -135,35 +135,43 @@
             Style="{StaticResource ContentGridWhiteStyle}">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="10"/>
                     <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="10"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
 
-                <Button Grid.Column="0"
+                <Grid Grid.Column="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="10"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="10"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Button Grid.Column="0"
                         HorizontalAlignment="Right"
                         VerticalAlignment="Center"
-                        Content="{Binding [Done], Source={StaticResource SR}}"
+                        Content="{Binding [Save], Source={StaticResource SR}}"
                         Style="{StaticResource SaveButtonStyle}"
                     Visibility="{Binding ViewVisibility}"
                     IsEnabled="{Binding IsCanCommit}"
                     Command="{Binding CommitCommand}"/>
 
-                <Button Grid.Column="2"
+                    <Button Grid.Column="2"
                         HorizontalAlignment="Left"
                         VerticalAlignment="Center"
                         Content="{Binding [LOGIN_Reset], Source={StaticResource SR}}"
-                    Visibility="{Binding ViewVisibility}"
+                    Visibility="Collapsed"
                         Style="{StaticResource BackButtonStyle}"
                     Command="{Binding ResetCommand}"/>
 
-                <Button Grid.Column="4"
+                    <Button Grid.Column="4"
                         HorizontalAlignment="Left"
                         VerticalAlignment="Center"
                         Content="{Binding [MANAGE_Return], Source={StaticResource SR}}"
                         Style="{StaticResource BackButtonStyle}"
                     Click="CancelButton_Click"/>
+                </Grid>
 
             </Grid>
 

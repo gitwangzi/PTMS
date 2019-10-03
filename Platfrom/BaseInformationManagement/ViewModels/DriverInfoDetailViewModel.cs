@@ -396,6 +396,7 @@ namespace Gsafety.Ant.BaseInformation.ViewModels
         {
             ClearErrors(prop);
 
+
             if (string.IsNullOrEmpty(value))
             {
                 base.SetError(prop, ApplicationContext.Instance.StringResourceReader.GetString(LProxy.NotNull));
@@ -404,7 +405,7 @@ namespace Gsafety.Ant.BaseInformation.ViewModels
             {
                 if (value.Length > 12)
                 {
-                    base.SetError(prop, ApplicationContext.Instance.StringResourceReader.GetString(PTMSBaseViewModel.wrongformat));
+                    base.SetError(prop, ApplicationContext.Instance.StringResourceReader.GetString("PhoneOverLength"));
                 }
                 else
                 {

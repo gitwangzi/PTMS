@@ -3,9 +3,9 @@
            xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
            xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
                       xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
-           Width="650" Height="400" 
+           Width="800" Height="600" 
            Style="{StaticResource SelfChildenWindowWhiteStyle}"
-           Title="{Binding BindingTitle,Source={StaticResource SR}}">
+           Title="{Binding [Churffure],Source={StaticResource SR}}">
     <Grid x:Name="LayoutRoot" Style="{StaticResource ContentGridWhiteStyle}">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>

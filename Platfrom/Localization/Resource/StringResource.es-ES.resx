@@ -1005,7 +1005,7 @@
     <comment>Regla:11 dígitos</comment>
   </data>
   <data name="BASEINFO_PleaseSelect" xml:space="preserve">
-    <value>Seleccionar</value>
+    <value>Seleccionar Organismo</value>
     <comment>Seleccione</comment>
   </data>
   <data name="BASEINFO_Province" xml:space="preserve">
@@ -9226,11 +9226,11 @@ luego puede eliminar la ruta!</comment>
     <comment>Trabajando</comment>
   </data>
   <data name="wrongformat" xml:space="preserve">
-    <value>Error de formato o sobrepasar el límite</value>
+    <value>Error de formato</value>
     <comment>Error al formato o sobrepasar el límite</comment>
   </data>
   <data name="wrongformat1" xml:space="preserve">
-    <value>Error de formato o sobrepasar el límite</value>
+    <value>Error de formato</value>
     <comment>需要翻译</comment>
   </data>
   <data name="XieYiLEIXING" xml:space="preserve">

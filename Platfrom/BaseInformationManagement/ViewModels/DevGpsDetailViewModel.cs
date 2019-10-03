@@ -46,6 +46,7 @@ namespace Gsafety.Ant.BaseInformation.ViewModels
             set
             {
                 _gpssim = value == null ? null : value.Trim();
+                ValidateGpsSim(ExtractPropertyName(() => GpsSim), _gpssim);
                 Jounce.Framework.JounceHelper.ExecuteOnUI(() => RaisePropertyChanged(() => GpsSim));
             }
         }

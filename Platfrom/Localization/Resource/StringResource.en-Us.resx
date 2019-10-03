@@ -815,7 +815,7 @@
     <value>Rule: 11 numbers</value>
   </data>
   <data name="BASEINFO_PleaseSelect" xml:space="preserve">
-    <value>Please select an agency.</value>
+    <value>Please select an organization.</value>
   </data>
   <data name="BASEINFO_Province" xml:space="preserve">
     <value>Province</value>
@@ -6848,7 +6848,7 @@
     <value>Working</value>
   </data>
   <data name="wrongformat" xml:space="preserve">
-    <value>Format error or out of range.</value>
+    <value>Format error </value>
   </data>
   <data name="XieYiLEIXING" xml:space="preserve">
     <value>Protocol Type</value>

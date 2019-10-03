@@ -137,7 +137,7 @@
                      IsEnabled="{Binding IsEnabled}"  Name="comboStatus">
             </ComboBox>
 
-            <TextBlock Text="{Binding [AdministrativeArea], Source={StaticResource SR}}" 
+            <TextBlock Text="{Binding [BASEINFO_Province], Source={StaticResource SR}}" 
                        Grid.Column="1"
                        Grid.Row="5"
                        HorizontalAlignment="Right"
@@ -154,7 +154,12 @@
                      HorizontalAlignment="Stretch"
                       VerticalAlignment="Center"
                      IsEnabled="{Binding IsEnabled}"  Name="comboStatus2" />
-
+            <TextBlock Text="{Binding [BASEINFO_City], Source={StaticResource SR}}" 
+                       Grid.Column="1"
+                       Grid.Row="6"
+                       HorizontalAlignment="Right"
+                       Margin="0,3,20,3"
+                       VerticalAlignment="Center"/>
             <ComboBox Grid.Row="6"
                 Grid.Column="2" Margin="0,3,0,3"                  
                      ItemsSource="{Binding Cities}"
@@ -353,14 +358,21 @@
             Grid.Row="3" Grid.Column="2"
             Style="{StaticResource ContentGridWhiteStyle}">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="1.2*"/>
-                <ColumnDefinition Width="10"/>
+                <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="10"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <Button Grid.Column="0"
+            <Grid Grid.Column="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Button Grid.Column="0"
                         HorizontalAlignment="Right"
                         VerticalAlignment="Center"
                         Content="{Binding [Save], Source={StaticResource SR}}"
@@ -369,18 +381,19 @@
                         IsEnabled="{Binding IsCanCommit}"
                         Command="{Binding CommitCommand}"/>
 
-            <Button Grid.Column="2"
+                <Button Grid.Column="2"
                     Style="{StaticResource ResertButtonStyle}"
                     Content="{Binding [Resert], Source={StaticResource SR}}" 
-                    Visibility="{Binding ResertButtonVisibility}"
+                  Visibility="Collapsed"
                     Command="{Binding ResetCommand}"/>
-            <Button Grid.Column="4"
+                <Button Grid.Column="4"
                         HorizontalAlignment="Left"
                         VerticalAlignment="Center"
                         Content="{Binding [MANAGE_Return], Source={StaticResource SR}}"
                         Style="{StaticResource BackButtonStyle}"
                         Click="CancelButton_Click"
                         />
+            </Grid>
 
         </Grid>
 
