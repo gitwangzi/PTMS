@@ -167,6 +167,7 @@ namespace Gsafety.PTMS.Installation.ViewModels
             {
                 VehcileID = InitialModel.VehcileID;
                 Applicant = InitialModel.Applicant;
+                Work = InitialModel.Worker;
                 Contact = InitialModel.Contact;
                 Problem = InitialModel.Problem;
                 if (InitialModel.ScheduleDate != null)
@@ -330,6 +331,17 @@ namespace Gsafety.PTMS.Installation.ViewModels
             {
                 _applicant = value == null ? null : value.Trim();
                 Jounce.Framework.JounceHelper.ExecuteOnUI(() => RaisePropertyChanged(() => Applicant));
+            }
+        }
+
+        private string _work;
+        public string Work
+        {
+            get { return _work; }
+            set
+            {
+                _work = value;
+                Jounce.Framework.JounceHelper.ExecuteOnUI(() => RaisePropertyChanged(() => Work));
             }
         }
 
