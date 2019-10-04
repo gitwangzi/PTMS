@@ -152,7 +152,7 @@
                      Grid.Row="8"
                      Margin="0,3,0,3"
                      ItemsSource="{Binding ZInstallStation}"
-                     DisplayMemberPath="Value"
+                     DisplayMemberPath="Value" FontSize="11"
                      SelectedItem="{Binding VInstallStation,Mode=TwoWay}"
                      Style="{StaticResource lightComboBox}"
                      HorizontalAlignment="Stretch"
