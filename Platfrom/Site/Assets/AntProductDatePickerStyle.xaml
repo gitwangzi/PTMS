@@ -425,6 +425,7 @@
         <Setter Property="Background" Value="#ffffff"/>
         <Setter Property="Foreground" Value="#333333"/>
         <Setter Property="Height" Value="22"/>
+        <Setter Property="FontSize" Value="10"/>
     </Style>
 
     <Style TargetType="controls1:DatePickerEx">
