@@ -694,7 +694,7 @@ namespace Gsafety.Ant.BaseInformation.ViewModels.OrganizationViewModel
                                 Codes.Add("Region");
                                 Codes.Add("OperationLicense");
                                 Codes.Add("Owner");
-                                Codes.Add("Contact");
+                                Codes.Add("IdentityID");
                                 Codes.Add("ContactPhone");
                                 Codes.Add("ContactEmail");
                                 Codes.Add("ContactAddress");
@@ -714,7 +714,7 @@ namespace Gsafety.Ant.BaseInformation.ViewModels.OrganizationViewModel
                                 Names.Add(ApplicationContext.Instance.StringResourceReader.GetString("OperatingLicense"));
                                
                                 Names.Add(ApplicationContext.Instance.StringResourceReader.GetString("BASEINFO_VehicleOwner"));
-                                Names.Add(ApplicationContext.Instance.StringResourceReader.GetString("BASEINFO_ContactPerson"));
+                                Names.Add(ApplicationContext.Instance.StringResourceReader.GetString("BASEINFO_IdentityID"));
                                 Names.Add(ApplicationContext.Instance.StringResourceReader.GetString("BASEINFO_Phone"));
                                 Names.Add(ApplicationContext.Instance.StringResourceReader.GetString("Email"));
                                 Names.Add(ApplicationContext.Instance.StringResourceReader.GetString("BASEINFO_Address"));
