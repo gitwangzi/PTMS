@@ -154,7 +154,7 @@
                 <sdk:DataGridTextColumn HeaderStyle="{StaticResource ColumnHeaderWhiteStyle}" 
                                         Header="ID_INSTALL_MDVR_CORE_SN" Binding="{Binding DeviceCoreId}" Width="2*" MinWidth="140"></sdk:DataGridTextColumn>
 
-                <sdk:DataGridTextColumn HeaderStyle="{StaticResource ColumnHeaderWhiteStyle}" MinWidth="160" Header="ID_INSTALL_User_InstallStation" Binding="{Binding InstallationStationName}" Width="*" ></sdk:DataGridTextColumn>
+                <sdk:DataGridTextColumn HeaderStyle="{StaticResource ColumnHeaderWhiteStyle}" MinWidth="160" Header="ID_INSTALL_User_InstallStation" Binding="{Binding InstallationStationName}" Width="2*" ></sdk:DataGridTextColumn>
 
                 <sdk:DataGridTextColumn HeaderStyle="{StaticResource ColumnHeaderWhiteStyle}" 
                                         Header="ID_INSTALL_SetupStaff" Binding="{Binding InstallationStaff}" Width="2*" MinWidth="150"></sdk:DataGridTextColumn>

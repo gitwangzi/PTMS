@@ -157,7 +157,7 @@
                                         HeaderStyle="{StaticResource ColumnHeaderWhiteStyle}" ></sdk:DataGridTextColumn>
                 
                 <sdk:DataGridTextColumn Header="ID_INSTALL_User_InstallStation" 
-                                        Binding="{Binding InstallationStationName}" Width="*" MinWidth="160"
+                                        Binding="{Binding InstallationStationName}" Width="2*" MinWidth="160"
                                         HeaderStyle="{StaticResource ColumnHeaderWhiteStyle}" ></sdk:DataGridTextColumn>
                 
                 <sdk:DataGridTextColumn Header="ID_INSTALL_SetupStaff" Binding="{Binding InstallationStaff}" Width="2*" MinWidth="150"

@@ -30,8 +30,9 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
-                <RowDefinition Height="30"/>
                 <RowDefinition Height="Auto"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="20"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
@@ -152,6 +153,21 @@
                                VerticalAlignment="Center"
                                IsEnabled="{Binding IsChecked}"
                                />
+            
+            <TextBlock Margin="0,5,10,5"
+                Grid.Row="14" 
+            Grid.Column="0" 
+            Text="{Binding [MaintainUndefindRecord_Worker], Source={StaticResource SR}}" 
+            HorizontalAlignment="Right" 
+            VerticalAlignment="Center"/>
+            <TextBox x:Name="name"
+                Margin="0,5,0,15" 
+            Grid.Row="14" 
+                Grid.Column="1" 
+                Text="{Binding Work,Mode=TwoWay}" 
+                HorizontalAlignment="Stretch"
+                IsReadOnly="true"/>
+            
 
             <Grid Grid.Row="16"  Grid.Column="0" Grid.ColumnSpan="2">
                 <Grid.ColumnDefinitions>
