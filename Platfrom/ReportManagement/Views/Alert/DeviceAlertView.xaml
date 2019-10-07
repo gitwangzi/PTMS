@@ -6,6 +6,7 @@
             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
             xmlns:dxp="http://schemas.devexpress.com/winfx/2008/xaml/printing" 
             mc:Ignorable="d"
+               xmlns:Controls="clr-namespace:Gsafety.Common.Controls;assembly=CommonControls" 
             d:DesignHeight="600" d:DesignWidth="800">
 
     <Grid x:Name="LayoutRoot" Style="{StaticResource ContentGridStyle}">
@@ -65,7 +66,7 @@
                                 Grid.Column="2"
                                Margin="0,5,5,5"/>
 
-                    <sdk:DatePicker Grid.Column="3" x:Name="dpStartTime" Style="{StaticResource lightDatePicker}" SelectedDate="{Binding BeginTime,Mode=TwoWay}"
+                     <Controls:DatePickerEx    IsReadOnly="True"  Grid.Column="3" x:Name="dpStartTime" Style="{StaticResource lightDatePicker}" SelectedDate="{Binding BeginTime,Mode=TwoWay}"
                                     HorizontalAlignment="Stretch"
                                     VerticalAlignment="Center"
                                     Margin="0,5,0,5"/>
@@ -76,7 +77,7 @@
                                VerticalAlignment="Center"
                                Margin="0,5,5,5"/>
 
-                    <sdk:DatePicker  Grid.Column="5" x:Name="dpEndTime" Style="{StaticResource lightDatePicker}"  SelectedDate="{Binding EndTime,Mode=TwoWay}"
+                     <Controls:DatePickerEx    IsReadOnly="True"   Grid.Column="5" x:Name="dpEndTime" Style="{StaticResource lightDatePicker}"  SelectedDate="{Binding EndTime,Mode=TwoWay}"
                                      HorizontalAlignment="Stretch"
                                      VerticalAlignment="Center"
                                      Margin="0,5,0,5"/>

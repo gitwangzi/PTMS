@@ -117,7 +117,7 @@
                                          />
 
 
-                <Button Name="ElectricFenceSearch" Grid.Column="2" Grid.Row="1" HorizontalAlignment="Left" Command="{Binding QueryFenceCommand}"                                         
+                <Button Name="ElectricFenceSearch" Grid.Column="2" Grid.Row="1" HorizontalAlignment="Left" Command="{Binding QueryFenceCommand}"   ToolTipService.ToolTip="{Binding [Search], Source={StaticResource SR}}"                                       
                                         Style="{StaticResource SearchButtonCommonStyle}" Margin="5,5,0,5"/>
 
 

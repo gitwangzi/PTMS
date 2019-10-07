@@ -253,11 +253,23 @@
 
 
 
-                <sdk:DataGridTextColumn  Header="BASEINFO_MdvrSimId" 
+                <!--<sdk:DataGridTextColumn  Header="BASEINFO_MdvrSimId" 
                                         HeaderStyle="{StaticResource ColumnHeaderWhiteStyle}"
                                         Visibility="Visible"
-                                        Width="1.5*"
-                                        Binding="{Binding MdvrSim}"/>
+                                        Width="1.5* "
+                                        Binding="{Binding MdvrSim}"/>-->
+
+                <sdk:DataGridTemplateColumn 	HeaderStyle="{StaticResource ColumnHeaderWhiteStyle}" Header="BASEINFO_MdvrSimId" Width="1.5*">
+                    <sdk:DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+
+                            <TextBlock TextAlignment="Left" Text="{Binding MdvrSim}" ToolTipService.ToolTip="{Binding MdvrSim}"  Width="200" HorizontalAlignment="Left"
+                                                               VerticalAlignment="Center" 
+                                                              />
+                        </DataTemplate>
+                    </sdk:DataGridTemplateColumn.CellTemplate>
+                </sdk:DataGridTemplateColumn>
+
 
                 <sdk:DataGridTemplateColumn Header="ID_INSTALL_Operation" 
                                             Width="110"

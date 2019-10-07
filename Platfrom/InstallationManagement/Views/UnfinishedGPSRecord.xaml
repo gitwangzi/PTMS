@@ -112,7 +112,7 @@
                         Margin="10,5,0,5" 
                         VerticalAlignment="Center" 
                         Grid.Column="4"  IsEnabled="{Binding IsTrue}"
-                    Grid.Row="1"
+                    Grid.Row="1" ToolTipService.ToolTip="{Binding [Search], Source={StaticResource SR}}"
                         Style="{StaticResource SearchButtonCommonStyle}">
             </Button>
 

@@ -22,29 +22,72 @@
                       ItemsSource="{Binding Data}" 
                        Style="{StaticResource DataGridWhiteStyleRxx}">
             <sdk:DataGrid.Columns>
-                <sdk:DataGridTextColumn  HeaderStyle="{StaticResource ColumnHeaderWhiteStyle}"
+                <!--<sdk:DataGridTextColumn  HeaderStyle="{StaticResource ColumnHeaderWhiteStyle}"
                                         Header="ChuffeurName"
                                         Visibility="Visible" 
                                         Width="2.2*"
                                         Binding="{Binding Name}">
 
-                </sdk:DataGridTextColumn>
-                <sdk:DataGridTextColumn  Header="DRIVER_LICENSE" HeaderStyle="{StaticResource ColumnHeaderWhiteStyle}"
+                </sdk:DataGridTextColumn>-->
+
+                <sdk:DataGridTemplateColumn 	HeaderStyle="{StaticResource ColumnHeaderWhiteStyle}" Header="ChuffeurName" Width="2.2*">
+                    <sdk:DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+
+                            <TextBlock TextAlignment="Left" Text="{Binding Name}" ToolTipService.ToolTip="{Binding Name}"  Width="200" HorizontalAlignment="Left"
+                                                               VerticalAlignment="Center" 
+                                                              />
+                        </DataTemplate>
+                    </sdk:DataGridTemplateColumn.CellTemplate>
+                </sdk:DataGridTemplateColumn>
+
+                <sdk:DataGridTemplateColumn 	HeaderStyle="{StaticResource ColumnHeaderWhiteStyle}" Header="DRIVER_LICENSE" Width="1.2*">
+                    <sdk:DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+
+                            <TextBlock TextAlignment="Left" Text="{Binding DriverLicense}" ToolTipService.ToolTip="{Binding DriverLicense}"  Width="200" HorizontalAlignment="Left"
+                                                               VerticalAlignment="Center" 
+                                                              />
+                        </DataTemplate>
+                    </sdk:DataGridTemplateColumn.CellTemplate>
+                </sdk:DataGridTemplateColumn>
+                <!--<sdk:DataGridTextColumn  Header="DRIVER_LICENSE" HeaderStyle="{StaticResource ColumnHeaderWhiteStyle}"
                                         Visibility="Visible"
                                         Width="1.2*"
-                                        Binding="{Binding DriverLicense}"/>
-                <sdk:DataGridTextColumn  Header="BASEINFO_IdentityID" HeaderStyle="{StaticResource ColumnHeaderWhiteStyle}"
+                                        Binding="{Binding DriverLicense}"/>-->
+                <!--<sdk:DataGridTextColumn  Header="BASEINFO_IdentityID" HeaderStyle="{StaticResource ColumnHeaderWhiteStyle}"
                                         Visibility="Visible"
                                         Width="1.2*"
-                                        Binding="{Binding ICardID}"/>
+                                        Binding="{Binding ICardID}"/>-->
+                <sdk:DataGridTemplateColumn 	HeaderStyle="{StaticResource ColumnHeaderWhiteStyle}" Header="BASEINFO_IdentityID" Width="1.2*">
+                    <sdk:DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+
+                            <TextBlock TextAlignment="Left" Text="{Binding ICardID}" ToolTipService.ToolTip="{Binding ICardID}"  Width="200" HorizontalAlignment="Left"
+                                                               VerticalAlignment="Center" 
+                                                              />
+                        </DataTemplate>
+                    </sdk:DataGridTemplateColumn.CellTemplate>
+                </sdk:DataGridTemplateColumn>
+
                 <sdk:DataGridTextColumn  Header="ContactPhone" HeaderStyle="{StaticResource ColumnHeaderWhiteStyle}"
                                         Visibility="Visible"
                                         Width="1.2*"
                                         Binding="{Binding Phone}"/>
-                <sdk:DataGridTextColumn  Header="BASEINFO_EMail" HeaderStyle="{StaticResource ColumnHeaderWhiteStyle}"
+                <!--<sdk:DataGridTextColumn  Header="BASEINFO_EMail" HeaderStyle="{StaticResource ColumnHeaderWhiteStyle}"
                                         Visibility="Visible"
                                         Width="1.2*"
-                                        Binding="{Binding Email}"/>
+                                        Binding="{Binding Email}"/>-->
+                <sdk:DataGridTemplateColumn 	HeaderStyle="{StaticResource ColumnHeaderWhiteStyle}" Header="BASEINFO_EMail" Width="1.2*">
+                    <sdk:DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+
+                            <TextBlock TextAlignment="Left" Text="{Binding Email}" ToolTipService.ToolTip="{Binding Email}"  Width="200" HorizontalAlignment="Left"
+                                                               VerticalAlignment="Center" 
+                                                              />
+                        </DataTemplate>
+                    </sdk:DataGridTemplateColumn.CellTemplate>
+                </sdk:DataGridTemplateColumn>
                 <sdk:DataGridTextColumn  HeaderStyle="{StaticResource ColumnHeaderWhiteStyle}"
                                         Header="MAINPAGE_Address"
                                         Visibility="Visible" 

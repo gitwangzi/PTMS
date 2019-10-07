@@ -5,7 +5,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:convert="clr-namespace:Gsafety.PTMS.MainPage.Converts"
     mc:Ignorable="d"
-    d:DesignHeight="900" d:DesignWidth="1440">
+    d:DesignHeight="1080" d:DesignWidth="1920">
     <UserControl.Resources>
         <convert:SoundButtonVisibleConvert x:Key="soundButtonVisible" />
         <convert:ServerStatusConvert x:Key="ServerStatusDescription" />
@@ -151,8 +151,9 @@
                            Height="20"
                            Width="20"
                            Grid.Column="1"/>
-                    <TextBlock Text="{Binding AuthenticationInfo.UserName}"
+                    <TextBlock ToolTipService.ToolTip="{Binding AuthenticationInfo.UserName }" Text="{Binding AuthenticationInfo.UserName}"
                            Grid.Column="2"
+                            MaxWidth="400"
                            HorizontalAlignment="Left"
                            VerticalAlignment="Center"
                            Foreground="#FFFFFF"

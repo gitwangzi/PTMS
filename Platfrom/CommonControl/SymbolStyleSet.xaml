@@ -4,7 +4,7 @@
            xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
            xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
            xmlns:toolkit="http://schemas.microsoft.com/winfx/2006/xaml/presentation/toolkit"
-           Width="350" Height="220" 
+           Width="440" Height="250" FontSize="16"
            Title="{Binding [GIS_SymbolSet], Source={StaticResource SR}}" 
                       Style="{StaticResource SelfChildenWindowWhiteStyle}"
                       Closing="ChildWindow_Closing">
@@ -28,7 +28,7 @@
                             <SolidColorBrush Color="{Binding Value}" />
                         </Rectangle.Fill>
                     </Rectangle>
-                    <TextBlock Grid.Column="1" Text="{Binding NameV}" ToolTipService.ToolTip="{Binding NameV}" Margin="5,0" Height="20" Width="120"  />
+                    <TextBlock Grid.Column="1" Text="{Binding NameV}" ToolTipService.ToolTip="{Binding NameV}" Margin="5,0" Height="20" Width="220"  />
                 </Grid>
             </DataTemplate>
         </Grid.Resources>
@@ -37,7 +37,7 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         <sdk:TabControl x:Name="SymbolsetTab" Grid.Column="0" Grid.Row="0" Margin="5,0,5,0" >
-            <sdk:TabItem Header="{Binding [GIS_FillSymbolSet], Source={StaticResource SR}}"
+            <sdk:TabItem FontSize="14"  Header="{Binding [GIS_FillSymbolSet], Source={StaticResource SR}}"
                          x:Name="FillSymbolSetItem"  Style="{StaticResource TabItemStyle}" Margin="0,9,0,-9">
                 <Grid Style="{StaticResource ContentGridWhiteStyle}">
                     <Grid.RowDefinitions>
@@ -56,15 +56,17 @@
                                 Text="{Binding [GIS_Symbol_Color], Source={StaticResource SR}}" 
                                 VerticalAlignment="Center" Margin="0,0,5,0" />
 
-                    <ComboBox TabIndex="0" x:Name="FillColor"  
+                    <ComboBox FontSize="12" TabIndex="0" x:Name="FillColor"  
                               HorizontalAlignment="Left" 
                               SelectedIndex="1" 
                               VerticalAlignment="Center"
                               ItemTemplate="{StaticResource CBTemplate}" 
                               Style="{StaticResource lightComboBox}"
+                               
                               ItemsSource="{Binding}" 
                             Grid.Row="1" Grid.Column="1" 
-                              Margin="5,0,0,0" Width="200" 
+                              
+                              Margin="5,0,0,0" Width="250" 
                               />
 
                     <TextBlock Grid.Column="0" 
@@ -76,11 +78,11 @@
                             TabIndex="1" Grid.Column="1" 
                             HorizontalAlignment="Left" Margin="0,0,0,0" 
                             Grid.Row="2" VerticalAlignment="Center" 
-                            Width="210" Maximum="1" Minimum="0" Value="0.3"
+                            Width="260" Maximum="1" Minimum="0" Value="0.3"
                             Style="{StaticResource SliderStyle}"/>
                 </Grid>
             </sdk:TabItem>
-            <sdk:TabItem Header="{Binding [GIS_LineSymbolSet], Source={StaticResource SR}}" x:Name="LineSymbolSetItem"  Style="{StaticResource TabItemStyle}" Margin="0,9,0,-9">
+            <sdk:TabItem FontSize="14" Header="{Binding [GIS_LineSymbolSet], Source={StaticResource SR}}" x:Name="LineSymbolSetItem"  Style="{StaticResource TabItemStyle}" Margin="0,9,0,-9">
                 <Grid >
                     <Grid.RowDefinitions>
                         <RowDefinition Height="1"></RowDefinition>
@@ -107,7 +109,7 @@
                     <TextBox MaxLength="2" x:Name="linewidth" TabIndex="1" Grid.Column="1" HorizontalAlignment="Left" Margin="5,0,0,0" Grid.Row="2" VerticalAlignment="Center" Width="200" Text="5"  ToolTipService.ToolTip="{Binding [GIS_Symbol_InvalidWidthTip], Source={StaticResource SR}}"/>
                 </Grid>
             </sdk:TabItem>
-            <sdk:TabItem Header="{Binding [GIS_MarkSymbolSet], Source={StaticResource SR}}" x:Name="MarkSymbolSetItem" Style="{StaticResource TabItemStyle}" Margin="0,9,0,-9">
+            <sdk:TabItem FontSize="14" Header="{Binding [GIS_MarkSymbolSet], Source={StaticResource SR}}" x:Name="MarkSymbolSetItem" Style="{StaticResource TabItemStyle}" Margin="0,9,0,-9">
                 <Grid >
                     <Grid.RowDefinitions>
                         <RowDefinition Height="1"></RowDefinition>

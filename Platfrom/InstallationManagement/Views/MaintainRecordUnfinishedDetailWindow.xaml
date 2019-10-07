@@ -3,6 +3,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+               xmlns:Controls="clr-namespace:Gsafety.Common.Controls;assembly=CommonControls" 
     xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk" 
     xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls" 
     mc:Ignorable="d"
@@ -116,7 +117,7 @@
             Text="{Binding [MaintainApplication_ScheduleDate], Source={StaticResource SR}}" 
             HorizontalAlignment="Right" 
             VerticalAlignment="Center"/>      
-            <sdk:DatePicker Margin="0,5,0,5" 
+             <Controls:DatePickerEx    IsReadOnly="True"  Margin="0,5,0,5" 
                                Grid.Row="9" Style="{StaticResource lightDatePicker}"
                                Grid.Column="1" 
                                SelectedDate="{Binding ScheduleDate,Mode=TwoWay,NotifyOnValidationError=True,ValidatesOnDataErrors=True,StringFormat='yyyy-MM-dd'}" 
@@ -130,7 +131,7 @@
             HorizontalAlignment="Right" 
             VerticalAlignment="Center"/>
 
-            <sdk:DatePicker Margin="0,5,0,5" 
+             <Controls:DatePickerEx    IsReadOnly="True"  Margin="0,5,0,5" 
                                Grid.Row="12" Style="{StaticResource lightDatePicker}"
                                Grid.Column="1" IsEnabled="{Binding IsEnable,Mode=TwoWay}"
                                 SelectedDateFormat="Short"
@@ -144,7 +145,7 @@
             HorizontalAlignment="Right" 
             VerticalAlignment="Center"/>
 
-            <sdk:DatePicker Margin="0,5,0,5" 
+             <Controls:DatePickerEx    IsReadOnly="True"  Margin="0,5,0,5" 
                                Grid.Row="13" 
                                Grid.Column="1" Style="{StaticResource lightDatePicker}"
                                SelectedDate="{Binding EndTime,Mode=TwoWay,NotifyOnValidationError=True,ValidatesOnDataErrors=True,StringFormat='yyyy-MM-dd'}" 

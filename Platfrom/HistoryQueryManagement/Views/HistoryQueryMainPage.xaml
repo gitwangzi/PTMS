@@ -8,6 +8,7 @@
             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
              xmlns:ia="http://schemas.microsoft.com/expression/2010/interactions"
+               xmlns:Controls="clr-namespace:Gsafety.Common.Controls;assembly=CommonControls" 
             mc:Ignorable="d"
             d:DesignHeight="700" d:DesignWidth="900"  Loaded="UserControl_Loaded">
 
@@ -698,7 +699,9 @@
                                            Grid.Column="0" 
                                            HorizontalAlignment="Right" 
                                            VerticalAlignment="Center" Style="{StaticResource TextBlockLightStyle}"/>
-                                <sdk:DatePicker 
+                                <Controls:DatePickerEx    IsReadOnly="True"
+                                    
+                                    
                                             Margin="0,5,0,5" 
                                             Grid.Row="4"
                                             Grid.Column="1" 
@@ -710,7 +713,7 @@
                                            Grid.Column="0" 
                                            HorizontalAlignment="Right" 
                                            VerticalAlignment="Center" Style="{StaticResource TextBlockLightStyle}"/>
-                                <sdk:DatePicker 
+                                 <Controls:DatePickerEx    IsReadOnly="True"  
                                             Margin="0,5,0,5" 
                                             Grid.Row="5"
                                             Grid.Column="1"                                                                  
@@ -957,7 +960,7 @@
                                            Grid.Column="0" 
                                            HorizontalAlignment="Right" 
                                            VerticalAlignment="Center" Style="{StaticResource TextBlockLightStyle}"/>
-                                <sdk:DatePicker 
+                                 <Controls:DatePickerEx    IsReadOnly="True"  
                                             Margin="0,5,0,5" 
                                             Grid.Row="4"
                                             Grid.Column="1" 
@@ -969,7 +972,7 @@
                                            Grid.Column="0" 
                                            HorizontalAlignment="Right" 
                                            VerticalAlignment="Center" Style="{StaticResource TextBlockLightStyle}"/>
-                                <sdk:DatePicker 
+                                 <Controls:DatePickerEx    IsReadOnly="True"  
                                             Margin="0,5,0,5" 
                                             Grid.Row="5"
                                             Grid.Column="1" 
@@ -1207,7 +1210,7 @@
                                            Grid.Column="0" 
                                            HorizontalAlignment="Right" 
                                            VerticalAlignment="Center"/>
-                                <sdk:DatePicker 
+                                 <Controls:DatePickerEx    IsReadOnly="True"  
                                             Margin="0,5,0,5" 
                                             Grid.Row="4"
                                             Grid.Column="1" 
@@ -1221,7 +1224,7 @@
                                            Grid.Column="0" Style="{StaticResource TextBlockLightStyle}"
                                            HorizontalAlignment="Right" 
                                            VerticalAlignment="Center"/>
-                                <sdk:DatePicker 
+                                 <Controls:DatePickerEx    IsReadOnly="True"  
                                             Margin="0,5,0,5" 
                                             Grid.Row="5"
                                             Grid.Column="1" 

@@ -6223,7 +6223,7 @@ donde se van a instalar la cámara.</comment>
     <comment>Nota: Si la estación tiene usuarios asociados, no se permite eliminar la estación.</comment>
   </data>
   <data name="ReferenceByVehicle" xml:space="preserve">
-    <value>Nota: Si el organismo tiene vehículo asociado, no se permite eliminar el organismo</value>
+    <value> Si el organismo tiene vehículo asociado</value>
     <comment>Nota: Si el organismo tiene vehículo asociado, no se permite eliminar el organismo.</comment>
   </data>
   <data name="RemoteServerError" xml:space="preserve">

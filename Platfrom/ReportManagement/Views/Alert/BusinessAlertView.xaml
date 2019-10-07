@@ -1,5 +1,6 @@
 ﻿<UserControl xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"  
              x:Class="Gsafety.PTMS.ReportManager.Views.BusinessAlertView"
+               xmlns:Controls="clr-namespace:Gsafety.Common.Controls;assembly=CommonControls" 
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -65,7 +66,7 @@
                                 Grid.Column="2"
                                Margin="0,5,5,5"/>
 
-                    <sdk:DatePicker Grid.Column="3" x:Name="dpStartTime" Style="{StaticResource lightDatePicker}" SelectedDate="{Binding BeginTime,Mode=TwoWay}"
+                     <Controls:DatePickerEx    IsReadOnly="True"  Grid.Column="3" x:Name="dpStartTime" Style="{StaticResource lightDatePicker}" SelectedDate="{Binding BeginTime,Mode=TwoWay}"
                                     Margin="0,5,0,5"/>
 
                     <TextBlock Text="{Binding [ToDate], Source={StaticResource SR}}" 
@@ -74,7 +75,7 @@
                                VerticalAlignment="Center"
                                Margin="0,5,5,5"/>
 
-                    <sdk:DatePicker  Grid.Column="5" x:Name="dpEndTime" Style="{StaticResource lightDatePicker}" SelectedDate="{Binding EndTime,Mode=TwoWay}"
+                     <Controls:DatePickerEx    IsReadOnly="True"   Grid.Column="5" x:Name="dpEndTime" Style="{StaticResource lightDatePicker}" SelectedDate="{Binding EndTime,Mode=TwoWay}"
                                      Margin="0,5,0,5"/>
 
                     <TextBlock Text="{Binding [BASEINFO_Province], Source={StaticResource SR}}" 
