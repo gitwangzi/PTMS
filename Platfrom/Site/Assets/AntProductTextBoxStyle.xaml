@@ -161,7 +161,7 @@
                         <Border x:Name="ValidationErrorElement" 
                                 BorderThickness="0.3" CornerRadius="1" BorderBrush="#fa788a" Visibility="Collapsed">
                             <ToolTipService.ToolTip>
-                                <ToolTip x:Name="validationTooltip" Template="{StaticResource ValidationToolTipTemplate}" Placement="Top" 
+                                <ToolTip x:Name="validationTooltip" Template="{StaticResource ValidationToolTipTemplate}" Placement="Right"  Margin="-130,0,0,8"
                          PlacementTarget="{Binding RelativeSource={RelativeSource TemplatedParent}}"
                          DataContext="{Binding RelativeSource={RelativeSource TemplatedParent}}">
                                     <ToolTip.Triggers>
