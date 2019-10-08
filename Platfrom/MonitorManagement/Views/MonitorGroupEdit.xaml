@@ -22,12 +22,12 @@
                 <RowDefinition Height="30"/>
             </Grid.RowDefinitions>
             <TextBlock Grid.Row="0" Grid.Column="0" Margin="0,0,5,0" Text="{Binding [MONITOR_Group], Source={StaticResource SR}}" HorizontalAlignment="Right" VerticalAlignment="Center"/>
-            <TextBox Grid.Row="0" Grid.Column="1"  Margin="5,0,0,0" Name="groupName" HorizontalAlignment="Left" Text="{Binding EditRunMonitorGroup.GroupName,Mode=TwoWay, ValidatesOnDataErrors=True, ValidatesOnExceptions=true, NotifyOnValidationError=true}" Width="200" MaxLength="20"/>
+            <TextBox Grid.Row="0" Grid.Column="1"  Margin="5,0,0,0" Name="groupName" TextChanged="groupName_TextChanged_1" HorizontalAlignment="Left" Text="{Binding Name,Mode=TwoWay, ValidatesOnDataErrors=True, ValidatesOnExceptions=true, NotifyOnValidationError=true}" Width="200" MaxLength="20"/>
             <TextBlock Grid.Row="1" Grid.Column="0"  Margin="0,0,5,0" Text="{Binding [MONITOR_GroupNote], Source={StaticResource SR}}" HorizontalAlignment="Right" VerticalAlignment="Center"/>
             <TextBox  Grid.Row="1" Grid.Column="1" Margin="5,5,0,-91" Grid.RowSpan="2" Height="Auto"  HorizontalAlignment="Left"  Text="{Binding EditRunMonitorGroup.Note,Mode=TwoWay,ValidatesOnDataErrors=True, ValidatesOnExceptions=true, NotifyOnValidationError=true}" Width="200" MaxLength="200" TextWrapping="Wrap"/>
         </Grid>
         <Button x:Name="CancelButton" Style="{StaticResource CancelButtonStyle}" Content="{Binding [Cancel],  Source={StaticResource SR}}"  Click="CancelButton_Click" Width="80" HorizontalAlignment="Right" Margin="0,10,103,2" Grid.Row="1" />
-        <Button x:Name="OKButton" Style="{StaticResource SureButtonStyle}"  
+        <Button x:Name="OKButton" IsEnabled="{Binding IsEnabled}" Style="{StaticResource SureButtonStyle}"  
                 Content="{Binding [Confirm], Source={StaticResource SR}}" Click="OKButton_Click" Width="80" 
                 HorizontalAlignment="Right" Margin="0,10,205,2" Grid.Row="1" />
     </Grid>

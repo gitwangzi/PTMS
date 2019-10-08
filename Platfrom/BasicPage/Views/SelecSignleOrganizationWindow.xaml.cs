@@ -35,9 +35,9 @@ namespace Gsafety.PTMS.BasicPage.Views
                     Gsafety.PTMS.Bases.Models.OrganizationEx organizationEx = selectedItem as Gsafety.PTMS.Bases.Models.OrganizationEx;
                     if(organizationEx != null)
                     {
-                        this._viewModel.SelectedOrganizationItem.ID = organizationEx.Organization.ID;
-                        this._viewModel.SelectedOrganizationItem.Name = organizationEx.Organization.Name;
-                        this._viewModel.SelectedOrganizationItem.ParentID = organizationEx.Organization.ParentID;
+                        this._viewModel.SelectedOrganizationItem = organizationEx;
+                        //this._viewModel.SelectedOrganizationItem.Name = organizationEx.Organization.Name;
+                        //this._viewModel.SelectedOrganizationItem.ParentID = organizationEx.Organization.ParentID;
                         this._viewModel.SaveVehicleOrg();
                     }
 

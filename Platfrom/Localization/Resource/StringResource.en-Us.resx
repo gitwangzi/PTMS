@@ -389,6 +389,9 @@
   <data name="ALARM_SendFailure" xml:space="preserve">
     <value>Send failed</value>
   </data>
+	<data name="ALARM_SendEmailFailure" xml:space="preserve">
+    <value>Send mail failed</value>
+  </data>
   <data name="ALARM_Sending" xml:space="preserve">
     <value>Sending</value>
   </data>

@@ -16,6 +16,7 @@
         <cv:SpeedAndDirConverter x:Key="SpeedAndDir"/>
         <Converts:BusinessAlertTypeConverter x:Key="BusinessAlertTypeConverter"/>
         <Converts:DateTimeConverFormate x:Key="DateTimeConverFormate"/>
+
         <Style TargetType="sdk:DataGridColumnHeader" x:Key="NoHeaderColumnHeaderStyle">
             <Setter Property="HorizontalAlignment" Value="Stretch"/>
             <Setter Property="VerticalAlignment" Value="Center"/>
@@ -145,8 +146,8 @@
                                 </Storyboard>
                             </Grid.Resources>
 
-                            <Rectangle x:Name="BackgroundRectangle" Grid.RowSpan="2" Grid.ColumnSpan="2" Opacity="0" Fill="#ffffff"/>
-                            <Rectangle x:Name="InvalidVisualElement" Grid.RowSpan="2" Grid.ColumnSpan="2" Opacity="0" Fill="#ffffff"/>
+                            <Rectangle x:Name="BackgroundRectangle" Grid.RowSpan="2" Grid.ColumnSpan="2" Opacity="0" Fill="#272c32"/>
+                            <Rectangle x:Name="InvalidVisualElement" Grid.RowSpan="2" Grid.ColumnSpan="2" Opacity="0" Fill="#272c32"/>
                             <sdk:DataGridRowHeader Grid.RowSpan="3" Name="RowHeader" sdk:DataGridFrozenGrid.IsFrozen="True" />
                             <sdk:DataGridCellsPresenter Grid.Column="1" Name="CellsPresenter" sdk:DataGridFrozenGrid.IsFrozen="True" />
                             <sdk:DataGridDetailsPresenter Grid.Row="1" Grid.Column="1" Name="DetailsPresenter" />
@@ -160,7 +161,7 @@
 
 
         <Style TargetType="sdk:DataGridCell">
-            <Setter Property="Background" Value="#ffffff" />
+            <Setter Property="Background" Value="#272c32" />
             <Setter Property="HorizontalContentAlignment" Value="Stretch" />
             <Setter Property="VerticalContentAlignment" Value="Center" />
             <Setter Property="IsTabStop" Value="False" />
@@ -176,11 +177,11 @@
                                             <DoubleAnimation Storyboard.TargetName="FocusVisual" Storyboard.TargetProperty="Opacity" To="1" Duration="0" />
                                             <ColorAnimation Storyboard.TargetName="FocusVisual"
                                                         Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)"
-                                                        To="#ffffff" Duration="0"/>
+                                                        To="#272c32" Duration="0"/>
                                             <!--单元格的边框-->
                                             <ColorAnimation Storyboard.TargetName="FocusVisual"
                                                         Storyboard.TargetProperty="(Shape.Stroke).(SolidColorBrush.Color)"
-                                                        To="#ffffff" Duration="0"/>
+                                                        To="#272c32" Duration="0"/>
                                         </Storyboard>
                                     </VisualState>
                                 </VisualStateGroup>
@@ -189,7 +190,7 @@
                                     <VisualState x:Name="Invalid">
                                         <Storyboard>
                                             <DoubleAnimation Storyboard.TargetName="InvalidVisualElement" Storyboard.TargetProperty="Opacity" Duration="0" To="1"/>
-                                            <ColorAnimation Storyboard.TargetName="FocusVisual" Storyboard.TargetProperty="(Fill).Color" Duration="0" To="#ffffff"/>
+                                            <ColorAnimation Storyboard.TargetName="FocusVisual" Storyboard.TargetProperty="(Fill).Color" Duration="0" To="#1e2226"/>
                                         </Storyboard>
                                     </VisualState>
                                 </VisualStateGroup>
@@ -200,7 +201,7 @@
                                 <ColumnDefinition Width="Auto" />
                             </Grid.ColumnDefinitions>
 
-                            <Rectangle Name="FocusVisual" Stroke="#ffffff" StrokeThickness="1" Fill="#ffffff" HorizontalAlignment="Stretch" 
+                            <Rectangle Name="FocusVisual" Stroke="#272c32" StrokeThickness="1" Fill="#272c32" HorizontalAlignment="Stretch" 
                                VerticalAlignment="Stretch" IsHitTestVisible="false" Opacity="0" />
 
                             <ContentPresenter
@@ -210,7 +211,7 @@
                                     VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                                     Margin="{TemplateBinding Padding}" />
 
-                            <Rectangle x:Name="InvalidVisualElement" IsHitTestVisible="False" StrokeThickness="1" Stroke="#ffffff" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Opacity="0"/>
+                            <Rectangle x:Name="InvalidVisualElement" IsHitTestVisible="False" StrokeThickness="1" Stroke="#1e2226" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Opacity="0"/>
 
                             <Rectangle Name="RightGridLine" Grid.Column="1" VerticalAlignment="Stretch" Width="1" />
                         </Grid>
@@ -220,21 +221,21 @@
         </Style>
 
         <Style x:Key="DataGridStyleRxx2" TargetType="sdk:DataGrid">
-            <Setter Property="HorizontalGridLinesBrush" Value="#1E2226"/>
-            <Setter Property="VerticalGridLinesBrush" Value="#1E2226"/>
+            <Setter Property="HorizontalGridLinesBrush" Value="#1e2226"/>
+            <Setter Property="VerticalGridLinesBrush" Value="#1e2226"/>
             <Setter Property="HorizontalScrollBarVisibility" Value="Hidden"/>
             <Setter Property="VerticalScrollBarVisibility" Value="Auto"/>
             <Setter Property="HorizontalAlignment" Value="Stretch"/>
             <Setter Property ="VerticalAlignment" Value="Stretch"/>
             <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
             <Setter Property="VerticalContentAlignment" Value="Stretch"/>
-            <Setter Property="Background" Value="#272C32"/>
+            <Setter Property="Background" Value="#272c32"/>
             <Setter Property="AutoGenerateColumns" Value="False"/>
             <Setter Property="IsReadOnly" Value="True"/>
             <Setter Property="GridLinesVisibility" Value="All"/>
-            <Setter Property="RowBackground" Value="#1E2226"/>
+            <Setter Property="RowBackground" Value="#272c32"/>
             <Setter Property="BorderThickness" Value="0"/>
-            <Setter Property="AlternatingRowBackground" Value="#272C32"/>
+            <Setter Property="AlternatingRowBackground" Value="#1e2226"/>
             <Setter Property="HeadersVisibility" Value="Column"/>
             <Setter Property="SelectionMode" Value="Extended"/>
             <Setter Property="CanUserReorderColumns" Value="True"/>
@@ -244,10 +245,10 @@
             <Setter Property="BorderBrush">
                 <Setter.Value>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                        <GradientStop Color="#1E2226" Offset="0"/>
-                        <GradientStop Color="#1E2226" Offset="0.375"/>
-                        <GradientStop Color="#1E2226" Offset="0.375"/>
-                        <GradientStop Color="#1E2226" Offset="1"/>
+                        <GradientStop Color="#1e2226" Offset="0"/>
+                        <GradientStop Color="#1e2226" Offset="0.375"/>
+                        <GradientStop Color="#1e2226" Offset="0.375"/>
+                        <GradientStop Color="#1e2226" Offset="1"/>
                     </LinearGradientBrush>
                 </Setter.Value>
             </Setter>
@@ -275,14 +276,14 @@
                                                 </VisualState>
                                             </VisualStateGroup>
                                         </VisualStateManager.VisualStateGroups>
-                                        <Rectangle x:Name="BackgroundRectangle" Grid.ColumnSpan="2" Fill="#ffffff" Stretch="Fill"/>
+                                        <Rectangle x:Name="BackgroundRectangle" Grid.ColumnSpan="2" Fill="#1e2226" Stretch="Fill"/>
                                         <Rectangle x:Name="BackgroundGradient" Grid.ColumnSpan="2" Opacity="0" Stretch="Fill">
                                             <Rectangle.Fill>
                                                 <LinearGradientBrush EndPoint=".7,1" StartPoint=".7,0">
-                                                    <GradientStop Color="#1E2226" Offset="0.015"/>
-                                                    <GradientStop Color="#1E2226" Offset="0.375"/>
-                                                    <GradientStop Color="#1E2226" Offset="0.6"/>
-                                                    <GradientStop Color="#1E2226" Offset="1"/>
+                                                    <GradientStop Color="#1e2226" Offset="0.015"/>
+                                                    <GradientStop Color="#1e2226" Offset="0.375"/>
+                                                    <GradientStop Color="#1e2226" Offset="0.6"/>
+                                                    <GradientStop Color="#1e2226" Offset="1"/>
                                                 </LinearGradientBrush>
                                             </Rectangle.Fill>
                                         </Rectangle>
@@ -403,7 +404,7 @@
                                     <sdk:DataGridColumnHeader x:Name="TopLeftCornerHeader" Template="{StaticResource TopLeftHeaderTemplate}" Width="22"/>
                                     <sdk:DataGridColumnHeadersPresenter x:Name="ColumnHeadersPresenter" Grid.Column="1"/>
                                     <sdk:DataGridColumnHeader x:Name="TopRightCornerHeader" Grid.Column="2" Template="{StaticResource TopRightHeaderTemplate}"/>
-                                    <Rectangle x:Name="ColumnHeadersAndRowsSeparator" Grid.ColumnSpan="3" Fill="#1E2226" Height="1" StrokeThickness="1" VerticalAlignment="Bottom" Width="Auto"/>
+                                    <Rectangle x:Name="ColumnHeadersAndRowsSeparator" Grid.ColumnSpan="3" Fill="#1e2226" Height="1" StrokeThickness="1" VerticalAlignment="Bottom" Width="Auto"/>
                                     <sdk:DataGridRowsPresenter x:Name="RowsPresenter" Grid.ColumnSpan="2" Grid.Row="1"/>
                                     <Rectangle x:Name="BottomRightCorner" Grid.Column="2" Fill="#FFE9EEF4" Grid.Row="2"/>
                                     <Rectangle x:Name="BottomLeftCorner" Grid.ColumnSpan="2" Fill="#FFE9EEF4" Grid.Row="2"/>
@@ -426,6 +427,9 @@
                 </Setter.Value>
             </Setter>
         </Style>
+
+
+
 
 
     </UserControl.Resources>
@@ -750,6 +754,9 @@
                                 <sdk:DataGrid Grid.Row="1"  Style="{StaticResource DataGridStyleRxx2}"
                                       ItemsSource="{Binding ChauffeurList}"
                                       GridLinesVisibility="None"
+                                      BorderBrush="#1c1F23"
+                                      Background="#1c1f23"
+                                      RowBackground="#1c1f23"
                                       CanUserResizeColumns="False"
                                       Margin="0,7,0,10">
 
@@ -776,8 +783,8 @@
                                                         Margin="0,3,10,3" 
                                                         VerticalAlignment="Center"   
                                                         HorizontalAlignment="Right"  
-                                                        TextAlignment="Right"  Height="Auto"
-                                                        ToolTipService.ToolTip="{Binding Name}" Style="{StaticResource TextBlockLightStyle}"/>
+                                                        TextAlignment="Right"  Height="Auto" Foreground="White"
+                                                        ToolTipService.ToolTip="{Binding Name}" />
                                                 </DataTemplate>
                                             </sdk:DataGridTemplateColumn.CellTemplate>
                                         </sdk:DataGridTemplateColumn>
@@ -789,8 +796,8 @@
                                                         Margin="10,3,0,3" 
                                                         VerticalAlignment="Center"   
                                                         HorizontalAlignment="Left"  
-                                                        TextAlignment="Left"  Height="Auto"
-                                                        ToolTipService.ToolTip="{Binding Phone}"  Style="{StaticResource TextBlockLightStyle}"/>
+                                                        TextAlignment="Left"  Height="Auto" Foreground="White"
+                                                        ToolTipService.ToolTip="{Binding Phone}"  />
                                                 </DataTemplate>
                                             </sdk:DataGridTemplateColumn.CellTemplate>
                                         </sdk:DataGridTemplateColumn>

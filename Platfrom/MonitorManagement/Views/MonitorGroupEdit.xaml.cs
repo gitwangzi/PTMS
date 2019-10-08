@@ -1,4 +1,5 @@
-﻿using Gsafety.Common.Controls;
+﻿using Gsafety.Ant.Monitor.ViewModels;
+using Gsafety.Common.Controls;
 using Gsafety.PTMS.ServiceReference.RunMonitorGroupService;
 using Gsafety.PTMS.Share;
 using System;
@@ -17,10 +18,14 @@ namespace Gsafety.Ant.Monitor.Views
 {
     public partial class MonitorGroupEdit : ChildWindow
     {
+
+        MonitorGroupEditViewModel viewModel;
         public MonitorGroupEdit()
         {
             InitializeComponent();
-            this.DataContext = this;
+            this.viewModel = new MonitorGroupEditViewModel();
+            this.DataContext = viewModel;
+            this.viewModel.Name = string.Empty;
             this.MouseRightButtonDown += ChildWindow_MouseRightButtonDown;
         }
 
@@ -40,7 +45,7 @@ namespace Gsafety.Ant.Monitor.Views
         public void Edit(RunMonitorGroup runMonitorGroup)
         {
             EditRunMonitorGroup = runMonitorGroup;
-            
+            this.viewModel.Name = runMonitorGroup.GroupName;
             Show();
         }
 
@@ -57,12 +62,12 @@ namespace Gsafety.Ant.Monitor.Views
         {
             if (EditRunMonitorGroup.GroupName == "")
             {
-                MessageBoxHelper.ShowDialog(ApplicationContext.Instance.StringResourceReader.GetString("Tip"), ApplicationContext.Instance.StringResourceReader.GetString("Monitor_GroupNameCanNotEmpty"), MessageDialogButton.Ok);
+               // MessageBoxHelper.ShowDialog(ApplicationContext.Instance.StringResourceReader.GetString("Tip"), ApplicationContext.Instance.StringResourceReader.GetString("Monitor_GroupNameCanNotEmpty"), MessageDialogButton.Ok);
                 return;
             }
             if (Duplicate(EditRunMonitorGroup.GroupName))
             {
-                MessageBoxHelper.ShowDialog(ApplicationContext.Instance.StringResourceReader.GetString("Tip"), ApplicationContext.Instance.StringResourceReader.GetString("Monitor_GroupNameDuplication"), MessageDialogButton.Ok);
+              //  MessageBoxHelper.ShowDialog(ApplicationContext.Instance.StringResourceReader.GetString("Tip"), ApplicationContext.Instance.StringResourceReader.GetString("Monitor_GroupNameDuplication"), MessageDialogButton.Ok);
                 return;
             }
             this.DialogResult = true;
@@ -77,6 +82,12 @@ namespace Gsafety.Ant.Monitor.Views
 System.Windows.Input.MouseButtonEventArgs e)
         {
             e.Handled = true;
+        }
+
+        private void groupName_TextChanged_1(object sender, TextChangedEventArgs e)
+        {
+            this.viewModel.Name = this.groupName.Text;
+            EditRunMonitorGroup.GroupName = this.groupName.Text;
         }
     }
 }

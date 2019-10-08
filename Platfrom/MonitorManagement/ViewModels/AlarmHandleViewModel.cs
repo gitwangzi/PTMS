@@ -297,7 +297,7 @@ namespace Gsafety.Ant.Monitor.ViewModels
 
                 if (e.Error != null)
                 {
-                    MessageBoxHelper.ShowDialog(ApplicationContext.Instance.StringResourceReader.GetString("Tip"), ApplicationContext.Instance.StringResourceReader.GetString("ALARM_SendFailure"), MessageDialogButton.Ok);
+                    MessageBoxHelper.ShowDialog(ApplicationContext.Instance.StringResourceReader.GetString("Tip"), ApplicationContext.Instance.StringResourceReader.GetString("ALARM_SendEmailFailure"), MessageDialogButton.Ok);
                     return;
                 }
 
@@ -305,12 +305,12 @@ namespace Gsafety.Ant.Monitor.ViewModels
                 if (result.IsSuccess == false)
                 {
 
-                    MessageBoxHelper.ShowDialog(ApplicationContext.Instance.StringResourceReader.GetString("Tip"), ApplicationContext.Instance.StringResourceReader.GetString("ALARM_SendFailure"), MessageDialogButton.Ok);
+                    MessageBoxHelper.ShowDialog(ApplicationContext.Instance.StringResourceReader.GetString("Tip"), ApplicationContext.Instance.StringResourceReader.GetString("ALARM_SendEmailFailure"), MessageDialogButton.Ok);
 
                 }
                 else
                 {
-                    MessageBoxHelper.ShowDialog(ApplicationContext.Instance.StringResourceReader.GetString("Tip"), ApplicationContext.Instance.StringResourceReader.GetString("ALARM_SendSuc"), MessageDialogButton.Ok);
+                   // MessageBoxHelper.ShowDialog(ApplicationContext.Instance.StringResourceReader.GetString("Tip"), ApplicationContext.Instance.StringResourceReader.GetString("ALARM_SendSuc"), MessageDialogButton.Ok);
 
                 }
             }
@@ -1146,6 +1146,7 @@ namespace Gsafety.Ant.Monitor.ViewModels
                 {
                     if (e.Result.IsSuccess)
                     {
+                        MessageBoxHelper.ShowDialog(ApplicationContext.Instance.StringResourceReader.GetString("Tip"), ApplicationContext.Instance.StringResourceReader.GetString("ALARM_SendSuc"), MessageDialogButton.Ok);
                         AlarmHandleIsVisual = false;
                         EventAggregator.Publish<AlarmHandleResult>(e.Result.Result);
                     }

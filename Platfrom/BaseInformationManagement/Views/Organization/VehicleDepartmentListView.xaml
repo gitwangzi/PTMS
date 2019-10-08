@@ -41,11 +41,11 @@
               Style="{StaticResource SearchContentGridStyle}"
               Height="35">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="2*"/>
                 <ColumnDefinition Width="4*"/>
-                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="2*"/>
                 <ColumnDefinition Width="4*"/>
-                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="2*"/>
                 <ColumnDefinition Width="4*"/>
                 <ColumnDefinition Width="*"/>
 

@@ -131,8 +131,8 @@ namespace Gsafety.PTMS.Manager.ViewModels
                     var result = window._viewModel.SelectedOrganizationItem;
                     if (result != null)
                     {
-                        this.OrganizationName = result.Name;
-                        _organizationID = result.ID;
+                        this.OrganizationName = result.Organization.Name;
+                        _organizationID = result.Organization.ID;
                     }
                 }
             }

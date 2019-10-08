@@ -208,10 +208,12 @@
                            Margin="0,5,20,5"
                            Text="{Binding [Note], Source={StaticResource SR}}"/>
                 <TextBox Grid.Column="2"
+                         Height="50"
                          Grid.Row="10"
                          x:Name="Description"
                          TextChanged="Note_TextChanged_1"
                          HorizontalAlignment="Stretch"
+                          TextWrapping="Wrap"
                          VerticalAlignment="Center"
                          IsReadOnly="{Binding IsReadOnly}"
                          Text="{Binding Description, Mode=TwoWay}"

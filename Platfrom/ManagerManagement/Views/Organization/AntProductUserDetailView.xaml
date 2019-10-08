@@ -226,6 +226,7 @@
                          HorizontalAlignment="Stretch"
                          VerticalAlignment="Center"
                          IsReadOnly="{Binding IsReadOnly}"
+                          TextWrapping="Wrap"
                          Text="{Binding Description, Mode=TwoWay}"
                          Margin="0,5,0,5"
                          MaxLength="2000"/>

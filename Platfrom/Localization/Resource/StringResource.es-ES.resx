@@ -431,6 +431,9 @@
     <value>Error al enviar</value>
     <comment>Falló en enviar</comment>
   </data>
+	<data name="ALARM_SendEmailFailure" xml:space="preserve">
+    <value>Error en el envio del correo</value>
+  </data>
   <data name="ALARM_Sending" xml:space="preserve">
     <value>Enviando</value>
     <comment>Enviando</comment>

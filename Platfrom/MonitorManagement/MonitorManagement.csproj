@@ -131,10 +131,13 @@
     <Compile Include="ViewModels\DeviceAlertDetailPageViewModel.cs" />
     <Compile Include="ViewModels\ManualAlarmViewModel.cs" />
     <Compile Include="ViewModels\MonitorMainPageVm.cs" />
+    <Compile Include="ViewModels\MonitorNoteEditViewModel.cs" />
     <Compile Include="ViewModels\SelectFenceViewModel.cs" />
     <Compile Include="ViewModels\SendPhoneMsgViewModel.cs" />
     <Compile Include="ViewModels\VehicleInfoVm.cs" />
     <Compile Include="ViewModels\AlertHandleViewModel.cs" />
+    <Compile Include="ViewModels\MonitorEmailEditViewModel.cs" />
+    <Compile Include="ViewModels\MonitorGroupEditViewModel.cs" />
     <Compile Include="Views\ChildSendMail.xaml.cs">
       <DependentUpon>ChildSendMail.xaml</DependentUpon>
     </Compile>
