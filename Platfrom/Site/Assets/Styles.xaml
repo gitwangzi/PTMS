@@ -1949,7 +1949,7 @@
             <Border Background="#352A2E31" CornerRadius="2" Margin="1,1,-1,-1"/>
             <Border Background="#FFDC000C" CornerRadius="2"/>
             <Border CornerRadius="2">
-                <TextBlock Foreground="White" MaxWidth="250" Margin="8,4,8,4" TextWrapping="Wrap" Text="{Binding (Validation.Errors)[0].ErrorContent}" UseLayoutRounding="false"/>
+                <TextBlock Foreground="White"  MaxWidth="250" Margin="8,4,8,4" TextWrapping="Wrap" Text="{Binding (Validation.Errors)[0].ErrorContent}" UseLayoutRounding="false"/>
             </Border>
         </Grid>
     </ControlTemplate>

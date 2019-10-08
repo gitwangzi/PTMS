@@ -565,7 +565,7 @@
             <Setter Property="Foreground" Value="#333333"/>
             <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto"/>
             <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto"/>
-            <Setter Property="Height" Value="22"/>
+            <Setter Property="Height" Value="25"/>
             <Setter Property="BorderBrush" Value="#DDDDDD"/>
 
             <Setter Property="Template">
@@ -845,7 +845,7 @@
                             <Rectangle x:Name="FocusVisualElement" IsHitTestVisible="false" Margin="1" Opacity="0" RadiusY="2" RadiusX="2" Stroke="#FF6DBDD1" StrokeThickness="1"/>
                         <Border x:Name="ValidationErrorElement" BorderBrush="#fa788a" BorderThickness="0.3" CornerRadius="1" Visibility="Collapsed">
                                 <ToolTipService.ToolTip>
-                                    <ToolTip x:Name="validationTooltip" DataContext="{Binding RelativeSource={RelativeSource TemplatedParent}}" Placement="Right" PlacementTarget="{Binding RelativeSource={RelativeSource TemplatedParent}}" Template="{StaticResource ValidationToolTipTemplate}">
+                                <ToolTip x:Name="validationTooltip" DataContext="{Binding RelativeSource={RelativeSource TemplatedParent}}" Placement="Right"  Margin="-130,0,0,0" PlacementTarget="{Binding RelativeSource={RelativeSource TemplatedParent}}" Template="{StaticResource ValidationToolTipTemplate}">
                                         <ToolTip.Triggers>
                                             <EventTrigger RoutedEvent="Canvas.Loaded">
                                                 <BeginStoryboard>
