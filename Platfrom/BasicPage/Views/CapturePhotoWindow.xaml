@@ -647,7 +647,7 @@ Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="controlTe
 
                     <Button x:Name="btn_query" Grid.Column="7" Grid.Row="1"
                         Margin="5,5,0,5"  
-                        Tag="{Binding [Query], Source={StaticResource SR}}"  
+                        Tag="{Binding [Query], Source={StaticResource SR}}"  ToolTipService.ToolTip="{Binding [Search], Source={StaticResource SR}}" 
                         Command="{Binding QueryCommand}" Style="{StaticResource SearchButtonCommonStyle}"
                         >
                     </Button>

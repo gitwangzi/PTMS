@@ -122,7 +122,7 @@
                 </toolkit:TimePicker>
 
                 <Button x:Name="btn_query" Grid.Column="8" Margin="5,5,0,5"  
-                        Tag="{Binding [Query], Source={StaticResource SR}}"  
+                        Tag="{Binding [Query], Source={StaticResource SR}}"   ToolTipService.ToolTip="{Binding [Search], Source={StaticResource SR}}"
                         Command="{Binding QueryCommand}" Style="{StaticResource SearchButtonCommonStyle}"
                         >
                 </Button>

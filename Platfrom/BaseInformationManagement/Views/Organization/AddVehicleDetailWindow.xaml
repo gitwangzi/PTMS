@@ -286,7 +286,7 @@
                      Text="{Binding Owner,Mode=TwoWay, NotifyOnValidationError=True,ValidatesOnDataErrors=True}"
                      IsReadOnly="{Binding IsReadOnly}"/>
 
-            <TextBlock Text="{Binding [BASEINFO_ContactPerson], Source={StaticResource SR}}" 
+            <TextBlock Text="{Binding [BASEINFO_IdentityID], Source={StaticResource SR}}" 
                        Grid.Column="1"
                        Grid.Row="14"
                        HorizontalAlignment="Right"

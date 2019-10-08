@@ -39,10 +39,10 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <Button x:Name="OKButton" Content="{Binding [Confirm],  Source={StaticResource SR}}" Style="{StaticResource SureButtonStyle}"  Click="OKButton_Click" Width="75" Height="23" HorizontalAlignment="Right" Margin="0,12,8,0" Grid.Column="0" />
-            <Button x:Name="CancelButton" Style="{StaticResource CancelButtonStyle}"
-                    Content="{Binding [Cancel],  Source={StaticResource SR}}" Click="CancelButton_Click" Width="75" 
-                    Height="23" HorizontalAlignment="Left" Margin="8,12,20,0" Grid.Column="1" />
+            <Button x:Name="OKButton" FontSize="14" Content="{Binding [Confirm],  Source={StaticResource SR}}" Style="{StaticResource SureButtonStyle}"  Click="OKButton_Click" Width="100" Height="30" HorizontalAlignment="Right" Margin="0,2,10,10" Grid.Column="0" />
+            <Button x:Name="CancelButton" FontSize="14" Style="{StaticResource CancelButtonStyle}"
+                    Content="{Binding [Cancel],  Source={StaticResource SR}}" Click="CancelButton_Click" Width="100" 
+                    Height="30" HorizontalAlignment="Left" Margin="10,2,0,10" Grid.Column="1" />
         </Grid>
     </Grid>
 </controls:ChildWindow>

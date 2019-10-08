@@ -36,7 +36,7 @@
                          Margin="0,5,0,5"/>
             <Button x:Name="btn_query" 
                         Margin="5,5,0,5"  
-                        Tag="{Binding [Query], Source={StaticResource SR}}"  
+                        Tag="{Binding [Query], Source={StaticResource SR}}"   ToolTipService.ToolTip="{Binding [Search], Source={StaticResource SR}}"
                         Command="{Binding BtnSearchCommand}" Style="{StaticResource SearchButtonCommonStyle}">
             </Button>
         </StackPanel>

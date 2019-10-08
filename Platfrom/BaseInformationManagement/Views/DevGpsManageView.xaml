@@ -112,7 +112,7 @@
                      VerticalAlignment="Center"/>
             <Button Grid.Column="6" Grid.Row="1"
                     Style="{StaticResource SearchButtonCommonStyle}"
-                    ToolTipService.ToolTip="{Binding [Common_Search], Source={StaticResource SR}}"
+                    ToolTipService.ToolTip="{Binding [Search], Source={StaticResource SR}}"
                     Command="{Binding BtnSearchCommand}"
                     />
 

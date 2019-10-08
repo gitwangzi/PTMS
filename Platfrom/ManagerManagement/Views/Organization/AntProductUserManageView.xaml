@@ -107,25 +107,45 @@
                 VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
                 <sdk:DataGrid.Columns>
 
-                    <sdk:DataGridTextColumn  
+                    <!--<sdk:DataGridTextColumn  
                                         HeaderStyle="{StaticResource ColumnHeaderWhiteStyle}"
                                         Header="User_LoginName"
                                         Visibility="Visible" 
                                         Width="1.2*"
                                         Binding="{Binding Account}">
 
-                    </sdk:DataGridTextColumn>
+                    </sdk:DataGridTextColumn>-->
+                <sdk:DataGridTemplateColumn 	HeaderStyle="{StaticResource ColumnHeaderWhiteStyle}" Header="User_LoginName" Width="1.2*">
+                    <sdk:DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
 
-                    <sdk:DataGridTextColumn  
+                            <TextBlock TextAlignment="Left" Text="{Binding Account}" ToolTipService.ToolTip="{Binding Account}"  Width="300" HorizontalAlignment="Left"
+                                                               VerticalAlignment="Center" 
+                                                              />
+                        </DataTemplate>
+                    </sdk:DataGridTemplateColumn.CellTemplate>
+                </sdk:DataGridTemplateColumn>
+
+                <!--<sdk:DataGridTextColumn  
                                         HeaderStyle="{StaticResource ColumnHeaderWhiteStyle}"
                                         Header="UserName"
                                         Visibility="Visible" 
                                         Width="1.2*"
                                         Binding="{Binding UserName}">
 
-                    </sdk:DataGridTextColumn>
+                    </sdk:DataGridTextColumn>-->
+                <sdk:DataGridTemplateColumn 	HeaderStyle="{StaticResource ColumnHeaderWhiteStyle}" Header="UserName" Width="1.2*">
+                    <sdk:DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
 
-                    <sdk:DataGridTextColumn  Header="ALARM_Phone" 
+                            <TextBlock TextAlignment="Left" Text="{Binding UserName}" ToolTipService.ToolTip="{Binding UserName}"  Width="300" HorizontalAlignment="Left"
+                                                               VerticalAlignment="Center" 
+                                                              />
+                        </DataTemplate>
+                    </sdk:DataGridTemplateColumn.CellTemplate>
+                </sdk:DataGridTemplateColumn>
+
+                <sdk:DataGridTextColumn  Header="ALARM_Phone" 
                                         HeaderStyle="{StaticResource ColumnHeaderWhiteStyle}"
                                         Visibility="Visible"
                                         Width="1.0*"

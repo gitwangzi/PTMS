@@ -2,6 +2,8 @@
            xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
            xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
            xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+               xmlns:Controls="clr-namespace:Gsafety.Common.Controls;assembly=CommonControls" 
+    
            xmlns:CommonCtrs="clr-namespace:Gsafety.Common.Controls;assembly=CommonControls"
            xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
            xmlns:toolkit="http://schemas.microsoft.com/winfx/2006/xaml/presentation/toolkit"
@@ -126,7 +128,7 @@
                        VerticalAlignment="Center" Margin="0,0,5,0"/>
 
 
-            <sdk:DatePicker 
+             <Controls:DatePickerEx    IsReadOnly="True"  
                              Width="200" Margin="5,0,0,0" 
                              Grid.Row="8"
                              Grid.Column="1" 
@@ -142,7 +144,7 @@
                     <inputToolkit:RangeTimePickerPopup PopupTimeSelectionMode="AllowSecondsSelection"/>
                 </inputToolkit:TimePicker.Popup>
             </inputToolkit:TimePicker>-->
-            <sdk:DatePicker 
+             <Controls:DatePickerEx    IsReadOnly="True"  
                              Width="200" Margin="5,0,0,0" 
                              Grid.Row="9"
                              Grid.Column="1" 

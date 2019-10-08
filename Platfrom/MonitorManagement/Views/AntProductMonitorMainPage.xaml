@@ -2126,7 +2126,7 @@ Storyboard.TargetProperty="(UIElement.Cursor)" Storyboard.TargetName="bg" d:IsOp
                                             </StackPanel>
                                         </Button>
 
-                                        <Button Style="{StaticResource button01}" 
+                                        <!--<Button Style="{StaticResource button01}" 
                                                  IsEnabled="{Binding CurSelectedTableData.VehicleInfo.HasMoblie,FallbackValue=False}"
                                                 Visibility="{Binding RelativeSource={RelativeSource Self}, Converter={StaticResource FunItemVisibilityConverter},ConverterParameter='02-01-01-04-07'}"
                                                 Command="{Binding SendMessageCommond}" CommandParameter="{Binding CurSelectedTableData.VehicleId}">
@@ -2134,7 +2134,7 @@ Storyboard.TargetProperty="(UIElement.Cursor)" Storyboard.TargetName="bg" d:IsOp
                                                 <Image Source="/ExternalResource;component/Images/NormalSendMessage.png" Width="16" Height="16" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
                                                 <TextBlock Margin="10 0 0 0" Text="{Binding [MONITOR_SendMessage],Source={StaticResource SR}}" Foreground="#FFFFFFFF" ></TextBlock>
                                             </StackPanel>
-                                        </Button>
+                                        </Button>-->
 
                                         <Button Style="{StaticResource button01}" 
                                                 IsEnabled="{Binding CurSelectedTableData,Converter={StaticResource ObjectIsNullConverter}}"

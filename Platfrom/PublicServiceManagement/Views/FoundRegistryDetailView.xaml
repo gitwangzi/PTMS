@@ -1,5 +1,6 @@
 ﻿<UserControl x:Class="Gsafety.PTMS.PublicServiceManagement.Views.Views.FoundRegistryDetailView"
 	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+               xmlns:Controls="clr-namespace:Gsafety.Common.Controls;assembly=CommonControls" 
 	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -138,7 +139,7 @@
 					Text="{Binding FoundTime,Mode=TwoWay,NotifyOnValidationError=True,ValidatesOnDataErrors=True}" 
 					HorizontalAlignment="Stretch"
 					IsReadOnly="{Binding IsReadOnly, Mode=TwoWay}"/>-->
-               <sdk:DatePicker Margin="0,5,0,5" 
+                <Controls:DatePickerEx    IsReadOnly="True"  Margin="0,5,0,5" 
                                Grid.Row="6" 
                                Grid.Column="1"
                                SelectedDate="{Binding FoundTime,Mode=TwoWay,NotifyOnValidationError=True,ValidatesOnDataErrors=True}" 
