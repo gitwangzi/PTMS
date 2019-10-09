@@ -2173,6 +2173,25 @@
         </Setter>
     </Style>
 
+    <!--重置密码按钮样式-区分刷新-->
+    <Style TargetType="Button" x:Key="ResertPwdButtonStyle">
+        <Setter Property="Height" Value="16"/>
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="Width" Value="16"/>
+        <Setter Property="HorizontalAlignment" Value="Stretch"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="Margin" Value="5,5,5,5"/>
+        <Setter Property="Command" Value="{Binding ResertPwdCommand}"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Image Stretch="Uniform"
+                           Source="/ExternalResource;component/Images/Gis_previous.png"/>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
 
     <!--导出按钮样式-->
     <Style TargetType="Button" x:Key="ExpertButtonCommonStyle">
