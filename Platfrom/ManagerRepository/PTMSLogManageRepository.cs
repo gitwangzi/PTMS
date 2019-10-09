@@ -42,7 +42,9 @@ namespace Gsafety.PTMS.Manager.Repository
                          join v in context.BSC_VEHICLE on j.VEHICLE_ID equals v.VEHICLE_ID
                          join t in context.BSC_VEHICLE_TYPE on v.VEHICLE_TYPE equals t.ID
                          where (string.IsNullOrEmpty(userName) ? true : f.DISPOSE_STAFF.Contains(userName))
-                        && (startTime != endTime ? f.DISPOSE_TIME >= startTime && dtEnd >= f.DISPOSE_TIME : f.DISPOSE_TIME.Value.Year == startTime.Year && f.DISPOSE_TIME.Value.Month == startTime.Month && f.DISPOSE_TIME.Value.Day == startTime.Day) && j.CLIENT_ID == clientID && (string.IsNullOrEmpty(vehicleID) ? true : j.VEHICLE_ID.ToUpper().Contains(vehicleID.ToUpper()))
+                         &&(startTime != null ? f.DISPOSE_TIME >= startTime : true)
+                         &&(dtEnd != null ? f.DISPOSE_TIME <= dtEnd : true)
+                         && j.CLIENT_ID == clientID && (string.IsNullOrEmpty(vehicleID) ? true : j.VEHICLE_ID.ToUpper().Contains(vehicleID.ToUpper()))
                          orderby j.GPS_TIME descending
                          select new AlarmDealLogInfo
                          {
@@ -78,7 +80,8 @@ namespace Gsafety.PTMS.Manager.Repository
                          join t in context.BSC_VEHICLE_TYPE on tvm.VEHICLE_TYPE equals t.ID
                          where (string.IsNullOrEmpty(vehicleId) ? true : tjm.VEHICLE_ID.ToLower().Contains(vehicleId.ToLower())) &&
                                (string.IsNullOrEmpty(userName) ? true : f.HANDLE_USER.Contains(userName)) &&
-                               (startTime != endTime ? f.HANDLE_TIME >= startTime && dtEnd >= f.HANDLE_TIME : f.HANDLE_TIME.Value.Year == startTime.Year && f.HANDLE_TIME.Value.Month == startTime.Month && f.HANDLE_TIME.Value.Day == startTime.Day) &&
+                               (startTime != null ? f.HANDLE_TIME >= startTime : true) && 
+                               (dtEnd != null ? f.HANDLE_TIME <= dtEnd : true) &&
                                (tjm.STATUS == 4)
                          orderby f.HANDLE_TIME descending
                          select new CarAlertLogInfo
@@ -112,9 +115,10 @@ namespace Gsafety.PTMS.Manager.Repository
                               join station in context.BSC_SETUP_STATION on detail.STATION_ID equals station.ID
                               let suite = context.BSC_DEV_SUITE.FirstOrDefault(n => n.SUITE_INFO_ID == detail.SUITE_INFO_ID)
                               where (string.IsNullOrEmpty(installStaff) ? true : detail.INSTALL_STAFF.Contains(installStaff))
-                                 && (startTime != endTime ? detail.CREATE_TIME >= startTime && dtEnd >= detail.CREATE_TIME : detail.CREATE_TIME.Value.Year == startTime.Year && detail.CREATE_TIME.Value.Month == startTime.Month && detail.CREATE_TIME.Value.Day == startTime.Day)
-                               && v.CLIENT_ID == clientID
-                               && (string.IsNullOrEmpty(installStation) ? true : detail.STATION_ID == installStation)
+                              && (startTime != null ? detail.CREATE_TIME >= startTime : true)
+                              && (dtEnd != null ? detail.CREATE_TIME <= dtEnd : true)
+                              && v.CLIENT_ID == clientID
+                              && (string.IsNullOrEmpty(installStation) ? true : detail.STATION_ID == installStation)
                               orderby detail.CREATE_TIME descending
                               select new InstallLogInfo
                               {
@@ -131,8 +135,8 @@ namespace Gsafety.PTMS.Manager.Repository
                             join station in context.BSC_SETUP_STATION on detail.STATION_ID equals station.ID
                             let gps = context.BSC_DEV_GPS.FirstOrDefault(n => n.ID == detail.GPS_ID)
                             where (string.IsNullOrEmpty(installStaff) ? true : detail.INSTALL_STAFF.Contains(installStaff))
-
-                               && (startTime != endTime ? detail.CREATE_TIME >= startTime && dtEnd >= detail.CREATE_TIME : detail.CREATE_TIME.Value.Year == startTime.Year && detail.CREATE_TIME.Value.Month == startTime.Month && detail.CREATE_TIME.Value.Day == startTime.Day)
+                            && (startTime != null ? detail.CREATE_TIME >= startTime : true)
+                            && (dtEnd != null ? detail.CREATE_TIME <= dtEnd : true) 
                              && v.CLIENT_ID == clientID
                              && (string.IsNullOrEmpty(installStation) ? true : detail.STATION_ID == installStation)
                             orderby detail.CREATE_TIME descending

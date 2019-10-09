@@ -172,7 +172,7 @@ namespace Gsafety.PTMS.Manager.ViewModels
                     pageSize = PageSizeValue;
                     System.Threading.Interlocked.Exchange(ref currentIndex, pageIndex);
                     LogVideoClient client = InitialClient();
-                    client.GetVideoPlayLogListAsync(ApplicationContext.Instance.AuthenticationInfo.ClientID, VehicleID, null, MdvrCoreSn, BeginTime.Value.ToUniversalTime(), EndTime.Value.ToUniversalTime(), pageIndex, pageSize);
+                    client.GetVideoPlayLogListAsync(ApplicationContext.Instance.AuthenticationInfo.ClientID, VehicleID, null, MdvrCoreSn, BeginTime.Value.ToUniversalTime(), EndTime.Value.AddDays(1).ToUniversalTime(), pageIndex, pageSize);
 
                 });
 
