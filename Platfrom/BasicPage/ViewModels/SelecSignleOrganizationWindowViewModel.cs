@@ -38,11 +38,11 @@ namespace Gsafety.PTMS.BasicPage.ViewModels
         //    }
         //}
 
-        private Organization _selectedItem;
+        private OrganizationEx _selectedItem;
         /// <summary>
         /// 选中的组织机构项
         /// </summary>
-        public Organization SelectedOrganizationItem
+        public OrganizationEx SelectedOrganizationItem
         {
             get
             {
@@ -82,7 +82,7 @@ namespace Gsafety.PTMS.BasicPage.ViewModels
         public SelecSignleOrganizationWindowViewModel(string userID)
         {
             VehicleTreeFactory = new OrganizationTreeFactory();
-            this.SelectedOrganizationItem = new Organization();
+            this.SelectedOrganizationItem = new OrganizationEx();
             InitServiceClient();
             GetUserVehicleOrg(userID);
         }
@@ -122,6 +122,41 @@ namespace Gsafety.PTMS.BasicPage.ViewModels
                 }
 
                 var temp = GetFamilyOrganizations(child as OrganizationEx);
+                result.AddRange(temp);
+            }
+
+            return result;
+        }
+
+        /// <summary>
+        /// 获取组织机构的所有下级组织机构，包含自己的名称
+        /// </summary>
+        /// <param name="rootOrgEx"></param>
+        /// <returns></returns>
+        public List<string> GetFamilyOrganizationsName(OrganizationEx rootOrgEx)
+        {
+            var result = new List<string>();
+
+            if (rootOrgEx == null)
+            {
+                return result;
+            }
+
+            result.Add(rootOrgEx.Organization.Name);
+
+            if (rootOrgEx.HasChildren == false)
+            {
+                return result;
+            }
+
+            foreach (var child in rootOrgEx.Children)
+            {
+                if (child.IsLeaf)
+                {
+                    continue;
+                }
+
+                var temp = GetFamilyOrganizationsName(child as OrganizationEx);
                 result.AddRange(temp);
             }
 
@@ -201,7 +236,7 @@ namespace Gsafety.PTMS.BasicPage.ViewModels
             //    }
             //}
             //client.InsertUserVehicleOrgAsync(orgUser);
-            this.GetOrganizationIdList(this.SelectedOrganizationItem.ID, this.VehicleTreeFactory.OrgnizationVehicleTrees);
+            this.GetOrganizationIdList(this.SelectedOrganizationItem.Organization.ID, this.VehicleTreeFactory.OrgnizationVehicleTrees);
         }
 
 

@@ -12,17 +12,24 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
+using Gsafety.Ant.Monitor.ViewModels;
 
 namespace Gsafety.Ant.Monitor.Views
 {
     public partial class MonitorNoteEdit : ChildWindow
     {
+
+        MonitorNoteEditViewModel viewModel;
         public MonitorNoteEdit()
         {
             InitializeComponent();
-            this.DataContext = this;
+            this.viewModel = new MonitorNoteEditViewModel();        
+            this.DataContext = this.viewModel;
+            this.viewModel.Note = string.Empty;
             this.MouseRightButtonDown += ChildWindow_MouseRightButtonDown;
         }
+
+       
 
         private RunMonitorGroup _EditRunMonitorGroup;
         public RunMonitorGroup EditRunMonitorGroup
@@ -40,6 +47,7 @@ namespace Gsafety.Ant.Monitor.Views
         public void Edit(RunMonitorGroup runMonitorGroup)
         {
             EditRunMonitorGroup = runMonitorGroup;
+            this.viewModel.Note = runMonitorGroup.Note;
             
             Show();
         }    
@@ -49,7 +57,7 @@ namespace Gsafety.Ant.Monitor.Views
         {
             if (EditRunMonitorGroup.Note == "")
             {
-                MessageBoxHelper.ShowDialog(ApplicationContext.Instance.StringResourceReader.GetString("Tip"), ApplicationContext.Instance.StringResourceReader.GetString("AlarmNoteNotBull"), MessageDialogButton.Ok);
+               // MessageBoxHelper.ShowDialog(ApplicationContext.Instance.StringResourceReader.GetString("Tip"), ApplicationContext.Instance.StringResourceReader.GetString("AlarmNoteNotBull"), MessageDialogButton.Ok);
                 return;
             }
             
@@ -65,6 +73,12 @@ namespace Gsafety.Ant.Monitor.Views
 System.Windows.Input.MouseButtonEventArgs e)
         {
             e.Handled = true;
+        }
+
+        private void TextBox_TextChanged_1(object sender, TextChangedEventArgs e)
+        {
+            this.viewModel.Note = this.AlarmNote.Text;
+            EditRunMonitorGroup.Note = this.AlarmNote.Text;
         }
     }
 }

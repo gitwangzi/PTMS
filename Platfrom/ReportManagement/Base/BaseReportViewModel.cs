@@ -154,9 +154,15 @@ namespace Gsafety.PTMS.ReportManager.Base
             set
             {
                 this._organizationName = value;
+               
                 RaisePropertyChanged(() => OrganizationName);
+                if (_organizationName != null&&city!=null)
+                {
+                    InitVehicles(city.Code);
+                }
             }
         }
+        public List<string> orgNameList = new List<string>();
 
         protected string _organizationID = string.Empty;
 
@@ -199,21 +205,28 @@ namespace Gsafety.PTMS.ReportManager.Base
             if (!string.IsNullOrEmpty(CityCode))
             {
 
-                if (VehicleType != null)
+                if (orgNameList.Count > 0)
                 {
-                    var _vehicles = ApplicationContext.Instance.BufferManager.VehicleOrganizationManage.VehicleList.Where(x => x.DistrictCode == CityCode&&x.VehicleTypeDescribe==VehicleType.Name).ToList();
-                    foreach (var item in _vehicles)
+                    if (VehicleType != null && !string.IsNullOrEmpty(VehicleType.ID))
                     {
-                        Vehicles.Add(item);
-                    }
+                       
+                            var _vehicles = ApplicationContext.Instance.BufferManager.VehicleOrganizationManage.VehicleList.Where(x => x.DistrictCode == CityCode && x.VehicleTypeDescribe == VehicleType.Name && orgNameList.Contains(x.OrganizationName)).ToList();
+                            foreach (var item in _vehicles)
+                            {
+                                Vehicles.Add(item);
+                            }
 
-                }
-                else
-                {
-                    var _vehicles = ApplicationContext.Instance.BufferManager.VehicleOrganizationManage.VehicleList.Where(x => x.DistrictCode == CityCode).ToList();
-                    foreach (var item in _vehicles)
+                        
+
+                    }
+                    else
                     {
-                        Vehicles.Add(item);
+                            var _vehicles = ApplicationContext.Instance.BufferManager.VehicleOrganizationManage.VehicleList.Where(x => x.DistrictCode == CityCode && orgNameList.Contains(x.OrganizationName)).ToList();
+                            foreach (var item in _vehicles)
+                            {
+                                Vehicles.Add(item);
+                            }
+                       
                     }
                 }
             }
@@ -269,10 +282,10 @@ namespace Gsafety.PTMS.ReportManager.Base
             {
                 city = value;
                 RaisePropertyChanged(() => City);
-                if (city != null)
-                {
-                    InitVehicles(city.Code);
-                }
+                //if (city != null)
+                //{
+                //    InitVehicles(city.Code);
+                //}
             }
         }
 
@@ -341,10 +354,10 @@ namespace Gsafety.PTMS.ReportManager.Base
             {
                 vehicletype = value;
                 RaisePropertyChanged(() => VehicleType);
-                if (city != null)
-                {
-                    InitVehicles(city.Code);
-                }
+                //if (city != null)
+                // {
+                //   InitVehicles(city.Code);
+                //}
 
             }
         }
@@ -435,10 +448,11 @@ namespace Gsafety.PTMS.ReportManager.Base
             {
                 this.OrganizationName = "Selected";
                 var result = window._viewModel.SelectedOrganizationItem;
+                orgNameList = window._viewModel.GetFamilyOrganizationsName(result);
                 if (result != null)
                 {
-                    this.OrganizationName = result.Name;
-                    _organizationID = result.ID;
+                    this.OrganizationName = result.Organization.Name;
+                    _organizationID = result.Organization.ID;
                 }
             }
         }

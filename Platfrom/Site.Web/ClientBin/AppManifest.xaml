@@ -59,20 +59,20 @@
     <AssemblyPart x:Name="TrafficManagement" Source="TrafficManagement.dll" />
     <AssemblyPart x:Name="Utilities" Source="Utilities.dll" />
     <AssemblyPart x:Name="VideoManagement" Source="VideoManagement.dll" />
-    <AssemblyPart x:Name="Librarys" Source="Librarys.dll" />
     <AssemblyPart x:Name="BaseLib" Source="BaseLib.dll" />
     <AssemblyPart x:Name="Models" Source="Models.dll" />
-    <AssemblyPart x:Name="Gsafety.PTMS.Spreadsheet" Source="Gsafety.PTMS.Spreadsheet.dll" />
+    <AssemblyPart x:Name="Librarys" Source="Librarys.dll" />
     <AssemblyPart x:Name="System.Threading.Tasks" Source="System.Threading.Tasks.dll" />
     <AssemblyPart x:Name="Microsoft.Threading.Tasks" Source="Microsoft.Threading.Tasks.dll" />
-    <AssemblyPart x:Name="ESRI.ArcGIS.Client" Source="ESRI.ArcGIS.Client.dll" />
+    <AssemblyPart x:Name="Gsafety.PTMS.Spreadsheet" Source="Gsafety.PTMS.Spreadsheet.dll" />
     <AssemblyPart x:Name="System.Windows.Controls.Input" Source="System.Windows.Controls.Input.dll" />
+    <AssemblyPart x:Name="ESRI.ArcGIS.Client" Source="ESRI.ArcGIS.Client.dll" />
+    <AssemblyPart x:Name="Gsafety.PTMS.Media.Player" Source="Gsafety.PTMS.Media.Player.dll" />
     <AssemblyPart x:Name="System.Json" Source="System.Json.dll" />
     <AssemblyPart x:Name="ESRI.ArcGIS.Client.Bing" Source="ESRI.ArcGIS.Client.Bing.dll" />
-    <AssemblyPart x:Name="Gsafety.PTMS.Media.Player" Source="Gsafety.PTMS.Media.Player.dll" />
     <AssemblyPart x:Name="Microsoft.Threading.Tasks.Extensions.Silverlight" Source="Microsoft.Threading.Tasks.Extensions.Silverlight.dll" />
-    <AssemblyPart x:Name="ESRI.ArcGIS.Client.Toolkit" Source="ESRI.ArcGIS.Client.Toolkit.dll" />
     <AssemblyPart x:Name="ESRI.ArcGIS.Client.Behaviors" Source="ESRI.ArcGIS.Client.Behaviors.dll" />
+    <AssemblyPart x:Name="ESRI.ArcGIS.Client.Toolkit" Source="ESRI.ArcGIS.Client.Toolkit.dll" />
     <AssemblyPart x:Name="DevExpress.Xpf.Printing.v13.2" Source="DevExpress.Xpf.Printing.v13.2.dll" />
     <AssemblyPart x:Name="DevExpress.Xpf.Mvvm.v13.2" Source="DevExpress.Xpf.Mvvm.v13.2.dll" />
     <AssemblyPart x:Name="DevExpress.Printing.v13.2.Core" Source="DevExpress.Printing.v13.2.Core.dll" />
@@ -81,8 +81,8 @@
     <AssemblyPart x:Name="Gsafety.PTMS.Media" Source="Gsafety.PTMS.Media.dll" />
     <AssemblyPart x:Name="Cellbi.SvZLib" Source="Cellbi.SvZLib.dll" />
     <AssemblyPart x:Name="FloatableWindow" Source="FloatableWindow.dll" />
-    <AssemblyPart x:Name="FiftyNine.Ag.OpenXML.Common" Source="FiftyNine.Ag.OpenXML.Common.dll" />
     <AssemblyPart x:Name="System.Runtime" Source="System.Runtime.dll" />
+    <AssemblyPart x:Name="FiftyNine.Ag.OpenXML.Common" Source="FiftyNine.Ag.OpenXML.Common.dll" />
     <AssemblyPart x:Name="Gsafety.PTMS.Media.Platform.Silverlight" Source="Gsafety.PTMS.Media.Platform.Silverlight.dll" />
     <AssemblyPart x:Name="DevExpress.Xpf.Core.v13.2" Source="DevExpress.Xpf.Core.v13.2.dll" />
     <AssemblyPart x:Name="DevExpress.Xpf.Ribbon.v13.2" Source="DevExpress.Xpf.Ribbon.v13.2.dll" />

@@ -381,6 +381,9 @@
   <data name="ALARM_SendFailure" xml:space="preserve">
     <value>发送失败</value>
   </data>
+	<data name="ALARM_SendEmailFailure" xml:space="preserve">
+    <value>邮件发送失败</value>
+  </data>
   <data name="ALARM_Sending" xml:space="preserve">
     <value>发送中</value>
   </data>

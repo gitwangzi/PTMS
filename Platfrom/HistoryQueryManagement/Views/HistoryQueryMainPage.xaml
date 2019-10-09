@@ -2112,6 +2112,7 @@
                                         <DataTemplate>
                                             <TextBlock  Text="{Binding Name}" 
                                                         Margin="0,3,10,3" 
+                                                        Foreground="White"
                                                         VerticalAlignment="Center"   
                                                         HorizontalAlignment="Right"  
                                                         TextAlignment="Right"  Height="Auto"
@@ -2125,6 +2126,7 @@
                                         <DataTemplate>
                                             <TextBlock  Text="{Binding Phone}" 
                                                         Margin="10,3,0,3" 
+                                                          Foreground="White"
                                                         VerticalAlignment="Center"   
                                                         HorizontalAlignment="Left"  
                                                         TextAlignment="Left"  Height="Auto"
@@ -2942,6 +2944,9 @@
                         <sdk:DataGrid Grid.Row="3"  Style="{StaticResource DataGridStyleRxx2}"
                                       ItemsSource="{Binding ChauffeurList}"
                                       GridLinesVisibility="None"
+                                       BorderBrush="#1c1F23"
+                                      Background="#1c1f23"
+                                      RowBackground="#1c1f23"
                                       CanUserResizeColumns="False"
                                       Margin="0,7,0,10">
 
@@ -2954,7 +2959,7 @@
                                             <TextBlock  Text="{Binding Name}" 
                                                         Margin="0,3,10,3" 
                                                         VerticalAlignment="Center"   
-                                                        HorizontalAlignment="Right"  Foreground="#737476"
+                                                        HorizontalAlignment="Right"    Foreground="White"
                                                         TextAlignment="Right"  Height="Auto"
                                                         ToolTipService.ToolTip="{Binding Name}"/>
                                         </DataTemplate>
@@ -2968,7 +2973,7 @@
                                                         Margin="10,3,0,3" 
                                                         VerticalAlignment="Center"   
                                                         HorizontalAlignment="Left"  
-                                                        TextAlignment="Left"  Height="Auto" Foreground="#737476"
+                                                        TextAlignment="Left"  Height="Auto"  Foreground="White"
                                                         ToolTipService.ToolTip="{Binding Phone}"/>
                                         </DataTemplate>
                                     </sdk:DataGridTemplateColumn.CellTemplate>

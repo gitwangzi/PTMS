@@ -20,13 +20,16 @@ using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Gsafety.Common.Controls;
+using Gsafety.Ant.Monitor.ViewModels;
 namespace Gsafety.PTMS.Monitor.Views
 {
 
     public partial class ChildSendMail : ChildWindow
     {
-         
 
+
+        MonitorEmailEditViewModel viewModel;
+ 
         private AlarmEmailInfo _mail;
         public AlarmEmailInfo mail
         {
@@ -42,10 +45,12 @@ namespace Gsafety.PTMS.Monitor.Views
 
         public ChildSendMail(string title)
         {
-            InitializeComponent();
-            this.DataContext = this;
+            this.viewModel = new MonitorEmailEditViewModel();
+            this.DataContext = this.viewModel;
+            this.viewModel.Name = string.Empty;
+            this.viewModel.Mail = string.Empty;
             this.Title = title;
-          
+            InitializeComponent();
 
         }
 
@@ -53,6 +58,8 @@ namespace Gsafety.PTMS.Monitor.Views
         {
             mail = email;
 
+            this.viewModel.Name = email.Name;
+            this.viewModel.Mail = email.Mail;
             if (mail.Level == (int)IncidentLevelEnum.Common)
             {
 
@@ -89,7 +96,7 @@ namespace Gsafety.PTMS.Monitor.Views
             {
                 if (string.IsNullOrEmpty(this.TitleValue.Text.Trim()))
                 {
-                    MessageBoxHelper.ShowDialog(ApplicationContext.Instance.StringResourceReader.GetString("Tip"), ApplicationContext.Instance.StringResourceReader.GetString("ALERT_SendTitleNotNull"), MessageDialogButton.Ok);
+                    //MessageBoxHelper.ShowDialog(ApplicationContext.Instance.StringResourceReader.GetString("Tip"), ApplicationContext.Instance.StringResourceReader.GetString("ALERT_SendTitleNotNull"), MessageDialogButton.Ok);
 
                     return;
                 }
@@ -97,7 +104,7 @@ namespace Gsafety.PTMS.Monitor.Views
 
                 if (string.IsNullOrEmpty(this.DecValue.Text.Trim()))
                 {
-                    MessageBoxHelper.ShowDialog(ApplicationContext.Instance.StringResourceReader.GetString("Tip"), ApplicationContext.Instance.StringResourceReader.GetString("RecipientsValueNotNull"), MessageDialogButton.Ok);
+                   // MessageBoxHelper.ShowDialog(ApplicationContext.Instance.StringResourceReader.GetString("Tip"), ApplicationContext.Instance.StringResourceReader.GetString("RecipientsValueNotNull"), MessageDialogButton.Ok);
 
 
                     return;
@@ -107,7 +114,7 @@ namespace Gsafety.PTMS.Monitor.Views
                 {
                     if (!regex.Match(DecValue.Text.Trim()).Success)
                     {
-                        MessageBoxHelper.ShowDialog(ApplicationContext.Instance.StringResourceReader.GetString("Tip"), ApplicationContext.Instance.StringResourceReader.GetString("EmailUnright"), MessageDialogButton.Ok);
+                       // MessageBoxHelper.ShowDialog(ApplicationContext.Instance.StringResourceReader.GetString("Tip"), ApplicationContext.Instance.StringResourceReader.GetString("EmailUnright"), MessageDialogButton.Ok);
 
 
                         return;
@@ -154,6 +161,18 @@ namespace Gsafety.PTMS.Monitor.Views
         private void SendPicture_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void TitleValue_TextChanged_1(object sender, TextChangedEventArgs e)
+        {
+            this.viewModel.Name = this.TitleValue.Text;
+          
+        }
+
+        private void DecValue_TextChanged_1(object sender, TextChangedEventArgs e)
+        {
+            this.viewModel.Mail = this.DecValue.Text;
+          
         }
     }
 }
