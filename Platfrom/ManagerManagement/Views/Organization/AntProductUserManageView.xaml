@@ -104,7 +104,7 @@
                        ItemsSource="{Binding Data}"
                        SelectedItem="{Binding CurrentModel,Mode=TwoWay}"
                        AllowDrop="False" Style="{StaticResource DataGridWhiteStyleRxx}"
-                VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+                VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" Margin="10,0,-10,0">
                 <sdk:DataGrid.Columns>
 
                     <!--<sdk:DataGridTextColumn  
@@ -196,7 +196,7 @@
 
                                     <Button Grid.Column="4"
                                         ToolTipService.ToolTip="{Binding [ResertPwd],Source={StaticResource SR}}"
-                                        Style="{StaticResource ResertPwdButtonCommonStyle}"
+                                        Style="{StaticResource ResertPwdButtonStyle}"
                                         Command="{Binding DataContext.BtnResetPasswordCommand, RelativeSource={RelativeSource AncestorType=sdk:DataGrid}}"
                                         Visibility="{Binding RelativeSource={RelativeSource Self}, Converter={StaticResource FunItemVisibilityConverter},ConverterParameter='02-08-01-02-08'}"/>
 

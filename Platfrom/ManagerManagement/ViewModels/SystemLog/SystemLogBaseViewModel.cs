@@ -59,10 +59,14 @@ namespace Gsafety.PTMS.Manager.ViewModels
             }
             set
             {
-                this.endTime = value;
-                if (BeginTime != null && EndTime != null)
-                    ValidateBeginAndEndDate(ExtractPropertyName(() => BeginTime), (DateTime)BeginTime, ExtractPropertyName(() => EndTime), (DateTime)EndTime);
-                RaisePropertyChanged(() => this.EndTime);
+                if (value.HasValue)
+                {
+                    //this.endTime = new DateTime(value.Value.Year, value.Value.Month, value.Value.Day, 23, 59, 59);
+                    this.endTime = value;
+                    if (BeginTime != null && EndTime != null)
+                        ValidateBeginAndEndDate(ExtractPropertyName(() => BeginTime), (DateTime)BeginTime, ExtractPropertyName(() => EndTime), (DateTime)EndTime);
+                    RaisePropertyChanged(() => this.EndTime);
+                }
             }
         }
 

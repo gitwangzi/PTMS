@@ -191,7 +191,7 @@ namespace Gsafety.PTMS.Manager.ViewModels
                     System.Threading.Interlocked.Exchange(ref currentIndex, pageIndex);
                     Gsafety.PTMS.ServiceReference.PTMSLogManageService.PagingInfo pagingInfo = new Gsafety.PTMS.ServiceReference.PTMSLogManageService.PagingInfo() { PageIndex = pageIndex, PageSize = pageSize };
                     AlarmDealLogServiceClient client = InitialClient();
-                    client.GetAlarmDealLogAsync(ApplicationContext.Instance.AuthenticationInfo.ClientID, VehicleID, Disposer, BeginTime.Value.ToUniversalTime(), EndTime.Value.AddDays(1).ToUniversalTime(), pagingInfo);
+                    client.GetAlarmDealLogAsync(ApplicationContext.Instance.AuthenticationInfo.ClientID, VehicleID, Disposer, BeginTime.Value.ToUniversalTime(), EndTime.Value.ToUniversalTime(), pagingInfo);
 
                 });
 

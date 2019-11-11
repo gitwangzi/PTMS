@@ -208,7 +208,7 @@ namespace Gsafety.PTMS.Manager.ViewModels
                         System.Threading.Interlocked.Exchange(ref currentIndex, pageIndex);
                         Gsafety.PTMS.ServiceReference.PTMSLogManageService.PagingInfo pagingInfo = new Gsafety.PTMS.ServiceReference.PTMSLogManageService.PagingInfo() { PageIndex = pageIndex, PageSize = pageSize };
                         InstallLogServiceClient client = InitialClient();
-                        client.GetInstallLogAsync(ApplicationContext.Instance.AuthenticationInfo.ClientID, InstallStation.Value, InstallStaff, BeginTime.Value.ToUniversalTime(), EndTime.Value.AddDays(1).ToUniversalTime(), pagingInfo);
+                        client.GetInstallLogAsync(ApplicationContext.Instance.AuthenticationInfo.ClientID, InstallStation.Value, InstallStaff, BeginTime.Value.ToUniversalTime(), EndTime.Value.ToUniversalTime(), pagingInfo);
                     }
                 });
 
