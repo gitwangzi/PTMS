@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="VehicleAlarmService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:2258/VehicleAlarmService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:2258/VehicleAlarmService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:2258/VehicleAlarmService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" />
+      <xsd:import schemaLocation="http://localhost:2258/VehicleAlarmService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/System" />
+      <xsd:import schemaLocation="http://localhost:2258/VehicleAlarmService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Common.Data" />
+      <xsd:import schemaLocation="http://localhost:2258/VehicleAlarmService.svc?xsd=xsd5" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://localhost:2258/VehicleAlarmService.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Alarm.Contract.Data" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IVehicleAlarmService_GetHandledAlarms_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetHandledAlarms" />
+  </wsdl:message>
+  <wsdl:message name="IVehicleAlarmService_GetHandledAlarms_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetHandledAlarmsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IVehicleAlarmService_GetAllAlarms_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllAlarms" />
+  </wsdl:message>
+  <wsdl:message name="IVehicleAlarmService_GetAllAlarms_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllAlarmsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IVehicleAlarmService_GetUnHandledAllAlarms_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUnHandledAllAlarms" />
+  </wsdl:message>
+  <wsdl:message name="IVehicleAlarmService_GetUnHandledAllAlarms_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUnHandledAllAlarmsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IVehicleAlarmService_IfAlarmDetail_InputMessage">
+    <wsdl:part name="parameters" element="tns:IfAlarmDetail" />
+  </wsdl:message>
+  <wsdl:message name="IVehicleAlarmService_IfAlarmDetail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IfAlarmDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="IVehicleAlarmService_GetAlarmGPSTrack_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAlarmGPSTrack" />
+  </wsdl:message>
+  <wsdl:message name="IVehicleAlarmService_GetAlarmGPSTrack_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAlarmGPSTrackResponse" />
+  </wsdl:message>
+  <wsdl:message name="IVehicleAlarmService_GetAlarmTreatments_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAlarmTreatments" />
+  </wsdl:message>
+  <wsdl:message name="IVehicleAlarmService_GetAlarmTreatments_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAlarmTreatmentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IVehicleAlarmService_GetUnHandledAlarms_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUnHandledAlarms" />
+  </wsdl:message>
+  <wsdl:message name="IVehicleAlarmService_GetUnHandledAlarms_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUnHandledAlarmsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IVehicleAlarmService_HandleAlarm_InputMessage">
+    <wsdl:part name="parameters" element="tns:HandleAlarm" />
+  </wsdl:message>
+  <wsdl:message name="IVehicleAlarmService_HandleAlarm_OutputMessage">
+    <wsdl:part name="parameters" element="tns:HandleAlarmResponse" />
+  </wsdl:message>
+  <wsdl:message name="IVehicleAlarmService_GetApealDisposeByAlarmID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetApealDisposeByAlarmID" />
+  </wsdl:message>
+  <wsdl:message name="IVehicleAlarmService_GetApealDisposeByAlarmID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetApealDisposeByAlarmIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IVehicleAlarmService_GetTransferDisposeByAlarmID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTransferDisposeByAlarmID" />
+  </wsdl:message>
+  <wsdl:message name="IVehicleAlarmService_GetTransferDisposeByAlarmID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTransferDisposeByAlarmIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IVehicleAlarmService_GetAlarmCheck_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAlarmCheck" />
+  </wsdl:message>
+  <wsdl:message name="IVehicleAlarmService_GetAlarmCheck_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAlarmCheckResponse" />
+  </wsdl:message>
+  <wsdl:message name="IVehicleAlarmService_InsertManualAlarm_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertManualAlarm" />
+  </wsdl:message>
+  <wsdl:message name="IVehicleAlarmService_InsertManualAlarm_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertManualAlarmResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IVehicleAlarmService">
+    <wsdl:operation name="GetHandledAlarms">
+      <wsdl:input wsaw:Action="http://tempuri.org/IVehicleAlarmService/GetHandledAlarms" message="tns:IVehicleAlarmService_GetHandledAlarms_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IVehicleAlarmService/GetHandledAlarmsResponse" message="tns:IVehicleAlarmService_GetHandledAlarms_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllAlarms">
+      <wsdl:input wsaw:Action="http://tempuri.org/IVehicleAlarmService/GetAllAlarms" message="tns:IVehicleAlarmService_GetAllAlarms_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IVehicleAlarmService/GetAllAlarmsResponse" message="tns:IVehicleAlarmService_GetAllAlarms_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUnHandledAllAlarms">
+      <wsdl:input wsaw:Action="http://tempuri.org/IVehicleAlarmService/GetUnHandledAllAlarms" message="tns:IVehicleAlarmService_GetUnHandledAllAlarms_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IVehicleAlarmService/GetUnHandledAllAlarmsResponse" message="tns:IVehicleAlarmService_GetUnHandledAllAlarms_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IfAlarmDetail">
+      <wsdl:input wsaw:Action="http://tempuri.org/IVehicleAlarmService/IfAlarmDetail" message="tns:IVehicleAlarmService_IfAlarmDetail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IVehicleAlarmService/IfAlarmDetailResponse" message="tns:IVehicleAlarmService_IfAlarmDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAlarmGPSTrack">
+      <wsdl:input wsaw:Action="http://tempuri.org/IVehicleAlarmService/GetAlarmGPSTrack" message="tns:IVehicleAlarmService_GetAlarmGPSTrack_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IVehicleAlarmService/GetAlarmGPSTrackResponse" message="tns:IVehicleAlarmService_GetAlarmGPSTrack_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAlarmTreatments">
+      <wsdl:input wsaw:Action="http://tempuri.org/IVehicleAlarmService/GetAlarmTreatments" message="tns:IVehicleAlarmService_GetAlarmTreatments_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IVehicleAlarmService/GetAlarmTreatmentsResponse" message="tns:IVehicleAlarmService_GetAlarmTreatments_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUnHandledAlarms">
+      <wsdl:input wsaw:Action="http://tempuri.org/IVehicleAlarmService/GetUnHandledAlarms" message="tns:IVehicleAlarmService_GetUnHandledAlarms_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IVehicleAlarmService/GetUnHandledAlarmsResponse" message="tns:IVehicleAlarmService_GetUnHandledAlarms_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="HandleAlarm">
+      <wsdl:input wsaw:Action="http://tempuri.org/IVehicleAlarmService/HandleAlarm" message="tns:IVehicleAlarmService_HandleAlarm_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IVehicleAlarmService/HandleAlarmResponse" message="tns:IVehicleAlarmService_HandleAlarm_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetApealDisposeByAlarmID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IVehicleAlarmService/GetApealDisposeByAlarmID" message="tns:IVehicleAlarmService_GetApealDisposeByAlarmID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IVehicleAlarmService/GetApealDisposeByAlarmIDResponse" message="tns:IVehicleAlarmService_GetApealDisposeByAlarmID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTransferDisposeByAlarmID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IVehicleAlarmService/GetTransferDisposeByAlarmID" message="tns:IVehicleAlarmService_GetTransferDisposeByAlarmID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IVehicleAlarmService/GetTransferDisposeByAlarmIDResponse" message="tns:IVehicleAlarmService_GetTransferDisposeByAlarmID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAlarmCheck">
+      <wsdl:input wsaw:Action="http://tempuri.org/IVehicleAlarmService/GetAlarmCheck" message="tns:IVehicleAlarmService_GetAlarmCheck_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IVehicleAlarmService/GetAlarmCheckResponse" message="tns:IVehicleAlarmService_GetAlarmCheck_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertManualAlarm">
+      <wsdl:input wsaw:Action="http://tempuri.org/IVehicleAlarmService/InsertManualAlarm" message="tns:IVehicleAlarmService_InsertManualAlarm_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IVehicleAlarmService/InsertManualAlarmResponse" message="tns:IVehicleAlarmService_InsertManualAlarm_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IVehicleAlarmService" type="tns:IVehicleAlarmService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetHandledAlarms">
+      <soap:operation soapAction="http://tempuri.org/IVehicleAlarmService/GetHandledAlarms" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllAlarms">
+      <soap:operation soapAction="http://tempuri.org/IVehicleAlarmService/GetAllAlarms" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUnHandledAllAlarms">
+      <soap:operation soapAction="http://tempuri.org/IVehicleAlarmService/GetUnHandledAllAlarms" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IfAlarmDetail">
+      <soap:operation soapAction="http://tempuri.org/IVehicleAlarmService/IfAlarmDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAlarmGPSTrack">
+      <soap:operation soapAction="http://tempuri.org/IVehicleAlarmService/GetAlarmGPSTrack" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAlarmTreatments">
+      <soap:operation soapAction="http://tempuri.org/IVehicleAlarmService/GetAlarmTreatments" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUnHandledAlarms">
+      <soap:operation soapAction="http://tempuri.org/IVehicleAlarmService/GetUnHandledAlarms" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HandleAlarm">
+      <soap:operation soapAction="http://tempuri.org/IVehicleAlarmService/HandleAlarm" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetApealDisposeByAlarmID">
+      <soap:operation soapAction="http://tempuri.org/IVehicleAlarmService/GetApealDisposeByAlarmID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTransferDisposeByAlarmID">
+      <soap:operation soapAction="http://tempuri.org/IVehicleAlarmService/GetTransferDisposeByAlarmID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAlarmCheck">
+      <soap:operation soapAction="http://tempuri.org/IVehicleAlarmService/GetAlarmCheck" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertManualAlarm">
+      <soap:operation soapAction="http://tempuri.org/IVehicleAlarmService/InsertManualAlarm" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="VehicleAlarmService">
+    <wsdl:port name="BasicHttpBinding_IVehicleAlarmService" binding="tns:BasicHttpBinding_IVehicleAlarmService">
+      <soap:address location="http://localhost:2258/VehicleAlarmService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

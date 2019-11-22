@@ -1,0 +1,393 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{DD30AC09-FA9C-4CA3-84F2-7AB4A1BEE971}</ProjectGuid>
+    <ProjectTypeGuids>{A1591282-1198-4647-A2B1-27E5FF5F6F3B};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GisManagement</RootNamespace>
+    <AssemblyName>GisManagement</AssemblyName>
+    <TargetFrameworkIdentifier>Silverlight</TargetFrameworkIdentifier>
+    <TargetFrameworkVersion>v5.0</TargetFrameworkVersion>
+    <SilverlightVersion>$(TargetFrameworkVersion)</SilverlightVersion>
+    <SilverlightApplication>false</SilverlightApplication>
+    <ValidateXaml>true</ValidateXaml>
+    <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
+  </PropertyGroup>
+  <!-- This property group is only here to support building this project using the 
+       MSBuild 3.5 toolset. In order to work correctly with this older toolset, it needs 
+       to set the TargetFrameworkVersion to v3.5 -->
+  <PropertyGroup Condition="'$(MSBuildToolsVersion)' == '3.5'">
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ESRI.ArcGIS.Client, Version=10.1.1.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Assemblies\ESRI.ArcGIS.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="ESRI.ArcGIS.Client.Behaviors">
+      <HintPath>..\Assemblies\ESRI.ArcGIS.Client.Behaviors.dll</HintPath>
+    </Reference>
+    <Reference Include="ESRI.ArcGIS.Client.Bing, Version=10.1.1.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Assemblies\ESRI.ArcGIS.Client.Bing.dll</HintPath>
+    </Reference>
+    <Reference Include="ESRI.ArcGIS.Client.Toolkit, Version=10.1.1.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Assemblies\ESRI.ArcGIS.Client.Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="Jounce">
+      <HintPath>..\Assemblies\Jounce.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Expression.Drawing">
+      <HintPath>..\Assemblies\Microsoft.Expression.Drawing.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Expression.Effects">
+      <HintPath>..\Assemblies\Microsoft.Expression.Effects.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Expression.Interactions, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Assemblies\Microsoft.Expression.Interactions.dll</HintPath>
+    </Reference>
+    <Reference Include="mscorlib" />
+    <Reference Include="System.ComponentModel.Composition, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.ComponentModel.Composition.Initialization, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.ComponentModel.DataAnnotations, Version=5.0.5.0, Culture=neutral, PublicKeyToken=ddd0da4d3e678217, processorArchitecture=MSIL" />
+    <Reference Include="System.Json, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Windows" />
+    <Reference Include="system" />
+    <Reference Include="System.Core">
+      <HintPath>$(TargetFrameworkDirectory)System.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Controls, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.Data, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.Data.Input, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.Input, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.Input.Toolkit, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.Layout.Toolkit, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>C:\Program Files (x86)\Microsoft SDKs\Silverlight\v5.0\Toolkit\dec11\Bin\System.Windows.Controls.Layout.Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Controls.Navigation, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.Toolkit, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Data, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Interactivity, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Assemblies\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Windows.Browser" />
+    <Reference Include="System.Xml.Linq, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Xml.Serialization, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="EditableImage.cs" />
+    <Compile Include="ElementToPNG.cs" />
+    <Compile Include="GisBinding.cs" />
+    <Compile Include="GisName.cs" />
+    <Compile Include="Models\DisplayHistoricalRoute.cs" />
+    <Compile Include="Models\GeoneralGISFun.cs" />
+    <Compile Include="PngEncoder.cs" />
+    <Compile Include="ViewModels\GisViewModel_ActivateView.cs" />
+    <Compile Include="ViewModels\GisViewModel_BusStop.cs" />
+    <Compile Include="ViewModels\GisViewModel_DefineEvent.cs" />
+    <Compile Include="ViewModels\GisViewModel_Fence.cs" />
+    <Compile Include="ViewModels\GisViewModel_MarkTraffic.cs" />
+    <Compile Include="ViewModels\GisViewModel_NetAnalyze.cs" />
+    <Compile Include="ViewModels\GisViewModel_Route.cs" />
+    <Compile Include="ViewModels\GisViewModel_Search.cs" />
+    <Compile Include="ViewModels\GisViewModel_Structure.cs" />
+    <Compile Include="ViewModels\TrafficGraphicManager.cs" />
+    <Compile Include="Views\AnchorInfoView.xaml.cs">
+      <DependentUpon>AnchorInfoView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AntProductMonitorGisView.xaml.cs">
+      <DependentUpon>AntProductMonitorGisView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\GisNavigationContainer.xaml.cs">
+      <DependentUpon>GisNavigationContainer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\GisNavigationer.xaml.cs">
+      <DependentUpon>GisNavigationer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ConstDefine.cs" />
+    <Compile Include="Models\GPSDataEventArgs.cs" />
+    <Compile Include="Models\MapEventArgs.cs" />
+    <Compile Include="Models\TrackCarArgs.cs" />
+    <Compile Include="Models\VehicleAlertArgs.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\GisViewModel.cs" />
+    <Compile Include="ViewModels\GpsCarHisDataViewModel.cs" />
+    <Compile Include="ViewModels\GpsCarListViewModel.cs" />
+    <Compile Include="ViewModels\NetAnalyze.cs" />
+    <Compile Include="ViewModels\RouteManager.cs" />
+    <Compile Include="ViewModels\SpatialQueryViewModel.cs" />
+    <Compile Include="ViewModels\VechileMemDataOperate.cs" />
+    <Compile Include="Views\GisView.xaml.cs">
+      <DependentUpon>GisView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\GpsCar.xaml.cs">
+      <DependentUpon>GpsCar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\GpsCarHisDataView.xaml.cs">
+      <DependentUpon>GpsCarHisDataView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\GpsCarList.xaml.cs">
+      <DependentUpon>GpsCarList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\HistoricalRoute.xaml.cs">
+      <DependentUpon>HistoricalRoute.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\InputText.xaml.cs">
+      <DependentUpon>InputText.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LayerSelectionWindow.xaml.cs">
+      <DependentUpon>LayerSelectionWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LocationWindow.xaml.cs">
+      <DependentUpon>LocationWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SpatialQuery.xaml.cs">
+      <DependentUpon>SpatialQuery.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ZoomToDistView.xaml.cs">
+      <DependentUpon>ZoomToDistView.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\add.png" />
+    <Resource Include="Image\AlarmPosition.png" />
+    <Resource Include="Image\AlarmPosition_D.png" />
+    <Resource Include="Image\BusAlarm.png" />
+    <Resource Include="Image\BusAlarm_D.png" />
+    <Resource Include="Image\Bus_D.png" />
+    <Resource Include="Image\camera01.png" />
+    <Resource Include="Image\camera01_mouseover.png" />
+    <Resource Include="Image\camera02.png" />
+    <Resource Include="Image\camera02_mouseover.png" />
+    <Resource Include="Image\CarAlarm_D.png" />
+    <Resource Include="Image\Car_D.png" />
+    <Resource Include="Image\Login_key.png" />
+    <Resource Include="Image\logoBg.png" />
+    <Resource Include="Image\LongDistanceBus.png" />
+    <Resource Include="Image\LongDistanceBusAlarm.png" />
+    <Resource Include="Image\LongDistanceBusAlarm_D.png" />
+    <Resource Include="Image\LongDistanceBus_D.png" />
+    <Resource Include="Image\MenuAlarm.png" />
+    <Resource Include="Image\note.png" />
+    <Resource Include="Image\ok.png" />
+    <Resource Include="Image\OverMap.png" />
+    <Resource Include="Image\play01.png" />
+    <Resource Include="Image\reset.png" />
+    <Resource Include="Image\return.png" />
+    <Resource Include="Image\search.png" />
+    <Resource Include="Image\slidearrow.png" />
+    <Resource Include="Image\slidearrow03.png" />
+    <Resource Include="Image\slidearrow05.png" />
+    <Resource Include="Image\track.png" />
+    <Resource Include="Image\track_disnable.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Views\AnchorInfoView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AntProductMonitorGisView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\GisNavigationContainer.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\GisNavigationer.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\GisView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\GpsCar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\GpsCarHisDataView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\GpsCarList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\HistoricalRoute.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\InputText.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\LayerSelectionWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\LocationWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SpatialQuery.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ZoomToDistView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\Car.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BaseLib\BaseLib.csproj">
+      <Project>{f6106c3b-65a3-45a0-ac41-80fb7c127c1f}</Project>
+      <Name>BaseLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BasicPage\BasicPage.csproj">
+      <Project>{336f0b83-4fda-40a9-b09a-c598b6e90d69}</Project>
+      <Name>BasicPage</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CommMessage\CommMessage.csproj">
+      <Project>{6e8e7e73-2eb1-4d7c-9273-f81fc2d30a10}</Project>
+      <Name>CommMessage</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CommonControl\Controls.csproj">
+      <Project>{E5A6C07A-D661-4528-866F-922C00081BDE}</Project>
+      <Name>Controls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Constants\Constants.csproj">
+      <Project>{96a43019-0ee2-4b44-b688-96dd0f418b19}</Project>
+      <Name>Constants</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Converts\Converts.csproj">
+      <Project>{e43eb997-b440-4fed-b261-4fbc7e2b6880}</Project>
+      <Name>Converts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Enums\Enums.csproj">
+      <Project>{3e850ec1-7a17-4b42-be32-efd1382d337e}</Project>
+      <Name>Enums</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Gsafety.PTMS.Media.Player\Gsafety.PTMS.Media.Player.csproj">
+      <Project>{68539a1a-b98b-4eee-b5a8-b5a5a2287c59}</Project>
+      <Name>Gsafety.PTMS.Media.Player</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Localization\Localization.csproj">
+      <Project>{3765593e-f466-42af-b3bb-56d825954072}</Project>
+      <Name>Localization</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Models\Models.csproj">
+      <Project>{44ebb496-2c26-475f-ad39-0117cc7f31f3}</Project>
+      <Name>Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ServiceReference\ServiceReference.csproj">
+      <Project>{116e9ab2-db01-41d6-bd5e-805cac206b32}</Project>
+      <Name>ServiceReference</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Share\Share.csproj">
+      <Project>{84fc8750-50d0-40ba-a5b8-be0bb014057e}</Project>
+      <Name>Share</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Utilities\Utilities.csproj">
+      <Project>{a9d13f4e-3f78-48cf-9081-e12c108de4b4}</Project>
+      <Name>Utilities</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\CarMonitorAlert.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\CarAlarmAlert.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\BusAlarmAlert.png" />
+    <Resource Include="Image\BusMonitorAlert.png" />
+    <Resource Include="Image\LongDistanceBusAlarmAlert.png" />
+    <Resource Include="Image\LongDistanceBusMonitorAlert.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\CarAlert.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\LongDistanceBusAlert.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\Polygon.png" />
+    <Resource Include="Image\Rectangle.png" />
+    <Resource Include="Image\Circle.png" />
+    <Resource Include="Image\Gisstop.png" />
+    <Resource Include="Image\Gisup.png" />
+    <Resource Include="Image\AlertPosition.png" />
+    <Content Include="Image\BusAlert.png" />
+    <Resource Include="Image\BusLocaltion.png" />
+    <Resource Include="Image\DrawTriangle.PNG" />
+    <Resource Include="Image\DrawArrow.PNG" />
+    <Resource Include="Image\CarAlarm.png" />
+    <Resource Include="Image\delete_snapshot.png" />
+    <Resource Include="Image\delete_theme2.png" />
+    <Resource Include="Image\BusCurrentPos.png" />
+    <Resource Include="Image\CarCurrentPos.png" />
+    <Resource Include="Image\LDBusCurrentPos.png" />
+    <Resource Include="Image\theme2.png" />
+    <Resource Include="Image\DrawCircle1.png" />
+    <Resource Include="Image\DrawEllipse.png" />
+    <Resource Include="Image\DrawFreehand.png" />
+    <Resource Include="Image\DrawLineSegment.png" />
+    <Resource Include="Image\DrawPoint.png" />
+    <Resource Include="Image\DrawPolygon.png" />
+    <Resource Include="Image\DrawPolyline.png" />
+    <Resource Include="Image\DrawRectangle.png" />
+    <Resource Include="Image\StopDraw.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{A1591282-1198-4647-A2B1-27E5FF5F6F3B}">
+        <SilverlightProjectProperties />
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

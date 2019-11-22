@@ -1,0 +1,53 @@
+﻿<controls:ChildWindow x:Class="Gsafety.PTMS.BasicPage.Views.HistoryVideoManageWindow"
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:localControl="clr-namespace:Gsafety.PTMS.BasicPage.Views"
+           xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+           xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
+           xmlns:toolkit="http://schemas.microsoft.com/winfx/2006/xaml/presentation/toolkit"  Height="550"
+                       Width="1150"
+           Title="{Binding [MONITOR_HistoricalVideo], Source={StaticResource SR}}" Style="{StaticResource SelfChildenWindowWhiteStyle}">
+    
+    <toolkit:BusyIndicator x:Name="dataLoading" IsBusy="{Binding IsBusy}"  Style="{StaticResource BusyIndicatorRoundedStyle}">
+        <Grid x:Name="LayoutRoot" Style="{StaticResource ContentGridWhiteStyle}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="15" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="20" />
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <localControl:HistoryVideoManageContentView Name="historyVideoManagerView"/>
+            </Grid>
+
+            <Grid Grid.Row="3" Style="{StaticResource ContentGridWhiteStyle}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Button x:Name="CancelButton" 
+                        Tag="{Binding [Cancel],  Source={StaticResource SR}}" 
+                        Click="CancelButton_Click"  
+                        HorizontalAlignment="Left"
+                        Grid.Column="2" VerticalAlignment="Center"  
+                        Content="{Binding [Cancel],  Source={StaticResource SR}}"
+                        Style="{StaticResource CancelButtonStyle}">
+                </Button>
+
+                <Button x:Name="OKButton" Tag="{Binding [VDM_Play],  Source={StaticResource SR}}"
+                        Click="OKButton_Click" 
+                        HorizontalAlignment="Right"  
+                        VerticalAlignment="Center"
+                        Grid.Column="0" 
+                        IsEnabled="{Binding IsCheckItems,Mode=OneWay}"  
+                        Content="{Binding [VDM_Play],  Source={StaticResource SR}}"
+                        Style="{StaticResource SureButtonStyle}"
+                        Width="80">
+                </Button>
+            </Grid>
+        </Grid>
+    </toolkit:BusyIndicator>
+</controls:ChildWindow>

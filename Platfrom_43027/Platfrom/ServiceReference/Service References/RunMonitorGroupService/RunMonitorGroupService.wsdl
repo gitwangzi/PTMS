@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="RunMonitorGroupService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:2258/RunMonitorGroupService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:2258/RunMonitorGroupService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:2258/RunMonitorGroupService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Monitor.Contract.Data" />
+      <xsd:import schemaLocation="http://localhost:2258/RunMonitorGroupService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" />
+      <xsd:import schemaLocation="http://localhost:2258/RunMonitorGroupService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/System" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IRunMonitorGroupService_ChangeRunMonitorGroup_InputMessage">
+    <wsdl:part name="parameters" element="tns:ChangeRunMonitorGroup" />
+  </wsdl:message>
+  <wsdl:message name="IRunMonitorGroupService_ChangeRunMonitorGroup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ChangeRunMonitorGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRunMonitorGroupService_DeleteRunMonitorGroupByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteRunMonitorGroupByID" />
+  </wsdl:message>
+  <wsdl:message name="IRunMonitorGroupService_DeleteRunMonitorGroupByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteRunMonitorGroupByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRunMonitorGroupService_GetRunMonitorGroupList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRunMonitorGroupList" />
+  </wsdl:message>
+  <wsdl:message name="IRunMonitorGroupService_GetRunMonitorGroupList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRunMonitorGroupListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRunMonitorGroupService_ChangeRunMonitorGroupVehicle_InputMessage">
+    <wsdl:part name="parameters" element="tns:ChangeRunMonitorGroupVehicle" />
+  </wsdl:message>
+  <wsdl:message name="IRunMonitorGroupService_ChangeRunMonitorGroupVehicle_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ChangeRunMonitorGroupVehicleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRunMonitorGroupService_DeleteRunMonitorGroupVehicleByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteRunMonitorGroupVehicleByID" />
+  </wsdl:message>
+  <wsdl:message name="IRunMonitorGroupService_DeleteRunMonitorGroupVehicleByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteRunMonitorGroupVehicleByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRunMonitorGroupService_GetRunMonitorGroupVehicleList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRunMonitorGroupVehicleList" />
+  </wsdl:message>
+  <wsdl:message name="IRunMonitorGroupService_GetRunMonitorGroupVehicleList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRunMonitorGroupVehicleListResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IRunMonitorGroupService">
+    <wsdl:operation name="ChangeRunMonitorGroup">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRunMonitorGroupService/ChangeRunMonitorGroup" message="tns:IRunMonitorGroupService_ChangeRunMonitorGroup_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRunMonitorGroupService/ChangeRunMonitorGroupResponse" message="tns:IRunMonitorGroupService_ChangeRunMonitorGroup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteRunMonitorGroupByID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRunMonitorGroupService/DeleteRunMonitorGroupByID" message="tns:IRunMonitorGroupService_DeleteRunMonitorGroupByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRunMonitorGroupService/DeleteRunMonitorGroupByIDResponse" message="tns:IRunMonitorGroupService_DeleteRunMonitorGroupByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRunMonitorGroupList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRunMonitorGroupService/GetRunMonitorGroupList" message="tns:IRunMonitorGroupService_GetRunMonitorGroupList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRunMonitorGroupService/GetRunMonitorGroupListResponse" message="tns:IRunMonitorGroupService_GetRunMonitorGroupList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangeRunMonitorGroupVehicle">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRunMonitorGroupService/ChangeRunMonitorGroupVehicle" message="tns:IRunMonitorGroupService_ChangeRunMonitorGroupVehicle_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRunMonitorGroupService/ChangeRunMonitorGroupVehicleResponse" message="tns:IRunMonitorGroupService_ChangeRunMonitorGroupVehicle_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteRunMonitorGroupVehicleByID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRunMonitorGroupService/DeleteRunMonitorGroupVehicleByID" message="tns:IRunMonitorGroupService_DeleteRunMonitorGroupVehicleByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRunMonitorGroupService/DeleteRunMonitorGroupVehicleByIDResponse" message="tns:IRunMonitorGroupService_DeleteRunMonitorGroupVehicleByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRunMonitorGroupVehicleList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRunMonitorGroupService/GetRunMonitorGroupVehicleList" message="tns:IRunMonitorGroupService_GetRunMonitorGroupVehicleList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRunMonitorGroupService/GetRunMonitorGroupVehicleListResponse" message="tns:IRunMonitorGroupService_GetRunMonitorGroupVehicleList_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IRunMonitorGroupService" type="tns:IRunMonitorGroupService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ChangeRunMonitorGroup">
+      <soap:operation soapAction="http://tempuri.org/IRunMonitorGroupService/ChangeRunMonitorGroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteRunMonitorGroupByID">
+      <soap:operation soapAction="http://tempuri.org/IRunMonitorGroupService/DeleteRunMonitorGroupByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRunMonitorGroupList">
+      <soap:operation soapAction="http://tempuri.org/IRunMonitorGroupService/GetRunMonitorGroupList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangeRunMonitorGroupVehicle">
+      <soap:operation soapAction="http://tempuri.org/IRunMonitorGroupService/ChangeRunMonitorGroupVehicle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteRunMonitorGroupVehicleByID">
+      <soap:operation soapAction="http://tempuri.org/IRunMonitorGroupService/DeleteRunMonitorGroupVehicleByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRunMonitorGroupVehicleList">
+      <soap:operation soapAction="http://tempuri.org/IRunMonitorGroupService/GetRunMonitorGroupVehicleList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="RunMonitorGroupService">
+    <wsdl:port name="BasicHttpBinding_IRunMonitorGroupService" binding="tns:BasicHttpBinding_IRunMonitorGroupService">
+      <soap:address location="http://localhost:2258/RunMonitorGroupService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

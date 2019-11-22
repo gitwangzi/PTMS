@@ -1,0 +1,393 @@
+﻿<UserControl xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"  
+    x:Class="Gsafety.PTMS.Alarm.Views.AlarmInfoPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+	xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"  
+	xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions"
+    xmlns:cv="clr-namespace:Gsafety.Common.Converts;assembly=Converts"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="520" d:DesignWidth="450">
+    <UserControl.Resources>
+        <cv:GPSLatChangeDisplayConvert x:Key="LatConvert"/>
+        <cv:GPSLonChangeDisplayConvert x:Key="LonConvert"/>
+        <cv:AlarmlocationConverter x:Key="Alarmlocation"/>
+        <cv:SpeedAndDirConverter x:Key="SpeedAndDir"/>
+        <cv:TrueOrFalse x:Key="TrueOrFalse"/>
+    </UserControl.Resources>
+    <Grid Style="{StaticResource ContentGridStyle}">
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="VisualStateGroup">
+                <VisualState x:Name="MinStory">
+                    <Storyboard>
+                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)" Storyboard.TargetName="AlarmInfoBorder">
+                            <EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+                            <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="0"/>
+                        </DoubleAnimationUsingKeyFrames>
+                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)" Storyboard.TargetName="AlarmInfoBorder">
+                            <EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+                            <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="0"/>
+                        </DoubleAnimationUsingKeyFrames>
+                    </Storyboard>
+                </VisualState>
+                <VisualState x:Name="MaxStory">
+                    <Storyboard>
+                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)" Storyboard.TargetName="AlarmInfoBorder">
+                            <EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+                            <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
+                            <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="1"/>
+                        </DoubleAnimationUsingKeyFrames>
+                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)" Storyboard.TargetName="AlarmInfoBorder">
+                            <EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+                            <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
+                            <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="1"/>
+                        </DoubleAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="AlarmInfoBorder">
+                            <DiscreteObjectKeyFrame KeyTime="0">
+                                <DiscreteObjectKeyFrame.Value>
+                                    <Visibility>Collapsed</Visibility>
+                                </DiscreteObjectKeyFrame.Value>
+                            </DiscreteObjectKeyFrame>
+                            <DiscreteObjectKeyFrame KeyTime="0:0:0.2">
+                                <DiscreteObjectKeyFrame.Value>
+                                    <Visibility>Visible</Visibility>
+                                </DiscreteObjectKeyFrame.Value>
+                            </DiscreteObjectKeyFrame>
+                        </ObjectAnimationUsingKeyFrames>
+                    </Storyboard>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+
+        <Border x:Name="AlarmInfoBorder" RenderTransformOrigin="0,0" BorderBrush="#FF617584">
+            <Border.RenderTransform>
+                <CompositeTransform/>
+            </Border.RenderTransform>
+            <Grid x:Name="LayoutRoot" Background="#FFE5E5E5" Margin="0">
+                <Grid x:Name="MainContent"  RenderTransformOrigin="0,0">
+                    <Grid.Effect>
+                        <DropShadowEffect BlurRadius="8" ShadowDepth="1" Opacity="0.6" Direction="315"/>
+                    </Grid.Effect>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Border Style="{StaticResource Pop-up layer_tle_BorderStyle}" Grid.Row="0">
+                        <Grid x:Name="Header" Height="40" VerticalAlignment="Top" Style="{StaticResource ViewFirstTitleGridStyle}">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="10"/>
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition Width="48"/>
+                            </Grid.ColumnDefinitions>
+                            <Image Grid.Column="1" x:Name="Ico" Source="{Binding PicUrl}" HorizontalAlignment="Left" Width="29" Height="29"/>
+                            <TextBlock   Grid.Column="2" VerticalAlignment="Center" Text="{Binding Title}" FontWeight="Bold" Margin="10,0,0,0" Style="{StaticResource MainPage_menu_tle_TextBlockStyle}"></TextBlock>
+                            <Image Grid.Column="3" x:Name="MinIco" Source="/ExternalResource;component/Images/Pop-up-layer_tle_close.png" Stretch="None">
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="MouseLeftButtonDown">
+                                        <ei:GoToStateAction StateName="MinStory"/>
+                                        <ei:ChangePropertyAction TargetObject="{Binding}" PropertyName="IsOpen" Value="False"></ei:ChangePropertyAction>
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
+                            </Image>
+                        </Grid>
+                    </Border>
+                    <sdk:TabControl Grid.Row="1" Style="{StaticResource TabControlStyle}" SelectedIndex="{Binding SelectItemIndex, Mode=TwoWay}">
+                        <sdk:TabItem Header ="{Binding [ALARM_DetailInfo],Source={StaticResource SR}}"  Style="{StaticResource TabItemStyle}" Margin="0,9,0,-9">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <Grid Grid.Row="1" x:Name="DetailInfo">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="1"/>
+                                        <RowDefinition Height="30"/>
+                                        <RowDefinition Height="30"/>
+                                        <RowDefinition Height="30"/>
+                                        <RowDefinition Height="30"/>
+                                        <RowDefinition Height="30"/>
+                                        <RowDefinition Height="30"/>
+                                        <RowDefinition Height="30"/>
+                                        <RowDefinition Height="30"/>
+                                        <RowDefinition Height="30"/>
+                                        <RowDefinition Height="30"/>
+                                        <RowDefinition Height="30"/>
+                                        <RowDefinition Height="30"/>
+                                        <RowDefinition Height="30"/>
+                                        <RowDefinition Height="30"/>
+                                        <RowDefinition Height="5"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="113"/>
+                                        <ColumnDefinition Width="237*"/>
+                                        <ColumnDefinition Width="88*"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <TextBlock Style="{StaticResource MainPage_Main_search_TextBlockStyle}"  Grid.Row="1" Grid.Column="0" Text="{Binding [ALARM_ProviceName],Source={StaticResource SR}}" VerticalAlignment="Center"  TextAlignment="Right" Height="19" Margin="0,6,0,5"/>
+
+                                    <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal" Margin="10,0,0,0" Grid.ColumnSpan="2">
+                                        <TextBlock Style="{StaticResource MainPage_Main_search_TextBlockStyle}"  Text="{Binding AlarmInfo.ProvinceName, Mode=TwoWay}" VerticalAlignment="Center"/>
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="14" Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Right" Margin="5,0" Width="35">
+                                        <Button Width="35" ToolTipService.ToolTip="{Binding [ALARM_Print],Source={StaticResource SR}}" Click="Button_Click_1" Style="{StaticResource picture_ButtonStyle}">
+                                            <Image Source="/ExternalResource;component/Images/layer_print.png" Stretch="None" VerticalAlignment="Center"/>
+                                        </Button>
+                                    </StackPanel>
+
+                                    <!--<StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right"  >-->
+
+                                    <TextBlock Style="{StaticResource MainPage_Main_search_TextBlockStyle}"  Grid.Row="2" Grid.Column="0" Text="{Binding [ALARM_CityName],Source={StaticResource SR}}" VerticalAlignment="Center" TextAlignment="Right" Height="19" Margin="0,6,0,5" />
+
+                                    <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal" Margin="10,0,0,0" Grid.ColumnSpan="2">
+                                        <TextBlock Style="{StaticResource MainPage_Main_search_TextBlockStyle}"  Text="{Binding AlarmInfo.CityName, Mode=TwoWay}" VerticalAlignment="Center"/>
+                                    </StackPanel>
+
+
+
+
+                                    <!--<StackPanel Grid.Row="4" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right">-->
+
+                                    <TextBlock Style="{StaticResource MainPage_Main_search_TextBlockStyle}"  Grid.Row="3" Grid.Column="0" Text="{Binding [ALARM_VehicleOwner],Source={StaticResource SR}}" VerticalAlignment="Center" TextAlignment="Right" Height="19" Margin="0,6,0,5" />
+
+                                    <StackPanel Grid.Row="3" Grid.Column="1" Orientation="Horizontal" Margin="10,0,0,0" Grid.ColumnSpan="2">
+                                        <TextBlock Style="{StaticResource MainPage_Main_search_TextBlockStyle}"  Text="{Binding AlarmInfo.VehicleOwner, Mode=TwoWay}" ToolTipService.ToolTip="{Binding AlarmInfo.VehicleOwner}" VerticalAlignment="Center"  Width="330"/>
+                                    </StackPanel>
+
+
+                                    <TextBlock Style="{StaticResource MainPage_Main_search_TextBlockStyle}"  Grid.Row="4" Grid.Column="0" Text="{Binding [ALARM_Phone],Source={StaticResource SR}}" VerticalAlignment="Center" TextAlignment="Right" Height="19" Margin="0,6,0,5" />
+
+                                    <StackPanel Grid.Row="4" Grid.Column="1" Orientation="Horizontal" Margin="10,0,0,0" Grid.ColumnSpan="2">
+                                        <TextBlock Style="{StaticResource MainPage_Main_search_TextBlockStyle}"  Text="{Binding AlarmInfo.Phone, Mode=TwoWay}" ToolTipService.ToolTip="{Binding AlarmInfo.Phone}" VerticalAlignment="Center"  Width="330"/>
+                                    </StackPanel>
+
+                                    <TextBlock Style="{StaticResource MainPage_Main_search_TextBlockStyle}"  Grid.Row="5" Grid.Column="0" Text="{Binding [ALARM_VehicleId],Source={StaticResource SR}}" VerticalAlignment="Center" TextAlignment="Right" Height="19" Margin="0,6,0,5" />
+
+                                    <StackPanel Grid.Row="5" Grid.Column="1" Orientation="Horizontal" Margin="10,0,0,0" Grid.ColumnSpan="2">
+                                        <TextBlock Style="{StaticResource MainPage_Main_search_TextBlockStyle}"  Text="{Binding AlarmInfo.VehicleId, Mode=TwoWay}" VerticalAlignment="Center"/>
+                                    </StackPanel>
+
+                                    <!--<TextBlock Style="{StaticResource MainPage_Main_search_TextBlockStyle}"  Grid.Row="6" Grid.Column="0" Text="{Binding [ALARM_VehicleType],Source={StaticResource SR}}" VerticalAlignment="Center" TextAlignment="Right" Height="19" Margin="0,6,0,5" />
+
+                                    <StackPanel Grid.Row="6" Grid.Column="1" Orientation="Horizontal" Margin="10,0,0,0" Grid.ColumnSpan="2">
+                                        <TextBlock Style="{StaticResource MainPage_Main_search_TextBlockStyle}"  Text="{Binding VehicleType, Mode=TwoWay}" VerticalAlignment="Center"/>
+                                    </StackPanel>-->
+
+                                    <TextBlock Style="{StaticResource MainPage_Main_search_TextBlockStyle}"  Grid.Row="6" Grid.Column="0" Text="{Binding [ALARM_AlarmTime],Source={StaticResource SR}}" VerticalAlignment="Center" TextAlignment="Right" Height="19" Margin="0,6,0,5" />
+
+                                    <StackPanel Grid.Row="6" Grid.Column="1" Orientation="Horizontal" Margin="10,0,0,0" Grid.ColumnSpan="2">
+                                        <TextBlock Style="{StaticResource MainPage_Main_search_TextBlockStyle}"  Text="{Binding AlarmInfo.AlarmTime, StringFormat=dd-MM-yyyy HH:mm:ss}" VerticalAlignment="Center"/>
+                                    </StackPanel>
+
+                                    <TextBlock Style="{StaticResource MainPage_Main_search_TextBlockStyle}"  Grid.Row="7" Grid.Column="0" Text="{Binding [Info_SuiteID],Source={StaticResource SR}}" VerticalAlignment="Center" TextAlignment="Right" Height="19" Margin="0,6,0,5" />
+
+                                    <StackPanel Grid.Row="7" Grid.Column="1" Orientation="Horizontal" Margin="10,0,0,0" Grid.ColumnSpan="2">
+                                        <TextBlock Style="{StaticResource MainPage_Main_search_TextBlockStyle}"  Text="{Binding AlarmInfo.SuiteID, Mode=TwoWay}" VerticalAlignment="Center"/>
+                                    </StackPanel>
+
+
+                                    <TextBlock Style="{StaticResource MainPage_Main_search_TextBlockStyle}"  Grid.Row="8" Grid.Column="0" Text="{Binding [ALARM_Longitude],Source={StaticResource SR}}" VerticalAlignment="Center" TextAlignment="Right" Height="19" Margin="0,6,0,5" />
+
+                                    <StackPanel Grid.Row="8" Grid.Column="1" Orientation="Horizontal" Margin="10,0,0,0" Grid.ColumnSpan="2">
+                                        <TextBlock Style="{StaticResource MainPage_Main_search_TextBlockStyle}"  Text="{Binding Longitude,Converter={StaticResource LonConvert}, Mode=TwoWay}" VerticalAlignment="Center"/>
+                                    </StackPanel>
+
+                                    <TextBlock Style="{StaticResource MainPage_Main_search_TextBlockStyle}"  Grid.Row="9" Grid.Column="0" Text="{Binding [ALARM_Latitude],Source={StaticResource SR}}" VerticalAlignment="Center" TextAlignment="Right" Height="19" Margin="0,6,0,5" />
+
+                                    <StackPanel Grid.Row="9" Grid.Column="1" Orientation="Horizontal" Margin="10,0,0,0" Grid.ColumnSpan="2">
+                                        <TextBlock Style="{StaticResource MainPage_Main_search_TextBlockStyle}"  Text="{Binding Latitude,Converter={StaticResource LatConvert}, Mode=TwoWay}" VerticalAlignment="Center"/>
+                                    </StackPanel>
+
+                                    <TextBlock Style="{StaticResource MainPage_Main_search_TextBlockStyle}"  Grid.Row="10" Grid.Column="0" Text="{Binding [ALARM_Speed],Source={StaticResource SR}}" VerticalAlignment="Center" TextAlignment="Right" Height="19" Margin="0,6,0,5" />
+
+                                    <StackPanel Grid.Row="10" Grid.Column="1" Orientation="Horizontal" Margin="10,0,0,0" Grid.ColumnSpan="2">
+                                        <TextBlock Style="{StaticResource MainPage_Main_search_TextBlockStyle}"  Text="{Binding AlarmInfo.Speed,Converter={StaticResource SpeedAndDir}, Mode=TwoWay}" VerticalAlignment="Center"/>
+                                    </StackPanel>
+
+                                    <TextBlock Style="{StaticResource MainPage_Main_search_TextBlockStyle}"  Grid.Row="11" Grid.Column="0" Text="{Binding [ALARM_DIR],Source={StaticResource SR}}" VerticalAlignment="Center" TextAlignment="Right" Height="19" Margin="0,6,0,5" />
+
+                                    <StackPanel Grid.Row="11" Grid.Column="1" Orientation="Horizontal" Margin="10,0,0,0" Grid.ColumnSpan="2">
+                                        <TextBlock Style="{StaticResource MainPage_Main_search_TextBlockStyle}"  Text="{Binding AlarmInfo.Direction,Converter={StaticResource SpeedAndDir}, Mode=TwoWay}" VerticalAlignment="Center"/>
+                                    </StackPanel>
+
+                                    <TextBlock Style="{StaticResource MainPage_Main_search_TextBlockStyle}"  Grid.Row="12" Grid.Column="0" Text="{Binding [ALARM_ButtonNum],Source={StaticResource SR}}" VerticalAlignment="Center" TextAlignment="Right" Height="19" Margin="0,6,0,5" />
+
+                                    <StackPanel Grid.Row="12" Grid.Column="1" Orientation="Horizontal" Margin="10,0,0,0" >
+                                        <TextBlock Style="{StaticResource MainPage_Main_search_TextBlockStyle}"  Text="{Binding AlarmInfo.ButtonNum,Converter={StaticResource Alarmlocation}, Mode=TwoWay}" VerticalAlignment="Center"/>
+                                    </StackPanel>
+                                </Grid>
+                            </Grid>
+                        </sdk:TabItem>
+                        <sdk:TabItem Header ="{Binding [ALARM_PtmsTreal],Source={StaticResource SR}}"  Style="{StaticResource TabItemStyle}" Visibility="{Binding AntVisible,Mode=TwoWay}" Margin="0,9,0,-9">
+                            <!--Visibility="{Binding AntVisible,Mode=TwoWay}"-->
+                            <Grid >
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="143"/>
+                                    <ColumnDefinition Width="87"/>
+                                    <ColumnDefinition Width="150"/>
+                                    <ColumnDefinition Width="58"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="30"/>
+                                    <RowDefinition Height="30"/>
+                                    <RowDefinition Height="30"/>
+                                    <RowDefinition Height="30"/>
+                                    <RowDefinition Height="30"/>
+                                    <RowDefinition Height="30*"/>
+
+                                </Grid.RowDefinitions>
+                                <TextBlock Style="{StaticResource MainPage_Main_search_TextBlockStyle}" Text="{Binding [ALARM_VehicleId],Source={StaticResource SR}}"  Grid.Column="0" Grid.Row="0"  VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,6,0,5" />
+                                <StackPanel Grid.Column="1"  Grid.Row="0" Grid.ColumnSpan="2" Orientation="Horizontal" Margin="10,0,0,0" >
+                                    <TextBlock Style="{StaticResource MainPage_Main_search_TextBlockStyle}"  Text="{Binding VehicleId, Mode=TwoWay}"  HorizontalAlignment="Left" VerticalAlignment="Center"   />
+                                </StackPanel>
+                                <TextBlock Style="{StaticResource MainPage_Main_search_TextBlockStyle}"  Text="{Binding [ALARM_AlarmTime],Source={StaticResource SR}}" Grid.Column="0" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,6,0,5" />
+                                <StackPanel Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" Orientation="Horizontal" Margin="10,0,0,0" >
+                                    <TextBlock Style="{StaticResource MainPage_Main_search_TextBlockStyle}" Text="{Binding AlarmTime, Mode=TwoWay}"  HorizontalAlignment="Left" VerticalAlignment="Center"  />
+                                </StackPanel>
+                                <TextBlock Style="{StaticResource MainPage_Main_search_TextBlockStyle}"  Text="{Binding [ALARM_TrealTime],Source={StaticResource SR}}" Grid.Column="0" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,6,0,5" />
+                                <StackPanel Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2" Orientation="Horizontal" Margin="10,0,0,0" >
+                                    <TextBlock Style="{StaticResource MainPage_Main_search_TextBlockStyle}" Text="{Binding DisTime,Mode=TwoWay}"   HorizontalAlignment="Left" VerticalAlignment="Center"  />
+                                </StackPanel>
+                                <TextBlock Style="{StaticResource MainPage_Main_search_TextBlockStyle}"  Text="{Binding [ALERT_HandlePerson],Source={StaticResource SR}}" Grid.Column="0" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,6,0,5" />
+                                <StackPanel Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="2" Orientation="Horizontal" Margin="10,0,0,0" >
+                                    <TextBlock Style="{StaticResource MainPage_Main_search_TextBlockStyle}"  Text="{Binding DisStaff,Mode=TwoWay}"  HorizontalAlignment="Left" VerticalAlignment="Center" />
+                                </StackPanel>
+                                <TextBlock Style="{StaticResource MainPage_Main_search_TextBlockStyle}"  Text="{Binding [ALARM_AlarmState],Source={StaticResource SR}}" Grid.Column="0" Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,6,0,5" />
+                                <StackPanel Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="2" Orientation="Horizontal" Margin="10,0,0,0" >
+                                    <TextBlock Style="{StaticResource MainPage_Main_search_TextBlockStyle}"  Text="{Binding IfTrueAlarm, Converter={StaticResource TrueOrFalse}, Mode=TwoWay}"  HorizontalAlignment="Left" VerticalAlignment="Center"  />
+                                </StackPanel>
+                                <Button Content="{Binding [ALARM_Refesh],Source={StaticResource SR}}" Grid.Column="0" Grid.Row="5" Visibility="{Binding RefeshVisible}"  Command="{Binding QueryCommand}" HorizontalAlignment="Left" VerticalAlignment="Center" Width="75"/>
+
+                                <TextBlock Style="{StaticResource MainPage_Main_search_TextBlockStyle}"  Text="{Binding [ALARM_Note],Source={StaticResource SR}}" Grid.Column="0" Grid.Row="5"  VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,129,0,128" />
+
+                                <TextBox Height="140" Text="{Binding DisContent, Mode=TwoWay}" TextWrapping="Wrap" Grid.Column="1" Grid.Row="5"  IsReadOnly="True" Margin="10,68,5,68" Grid.ColumnSpan="2" />
+
+                            </Grid>
+                        </sdk:TabItem>
+                        <sdk:TabItem Header="{Binding [ALARM_911treal],Source={StaticResource SR}}" Style="{StaticResource TabItemStyle}" Visibility="{Binding ECU911Visible,Mode=TwoWay}" Margin="0,9,0,-9">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="1"/>
+                                    <RowDefinition Height="30"/>
+                                    <RowDefinition Height="30"/>
+                                    <RowDefinition Height="30"/>
+                                    <RowDefinition Height="30"/>
+                                    <RowDefinition Height="30"/>
+                                    <RowDefinition Height="30"/>
+                                    <RowDefinition Height="30"/>
+                                    <RowDefinition Height="30"/>
+                                    <RowDefinition Height="30"/>
+                                    <RowDefinition Height="30"/>
+                                    <RowDefinition Height="30"/>
+                                    <RowDefinition Height="30"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="225" />
+                                    <ColumnDefinition Width="130"/>
+                                    <ColumnDefinition Width="5*"/>
+                                </Grid.ColumnDefinitions>
+                                <StackPanel Grid.Row="1" Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Right">
+                                    <TextBlock Style="{StaticResource MainPage_Main_search_TextBlockStyle}"  Text="{Binding [ALARM_VehicleId],Source={StaticResource SR}}" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,0,0"/>
+                                </StackPanel>
+                                <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal" Margin="10,0,0,0" Grid.ColumnSpan="2">
+                                    <TextBlock Style="{StaticResource MainPage_Main_search_TextBlockStyle}"  Text="{Binding VehicleId}" VerticalAlignment="Center"/>
+                                </StackPanel>
+                                <StackPanel Grid.Row="2" Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Right">
+                                    <TextBlock Style="{StaticResource MainPage_Main_search_TextBlockStyle}"  Text="{Binding [ALARM_AlarmTime],Source={StaticResource SR}}" Grid.Column="0" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,0,0"/>
+                                </StackPanel>
+                                <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal" Margin="10,0,0,0" Grid.ColumnSpan="2">
+                                    <TextBlock Style="{StaticResource MainPage_Main_search_TextBlockStyle}"    Text="{Binding AlarmTime}" VerticalAlignment="Center"/>
+                                </StackPanel>
+                                <StackPanel Grid.Row="3" Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Right">
+                                    <TextBlock Style="{StaticResource MainPage_Main_search_TextBlockStyle}"  Text="{Binding [ALARM_VEN911Center],Source={StaticResource SR}}" VerticalAlignment="Center"  />
+                                </StackPanel>
+                                <StackPanel Grid.Row="3" Grid.Column="1" Orientation="Horizontal" Margin="10,0,0,0" Grid.ColumnSpan="2">
+                                    <TextBlock Style="{StaticResource MainPage_Main_search_TextBlockStyle}"  Text="{Binding EcuTreatment.Ecu911Center, Mode=TwoWay}" VerticalAlignment="Center"/>
+                                </StackPanel>
+                                <StackPanel Grid.Row="4" Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Right">
+                                    <TextBlock Style="{StaticResource MainPage_Main_search_TextBlockStyle}"  Text="{Binding [ALARM_State],Source={StaticResource SR}}" VerticalAlignment="Center"  />
+                                </StackPanel>
+                                <StackPanel Grid.Row="4" Grid.Column="1" Orientation="Horizontal" Margin="10,0,0,0" Grid.ColumnSpan="2">
+                                    <TextBlock Style="{StaticResource MainPage_Main_search_TextBlockStyle}"  Text="{Binding FORWARDED_FLAG, Mode=TwoWay, StringFormat=dd-MM-yyyy HH:mm:ss}" VerticalAlignment="Center"/>
+                                </StackPanel>
+                                <StackPanel Grid.Row="5" Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Right">
+                                    <TextBlock Style="{StaticResource MainPage_Main_search_TextBlockStyle}"  Text="{Binding [ALARM_SendRegion],Source={StaticResource SR}}" VerticalAlignment="Center"  />
+                                </StackPanel>
+                                <StackPanel Grid.Row="5" Grid.Column="1" Orientation="Horizontal" Margin="10,0,0,0" Grid.ColumnSpan="2">
+                                    <TextBlock Style="{StaticResource MainPage_Main_search_TextBlockStyle}"  Text="{Binding EcuTreatment.FORWARD_DEST, Mode=TwoWay, StringFormat=dd-MM-yyyy HH:mm:ss}" VerticalAlignment="Center"/>
+                                </StackPanel>
+                                <StackPanel Grid.Row="6" Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Right">
+                                    <TextBlock Style="{StaticResource MainPage_Main_search_TextBlockStyle}"  Text="{Binding [ALARM_SendTime],Source={StaticResource SR}}" VerticalAlignment="Center"  />
+                                </StackPanel>
+                                <StackPanel Grid.Row="6" Grid.Column="1" Orientation="Horizontal" Margin="10,0,0,0" Grid.ColumnSpan="2">
+                                    <TextBlock Style="{StaticResource MainPage_Main_search_TextBlockStyle}"  Text="{Binding FORWARD_TIME, Mode=TwoWay, StringFormat=dd-MM-yyyy HH:mm:ss}" VerticalAlignment="Center"/>
+                                </StackPanel>
+                                <StackPanel Grid.Row="7" Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Right">
+                                    <TextBlock Style="{StaticResource MainPage_Main_search_TextBlockStyle}"  Text="{Binding [ALARM_AlarmAddress],Source={StaticResource SR}}" VerticalAlignment="Center"  />
+                                </StackPanel>
+                                <StackPanel Grid.Row="7" Grid.Column="1" Orientation="Horizontal" Margin="10,0,0,0" Grid.ColumnSpan="2">
+                                    <TextBlock Style="{StaticResource MainPage_Main_search_TextBlockStyle}"  Text="{Binding EcuTreatment.ALARM_ADDRESS, Mode=TwoWay, StringFormat=dd-MM-yyyy HH:mm:ss}" VerticalAlignment="Center"/>
+                                </StackPanel>
+
+                                <StackPanel Grid.Row="8" Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Right">
+                                    <TextBlock Style="{StaticResource MainPage_Main_search_TextBlockStyle}"  Text="{Binding [ALARM_IsFalseAlarm],Source={StaticResource SR}}" VerticalAlignment="Center"  />
+                                </StackPanel>
+                                <StackPanel Grid.Row="8" Grid.Column="1" Orientation="Horizontal" Margin="10,0,0,0" Grid.ColumnSpan="2">
+                                    <TextBlock Style="{StaticResource MainPage_Main_search_TextBlockStyle}"  Text="{Binding ALARM_FLAG, Mode=TwoWay}" VerticalAlignment="Center"/>
+                                </StackPanel>
+                                <StackPanel Grid.Row="9" Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Right">
+                                    <TextBlock Style="{StaticResource MainPage_Main_search_TextBlockStyle}"  Text="{Binding [ALARM_HandlePerson],Source={StaticResource SR}}" VerticalAlignment="Center"  />
+                                </StackPanel>
+                                <StackPanel Grid.Row="9" Grid.Column="1" Orientation="Horizontal" Margin="10,0,0,0" Grid.ColumnSpan="2">
+                                    <TextBlock Style="{StaticResource MainPage_Main_search_TextBlockStyle}"  Text="{Binding EcuTreatment.DisposeStaff, Mode=TwoWay}" VerticalAlignment="Center"/>
+                                </StackPanel>
+                                <StackPanel Grid.Row="10" Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Right">
+                                    <TextBlock Style="{StaticResource MainPage_Main_search_TextBlockStyle}"  Text="{Binding [ALARM_TrealEndTime],Source={StaticResource SR}}" VerticalAlignment="Center"  />
+                                </StackPanel>
+                                <StackPanel Grid.Row="10" Grid.Column="1" Orientation="Horizontal" Margin="10,0,0,0" Grid.ColumnSpan="2">
+                                    <TextBlock Style="{StaticResource MainPage_Main_search_TextBlockStyle}"  Text="{Binding DisposeTime, Mode=TwoWay, StringFormat=dd-MM-yyyy HH:mm:ss}" VerticalAlignment="Center"/>
+                                </StackPanel>
+                                <StackPanel Grid.Row="11" Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Right">
+                                    <TextBlock Style="{StaticResource MainPage_Main_search_TextBlockStyle}"  Text="{Binding [ALARM_AlarmState],Source={StaticResource SR}}" VerticalAlignment="Center"  />
+                                </StackPanel>
+                                <StackPanel Grid.Row="11" Grid.Column="1" Orientation="Horizontal" Margin="10,0,0,0" Grid.ColumnSpan="2">
+                                    <TextBlock Style="{StaticResource MainPage_Main_search_TextBlockStyle}"  Text="{Binding Ecu911AlarmDetail,Mode=TwoWay}" VerticalAlignment="Center"/>
+                                </StackPanel>
+                                <Button Grid.Row="8" Grid.Column="2" Tag="{Binding [ALARM_Get],Source={StaticResource SR}}" Command="{Binding GetInfoCommand}" Style="{StaticResource Search_ButtonStyle}" VerticalAlignment="Center" Width="80">
+                                    <Image Height="15" Source="/ExternalResource;component/Images/MainPage_complete.png" Stretch="Fill" Width="15"/>
+                                </Button>
+                                <StackPanel Grid.Row="12" Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Right">
+                                    <TextBlock Style="{StaticResource MainPage_Main_search_TextBlockStyle}"  Text="{Binding [Incident_Type],Source={StaticResource SR}}" VerticalAlignment="Center"  />
+                                </StackPanel>
+                                <StackPanel Grid.Row="12" Grid.Column="1" Orientation="Horizontal" Margin="10,0,0,0" Grid.ColumnSpan="2">
+                                    <TextBlock Style="{StaticResource MainPage_Main_search_TextBlockStyle}"  Text="{Binding Ecu911Content,Mode=TwoWay}" VerticalAlignment="Center"/>
+                                </StackPanel>
+
+                                <StackPanel Grid.Row="13" Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Right" Grid.RowSpan="2" Width="Auto">
+                                    <TextBlock Style="{StaticResource MainPage_Main_search_TextBlockStyle}"  Text="{Binding [ALARM_TrealDes],Source={StaticResource SR}}" VerticalAlignment="Center"  />
+                                </StackPanel>
+                                <TextBox Grid.Row="13" Grid.Column="1" Grid.ColumnSpan="2" Grid.RowSpan="2" Margin="10,5,5,5" Text="{Binding EcuTreatment.Content, Mode=TwoWay}"  TextWrapping="Wrap" Height="140"  AcceptsReturn="True" IsReadOnly="True" />
+
+
+                            </Grid>
+                            <!--</Grid>-->
+                        </sdk:TabItem>
+                    </sdk:TabControl>
+                </Grid>
+            </Grid>
+        </Border>
+        <Image x:Name="MaxIco">
+            <i:Interaction.Triggers>
+                <ei:DataTrigger  Binding="{Binding IsVisual}" Value="True">
+                    <ei:GoToStateAction StateName="MaxStory"/>
+                    <ei:ChangePropertyAction TargetObject="{Binding}" PropertyName="IsOpen" Value="True"></ei:ChangePropertyAction>
+                </ei:DataTrigger>
+                <ei:DataTrigger  Binding="{Binding IsVisual}" Value="False">
+                    <ei:GoToStateAction StateName="MinStory"/>
+                    <ei:ChangePropertyAction TargetObject="{Binding}" PropertyName="IsOpen" Value="False"></ei:ChangePropertyAction>
+                </ei:DataTrigger>
+            </i:Interaction.Triggers>
+        </Image>
+    </Grid>
+</UserControl>

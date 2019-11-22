@@ -1,0 +1,143 @@
+﻿<UserControl x:Class="Gsafety.PTMS.Manager.Views.Organization.UserOrganizationManageView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
+             xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+             xmlns:toolKit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Toolkit"
+             xmlns:system="clr-namespace:System;assembly=mscorlib"
+             mc:Ignorable="d"
+             xmlns:Converter="clr-namespace:Gsafety.Common.Converts;assembly=Converts"
+    d:DesignHeight="700" d:DesignWidth="900">
+
+    <UserControl.Resources>
+        <Converter:FunItemVisibilityConverter x:Key="FunItemVisibilityConverter"/>
+    </UserControl.Resources>
+
+    <Grid x:Name="LayoutRoot" Style="{StaticResource SearchContentGridStyle}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="350" MaxWidth="400"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid Style="{StaticResource ViewFirstTitleWhiteGridStyle}"
+              Height="35"
+              Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="20"/>
+                </Grid.ColumnDefinitions>
+
+                <Image Grid.Column="0"
+                   Style="{StaticResource TitleImageStyle}"/>
+                <TextBlock Text="{Binding [OrganizationNameList], Source={StaticResource SR}}" 
+                       Grid.Column="1"
+                       Style="{StaticResource SecondTitleTextBlockWhiteStyle}"/>
+                <Button Grid.Column="2" 
+                        Style="{StaticResource AddButtonCommonStyle}"
+                        ToolTipService.ToolTip="{Binding [Add], Source={StaticResource SR}}"
+                        Command="{Binding BtnAddCommand}"
+                        CommandParameter="{Binding ElementName=TreeView,Path=SelectedItem}"
+                        Visibility="{Binding RelativeSource={RelativeSource Self}, Converter={StaticResource FunItemVisibilityConverter},ConverterParameter='02-08-01-02-02'}"/>
+
+                <Button Grid.Column="3" 
+                        Style="{StaticResource EditButtonCommonStyle}"
+                        Height="20"
+                        Width="20"
+                        ToolTipService.ToolTip="{Binding [Edit], Source={StaticResource SR}}"
+                        Command="{Binding BtnEditCommand}"
+                        CommandParameter="{Binding ElementName=TreeView,Path=SelectedItem}"
+                        Visibility="{Binding RelativeSource={RelativeSource Self}, Converter={StaticResource FunItemVisibilityConverter},ConverterParameter='02-08-01-02-03'}"/>
+
+                <Button Grid.Column="4" 
+                        Style="{StaticResource DetailButtonCommonStyle}"
+                        Height="20"
+                        Width="20"
+                        ToolTipService.ToolTip="{Binding [Detail], Source={StaticResource SR}}"
+                        Command="{Binding BtnDetailCommand}"
+                        CommandParameter="{Binding ElementName=TreeView,Path=SelectedItem}"/>
+
+                <Button Grid.Column="5" 
+                         Height="20"
+                        Width="20"
+                        Style="{StaticResource DeleteBigButtonCommonStyle}"
+                        ToolTipService.ToolTip="{Binding [Delete], Source={StaticResource SR}}"
+                        Command="{Binding BtnDeleteCommand}"
+                        CommandParameter="{Binding ElementName=TreeView,Path=SelectedItem}"
+                        Visibility="{Binding RelativeSource={RelativeSource Self}, Converter={StaticResource FunItemVisibilityConverter},ConverterParameter='02-08-01-02-04'}"/>
+                <Button Grid.Column="6"
+                        Height="20"
+                        Width="20"
+                        ToolTipService.ToolTip="{Binding [ALARM_Refesh], Source={StaticResource SR}}"
+                        Style="{StaticResource RefrushButtonCommonStyle}" 
+                       Command="{Binding BtnSearchCommand}"/>
+            </Grid>
+
+            <sdk:TreeView  Grid.Row="3" 
+                               HorizontalAlignment="Stretch"
+                               VerticalAlignment="Stretch"
+                               ItemsSource="{Binding UsrDepartmentNodes, Mode=TwoWay}"
+                               x:Name="TreeView"
+                               SelectedItemChanged="TreeView_OnSelectedItemChanged"                            
+                               Style="{StaticResource TreeViewWhiteStyle}" 
+                               ItemContainerStyle="{StaticResource TreeViewItemWhiteStyle}"
+                           >
+
+                <sdk:TreeView.ItemTemplate>
+                    <sdk:HierarchicalDataTemplate ItemsSource="{Binding Path=Children}">
+                        <StackPanel Orientation="Horizontal">
+
+                            <Image Stretch="Uniform" Margin="0,0,2,0"  
+                                       VerticalAlignment="Center" Source="/ExternalResource;component/Images/UserLoginInfo.png"
+                                       Height="16"
+                                       Width="16"
+                                       />
+                            <HyperlinkButton x:Name="Link1" 
+                                         Style="{StaticResource View_Item_HyperlinkButtonStyle}" 
+                                         Background="{Binding ElementName=TreeView, Path=Background}"
+                                         NavigateUri="{Binding Uri}" 
+                                         TargetName="SuperFrame"
+                                          MouseEnter="Link1_MouseEnter"
+                                          MouseLeave="Link1_MouseLeave"
+                                          Tag="{Binding Path=Model.ID}"
+                                         Content="{Binding Path=Model.Name}"
+                                         AllowDrop="True"
+                                                 Click="Link1_Click"/>
+                        </StackPanel>
+
+                    </sdk:HierarchicalDataTemplate>
+                </sdk:TreeView.ItemTemplate>
+
+            </sdk:TreeView>
+        </Grid>
+
+        <!--右边-->
+        <Grid Grid.Column="1" x:Name="ContentBorder" Style="{StaticResource ContentGridWhiteStyle}">
+
+            <sdk:Frame x:Name="SuperFrame" JournalOwnership="OwnsJournal" Background="{Binding ElementName=ContentBorder,Path=Background}">
+                <sdk:Frame.UriMapper>
+                    <sdk:UriMapper>
+                        <sdk:UriMapping Uri="" MappedUri="/ManagerManagement;component/Views/Organization/DepartmentNavigationer.xaml"/>
+                        <sdk:UriMapping Uri="/{pageName}" MappedUri="/ManagerManagement;component/Views/Organization/DepartmentNavigationer.xaml?view={pageName}"/>
+                    </sdk:UriMapper>
+                </sdk:Frame.UriMapper>
+            </sdk:Frame>
+
+        </Grid>
+
+    </Grid>
+</UserControl>

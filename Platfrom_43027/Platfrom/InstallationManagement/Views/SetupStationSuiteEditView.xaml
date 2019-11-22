@@ -1,0 +1,207 @@
+﻿<UserControl xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"  x:Class="Gsafety.Ant.Installation.Views.SetupStationSuiteEditView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="768" d:DesignWidth="1024">
+    
+    <Grid x:Name="LayoutRoot" Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Border  Background="{StaticResource BlueBgStyleBrush}"  Grid.RowSpan="3">
+        </Border>
+        <Border Height="35" VerticalAlignment="Top" Grid.Row="0" Margin="0" BorderThickness="0,1,0,1" BorderBrush="{StaticResource MenuBarLine}" Background="{StaticResource NavBarBG}">
+        </Border>
+        <TextBlock Text="{Binding Title,Mode=TwoWay}" HorizontalAlignment="Left" TextWrapping="Wrap"  VerticalAlignment="Center" Style="{StaticResource Menu2TextBlock}" Margin="36,0,0,0"/>
+        <Image Source="/InstallationManagement;component/Images/a07b.png" HorizontalAlignment="Left" VerticalAlignment="Center" Stretch="None" Margin="10,0,0,0"/>
+
+        <Grid Grid.Row="1" RenderTransformOrigin="0.694,0.689">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="10"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="35"/>
+                <RowDefinition Height="35"/>
+                <RowDefinition Height="35"/>
+                <RowDefinition Height="35"/>
+                <RowDefinition Height="35"/>
+                <RowDefinition Height="35"/>
+                <RowDefinition Height="35"/>
+                <RowDefinition Height="10"/>
+                <RowDefinition Height="35"/>
+                <RowDefinition Height="35"/>
+                <RowDefinition Height="35"/>
+                <RowDefinition Height="35"/>
+                <RowDefinition Height="35"/>
+                <RowDefinition Height="35"/>
+                <RowDefinition Height="35"/>
+                <RowDefinition Height="35"/>
+                <RowDefinition Height="35"/>
+                <RowDefinition Height="35"/>
+                <RowDefinition Height="478"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition Width="150"/>
+                <ColumnDefinition Width="250"/>
+                <ColumnDefinition Width="150"/>
+                <ColumnDefinition Width="250"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="{Binding [CEIECTitle], Source={StaticResource SR}}" Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" Grid.ColumnSpan="5" FontWeight="Bold" FontSize="13"></TextBlock>
+            <!--安全套件-->
+            <TextBlock Grid.Column="1" Grid.Row="2"  Margin="0,9,5,8" TextWrapping="Wrap" Text="{Binding [SuiteID], Source={StaticResource SR}}" VerticalAlignment="Center" HorizontalAlignment="Right" Style="{StaticResource ViewFont}"/>
+            <TextBox TabIndex="1" MaxLength="20" IsReadOnly="True" Grid.Column="2"  Grid.Row="2"  HorizontalAlignment="Left" Height="22" Margin="5,0,0,0" TextWrapping="Wrap" 
+                     Text="{Binding SuiteID, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnDataErrors=True,UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" Width="245"/>
+            <!--MDVR主机-->
+            <TextBlock  Grid.Column="3" Grid.Row="2"  HorizontalAlignment="Right" Margin="0,0,5,0" TextWrapping="Wrap" Text="{Binding [MDVR_SN], Source={StaticResource SR}}" VerticalAlignment="Center" ToolTipService.ToolTip="" Style="{StaticResource ViewFont}"/>
+            <TextBox TabIndex="2" MaxLength="20" Grid.Column="4"  Grid.Row="2" IsReadOnly="{Binding IsReadOnly}"  HorizontalAlignment="Left" Height="22" Margin="5,0,0,0" TextWrapping="Wrap" 
+                     Text="{Binding MDVR_SN, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnDataErrors=True,UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" Width="245"/>
+            <!--MDVR芯片-->
+            <TextBlock Grid.Column="1" Grid.Row="3" HorizontalAlignment="Right" Margin="0,9,5,8" TextWrapping="Wrap" Text="{Binding [MDVR_CORE_SN], Source={StaticResource SR}}" VerticalAlignment="Center" Style="{StaticResource ViewFont}"/>
+            <TextBox TabIndex="3" MaxLength="20" Grid.Column="2"  Grid.Row="3" IsReadOnly="{Binding IsReadOnly}"  HorizontalAlignment="Left" Height="22" Margin="5,0,0,0" TextWrapping="Wrap" 
+                     Text="{Binding MDVR_CORE_SN, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnDataErrors=True,UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" Width="245"/>
+            <!--UPS-->
+            <TextBlock Grid.Column="3"  Grid.Row="7" HorizontalAlignment="Right" Margin="0,9,5,8" TextWrapping="Wrap" Text="{Binding [UPS], Source={StaticResource SR}}" VerticalAlignment="Center" Style="{StaticResource ViewFont}"/>
+            <TextBox TabIndex="12" MaxLength="20" Grid.Column="4"  Grid.Row="7" IsReadOnly="{Binding IsReadOnly}"  HorizontalAlignment="Left" Height="22" Margin="5,0,0,0" TextWrapping="Wrap" Text="{Binding SuiteEditModel.UPSSN, Mode=TwoWay}" VerticalAlignment="Center" Width="245"/>
+
+            <!--SD卡-->
+            <TextBlock Grid.Column="1" Grid.Row="7" HorizontalAlignment="Right" Margin="0,9,5,8" TextWrapping="Wrap" Text="{Binding [SDCARD], Source={StaticResource SR}}" VerticalAlignment="Center" ToolTipService.ToolTip="" Style="{StaticResource ViewFont}"/>
+            <TextBox TabIndex="11" MaxLength="20" Grid.Column="2" Grid.Row="7" IsReadOnly="{Binding IsReadOnly}"  HorizontalAlignment="Left" Height="22" Margin="5,0,0,0" TextWrapping="Wrap" Text="{Binding SuiteEditModel.SDSN, Mode=TwoWay}" VerticalAlignment="Center" Width="245"/>
+
+            <!--MDVR SIM 卡-->
+            <TextBlock Grid.Column="1" Grid.Row="8" HorizontalAlignment="Right" Margin="0,9,5,8" TextWrapping="Wrap" Text="{Binding [MDVR_SIM],Source={StaticResource SR}}" VerticalAlignment="Center" Style="{StaticResource ViewFont}"></TextBlock>
+            <TextBox TabIndex="11" MaxLength="20" Grid.Column="2" Grid.Row="8" IsReadOnly="{Binding IsReadOnly}"  HorizontalAlignment="Left" Height="22" Margin="5,0,0,0" TextWrapping="Wrap" Text="{Binding SuiteEditModel.MDVRSIM, Mode=TwoWay}" VerticalAlignment="Center" Width="245"/>
+
+            <!--MDVR SIM 卡 手机号-->
+            <TextBlock Grid.Column="3" Grid.Row="8" HorizontalAlignment="Right" Margin="0,0,5,0" TextWrapping="Wrap" Text="{Binding [MDVR_SIM_MOBILE],Source={StaticResource SR}}" VerticalAlignment="Center" Style="{StaticResource ViewFont}"></TextBlock>
+            <TextBox TabIndex="11" MaxLength="20" Grid.Column="4" Grid.Row="8" IsReadOnly="{Binding IsReadOnly}"  HorizontalAlignment="Left" Height="22" Margin="5,0,0,0" TextWrapping="Wrap" Text="{Binding SuiteEditModel.MDVRSIMMobile, Mode=TwoWay}" VerticalAlignment="Center" Width="245"/>
+
+            <!--报警按钮1-->
+            <TextBlock Grid.Column="1" Grid.Row="5" HorizontalAlignment="Right" Margin="0,9,5,8" TextWrapping="Wrap" Text="{Binding [AlarmButton1], Source={StaticResource SR}}" VerticalAlignment="Center" Style="{StaticResource ViewFont}"/>
+            <TextBox TabIndex="7" MaxLength="20" Grid.Column="2" Grid.Row="5" IsReadOnly="{Binding IsReadOnly}"  HorizontalAlignment="Left" Height="22" Margin="5,0,0,0" TextWrapping="Wrap" Text="{Binding SuiteEditModel.AlarmButtonSN, Mode=TwoWay}" VerticalAlignment="Center" Width="245"/>
+            <!--报警按钮2-->
+            <TextBlock Grid.Column="3" Grid.Row="5" HorizontalAlignment="Right" Margin="0,9,5,8" TextWrapping="Wrap" Text="{Binding [AlarmButton2], Source={StaticResource SR}}" VerticalAlignment="Center" Style="{StaticResource ViewFont}"/>
+            <TextBox TabIndex="8" MaxLength="20" Grid.Column="4" Grid.Row="5" IsReadOnly="{Binding IsReadOnly}"  HorizontalAlignment="Left" Height="22" Margin="5,0,0,0" TextWrapping="Wrap" Text="{Binding SuiteEditModel.AlarmButtonSN2, Mode=TwoWay}" VerticalAlignment="Center" Width="245"/>
+            <!--报警按钮3-->
+            <TextBlock Grid.Column="1" Grid.Row="6" HorizontalAlignment="Right" Margin="0,9,5,8" TextWrapping="Wrap" Text="{Binding [AlarmButton3], Source={StaticResource SR}}" VerticalAlignment="Center" Style="{StaticResource ViewFont}"/>
+            <TextBox TabIndex="9" MaxLength="20" Grid.Column="2" Grid.Row="6" IsReadOnly="{Binding IsReadOnly}"  HorizontalAlignment="Left" Height="22" Margin="5,0,0,0" TextWrapping="Wrap" Text="{Binding SuiteEditModel.AlarmButtonSN3, Mode=TwoWay}" VerticalAlignment="Center" Width="245"/>
+
+            <!--开关门传感器-->
+            <TextBlock Grid.Column="3" Grid.Row="6" HorizontalAlignment="Right" Margin="0,0,5,0" TextWrapping="Wrap" Text="{Binding [DOOR_SWITCH_SENSOR], Source={StaticResource SR}}" VerticalAlignment="Center" Style="{StaticResource ViewFont}"/>
+            <TextBox TabIndex="10" MaxLength="20" Grid.Column="4" Grid.Row="6" IsReadOnly="{Binding IsReadOnly}"  HorizontalAlignment="Left" Height="22" Margin="5,0,0,0" TextWrapping="Wrap" Text="{Binding SuiteEditModel.DoorSwitchSensorSN, Mode=TwoWay}" VerticalAlignment="Center" Width="245"/>
+
+            <!--摄像头1-->
+            <TextBlock Grid.Column="1" Grid.Row="4"  HorizontalAlignment="Right" Margin="0,9,5,8" TextWrapping="Wrap" Text="{Binding [Camera1], Source={StaticResource SR}}" VerticalAlignment="Center" Style="{StaticResource ViewFont}"/>
+            <TextBox TabIndex="5" MaxLength="20" Grid.Column="2" Grid.Row="4" IsReadOnly="{Binding IsReadOnly}"  HorizontalAlignment="Left" Height="22" Margin="5,0,0,0" TextWrapping="Wrap" Text="{Binding SuiteEditModel.CameraSN1, Mode=TwoWay}" VerticalAlignment="Center" Width="245" />
+
+            <!--设备用途-->
+            <TextBlock Grid.Column="3" Grid.Row="3"  HorizontalAlignment="Right" Margin="0,9,5,8" TextWrapping="Wrap" Text="{Binding [DeviceType], Source={StaticResource SR}}" VerticalAlignment="Center" Style="{StaticResource ViewFont}"/>
+            <TextBox Visibility="{Binding IsView}"  TabIndex="5" MaxLength="50" Grid.Column="4" Grid.Row="3" IsReadOnly="True"  HorizontalAlignment="Left" Height="22" Margin="5,0,0,0" TextWrapping="Wrap" 
+                     Text="{Binding BusinessType, Mode=TwoWay}" Width="245" VerticalAlignment="Center"/>
+            <ComboBox Visibility="{Binding IsView}"  TabIndex="4" IsEnabled="{Binding IsEnabled}" SelectedValue="{Binding BusinessType, Mode=TwoWay}" ItemsSource="{Binding CurrentBT}" Grid.Column="4" Grid.Row="3" HorizontalAlignment="Left" Margin="5,0,0,0"  VerticalAlignment="Center" Width="245" Height="22" />
+
+            <!--摄像头2-->
+            <TextBlock Grid.Column="3" Grid.Row="4"  HorizontalAlignment="Right" Margin="0,9,5,8" TextWrapping="Wrap" Text="{Binding [Camera2], Source={StaticResource SR}}" VerticalAlignment="Center" Style="{StaticResource ViewFont}"/>
+            <TextBox TabIndex="6" MaxLength="20" Grid.Column="4" Grid.Row="4" IsReadOnly="{Binding IsReadOnly}"  HorizontalAlignment="Left" Height="22" Margin="5,0,0,0" TextWrapping="Wrap" 
+                     Text="{Binding SuiteEditModel.CameraSN2, Mode=TwoWay}" Width="245" VerticalAlignment="Center"/>
+
+            <!--ANT 安全套件资产编号-->
+            <TextBlock Grid.Column="1" Grid.Row="10" Text="{Binding [ANTTitle], Source={StaticResource SR}}" VerticalAlignment="Center" Grid.ColumnSpan="5" FontWeight="Bold" FontSize="13"></TextBlock>
+            <!--ANT主机-->
+            <TextBlock Grid.Column="1" Grid.Row="11" HorizontalAlignment="Right" Margin="0,9,5,8" TextWrapping="Wrap" 
+                       Text="{Binding [ANT_SN], Source={StaticResource SR}}" VerticalAlignment="Center" ToolTipService.ToolTip="" Style="{StaticResource ViewFont}"/>
+            <TextBox TabIndex="13" MaxLength="100" Grid.Column="2" Grid.Row="11" IsReadOnly="{Binding IsReadOnly}"  HorizontalAlignment="Left" Height="22" Margin="5,0,0,0" TextWrapping="Wrap" 
+                     Text="{Binding SuiteEditModel.ANTSN, Mode=TwoWay}" VerticalAlignment="Center" Width="245"/>
+            <!--ANT摄像头1-->
+            <TextBlock Grid.Column="1" Grid.Row="12" HorizontalAlignment="Right" Margin="0,9,5,8" TextWrapping="Wrap" 
+                       Text="{Binding [ANT_Camera1], Source={StaticResource SR}}" VerticalAlignment="Center" ToolTipService.ToolTip="" Style="{StaticResource ViewFont}"/>
+            <TextBox TabIndex="15" MaxLength="100" Grid.Column="2" Grid.Row="12" IsReadOnly="{Binding IsReadOnly}"  HorizontalAlignment="Left" Height="22" Margin="5,0,0,0" TextWrapping="Wrap" 
+                     Text="{Binding SuiteEditModel.ANTCameraSN1, Mode=TwoWay}" VerticalAlignment="Center" Width="245"/>
+            <!--ANT摄像头2-->
+            <TextBlock Grid.Column="3" Grid.Row="12" HorizontalAlignment="Right" Margin="0,9,5,8" TextWrapping="Wrap" 
+                       Text="{Binding [ANT_Camera2], Source={StaticResource SR}}" VerticalAlignment="Center" ToolTipService.ToolTip="" Style="{StaticResource ViewFont}" />
+            <TextBox TabIndex="16" MaxLength="100" Grid.Column="4" Grid.Row="12" IsReadOnly="{Binding IsReadOnly}"  HorizontalAlignment="Left" Height="22" Margin="5,0,0,0" TextWrapping="Wrap" 
+                     Text="{Binding SuiteEditModel.ANTCameraSN2, Mode=TwoWay}" VerticalAlignment="Center" Width="245"/>
+            <!--ANT SD卡-->
+            <TextBlock Grid.Column="1" Grid.Row="13" HorizontalAlignment="Right" Margin="0,9,5,8" TextWrapping="Wrap" 
+                       Text="{Binding [ANT_SD_Card], Source={StaticResource SR}}" VerticalAlignment="Center" ToolTipService.ToolTip="" Style="{StaticResource ViewFont}"/>
+            <TextBox TabIndex="19" MaxLength="100" Grid.Column="2" Grid.Row="13" IsReadOnly="{Binding IsReadOnly}"  HorizontalAlignment="Left" Height="22" Margin="5,0,0,0" TextWrapping="Wrap" 
+                     Text="{Binding SuiteEditModel.ANTSD, Mode=TwoWay}" VerticalAlignment="Center" Width="245"/>
+            <!--ANT UPS-->
+            <TextBlock Grid.Column="3" Grid.Row="11" HorizontalAlignment="Right" Margin="0,9,5,8" TextWrapping="Wrap" 
+                       Text="{Binding [ANT_UPS], Source={StaticResource SR}}" VerticalAlignment="Center" ToolTipService.ToolTip="" Style="{StaticResource ViewFont}"/>
+            <TextBox TabIndex="20" MaxLength="100" Grid.Column="4" Grid.Row="11" IsReadOnly="{Binding IsReadOnly}"  HorizontalAlignment="Left" Height="22" Margin="5,0,0,0" TextWrapping="Wrap" 
+                     Text="{Binding SuiteEditModel.ANTUPSSN, Mode=TwoWay}" VerticalAlignment="Center" Width="245"/>
+            <!--ANT GPS-->
+            <TextBlock Grid.Column="1" Grid.Row="15" HorizontalAlignment="Right" Margin="0,9,5,8" TextWrapping="Wrap" 
+                       Text="{Binding [ANT_GPS], Source={StaticResource SR}}" VerticalAlignment="Center" ToolTipService.ToolTip="" Style="{StaticResource ViewFont}" />
+            <TextBox TabIndex="14" MaxLength="100" Grid.Column="2" Grid.Row="15" IsReadOnly="{Binding IsReadOnly}"  HorizontalAlignment="Left" Height="22" Margin="5,0,0,0" TextWrapping="Wrap" 
+                     Text="{Binding SuiteEditModel.ANTGPSSN, Mode=TwoWay}" VerticalAlignment="Center" Width="245" Grid.ColumnSpan="2"/>
+            <!--ANT一键报警按钮-->
+            <!--<TextBlock Grid.Column="1" Grid.Row="12" HorizontalAlignment="Right" Margin="0,9,5,8" TextWrapping="Wrap" 
+                       Text="{Binding [ANT_AlarmButton], Source={StaticResource SR}}" VerticalAlignment="Center" ToolTipService.ToolTip="" Style="{StaticResource ViewFont}"/>
+            <TextBox TabIndex="17" MaxLength="100" Grid.Column="2" Grid.Row="12" IsReadOnly="{Binding IsReadOnly}"  HorizontalAlignment="Left" Height="22" Margin="5,0,0,0" TextWrapping="Wrap" 
+                     Text="{Binding SuiteEditModel.ANTAlarmButton, Mode=TwoWay}" VerticalAlignment="Center" Width="245"/>-->
+            <!--ANT SIM卡-->
+            <TextBlock Grid.Column="3" Grid.Row="15" HorizontalAlignment="Right" Margin="0,9,5,8" TextWrapping="Wrap" 
+                       Text="{Binding [ANT_SIM], Source={StaticResource SR}}" VerticalAlignment="Center" ToolTipService.ToolTip="" Style="{StaticResource ViewFont}"/>
+            <TextBox TabIndex="22" MaxLength="100" Grid.Column="4" Grid.Row="15" IsReadOnly="{Binding IsReadOnly}"  HorizontalAlignment="Left" Height="22" Margin="5,0,0,0" TextWrapping="Wrap" 
+                     Text="{Binding SuiteEditModel.ANTSIM, Mode=TwoWay}" VerticalAlignment="Center" Width="245"/>
+            <!--ANT开关门传感器-->
+            <TextBlock Grid.Column="3" Grid.Row="13" HorizontalAlignment="Right" Margin="0,0,5,0" TextWrapping="Wrap" 
+                       Text="{Binding [ANTInfraredSensor], Source={StaticResource SR}}" VerticalAlignment="Center" ToolTipService.ToolTip="" Style="{StaticResource ViewFont}"/>
+            <TextBox TabIndex="18" MaxLength="100" Grid.Column="4" Grid.Row="13" IsReadOnly="{Binding IsReadOnly}"  HorizontalAlignment="Left" Height="22" Margin="5,0,0,0" TextWrapping="Wrap" 
+                     Text="{Binding SuiteEditModel.ANTInfraredSensor, Mode=TwoWay}" VerticalAlignment="Center" Width="245"/>
+
+            <!--ANT RAPTOR GPS-->
+            <TextBlock Grid.Column="1" Grid.Row="14" Text="{Binding [ANTGPSTitle], Source={StaticResource SR}}" Grid.ColumnSpan="5" VerticalAlignment="Center" FontWeight="Bold" FontSize="13"></TextBlock>
+
+            <!--厂家代码-->
+            <!--<TextBlock Grid.Column="1" Grid.Row="14" HorizontalAlignment="Right" Margin="0,9,5,8" TextWrapping="Wrap" 
+                       Text="{Binding [FactoryCode], Source={StaticResource SR}}" VerticalAlignment="Center" ToolTipService.ToolTip="" Style="{StaticResource ViewFont}"/>
+            <TextBox TabIndex="21" MaxLength="100" Grid.Column="2" Grid.Row="14" IsReadOnly="{Binding IsReadOnly}"  HorizontalAlignment="Left" Height="22" Margin="5,0,0,0" TextWrapping="Wrap" 
+                     Text="{Binding SuiteEditModel.FactoryCode, Mode=TwoWay}" VerticalAlignment="Center" Width="245"/>-->
+            <!--出货日期-->
+            <!--<TextBlock Grid.Column="3" Grid.Row="17" HorizontalAlignment="Right" Margin="0,9,5,8" TextWrapping="Wrap" 
+                       Text="{Binding [ShippingDate], Source={StaticResource SR}}" VerticalAlignment="Center" ToolTipService.ToolTip="" Style="{StaticResource ViewFont}"/>
+            <TextBox Visibility="{Binding IsView}" TabIndex="7"  MaxLength="50" Grid.Column="4" Grid.Row="17" IsReadOnly="True"  HorizontalAlignment="Left" Height="22" Margin="5,0,0,0" TextWrapping="Wrap" 
+                     Text="{Binding SuiteEditModel.ShippingDate,Converter={StaticResource dateTimeConverter},Mode=TwoWay}" VerticalAlignment="Center" Width="245"/>
+
+            <vc:DatePickerEx TabIndex="24" Visibility="{Binding IsView, Converter={StaticResource visibilityConverter}}" IsReadOnly="True" Grid.Column="4" Grid.Row="17" x:Name="startDatePicker" DisplayDateEnd="{Binding ElementName=endDatePicker, Path=SelectedDate}" 
+                    SelectedDate="{Binding SuiteEditModel.ShippingDate,Mode=TwoWay}" HorizontalAlignment="Left" Height="22" Margin="5,0,0,0" VerticalAlignment="Center" MinWidth="120" Width="245" />-->
+
+            <!--ANT RAPTOR GPS SIM 卡 手机号-->
+            <TextBlock Grid.Column="1" Grid.Row="16" HorizontalAlignment="Right" Margin="0,0,5,0" TextWrapping="Wrap" 
+                       Text="{Binding [ANT_SIM_MOBILE], Source={StaticResource SR}}" VerticalAlignment="Center" ToolTipService.ToolTip="" Style="{StaticResource ViewFont}"/>
+            <TextBox TabIndex="23"  MaxLength="20" Grid.Column="2" Grid.Row="16" IsReadOnly="{Binding IsReadOnly}"  HorizontalAlignment="Left" Height="22" Margin="5,0,0,0" TextWrapping="Wrap" 
+                     Text="{Binding SuiteEditModel.ANTSIMMobile, Mode=TwoWay}" VerticalAlignment="Center" Width="245"/>
+
+            <!--单片机-->
+            <!--<TextBlock Grid.Column="1" Grid.Row="15" HorizontalAlignment="Right" Margin="0,9,5,8" TextWrapping="Wrap" 
+                       Text="{Binding [SingleChip], Source={StaticResource SR}}" VerticalAlignment="Center" ToolTipService.ToolTip="" Style="{StaticResource ViewFont}"/>
+            <TextBox TabIndex="23"  MaxLength="100" Grid.Column="2" Grid.Row="15" IsReadOnly="{Binding IsReadOnly}"  HorizontalAlignment="Left" Height="22" Margin="5,0,0,0" TextWrapping="Wrap" 
+                     Text="{Binding SuiteEditModel.SinglechIp, Mode=TwoWay}" VerticalAlignment="Center" Width="245"/>-->
+            <!--版本号-->
+            <!--<TextBlock Grid.Column="1" Grid.Row="9" HorizontalAlignment="Right" Margin="0,9,5,8" TextWrapping="Wrap" 
+                       Text="{Binding [SoftwareVersion], Source={StaticResource SR}}" VerticalAlignment="Center" ToolTipService.ToolTip="" Style="{StaticResource ViewFont}"/>
+            <TextBox TabIndex="25" Grid.ColumnSpan="3" MaxLength="100" Grid.Column="2" Grid.Row="9" IsReadOnly="{Binding IsReadOnly}"  HorizontalAlignment="Left" Height="22" Margin="5,0,0,0" TextWrapping="Wrap" 
+                     Text="{Binding SuiteEditModel.SoftwareVersion, Mode=TwoWay}" VerticalAlignment="Center" Width="645"/>-->
+
+            <StackPanel Grid.Column="0" Grid.ColumnSpan="6" Grid.Row="19" Height="35" VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Horizontal" Margin="0,0,0,0">
+                <Button TabIndex="26" Visibility="{Binding IsVisibility}" Command="{Binding CommitCommand}"  Tag="{Binding [Finish], Source={StaticResource SR}}" HorizontalAlignment="Left" Margin="5,0,0,0"  VerticalAlignment="Center" MinWidth="100">
+                    <Image Source="/InstallationManagement;component/Images/ok.png" Stretch="None"/>
+                </Button>
+                <Button TabIndex="27" Visibility="{Binding IsVisibility}" Command="{Binding ResetCommand}"  Tag="{Binding [Reset], Source={StaticResource SR}}" HorizontalAlignment="Left" Margin="5,0,0,0" VerticalAlignment="Center" MinWidth="100">
+                    <Image Source="/InstallationManagement;component/Images/reset.png" Stretch="None"/>
+                </Button>
+                <Button TabIndex="28" Command="{Binding ReturnCommand}" Tag="{Binding [Return], Source={StaticResource SR}}" HorizontalAlignment="Left" Margin="5,0,0,0" VerticalAlignment="Center" MinWidth="100">
+                    <Image Source="/InstallationManagement;component/Images/return.png" Stretch="None"/>
+                </Button>
+            </StackPanel>
+        </Grid>
+
+    </Grid>
+</UserControl>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="caf46f23-e826-47eb-9992-f874bf7bd4f8" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>true</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.ObjectModel.ObservableCollection`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>false</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:2258/PublicService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="PublicService.xsd" MetadataType="Schema" ID="30f36d2d-ab32-4957-88df-437e09b08a40" SourceId="1" SourceUrl="http://localhost:2258/PublicService.svc?xsd=xsd4" />
+    <MetadataFile FileName="PublicService.wsdl" MetadataType="Wsdl" ID="896e25a1-ce73-46ee-bf31-16098c402e01" SourceId="1" SourceUrl="http://localhost:2258/PublicService.svc?wsdl" />
+    <MetadataFile FileName="PublicService.disco" MetadataType="Disco" ID="1e27e43f-1b09-47d0-a1a1-6159ed3026df" SourceId="1" SourceUrl="http://localhost:2258/PublicService.svc?disco" />
+    <MetadataFile FileName="PublicService1.xsd" MetadataType="Schema" ID="46061725-9bc5-4823-a793-3010368d67f7" SourceId="1" SourceUrl="http://localhost:2258/PublicService.svc?xsd=xsd0" />
+    <MetadataFile FileName="PublicService2.xsd" MetadataType="Schema" ID="52b173c7-f57f-4e63-a9c4-0f95d711a025" SourceId="1" SourceUrl="http://localhost:2258/PublicService.svc?xsd=xsd2" />
+    <MetadataFile FileName="PublicService5.xsd" MetadataType="Schema" ID="d0670fbe-90d1-48a2-958d-fcfb06083587" SourceId="1" SourceUrl="http://localhost:2258/PublicService.svc?xsd=xsd5" />
+    <MetadataFile FileName="PublicService3.xsd" MetadataType="Schema" ID="0c73312d-abd7-47df-ab52-45f40d5b50eb" SourceId="1" SourceUrl="http://localhost:2258/PublicService.svc?xsd=xsd3" />
+    <MetadataFile FileName="PublicService4.xsd" MetadataType="Schema" ID="cee8ab46-f165-4d2a-8290-2f201af4e0b8" SourceId="1" SourceUrl="http://localhost:2258/PublicService.svc?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

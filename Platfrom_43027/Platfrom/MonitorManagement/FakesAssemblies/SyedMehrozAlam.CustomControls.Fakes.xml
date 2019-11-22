@@ -1,0 +1,263 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SyedMehrozAlam.CustomControls.Fakes</name>
+    </assembly>
+    <members>
+        <member name="T:SyedMehrozAlam.CustomControls.Fakes.ShimAutoCompleteComboBox">
+            <summary>SyedMehrozAlam.CustomControls.AutoCompleteComboBox 的填充码类型</summary>
+        </member>
+        <member name="M:SyedMehrozAlam.CustomControls.Fakes.ShimAutoCompleteComboBox.#ctor">
+            <summary>初始化新的填充码实例</summary>
+        </member>
+        <member name="M:SyedMehrozAlam.CustomControls.Fakes.ShimAutoCompleteComboBox.#ctor(SyedMehrozAlam.CustomControls.AutoCompleteComboBox)">
+            <summary>初始化给定实例的新填充码</summary>
+        </member>
+        <member name="M:SyedMehrozAlam.CustomControls.Fakes.ShimAutoCompleteComboBox.BehaveAsCurrent">
+            <summary>为已填充的类型的所有方法分配“Current”行为</summary>
+        </member>
+        <member name="M:SyedMehrozAlam.CustomControls.Fakes.ShimAutoCompleteComboBox.BehaveAsNotImplemented">
+            <summary>为已填充的类型的所有方法分配“NotImplemented”行为</summary>
+        </member>
+        <member name="P:SyedMehrozAlam.CustomControls.Fakes.ShimAutoCompleteComboBox.Behavior">
+            <summary>为已填充的类型的所有方法分配行为</summary>
+        </member>
+        <member name="P:SyedMehrozAlam.CustomControls.Fakes.ShimAutoCompleteComboBox.Constructor">
+            <summary>设置 AutoCompleteComboBox.AutoCompleteComboBox() 的 填充码</summary>
+        </member>
+        <member name="P:SyedMehrozAlam.CustomControls.Fakes.ShimAutoCompleteComboBox.DropDownToggle_ClickObjectRoutedEventArgs">
+            <summary>设置 AutoCompleteComboBox.DropDownToggle_Click(Object sender, RoutedEventArgs e) 的 填充码</summary>
+        </member>
+        <member name="P:SyedMehrozAlam.CustomControls.Fakes.ShimAutoCompleteComboBox.OnApplyTemplate">
+            <summary>设置 AutoCompleteComboBox.OnApplyTemplate() 的 填充码</summary>
+        </member>
+        <member name="P:SyedMehrozAlam.CustomControls.Fakes.ShimAutoCompleteComboBox.OnDropDownClosedRoutedPropertyChangedEventArgsOfBoolean">
+            <summary>设置 AutoCompleteComboBox.OnDropDownClosed(RoutedPropertyChangedEventArgs`1&lt;Boolean&gt; e) 的 填充码</summary>
+        </member>
+        <member name="P:SyedMehrozAlam.CustomControls.Fakes.ShimAutoCompleteComboBox.OnPopulatedPopulatedEventArgs">
+            <summary>设置 AutoCompleteComboBox.OnPopulated(PopulatedEventArgs e) 的 填充码</summary>
+        </member>
+        <member name="P:SyedMehrozAlam.CustomControls.Fakes.ShimAutoCompleteComboBox.OnSelectedItemBindingChangedDependencyObjectDependencyPropertyChangedEventArgs">
+            <summary>设置 AutoCompleteComboBox.OnSelectedItemBindingChanged(DependencyObject d, DependencyPropertyChangedEventArgs e) 的 填充码</summary>
+        </member>
+        <member name="P:SyedMehrozAlam.CustomControls.Fakes.ShimAutoCompleteComboBox.OnSelectedItemBindingChangedDependencyPropertyChangedEventArgs">
+            <summary>设置 AutoCompleteComboBox.OnSelectedItemBindingChanged(DependencyPropertyChangedEventArgs e) 的 填充码</summary>
+        </member>
+        <member name="P:SyedMehrozAlam.CustomControls.Fakes.ShimAutoCompleteComboBox.OnSelectedValueChangedDependencyObjectDependencyPropertyChangedEventArgs">
+            <summary>设置 AutoCompleteComboBox.OnSelectedValueChanged(DependencyObject d, DependencyPropertyChangedEventArgs e) 的 填充码</summary>
+        </member>
+        <member name="P:SyedMehrozAlam.CustomControls.Fakes.ShimAutoCompleteComboBox.OnSelectedValueChangedDependencyPropertyChangedEventArgs">
+            <summary>设置 AutoCompleteComboBox.OnSelectedValueChanged(DependencyPropertyChangedEventArgs e) 的 填充码</summary>
+        </member>
+        <member name="P:SyedMehrozAlam.CustomControls.Fakes.ShimAutoCompleteComboBox.SelectedItemBindingGet">
+            <summary>设置 AutoCompleteComboBox.get_SelectedItemBinding() 的 填充码</summary>
+        </member>
+        <member name="P:SyedMehrozAlam.CustomControls.Fakes.ShimAutoCompleteComboBox.SelectedItemBindingSetObject">
+            <summary>设置 AutoCompleteComboBox.set_SelectedItemBinding(Object value) 的 填充码</summary>
+        </member>
+        <member name="P:SyedMehrozAlam.CustomControls.Fakes.ShimAutoCompleteComboBox.SelectedValueGet">
+            <summary>设置 AutoCompleteComboBox.get_SelectedValue() 的 填充码</summary>
+        </member>
+        <member name="P:SyedMehrozAlam.CustomControls.Fakes.ShimAutoCompleteComboBox.SelectedValuePathGet">
+            <summary>设置 AutoCompleteComboBox.get_SelectedValuePath() 的 填充码</summary>
+        </member>
+        <member name="P:SyedMehrozAlam.CustomControls.Fakes.ShimAutoCompleteComboBox.SelectedValuePathSetString">
+            <summary>设置 AutoCompleteComboBox.set_SelectedValuePath(String value) 的 填充码</summary>
+        </member>
+        <member name="P:SyedMehrozAlam.CustomControls.Fakes.ShimAutoCompleteComboBox.SelectedValueSetObject">
+            <summary>设置 AutoCompleteComboBox.set_SelectedValue(Object value) 的 填充码</summary>
+        </member>
+        <member name="P:SyedMehrozAlam.CustomControls.Fakes.ShimAutoCompleteComboBox.SetCustomFilter">
+            <summary>设置 AutoCompleteComboBox.SetCustomFilter() 的 填充码</summary>
+        </member>
+        <member name="P:SyedMehrozAlam.CustomControls.Fakes.ShimAutoCompleteComboBox.SetSelectemItemUsingSelectedItemBindingDP">
+            <summary>设置 AutoCompleteComboBox.SetSelectemItemUsingSelectedItemBindingDP() 的 填充码</summary>
+        </member>
+        <member name="P:SyedMehrozAlam.CustomControls.Fakes.ShimAutoCompleteComboBox.SetSelectemItemUsingSelectedValueDP">
+            <summary>设置 AutoCompleteComboBox.SetSelectemItemUsingSelectedValueDP() 的 填充码</summary>
+        </member>
+        <member name="P:SyedMehrozAlam.CustomControls.Fakes.ShimAutoCompleteComboBox.StaticConstructor">
+            <summary>设置 AutoCompleteComboBox.AutoCompleteComboBox() 的 填充码</summary>
+        </member>
+        <member name="P:SyedMehrozAlam.CustomControls.Fakes.ShimAutoCompleteComboBox.UpdateCustomDPs">
+            <summary>设置 AutoCompleteComboBox.UpdateCustomDPs() 的 填充码</summary>
+        </member>
+        <member name="P:SyedMehrozAlam.CustomControls.Fakes.ShimAutoCompleteComboBox._SetCustomFilterb__0StringObject">
+            <summary>设置 AutoCompleteComboBox.&lt;SetCustomFilter&gt;b__0(String prefix, Object item) 的 填充码</summary>
+        </member>
+        <member name="T:SyedMehrozAlam.CustomControls.Fakes.ShimAutoCompleteComboBox.AllInstances">
+            <summary>为所有实例成员定义填充码</summary>
+        </member>
+        <member name="P:SyedMehrozAlam.CustomControls.Fakes.ShimAutoCompleteComboBox.AllInstances.DropDownToggle_ClickObjectRoutedEventArgs">
+            <summary>设置 AutoCompleteComboBox.DropDownToggle_Click(Object sender, RoutedEventArgs e) 的 填充码</summary>
+        </member>
+        <member name="P:SyedMehrozAlam.CustomControls.Fakes.ShimAutoCompleteComboBox.AllInstances.OnApplyTemplate">
+            <summary>设置 AutoCompleteComboBox.OnApplyTemplate() 的 填充码</summary>
+        </member>
+        <member name="P:SyedMehrozAlam.CustomControls.Fakes.ShimAutoCompleteComboBox.AllInstances.OnDropDownClosedRoutedPropertyChangedEventArgsOfBoolean">
+            <summary>设置 AutoCompleteComboBox.OnDropDownClosed(RoutedPropertyChangedEventArgs`1&lt;Boolean&gt; e) 的 填充码</summary>
+        </member>
+        <member name="P:SyedMehrozAlam.CustomControls.Fakes.ShimAutoCompleteComboBox.AllInstances.OnPopulatedPopulatedEventArgs">
+            <summary>设置 AutoCompleteComboBox.OnPopulated(PopulatedEventArgs e) 的 填充码</summary>
+        </member>
+        <member name="P:SyedMehrozAlam.CustomControls.Fakes.ShimAutoCompleteComboBox.AllInstances.OnSelectedItemBindingChangedDependencyPropertyChangedEventArgs">
+            <summary>设置 AutoCompleteComboBox.OnSelectedItemBindingChanged(DependencyPropertyChangedEventArgs e) 的 填充码</summary>
+        </member>
+        <member name="P:SyedMehrozAlam.CustomControls.Fakes.ShimAutoCompleteComboBox.AllInstances.OnSelectedValueChangedDependencyPropertyChangedEventArgs">
+            <summary>设置 AutoCompleteComboBox.OnSelectedValueChanged(DependencyPropertyChangedEventArgs e) 的 填充码</summary>
+        </member>
+        <member name="P:SyedMehrozAlam.CustomControls.Fakes.ShimAutoCompleteComboBox.AllInstances.SelectedItemBindingGet">
+            <summary>设置 AutoCompleteComboBox.get_SelectedItemBinding() 的 填充码</summary>
+        </member>
+        <member name="P:SyedMehrozAlam.CustomControls.Fakes.ShimAutoCompleteComboBox.AllInstances.SelectedItemBindingSetObject">
+            <summary>设置 AutoCompleteComboBox.set_SelectedItemBinding(Object value) 的 填充码</summary>
+        </member>
+        <member name="P:SyedMehrozAlam.CustomControls.Fakes.ShimAutoCompleteComboBox.AllInstances.SelectedValueGet">
+            <summary>设置 AutoCompleteComboBox.get_SelectedValue() 的 填充码</summary>
+        </member>
+        <member name="P:SyedMehrozAlam.CustomControls.Fakes.ShimAutoCompleteComboBox.AllInstances.SelectedValuePathGet">
+            <summary>设置 AutoCompleteComboBox.get_SelectedValuePath() 的 填充码</summary>
+        </member>
+        <member name="P:SyedMehrozAlam.CustomControls.Fakes.ShimAutoCompleteComboBox.AllInstances.SelectedValuePathSetString">
+            <summary>设置 AutoCompleteComboBox.set_SelectedValuePath(String value) 的 填充码</summary>
+        </member>
+        <member name="P:SyedMehrozAlam.CustomControls.Fakes.ShimAutoCompleteComboBox.AllInstances.SelectedValueSetObject">
+            <summary>设置 AutoCompleteComboBox.set_SelectedValue(Object value) 的 填充码</summary>
+        </member>
+        <member name="P:SyedMehrozAlam.CustomControls.Fakes.ShimAutoCompleteComboBox.AllInstances.SetCustomFilter">
+            <summary>设置 AutoCompleteComboBox.SetCustomFilter() 的 填充码</summary>
+        </member>
+        <member name="P:SyedMehrozAlam.CustomControls.Fakes.ShimAutoCompleteComboBox.AllInstances.SetSelectemItemUsingSelectedItemBindingDP">
+            <summary>设置 AutoCompleteComboBox.SetSelectemItemUsingSelectedItemBindingDP() 的 填充码</summary>
+        </member>
+        <member name="P:SyedMehrozAlam.CustomControls.Fakes.ShimAutoCompleteComboBox.AllInstances.SetSelectemItemUsingSelectedValueDP">
+            <summary>设置 AutoCompleteComboBox.SetSelectemItemUsingSelectedValueDP() 的 填充码</summary>
+        </member>
+        <member name="P:SyedMehrozAlam.CustomControls.Fakes.ShimAutoCompleteComboBox.AllInstances.UpdateCustomDPs">
+            <summary>设置 AutoCompleteComboBox.UpdateCustomDPs() 的 填充码</summary>
+        </member>
+        <member name="P:SyedMehrozAlam.CustomControls.Fakes.ShimAutoCompleteComboBox.AllInstances._SetCustomFilterb__0StringObject">
+            <summary>设置 AutoCompleteComboBox.&lt;SetCustomFilter&gt;b__0(String prefix, Object item) 的 填充码</summary>
+        </member>
+        <member name="T:SyedMehrozAlam.CustomControls.Fakes.StubAutoCompleteComboBox">
+            <summary>SyedMehrozAlam.CustomControls.AutoCompleteComboBox 的存根类型</summary>
+        </member>
+        <member name="M:SyedMehrozAlam.CustomControls.Fakes.StubAutoCompleteComboBox.#ctor">
+            <summary>初始化新实例</summary>
+        </member>
+        <member name="M:SyedMehrozAlam.CustomControls.Fakes.StubAutoCompleteComboBox.FormatValue(System.Object)">
+            <summary>设置 AutoCompleteBox.FormatValue(Object value) 的 存根</summary>
+        </member>
+        <member name="F:SyedMehrozAlam.CustomControls.Fakes.StubAutoCompleteComboBox.FormatValueObject">
+            <summary>设置 AutoCompleteBox.FormatValue(Object value) 的 stub</summary>
+        </member>
+        <member name="M:SyedMehrozAlam.CustomControls.Fakes.StubAutoCompleteComboBox.GetSelectionAdapterPart">
+            <summary>设置 AutoCompleteBox.GetSelectionAdapterPart() 的 存根</summary>
+        </member>
+        <member name="F:SyedMehrozAlam.CustomControls.Fakes.StubAutoCompleteComboBox.GetSelectionAdapterPart01">
+            <summary>设置 AutoCompleteBox.GetSelectionAdapterPart() 的 stub</summary>
+        </member>
+        <member name="M:SyedMehrozAlam.CustomControls.Fakes.StubAutoCompleteComboBox.InitializeStub">
+            <summary>初始化 type StubAutoCompleteComboBox 的新实例</summary>
+        </member>
+        <member name="M:SyedMehrozAlam.CustomControls.Fakes.StubAutoCompleteComboBox.OnDoubleTap(System.Windows.Input.GestureEventArgs)">
+            <summary>设置 Control.OnDoubleTap(GestureEventArgs e) 的 存根</summary>
+        </member>
+        <member name="F:SyedMehrozAlam.CustomControls.Fakes.StubAutoCompleteComboBox.OnDoubleTapGestureEventArgs">
+            <summary>设置 Control.OnDoubleTap(GestureEventArgs e) 的 stub</summary>
+        </member>
+        <member name="M:SyedMehrozAlam.CustomControls.Fakes.StubAutoCompleteComboBox.OnDropDownClosed(System.Windows.RoutedPropertyChangedEventArgs{System.Boolean})">
+            <summary>设置 AutoCompleteComboBox.OnDropDownClosed(RoutedPropertyChangedEventArgs`1&lt;Boolean&gt; e) 的 存根</summary>
+        </member>
+        <member name="F:SyedMehrozAlam.CustomControls.Fakes.StubAutoCompleteComboBox.OnDropDownClosedRoutedPropertyChangedEventArgsOfBoolean">
+            <summary>设置 AutoCompleteComboBox.OnDropDownClosed(RoutedPropertyChangedEventArgs`1&lt;Boolean&gt; e) 的 stub</summary>
+        </member>
+        <member name="M:SyedMehrozAlam.CustomControls.Fakes.StubAutoCompleteComboBox.OnDropDownClosing(System.Windows.Controls.RoutedPropertyChangingEventArgs{System.Boolean})">
+            <summary>设置 AutoCompleteBox.OnDropDownClosing(RoutedPropertyChangingEventArgs`1&lt;Boolean&gt; e) 的 存根</summary>
+        </member>
+        <member name="F:SyedMehrozAlam.CustomControls.Fakes.StubAutoCompleteComboBox.OnDropDownClosingRoutedPropertyChangingEventArgsOfBoolean">
+            <summary>设置 AutoCompleteBox.OnDropDownClosing(RoutedPropertyChangingEventArgs`1&lt;Boolean&gt; e) 的 stub</summary>
+        </member>
+        <member name="M:SyedMehrozAlam.CustomControls.Fakes.StubAutoCompleteComboBox.OnDropDownOpened(System.Windows.RoutedPropertyChangedEventArgs{System.Boolean})">
+            <summary>设置 AutoCompleteBox.OnDropDownOpened(RoutedPropertyChangedEventArgs`1&lt;Boolean&gt; e) 的 存根</summary>
+        </member>
+        <member name="F:SyedMehrozAlam.CustomControls.Fakes.StubAutoCompleteComboBox.OnDropDownOpenedRoutedPropertyChangedEventArgsOfBoolean">
+            <summary>设置 AutoCompleteBox.OnDropDownOpened(RoutedPropertyChangedEventArgs`1&lt;Boolean&gt; e) 的 stub</summary>
+        </member>
+        <member name="M:SyedMehrozAlam.CustomControls.Fakes.StubAutoCompleteComboBox.OnDropDownOpening(System.Windows.Controls.RoutedPropertyChangingEventArgs{System.Boolean})">
+            <summary>设置 AutoCompleteBox.OnDropDownOpening(RoutedPropertyChangingEventArgs`1&lt;Boolean&gt; e) 的 存根</summary>
+        </member>
+        <member name="F:SyedMehrozAlam.CustomControls.Fakes.StubAutoCompleteComboBox.OnDropDownOpeningRoutedPropertyChangingEventArgsOfBoolean">
+            <summary>设置 AutoCompleteBox.OnDropDownOpening(RoutedPropertyChangingEventArgs`1&lt;Boolean&gt; e) 的 stub</summary>
+        </member>
+        <member name="M:SyedMehrozAlam.CustomControls.Fakes.StubAutoCompleteComboBox.OnHold(System.Windows.Input.GestureEventArgs)">
+            <summary>设置 Control.OnHold(GestureEventArgs e) 的 存根</summary>
+        </member>
+        <member name="F:SyedMehrozAlam.CustomControls.Fakes.StubAutoCompleteComboBox.OnHoldGestureEventArgs">
+            <summary>设置 Control.OnHold(GestureEventArgs e) 的 stub</summary>
+        </member>
+        <member name="M:SyedMehrozAlam.CustomControls.Fakes.StubAutoCompleteComboBox.OnManipulationCompleted(System.Windows.Input.ManipulationCompletedEventArgs)">
+            <summary>设置 Control.OnManipulationCompleted(ManipulationCompletedEventArgs e) 的 存根</summary>
+        </member>
+        <member name="F:SyedMehrozAlam.CustomControls.Fakes.StubAutoCompleteComboBox.OnManipulationCompletedManipulationCompletedEventArgs">
+            <summary>设置 Control.OnManipulationCompleted(ManipulationCompletedEventArgs e) 的 stub</summary>
+        </member>
+        <member name="M:SyedMehrozAlam.CustomControls.Fakes.StubAutoCompleteComboBox.OnManipulationDelta(System.Windows.Input.ManipulationDeltaEventArgs)">
+            <summary>设置 Control.OnManipulationDelta(ManipulationDeltaEventArgs e) 的 存根</summary>
+        </member>
+        <member name="F:SyedMehrozAlam.CustomControls.Fakes.StubAutoCompleteComboBox.OnManipulationDeltaManipulationDeltaEventArgs">
+            <summary>设置 Control.OnManipulationDelta(ManipulationDeltaEventArgs e) 的 stub</summary>
+        </member>
+        <member name="M:SyedMehrozAlam.CustomControls.Fakes.StubAutoCompleteComboBox.OnManipulationStarted(System.Windows.Input.ManipulationStartedEventArgs)">
+            <summary>设置 Control.OnManipulationStarted(ManipulationStartedEventArgs e) 的 存根</summary>
+        </member>
+        <member name="F:SyedMehrozAlam.CustomControls.Fakes.StubAutoCompleteComboBox.OnManipulationStartedManipulationStartedEventArgs">
+            <summary>设置 Control.OnManipulationStarted(ManipulationStartedEventArgs e) 的 stub</summary>
+        </member>
+        <member name="M:SyedMehrozAlam.CustomControls.Fakes.StubAutoCompleteComboBox.OnPopulated(System.Windows.Controls.PopulatedEventArgs)">
+            <summary>设置 AutoCompleteComboBox.OnPopulated(PopulatedEventArgs e) 的 存根</summary>
+        </member>
+        <member name="F:SyedMehrozAlam.CustomControls.Fakes.StubAutoCompleteComboBox.OnPopulatedPopulatedEventArgs">
+            <summary>设置 AutoCompleteComboBox.OnPopulated(PopulatedEventArgs e) 的 stub</summary>
+        </member>
+        <member name="M:SyedMehrozAlam.CustomControls.Fakes.StubAutoCompleteComboBox.OnPopulating(System.Windows.Controls.PopulatingEventArgs)">
+            <summary>设置 AutoCompleteBox.OnPopulating(PopulatingEventArgs e) 的 存根</summary>
+        </member>
+        <member name="F:SyedMehrozAlam.CustomControls.Fakes.StubAutoCompleteComboBox.OnPopulatingPopulatingEventArgs">
+            <summary>设置 AutoCompleteBox.OnPopulating(PopulatingEventArgs e) 的 stub</summary>
+        </member>
+        <member name="M:SyedMehrozAlam.CustomControls.Fakes.StubAutoCompleteComboBox.OnSelectionChanged(System.Windows.Controls.SelectionChangedEventArgs)">
+            <summary>设置 AutoCompleteBox.OnSelectionChanged(SelectionChangedEventArgs e) 的 存根</summary>
+        </member>
+        <member name="F:SyedMehrozAlam.CustomControls.Fakes.StubAutoCompleteComboBox.OnSelectionChangedSelectionChangedEventArgs">
+            <summary>设置 AutoCompleteBox.OnSelectionChanged(SelectionChangedEventArgs e) 的 stub</summary>
+        </member>
+        <member name="M:SyedMehrozAlam.CustomControls.Fakes.StubAutoCompleteComboBox.OnTap(System.Windows.Input.GestureEventArgs)">
+            <summary>设置 Control.OnTap(GestureEventArgs e) 的 存根</summary>
+        </member>
+        <member name="F:SyedMehrozAlam.CustomControls.Fakes.StubAutoCompleteComboBox.OnTapGestureEventArgs">
+            <summary>设置 Control.OnTap(GestureEventArgs e) 的 stub</summary>
+        </member>
+        <member name="M:SyedMehrozAlam.CustomControls.Fakes.StubAutoCompleteComboBox.OnTextChanged(System.Windows.RoutedEventArgs)">
+            <summary>设置 AutoCompleteBox.OnTextChanged(RoutedEventArgs e) 的 存根</summary>
+        </member>
+        <member name="F:SyedMehrozAlam.CustomControls.Fakes.StubAutoCompleteComboBox.OnTextChangedRoutedEventArgs">
+            <summary>设置 AutoCompleteBox.OnTextChanged(RoutedEventArgs e) 的 stub</summary>
+        </member>
+        <member name="M:SyedMehrozAlam.CustomControls.Fakes.StubAutoCompleteComboBox.SetCustomFilter">
+            <summary>设置 AutoCompleteComboBox.SetCustomFilter() 的 存根</summary>
+        </member>
+        <member name="F:SyedMehrozAlam.CustomControls.Fakes.StubAutoCompleteComboBox.SetCustomFilter01">
+            <summary>设置 AutoCompleteComboBox.SetCustomFilter() 的 stub</summary>
+        </member>
+        <member name="P:SyedMehrozAlam.CustomControls.Fakes.StubAutoCompleteComboBox.CallBase">
+            <summary>获取或设置一个值，该值指示是否应调用基方法而不调用回退行为</summary>
+        </member>
+        <member name="P:SyedMehrozAlam.CustomControls.Fakes.StubAutoCompleteComboBox.InstanceBehavior">
+            <summary>获取或设置实例行为。</summary>
+        </member>
+        <member name="P:SyedMehrozAlam.CustomControls.Fakes.StubAutoCompleteComboBox.InstanceObserver">
+            <summary>获取或设置实例观察者。</summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,473 @@
+﻿<configuration>
+  <system.serviceModel>
+    <bindings>
+        <basicHttpBinding>
+            <binding name="BasicHttpBinding_ITrafficManageService" maxBufferSize="2147483647"
+                maxReceivedMessageSize="2147483647">
+                <security mode="None" />
+            </binding>
+            <binding name="BasicHttpBinding_IVehicleStatusService" maxBufferSize="2147483647"
+                maxReceivedMessageSize="2147483647">
+                <security mode="None" />
+            </binding>
+            <binding name="BasicHttpBinding_IUpdateService" maxBufferSize="2147483647"
+                maxReceivedMessageSize="2147483647">
+                <security mode="None" />
+            </binding>
+            <binding name="BasicHttpBinding_IWorkingSuiteService" maxBufferSize="2147483647"
+                maxReceivedMessageSize="2147483647">
+                <security mode="None" />
+            </binding>
+            <binding name="BasicHttpBinding_IAppConfigManager" maxBufferSize="2147483647"
+                maxReceivedMessageSize="2147483647">
+                <security mode="None" />
+            </binding>
+            <binding name="BasicHttpBinding_IGroupService" maxBufferSize="2147483647"
+                maxReceivedMessageSize="2147483647">
+                <security mode="None" />
+            </binding>
+            <binding name="BasicHttpBinding_IDeviceAlertService" maxBufferSize="2147483647"
+                maxReceivedMessageSize="2147483647">
+                <security mode="None" />
+            </binding>
+            <binding name="BasicHttpBinding_IDistrictService" maxBufferSize="2147483647"
+                maxReceivedMessageSize="2147483647">
+                <security mode="None" />
+            </binding>
+            <binding name="BasicHttpBinding_IInstallStationService" maxBufferSize="2147483647"
+                maxReceivedMessageSize="2147483647">
+                <security mode="None" />
+            </binding>
+            <binding name="BasicHttpBinding_IMaintenanceRecordService" maxBufferSize="2147483647"
+                maxReceivedMessageSize="2147483647">
+                <security mode="None" />
+            </binding>
+            <binding name="BasicHttpBinding_ISecuritySuiteService" maxBufferSize="2147483647"
+                maxReceivedMessageSize="2147483647">
+                <security mode="None" />
+            </binding>
+            <binding name="BasicHttpBinding_IVehicleAlarmService" maxBufferSize="2147483647"
+                maxReceivedMessageSize="2147483647">
+                <security mode="None" />
+            </binding>
+            <binding name="BasicHttpBinding_IVehicleMonitorService" maxBufferSize="2147483647"
+                maxReceivedMessageSize="2147483647">
+                <security mode="None" />
+            </binding>
+            <binding name="BasicHttpBinding_IVehicleService" maxBufferSize="2147483647"
+                maxReceivedMessageSize="2147483647">
+                <security mode="None" />
+            </binding>
+            <binding name="BasicHttpBinding_IADAccountService" maxBufferSize="2147483647"
+                maxReceivedMessageSize="2147483647">
+                <security mode="None" />
+            </binding>
+            <binding name="BasicHttpBinding_IReportRepositoryService" maxBufferSize="2147483647"
+                maxReceivedMessageSize="2147483647">
+                <security mode="None" />
+            </binding>
+            <binding name="BasicHttpBinding_IReportRepositoryService1" maxBufferSize="2147483647"
+                maxReceivedMessageSize="2147483647">
+                <security mode="None" />
+            </binding>
+            <binding name="BasicHttpBinding_IAlarmDealLogService" maxBufferSize="2147483647"
+                maxReceivedMessageSize="2147483647">
+                <security mode="None" />
+            </binding>
+            <binding name="BasicHttpBinding_ICarAlertDealLogService" maxBufferSize="2147483647"
+                maxReceivedMessageSize="2147483647">
+                <security mode="None" />
+            </binding>
+            <binding name="BasicHttpBinding_IInstallLogService" maxBufferSize="2147483647"
+                maxReceivedMessageSize="2147483647">
+                <security mode="None" />
+            </binding>
+            <binding name="BasicHttpBinding_ILoginLogService" maxBufferSize="2147483647"
+                maxReceivedMessageSize="2147483647">
+                <security mode="None" />
+            </binding>
+            <binding name="BasicHttpBinding_IVideoDowmloadLogService" maxBufferSize="2147483647"
+                maxReceivedMessageSize="2147483647">
+                <security mode="None" />
+            </binding>
+            <binding name="BasicHttpBinding_IVideoLogSerVice" maxBufferSize="2147483647"
+                maxReceivedMessageSize="2147483647">
+                <security mode="None" />
+            </binding>
+            <binding name="BasicHttpBinding_IVisitLogService" maxBufferSize="2147483647"
+                maxReceivedMessageSize="2147483647">
+                <security mode="None" />
+            </binding>
+            <binding name="BasicHttpBinding_IGetSuiteInfoService" maxBufferSize="2147483647"
+                maxReceivedMessageSize="2147483647">
+                <security mode="None" />
+            </binding>
+            <binding name="BasicHttpBinding_ICommandManageService" maxBufferSize="2147483647"
+                maxReceivedMessageSize="2147483647">
+                <security mode="None" />
+            </binding>
+            <binding name="BasicHttpBinding_IVehicleAlertService" maxBufferSize="2147483647"
+                maxReceivedMessageSize="2147483647">
+                <security mode="None" />
+            </binding>
+            <binding name="BasicHttpBinding_IReportService" maxBufferSize="2147483647"
+                maxReceivedMessageSize="2147483647">
+                <security mode="None" />
+            </binding>
+            <binding name="BasicHttpBinding_IDeviceInstallService" maxBufferSize="2147483647"
+                maxReceivedMessageSize="2147483647">
+                <security mode="None" />
+            </binding>
+            <binding name="BasicHttpBinding_LoginLogService1" maxBufferSize="2147483647"
+                maxReceivedMessageSize="2147483647">
+                <security mode="None" />
+            </binding>
+            <binding name="BasicHttpBinding_IVedioService" maxBufferSize="2147483647"
+                maxReceivedMessageSize="2147483647">
+                <security mode="None" />
+            </binding>
+            <binding name="BasicHttpBinding_IUserService" maxBufferSize="2147483647"
+                maxReceivedMessageSize="2147483647">
+                <security mode="None" />
+            </binding>
+            <binding name="BasicHttpBinding_IOrganization" maxBufferSize="2147483647"
+                maxReceivedMessageSize="2147483647">
+                <security mode="None" />
+            </binding>
+            <binding name="BasicHttpBinding_IOrderClientService" maxBufferSize="2147483647"
+                maxReceivedMessageSize="2147483647">
+                <security mode="None" />
+            </binding>
+            <binding name="BasicHttpBinding_IVehicleType" maxBufferSize="2147483647"
+                maxReceivedMessageSize="2147483647">
+                <security mode="None" />
+            </binding>
+            <binding name="BasicHttpBinding_IUsrDepartment" maxBufferSize="2147483647"
+                maxReceivedMessageSize="2147483647">
+                <security mode="None" />
+            </binding>
+            <binding name="BasicHttpBinding_IRoleService" maxBufferSize="2147483647"
+                maxReceivedMessageSize="2147483647">
+                <security mode="None" />
+            </binding>
+            <binding name="BasicHttpBinding_IUserService1" maxBufferSize="2147483647"
+                maxReceivedMessageSize="2147483647">
+                <security mode="None" />
+            </binding>
+            <binding name="BasicHttpBinding_IUsrDepartment1" maxBufferSize="2147483647"
+                maxReceivedMessageSize="2147483647">
+                <security mode="None" />
+            </binding>
+            <binding name="BasicHttpBinding_IBscDevSuiteService" maxBufferSize="2147483647"
+                maxReceivedMessageSize="2147483647">
+                <security mode="None" />
+            </binding>
+            <binding name="BasicHttpBinding_IChauffeurService" maxBufferSize="2147483647"
+                maxReceivedMessageSize="2147483647">
+                <security mode="None" />
+            </binding>
+            <binding name="BasicHttpBinding_IDevGpsService" maxBufferSize="2147483647"
+                maxReceivedMessageSize="2147483647">
+                <security mode="None" />
+            </binding>
+            <binding name="BasicHttpBinding_ILostRegistry" maxBufferSize="2147483647"
+                maxReceivedMessageSize="2147483647">
+                <security mode="None" />
+            </binding>
+            <binding name="BasicHttpBinding_IFoundRegistry" maxBufferSize="2147483647"
+                maxReceivedMessageSize="2147483647">
+                <security mode="None" />
+            </binding>
+            <binding name="BasicHttpBinding_IRunVehicleLocationService" maxBufferSize="2147483647"
+                maxReceivedMessageSize="2147483647">
+                <security mode="None" />
+            </binding>
+            <binding name="BasicHttpBinding_IBscGeoPoiService" maxBufferSize="2147483647"
+                maxReceivedMessageSize="2147483647">
+                <security mode="None" />
+            </binding>
+            <binding name="BasicHttpBinding_IRunMonitorGroupService" maxBufferSize="2147483647"
+                maxReceivedMessageSize="2147483647">
+                <security mode="None" />
+            </binding>
+            <binding name="BasicHttpBinding_ILogData" maxBufferSize="2147483647"
+                maxReceivedMessageSize="2147483647">
+                <security mode="None" />
+            </binding>
+            <binding name="BasicHttpBinding_ILogManager" maxBufferSize="2147483647"
+                maxReceivedMessageSize="2147483647">
+                <security mode="None" />
+            </binding>
+            <binding name="BasicHttpBinding_IBscDevSuitePartService" maxBufferSize="2147483647"
+                maxReceivedMessageSize="2147483647">
+                <security mode="None" />
+            </binding>
+            <binding name="BasicHttpBinding_IUserOnline" maxBufferSize="2147483647"
+                maxReceivedMessageSize="2147483647">
+                <security mode="None" />
+            </binding>
+            <binding name="BasicHttpBinding_IRunAppMessage" maxBufferSize="2147483647"
+                maxReceivedMessageSize="2147483647">
+                <security mode="None" />
+            </binding>
+            <binding name="BasicHttpBinding_IRunMdvrMessage" maxBufferSize="2147483647"
+                maxReceivedMessageSize="2147483647">
+                <security mode="None" />
+            </binding>
+            <binding name="BasicHttpBinding_IRunMdvrmessageVehicle" maxBufferSize="2147483647"
+                maxReceivedMessageSize="2147483647">
+                <security mode="None" />
+            </binding>
+            <binding name="BasicHttpBinding_IMaintainApplication" maxBufferSize="2147483647"
+                maxReceivedMessageSize="2147483647">
+                <security mode="None" />
+            </binding>
+            <binding name="BasicHttpBinding_IMaintainRecord" maxBufferSize="2147483647"
+                maxReceivedMessageSize="2147483647">
+                <security mode="None" />
+            </binding>
+            <binding name="BasicHttpBinding_IMaintainApplication1" maxBufferSize="2147483647"
+                maxReceivedMessageSize="2147483647">
+                <security mode="None" />
+            </binding>
+            <binding name="BasicHttpBinding_IMaintainRecord1" maxBufferSize="2147483647"
+                maxReceivedMessageSize="2147483647">
+                <security mode="None" />
+            </binding>
+            <binding name="BasicHttpBinding_IAppMessageVehicle" maxBufferSize="2147483647"
+                maxReceivedMessageSize="2147483647">
+                <security mode="None" />
+            </binding>
+            <binding name="BasicHttpBinding_ILogOperate" maxBufferSize="2147483647"
+                maxReceivedMessageSize="2147483647">
+                <security mode="None" />
+            </binding>
+            <binding name="BasicHttpBinding_ILogVideo" maxBufferSize="2147483647"
+                maxReceivedMessageSize="2147483647">
+                <security mode="None" />
+            </binding>
+            <binding name="BasicHttpBinding_ISystemRubbishService" maxBufferSize="2147483647"
+                maxReceivedMessageSize="2147483647">
+                <security mode="None" />
+            </binding>
+            <binding name="BasicHttpBinding_IEmailService" maxBufferSize="2147483647"
+                maxReceivedMessageSize="2147483647">
+                <security mode="None" />
+            </binding>
+            <binding name="BasicHttpBinding_IPTMSLogError" maxBufferSize="2147483647"
+                maxReceivedMessageSize="2147483647">
+                <security mode="None" />
+            </binding>
+        </basicHttpBinding>
+        <customBinding>
+            <binding name="CustomBinding_IMessageService">
+                <binaryMessageEncoding />
+                <tcpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+            </binding>
+            <binding name="CustomBinding_IMessageServiceExt">
+                <binaryMessageEncoding />
+                <tcpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+            </binding>
+        </customBinding>
+    </bindings>
+    <client>
+        <endpoint address="http://172.16.20.102/ManageService/GroupService.svc"
+            binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IGroupService"
+            contract="ADGroupService.IGroupService" name="BasicHttpBinding_IGroupService" />
+        <endpoint address="http://localhost:26450/MaitenanceRecordService.svc"
+            binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IMaintenanceRecordService"
+            contract="MaitenanceRecordService.IMaintenanceRecordService"
+            name="BasicHttpBinding_IMaintenanceRecordService" />
+        <endpoint address="http://localhost:2038/ReportRepositoryService.svc"
+            binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IReportRepositoryService"
+            contract="ReportRepositoryService.IReportRepositoryService"
+            name="BasicHttpBinding_IReportRepositoryService" />
+        <endpoint address="http://localhost:2038/ReportRepositoryService.svc"
+            binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IReportRepositoryService1"
+            contract="ReportRepositoryService.IReportRepositoryService"
+            name="BasicHttpBinding_IReportRepositoryService1" />
+        <endpoint address="http://10.1.8.211/ManagerService/ADUserInfoService.svc"
+            binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IADAccountService"
+            contract="ADUserInfoService.IADAccountService" name="BasicHttpBinding_IADAccountService" />
+        <endpoint address="http://localhost:2038/ReportService.svc" binding="basicHttpBinding"
+            bindingConfiguration="BasicHttpBinding_IReportService" contract="ReportsService.IReportService"
+            name="BasicHttpBinding_IReportService" />
+        <endpoint address="http://localhost:26447/LoginLogService.svc"
+            binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_LoginLogService1"
+            contract="LogOutClient.LoginLogService" name="BasicHttpBinding_LoginLogService1" />
+        <endpoint address="net.tcp://10.1.8.211:4503/MessageService.svc"
+            binding="customBinding" bindingConfiguration="CustomBinding_IMessageService"
+            contract="MessageService.IMessageService" name="CustomBinding_IMessageService" />
+        <endpoint address="http://localhost:2258/AppConfigManager.svc"
+            binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IAppConfigManager"
+            contract="AppConfigService.IAppConfigManager" name="BasicHttpBinding_IAppConfigManager" />
+        <endpoint address="http://localhost:2258/DeviceAlertService.svc"
+            binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IDeviceAlertService"
+            contract="DeviceAlertService.IDeviceAlertService" name="BasicHttpBinding_IDeviceAlertService" />
+        <endpoint address="http://localhost:2258/DeviceInstallService.svc"
+            binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IDeviceInstallService"
+            contract="DeviceInstallService.IDeviceInstallService" name="BasicHttpBinding_IDeviceInstallService" />
+        <endpoint address="http://localhost:2258/DistrictService.svc"
+            binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IDistrictService"
+            contract="DistrictService.IDistrictService" name="BasicHttpBinding_IDistrictService" />
+        <endpoint address="http://localhost:2258/InstallStationService.svc"
+            binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IInstallStationService"
+            contract="InstallStationService.IInstallStationService" name="BasicHttpBinding_IInstallStationService" />
+        <endpoint address="http://localhost:2258/SecuritySuiteService.svc"
+            binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_ISecuritySuiteService"
+            contract="SecuritySuiteService.ISecuritySuiteService" name="BasicHttpBinding_ISecuritySuiteService" />
+        <endpoint address="http://localhost:2258/VedioService.svc" binding="basicHttpBinding"
+            bindingConfiguration="BasicHttpBinding_IVedioService" contract="VedioService.IVedioService"
+            name="BasicHttpBinding_IVedioService" />
+        <endpoint address="http://localhost:2258/VehicleMonitorService.svc"
+            binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IVehicleMonitorService"
+            contract="VehicleMonitorService.IVehicleMonitorService" name="BasicHttpBinding_IVehicleMonitorService" />
+        <endpoint address="http://localhost:2258/VehicleStatusService.svc"
+            binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IVehicleStatusService"
+            contract="VehicleStatusService.IVehicleStatusService" name="BasicHttpBinding_IVehicleStatusService" />
+        <endpoint address="http://localhost:2258/WorkingSuiteService.svc"
+            binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IWorkingSuiteService"
+            contract="WorkingSuiteService.IWorkingSuiteService" name="BasicHttpBinding_IWorkingSuiteService" />
+        <endpoint address="http://localhost:2258/AccountService.svc"
+            binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IUserService"
+            contract="ServiceReference.IUserService" name="BasicHttpBinding_IUserService" />
+        <endpoint address="http://localhost:2258/OrganizationService.svc"
+            binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IOrganization"
+            contract="OrganizationService.IOrganization" name="BasicHttpBinding_IOrganization" />
+        <endpoint address="http://localhost:2258/OrderClientService.svc"
+            binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IOrderClientService"
+            contract="OrderClientService.IOrderClientService" name="BasicHttpBinding_IOrderClientService" />
+        <endpoint address="http://localhost:2258/ChauffeurService.svc"
+            binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IChauffeurService"
+            contract="ChauffeurService.IChauffeurService" name="BasicHttpBinding_IChauffeurService" />
+        <endpoint address="http://localhost:2258/CommandManageService.svc"
+            binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_ICommandManageService"
+            contract="CommandManageService.ICommandManageService" name="BasicHttpBinding_ICommandManageService" />
+        <endpoint address="http://localhost:2258/RunVehicleLocationService.svc"
+            binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IRunVehicleLocationService"
+            contract="RunVehicleLocationService.IRunVehicleLocationService"
+            name="BasicHttpBinding_IRunVehicleLocationService" />
+        <endpoint address="http://localhost:2258/BscGeoPoiService.svc"
+            binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IBscGeoPoiService"
+            contract="BscGeoPoiService.IBscGeoPoiService" name="BasicHttpBinding_IBscGeoPoiService" />
+        <endpoint address="http://localhost:2258/RunMonitorGroupService.svc"
+            binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IRunMonitorGroupService"
+            contract="RunMonitorGroupService.IRunMonitorGroupService"
+            name="BasicHttpBinding_IRunMonitorGroupService" />
+        <endpoint address="http://localhost:2258/MaintainService.svc"
+            binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IMaintainApplication"
+            contract="MaintainService.IMaintainApplication" name="BasicHttpBinding_IMaintainApplication" />
+        <endpoint address="http://localhost:2258/MaintainService.svc"
+            binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IMaintainRecord"
+            contract="MaintainService.IMaintainRecord" name="BasicHttpBinding_IMaintainRecord" />
+        <endpoint address="http://localhost:2258/MaintainService.svc"
+            binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IMaintainApplication1"
+            contract="MaintainService.IMaintainApplication" name="BasicHttpBinding_IMaintainApplication1" />
+        <endpoint address="http://localhost:2258/MaintainService.svc"
+            binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IMaintainRecord1"
+            contract="MaintainService.IMaintainRecord" name="BasicHttpBinding_IMaintainRecord1" />
+        <endpoint address="http://localhost:2258/PublicService.svc" binding="basicHttpBinding"
+            bindingConfiguration="BasicHttpBinding_ILostRegistry" contract="PublicService.ILostRegistry"
+            name="BasicHttpBinding_ILostRegistry" />
+        <endpoint address="http://localhost:2258/PublicService.svc" binding="basicHttpBinding"
+            bindingConfiguration="BasicHttpBinding_IFoundRegistry" contract="PublicService.IFoundRegistry"
+            name="BasicHttpBinding_IFoundRegistry" />
+        <endpoint address="http://localhost:2258/PublicService.svc" binding="basicHttpBinding"
+            bindingConfiguration="BasicHttpBinding_IRunMdvrMessage" contract="PublicService.IRunMdvrMessage"
+            name="BasicHttpBinding_IRunMdvrMessage" />
+        <endpoint address="http://localhost:2258/PublicService.svc" binding="basicHttpBinding"
+            bindingConfiguration="BasicHttpBinding_IRunAppMessage" contract="PublicService.IRunAppMessage"
+            name="BasicHttpBinding_IRunAppMessage" />
+        <endpoint address="http://localhost:2258/PublicService.svc" binding="basicHttpBinding"
+            bindingConfiguration="BasicHttpBinding_IRunMdvrmessageVehicle"
+            contract="PublicService.IRunMdvrmessageVehicle" name="BasicHttpBinding_IRunMdvrmessageVehicle" />
+        <endpoint address="http://localhost:2258/PublicService.svc" binding="basicHttpBinding"
+            bindingConfiguration="BasicHttpBinding_IAppMessageVehicle"
+            contract="PublicService.IAppMessageVehicle" name="BasicHttpBinding_IAppMessageVehicle" />
+        <endpoint address="http://localhost:2259/SystemRubbishService.svc"
+            binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_ISystemRubbishService"
+            contract="SystemRubbishService.ISystemRubbishService" name="BasicHttpBinding_ISystemRubbishService" />
+        <endpoint address="http://localhost:2259/BscDevSuiteService.svc"
+            binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IBscDevSuiteService"
+            contract="BscDevSuiteService.IBscDevSuiteService" name="BasicHttpBinding_IBscDevSuiteService" />
+        <endpoint address="http://localhost:2259/BscDevSuiteService.svc"
+            binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IBscDevSuitePartService"
+            contract="BscDevSuiteService.IBscDevSuitePartService" name="BasicHttpBinding_IBscDevSuitePartService" />
+        <endpoint address="http://172.16.80.40:2258/AccountService.svc"
+            binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IUserService1"
+            contract="AccountService.IUserService" name="BasicHttpBinding_IUserService1" />
+        <endpoint address="http://172.16.80.40:2258/AccountService.svc"
+            binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IRoleService"
+            contract="AccountService.IRoleService" name="BasicHttpBinding_IRoleService" />
+        <endpoint address="http://172.16.80.40:2258/AccountService.svc"
+            binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IUsrDepartment"
+            contract="AccountService.IUsrDepartment" name="BasicHttpBinding_IUsrDepartment" />
+        <endpoint address="http://172.16.80.40:2258/AccountService.svc"
+            binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IUserOnline"
+            contract="AccountService.IUserOnline" name="BasicHttpBinding_IUserOnline" />
+        <endpoint address="http://localhost:2259/VehicleAlarmService.svc"
+            binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IVehicleAlarmService"
+            contract="VehicleAlarmService.IVehicleAlarmService" name="BasicHttpBinding_IVehicleAlarmService" />
+        <endpoint address="http://localhost:2259/EmailService.svc" binding="basicHttpBinding"
+            bindingConfiguration="BasicHttpBinding_IEmailService" contract="EmailService.IEmailService"
+            name="BasicHttpBinding_IEmailService" />
+        <endpoint address="http://localhost:2259/TrafficManageService.svc"
+            binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_ITrafficManageService"
+            contract="TrafficManageService.ITrafficManageService" name="BasicHttpBinding_ITrafficManageService" />
+        <endpoint address="http://localhost:2259/DevGpsService.svc" binding="basicHttpBinding"
+            bindingConfiguration="BasicHttpBinding_IDevGpsService" contract="DevGpsService.IDevGpsService"
+            name="BasicHttpBinding_IDevGpsService" />
+        <endpoint address="http://localhost:2259/VehicleService.svc"
+            binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IVehicleService"
+            contract="VehicleService.IVehicleService" name="BasicHttpBinding_IVehicleService" />
+        <endpoint address="http://localhost:2259/VehicleService.svc"
+            binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IVehicleType"
+            contract="VehicleService.IVehicleType" name="BasicHttpBinding_IVehicleType" />
+        <endpoint address="http://localhost:2259/VehicleAlertService.svc"
+            binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IVehicleAlertService"
+            contract="VehicleAlertService.IVehicleAlertService" name="BasicHttpBinding_IVehicleAlertService" />
+        <endpoint address="net.tcp://localhost:4503/MessageService" binding="customBinding"
+            bindingConfiguration="CustomBinding_IMessageServiceExt" contract="MessageServiceExt.IMessageServiceExt"
+            name="CustomBinding_IMessageServiceExt" />
+        <endpoint address="http://localhost:2259/LogService.svc" binding="basicHttpBinding"
+            bindingConfiguration="BasicHttpBinding_ILogData" contract="LogService.ILogData"
+            name="BasicHttpBinding_ILogData" />
+        <endpoint address="http://localhost:2259/LogService.svc" binding="basicHttpBinding"
+            bindingConfiguration="BasicHttpBinding_ILogManager" contract="LogService.ILogManager"
+            name="BasicHttpBinding_ILogManager" />
+        <endpoint address="http://localhost:2259/LogManageService.svc"
+            binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IAlarmDealLogService"
+            contract="PTMSLogManageService.IAlarmDealLogService" name="BasicHttpBinding_IAlarmDealLogService" />
+        <endpoint address="http://localhost:2259/LogManageService.svc"
+            binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_ICarAlertDealLogService"
+            contract="PTMSLogManageService.ICarAlertDealLogService" name="BasicHttpBinding_ICarAlertDealLogService" />
+        <endpoint address="http://localhost:2259/LogManageService.svc"
+            binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IInstallLogService"
+            contract="PTMSLogManageService.IInstallLogService" name="BasicHttpBinding_IInstallLogService" />
+        <endpoint address="http://localhost:2259/LogManageService.svc"
+            binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_ILoginLogService"
+            contract="PTMSLogManageService.ILoginLogService" name="BasicHttpBinding_ILoginLogService" />
+        <endpoint address="http://localhost:2259/LogManageService.svc"
+            binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IVideoDowmloadLogService"
+            contract="PTMSLogManageService.IVideoDowmloadLogService" name="BasicHttpBinding_IVideoDowmloadLogService" />
+        <endpoint address="http://localhost:2259/LogManageService.svc"
+            binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IVideoLogSerVice"
+            contract="PTMSLogManageService.IVideoLogSerVice" name="BasicHttpBinding_IVideoLogSerVice" />
+        <endpoint address="http://localhost:2259/LogManageService.svc"
+            binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IVisitLogService"
+            contract="PTMSLogManageService.IVisitLogService" name="BasicHttpBinding_IVisitLogService" />
+        <endpoint address="http://localhost:2259/LogManageService.svc"
+            binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IGetSuiteInfoService"
+            contract="PTMSLogManageService.IGetSuiteInfoService" name="BasicHttpBinding_IGetSuiteInfoService" />
+        <endpoint address="http://localhost:2259/LogManageService.svc"
+            binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_ILogOperate"
+            contract="PTMSLogManageService.ILogOperate" name="BasicHttpBinding_ILogOperate" />
+        <endpoint address="http://localhost:2259/LogManageService.svc"
+            binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_ILogVideo"
+            contract="PTMSLogManageService.ILogVideo" name="BasicHttpBinding_ILogVideo" />
+        <endpoint address="http://localhost:2259/LogManageService.svc"
+            binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IPTMSLogError"
+            contract="PTMSLogManageService.IPTMSLogError" name="BasicHttpBinding_IPTMSLogError" />
+    </client>
+  </system.serviceModel>
+</configuration>

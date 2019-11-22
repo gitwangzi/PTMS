@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="VehicleAlertService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:2259/VehicleAlertService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:2259/VehicleAlertService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:2259/VehicleAlertService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" />
+      <xsd:import schemaLocation="http://localhost:2259/VehicleAlertService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/System" />
+      <xsd:import schemaLocation="http://localhost:2259/VehicleAlertService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Alert.Contract.Data" />
+      <xsd:import schemaLocation="http://localhost:2259/VehicleAlertService.svc?xsd=xsd5" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://localhost:2259/VehicleAlertService.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Common.Data" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IVehicleAlertService_GetVehicleHandledAlert_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetVehicleHandledAlert" />
+  </wsdl:message>
+  <wsdl:message name="IVehicleAlertService_GetVehicleHandledAlert_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetVehicleHandledAlertResponse" />
+  </wsdl:message>
+  <wsdl:message name="IVehicleAlertService_GetAllBusinessAlert_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllBusinessAlert" />
+  </wsdl:message>
+  <wsdl:message name="IVehicleAlertService_GetAllBusinessAlert_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllBusinessAlertResponse" />
+  </wsdl:message>
+  <wsdl:message name="IVehicleAlertService_AddVechileAlertTreatment_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddVechileAlertTreatment" />
+  </wsdl:message>
+  <wsdl:message name="IVehicleAlertService_AddVechileAlertTreatment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddVechileAlertTreatmentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IVehicleAlertService_GetVehicleAlertDetail_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetVehicleAlertDetail" />
+  </wsdl:message>
+  <wsdl:message name="IVehicleAlertService_GetVehicleAlertDetail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetVehicleAlertDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="IVehicleAlertService_GetVehicleFenceAlert_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetVehicleFenceAlert" />
+  </wsdl:message>
+  <wsdl:message name="IVehicleAlertService_GetVehicleFenceAlert_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetVehicleFenceAlertResponse" />
+  </wsdl:message>
+  <wsdl:message name="IVehicleAlertService_GetUnHandleAlertByClient_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUnHandleAlertByClient" />
+  </wsdl:message>
+  <wsdl:message name="IVehicleAlertService_GetUnHandleAlertByClient_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUnHandleAlertByClientResponse" />
+  </wsdl:message>
+  <wsdl:message name="IVehicleAlertService_InsertBusinessAlertHandle_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertBusinessAlertHandle" />
+  </wsdl:message>
+  <wsdl:message name="IVehicleAlertService_InsertBusinessAlertHandle_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertBusinessAlertHandleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IVehicleAlertService_GetBusinessAlertHandleByAlertID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBusinessAlertHandleByAlertID" />
+  </wsdl:message>
+  <wsdl:message name="IVehicleAlertService_GetBusinessAlertHandleByAlertID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBusinessAlertHandleByAlertIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IVehicleAlertService_GetVehicleAlertDisposeInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetVehicleAlertDisposeInfo" />
+  </wsdl:message>
+  <wsdl:message name="IVehicleAlertService_GetVehicleAlertDisposeInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetVehicleAlertDisposeInfoResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IVehicleAlertService">
+    <wsdl:operation name="GetVehicleHandledAlert">
+      <wsdl:input wsaw:Action="http://tempuri.org/IVehicleAlertService/GetVehicleHandledAlert" message="tns:IVehicleAlertService_GetVehicleHandledAlert_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IVehicleAlertService/GetVehicleHandledAlertResponse" message="tns:IVehicleAlertService_GetVehicleHandledAlert_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllBusinessAlert">
+      <wsdl:input wsaw:Action="http://tempuri.org/IVehicleAlertService/GetAllBusinessAlert" message="tns:IVehicleAlertService_GetAllBusinessAlert_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IVehicleAlertService/GetAllBusinessAlertResponse" message="tns:IVehicleAlertService_GetAllBusinessAlert_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddVechileAlertTreatment">
+      <wsdl:input wsaw:Action="http://tempuri.org/IVehicleAlertService/AddVechileAlertTreatment" message="tns:IVehicleAlertService_AddVechileAlertTreatment_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IVehicleAlertService/AddVechileAlertTreatmentResponse" message="tns:IVehicleAlertService_AddVechileAlertTreatment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetVehicleAlertDetail">
+      <wsdl:input wsaw:Action="http://tempuri.org/IVehicleAlertService/GetVehicleAlertDetail" message="tns:IVehicleAlertService_GetVehicleAlertDetail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IVehicleAlertService/GetVehicleAlertDetailResponse" message="tns:IVehicleAlertService_GetVehicleAlertDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetVehicleFenceAlert">
+      <wsdl:input wsaw:Action="http://tempuri.org/IVehicleAlertService/GetVehicleFenceAlert" message="tns:IVehicleAlertService_GetVehicleFenceAlert_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IVehicleAlertService/GetVehicleFenceAlertResponse" message="tns:IVehicleAlertService_GetVehicleFenceAlert_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUnHandleAlertByClient">
+      <wsdl:input wsaw:Action="http://tempuri.org/IVehicleAlertService/GetUnHandleAlertByClient" message="tns:IVehicleAlertService_GetUnHandleAlertByClient_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IVehicleAlertService/GetUnHandleAlertByClientResponse" message="tns:IVehicleAlertService_GetUnHandleAlertByClient_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertBusinessAlertHandle">
+      <wsdl:input wsaw:Action="http://tempuri.org/IVehicleAlertService/InsertBusinessAlertHandle" message="tns:IVehicleAlertService_InsertBusinessAlertHandle_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IVehicleAlertService/InsertBusinessAlertHandleResponse" message="tns:IVehicleAlertService_InsertBusinessAlertHandle_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBusinessAlertHandleByAlertID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IVehicleAlertService/GetBusinessAlertHandleByAlertID" message="tns:IVehicleAlertService_GetBusinessAlertHandleByAlertID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IVehicleAlertService/GetBusinessAlertHandleByAlertIDResponse" message="tns:IVehicleAlertService_GetBusinessAlertHandleByAlertID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetVehicleAlertDisposeInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IVehicleAlertService/GetVehicleAlertDisposeInfo" message="tns:IVehicleAlertService_GetVehicleAlertDisposeInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IVehicleAlertService/GetVehicleAlertDisposeInfoResponse" message="tns:IVehicleAlertService_GetVehicleAlertDisposeInfo_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IVehicleAlertService" type="tns:IVehicleAlertService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetVehicleHandledAlert">
+      <soap:operation soapAction="http://tempuri.org/IVehicleAlertService/GetVehicleHandledAlert" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllBusinessAlert">
+      <soap:operation soapAction="http://tempuri.org/IVehicleAlertService/GetAllBusinessAlert" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddVechileAlertTreatment">
+      <soap:operation soapAction="http://tempuri.org/IVehicleAlertService/AddVechileAlertTreatment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVehicleAlertDetail">
+      <soap:operation soapAction="http://tempuri.org/IVehicleAlertService/GetVehicleAlertDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVehicleFenceAlert">
+      <soap:operation soapAction="http://tempuri.org/IVehicleAlertService/GetVehicleFenceAlert" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUnHandleAlertByClient">
+      <soap:operation soapAction="http://tempuri.org/IVehicleAlertService/GetUnHandleAlertByClient" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertBusinessAlertHandle">
+      <soap:operation soapAction="http://tempuri.org/IVehicleAlertService/InsertBusinessAlertHandle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBusinessAlertHandleByAlertID">
+      <soap:operation soapAction="http://tempuri.org/IVehicleAlertService/GetBusinessAlertHandleByAlertID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVehicleAlertDisposeInfo">
+      <soap:operation soapAction="http://tempuri.org/IVehicleAlertService/GetVehicleAlertDisposeInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="VehicleAlertService">
+    <wsdl:port name="BasicHttpBinding_IVehicleAlertService" binding="tns:BasicHttpBinding_IVehicleAlertService">
+      <soap:address location="http://localhost:2259/VehicleAlertService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

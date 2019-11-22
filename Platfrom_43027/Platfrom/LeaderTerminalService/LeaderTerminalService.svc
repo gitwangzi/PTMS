@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="Gsafety.PTMS.Integration.Service.LeaderTerminalService" CodeBehind="LeaderTerminalService.svc.cs" %>

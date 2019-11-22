@@ -1,0 +1,1005 @@
+﻿<UserControl xmlns:local="clr-namespace:Gsafety.PTMS.Traffic.Views"  x:Class="Gsafety.PTMS.Traffic.Views.TrafficMainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:Views="clr-namespace:Gsafety.PTMS.Traffic.Views"  
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk" 
+    xmlns:toolkit="http://schemas.microsoft.com/winfx/2006/xaml/presentation/toolkit"  
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+    xmlns:uriMapper="clr-namespace:System.Windows.Navigation;assembly=System.Windows.Controls.Navigation"
+    xmlns:primitives="clr-namespace:System.Windows.Controls.Primitives;assembly=System.Windows.Controls.Data"
+    mc:Ignorable="d"
+             xmlns:Converter="clr-namespace:Gsafety.Common.Converts;assembly=Converts"
+    d:DesignHeight="1024" d:DesignWidth="1280">
+    <UserControl.Resources>
+        <Converter:DeliverStatusConvert x:Key="DeliverStatusConvert"/>
+        <Storyboard x:Key="collapseTransition">
+            <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="SythesesLeftContent" 
+                    Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.X)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:00.1000000" Value="-250"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="expandTransition">
+            <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="SythesesLeftContent" 
+                    Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.X)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="-250"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:00.1000000" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+
+
+        <Storyboard x:Key="ListCollapseTransition">
+            <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="ListBottomContent" 
+                    Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.X)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:00.1000000" Value="250"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="ListExpandTransition">
+            <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="ListBottomContent" 
+                    Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.X)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="250"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:00.1000000" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </UserControl.Resources>
+    <toolkit:BusyIndicator x:Name="dataLoading" IsBusy="{Binding IsBusy}"  Style="{StaticResource BusyIndicatorRoundedStyle}" >
+        <Grid x:Name="LayoutRoot" Style="{StaticResource ContentGridStyle}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="360" MaxWidth="500"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="320" MaxWidth="500"/>
+            </Grid.ColumnDefinitions>
+            <Grid x:Name="collapsedPane" Grid.Column="0" 
+                  Canvas.ZIndex="100" 
+                  Margin="-5,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" Visibility="Collapsed" >
+                <Image x:Name="showL" Source="/ExternalResource;component/Images/slideShow.png" 
+                       Cursor="Hand" Stretch="None" Opacity="0.9" 
+                       ToolTipService.ToolTip="{Binding [MenuVisibleToolTip], Source={StaticResource SR}}"
+                       Margin="0,0,0,0" MouseLeftButtonDown="showL_MouseLeftButtonDown"/>
+            </Grid>
+            <Grid x:Name="SythesesLeftContent" Grid.Column="0" >
+                <Grid.RenderTransform>
+                    <TranslateTransform/>
+                </Grid.RenderTransform>
+                <Image x:Name="hiddenL" 
+                       Source="/ExternalResource;component/Images/MainPage_menu_arrowleft.png" Cursor="Hand" 
+                       Margin="0,6,10,0" HorizontalAlignment="Right" 
+                       VerticalAlignment="Top" Canvas.ZIndex="100" Stretch="None" 
+                       MouseLeftButtonDown="hiddenL_MouseLeftButtonDown"
+                       ToolTipService.ToolTip="{Binding [MenuCollapsedToolTip], Source={StaticResource SR}}"/>
+                <Views:TrafficMenu x:Name="trafficMenu" />
+            </Grid>
+            <sdk:GridSplitter/>
+            <Border  DragEnter="GISContent_DragEnter_1" 
+                     DragLeave="GISContent_DragLeave_1"
+                     Name="GISContent" Style="{StaticResource ContentBorderStyle}" Margin="0,0,0,0" Grid.Column="1">
+                <Grid Grid.Column="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto" x:Name="MonitorDataList"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid Name="ContentGrid"  Grid.Row="0">
+                        <sdk:Frame Drop="ContentFrame_Drop_1"  AllowDrop="True" JournalOwnership="OwnsJournal"               
+        			        x:Name="ContentFrame"  DragEnter="ContentFrame_DragEnter_1"
+        			        Style="{StaticResource ContentFrameStyle}" 
+                            Source="/MonitorGisView" Navigated="ContentFrame_Navigated" NavigationFailed="ContentFrame_NavigationFailed">
+                            <sdk:Frame.UriMapper>
+                                <sdk:UriMapper>
+                                    <sdk:UriMapping  Uri="" MappedUri="/GisManagement;component/Views/GisNavigationer.xaml"/>
+                                    <sdk:UriMapping Uri="/ShowText/{text}" MappedUri="/GisManagement;component/Views/GisNavigationer.xaml?view=TextView&amp;text={text}"/>
+                                    <sdk:UriMapping Uri="/{pageName}" MappedUri="/GisManagement;component/Views/GisNavigationer.xaml?view={pageName}"/>
+                                </sdk:UriMapper>
+                            </sdk:Frame.UriMapper>
+                        </sdk:Frame>
+                    </Grid>
+
+                    <Grid x:Name="ListCollapsedPane" 
+                      Canvas.ZIndex="100" 
+                      Grid.Row="2"
+                      Margin="-5,0,0,0" HorizontalAlignment="Center" 
+                      VerticalAlignment="Bottom" Visibility="Collapsed">
+                        <Image x:Name="ListshowL"  
+                           Source="/ExternalResource;component/Images/slideUpShow.png"
+                           Cursor="Hand" 
+                           Stretch="None" 
+                           Opacity="0.9" 
+                           VerticalAlignment="Top"
+                           ToolTipService.ToolTip="{Binding [MenuVisibleToolTip], Source={StaticResource SR}}" 
+                           Margin="0,0,0,0"  MouseLeftButtonDown="ListshowL_OnMouseLeftButtonDown"/>
+                    </Grid>
+                </Grid>
+            </Border>
+
+            <Grid x:Name="GoRightcollapsedPane" 
+              Canvas.ZIndex="100" 
+                  Grid.Row="3"
+              Grid.Column="2"
+              Margin="-5,0,0,0" HorizontalAlignment="Right" 
+              VerticalAlignment="Center" Visibility="Collapsed">
+                <Image x:Name="GoRightShow"  
+                       Source="/ExternalResource;component/Images/GoLeftslideShow.png"
+                       Cursor="Hand" 
+                       Stretch="None" 
+                       HorizontalAlignment="Right" 
+                       VerticalAlignment="Center"
+                       Opacity="0.9" 
+                       MouseLeftButtonDown="GoRightShow_MouseLeftButtonDown"
+                       ToolTipService.ToolTip="{Binding [MenuVisibleToolTip], Source={StaticResource SR}}" Margin="5,0,0,0" 
+                       />
+            </Grid>
+            <Grid x:Name="ListBottomContent" Grid.Column="2">
+                <Grid.RenderTransform>
+                    <TranslateTransform/>
+                </Grid.RenderTransform>
+                <Grid>
+                    <Grid.RowDefinitions >
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Image x:Name="GoRighthiddenL" 
+                            Source="/ExternalResource;component/Images/RightHide.png"
+                            Cursor="Hand" 
+                            Margin="0,3,10,3"
+                            HorizontalAlignment="Right" 
+                            VerticalAlignment="Center" 
+                            Canvas.ZIndex="100" 
+                            Stretch="None" 
+                            MouseLeftButtonDown="GoRighthiddenL_MouseLeftButtonDown"
+                            ToolTipService.ToolTip="{Binding [MenuCollapsedToolTip], Source={StaticResource SR}}"/>
+                    <Grid Grid.Row="0">
+                        <Grid>
+                            <Grid.Background>
+                                <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                                    <GradientStop Color="#383f49" Offset="0.0"/>
+                                    <GradientStop Color="#1d2025" Offset="1.0"/>
+                                </LinearGradientBrush>
+                            </Grid.Background>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="5"/>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="25"/>
+                                <ColumnDefinition Width="10"/>
+                            </Grid.ColumnDefinitions>
+                            <Image Grid.Column="1" Style="{StaticResource TitleImageStyle}"
+                                   />
+                            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" 
+                                       Text="{Binding [InfoRegion],Source={StaticResource SR}}"
+                                       VerticalAlignment="Center" Grid.Column="2" Margin="0,0,0,0" 
+                                       FontSize="12"
+                                       FontWeight="Bold" Style="{StaticResource TextBlockLightStyle}"/>
+                        </Grid>
+                    </Grid>
+                    <Grid Grid.Row="1" Style="{StaticResource SystemInfoShowGridStyle}">
+                        <Grid.RowDefinitions >
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="0" Style="{StaticResource SystemInfoShowGridStyle}">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="30"/>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid Grid.Row="0">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="5"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="10"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.Background>
+                                        <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                                            <GradientStop Color="#1E2226" Offset="0.0"/>
+                                            <GradientStop Color="#1E2226" Offset="1.0"/>
+                                        </LinearGradientBrush>
+                                    </Grid.Background>
+                                    <Image Grid.Column="1" Style="{StaticResource SecoundTitleImageStyle}"/>
+                                    <TextBlock HorizontalAlignment="Left" 
+                                               TextWrapping="Wrap" 
+                                               Text="{Binding [MONITOR_BaseInfo],Source={StaticResource SR}}"
+                                               VerticalAlignment="Center" Grid.Column="2" Margin="0,0,0,0" 
+                                               FontSize="12"
+                                               FontWeight="Bold" Style="{StaticResource TextBlockLightStyle}"/>
+                                    <Image Grid.Column="3" 
+                                           Style="{StaticResource ClloapseImageStyle}" 
+                                           x:Name="OperatorCollapseGridImage"
+                                           MouseLeftButtonDown="OperatorCollapseGridImage_MouseLeftButtonDown"/>
+                                    <Image Grid.Column="3" 
+                                           Style="{StaticResource ExpendImageStyle}" 
+                                           x:Name="OperatorExpendGridImage"
+                                           Visibility="Collapsed"
+                                           MouseLeftButtonDown="OperatorExpendGridImage_MouseLeftButtonDown"/>
+                                </Grid>
+                            </Grid>
+                            <ScrollViewer Grid.Row="1" 
+                                          Style="{StaticResource ScrollViewerStyle}" 
+                                          x:Name="ShowInfoScrollViewer" Margin="0,0,5,0" VerticalScrollBarVisibility="Auto">
+
+                                <Grid Style="{StaticResource SystemInfoShowGridStyle}">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="10"/>
+                                        <RowDefinition Height="auto"/>
+                                        <RowDefinition Height="auto"/>
+                                        <RowDefinition Height="auto"/>
+                                        <RowDefinition Height="auto"/>
+                                        <RowDefinition Height="auto"/>
+                                        <RowDefinition Height="auto"/>
+                                        <RowDefinition Height="auto"/>
+                                        <RowDefinition Height="auto"/>
+                                        <RowDefinition Height="auto"/>
+                                        <RowDefinition Height="auto"/>
+                                        <RowDefinition Height="15"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="2.2*"/>
+                                        <ColumnDefinition Width="2*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <!--名称-->
+                                    <TextBlock Grid.Column="0" Visibility="{Binding NoSpeedRuleVisibility}"
+                                               Grid.Row="1" 
+                                               HorizontalAlignment="Right"  
+                                               TextWrapping="Wrap" 
+                                               Text="{Binding [TRAFFIC_FenceName], Source={StaticResource SR}}" 
+                                               VerticalAlignment="Center" 
+                                               Margin="0,0,10,3" Style="{StaticResource TextBlockLightStyle}"/>
+                                    <TextBlock  Grid.Column="1" Visibility="{Binding NoSpeedRuleVisibility}"
+                                                 Grid.Row="1" x:Name="tbName" 
+                                                ToolTipService.ToolTip="{Binding Name}"
+                                                HorizontalAlignment="Left"  
+                                                 VerticalAlignment="Center" 
+                                                Margin="10,0,0,3" 
+                                                Text="{Binding Name,Mode=OneWay}" Style="{StaticResource TextBlockLightStyle}"/>
+
+                                    <!--地址或路宽-->
+                                    <TextBlock Grid.Column="0"
+                                               Grid.Row="2" 
+                                               HorizontalAlignment="Right"  
+                                               TextWrapping="Wrap" Text="{Binding [MAINPAGE_Address], Source={StaticResource SR}}" 
+                                               VerticalAlignment="Center" 
+                                               Margin="0,3,10,3" 
+                                               Visibility="{Binding FenceVisibility}"  Style="{StaticResource TextBlockLightStyle}"/>
+
+                                    <TextBlock  Grid.Column="1" 
+                                                Grid.Row="2"
+                                                x:Name="tbFenceAddress" 
+                                                HorizontalAlignment="Left"  
+                                                 VerticalAlignment="Center"
+                                                 Margin="10,3,0,3" 
+                                                ToolTipService.ToolTip="{Binding Address}"
+                                                 Text="{Binding Address}" Visibility="{Binding FenceVisibility}" Style="{StaticResource TextBlockLightStyle}"/>
+
+                                    <TextBlock Grid.Column="0" Grid.Row="2" HorizontalAlignment="Right"  
+                                               TextWrapping="Wrap" Text="{Binding [TRAFFIC_RouteWidth], Source={StaticResource SR}}" 
+                                               VerticalAlignment="Center" Margin="0,3,10,3" Visibility="{Binding RouteVisibility}"  Style="{StaticResource TextBlockLightStyle}"/>
+
+                                    <TextBlock  Grid.Column="1" Grid.Row="2" x:Name="tbRouteWith" HorizontalAlignment="Left"  
+                                                 VerticalAlignment="Center" 
+                                                 Margin="10,3,0,3" 
+                                                ToolTipService.ToolTip="{Binding RouteWidth}"
+                                                 Text="{Binding RouteWidth,Mode=OneWay}" Visibility="{Binding RouteVisibility}" Style="{StaticResource TextBlockLightStyle}"/>
+
+                                    <!--报警-->
+                                    <TextBlock Grid.Column="0" 
+                                               Grid.Row="3" 
+                                               HorizontalAlignment="Right"  
+                                               TextWrapping="NoWrap" Visibility="{Binding FenceVisibility}"
+                                               Text="{Binding [TRAFFIC_InFenceAlarm], Source={StaticResource SR}}" 
+                                               VerticalAlignment="Center" 
+                                               Margin="0,0,10,3" Style="{StaticResource TextBlockLightStyle}"/>
+                                    <TextBlock Grid.Column="0" 
+                                               Grid.Row="3" 
+                                               HorizontalAlignment="Right"  
+                                               TextWrapping="NoWrap" Visibility="{Binding RouteVisibility}"
+                                               Text="{Binding [TRAFFIC_InRouteAlarm], Source={StaticResource SR}}" 
+                                               VerticalAlignment="Center" 
+                                               Margin="0,0,10,3" Style="{StaticResource TextBlockLightStyle}"/>
+                                    <CheckBox  Grid.Row="3" Grid.Column="1" Visibility="{Binding NoSpeedRuleVisibility}"
+                                               Foreground="#f0f0f0" 
+                                               Style="{StaticResource CheckBoxCustomStyle}"
+                                               VerticalAlignment="Center" Margin="10,3,10,3" HorizontalAlignment="Left" 
+                                               IsChecked="{Binding InFenceOrRouteAlarm, Mode=OneWay}" IsEnabled="False" />
+                                    <TextBlock Grid.Column="0" 
+                                               Grid.Row="4" Visibility="{Binding FenceVisibility}"
+                                               HorizontalAlignment="Right"  
+                                               TextWrapping="NoWrap" 
+                                               Text="{Binding [TRAFFIC_OutFenceAlarm], Source={StaticResource SR}}" 
+                                               VerticalAlignment="Center" 
+                                               Margin="0,0,10,3" Style="{StaticResource TextBlockLightStyle}"/>
+                                    <TextBlock Grid.Column="0" 
+                                               Grid.Row="4" 
+                                               HorizontalAlignment="Right"  Visibility="{Binding RouteVisibility}"
+                                               TextWrapping="NoWrap" 
+                                               Text="{Binding [TRAFFIC_OutRouteAlarm], Source={StaticResource SR}}" 
+                                               VerticalAlignment="Center" 
+                                               Margin="0,0,10,3" Style="{StaticResource TextBlockLightStyle}"/>
+                                    <CheckBox  Grid.Row="4" Grid.Column="1"  Visibility="{Binding NoSpeedRuleVisibility}"
+                                               Foreground="#f0f0f0"
+                                              Style="{StaticResource CheckBoxCustomStyle}"
+                                               VerticalAlignment="Center" Margin="10,3,10,3" 
+                                               HorizontalAlignment="Left" IsChecked="{Binding OutFenceOrRouteAlarm,Mode=OneWay}" IsEnabled="False"/>
+
+                                    <!--速度-->
+                                    <TextBlock Grid.Column="0" Visibility="{Binding NoSpeedRuleVisibility}"
+                                               Grid.Row="5" 
+                                               HorizontalAlignment="Right"  
+                                               TextWrapping="Wrap" 
+                                               Text="{Binding [TRAFFIC_FenceControlSpeed], Source={StaticResource SR}}" 
+                                               VerticalAlignment="Center" 
+                                               Margin="0,0,10,3" Style="{StaticResource TextBlockLightStyle}"/>
+                                    <CheckBox  Grid.Row="5" Grid.Column="1" Visibility="{Binding NoSpeedRuleVisibility}"
+                                                Foreground="#f0f0f0"
+                                               Style="{StaticResource CheckBoxCustomStyle}"
+                                                VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,3,10,3" 
+                                                IsChecked="{Binding IsControlSpeed,Mode=OneWay}" IsEnabled="False" 
+                                                />
+                                    <TextBlock Grid.Column="0" Grid.Row="6" Visibility="{Binding NoSpeedRuleVisibility}"
+                                               HorizontalAlignment="Right" TextAlignment="Right"
+                                               Text="{Binding [TRAFFIC_MaxSpeed], Source={StaticResource SR}}"
+                                               VerticalAlignment="Center" 
+                                               Margin="0,3,10,3"  Style="{StaticResource TextBlockLightStyle}"/>
+                                    <TextBlock  Grid.Column="1"  Visibility="{Binding NoSpeedRuleVisibility}"
+                                                Grid.Row="6" x:Name="tbMaxSpeed"  
+                                                HorizontalAlignment="Left" 
+                                                VerticalAlignment="Center" 
+                                                ToolTipService.ToolTip="{Binding MaxSpeed}"
+                                                Text="{Binding MaxSpeed,Mode=OneWay}" 
+                                                Margin="10,3,0,3" Style="{StaticResource TextBlockLightStyle}"/>
+                                    <TextBlock Grid.Column="0" Grid.Row="7"  Visibility="{Binding NoSpeedRuleVisibility}"
+                                               HorizontalAlignment="Right" 
+                                               TextAlignment="Right" 
+                                               Text="{Binding [TRAFFIC_DurationTime], Source={StaticResource SR}}"
+                                               VerticalAlignment="Center" 
+                                               Margin="0,3,10,3"  Style="{StaticResource TextBlockLightStyle}"/>
+                                    <TextBlock Visibility="{Binding NoSpeedRuleVisibility}"
+                                            Grid.Column="1" Grid.Row="7"
+                                             x:Name="tbOverSpeedDuration"  
+                                             HorizontalAlignment="Left" 
+                                             VerticalAlignment="Center"
+                                             Margin="10,3,0,3" 
+                                        ToolTipService.ToolTip="{Binding Duration}"
+                                            Text="{Binding Duration,Mode=OneWay}"  Style="{StaticResource TextBlockLightStyle}"
+                                     />
+
+                                    <!--时间控制-->
+                                    <TextBlock Grid.Column="0" Grid.Row="8"  Visibility="{Binding NoSpeedRuleVisibility}"
+                                               HorizontalAlignment="Right" 
+                                               Text="{Binding [TRAFFIC_ControlTime], Source={StaticResource SR}}" 
+                                               VerticalAlignment="Center" Margin="0,3,10,3" Style="{StaticResource TextBlockLightStyle}"/>
+                                    <CheckBox TabIndex="8" Grid.Column="1"  Visibility="{Binding NoSpeedRuleVisibility}"
+                                            Foreground="#f0f0f0"
+                                            Style="{StaticResource CheckBoxCustomStyle}"
+                                            Grid.Row="8" x:Name="CheckTime"
+                                            HorizontalAlignment="Left"  VerticalAlignment="Center" Margin="10,3,10,3" 
+                                            IsChecked="{Binding IsControlTime,Mode=TwoWay}" IsEnabled="False" />
+
+                                    <TextBlock Grid.Column="0" Grid.Row="9"   Visibility="{Binding NoSpeedRuleVisibility}"
+                                               HorizontalAlignment="Right" 
+                                               Text="{Binding [LetStartTime], Source={StaticResource SR}}" 
+                                               VerticalAlignment="Center" Margin="0,3,10,3" Style="{StaticResource TextBlockLightStyle}"/>
+                                    <TextBlock 
+                                             Grid.Column="1" Grid.Row="9" Visibility="{Binding NoSpeedRuleVisibility}"
+                                             x:Name="tbStartTime"  
+                                             HorizontalAlignment="Left" 
+                                             VerticalAlignment="Center"
+                                             Margin="10,3,0,3" 
+                                        ToolTipService.ToolTip="{Binding StartTime}" 
+                                            Text="{Binding StartTime,Mode=OneWay}"  Style="{StaticResource TextBlockLightStyle}"/>
+
+
+                                    <TextBlock Grid.Column="0" Visibility="{Binding NoSpeedRuleVisibility}"
+                                               Grid.Row="10" 
+                                               HorizontalAlignment="Right" 
+                                               Text="{Binding [LetEndTime], Source={StaticResource SR}}" 
+                                               VerticalAlignment="Center" RenderTransformOrigin="0.54,1.421" 
+                                               Margin="0,3,10,3" Style="{StaticResource TextBlockLightStyle}"/>
+                                    <TextBlock  Visibility="{Binding NoSpeedRuleVisibility}"
+                                             Grid.Column="1" Grid.Row="10"
+                                             x:Name="tbEndTime"  
+                                             HorizontalAlignment="Left" 
+                                             VerticalAlignment="Center"
+                                             Margin="10,3,0,3" 
+                                        ToolTipService.ToolTip="{Binding EndTime}"
+                                            Text="{Binding EndTime,Mode=OneWay}"  Style="{StaticResource TextBlockLightStyle}"
+                                     />
+                                    <TextBlock Margin="0,3,10,3"
+				                    Grid.Row="1" 
+			                        Grid.Column="0" 
+			                        Text="{Binding [SpeedLimit_Name], Source={StaticResource SR}}" 
+			                        HorizontalAlignment="Right" Visibility="{Binding SpeedRuleVisibility}"
+			                        VerticalAlignment="Center" Style="{StaticResource TextBlockLightStyle}"/>
+
+                                    <TextBlock x:Name="txtspeedName"
+				                    Margin="10,3,0,3" 
+			                        Grid.Row="1" 
+				                    Grid.Column="1"      
+                                           ToolTipService.ToolTip="{Binding Name}"
+				                    Text="{Binding Name}"                 Visibility="{Binding SpeedRuleVisibility}"                    
+				                    HorizontalAlignment="Stretch" Style="{StaticResource TextBlockLightStyle}"/>
+
+                                    <TextBlock Margin="0,3,10,3"
+				                    Grid.Row="2" 
+			                        Grid.Column="0" 
+			                        Text="{Binding [SpeedLimit_MaxSpeed], Source={StaticResource SR}}" 
+			                        HorizontalAlignment="Right"  Visibility="{Binding SpeedRuleVisibility}"
+			                        VerticalAlignment="Center" Style="{StaticResource TextBlockLightStyle}"/>
+
+                                    <TextBlock x:Name="txtMaxSpeed"
+				                    Margin="10,3,0,3" 
+			                        Grid.Row="2" 
+				                    Grid.Column="1" 
+                                           ToolTipService.ToolTip="{Binding MaxSpeed}"
+				                    Text="{Binding MaxSpeed}"  Visibility="{Binding SpeedRuleVisibility}"
+				                    HorizontalAlignment="Stretch" Style="{StaticResource TextBlockLightStyle}"/>
+
+
+                                    <TextBlock Margin="0,3,10,3"
+				                    Grid.Row="3" 
+			                        Grid.Column="0" 
+			                        Text="{Binding [SpeedLimit_Duration], Source={StaticResource SR}}" 
+			                        HorizontalAlignment="Right" Visibility="{Binding SpeedRuleVisibility}"
+			                        VerticalAlignment="Center" Style="{StaticResource TextBlockLightStyle}"/>
+
+                                    <TextBlock x:Name="txtDuration"
+				                    Margin="10,3,0,3" 
+			                        Grid.Row="3" 
+				                    Grid.Column="1" 
+                                    Width="250"
+                                            ToolTipService.ToolTip="{Binding Duration}"
+				                    Text="{Binding Duration}" Visibility="{Binding SpeedRuleVisibility}"
+				                    HorizontalAlignment="Stretch" Style="{StaticResource TextBlockLightStyle}"/>
+                                </Grid>
+                            </ScrollViewer>
+                        </Grid>
+                        <Grid Grid.Row="1" MinHeight="300">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="30"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Grid Grid.Row="0">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="5"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="10"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.Background>
+                                        <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                                            <GradientStop Color="#1E2226" Offset="0.0"/>
+                                            <GradientStop Color="#1E2226" Offset="1.0"/>
+                                        </LinearGradientBrush>
+                                    </Grid.Background>
+                                    <Image Style="{StaticResource SecoundTitleImageStyle}" Grid.Column="1"/>
+                                    <TextBlock HorizontalAlignment="Left" 
+                                               TextWrapping="Wrap" 
+                                               Text="{Binding [IssuedVehicle], Source={StaticResource SR}}" 
+                                               VerticalAlignment="Center" Grid.Column="2" Margin="0,0,0,0" 
+                                               FontSize="12"
+                                               FontWeight="Bold" Style="{StaticResource TextBlockLightStyle}"/>
+                                </Grid>
+                            </Grid>
+                            <Grid Grid.Row="1">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="35"></RowDefinition>
+                                    <RowDefinition Height="*"></RowDefinition>
+                                    <RowDefinition Height="30"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                                    <ColumnDefinition Width="2*"></ColumnDefinition>
+                                    <ColumnDefinition Width="10"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Grid.Resources>
+                                    <Style TargetType="sdk:DataGridCell">
+                                        <Setter Property="Background" Value="Transparent" />
+                                        <Setter Property="HorizontalContentAlignment" Value="Center" />
+                                        <Setter Property="VerticalContentAlignment" Value="Center" />
+                                        <Setter Property="IsTabStop" Value="False" />
+                                        <Setter Property="Template">
+                                            <Setter.Value>
+                                                <ControlTemplate TargetType="sdk:DataGridCell">
+                                                    <Grid Name="Root" Background="{TemplateBinding Background}">
+                                                        <VisualStateManager.VisualStateGroups>
+                                                            <VisualStateGroup x:Name="CurrentStates">
+                                                                <VisualState x:Name="Regular" />
+                                                                <VisualState x:Name="Current">
+                                                                    <Storyboard>
+                                                                        <DoubleAnimation Storyboard.TargetName="FocusVisual" Storyboard.TargetProperty="Opacity" To="1" Duration="0" />
+                                                                        <!--更改选中行颜色时修改-->
+                                                                        <ColorAnimation Storyboard.TargetName="FocusVisual"
+                                                        Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)"
+                                                        To="#0099cb" Duration="0"/>
+                                                                        <!--单元格的边框-->
+                                                                        <!--更改选中行颜色时修改-->
+                                                                        <ColorAnimation Storyboard.TargetName="FocusVisual"
+                                                        Storyboard.TargetProperty="(Shape.Stroke).(SolidColorBrush.Color)"
+                                                        To="#0099CB" Duration="0"/>
+                                                                    </Storyboard>
+                                                                </VisualState>
+                                                            </VisualStateGroup>
+                                                            <VisualStateGroup x:Name="ValidationStates">
+                                                                <VisualState x:Name="Valid"/>
+                                                                <VisualState x:Name="Invalid">
+                                                                    <Storyboard>
+                                                                        <DoubleAnimation Storyboard.TargetName="InvalidVisualElement" Storyboard.TargetProperty="Opacity" Duration="0" To="1"/>
+                                                                        <ColorAnimation Storyboard.TargetName="FocusVisual" Storyboard.TargetProperty="(Fill).Color" Duration="0" To="#FFFFFFFF"/>
+                                                                    </Storyboard>
+                                                                </VisualState>
+                                                            </VisualStateGroup>
+                                                        </VisualStateManager.VisualStateGroups>
+                                                        <Grid.ColumnDefinitions>
+                                                            <ColumnDefinition />
+                                                            <ColumnDefinition Width="Auto" />
+                                                        </Grid.ColumnDefinitions>
+                                                        <Rectangle Name="FocusVisual" Stroke="#FF6DBDD1" StrokeThickness="1" Fill="#66FFFFFF" HorizontalAlignment="Stretch" 
+                               VerticalAlignment="Stretch" IsHitTestVisible="false" Opacity="0" />
+                                                        <ContentPresenter
+                                    Content="{TemplateBinding Content}"
+                                    ContentTemplate="{TemplateBinding ContentTemplate}"
+                                    HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                    VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                    Margin="{TemplateBinding Padding}" />
+                                                        <Rectangle x:Name="InvalidVisualElement" IsHitTestVisible="False" StrokeThickness="1" Stroke="#FFDC000C" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Opacity="0"/>
+                                                        <Rectangle Name="RightGridLine" Grid.Column="1" VerticalAlignment="Stretch" Width="1" />
+                                                    </Grid>
+                                                </ControlTemplate>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </Style>
+                                    <Style TargetType="sdk:DataGridRow">
+                                        <Setter Property="IsTabStop" Value="False" />
+                                        <Setter Property="Template">
+                                            <Setter.Value>
+                                                <ControlTemplate TargetType="sdk:DataGridRow">
+                                                    <sdk:DataGridFrozenGrid Name="Root">
+                                                        <VisualStateManager.VisualStateGroups>
+                                                            <VisualStateGroup x:Name="CommonStates">
+                                                                <VisualState x:Name="Normal">
+                                                                    <Storyboard>
+                                                                        <DoubleAnimation Storyboard.TargetName="BackgroundRectangle" Storyboard.TargetProperty="Opacity" Duration="0" To="0"/>
+                                                                    </Storyboard>
+                                                                </VisualState>
+                                                                <VisualState x:Name="NormalAlternatingRow">
+                                                                    <Storyboard>
+                                                                        <DoubleAnimation Storyboard.TargetName="BackgroundRectangle" 
+                                                         Storyboard.TargetProperty="Opacity" Duration="0" To="0"/>
+                                                                    </Storyboard>
+                                                                </VisualState>
+                                                                <!--设置鼠标滑过每行时显示的颜色-->
+                                                                <VisualState x:Name="MouseOver">
+                                                                    <Storyboard>
+                                                                        <DoubleAnimation Storyboard.TargetName="BackgroundRectangle" 
+                                                         Storyboard.TargetProperty="Opacity" Duration="0" To=".5"/>
+
+                                                                        <ColorAnimation Duration="0" Storyboard.TargetName="BackgroundRectangle" 
+                                                        Storyboard.TargetProperty="(Fill).Color" To="#0099cb"/>
+                                                                    </Storyboard>
+                                                                </VisualState>
+                                                                <!--选中行颜色时修改-->
+                                                                <VisualState x:Name="NormalSelected">
+                                                                    <Storyboard>
+                                                                        <DoubleAnimation Storyboard.TargetName="BackgroundRectangle" 
+                                                         Storyboard.TargetProperty="Opacity" Duration="0" To="1"/>
+                                                                        <ColorAnimation Duration="0" Storyboard.TargetName="BackgroundRectangle" 
+                                                        Storyboard.TargetProperty="(Fill).Color" To="#0099cb"/>
+                                                                    </Storyboard>
+                                                                </VisualState>
+                                                                <VisualState x:Name="MouseOverSelected">
+                                                                    <Storyboard>
+                                                                        <DoubleAnimation Storyboard.TargetName="BackgroundRectangle" 
+                                                         Storyboard.TargetProperty="Opacity" Duration="0" To="1"/>
+                                                                    </Storyboard>
+                                                                </VisualState>
+                                                                <VisualState x:Name="UnfocusedSelected">
+                                                                    <Storyboard>
+                                                                        <DoubleAnimation Storyboard.TargetName="BackgroundRectangle" 
+                                                         Storyboard.TargetProperty="Opacity" Duration="0" To="1"/>
+
+                                                                        <ColorAnimation Duration="0" Storyboard.TargetName="BackgroundRectangle" 
+                                                        Storyboard.TargetProperty="(Fill).Color" To="#0099cb"/>
+                                                                    </Storyboard>
+                                                                </VisualState>
+                                                            </VisualStateGroup>
+                                                            <VisualStateGroup x:Name="ValidationStates">
+                                                                <VisualState x:Name="Valid"/>
+                                                                <VisualState x:Name="Invalid">
+                                                                    <Storyboard>
+                                                                        <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetName="BackgroundRectangle" Storyboard.TargetProperty="Visibility">
+                                                                            <DiscreteObjectKeyFrame KeyTime="0" Value="Collapsed"/>
+                                                                        </ObjectAnimationUsingKeyFrames>
+                                                                        <DoubleAnimation Storyboard.TargetName="InvalidVisualElement" Storyboard.TargetProperty="Opacity" Duration="0" To="1"/>
+                                                                    </Storyboard>
+                                                                </VisualState>
+                                                            </VisualStateGroup>
+                                                        </VisualStateManager.VisualStateGroups>
+                                                        <Grid.RowDefinitions>
+                                                            <RowDefinition/>
+                                                            <RowDefinition Height="Auto"/>
+                                                            <RowDefinition Height="Auto"/>
+                                                        </Grid.RowDefinitions>
+                                                        <Grid.ColumnDefinitions>
+                                                            <ColumnDefinition Width="Auto" />
+                                                            <ColumnDefinition/>
+                                                        </Grid.ColumnDefinitions>
+                                                        <Grid.Resources>
+                                                            <Storyboard x:Key="DetailsVisibleTransition">
+                                                                <DoubleAnimation Storyboard.TargetName="DetailsPresenter" Storyboard.TargetProperty="ContentHeight" Duration="00:00:0.1" />
+                                                            </Storyboard>
+                                                        </Grid.Resources>
+
+                                                        <Rectangle x:Name="BackgroundRectangle" Grid.RowSpan="2" Grid.ColumnSpan="2" Opacity="0" Fill="#1c1f23"/>
+                                                        <Rectangle x:Name="InvalidVisualElement" Grid.RowSpan="2" Grid.ColumnSpan="2" Opacity="0" Fill="#25282d"/>
+                                                        <sdk:DataGridRowHeader Grid.RowSpan="3" Name="RowHeader" sdk:DataGridFrozenGrid.IsFrozen="True" />
+                                                        <sdk:DataGridCellsPresenter Grid.Column="1" Name="CellsPresenter" sdk:DataGridFrozenGrid.IsFrozen="True" />
+                                                        <sdk:DataGridDetailsPresenter Grid.Row="1" Grid.Column="1" Name="DetailsPresenter" />
+                                                        <Rectangle Grid.Row="2" Grid.Column="1" Name="BottomGridLine" HorizontalAlignment="Stretch" Height="1" />
+                                                    </sdk:DataGridFrozenGrid>
+                                                </ControlTemplate>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </Style>
+                                    <Style x:Key="DataGridStyleRxx3" TargetType="sdk:DataGrid">
+                                        <Setter Property="HorizontalGridLinesBrush" Value="#1E2226"/>
+                                        <Setter Property="VerticalGridLinesBrush" Value="#1E2226"/>
+                                        <Setter Property="HorizontalScrollBarVisibility" Value="Hidden"/>
+                                        <Setter Property="VerticalScrollBarVisibility" Value="Auto"/>
+                                        <Setter Property="HorizontalAlignment" Value="Stretch"/>
+                                        <Setter Property ="VerticalAlignment" Value="Stretch"/>
+                                        <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                                        <Setter Property="VerticalContentAlignment" Value="Stretch"/>
+                                        <Setter Property="Background" Value="#1E2126"/>
+                                        <Setter Property="AutoGenerateColumns" Value="False"/>
+                                        <Setter Property="IsReadOnly" Value="True"/>
+                                        <Setter Property="GridLinesVisibility" Value="All"/>
+                                        <Setter Property="RowBackground" Value="#1E2126"/>
+                                        <Setter Property="BorderThickness" Value="0"/>
+                                        <Setter Property="AlternatingRowBackground" Value="#1E2226"/>
+                                        <Setter Property="HeadersVisibility" Value="Column"/>
+                                        <Setter Property="SelectionMode" Value="Extended"/>
+                                        <Setter Property="CanUserReorderColumns" Value="True"/>
+                                        <Setter Property="CanUserResizeColumns" Value="True"/>
+                                        <Setter Property="CanUserSortColumns" Value="True"/>
+                                        <Setter Property="RowDetailsVisibilityMode" Value="VisibleWhenSelected"/>
+                                        <Setter Property="BorderBrush">
+                                            <Setter.Value>
+                                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                                    <GradientStop Color="#1E2226" Offset="0"/>
+                                                    <GradientStop Color="#1E2226" Offset="0.375"/>
+                                                    <GradientStop Color="#1E2226" Offset="0.375"/>
+                                                    <GradientStop Color="#1E2226" Offset="1"/>
+                                                </LinearGradientBrush>
+                                            </Setter.Value>
+                                        </Setter>
+                                        <Setter Property="DragIndicatorStyle">
+                                            <Setter.Value>
+                                                <Style TargetType="ContentControl">
+                                                    <Setter Property="Foreground" Value="#7FFFFFFF"/>
+                                                    <Setter Property="Template">
+                                                        <Setter.Value>
+                                                            <ControlTemplate TargetType="ContentControl">
+                                                                <Grid>
+                                                                    <VisualStateManager.VisualStateGroups>
+                                                                        <VisualStateGroup x:Name="SortStates">
+                                                                            <VisualState x:Name="Unsorted"/>
+                                                                            <VisualState x:Name="SortAscending">
+                                                                                <Storyboard>
+                                                                                    <DoubleAnimation Duration="0" To="1.0" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="SortIcon"/>
+                                                                                </Storyboard>
+                                                                            </VisualState>
+                                                                            <VisualState x:Name="SortDescending">
+                                                                                <Storyboard>
+                                                                                    <DoubleAnimation Duration="0" To="1.0" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="SortIcon"/>
+                                                                                    <DoubleAnimation Duration="0" To="-.9" Storyboard.TargetProperty="(RenderTransform).ScaleY" Storyboard.TargetName="SortIcon"/>
+                                                                                </Storyboard>
+                                                                            </VisualState>
+                                                                        </VisualStateGroup>
+                                                                    </VisualStateManager.VisualStateGroups>
+                                                                    <Rectangle x:Name="BackgroundRectangle" Grid.ColumnSpan="2" Fill="#1c1f23" Stretch="Fill"/>
+                                                                    <Rectangle x:Name="BackgroundGradient" Grid.ColumnSpan="2" Opacity="0" Stretch="Fill">
+                                                                        <Rectangle.Fill>
+                                                                            <LinearGradientBrush EndPoint=".7,1" StartPoint=".7,0">
+                                                                                <GradientStop Color="#1E2226" Offset="0.015"/>
+                                                                                <GradientStop Color="#1E2226" Offset="0.375"/>
+                                                                                <GradientStop Color="#1E2226" Offset="0.6"/>
+                                                                                <GradientStop Color="#1E2226" Offset="1"/>
+                                                                            </LinearGradientBrush>
+                                                                        </Rectangle.Fill>
+                                                                    </Rectangle>
+                                                                    <Grid HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
+                                                                        <Grid.ColumnDefinitions>
+                                                                            <ColumnDefinition/>
+                                                                            <ColumnDefinition Width="Auto"/>
+                                                                        </Grid.ColumnDefinitions>
+                                                                        <ContentPresenter Content="{TemplateBinding Content}"/>
+                                                                        <Path x:Name="SortIcon" Grid.Column="1" Data="F1 M -5.215,6.099L 5.215,6.099L 0,0L -5.215,6.099 Z " Fill="#7FFFFFFF" HorizontalAlignment="Left" Margin="4,0,0,0" Opacity="0" RenderTransformOrigin=".5,.5" Stretch="Uniform" VerticalAlignment="Center" Width="8">
+                                                                            <Path.RenderTransform>
+                                                                                <ScaleTransform ScaleY=".9" ScaleX=".9"/>
+                                                                            </Path.RenderTransform>
+                                                                        </Path>
+                                                                    </Grid>
+                                                                </Grid>
+                                                            </ControlTemplate>
+                                                        </Setter.Value>
+                                                    </Setter>
+                                                </Style>
+                                            </Setter.Value>
+                                        </Setter>
+                                        <Setter Property="DropLocationIndicatorStyle">
+                                            <Setter.Value>
+                                                <Style TargetType="ContentControl">
+                                                    <Setter Property="Background" Value="#FF3F4346"/>
+                                                    <Setter Property="Width" Value="2"/>
+                                                    <Setter Property="Template">
+                                                        <Setter.Value>
+                                                            <ControlTemplate TargetType="ContentControl">
+                                                                <Rectangle Fill="{TemplateBinding Background}" Height="{TemplateBinding Height}" Width="{TemplateBinding Width}"/>
+                                                            </ControlTemplate>
+                                                        </Setter.Value>
+                                                    </Setter>
+                                                </Style>
+                                            </Setter.Value>
+                                        </Setter>
+                                        <Setter Property="IsTabStop" Value="True"/>
+                                        <Setter Property="Template">
+                                            <Setter.Value>
+                                                <ControlTemplate TargetType="sdk:DataGrid">
+                                                    <Grid>
+                                                        <VisualStateManager.VisualStateGroups>
+                                                            <VisualStateGroup x:Name="CommonStates">
+                                                                <VisualState x:Name="Normal"/>
+                                                                <VisualState x:Name="Disabled">
+                                                                    <Storyboard>
+                                                                        <DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="DisabledVisualElement"/>
+                                                                    </Storyboard>
+                                                                </VisualState>
+                                                            </VisualStateGroup>
+                                                        </VisualStateManager.VisualStateGroups>
+                                                        <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="2">
+                                                            <Grid x:Name="Root" Background="{TemplateBinding Background}">
+                                                                <Grid.Resources>
+                                                                    <ControlTemplate x:Key="TopLeftHeaderTemplate" TargetType="sdk:DataGridColumnHeader">
+                                                                        <Grid x:Name="Root">
+                                                                            <Grid.RowDefinitions>
+                                                                                <RowDefinition/>
+                                                                                <RowDefinition/>
+                                                                                <RowDefinition Height="Auto"/>
+                                                                            </Grid.RowDefinitions>
+                                                                            <Border BorderBrush="#1E2226" BorderThickness="0,0,1,0" Background="#1E2226" Grid.RowSpan="2">
+                                                                                <Rectangle Stretch="Fill" StrokeThickness="1">
+                                                                                    <Rectangle.Fill>
+                                                                                        <LinearGradientBrush EndPoint=".7,1" StartPoint=".7,0">
+                                                                                            <GradientStop Color="#1E2226" Offset="0.015"/>
+                                                                                            <GradientStop Color="#1E2226" Offset="0.375"/>
+                                                                                            <GradientStop Color="#1E2226" Offset="0.6"/>
+                                                                                            <GradientStop Color="#1E2226" Offset="1"/>
+                                                                                        </LinearGradientBrush>
+                                                                                    </Rectangle.Fill>
+                                                                                </Rectangle>
+                                                                            </Border>
+                                                                            <Rectangle Fill="#1E2226" Height="1" Grid.RowSpan="2" StrokeThickness="1" VerticalAlignment="Bottom" Width="Auto"/>
+                                                                        </Grid>
+                                                                    </ControlTemplate>
+                                                                    <ControlTemplate x:Key="TopRightHeaderTemplate" TargetType="sdk:DataGridColumnHeader">
+                                                                        <Grid x:Name="RootElement">
+                                                                            <Grid.RowDefinitions>
+                                                                                <RowDefinition/>
+                                                                                <RowDefinition/>
+                                                                                <RowDefinition Height="Auto"/>
+                                                                            </Grid.RowDefinitions>
+                                                                            <Border BorderBrush="#1E2226" BorderThickness="1,0,0,0" Background="#1E2226" Grid.RowSpan="2">
+                                                                                <!--垂直滚动条上的小块-->
+                                                                                <Rectangle Stretch="Fill">
+                                                                                    <Rectangle.Fill>
+                                                                                        <LinearGradientBrush StartPoint="0,0.5" EndPoint="0,1.0">
+                                                                                            <GradientStop Color="#939496" Offset="0.5"/>
+                                                                                            <GradientStop Color="#939496" Offset="1.0"/>
+                                                                                        </LinearGradientBrush>
+                                                                                    </Rectangle.Fill>
+                                                                                </Rectangle>
+                                                                            </Border>
+                                                                        </Grid>
+                                                                    </ControlTemplate>
+                                                                </Grid.Resources>
+                                                                <Grid.ColumnDefinitions>
+                                                                    <ColumnDefinition Width="Auto"/>
+                                                                    <ColumnDefinition/>
+                                                                    <ColumnDefinition Width="Auto"/>
+                                                                </Grid.ColumnDefinitions>
+                                                                <Grid.RowDefinitions>
+                                                                    <RowDefinition Height="Auto"/>
+                                                                    <RowDefinition/>
+                                                                    <RowDefinition Height="Auto"/>
+                                                                    <RowDefinition Height="Auto"/>
+                                                                </Grid.RowDefinitions>
+                                                                <sdk:DataGridColumnHeader x:Name="TopLeftCornerHeader" Template="{StaticResource TopLeftHeaderTemplate}" Width="22"/>
+                                                                <sdk:DataGridColumnHeadersPresenter x:Name="ColumnHeadersPresenter" Grid.Column="1"/>
+                                                                <sdk:DataGridColumnHeader x:Name="TopRightCornerHeader" Grid.Column="2" Template="{StaticResource TopRightHeaderTemplate}"/>
+                                                                <Rectangle x:Name="ColumnHeadersAndRowsSeparator" Grid.ColumnSpan="3" Fill="#1c1f23" Height="1" StrokeThickness="1" VerticalAlignment="Bottom" Width="Auto"/>
+                                                                <sdk:DataGridRowsPresenter x:Name="RowsPresenter" Grid.ColumnSpan="2" Grid.Row="1"/>
+                                                                <Rectangle x:Name="BottomRightCorner" Grid.Column="2" Fill="#FFE9EEF4" Grid.Row="2"/>
+                                                                <Rectangle x:Name="BottomLeftCorner" Grid.ColumnSpan="2" Fill="#FFE9EEF4" Grid.Row="2"/>
+                                                                <ScrollBar x:Name="VerticalScrollbar" Grid.Column="2" Margin="0,-1,-1,-1" Orientation="Vertical" Grid.Row="1" Width="18" 
+                                           Style="{StaticResource SelfScrollBarStyle2}"/>
+                                                                <Grid Grid.Column="1" Grid.Row="2">
+                                                                    <Grid.ColumnDefinitions>
+                                                                        <ColumnDefinition Width="Auto"/>
+                                                                        <ColumnDefinition/>
+                                                                    </Grid.ColumnDefinitions>
+                                                                    <Rectangle x:Name="FrozenColumnScrollBarSpacer"/>
+                                                                    <ScrollBar x:Name="HorizontalScrollbar" Grid.Column="1" Height="18" Margin="-1,0,-1,-1" Orientation="Horizontal"/>
+                                                                </Grid>
+                                                                <sdk:ValidationSummary x:Name="ValidationSummary" Grid.ColumnSpan="3" MaxHeight="90" Grid.Row="3"/>
+                                                            </Grid>
+                                                        </Border>
+                                                        <Border x:Name="DisabledVisualElement" Background="#8C1c1f23" CornerRadius="2" HorizontalAlignment="Stretch" Height="Auto" IsHitTestVisible="False" Opacity="0" VerticalAlignment="Stretch" Width="Auto"/>
+                                                    </Grid>
+                                                </ControlTemplate>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </Style>
+                                </Grid.Resources>
+                                <StackPanel Grid.Row="0" 
+                                            Grid.Column="0" 
+                                            Grid.ColumnSpan="2" Orientation="Horizontal">
+                                    <TextBlock Margin="20,0,20,0" 
+                                                Text="{Binding [BASEINFO_VehicleNumber], Source={StaticResource SR}}" 
+                                                HorizontalAlignment="Right" 
+                                                VerticalAlignment="Center" Style="{StaticResource TextBlockLightStyle}"/>
+                                    <TextBox x:Name="txtName" 
+                                            Text="{Binding SearchText,Mode=TwoWay}" 
+                                            MaxLength="20"
+                                            HorizontalAlignment="Stretch"  Width="150"
+                                            Background="#242930" Style="{StaticResource lightTextBox}"
+                                            IsReadOnly="{Binding IsReadOnly}"/>
+                                    <Button Grid.Column="2"
+                                            Style="{StaticResource SearchButtonCommonStyle}"
+                                            ToolTipService.ToolTip="{Binding [Search], Source={StaticResource SR}}" 
+                                            Command="{Binding BtnSearchCommand}" 
+                                            Margin="5,5,0,5"/>
+                                </StackPanel>
+                                <sdk:DataGrid  x:Name="ListDataGrid" 
+                                               IsReadOnly="True" Grid.Row="1" 
+                                               Grid.Column="0" 
+                                               AutoGenerateColumns="False" 
+                                               ItemsSource="{Binding Data}"  Grid.ColumnSpan="3" 
+                                               Margin="0 -2 0 0"
+                                               Style="{StaticResource DataGridStyleRxx3}">
+                                    <sdk:DataGrid.Columns>
+                                        <sdk:DataGridTextColumn Binding="{Binding VehicleID}" Foreground="#f0f0f0"                                                        
+                                                                Header="VehicleNumber" CanUserSort="True"  Width="*" >
+                                            <sdk:DataGridTextColumn.HeaderStyle>
+                                                <Style TargetType="sdk:DataGridColumnHeader">
+                                                    <Setter Property="HorizontalAlignment" Value="Stretch"/>
+                                                    <Setter Property="VerticalAlignment" Value="Center"/>
+                                                    <Setter Property="BorderThickness" Value="0"></Setter>
+                                                    <Setter Property="VerticalContentAlignment" Value="Stretch"/>
+                                                    <Setter Property="Height" Value="28"/>
+                                                    <Setter Property="Template">
+                                                        <Setter.Value>
+                                                            <ControlTemplate TargetType="sdk:DataGridColumnHeader">
+                                                                <Border BorderBrush="#1E2226"
+                                                                    BorderThickness="0"
+                                                                    x:Name="ColumnHeaderBorder">
+                                                                    <Border.Background>
+                                                                        <LinearGradientBrush StartPoint="0,0.5" EndPoint="0,1.0">
+                                                                            <GradientStop Color="#1E2226" Offset="0.5"/>
+                                                                            <GradientStop Color="#1E2226" Offset="1.0"/>
+                                                                        </LinearGradientBrush>
+                                                                    </Border.Background>
+
+                                                                    <StackPanel Background="{TemplateBinding Background}"
+                                                                        HorizontalAlignment="Center"
+                                                                        VerticalAlignment="Center">
+                                                                        <ContentPresenter>
+                                                                            <ContentPresenter.Content>
+                                                                                <TextBlock Text="{TemplateBinding Content}"
+                                                HorizontalAlignment="Stretch"
+                                                VerticalAlignment="Stretch"
+                                                FontSize="12"
+                                               FontWeight="Bold" Style="{StaticResource TextBlockLightStyle}"/>
+                                                                            </ContentPresenter.Content>
+                                                                        </ContentPresenter>
+                                                                    </StackPanel>
+                                                                </Border>
+
+                                                            </ControlTemplate>
+                                                        </Setter.Value>
+                                                    </Setter>
+
+                                                </Style>
+                                            </sdk:DataGridTextColumn.HeaderStyle>
+                                        </sdk:DataGridTextColumn>
+                                        <sdk:DataGridTextColumn Binding="{Binding Status,Converter={StaticResource ResourceKey=DeliverStatusConvert}}"  
+                                                                Header="Status" CanUserSort="True"  Foreground="#f0f0f0"
+                                                                Width="*" >
+                                            <sdk:DataGridTextColumn.HeaderStyle>
+                                                <Style TargetType="sdk:DataGridColumnHeader">
+                                                    <Setter Property="HorizontalAlignment" Value="Stretch"/>
+                                                    <Setter Property="VerticalAlignment" Value="Center"/>
+                                                    <Setter Property="BorderThickness" Value="0"></Setter>
+                                                    <Setter Property="VerticalContentAlignment" Value="Stretch"/>
+                                                    <Setter Property="Height" Value="28"/>
+                                                    <Setter Property="Template">
+                                                        <Setter.Value>
+                                                            <ControlTemplate TargetType="sdk:DataGridColumnHeader">
+                                                                <Border BorderBrush="#1E2226"
+                            BorderThickness="0"
+                            x:Name="ColumnHeaderBorder">
+                                                                    <Border.Background>
+                                                                        <LinearGradientBrush StartPoint="0,0.5" EndPoint="0,1.0">
+                                                                            <!--<GradientStop Color="#353a44" Offset="0.5"/>
+                                <GradientStop Color="#22252c" Offset="1.0"/>-->
+                                                                            <GradientStop Color="#1E2226" Offset="0.5"/>
+                                                                            <GradientStop Color="#1E2226" Offset="1.0"/>
+                                                                        </LinearGradientBrush>
+                                                                    </Border.Background>
+
+                                                                    <StackPanel Background="{TemplateBinding Background}"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center">
+                                                                        <ContentPresenter>
+                                                                            <ContentPresenter.Content>
+                                                                                <TextBlock Text="{TemplateBinding Content}"
+                                                HorizontalAlignment="Stretch"
+                                                VerticalAlignment="Stretch"
+                                                FontSize="12"
+                                               FontWeight="Bold" Style="{StaticResource TextBlockLightStyle}"/>
+                                                                            </ContentPresenter.Content>
+                                                                        </ContentPresenter>
+                                                                    </StackPanel>
+                                                                </Border>
+
+                                                            </ControlTemplate>
+                                                        </Setter.Value>
+                                                    </Setter>
+                                                </Style>
+                                            </sdk:DataGridTextColumn.HeaderStyle>
+                                        </sdk:DataGridTextColumn>
+                                    </sdk:DataGrid.Columns>
+                                </sdk:DataGrid>
+                                <Border BorderBrush="#FF617584" BorderThickness="0.5" Height="35"  Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="2">
+                                    <Grid Style="{StaticResource ContentGridStyle}" Background="#1E2226">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="Auto"/>
+                                        </Grid.ColumnDefinitions>
+                                        <TextBlock Grid.Column="0"
+                                                    Text="{Binding [Total],Source={StaticResource SR}}"
+                                                    HorizontalAlignment="Right"
+                                                    VerticalAlignment="Center"
+                                                    Margin="0,2,10,5" Style="{StaticResource TextBlockLightStyle}"/>
+
+                                        <TextBlock Text="{Binding Data.ItemCount}" Grid.Column="1"
+                                                    HorizontalAlignment="Left"
+                                                    VerticalAlignment="Center"
+                                                    Margin="0,2,10,5" Style="{StaticResource TextBlockLightStyle}"/>
+
+                                        <sdk:DataPager Style="{StaticResource DataPagerStyle}"   
+                                        Grid.Column="2"
+                                                    Source="{Binding Data}"
+                                                    PageSize="10"
+                                                    Height="25"                                            
+                                                    Foreground="#f0f0f0" 
+                                                    Background="{Binding ElementName=ListDataGrid, Path=Background}"
+                                                    HorizontalAlignment="Stretch"
+                                                    VerticalAlignment="Center"/>
+                                    </Grid>
+                                </Border>
+                            </Grid>
+                        </Grid>
+                    </Grid>
+                </Grid>
+            </Grid>
+        </Grid>
+    </toolkit:BusyIndicator>
+</UserControl>

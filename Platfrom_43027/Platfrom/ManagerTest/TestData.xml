@@ -1,0 +1,167 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Configuration>
+  <!-- 添加用户的测试数据-->
+  <AddUserData  Remark="添加用户的测试数据">
+    <Userinfo ID="1" TestDataName="RightUserInfo" Remark="正确的用户信息">
+      <Content>
+        <add key="UserName" value="normaluser"/>
+        <add key="UserPwd" value="wang_123"/>
+        <add key="GroupName" value="SecurityManager"/>
+      </Content>
+    </Userinfo>
+    <Userinfo ID="2" TestDataName="Groupnotright" Remark="安全组不存在">
+      <Content>
+        <add key="UserName" value="normaluser1"/>
+        <add key="UserPwd" value="wang_123"/>
+        <add key="GroupName" value="SecurityManager1"/>
+      </Content>
+    </Userinfo>
+    <Userinfo ID="3" TestDataName="EmptyUser" Remark="用户名为空">
+      <Content>
+        <add key="UserName" value=""/>
+        <add key="UserPwd" value="wang_123"/>
+        <add key="GroupName" value="SecurityManager"/>
+      </Content>
+    </Userinfo>
+  </AddUserData>
+  <DeleteUserData  Remark="删除用户接口的测试数据">
+    <DeleteUserInfo ID="1"  Remark="正确的存在的用户" >
+      <Content>
+        <add key="UserName" value="normaluser"/>
+      </Content>
+    </DeleteUserInfo>
+    <DeleteUserInfo ID="2"  Remark="不存在的用户" >
+      <Content>
+        <add key="UserName" value="asdnick"/>
+      </Content>
+    </DeleteUserInfo>
+  </DeleteUserData>
+  <UpdateUserData Remark="更新用户数据">
+    <UpdateUserInfo ID="1" Remark="">
+      <Content>
+        <add key="userName" value="ant_Countryuser"/>                                                                                                                                                                                                                                                                                                                                                                                                                                                " value=""/>
+        <add key="phonenumber" value="12333"/>
+        <add key="description" value="4444"/>
+        <add key="company" value="55555"/>
+      </Content>
+    </UpdateUserInfo>
+    <UpdateUserInfo ID="2" Remark="">
+      <Content>
+        <add key="userName" value=""/>
+        <add key="phonenumber" value="12333"/>
+        <add key="description" value="4444"/>
+        <add key="company" value="55555"/>
+      </Content>
+    </UpdateUserInfo>
+  </UpdateUserData>
+  <ResetPwdData Remark="重置密码数据">
+    <ResetInfo ID="1" Remark="正确的用户名和密码">
+      <Content>
+        <add key="userName" value="ant_tester"/>
+        <add key="userPassword" value="zhang_123"/>
+      </Content>
+    </ResetInfo>
+    <ResetInfo ID="2" Remark="不存在的用户">
+      <Content>
+        <add key="userName" value="asssss3333"/>
+        <add key="userPassword" value="zhang_123"/>
+      </Content>
+    </ResetInfo>
+  </ResetPwdData>
+  <DisableUserAccount Remark="禁用用户">
+    <DisAccountinfo ID="1" Remark="正确的用户">
+      <Content>
+        <add key="userName" value="ant_tester"/>
+      </Content>
+    </DisAccountinfo>
+    <DisAccountinfo ID="2" Remark="不存在的用户">
+      <Content>
+        <add key="userName" value="ant_tester1"/>
+      </Content>
+    </DisAccountinfo>
+  </DisableUserAccount>
+  <EnableUserAccount Remark="激活用户">
+    <EnableUserinfo>
+      <Content>
+        <add key="" value=""/>
+      </Content>
+    </EnableUserinfo>
+  </EnableUserAccount>
+  <ValidateUserexit Remark="验证用户是否存在">
+    <UserExitinfo id="1" Remark="已经存在的用户">
+      <Content>
+        <add key="userName" value="ant_tester"/>
+      </Content>
+    </UserExitinfo>
+    <UserExitinfo id="2" Remark="不存在的用户">
+      <Content>
+        <add key="userName" value="bucunzai"/>
+      </Content>
+    </UserExitinfo>
+  </ValidateUserexit>
+  <GetUserInfo Remark="获取用户信息">
+    <userinfo id="1" Remark="正确存在的用户">
+      <Content>
+        <add key="userName" value="ant_tester"/>
+      </Content>
+    </userinfo>
+    <userinfo id="2" Remark="不存在的用户">
+      <Content>
+        <add key="userName" value="ant_testeraaaa"/>
+      </Content>
+    </userinfo>
+  </GetUserInfo>
+  <ValidateUserInfo Remark="验证用户">
+    <UserInfo id="1" Remark="正确的用户名和密码">
+      <Content>
+        <add key="userName" value="Anttest221"/>
+        <add key="userpwd" value="wang_123"/>
+      </Content>
+    </UserInfo>
+    <UserInfo id="2" Remark="密码不正确">
+      <Content>
+        <add key="userName" value="Anttest221"/>
+        <add key="userpwd" value="wang_1234"/>
+      </Content>
+    </UserInfo>
+    <UserInfo id="2" Remark="用户名不存在">
+      <Content>
+        <add key="userName" value="Anttestaaaa1"/>
+        <add key="userpwd" value="wang_1234"/>
+      </Content>
+    </UserInfo>
+  </ValidateUserInfo>
+  <AddGroup Remark="添加安全组">
+    <Userinfo id="" Remark="">
+      <Content>
+        <add key="" value=""/>
+        <add key="" value=""/>
+        <add key="" value=""/>
+      </Content>
+    </Userinfo>
+  </AddGroup>
+  <DeleteGroup Remark="删除安全组">
+    <GroupInfo id="1" Remark="存在的正确的安全组">
+      <Content>
+        <add key="groupName" value="Monitor"/>
+      </Content>
+    </GroupInfo>
+    <GroupInfo id="2" Remark="不存在的安全组">
+      <Content>
+        <add key="groupName" value="noGroup"/>
+      </Content>
+    </GroupInfo>
+  </DeleteGroup>
+  <GetUserInfoByGroupName Remark="根据安全组名获取用户信息">
+    <UserInfo id="1" Remark="正确的安全组">
+      <Content>
+        <add key="groupName" value="SecurityManager"/>
+      </Content>
+    </UserInfo>
+    <UserInfo id="2" Remark="不存在的安全组">
+      <Content>
+        <add key="groupName" value="Unexitgroup"/>
+      </Content>
+    </UserInfo>
+  </GetUserInfoByGroupName>
+</Configuration>

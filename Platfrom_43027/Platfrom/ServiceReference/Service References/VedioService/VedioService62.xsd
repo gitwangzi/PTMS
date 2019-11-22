@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Common.Data" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Common.Data" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:2258/VedioService.svc?xsd=xsd5" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:complexType name="QueryServerFileListArgs">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Channel" type="xs:int" />
+      <xs:element minOccurs="0" name="End_Time" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="MdvrCoreSn" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PageNum" type="xs:int" />
+      <xs:element minOccurs="0" name="PageSize" type="xs:int" />
+      <xs:element minOccurs="0" name="Start_Time" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Video_Type" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="QueryServerFileListArgs" nillable="true" type="tns:QueryServerFileListArgs" />
+  <xs:complexType name="ArrayOfQueryServerFileListMessage">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="QueryServerFileListMessage" nillable="true" type="tns:QueryServerFileListMessage" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfQueryServerFileListMessage" nillable="true" type="tns:ArrayOfQueryServerFileListMessage" />
+  <xs:complexType name="QueryServerFileListMessage">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Channel" type="xs:decimal" />
+      <xs:element minOccurs="0" name="DownloadStatus" type="xs:int" />
+      <xs:element minOccurs="0" name="EndTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="FileID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FileSize" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Note" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StartTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="UUID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VehicleSN" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VideoType" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="QueryServerFileListMessage" nillable="true" type="tns:QueryServerFileListMessage" />
+  <xs:complexType name="QueryDownloadStatusArgs">
+    <xs:sequence>
+      <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="FileIDs" nillable="true" type="q1:ArrayOfstring" />
+      <xs:element minOccurs="0" name="Mdvr_File_Id" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Mdvr_Id" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Offset_End_Time" type="xs:int" />
+      <xs:element minOccurs="0" name="Offset_Start_Time" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="QueryDownloadStatusArgs" nillable="true" type="tns:QueryDownloadStatusArgs" />
+  <xs:complexType name="ArrayOfQueryDownloadStatusMessage">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="QueryDownloadStatusMessage" nillable="true" type="tns:QueryDownloadStatusMessage" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfQueryDownloadStatusMessage" nillable="true" type="tns:ArrayOfQueryDownloadStatusMessage" />
+  <xs:complexType name="QueryDownloadStatusMessage">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Duration_time" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FileID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Percent" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Result" type="xs:int" />
+      <xs:element minOccurs="0" name="Status" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Url" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="QueryDownloadStatusMessage" nillable="true" type="tns:QueryDownloadStatusMessage" />
+  <xs:complexType name="ArrayOfPhoto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Photo" nillable="true" type="tns:Photo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPhoto" nillable="true" type="tns:ArrayOfPhoto" />
+  <xs:complexType name="Photo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ChannelID" type="xs:int" />
+      <xs:element minOccurs="0" name="ClientID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Create_Time" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DeviceSn" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DeviceType" type="xs:int" />
+      <xs:element minOccurs="0" name="ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Img_Size" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Img_Url" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsChecked" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsVisibility" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Latitude" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Longitude" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MiniImg_Url" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Note" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Status" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Photo" nillable="true" type="tns:Photo" />
+</xs:schema>

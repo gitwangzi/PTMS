@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="659e9f1d-2221-4c9d-85d4-2c35a59f02e0" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>true</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.ObjectModel.ObservableCollection`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>false</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:2258/DistrictService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="DistrictService5.xsd" MetadataType="Schema" ID="8eaafd51-e1f1-4df4-9fde-ac9b1882da09" SourceId="1" SourceUrl="http://localhost:2258/DistrictService.svc?xsd=xsd4" />
+    <MetadataFile FileName="DistrictService1.disco" MetadataType="Disco" ID="def527c9-4dfe-4176-a65f-e124ae7b3ce0" SourceId="1" SourceUrl="http://localhost:2258/DistrictService.svc?disco" />
+    <MetadataFile FileName="DistrictService1.wsdl" MetadataType="Wsdl" ID="d75e1d0b-67ed-4d86-95df-1f67f437ca0e" SourceId="1" SourceUrl="http://localhost:2258/DistrictService.svc?wsdl" />
+    <MetadataFile FileName="DistrictService51.xsd" MetadataType="Schema" ID="99e6c7da-b340-484c-9aa4-a05d85af1607" SourceId="1" SourceUrl="http://localhost:2258/DistrictService.svc?xsd=xsd0" />
+    <MetadataFile FileName="DistrictService52.xsd" MetadataType="Schema" ID="79a4a0e2-0d86-421f-8fac-63a0d97bf836" SourceId="1" SourceUrl="http://localhost:2258/DistrictService.svc?xsd=xsd1" />
+    <MetadataFile FileName="DistrictService53.xsd" MetadataType="Schema" ID="c4d8dff4-1959-4894-8ef2-40bc3b709633" SourceId="1" SourceUrl="http://localhost:2258/DistrictService.svc?xsd=xsd2" />
+    <MetadataFile FileName="DistrictService54.xsd" MetadataType="Schema" ID="4d1088c1-77db-40b4-b56f-de62aa1b056d" SourceId="1" SourceUrl="http://localhost:2258/DistrictService.svc?xsd=xsd3" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

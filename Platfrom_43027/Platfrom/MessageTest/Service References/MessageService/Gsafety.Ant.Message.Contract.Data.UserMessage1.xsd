@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Gsafety.Ant.Message.Contract.Data.UserMessage" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Gsafety.Ant.Message.Contract.Data.UserMessage" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="HandingAlert">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AlertTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Vehicle_Id" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="HandingAlert" nillable="true" type="tns:HandingAlert" />
+  <xs:complexType name="DeviceMaintain">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="MaintainTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Vehicle_Id" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DeviceMaintain" nillable="true" type="tns:DeviceMaintain" />
+  <xs:complexType name="DeviceInstall">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="InstallCompleteTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Vehicle_Id" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DeviceInstall" nillable="true" type="tns:DeviceInstall" />
+  <xs:complexType name="CompleteAlarm">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CompleteTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Vehicle_Id" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CompleteAlarm" nillable="true" type="tns:CompleteAlarm" />
+</xs:schema>

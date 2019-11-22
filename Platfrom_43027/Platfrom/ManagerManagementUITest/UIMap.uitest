@@ -1,0 +1,2455 @@
+<?xml version="1.0"?>
+<UITest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="" Id="5df6e0c3-d83f-4089-a501-7e0e3bd02201" AssemblyVersion="11.0.60315.1" Version="1.0" xmlns="http://schemas.microsoft.com/VisualStudio/TeamTest/UITest/2010">
+  <Configuration>
+    <Group Name="IE">
+      <Setting Name="Version" Value="8.0.7601.17514" WarningLevel="1" />
+      <Setting Name="InformationBar" WarningLevel="1" />
+      <Setting Name="AutoCompletePassword" WarningLevel="1" />
+      <Setting Name="AutoCompleteForm" WarningLevel="1" />
+      <Setting Name="DefaultBrowser" Value="IEXPLORE.EXE" WarningLevel="1" />
+      <Setting Name="PopupBlocker" Value="yes" WarningLevel="1" />
+      <Setting Name="TabbedBrowsing" WarningLevel="2" />
+      <Setting Name="InternetZoneSecurity" Value="66816" WarningLevel="2" />
+      <Setting Name="IntranetZoneSecurity" Value="69632" WarningLevel="2" />
+      <Setting Name="TrustedZoneSecurity" Value="70912" WarningLevel="2" />
+      <Setting Name="RestrictedZoneSecurity" Value="73728" WarningLevel="2" />
+      <Setting Name="PhishingFilter" WarningLevel="1" />
+      <Setting Name="EnhancedSecurityConfiguration" WarningLevel="1" />
+    </Group>
+    <Group Name="OS">
+      <Setting Name="Name" Value="Microsoft Windows 7 专业版 " WarningLevel="2" />
+      <Setting Name="Version" Value="Microsoft Windows NT 6.1.7601 Service Pack 1" WarningLevel="2" />
+      <Setting Name="IsUserAdmin" Value="True" WarningLevel="2" />
+      <Setting Name="Is64BitOperatingSystem" Value="True" WarningLevel="2" />
+      <Setting Name="IsTerminalServerSession" Value="False" WarningLevel="2" />
+      <Setting Name="OSLanguage" Value="2052" WarningLevel="1" />
+      <Setting Name="UserLocale" Value="2052" WarningLevel="1" />
+      <Setting Name="DragFullWindows" Value="True" WarningLevel="2" />
+      <Setting Name="ScreenResolutionWidth" Value="1280" WarningLevel="2" />
+      <Setting Name="ScreenResolutionHeight" Value="1024" WarningLevel="2" />
+      <Setting Name="SystemDPIX" Value="96" WarningLevel="2" />
+      <Setting Name="SystemDPIY" Value="96" WarningLevel="2" />
+      <Setting Name="Aero" Value="1" WarningLevel="1" />
+      <Setting Name="UACEnabled" Value="0" WarningLevel="2" />
+      <Setting Name="UACPromptEnabled" Value="0" WarningLevel="1" />
+    </Group>
+    <Group Name="TechnologyManagers">
+      <Setting Name="Web" WarningLevel="1" />
+      <Setting Name="Web" WarningLevel="1" />
+      <Setting Name="UIA" WarningLevel="1" />
+      <Setting Name="Silverlight" WarningLevel="1" />
+    </Group>
+  </Configuration>
+  <InitializeActions />
+  <ExecuteActions>
+    <SetValueAction UIObjectName="UIMap.UIPTMSWindowsInternetEWindow.UIPTMSDocument.UISilverlightControlCustom.UIPagePage.UIItemPage.UIItemPage11.UI登录名Text.UIItemEdit">
+      <ParameterName />
+      <Value Encoded="false">liuxiangbo</Value>
+      <Type>String</Type>
+    </SetValueAction>
+    <SetValueAction UIObjectName="UIMap.UIPTMSWindowsInternetEWindow.UIPTMSDocument.UISilverlightControlCustom.UIPagePage.UIItemPage.UIItemPage12.UI用户名Text.UIItemEdit">
+      <ParameterName />
+      <Value Encoded="false">liuxiangbo</Value>
+      <Type>String</Type>
+    </SetValueAction>
+    <MouseAction UIObjectName="UIMap.UIPTMSWindowsInternetEWindow.UIPTMSDocument.UISilverlightControlCustom.UIPagePage.UIItemPage.UIItemPage13.UI密码Text.UIItemEdit">
+      <ParameterName />
+      <ModifierKeys>None</ModifierKeys>
+      <IsGlobalHotkey>false</IsGlobalHotkey>
+      <Location X="55" Y="19" />
+      <WheelDirection>0</WheelDirection>
+      <ActionType>Click</ActionType>
+      <MouseButton>Left</MouseButton>
+    </MouseAction>
+    <SendKeysAction UIObjectName="UIMap.UIPTMSWindowsInternetEWindow.UIPTMSDocument.UISilverlightControlCustom.UIPagePage.UIItemPage.UIItemPage14.UI密码Text.UIItemEdit">
+      <ParameterName />
+      <ModifierKeys>None</ModifierKeys>
+      <IsGlobalHotkey>false</IsGlobalHotkey>
+      <Text Encoded="true">YN/mQM5J9PQyaTrMeVvgMxYZmM5e+OBQcvr2AdYVaHNIkwXg4po3Uw==</Text>
+    </SendKeysAction>
+    <SendKeysAction UIObjectName="UIMap.UIPTMSWindowsInternetEWindow.UIPTMSDocument.UISilverlightControlCustom.UIPagePage.UIItemPage.UIItemPage15.UI密码Text.UIItemEdit">
+      <ParameterName />
+      <ModifierKeys>None</ModifierKeys>
+      <IsGlobalHotkey>false</IsGlobalHotkey>
+      <Text Encoded="true">Z835TI3Zgo9E3U/I+xdySeWoFGtRJwY4met/VPhL3eHO2Zv+b3V0dhN5+x4L6rZc8CUfQ9Qu9lJoZAmr2bKGBq7Jkz2sjEYy</Text>
+    </SendKeysAction>
+    <MouseAction UIObjectName="UIMap.UIPTMSWindowsInternetEWindow.UIPTMSDocument.UISilverlightControlCustom.UIPagePage.UIItemPage.UIItemPage16.UI确认密码Text.UIItemEdit">
+      <ParameterName />
+      <ModifierKeys>None</ModifierKeys>
+      <IsGlobalHotkey>false</IsGlobalHotkey>
+      <Location X="50" Y="22" />
+      <WheelDirection>0</WheelDirection>
+      <ActionType>Click</ActionType>
+      <MouseButton>Left</MouseButton>
+    </MouseAction>
+    <SendKeysAction UIObjectName="UIMap.UIPTMSWindowsInternetEWindow.UIPTMSDocument.UISilverlightControlCustom.UIPagePage.UIItemPage.UIItemPage17.UI确认密码Text.UIItemEdit">
+      <ParameterName />
+      <ModifierKeys>None</ModifierKeys>
+      <IsGlobalHotkey>false</IsGlobalHotkey>
+      <Text Encoded="true">YN/mQM5J9PQyaTrMeVvgMxYZmM5e+OBQpSepSq5RZHKdJCFaubfPn3fhUxPIZFBeOWHVVX37H44Qbr1+2jiUcBvGB+5+Fkjv5+nLdZPHWJJ4ZrV2tCWW5xYn3sgLXEEp</Text>
+    </SendKeysAction>
+    <SetValueAction UIObjectName="UIMap.UIPTMSWindowsInternetEWindow.UIPTMSDocument.UISilverlightControlCustom.UIPagePage.UIItemPage.UIItemPage18.UI电话Text.UIItemEdit">
+      <ParameterName />
+      <Value Encoded="false">12345678890</Value>
+      <Type>String</Type>
+    </SetValueAction>
+    <MouseAction UIObjectName="UIMap.UIPTMSWindowsInternetEWindow.UIPTMSDocument.UISilverlightControlCustom.UIPagePage.UIItemPage.UIItemPage19.UI地址Text.UIItemEdit">
+      <ParameterName />
+      <ModifierKeys>None</ModifierKeys>
+      <IsGlobalHotkey>false</IsGlobalHotkey>
+      <Location X="114" Y="12" />
+      <WheelDirection>0</WheelDirection>
+      <ActionType>Click</ActionType>
+      <MouseButton>Left</MouseButton>
+    </MouseAction>
+    <MouseAction UIObjectName="UIMap.UIPTMSWindowsInternetEWindow.UIPTMSDocument.UISilverlightControlCustom.UIPagePage.UIItemPage.UIItemPage110.UI备注Text.UIItemButton">
+      <ParameterName />
+      <ModifierKeys>None</ModifierKeys>
+      <IsGlobalHotkey>false</IsGlobalHotkey>
+      <Location X="41" Y="21" />
+      <WheelDirection>0</WheelDirection>
+      <ActionType>Click</ActionType>
+      <MouseButton>Left</MouseButton>
+    </MouseAction>
+    <TestStepMarkerAction Comment="" MarkerInformation="AddMonitorManager">
+      <ParameterName />
+      <StepId>-1</StepId>
+      <Direction>Start</Direction>
+      <Outcome />
+      <Disabled>false</Disabled>
+      <WorkItemId>0</WorkItemId>
+      <MarkerRegionType>Action</MarkerRegionType>
+    </TestStepMarkerAction>
+    <MouseAction UIObjectName="UIMap.UIPTMSWindowsInternetEWindow.UIPTMSDocument.UISilverlightControlCustom.UIPagePage.UIItemPage.UIItemPage111.UIExternalResourcecompImage.UIItemButton">
+      <ParameterName />
+      <ModifierKeys>None</ModifierKeys>
+      <IsGlobalHotkey>false</IsGlobalHotkey>
+      <Location X="26" Y="18" />
+      <WheelDirection>0</WheelDirection>
+      <ActionType>Click</ActionType>
+      <MouseButton>Left</MouseButton>
+    </MouseAction>
+    <SetValueAction UIObjectName="UIMap.UIPTMSWindowsInternetEWindow.UIPTMSDocument.UISilverlightControlCustom.UIPagePage.UIItemPage.UIItemPage111.UI登录名Text.UIItemEdit">
+      <ParameterName />
+      <Value Encoded="false">liu2255</Value>
+      <Type>String</Type>
+    </SetValueAction>
+    <SetValueAction UIObjectName="UIMap.UIPTMSWindowsInternetEWindow.UIPTMSDocument.UISilverlightControlCustom.UIPagePage.UIItemPage.UIItemPage111.UI用户名Text.UIItemEdit">
+      <ParameterName />
+      <Value Encoded="false">liu2255</Value>
+      <Type>String</Type>
+    </SetValueAction>
+    <MouseAction UIObjectName="UIMap.UIPTMSWindowsInternetEWindow.UIPTMSDocument.UISilverlightControlCustom.UIPagePage.UIItemPage.UIItemPage111.UI密码Text.UIItemEdit">
+      <ParameterName />
+      <ModifierKeys>None</ModifierKeys>
+      <IsGlobalHotkey>false</IsGlobalHotkey>
+      <Location X="74" Y="23" />
+      <WheelDirection>0</WheelDirection>
+      <ActionType>Click</ActionType>
+      <MouseButton>Left</MouseButton>
+    </MouseAction>
+    <SendKeysAction UIObjectName="UIMap.UIPTMSWindowsInternetEWindow.UIPTMSDocument.UISilverlightControlCustom.UIPagePage.UIItemPage.UIItemPage111.UI密码Text.UIItemEdit">
+      <ParameterName />
+      <ModifierKeys>None</ModifierKeys>
+      <IsGlobalHotkey>false</IsGlobalHotkey>
+      <Text Encoded="true">YN/mQM5J9PSdlQN6GKszMfn4mV1dW9Qz27YNcr7z7/y8sItAK8tASRHsu7k5IsHUe2FiR8yD0SJW886QvKIAViumXWCyzBQM4MoJDNV+wy+2Vmng8tVqRQ==</Text>
+    </SendKeysAction>
+    <MouseAction UIObjectName="UIMap.UIPTMSWindowsInternetEWindow.UIPTMSDocument.UISilverlightControlCustom.UIPagePage.UIItemPage.UIItemPage111.UI确认密码Text.UIItemEdit">
+      <ParameterName />
+      <ModifierKeys>None</ModifierKeys>
+      <IsGlobalHotkey>false</IsGlobalHotkey>
+      <Location X="29" Y="12" />
+      <WheelDirection>0</WheelDirection>
+      <ActionType>Click</ActionType>
+      <MouseButton>Left</MouseButton>
+    </MouseAction>
+    <SendKeysAction UIObjectName="UIMap.UIPTMSWindowsInternetEWindow.UIPTMSDocument.UISilverlightControlCustom.UIPagePage.UIItemPage.UIItemPage111.UI确认密码Text.UIItemEdit">
+      <ParameterName />
+      <ModifierKeys>None</ModifierKeys>
+      <IsGlobalHotkey>false</IsGlobalHotkey>
+      <Text Encoded="true">YN/mQM5J9PSdlQN6GKszMfn4mV1dW9Qz27YNcr7z7/y8sItAK8tASRHsu7k5IsHUe2FiR8yD0SJW886QvKIAViumXWCyzBQM4MoJDNV+wy+2Vmng8tVqRQ==</Text>
+    </SendKeysAction>
+    <MouseAction UIObjectName="UIMap.UIPTMSWindowsInternetEWindow.UIPTMSDocument.UISilverlightControlCustom.UIPagePage.UIItemPage.UIItemPage111.UICmbprovinceComboBox">
+      <ParameterName />
+      <ModifierKeys>None</ModifierKeys>
+      <IsGlobalHotkey>false</IsGlobalHotkey>
+      <Location X="78" Y="16" />
+      <WheelDirection>0</WheelDirection>
+      <ActionType>Click</ActionType>
+      <MouseButton>Left</MouseButton>
+    </MouseAction>
+    <ErrorAction>
+      <ContinueOnError>True</ContinueOnError>
+      <ParameterName />
+      <Message>Last action was not recorded because the control with Name 'Gsafety.PTMS.ServiceReference.DistrictService.District' and ControlType 'ListItem' does not have any good identification property.</Message>
+    </ErrorAction>
+    <MouseAction UIObjectName="UIMap.UIPTMSWindowsInternetEWindow.UIPTMSDocument.UISilverlightControlCustom.UIPagePage.UIItemPage.UIItemPage111.UICmbcitynameComboBox">
+      <ParameterName />
+      <ModifierKeys>None</ModifierKeys>
+      <IsGlobalHotkey>false</IsGlobalHotkey>
+      <Location X="87" Y="18" />
+      <WheelDirection>0</WheelDirection>
+      <ActionType>Click</ActionType>
+      <MouseButton>Left</MouseButton>
+    </MouseAction>
+    <ErrorAction>
+      <ContinueOnError>True</ContinueOnError>
+      <ParameterName />
+      <Message>Last action was not recorded because the control with Name 'Gsafety.PTMS.ServiceReference.DistrictService.District' and ControlType 'ListItem' does not have any good identification property.</Message>
+    </ErrorAction>
+    <MouseAction UIObjectName="UIMap.UIPTMSWindowsInternetEWindow.UIPTMSDocument.UISilverlightControlCustom.UIPagePage.UIItemPage.UIItemPage111.UICmbSetupStationComboBox">
+      <ParameterName />
+      <ModifierKeys>None</ModifierKeys>
+      <IsGlobalHotkey>false</IsGlobalHotkey>
+      <Location X="131" Y="8" />
+      <WheelDirection>0</WheelDirection>
+      <ActionType>Click</ActionType>
+      <MouseButton>Left</MouseButton>
+    </MouseAction>
+    <ErrorAction>
+      <ContinueOnError>True</ContinueOnError>
+      <ParameterName />
+      <Message>Last action was not recorded because the control with Name 'Gsafety.PTMS.ServiceReference.InstallStationService.InstallStation' and ControlType 'ListItem' does not have any good identification property.</Message>
+    </ErrorAction>
+    <MouseAction UIObjectName="UIMap.UIPTMSWindowsInternetEWindow.UIPTMSDocument.UISilverlightControlCustom.UIPagePage.UIItemPage.UIItemPage111.UI备注Text.UIItemButton">
+      <ParameterName />
+      <ModifierKeys>None</ModifierKeys>
+      <IsGlobalHotkey>false</IsGlobalHotkey>
+      <Location X="40" Y="22" />
+      <WheelDirection>0</WheelDirection>
+      <ActionType>Click</ActionType>
+      <MouseButton>Left</MouseButton>
+    </MouseAction>
+    <TestStepMarkerAction Comment="" MarkerInformation="AddSteupStationUser">
+      <ParameterName />
+      <StepId>-1</StepId>
+      <Direction>Start</Direction>
+      <Outcome />
+      <Disabled>false</Disabled>
+      <WorkItemId>0</WorkItemId>
+      <MarkerRegionType>Action</MarkerRegionType>
+    </TestStepMarkerAction>
+    <MouseAction UIObjectName="UIMap.UIPTMSWindowsInternetEWindow.UIPTMSDocument.UISilverlightControlCustom.UIPagePage.UIItemPage.UIItemPage1.UIExternalResourcecompImage.UIItemButton">
+      <ParameterName />
+      <ModifierKeys>None</ModifierKeys>
+      <IsGlobalHotkey>false</IsGlobalHotkey>
+      <Location X="25" Y="8" />
+      <WheelDirection>0</WheelDirection>
+      <ActionType>Click</ActionType>
+      <MouseButton>Left</MouseButton>
+    </MouseAction>
+    <SetValueAction UIObjectName="UIMap.UIPTMSWindowsInternetEWindow.UIPTMSDocument.UISilverlightControlCustom.UIPagePage.UIItemPage.UIItemPage1.UI登录名Text.UIItemEdit">
+      <ParameterName />
+      <Value Encoded="false">TESTER</Value>
+      <Type>String</Type>
+    </SetValueAction>
+    <SetValueAction UIObjectName="UIMap.UIPTMSWindowsInternetEWindow.UIPTMSDocument.UISilverlightControlCustom.UIPagePage.UIItemPage.UIItemPage1.UI用户名Text.UIItemEdit">
+      <ParameterName />
+      <Value Encoded="false">TESTER</Value>
+      <Type>String</Type>
+    </SetValueAction>
+    <MouseAction UIObjectName="UIMap.UIPTMSWindowsInternetEWindow.UIPTMSDocument.UISilverlightControlCustom.UIPagePage.UIItemPage.UIItemPage1.UI密码Text.UIItemEdit">
+      <ParameterName />
+      <ModifierKeys>None</ModifierKeys>
+      <IsGlobalHotkey>false</IsGlobalHotkey>
+      <Location X="97" Y="18" />
+      <WheelDirection>0</WheelDirection>
+      <ActionType>Click</ActionType>
+      <MouseButton>Left</MouseButton>
+    </MouseAction>
+    <SendKeysAction UIObjectName="UIMap.UIPTMSWindowsInternetEWindow.UIPTMSDocument.UISilverlightControlCustom.UIPagePage.UIItemPage.UIItemPage1.UI密码Text.UIItemEdit">
+      <ParameterName />
+      <ModifierKeys>None</ModifierKeys>
+      <IsGlobalHotkey>false</IsGlobalHotkey>
+      <Text Encoded="true">bLCQWtnKjDmXAzk9CdNbWIt0YIKGVaTDlzTrMH4KZY9As9Q/I8ClF5RrR2X96vVWmYmnIZ+FX18+cfGzdBNTbH7IPRQH0m+3</Text>
+    </SendKeysAction>
+    <MouseAction UIObjectName="UIMap.UIPTMSWindowsInternetEWindow.UIPTMSDocument.UISilverlightControlCustom.UIPagePage.UIItemPage.UIItemPage1.UI确认密码Text.UIItemEdit">
+      <ParameterName />
+      <ModifierKeys>None</ModifierKeys>
+      <IsGlobalHotkey>false</IsGlobalHotkey>
+      <Location X="45" Y="22" />
+      <WheelDirection>0</WheelDirection>
+      <ActionType>Click</ActionType>
+      <MouseButton>Left</MouseButton>
+    </MouseAction>
+    <SendKeysAction UIObjectName="UIMap.UIPTMSWindowsInternetEWindow.UIPTMSDocument.UISilverlightControlCustom.UIPagePage.UIItemPage.UIItemPage1.UI确认密码Text.UIItemEdit">
+      <ParameterName />
+      <ModifierKeys>None</ModifierKeys>
+      <IsGlobalHotkey>false</IsGlobalHotkey>
+      <Text Encoded="true">YN/mQM5J9PSdlQN6GKszMR5fiksnYWHdUVmkGIhLJmfXEN7jaqfGv5Da++Qdqy9C4UBNjKXU3BcNtOBI5a4aD9wlMclt9TaQlqRHUyFToyY=</Text>
+    </SendKeysAction>
+    <MouseAction UIObjectName="UIMap.UIPTMSWindowsInternetEWindow.UIPTMSDocument.UISilverlightControlCustom.UIPagePage.UIItemPage.UIItemPage1.UI备注Text.UIItemButton">
+      <ParameterName />
+      <ModifierKeys>None</ModifierKeys>
+      <IsGlobalHotkey>false</IsGlobalHotkey>
+      <Location X="49" Y="19" />
+      <WheelDirection>0</WheelDirection>
+      <ActionType>Click</ActionType>
+      <MouseButton>Left</MouseButton>
+    </MouseAction>
+    <TestStepMarkerAction Comment="" MarkerInformation="AddSysManager">
+      <ParameterName />
+      <StepId>-1</StepId>
+      <Direction>Start</Direction>
+      <Outcome />
+      <Disabled>false</Disabled>
+      <WorkItemId>0</WorkItemId>
+      <MarkerRegionType>Action</MarkerRegionType>
+    </TestStepMarkerAction>
+    <SetValueAction UIObjectName="UIMap.UIPTMSWindowsInternetEWindow.UIPTMSDocument.UISilverlightControlCustom.UIPagePage.UIItemPage.UIItemPage111.UI用户名Text.UIItemEdit">
+      <ParameterName />
+      <Value Encoded="false">ZDD0058</Value>
+      <Type>String</Type>
+    </SetValueAction>
+    <SetValueAction UIObjectName="UIMap.UIPTMSWindowsInternetEWindow.UIPTMSDocument.UISilverlightControlCustom.UIPagePage.UIItemPage.UIItemPage111.UI电话Text.UIItemEdit">
+      <ParameterName />
+      <Value Encoded="false">88888888888</Value>
+      <Type>String</Type>
+    </SetValueAction>
+    <MouseAction UIObjectName="UIMap.UIPTMSWindowsInternetEWindow.UIPTMSDocument.UISilverlightControlCustom.UIPagePage.UIItemPage.UIItemPage111.UICmbprovinceComboBox">
+      <ParameterName />
+      <ModifierKeys>None</ModifierKeys>
+      <IsGlobalHotkey>false</IsGlobalHotkey>
+      <Location X="179" Y="15" />
+      <WheelDirection>0</WheelDirection>
+      <ActionType>Click</ActionType>
+      <MouseButton>Left</MouseButton>
+    </MouseAction>
+    <ErrorAction>
+      <ContinueOnError>True</ContinueOnError>
+      <ParameterName />
+      <Message>Last action was not recorded because the control with Name 'Gsafety.PTMS.ServiceReference.DistrictService.District' and ControlType 'ListItem' does not have any good identification property.</Message>
+    </ErrorAction>
+    <MouseAction UIObjectName="UIMap.UIPTMSWindowsInternetEWindow.UIPTMSDocument.UISilverlightControlCustom.UIPagePage.UIItemPage.UIItemPage111.UICmbcitynameComboBox">
+      <ParameterName />
+      <ModifierKeys>None</ModifierKeys>
+      <IsGlobalHotkey>false</IsGlobalHotkey>
+      <Location X="85" Y="17" />
+      <WheelDirection>0</WheelDirection>
+      <ActionType>Click</ActionType>
+      <MouseButton>Left</MouseButton>
+    </MouseAction>
+    <ErrorAction>
+      <ContinueOnError>True</ContinueOnError>
+      <ParameterName />
+      <Message>Last action was not recorded because the control with Name 'Gsafety.PTMS.ServiceReference.DistrictService.District' and ControlType 'ListItem' does not have any good identification property.</Message>
+    </ErrorAction>
+    <MouseAction UIObjectName="UIMap.UIPTMSWindowsInternetEWindow.UIPTMSDocument.UISilverlightControlCustom.UIPagePage.UIItemPage.UIItemPage111.UICmbSetupStationComboBox">
+      <ParameterName />
+      <ModifierKeys>None</ModifierKeys>
+      <IsGlobalHotkey>false</IsGlobalHotkey>
+      <Location X="57" Y="8" />
+      <WheelDirection>0</WheelDirection>
+      <ActionType>Click</ActionType>
+      <MouseButton>Left</MouseButton>
+    </MouseAction>
+    <ErrorAction>
+      <ContinueOnError>True</ContinueOnError>
+      <ParameterName />
+      <Message>Last action was not recorded because the control with Name 'Gsafety.PTMS.ServiceReference.InstallStationService.InstallStation' and ControlType 'ListItem' does not have any good identification property.</Message>
+    </ErrorAction>
+    <MouseAction UIObjectName="UIMap.UIPTMSWindowsInternetEWindow.UIPTMSDocument.UISilverlightControlCustom.UIPagePage.UIItemPage.UIItemPage111.UI备注Text.UIItemButton">
+      <ParameterName />
+      <ModifierKeys>None</ModifierKeys>
+      <IsGlobalHotkey>false</IsGlobalHotkey>
+      <Location X="57" Y="16" />
+      <WheelDirection>0</WheelDirection>
+      <ActionType>Click</ActionType>
+      <MouseButton>Left</MouseButton>
+    </MouseAction>
+    <TestStepMarkerAction Comment="" MarkerInformation="ModifySetupStationUser">
+      <ParameterName />
+      <StepId>-1</StepId>
+      <Direction>Start</Direction>
+      <Outcome />
+      <Disabled>false</Disabled>
+      <WorkItemId>0</WorkItemId>
+      <MarkerRegionType>Action</MarkerRegionType>
+    </TestStepMarkerAction>
+    <SetValueAction UIObjectName="UIMap.UIPTMSWindowsInternetEWindow.UIPTMSDocument.UISilverlightControlCustom.UIPagePage.UIItemPage.UIItemPage11.UI用户名Text.UIItemEdit">
+      <ParameterName />
+      <Value Encoded="false">AA02</Value>
+      <Type>String</Type>
+    </SetValueAction>
+    <SetValueAction UIObjectName="UIMap.UIPTMSWindowsInternetEWindow.UIPTMSDocument.UISilverlightControlCustom.UIPagePage.UIItemPage.UIItemPage11.UI电话Text.UIItemEdit">
+      <ParameterName />
+      <Value Encoded="false">22210356441</Value>
+      <Type>String</Type>
+    </SetValueAction>
+    <SetValueAction UIObjectName="UIMap.UIPTMSWindowsInternetEWindow.UIPTMSDocument.UISilverlightControlCustom.UIPagePage.UIItemPage.UIItemPage11.UI地址Text.UIItemEdit">
+      <ParameterName />
+      <Value Encoded="false">dfsfahgfh</Value>
+      <Type>String</Type>
+    </SetValueAction>
+    <SetValueAction UIObjectName="UIMap.UIPTMSWindowsInternetEWindow.UIPTMSDocument.UISilverlightControlCustom.UIPagePage.UIItemPage.UIItemPage11.UILevelComboBox">
+      <ParameterName />
+      <Value Encoded="false">省级</Value>
+      <Type>String</Type>
+    </SetValueAction>
+    <MouseAction UIObjectName="UIMap.UIPTMSWindowsInternetEWindow.UIPTMSDocument.UISilverlightControlCustom.UIPagePage.UIItemPage.UIItemPage11.UICmbprovinceComboBox">
+      <ParameterName />
+      <ModifierKeys>None</ModifierKeys>
+      <IsGlobalHotkey>false</IsGlobalHotkey>
+      <Location X="160" Y="7" />
+      <WheelDirection>0</WheelDirection>
+      <ActionType>Click</ActionType>
+      <MouseButton>Left</MouseButton>
+    </MouseAction>
+    <ErrorAction>
+      <ContinueOnError>True</ContinueOnError>
+      <ParameterName />
+      <Message>Last action was not recorded because the control with Name 'Gsafety.PTMS.ServiceReference.DistrictService.District' and ControlType 'ListItem' does not have any good identification property.</Message>
+    </ErrorAction>
+    <MouseAction UIObjectName="UIMap.UIPTMSWindowsInternetEWindow.UIPTMSDocument.UISilverlightControlCustom.UIPagePage.UIItemPage.UIItemPage11.UI备注Text.UIItemButton">
+      <ParameterName />
+      <ModifierKeys>None</ModifierKeys>
+      <IsGlobalHotkey>false</IsGlobalHotkey>
+      <Location X="44" Y="16" />
+      <WheelDirection>0</WheelDirection>
+      <ActionType>Click</ActionType>
+      <MouseButton>Left</MouseButton>
+    </MouseAction>
+    <MouseAction UIObjectName="UIMap.UI提示Window.UI确定Window1.UI确定Button">
+      <ParameterName />
+      <ModifierKeys>None</ModifierKeys>
+      <IsGlobalHotkey>false</IsGlobalHotkey>
+      <Location X="63" Y="14" />
+      <WheelDirection>0</WheelDirection>
+      <ActionType>Click</ActionType>
+      <MouseButton>Left</MouseButton>
+    </MouseAction>
+    <TestStepMarkerAction Comment="" MarkerInformation="UpdateMonitorManager">
+      <ParameterName />
+      <StepId>-1</StepId>
+      <Direction>Start</Direction>
+      <Outcome />
+      <Disabled>false</Disabled>
+      <WorkItemId>0</WorkItemId>
+      <MarkerRegionType>Action</MarkerRegionType>
+    </TestStepMarkerAction>
+    <ErrorAction>
+      <ContinueOnError>True</ContinueOnError>
+      <ParameterName />
+      <Message>Last action was not recorded because the control with Name 'Gsafety.PTMS.Manager.Models.UserInfo' and ControlType 'Row' does not have any good identification property.</Message>
+    </ErrorAction>
+    <SetValueAction UIObjectName="UIMap.UIPTMSWindowsInternetEWindow.UIPTMSDocument.UISilverlightControlCustom.UIPagePage.UIItemPage.UIItemPage1.UI用户名Text.UIItemEdit">
+      <ParameterName />
+      <Value Encoded="false">xiugai</Value>
+      <Type>String</Type>
+    </SetValueAction>
+    <SetValueAction UIObjectName="UIMap.UIPTMSWindowsInternetEWindow.UIPTMSDocument.UISilverlightControlCustom.UIPagePage.UIItemPage.UIItemPage1.UI电话Text.UIItemEdit">
+      <ParameterName />
+      <Value Encoded="false">77345778455</Value>
+      <Type>String</Type>
+    </SetValueAction>
+    <SetValueAction UIObjectName="UIMap.UIPTMSWindowsInternetEWindow.UIPTMSDocument.UISilverlightControlCustom.UIPagePage.UIItemPage.UIItemPage1.UI地址Text.UIItemEdit">
+      <ParameterName />
+      <Value Encoded="false">fdasjahofdas</Value>
+      <Type>String</Type>
+    </SetValueAction>
+    <MouseAction UIObjectName="UIMap.UIPTMSWindowsInternetEWindow.UIPTMSDocument.UISilverlightControlCustom.UIPagePage.UIItemPage.UIItemPage1.UI备注Text.UIItemButton">
+      <ParameterName />
+      <ModifierKeys>None</ModifierKeys>
+      <IsGlobalHotkey>false</IsGlobalHotkey>
+      <Location X="64" Y="18" />
+      <WheelDirection>0</WheelDirection>
+      <ActionType>Click</ActionType>
+      <MouseButton>Left</MouseButton>
+    </MouseAction>
+    <MouseAction UIObjectName="UIMap.UI提示Window.UI确定Window1.UI确定Button">
+      <ParameterName />
+      <ModifierKeys>None</ModifierKeys>
+      <IsGlobalHotkey>false</IsGlobalHotkey>
+      <Location X="56" Y="16" />
+      <WheelDirection>0</WheelDirection>
+      <ActionType>Click</ActionType>
+      <MouseButton>Left</MouseButton>
+    </MouseAction>
+    <TestStepMarkerAction Comment="" MarkerInformation="UpdateSysManager">
+      <ParameterName />
+      <StepId>-1</StepId>
+      <Direction>Start</Direction>
+      <Outcome />
+      <Disabled>false</Disabled>
+      <WorkItemId>0</WorkItemId>
+      <MarkerRegionType>Action</MarkerRegionType>
+    </TestStepMarkerAction>
+    <MouseAction UIObjectName="UIMap.UIPTMSWindowsInternetEWindow.UIPTMSDocument.UISilverlightControlCustom.UIPagePage.UIItemPage.UIItemPage1.UIExternalResourcecompImage.UIItemButton">
+      <ParameterName />
+      <ModifierKeys>None</ModifierKeys>
+      <IsGlobalHotkey>false</IsGlobalHotkey>
+      <Location X="21" Y="15" />
+      <WheelDirection>0</WheelDirection>
+      <ActionType>Click</ActionType>
+      <MouseButton>Left</MouseButton>
+    </MouseAction>
+    <SetValueAction UIObjectName="UIMap.UIPTMSWindowsInternetEWindow.UIPTMSDocument.UISilverlightControlCustom.UIPagePage.UIItemPage.UIItemPage1.UI登录名Text.UIItemEdit">
+      <ParameterName />
+      <Value Encoded="false">tester</Value>
+      <Type>String</Type>
+    </SetValueAction>
+    <SetValueAction UIObjectName="UIMap.UIPTMSWindowsInternetEWindow.UIPTMSDocument.UISilverlightControlCustom.UIPagePage.UIItemPage.UIItemPage1.UI用户名Text.UIItemEdit">
+      <ParameterName />
+      <Value Encoded="false">tester</Value>
+      <Type>String</Type>
+    </SetValueAction>
+    <MouseAction UIObjectName="UIMap.UIPTMSWindowsInternetEWindow.UIPTMSDocument.UISilverlightControlCustom.UIPagePage.UIItemPage.UIItemPage1.UI密码Text.UIItemEdit">
+      <ParameterName />
+      <ModifierKeys>None</ModifierKeys>
+      <IsGlobalHotkey>false</IsGlobalHotkey>
+      <Location X="74" Y="19" />
+      <WheelDirection>0</WheelDirection>
+      <ActionType>Click</ActionType>
+      <MouseButton>Left</MouseButton>
+    </MouseAction>
+    <SendKeysAction UIObjectName="UIMap.UIPTMSWindowsInternetEWindow.UIPTMSDocument.UISilverlightControlCustom.UIPagePage.UIItemPage.UIItemPage1.UI密码Text.UIItemEdit">
+      <ParameterName />
+      <ModifierKeys>None</ModifierKeys>
+      <IsGlobalHotkey>false</IsGlobalHotkey>
+      <Text Encoded="true">YN/mQM5J9PRkhCb7YzaqmrWhKPBxgolcWX7+2D622bfgTNwzmWKRN26EQ47w1ZufjOdndhUZRbqluz1Hozua4A==</Text>
+    </SendKeysAction>
+    <MouseAction UIObjectName="UIMap.UIPTMSWindowsInternetEWindow.UIPTMSDocument.UISilverlightControlCustom.UIPagePage.UIItemPage.UIItemPage1.UI确认密码Text.UIItemEdit">
+      <ParameterName />
+      <ModifierKeys>None</ModifierKeys>
+      <IsGlobalHotkey>false</IsGlobalHotkey>
+      <Location X="23" Y="20" />
+      <WheelDirection>0</WheelDirection>
+      <ActionType>Click</ActionType>
+      <MouseButton>Left</MouseButton>
+    </MouseAction>
+    <SendKeysAction UIObjectName="UIMap.UIPTMSWindowsInternetEWindow.UIPTMSDocument.UISilverlightControlCustom.UIPagePage.UIItemPage.UIItemPage1.UI确认密码Text.UIItemEdit">
+      <ParameterName />
+      <ModifierKeys>None</ModifierKeys>
+      <IsGlobalHotkey>false</IsGlobalHotkey>
+      <Text Encoded="true">YN/mQM5J9PRkhCb7YzaqmrWhKPBxgolcWX7+2D622bfgTNwzmWKRN26EQ47w1ZufjOdndhUZRbqluz1Hozua4A==</Text>
+    </SendKeysAction>
+    <MouseAction UIObjectName="UIMap.UIPTMSWindowsInternetEWindow.UIPTMSDocument.UISilverlightControlCustom.UIPagePage.UIItemPage.UIItemPage1.UI电话Text.UIItemEdit">
+      <ParameterName />
+      <ModifierKeys>None</ModifierKeys>
+      <IsGlobalHotkey>false</IsGlobalHotkey>
+      <Location X="121" Y="14" />
+      <WheelDirection>0</WheelDirection>
+      <ActionType>Click</ActionType>
+      <MouseButton>Left</MouseButton>
+    </MouseAction>
+    <MouseAction UIObjectName="UIMap.UIPTMSWindowsInternetEWindow.UIPTMSDocument.UISilverlightControlCustom.UIPagePage.UIItemPage.UIItemPage1.UI备注Text.UIItemButton">
+      <ParameterName />
+      <ModifierKeys>None</ModifierKeys>
+      <IsGlobalHotkey>false</IsGlobalHotkey>
+      <Location X="49" Y="19" />
+      <WheelDirection>0</WheelDirection>
+      <ActionType>Click</ActionType>
+      <MouseButton>Left</MouseButton>
+    </MouseAction>
+    <TestStepMarkerAction Comment="" MarkerInformation="AddSystemManager">
+      <ParameterName />
+      <StepId>-1</StepId>
+      <Direction>Start</Direction>
+      <Outcome />
+      <Disabled>false</Disabled>
+      <WorkItemId>0</WorkItemId>
+      <MarkerRegionType>Action</MarkerRegionType>
+    </TestStepMarkerAction>
+  </ExecuteActions>
+  <CleanupActions />
+  <OnErrorActions />
+  <Maps>
+    <UIMap Id="UIMap">
+      <TopLevelWindows>
+        <TopLevelWindow ControlType="Window" Id="UIPTMSWindowsInternetEWindow" FriendlyName="PTMS - Windows Internet Explorer" SpecialControlType="BrowserWindow" SessionId="2557408">
+          <TechnologyName>MSAA</TechnologyName>
+          <WindowTitles>
+            <WindowTitle>PTMS</WindowTitle>
+          </WindowTitles>
+          <SearchConfigurations>
+            <SearchConfiguration>VisibleOnly</SearchConfiguration>
+          </SearchConfigurations>
+          <AndCondition Id="SearchCondition">
+            <PropertyCondition Name="Name">PTMS</PropertyCondition>
+            <PropertyCondition Name="ClassName">IEFrame</PropertyCondition>
+            <PropertyCondition Name="ControlType">Window</PropertyCondition>
+          </AndCondition>
+          <SupportLevel>0</SupportLevel>
+          <Descendants>
+            <UIObject ControlType="Document" Id="UIPTMSDocument" FriendlyName="PTMS" SpecialControlType="None">
+              <TechnologyName>Web</TechnologyName>
+              <WindowTitles>
+                <WindowTitle>PTMS</WindowTitle>
+              </WindowTitles>
+              <AndCondition Id="SearchCondition">
+                <AndCondition Id="Primary">
+                  <PropertyCondition Name="ControlType">Document</PropertyCondition>
+                  <PropertyCondition Name="TagName">BODY</PropertyCondition>
+                  <PropertyCondition Name="Id" />
+                  <PropertyCondition Name="RedirectingPage">False</PropertyCondition>
+                  <PropertyCondition Name="FrameDocument">False</PropertyCondition>
+                </AndCondition>
+                <FilterCondition Id="Secondary">
+                  <PropertyCondition Name="Title">PTMS</PropertyCondition>
+                  <PropertyCondition Name="AbsolutePath">/ptms/</PropertyCondition>
+                  <PropertyCondition Name="PageUrl">http://10.1.8.211/ptms/</PropertyCondition>
+                </FilterCondition>
+              </AndCondition>
+              <SupportLevel>0</SupportLevel>
+              <Descendants>
+                <UIObject ControlType="Custom" Id="UISilverlightControlCustom" FriendlyName="silverlightControl" SpecialControlType="None">
+                  <TechnologyName>Web</TechnologyName>
+                  <WindowTitles>
+                    <WindowTitle>PTMS</WindowTitle>
+                  </WindowTitles>
+                  <AndCondition Id="SearchCondition">
+                    <AndCondition Id="Primary">
+                      <PropertyCondition Name="ControlType">Custom</PropertyCondition>
+                      <PropertyCondition Name="TagName">OBJECT</PropertyCondition>
+                      <PropertyCondition Name="Id">silverlightControl</PropertyCondition>
+                      <PropertyCondition Name="Name" />
+                    </AndCondition>
+                    <FilterCondition Id="Secondary">
+                      <PropertyCondition Name="Class" />
+                      <PropertyCondition Name="ControlDefinition">id=silverlightControl codeBase="SDK/Silv</PropertyCondition>
+                      <PropertyCondition Name="TagInstance">1</PropertyCondition>
+                    </FilterCondition>
+                  </AndCondition>
+                  <SupportLevel>0</SupportLevel>
+                  <Descendants>
+                    <UIObject ControlType="Page" Id="UIPagePage" FriendlyName=".Page" SpecialControlType="None">
+                      <TechnologyName>Silverlight</TechnologyName>
+                      <WindowTitles>
+                        <WindowTitle>PTMS</WindowTitle>
+                      </WindowTitles>
+                      <SearchConfigurations>
+                        <SearchConfiguration>AlwaysSearch</SearchConfiguration>
+                      </SearchConfigurations>
+                      <AndCondition>
+                        <PropertyCondition Name="ControlType">Page</PropertyCondition>
+                        <PropertyCondition Name="Title">LoginPage Page</PropertyCondition>
+                      </AndCondition>
+                      <SupportLevel>0</SupportLevel>
+                      <Descendants>
+                        <UIObject ControlType="Hyperlink" Id="UIMangerLinkHyperlink" FriendlyName="MangerLink" SpecialControlType="None">
+                          <TechnologyName>Silverlight</TechnologyName>
+                          <WindowTitles>
+                            <WindowTitle>PTMS</WindowTitle>
+                          </WindowTitles>
+                          <AndCondition>
+                            <PropertyCondition Name="ControlType">Hyperlink</PropertyCondition>
+                            <PropertyCondition Name="AutomationId">MangerLink</PropertyCondition>
+                          </AndCondition>
+                          <SupportLevel>0</SupportLevel>
+                          <Descendants>
+                            <UIObject ControlType="Image" Id="UIExternalResourcecompImage" FriendlyName="/ExternalResource;component/Images/MainPage_manage..." SpecialControlType="None">
+                              <TechnologyName>Silverlight</TechnologyName>
+                              <WindowTitles>
+                                <WindowTitle>PTMS</WindowTitle>
+                              </WindowTitles>
+                              <AndCondition>
+                                <PropertyCondition Name="ControlType">Image</PropertyCondition>
+                                <PropertyCondition Name="Source">/ExternalResource;component/Images/MainPage_manager.png</PropertyCondition>
+                              </AndCondition>
+                              <SupportLevel>0</SupportLevel>
+                              <Descendants />
+                            </UIObject>
+                          </Descendants>
+                        </UIObject>
+                        <UIObject ControlType="Page" Id="UIItemPage" SpecialControlType="None">
+                          <TechnologyName>Silverlight</TechnologyName>
+                          <WindowTitles>
+                            <WindowTitle>PTMS</WindowTitle>
+                          </WindowTitles>
+                          <SearchConfigurations>
+                            <SearchConfiguration>AlwaysSearch</SearchConfiguration>
+                          </SearchConfigurations>
+                          <AndCondition>
+                            <PropertyCondition Name="ControlType">Page</PropertyCondition>
+                            <PropertyCondition Name="Source">/ManagerMainPage</PropertyCondition>
+                          </AndCondition>
+                          <SupportLevel>0</SupportLevel>
+                          <Descendants>
+                            <UIObject ControlType="List" Id="UIAcc_menuContainerList" FriendlyName="acc_menuContainer" SpecialControlType="None">
+                              <TechnologyName>Silverlight</TechnologyName>
+                              <WindowTitles>
+                                <WindowTitle>PTMS</WindowTitle>
+                              </WindowTitles>
+                              <AndCondition>
+                                <PropertyCondition Name="ControlType">List</PropertyCondition>
+                                <PropertyCondition Name="AutomationId">acc_menuContainer</PropertyCondition>
+                              </AndCondition>
+                              <SupportLevel>0</SupportLevel>
+                              <Descendants>
+                                <UIObject ControlType="ListItem" Id="UIItemListItem" FriendlyName="" SpecialControlType="None">
+                                  <TechnologyName>Silverlight</TechnologyName>
+                                  <WindowTitles>
+                                    <WindowTitle>PTMS</WindowTitle>
+                                  </WindowTitles>
+                                  <AndCondition>
+                                    <PropertyCondition Name="ControlType">ListItem</PropertyCondition>
+                                  </AndCondition>
+                                  <SupportLevel>0</SupportLevel>
+                                  <Descendants>
+                                    <UIObject ControlType="Hyperlink" Id="UI系统管理员Hyperlink" FriendlyName="系统管理员" SpecialControlType="None">
+                                      <TechnologyName>Silverlight</TechnologyName>
+                                      <WindowTitles>
+                                        <WindowTitle>PTMS</WindowTitle>
+                                      </WindowTitles>
+                                      <AndCondition>
+                                        <PropertyCondition Name="ControlType">Hyperlink</PropertyCondition>
+                                        <PropertyCondition Name="AutomationId">Link1</PropertyCondition>
+                                      </AndCondition>
+                                      <SupportLevel>0</SupportLevel>
+                                      <Descendants />
+                                    </UIObject>
+                                  </Descendants>
+                                </UIObject>
+                              </Descendants>
+                            </UIObject>
+                            <UIObject ControlType="Page" Id="UIItemPage1" SpecialControlType="None">
+                              <TechnologyName>Silverlight</TechnologyName>
+                              <WindowTitles>
+                                <WindowTitle>PTMS</WindowTitle>
+                              </WindowTitles>
+                              <SearchConfigurations>
+                                <SearchConfiguration>AlwaysSearch</SearchConfiguration>
+                              </SearchConfigurations>
+                              <AndCondition>
+                                <PropertyCondition Name="ControlType">Page</PropertyCondition>
+                                <PropertyCondition Name="Title">公共交通整体安全系统</PropertyCondition>
+                                <PropertyCondition Name="Source">/SysManagerUserListView</PropertyCondition>
+                              </AndCondition>
+                              <SupportLevel>0</SupportLevel>
+                              <Descendants>
+                                <UIObject ControlType="Image" Id="UIExternalResourcecompImage" FriendlyName="/ExternalResource;component/Images/MainPage_line31..." SpecialControlType="None">
+                                  <TechnologyName>Silverlight</TechnologyName>
+                                  <WindowTitles>
+                                    <WindowTitle>PTMS</WindowTitle>
+                                  </WindowTitles>
+                                  <AndCondition>
+                                    <PropertyCondition Name="ControlType">Image</PropertyCondition>
+                                    <PropertyCondition Name="Source">/ExternalResource;component/Images/MainPage_line31.png</PropertyCondition>
+                                  </AndCondition>
+                                  <SupportLevel>0</SupportLevel>
+                                  <Descendants>
+                                    <UIObject ControlType="Button" Id="UIItemButton" SpecialControlType="None">
+                                      <TechnologyName>Silverlight</TechnologyName>
+                                      <WindowTitles>
+                                        <WindowTitle>PTMS</WindowTitle>
+                                      </WindowTitles>
+                                      <SearchConfigurations>
+                                        <SearchConfiguration>NextTo</SearchConfiguration>
+                                      </SearchConfigurations>
+                                      <AndCondition>
+                                        <PropertyCondition Name="ControlType">Button</PropertyCondition>
+                                        <PropertyCondition Name="Instance">2</PropertyCondition>
+                                      </AndCondition>
+                                      <SupportLevel>0</SupportLevel>
+                                      <Descendants />
+                                    </UIObject>
+                                  </Descendants>
+                                </UIObject>
+                                <UIObject ControlType="Text" Id="UI登录名Text" FriendlyName="登录名" SpecialControlType="None">
+                                  <TechnologyName>Silverlight</TechnologyName>
+                                  <WindowTitles>
+                                    <WindowTitle>PTMS</WindowTitle>
+                                  </WindowTitles>
+                                  <AndCondition>
+                                    <PropertyCondition Name="ControlType">Text</PropertyCondition>
+                                    <PropertyCondition Name="Name">登录名</PropertyCondition>
+                                  </AndCondition>
+                                  <SupportLevel>0</SupportLevel>
+                                  <Descendants>
+                                    <UIObject ControlType="Edit" Id="UIItemEdit" FriendlyName="" SpecialControlType="None">
+                                      <TechnologyName>Silverlight</TechnologyName>
+                                      <WindowTitles>
+                                        <WindowTitle>PTMS</WindowTitle>
+                                      </WindowTitles>
+                                      <SearchConfigurations>
+                                        <SearchConfiguration>NextTo</SearchConfiguration>
+                                      </SearchConfigurations>
+                                      <AndCondition>
+                                        <PropertyCondition Name="ControlType">Edit</PropertyCondition>
+                                      </AndCondition>
+                                      <SupportLevel>0</SupportLevel>
+                                      <Descendants />
+                                    </UIObject>
+                                  </Descendants>
+                                </UIObject>
+                                <UIObject ControlType="Text" Id="UI用户名Text" FriendlyName="用户名" SpecialControlType="None">
+                                  <TechnologyName>Silverlight</TechnologyName>
+                                  <WindowTitles>
+                                    <WindowTitle>PTMS</WindowTitle>
+                                  </WindowTitles>
+                                  <AndCondition>
+                                    <PropertyCondition Name="ControlType">Text</PropertyCondition>
+                                    <PropertyCondition Name="Name">用户名</PropertyCondition>
+                                  </AndCondition>
+                                  <SupportLevel>0</SupportLevel>
+                                  <Descendants>
+                                    <UIObject ControlType="Edit" Id="UIItemEdit" FriendlyName="" SpecialControlType="None">
+                                      <TechnologyName>Silverlight</TechnologyName>
+                                      <WindowTitles>
+                                        <WindowTitle>PTMS</WindowTitle>
+                                      </WindowTitles>
+                                      <SearchConfigurations>
+                                        <SearchConfiguration>NextTo</SearchConfiguration>
+                                      </SearchConfigurations>
+                                      <AndCondition>
+                                        <PropertyCondition Name="ControlType">Edit</PropertyCondition>
+                                      </AndCondition>
+                                      <SupportLevel>0</SupportLevel>
+                                      <Descendants />
+                                    </UIObject>
+                                  </Descendants>
+                                </UIObject>
+                                <UIObject ControlType="Text" Id="UI密码Text" FriendlyName="密码" SpecialControlType="None">
+                                  <TechnologyName>Silverlight</TechnologyName>
+                                  <WindowTitles>
+                                    <WindowTitle>PTMS</WindowTitle>
+                                  </WindowTitles>
+                                  <AndCondition>
+                                    <PropertyCondition Name="ControlType">Text</PropertyCondition>
+                                    <PropertyCondition Name="Name">密码</PropertyCondition>
+                                  </AndCondition>
+                                  <SupportLevel>0</SupportLevel>
+                                  <Descendants>
+                                    <UIObject ControlType="Edit" Id="UIItemEdit" FriendlyName="" SpecialControlType="None">
+                                      <TechnologyName>Silverlight</TechnologyName>
+                                      <WindowTitles>
+                                        <WindowTitle>PTMS</WindowTitle>
+                                      </WindowTitles>
+                                      <SearchConfigurations>
+                                        <SearchConfiguration>NextTo</SearchConfiguration>
+                                      </SearchConfigurations>
+                                      <AndCondition>
+                                        <PropertyCondition Name="ControlType">Edit</PropertyCondition>
+                                      </AndCondition>
+                                      <SupportLevel>0</SupportLevel>
+                                      <Descendants />
+                                    </UIObject>
+                                  </Descendants>
+                                </UIObject>
+                                <UIObject ControlType="Text" Id="UI确认密码Text" FriendlyName="确认密码" SpecialControlType="None">
+                                  <TechnologyName>Silverlight</TechnologyName>
+                                  <WindowTitles>
+                                    <WindowTitle>PTMS</WindowTitle>
+                                  </WindowTitles>
+                                  <AndCondition>
+                                    <PropertyCondition Name="ControlType">Text</PropertyCondition>
+                                    <PropertyCondition Name="Name">确认密码</PropertyCondition>
+                                  </AndCondition>
+                                  <SupportLevel>0</SupportLevel>
+                                  <Descendants>
+                                    <UIObject ControlType="Edit" Id="UIItemEdit" FriendlyName="" SpecialControlType="None">
+                                      <TechnologyName>Silverlight</TechnologyName>
+                                      <WindowTitles>
+                                        <WindowTitle>PTMS</WindowTitle>
+                                      </WindowTitles>
+                                      <SearchConfigurations>
+                                        <SearchConfiguration>NextTo</SearchConfiguration>
+                                      </SearchConfigurations>
+                                      <AndCondition>
+                                        <PropertyCondition Name="ControlType">Edit</PropertyCondition>
+                                      </AndCondition>
+                                      <SupportLevel>0</SupportLevel>
+                                      <Descendants />
+                                    </UIObject>
+                                  </Descendants>
+                                </UIObject>
+                                <UIObject ControlType="Text" Id="UI电话Text" FriendlyName="电话" SpecialControlType="None">
+                                  <TechnologyName>Silverlight</TechnologyName>
+                                  <WindowTitles>
+                                    <WindowTitle>PTMS</WindowTitle>
+                                  </WindowTitles>
+                                  <AndCondition>
+                                    <PropertyCondition Name="ControlType">Text</PropertyCondition>
+                                    <PropertyCondition Name="Name">电话</PropertyCondition>
+                                  </AndCondition>
+                                  <SupportLevel>0</SupportLevel>
+                                  <Descendants>
+                                    <UIObject ControlType="Edit" Id="UIItemEdit" FriendlyName="" SpecialControlType="None">
+                                      <TechnologyName>Silverlight</TechnologyName>
+                                      <WindowTitles>
+                                        <WindowTitle>PTMS</WindowTitle>
+                                      </WindowTitles>
+                                      <SearchConfigurations>
+                                        <SearchConfiguration>NextTo</SearchConfiguration>
+                                      </SearchConfigurations>
+                                      <AndCondition>
+                                        <PropertyCondition Name="ControlType">Edit</PropertyCondition>
+                                      </AndCondition>
+                                      <SupportLevel>0</SupportLevel>
+                                      <Descendants />
+                                    </UIObject>
+                                  </Descendants>
+                                </UIObject>
+                                <UIObject ControlType="Text" Id="UI备注Text" FriendlyName="备注" SpecialControlType="None">
+                                  <TechnologyName>Silverlight</TechnologyName>
+                                  <WindowTitles>
+                                    <WindowTitle>PTMS</WindowTitle>
+                                  </WindowTitles>
+                                  <AndCondition>
+                                    <PropertyCondition Name="ControlType">Text</PropertyCondition>
+                                    <PropertyCondition Name="Name">备注</PropertyCondition>
+                                  </AndCondition>
+                                  <SupportLevel>0</SupportLevel>
+                                  <Descendants>
+                                    <UIObject ControlType="Button" Id="UIItemButton" SpecialControlType="None">
+                                      <TechnologyName>Silverlight</TechnologyName>
+                                      <WindowTitles>
+                                        <WindowTitle>PTMS</WindowTitle>
+                                      </WindowTitles>
+                                      <SearchConfigurations>
+                                        <SearchConfiguration>NextTo</SearchConfiguration>
+                                      </SearchConfigurations>
+                                      <AndCondition>
+                                        <PropertyCondition Name="ControlType">Button</PropertyCondition>
+                                      </AndCondition>
+                                      <SupportLevel>0</SupportLevel>
+                                      <Descendants />
+                                    </UIObject>
+                                  </Descendants>
+                                </UIObject>
+                                <UIObject ControlType="Text" Id="UI地址Text" FriendlyName="地址" SpecialControlType="None">
+                                  <TechnologyName>Silverlight</TechnologyName>
+                                  <WindowTitles>
+                                    <WindowTitle>PTMS</WindowTitle>
+                                  </WindowTitles>
+                                  <AndCondition>
+                                    <PropertyCondition Name="ControlType">Text</PropertyCondition>
+                                    <PropertyCondition Name="Name">地址</PropertyCondition>
+                                  </AndCondition>
+                                  <SupportLevel>0</SupportLevel>
+                                  <Descendants>
+                                    <UIObject ControlType="Edit" Id="UIItemEdit" FriendlyName="" SpecialControlType="None">
+                                      <TechnologyName>Silverlight</TechnologyName>
+                                      <WindowTitles>
+                                        <WindowTitle>PTMS</WindowTitle>
+                                      </WindowTitles>
+                                      <SearchConfigurations>
+                                        <SearchConfiguration>NextTo</SearchConfiguration>
+                                      </SearchConfigurations>
+                                      <AndCondition>
+                                        <PropertyCondition Name="ControlType">Edit</PropertyCondition>
+                                      </AndCondition>
+                                      <SupportLevel>0</SupportLevel>
+                                      <Descendants />
+                                    </UIObject>
+                                  </Descendants>
+                                </UIObject>
+                              </Descendants>
+                            </UIObject>
+                            <UIObject ControlType="Page" Id="UIItemPage11" SpecialControlType="None">
+                              <TechnologyName>Silverlight</TechnologyName>
+                              <WindowTitles>
+                                <WindowTitle>PTMS</WindowTitle>
+                              </WindowTitles>
+                              <SearchConfigurations>
+                                <SearchConfiguration>AlwaysSearch</SearchConfiguration>
+                              </SearchConfigurations>
+                              <AndCondition>
+                                <PropertyCondition Name="ControlType">Page</PropertyCondition>
+                                <PropertyCondition Name="Title">公共交通整体安全系统</PropertyCondition>
+                                <PropertyCondition Name="Source">/UserListView</PropertyCondition>
+                              </AndCondition>
+                              <SupportLevel>0</SupportLevel>
+                              <Descendants>
+                                <UIObject ControlType="Text" Id="UI登录名Text" FriendlyName="登录名" SpecialControlType="None">
+                                  <TechnologyName>Silverlight</TechnologyName>
+                                  <WindowTitles>
+                                    <WindowTitle>PTMS</WindowTitle>
+                                  </WindowTitles>
+                                  <AndCondition>
+                                    <PropertyCondition Name="ControlType">Text</PropertyCondition>
+                                    <PropertyCondition Name="Name">登录名</PropertyCondition>
+                                  </AndCondition>
+                                  <SupportLevel>0</SupportLevel>
+                                  <Descendants>
+                                    <UIObject ControlType="Edit" Id="UIItemEdit" FriendlyName="" SpecialControlType="None">
+                                      <TechnologyName>Silverlight</TechnologyName>
+                                      <WindowTitles>
+                                        <WindowTitle>PTMS</WindowTitle>
+                                      </WindowTitles>
+                                      <SearchConfigurations>
+                                        <SearchConfiguration>NextTo</SearchConfiguration>
+                                      </SearchConfigurations>
+                                      <AndCondition>
+                                        <PropertyCondition Name="ControlType">Edit</PropertyCondition>
+                                      </AndCondition>
+                                      <SupportLevel>0</SupportLevel>
+                                      <Descendants />
+                                    </UIObject>
+                                  </Descendants>
+                                </UIObject>
+                                <UIObject ControlType="Text" Id="UI用户名Text" FriendlyName="用户名" SpecialControlType="None">
+                                  <TechnologyName>Silverlight</TechnologyName>
+                                  <WindowTitles>
+                                    <WindowTitle>PTMS</WindowTitle>
+                                  </WindowTitles>
+                                  <AndCondition>
+                                    <PropertyCondition Name="ControlType">Text</PropertyCondition>
+                                    <PropertyCondition Name="Name">用户名</PropertyCondition>
+                                  </AndCondition>
+                                  <SupportLevel>0</SupportLevel>
+                                  <Descendants>
+                                    <UIObject ControlType="Edit" Id="UIItemEdit" FriendlyName="" SpecialControlType="None">
+                                      <TechnologyName>Silverlight</TechnologyName>
+                                      <WindowTitles>
+                                        <WindowTitle>PTMS</WindowTitle>
+                                      </WindowTitles>
+                                      <SearchConfigurations>
+                                        <SearchConfiguration>NextTo</SearchConfiguration>
+                                      </SearchConfigurations>
+                                      <AndCondition>
+                                        <PropertyCondition Name="ControlType">Edit</PropertyCondition>
+                                      </AndCondition>
+                                      <SupportLevel>0</SupportLevel>
+                                      <Descendants />
+                                    </UIObject>
+                                  </Descendants>
+                                </UIObject>
+                                <UIObject ControlType="Text" Id="UI电话Text" FriendlyName="电话" SpecialControlType="None">
+                                  <TechnologyName>Silverlight</TechnologyName>
+                                  <WindowTitles>
+                                    <WindowTitle>PTMS</WindowTitle>
+                                  </WindowTitles>
+                                  <AndCondition>
+                                    <PropertyCondition Name="ControlType">Text</PropertyCondition>
+                                    <PropertyCondition Name="Name">电话</PropertyCondition>
+                                  </AndCondition>
+                                  <SupportLevel>0</SupportLevel>
+                                  <Descendants>
+                                    <UIObject ControlType="Edit" Id="UIItemEdit" FriendlyName="" SpecialControlType="None">
+                                      <TechnologyName>Silverlight</TechnologyName>
+                                      <WindowTitles>
+                                        <WindowTitle>PTMS</WindowTitle>
+                                      </WindowTitles>
+                                      <SearchConfigurations>
+                                        <SearchConfiguration>NextTo</SearchConfiguration>
+                                      </SearchConfigurations>
+                                      <AndCondition>
+                                        <PropertyCondition Name="ControlType">Edit</PropertyCondition>
+                                      </AndCondition>
+                                      <SupportLevel>0</SupportLevel>
+                                      <Descendants />
+                                    </UIObject>
+                                  </Descendants>
+                                </UIObject>
+                                <UIObject ControlType="ComboBox" Id="UILevelComboBox" FriendlyName="Level" SpecialControlType="None">
+                                  <TechnologyName>Silverlight</TechnologyName>
+                                  <WindowTitles>
+                                    <WindowTitle>PTMS</WindowTitle>
+                                  </WindowTitles>
+                                  <AndCondition>
+                                    <PropertyCondition Name="ControlType">ComboBox</PropertyCondition>
+                                    <PropertyCondition Name="AutomationId">Level</PropertyCondition>
+                                  </AndCondition>
+                                  <SupportLevel>0</SupportLevel>
+                                  <Descendants />
+                                </UIObject>
+                                <UIObject ControlType="ComboBox" Id="UICmbprovinceComboBox" FriendlyName="cmbprovince" SpecialControlType="None">
+                                  <TechnologyName>Silverlight</TechnologyName>
+                                  <WindowTitles>
+                                    <WindowTitle>PTMS</WindowTitle>
+                                  </WindowTitles>
+                                  <AndCondition>
+                                    <PropertyCondition Name="ControlType">ComboBox</PropertyCondition>
+                                    <PropertyCondition Name="AutomationId">cmbprovince</PropertyCondition>
+                                  </AndCondition>
+                                  <SupportLevel>0</SupportLevel>
+                                  <Descendants />
+                                </UIObject>
+                                <UIObject ControlType="Text" Id="UI备注Text" FriendlyName="备注" SpecialControlType="None">
+                                  <TechnologyName>Silverlight</TechnologyName>
+                                  <WindowTitles>
+                                    <WindowTitle>PTMS</WindowTitle>
+                                  </WindowTitles>
+                                  <AndCondition>
+                                    <PropertyCondition Name="ControlType">Text</PropertyCondition>
+                                    <PropertyCondition Name="Name">备注</PropertyCondition>
+                                  </AndCondition>
+                                  <SupportLevel>0</SupportLevel>
+                                  <Descendants>
+                                    <UIObject ControlType="Button" Id="UIItemButton" SpecialControlType="None">
+                                      <TechnologyName>Silverlight</TechnologyName>
+                                      <WindowTitles>
+                                        <WindowTitle>PTMS</WindowTitle>
+                                      </WindowTitles>
+                                      <SearchConfigurations>
+                                        <SearchConfiguration>NextTo</SearchConfiguration>
+                                      </SearchConfigurations>
+                                      <AndCondition>
+                                        <PropertyCondition Name="ControlType">Button</PropertyCondition>
+                                      </AndCondition>
+                                      <SupportLevel>0</SupportLevel>
+                                      <Descendants />
+                                    </UIObject>
+                                  </Descendants>
+                                </UIObject>
+                                <UIObject ControlType="Text" Id="UI地址Text" FriendlyName="地址" SpecialControlType="None">
+                                  <TechnologyName>Silverlight</TechnologyName>
+                                  <WindowTitles>
+                                    <WindowTitle>PTMS</WindowTitle>
+                                  </WindowTitles>
+                                  <AndCondition>
+                                    <PropertyCondition Name="ControlType">Text</PropertyCondition>
+                                    <PropertyCondition Name="Name">地址</PropertyCondition>
+                                  </AndCondition>
+                                  <SupportLevel>0</SupportLevel>
+                                  <Descendants>
+                                    <UIObject ControlType="Edit" Id="UIItemEdit" FriendlyName="" SpecialControlType="None">
+                                      <TechnologyName>Silverlight</TechnologyName>
+                                      <WindowTitles>
+                                        <WindowTitle>PTMS</WindowTitle>
+                                      </WindowTitles>
+                                      <SearchConfigurations>
+                                        <SearchConfiguration>NextTo</SearchConfiguration>
+                                      </SearchConfigurations>
+                                      <AndCondition>
+                                        <PropertyCondition Name="ControlType">Edit</PropertyCondition>
+                                      </AndCondition>
+                                      <SupportLevel>0</SupportLevel>
+                                      <Descendants />
+                                    </UIObject>
+                                  </Descendants>
+                                </UIObject>
+                                <UIObject ControlType="ComboBox" Id="UICmbcitynameComboBox" FriendlyName="cmbcityname" SpecialControlType="None">
+                                  <TechnologyName>Silverlight</TechnologyName>
+                                  <WindowTitles>
+                                    <WindowTitle>PTMS</WindowTitle>
+                                  </WindowTitles>
+                                  <AndCondition>
+                                    <PropertyCondition Name="ControlType">ComboBox</PropertyCondition>
+                                    <PropertyCondition Name="AutomationId">cmbcityname</PropertyCondition>
+                                  </AndCondition>
+                                  <SupportLevel>0</SupportLevel>
+                                  <Descendants />
+                                </UIObject>
+                              </Descendants>
+                            </UIObject>
+                            <UIObject ControlType="Page" Id="UIItemPage12" SpecialControlType="None">
+                              <TechnologyName>Silverlight</TechnologyName>
+                              <WindowTitles>
+                                <WindowTitle>PTMS</WindowTitle>
+                              </WindowTitles>
+                              <SearchConfigurations>
+                                <SearchConfiguration>AlwaysSearch</SearchConfiguration>
+                              </SearchConfigurations>
+                              <AndCondition>
+                                <PropertyCondition Name="ControlType">Page</PropertyCondition>
+                                <PropertyCondition Name="Title">公共交通整体安全系统</PropertyCondition>
+                                <PropertyCondition Name="Source">/UserListView</PropertyCondition>
+                              </AndCondition>
+                              <SupportLevel>0</SupportLevel>
+                              <Descendants>
+                                <UIObject ControlType="Text" Id="UI用户名Text" FriendlyName="用户名" SpecialControlType="None">
+                                  <TechnologyName>Silverlight</TechnologyName>
+                                  <WindowTitles>
+                                    <WindowTitle>PTMS</WindowTitle>
+                                  </WindowTitles>
+                                  <AndCondition>
+                                    <PropertyCondition Name="ControlType">Text</PropertyCondition>
+                                    <PropertyCondition Name="Name">用户名</PropertyCondition>
+                                  </AndCondition>
+                                  <SupportLevel>0</SupportLevel>
+                                  <Descendants>
+                                    <UIObject ControlType="Edit" Id="UIItemEdit" FriendlyName="" SpecialControlType="None">
+                                      <TechnologyName>Silverlight</TechnologyName>
+                                      <WindowTitles>
+                                        <WindowTitle>PTMS</WindowTitle>
+                                      </WindowTitles>
+                                      <SearchConfigurations>
+                                        <SearchConfiguration>NextTo</SearchConfiguration>
+                                      </SearchConfigurations>
+                                      <AndCondition>
+                                        <PropertyCondition Name="ControlType">Edit</PropertyCondition>
+                                      </AndCondition>
+                                      <SupportLevel>0</SupportLevel>
+                                      <Descendants />
+                                    </UIObject>
+                                  </Descendants>
+                                </UIObject>
+                              </Descendants>
+                            </UIObject>
+                            <UIObject ControlType="Page" Id="UIItemPage13" SpecialControlType="None">
+                              <TechnologyName>Silverlight</TechnologyName>
+                              <WindowTitles>
+                                <WindowTitle>PTMS</WindowTitle>
+                              </WindowTitles>
+                              <SearchConfigurations>
+                                <SearchConfiguration>AlwaysSearch</SearchConfiguration>
+                              </SearchConfigurations>
+                              <AndCondition>
+                                <PropertyCondition Name="ControlType">Page</PropertyCondition>
+                                <PropertyCondition Name="Title">公共交通整体安全系统</PropertyCondition>
+                                <PropertyCondition Name="Source">/UserListView</PropertyCondition>
+                              </AndCondition>
+                              <SupportLevel>0</SupportLevel>
+                              <Descendants>
+                                <UIObject ControlType="Text" Id="UI密码Text" FriendlyName="密码" SpecialControlType="None">
+                                  <TechnologyName>Silverlight</TechnologyName>
+                                  <WindowTitles>
+                                    <WindowTitle>PTMS</WindowTitle>
+                                  </WindowTitles>
+                                  <AndCondition>
+                                    <PropertyCondition Name="ControlType">Text</PropertyCondition>
+                                    <PropertyCondition Name="Name">密码</PropertyCondition>
+                                  </AndCondition>
+                                  <SupportLevel>0</SupportLevel>
+                                  <Descendants>
+                                    <UIObject ControlType="Edit" Id="UIItemEdit" FriendlyName="" SpecialControlType="None">
+                                      <TechnologyName>Silverlight</TechnologyName>
+                                      <WindowTitles>
+                                        <WindowTitle>PTMS</WindowTitle>
+                                      </WindowTitles>
+                                      <SearchConfigurations>
+                                        <SearchConfiguration>NextTo</SearchConfiguration>
+                                      </SearchConfigurations>
+                                      <AndCondition>
+                                        <PropertyCondition Name="ControlType">Edit</PropertyCondition>
+                                      </AndCondition>
+                                      <SupportLevel>0</SupportLevel>
+                                      <Descendants />
+                                    </UIObject>
+                                  </Descendants>
+                                </UIObject>
+                              </Descendants>
+                            </UIObject>
+                            <UIObject ControlType="Page" Id="UIItemPage14" SpecialControlType="None">
+                              <TechnologyName>Silverlight</TechnologyName>
+                              <WindowTitles>
+                                <WindowTitle>PTMS</WindowTitle>
+                              </WindowTitles>
+                              <SearchConfigurations>
+                                <SearchConfiguration>AlwaysSearch</SearchConfiguration>
+                              </SearchConfigurations>
+                              <AndCondition>
+                                <PropertyCondition Name="ControlType">Page</PropertyCondition>
+                                <PropertyCondition Name="Title">公共交通整体安全系统</PropertyCondition>
+                                <PropertyCondition Name="Source">/UserListView</PropertyCondition>
+                              </AndCondition>
+                              <SupportLevel>0</SupportLevel>
+                              <Descendants>
+                                <UIObject ControlType="Text" Id="UI密码Text" FriendlyName="密码" SpecialControlType="None">
+                                  <TechnologyName>Silverlight</TechnologyName>
+                                  <WindowTitles>
+                                    <WindowTitle>PTMS</WindowTitle>
+                                  </WindowTitles>
+                                  <AndCondition>
+                                    <PropertyCondition Name="ControlType">Text</PropertyCondition>
+                                    <PropertyCondition Name="Name">密码</PropertyCondition>
+                                  </AndCondition>
+                                  <SupportLevel>0</SupportLevel>
+                                  <Descendants>
+                                    <UIObject ControlType="Edit" Id="UIItemEdit" FriendlyName="" SpecialControlType="None">
+                                      <TechnologyName>Silverlight</TechnologyName>
+                                      <WindowTitles>
+                                        <WindowTitle>PTMS</WindowTitle>
+                                      </WindowTitles>
+                                      <SearchConfigurations>
+                                        <SearchConfiguration>NextTo</SearchConfiguration>
+                                      </SearchConfigurations>
+                                      <AndCondition>
+                                        <PropertyCondition Name="ControlType">Edit</PropertyCondition>
+                                      </AndCondition>
+                                      <SupportLevel>0</SupportLevel>
+                                      <Descendants />
+                                    </UIObject>
+                                  </Descendants>
+                                </UIObject>
+                              </Descendants>
+                            </UIObject>
+                            <UIObject ControlType="Page" Id="UIItemPage15" SpecialControlType="None">
+                              <TechnologyName>Silverlight</TechnologyName>
+                              <WindowTitles>
+                                <WindowTitle>PTMS</WindowTitle>
+                              </WindowTitles>
+                              <SearchConfigurations>
+                                <SearchConfiguration>AlwaysSearch</SearchConfiguration>
+                              </SearchConfigurations>
+                              <AndCondition>
+                                <PropertyCondition Name="ControlType">Page</PropertyCondition>
+                                <PropertyCondition Name="Title">公共交通整体安全系统</PropertyCondition>
+                                <PropertyCondition Name="Source">/UserListView</PropertyCondition>
+                              </AndCondition>
+                              <SupportLevel>0</SupportLevel>
+                              <Descendants>
+                                <UIObject ControlType="Text" Id="UI密码Text" FriendlyName="密码" SpecialControlType="None">
+                                  <TechnologyName>Silverlight</TechnologyName>
+                                  <WindowTitles>
+                                    <WindowTitle>PTMS</WindowTitle>
+                                  </WindowTitles>
+                                  <AndCondition>
+                                    <PropertyCondition Name="ControlType">Text</PropertyCondition>
+                                    <PropertyCondition Name="Name">密码</PropertyCondition>
+                                  </AndCondition>
+                                  <SupportLevel>0</SupportLevel>
+                                  <Descendants>
+                                    <UIObject ControlType="Edit" Id="UIItemEdit" FriendlyName="" SpecialControlType="None">
+                                      <TechnologyName>Silverlight</TechnologyName>
+                                      <WindowTitles>
+                                        <WindowTitle>PTMS</WindowTitle>
+                                      </WindowTitles>
+                                      <SearchConfigurations>
+                                        <SearchConfiguration>NextTo</SearchConfiguration>
+                                      </SearchConfigurations>
+                                      <AndCondition>
+                                        <PropertyCondition Name="ControlType">Edit</PropertyCondition>
+                                      </AndCondition>
+                                      <SupportLevel>0</SupportLevel>
+                                      <Descendants />
+                                    </UIObject>
+                                  </Descendants>
+                                </UIObject>
+                              </Descendants>
+                            </UIObject>
+                            <UIObject ControlType="Page" Id="UIItemPage16" SpecialControlType="None">
+                              <TechnologyName>Silverlight</TechnologyName>
+                              <WindowTitles>
+                                <WindowTitle>PTMS</WindowTitle>
+                              </WindowTitles>
+                              <SearchConfigurations>
+                                <SearchConfiguration>AlwaysSearch</SearchConfiguration>
+                              </SearchConfigurations>
+                              <AndCondition>
+                                <PropertyCondition Name="ControlType">Page</PropertyCondition>
+                                <PropertyCondition Name="Title">公共交通整体安全系统</PropertyCondition>
+                                <PropertyCondition Name="Source">/UserListView</PropertyCondition>
+                              </AndCondition>
+                              <SupportLevel>0</SupportLevel>
+                              <Descendants>
+                                <UIObject ControlType="Text" Id="UI确认密码Text" FriendlyName="确认密码" SpecialControlType="None">
+                                  <TechnologyName>Silverlight</TechnologyName>
+                                  <WindowTitles>
+                                    <WindowTitle>PTMS</WindowTitle>
+                                  </WindowTitles>
+                                  <AndCondition>
+                                    <PropertyCondition Name="ControlType">Text</PropertyCondition>
+                                    <PropertyCondition Name="Name">确认密码</PropertyCondition>
+                                  </AndCondition>
+                                  <SupportLevel>0</SupportLevel>
+                                  <Descendants>
+                                    <UIObject ControlType="Edit" Id="UIItemEdit" FriendlyName="" SpecialControlType="None">
+                                      <TechnologyName>Silverlight</TechnologyName>
+                                      <WindowTitles>
+                                        <WindowTitle>PTMS</WindowTitle>
+                                      </WindowTitles>
+                                      <SearchConfigurations>
+                                        <SearchConfiguration>NextTo</SearchConfiguration>
+                                      </SearchConfigurations>
+                                      <AndCondition>
+                                        <PropertyCondition Name="ControlType">Edit</PropertyCondition>
+                                      </AndCondition>
+                                      <SupportLevel>0</SupportLevel>
+                                      <Descendants />
+                                    </UIObject>
+                                  </Descendants>
+                                </UIObject>
+                              </Descendants>
+                            </UIObject>
+                            <UIObject ControlType="Page" Id="UIItemPage17" SpecialControlType="None">
+                              <TechnologyName>Silverlight</TechnologyName>
+                              <WindowTitles>
+                                <WindowTitle>PTMS</WindowTitle>
+                              </WindowTitles>
+                              <SearchConfigurations>
+                                <SearchConfiguration>AlwaysSearch</SearchConfiguration>
+                              </SearchConfigurations>
+                              <AndCondition>
+                                <PropertyCondition Name="ControlType">Page</PropertyCondition>
+                                <PropertyCondition Name="Title">公共交通整体安全系统</PropertyCondition>
+                                <PropertyCondition Name="Source">/UserListView</PropertyCondition>
+                              </AndCondition>
+                              <SupportLevel>0</SupportLevel>
+                              <Descendants>
+                                <UIObject ControlType="Text" Id="UI确认密码Text" FriendlyName="确认密码" SpecialControlType="None">
+                                  <TechnologyName>Silverlight</TechnologyName>
+                                  <WindowTitles>
+                                    <WindowTitle>PTMS</WindowTitle>
+                                  </WindowTitles>
+                                  <AndCondition>
+                                    <PropertyCondition Name="ControlType">Text</PropertyCondition>
+                                    <PropertyCondition Name="Name">确认密码</PropertyCondition>
+                                  </AndCondition>
+                                  <SupportLevel>0</SupportLevel>
+                                  <Descendants>
+                                    <UIObject ControlType="Edit" Id="UIItemEdit" FriendlyName="" SpecialControlType="None">
+                                      <TechnologyName>Silverlight</TechnologyName>
+                                      <WindowTitles>
+                                        <WindowTitle>PTMS</WindowTitle>
+                                      </WindowTitles>
+                                      <SearchConfigurations>
+                                        <SearchConfiguration>NextTo</SearchConfiguration>
+                                      </SearchConfigurations>
+                                      <AndCondition>
+                                        <PropertyCondition Name="ControlType">Edit</PropertyCondition>
+                                      </AndCondition>
+                                      <SupportLevel>0</SupportLevel>
+                                      <Descendants />
+                                    </UIObject>
+                                  </Descendants>
+                                </UIObject>
+                              </Descendants>
+                            </UIObject>
+                            <UIObject ControlType="Page" Id="UIItemPage18" SpecialControlType="None">
+                              <TechnologyName>Silverlight</TechnologyName>
+                              <WindowTitles>
+                                <WindowTitle>PTMS</WindowTitle>
+                              </WindowTitles>
+                              <SearchConfigurations>
+                                <SearchConfiguration>AlwaysSearch</SearchConfiguration>
+                              </SearchConfigurations>
+                              <AndCondition>
+                                <PropertyCondition Name="ControlType">Page</PropertyCondition>
+                                <PropertyCondition Name="Title">公共交通整体安全系统</PropertyCondition>
+                                <PropertyCondition Name="Source">/UserListView</PropertyCondition>
+                              </AndCondition>
+                              <SupportLevel>0</SupportLevel>
+                              <Descendants>
+                                <UIObject ControlType="Text" Id="UI电话Text" FriendlyName="电话" SpecialControlType="None">
+                                  <TechnologyName>Silverlight</TechnologyName>
+                                  <WindowTitles>
+                                    <WindowTitle>PTMS</WindowTitle>
+                                  </WindowTitles>
+                                  <AndCondition>
+                                    <PropertyCondition Name="ControlType">Text</PropertyCondition>
+                                    <PropertyCondition Name="Name">电话</PropertyCondition>
+                                  </AndCondition>
+                                  <SupportLevel>0</SupportLevel>
+                                  <Descendants>
+                                    <UIObject ControlType="Edit" Id="UIItemEdit" FriendlyName="" SpecialControlType="None">
+                                      <TechnologyName>Silverlight</TechnologyName>
+                                      <WindowTitles>
+                                        <WindowTitle>PTMS</WindowTitle>
+                                      </WindowTitles>
+                                      <SearchConfigurations>
+                                        <SearchConfiguration>NextTo</SearchConfiguration>
+                                      </SearchConfigurations>
+                                      <AndCondition>
+                                        <PropertyCondition Name="ControlType">Edit</PropertyCondition>
+                                      </AndCondition>
+                                      <SupportLevel>0</SupportLevel>
+                                      <Descendants />
+                                    </UIObject>
+                                  </Descendants>
+                                </UIObject>
+                              </Descendants>
+                            </UIObject>
+                            <UIObject ControlType="Page" Id="UIItemPage19" SpecialControlType="None">
+                              <TechnologyName>Silverlight</TechnologyName>
+                              <WindowTitles>
+                                <WindowTitle>PTMS</WindowTitle>
+                              </WindowTitles>
+                              <SearchConfigurations>
+                                <SearchConfiguration>AlwaysSearch</SearchConfiguration>
+                              </SearchConfigurations>
+                              <AndCondition>
+                                <PropertyCondition Name="ControlType">Page</PropertyCondition>
+                                <PropertyCondition Name="Title">公共交通整体安全系统</PropertyCondition>
+                                <PropertyCondition Name="Source">/UserListView</PropertyCondition>
+                              </AndCondition>
+                              <SupportLevel>0</SupportLevel>
+                              <Descendants>
+                                <UIObject ControlType="Text" Id="UI地址Text" FriendlyName="地址" SpecialControlType="None">
+                                  <TechnologyName>Silverlight</TechnologyName>
+                                  <WindowTitles>
+                                    <WindowTitle>PTMS</WindowTitle>
+                                  </WindowTitles>
+                                  <AndCondition>
+                                    <PropertyCondition Name="ControlType">Text</PropertyCondition>
+                                    <PropertyCondition Name="Name">地址</PropertyCondition>
+                                  </AndCondition>
+                                  <SupportLevel>0</SupportLevel>
+                                  <Descendants>
+                                    <UIObject ControlType="Edit" Id="UIItemEdit" FriendlyName="" SpecialControlType="None">
+                                      <TechnologyName>Silverlight</TechnologyName>
+                                      <WindowTitles>
+                                        <WindowTitle>PTMS</WindowTitle>
+                                      </WindowTitles>
+                                      <SearchConfigurations>
+                                        <SearchConfiguration>NextTo</SearchConfiguration>
+                                      </SearchConfigurations>
+                                      <AndCondition>
+                                        <PropertyCondition Name="ControlType">Edit</PropertyCondition>
+                                      </AndCondition>
+                                      <SupportLevel>0</SupportLevel>
+                                      <Descendants />
+                                    </UIObject>
+                                  </Descendants>
+                                </UIObject>
+                              </Descendants>
+                            </UIObject>
+                            <UIObject ControlType="Page" Id="UIItemPage110" SpecialControlType="None">
+                              <TechnologyName>Silverlight</TechnologyName>
+                              <WindowTitles>
+                                <WindowTitle>PTMS</WindowTitle>
+                              </WindowTitles>
+                              <SearchConfigurations>
+                                <SearchConfiguration>AlwaysSearch</SearchConfiguration>
+                              </SearchConfigurations>
+                              <AndCondition>
+                                <PropertyCondition Name="ControlType">Page</PropertyCondition>
+                                <PropertyCondition Name="Title">公共交通整体安全系统</PropertyCondition>
+                                <PropertyCondition Name="Source">/UserListView</PropertyCondition>
+                              </AndCondition>
+                              <SupportLevel>0</SupportLevel>
+                              <Descendants>
+                                <UIObject ControlType="Text" Id="UI备注Text" FriendlyName="备注" SpecialControlType="None">
+                                  <TechnologyName>Silverlight</TechnologyName>
+                                  <WindowTitles>
+                                    <WindowTitle>PTMS</WindowTitle>
+                                  </WindowTitles>
+                                  <AndCondition>
+                                    <PropertyCondition Name="ControlType">Text</PropertyCondition>
+                                    <PropertyCondition Name="Name">备注</PropertyCondition>
+                                  </AndCondition>
+                                  <SupportLevel>0</SupportLevel>
+                                  <Descendants>
+                                    <UIObject ControlType="Button" Id="UIItemButton" SpecialControlType="None">
+                                      <TechnologyName>Silverlight</TechnologyName>
+                                      <WindowTitles>
+                                        <WindowTitle>PTMS</WindowTitle>
+                                      </WindowTitles>
+                                      <SearchConfigurations>
+                                        <SearchConfiguration>NextTo</SearchConfiguration>
+                                      </SearchConfigurations>
+                                      <AndCondition>
+                                        <PropertyCondition Name="ControlType">Button</PropertyCondition>
+                                      </AndCondition>
+                                      <SupportLevel>0</SupportLevel>
+                                      <Descendants />
+                                    </UIObject>
+                                  </Descendants>
+                                </UIObject>
+                              </Descendants>
+                            </UIObject>
+                            <UIObject ControlType="Page" Id="UIItemPage111" SpecialControlType="None">
+                              <TechnologyName>Silverlight</TechnologyName>
+                              <WindowTitles>
+                                <WindowTitle>PTMS</WindowTitle>
+                              </WindowTitles>
+                              <SearchConfigurations>
+                                <SearchConfiguration>AlwaysSearch</SearchConfiguration>
+                              </SearchConfigurations>
+                              <AndCondition>
+                                <PropertyCondition Name="ControlType">Page</PropertyCondition>
+                                <PropertyCondition Name="Title">公共交通整体安全系统</PropertyCondition>
+                                <PropertyCondition Name="Source">/SetupStationListView</PropertyCondition>
+                              </AndCondition>
+                              <SupportLevel>0</SupportLevel>
+                              <Descendants>
+                                <UIObject ControlType="Text" Id="UI登录名Text" FriendlyName="登录名" SpecialControlType="None">
+                                  <TechnologyName>Silverlight</TechnologyName>
+                                  <WindowTitles>
+                                    <WindowTitle>PTMS</WindowTitle>
+                                  </WindowTitles>
+                                  <AndCondition>
+                                    <PropertyCondition Name="ControlType">Text</PropertyCondition>
+                                    <PropertyCondition Name="Name">登录名</PropertyCondition>
+                                  </AndCondition>
+                                  <SupportLevel>0</SupportLevel>
+                                  <Descendants>
+                                    <UIObject ControlType="Edit" Id="UIItemEdit" FriendlyName="" SpecialControlType="None">
+                                      <TechnologyName>Silverlight</TechnologyName>
+                                      <WindowTitles>
+                                        <WindowTitle>PTMS</WindowTitle>
+                                      </WindowTitles>
+                                      <SearchConfigurations>
+                                        <SearchConfiguration>NextTo</SearchConfiguration>
+                                      </SearchConfigurations>
+                                      <AndCondition>
+                                        <PropertyCondition Name="ControlType">Edit</PropertyCondition>
+                                      </AndCondition>
+                                      <SupportLevel>0</SupportLevel>
+                                      <Descendants />
+                                    </UIObject>
+                                  </Descendants>
+                                </UIObject>
+                                <UIObject ControlType="Text" Id="UI用户名Text" FriendlyName="用户名" SpecialControlType="None">
+                                  <TechnologyName>Silverlight</TechnologyName>
+                                  <WindowTitles>
+                                    <WindowTitle>PTMS</WindowTitle>
+                                  </WindowTitles>
+                                  <AndCondition>
+                                    <PropertyCondition Name="ControlType">Text</PropertyCondition>
+                                    <PropertyCondition Name="Name">用户名</PropertyCondition>
+                                  </AndCondition>
+                                  <SupportLevel>0</SupportLevel>
+                                  <Descendants>
+                                    <UIObject ControlType="Edit" Id="UIItemEdit" FriendlyName="" SpecialControlType="None">
+                                      <TechnologyName>Silverlight</TechnologyName>
+                                      <WindowTitles>
+                                        <WindowTitle>PTMS</WindowTitle>
+                                      </WindowTitles>
+                                      <SearchConfigurations>
+                                        <SearchConfiguration>NextTo</SearchConfiguration>
+                                      </SearchConfigurations>
+                                      <AndCondition>
+                                        <PropertyCondition Name="ControlType">Edit</PropertyCondition>
+                                      </AndCondition>
+                                      <SupportLevel>0</SupportLevel>
+                                      <Descendants />
+                                    </UIObject>
+                                  </Descendants>
+                                </UIObject>
+                                <UIObject ControlType="Text" Id="UI电话Text" FriendlyName="电话" SpecialControlType="None">
+                                  <TechnologyName>Silverlight</TechnologyName>
+                                  <WindowTitles>
+                                    <WindowTitle>PTMS</WindowTitle>
+                                  </WindowTitles>
+                                  <AndCondition>
+                                    <PropertyCondition Name="ControlType">Text</PropertyCondition>
+                                    <PropertyCondition Name="Name">电话</PropertyCondition>
+                                  </AndCondition>
+                                  <SupportLevel>0</SupportLevel>
+                                  <Descendants>
+                                    <UIObject ControlType="Edit" Id="UIItemEdit" FriendlyName="" SpecialControlType="None">
+                                      <TechnologyName>Silverlight</TechnologyName>
+                                      <WindowTitles>
+                                        <WindowTitle>PTMS</WindowTitle>
+                                      </WindowTitles>
+                                      <SearchConfigurations>
+                                        <SearchConfiguration>NextTo</SearchConfiguration>
+                                      </SearchConfigurations>
+                                      <AndCondition>
+                                        <PropertyCondition Name="ControlType">Edit</PropertyCondition>
+                                      </AndCondition>
+                                      <SupportLevel>0</SupportLevel>
+                                      <Descendants />
+                                    </UIObject>
+                                  </Descendants>
+                                </UIObject>
+                                <UIObject ControlType="ComboBox" Id="UICmbprovinceComboBox" FriendlyName="cmbprovince" SpecialControlType="None">
+                                  <TechnologyName>Silverlight</TechnologyName>
+                                  <WindowTitles>
+                                    <WindowTitle>PTMS</WindowTitle>
+                                  </WindowTitles>
+                                  <AndCondition>
+                                    <PropertyCondition Name="ControlType">ComboBox</PropertyCondition>
+                                    <PropertyCondition Name="AutomationId">cmbprovince</PropertyCondition>
+                                  </AndCondition>
+                                  <SupportLevel>0</SupportLevel>
+                                  <Descendants />
+                                </UIObject>
+                                <UIObject ControlType="ComboBox" Id="UICmbcitynameComboBox" FriendlyName="cmbcityname" SpecialControlType="None">
+                                  <TechnologyName>Silverlight</TechnologyName>
+                                  <WindowTitles>
+                                    <WindowTitle>PTMS</WindowTitle>
+                                  </WindowTitles>
+                                  <AndCondition>
+                                    <PropertyCondition Name="ControlType">ComboBox</PropertyCondition>
+                                    <PropertyCondition Name="AutomationId">cmbcityname</PropertyCondition>
+                                  </AndCondition>
+                                  <SupportLevel>0</SupportLevel>
+                                  <Descendants />
+                                </UIObject>
+                                <UIObject ControlType="ComboBox" Id="UICmbSetupStationComboBox" FriendlyName="cmbSetupStation" SpecialControlType="None">
+                                  <TechnologyName>Silverlight</TechnologyName>
+                                  <WindowTitles>
+                                    <WindowTitle>PTMS</WindowTitle>
+                                  </WindowTitles>
+                                  <AndCondition>
+                                    <PropertyCondition Name="ControlType">ComboBox</PropertyCondition>
+                                    <PropertyCondition Name="AutomationId">cmbSetupStation</PropertyCondition>
+                                  </AndCondition>
+                                  <SupportLevel>0</SupportLevel>
+                                  <Descendants />
+                                </UIObject>
+                                <UIObject ControlType="ComboBox" Id="UICmbSetupStationComboBox1" FriendlyName="cmbSetupStation" SpecialControlType="None">
+                                  <TechnologyName>Silverlight</TechnologyName>
+                                  <WindowTitles>
+                                    <WindowTitle>PTMS</WindowTitle>
+                                  </WindowTitles>
+                                  <AndCondition>
+                                    <PropertyCondition Name="ControlType">ComboBox</PropertyCondition>
+                                    <PropertyCondition Name="AutomationId">cmbSetupStation</PropertyCondition>
+                                  </AndCondition>
+                                  <SupportLevel>0</SupportLevel>
+                                  <Descendants />
+                                </UIObject>
+                                <UIObject ControlType="ComboBox" Id="UICmbcitynameComboBox1" FriendlyName="cmbcityname" SpecialControlType="None">
+                                  <TechnologyName>Silverlight</TechnologyName>
+                                  <WindowTitles>
+                                    <WindowTitle>PTMS</WindowTitle>
+                                  </WindowTitles>
+                                  <AndCondition>
+                                    <PropertyCondition Name="ControlType">ComboBox</PropertyCondition>
+                                    <PropertyCondition Name="AutomationId">cmbcityname</PropertyCondition>
+                                  </AndCondition>
+                                  <SupportLevel>0</SupportLevel>
+                                  <Descendants />
+                                </UIObject>
+                                <UIObject ControlType="ComboBox" Id="UICmbSetupStationComboBox2" FriendlyName="cmbSetupStation" SpecialControlType="None">
+                                  <TechnologyName>Silverlight</TechnologyName>
+                                  <WindowTitles>
+                                    <WindowTitle>PTMS</WindowTitle>
+                                  </WindowTitles>
+                                  <AndCondition>
+                                    <PropertyCondition Name="ControlType">ComboBox</PropertyCondition>
+                                    <PropertyCondition Name="AutomationId">cmbSetupStation</PropertyCondition>
+                                  </AndCondition>
+                                  <SupportLevel>0</SupportLevel>
+                                  <Descendants />
+                                </UIObject>
+                                <UIObject ControlType="ComboBox" Id="UICmbprovinceComboBox1" FriendlyName="cmbprovince" SpecialControlType="None">
+                                  <TechnologyName>Silverlight</TechnologyName>
+                                  <WindowTitles>
+                                    <WindowTitle>PTMS</WindowTitle>
+                                  </WindowTitles>
+                                  <AndCondition>
+                                    <PropertyCondition Name="ControlType">ComboBox</PropertyCondition>
+                                    <PropertyCondition Name="AutomationId">cmbprovince</PropertyCondition>
+                                  </AndCondition>
+                                  <SupportLevel>0</SupportLevel>
+                                  <Descendants />
+                                </UIObject>
+                                <UIObject ControlType="ComboBox" Id="UICmbprovinceComboBox2" FriendlyName="cmbprovince" SpecialControlType="None">
+                                  <TechnologyName>Silverlight</TechnologyName>
+                                  <WindowTitles>
+                                    <WindowTitle>PTMS</WindowTitle>
+                                  </WindowTitles>
+                                  <AndCondition>
+                                    <PropertyCondition Name="ControlType">ComboBox</PropertyCondition>
+                                    <PropertyCondition Name="AutomationId">cmbprovince</PropertyCondition>
+                                  </AndCondition>
+                                  <SupportLevel>0</SupportLevel>
+                                  <Descendants />
+                                </UIObject>
+                                <UIObject ControlType="ComboBox" Id="UICmbcitynameComboBox2" FriendlyName="cmbcityname" SpecialControlType="None">
+                                  <TechnologyName>Silverlight</TechnologyName>
+                                  <WindowTitles>
+                                    <WindowTitle>PTMS</WindowTitle>
+                                  </WindowTitles>
+                                  <AndCondition>
+                                    <PropertyCondition Name="ControlType">ComboBox</PropertyCondition>
+                                    <PropertyCondition Name="AutomationId">cmbcityname</PropertyCondition>
+                                  </AndCondition>
+                                  <SupportLevel>0</SupportLevel>
+                                  <Descendants />
+                                </UIObject>
+                                <UIObject ControlType="ComboBox" Id="UICmbSetupStationComboBox3" FriendlyName="cmbSetupStation" SpecialControlType="None">
+                                  <TechnologyName>Silverlight</TechnologyName>
+                                  <WindowTitles>
+                                    <WindowTitle>PTMS</WindowTitle>
+                                  </WindowTitles>
+                                  <AndCondition>
+                                    <PropertyCondition Name="ControlType">ComboBox</PropertyCondition>
+                                    <PropertyCondition Name="AutomationId">cmbSetupStation</PropertyCondition>
+                                  </AndCondition>
+                                  <SupportLevel>0</SupportLevel>
+                                  <Descendants />
+                                </UIObject>
+                                <UIObject ControlType="Text" Id="UI备注Text" FriendlyName="备注" SpecialControlType="None">
+                                  <TechnologyName>Silverlight</TechnologyName>
+                                  <WindowTitles>
+                                    <WindowTitle>PTMS</WindowTitle>
+                                  </WindowTitles>
+                                  <AndCondition>
+                                    <PropertyCondition Name="ControlType">Text</PropertyCondition>
+                                    <PropertyCondition Name="Name">备注</PropertyCondition>
+                                  </AndCondition>
+                                  <SupportLevel>0</SupportLevel>
+                                  <Descendants>
+                                    <UIObject ControlType="Button" Id="UIItemButton" SpecialControlType="None">
+                                      <TechnologyName>Silverlight</TechnologyName>
+                                      <WindowTitles>
+                                        <WindowTitle>PTMS</WindowTitle>
+                                      </WindowTitles>
+                                      <SearchConfigurations>
+                                        <SearchConfiguration>NextTo</SearchConfiguration>
+                                      </SearchConfigurations>
+                                      <AndCondition>
+                                        <PropertyCondition Name="ControlType">Button</PropertyCondition>
+                                      </AndCondition>
+                                      <SupportLevel>0</SupportLevel>
+                                      <Descendants />
+                                    </UIObject>
+                                  </Descendants>
+                                </UIObject>
+                                <UIObject ControlType="Text" Id="UI密码Text" FriendlyName="密码" SpecialControlType="None">
+                                  <TechnologyName>Silverlight</TechnologyName>
+                                  <WindowTitles>
+                                    <WindowTitle>PTMS</WindowTitle>
+                                  </WindowTitles>
+                                  <AndCondition>
+                                    <PropertyCondition Name="ControlType">Text</PropertyCondition>
+                                    <PropertyCondition Name="Name">密码</PropertyCondition>
+                                  </AndCondition>
+                                  <SupportLevel>0</SupportLevel>
+                                  <Descendants>
+                                    <UIObject ControlType="Edit" Id="UIItemEdit" FriendlyName="" SpecialControlType="None">
+                                      <TechnologyName>Silverlight</TechnologyName>
+                                      <WindowTitles>
+                                        <WindowTitle>PTMS</WindowTitle>
+                                      </WindowTitles>
+                                      <SearchConfigurations>
+                                        <SearchConfiguration>NextTo</SearchConfiguration>
+                                      </SearchConfigurations>
+                                      <AndCondition>
+                                        <PropertyCondition Name="ControlType">Edit</PropertyCondition>
+                                      </AndCondition>
+                                      <SupportLevel>0</SupportLevel>
+                                      <Descendants />
+                                    </UIObject>
+                                  </Descendants>
+                                </UIObject>
+                                <UIObject ControlType="Text" Id="UI密码Text1" FriendlyName="密码" SpecialControlType="None">
+                                  <TechnologyName>Silverlight</TechnologyName>
+                                  <WindowTitles>
+                                    <WindowTitle>PTMS</WindowTitle>
+                                  </WindowTitles>
+                                  <AndCondition>
+                                    <PropertyCondition Name="ControlType">Text</PropertyCondition>
+                                    <PropertyCondition Name="Name">密码</PropertyCondition>
+                                  </AndCondition>
+                                  <SupportLevel>0</SupportLevel>
+                                  <Descendants>
+                                    <UIObject ControlType="Edit" Id="UIItemEdit" FriendlyName="" SpecialControlType="None">
+                                      <TechnologyName>Silverlight</TechnologyName>
+                                      <WindowTitles>
+                                        <WindowTitle>PTMS</WindowTitle>
+                                      </WindowTitles>
+                                      <SearchConfigurations>
+                                        <SearchConfiguration>NextTo</SearchConfiguration>
+                                      </SearchConfigurations>
+                                      <AndCondition>
+                                        <PropertyCondition Name="ControlType">Edit</PropertyCondition>
+                                      </AndCondition>
+                                      <SupportLevel>0</SupportLevel>
+                                      <Descendants />
+                                    </UIObject>
+                                  </Descendants>
+                                </UIObject>
+                                <UIObject ControlType="Text" Id="UI确认密码Text" FriendlyName="确认密码" SpecialControlType="None">
+                                  <TechnologyName>Silverlight</TechnologyName>
+                                  <WindowTitles>
+                                    <WindowTitle>PTMS</WindowTitle>
+                                  </WindowTitles>
+                                  <AndCondition>
+                                    <PropertyCondition Name="ControlType">Text</PropertyCondition>
+                                    <PropertyCondition Name="Name">确认密码</PropertyCondition>
+                                  </AndCondition>
+                                  <SupportLevel>0</SupportLevel>
+                                  <Descendants>
+                                    <UIObject ControlType="Edit" Id="UIItemEdit" FriendlyName="" SpecialControlType="None">
+                                      <TechnologyName>Silverlight</TechnologyName>
+                                      <WindowTitles>
+                                        <WindowTitle>PTMS</WindowTitle>
+                                      </WindowTitles>
+                                      <SearchConfigurations>
+                                        <SearchConfiguration>NextTo</SearchConfiguration>
+                                      </SearchConfigurations>
+                                      <AndCondition>
+                                        <PropertyCondition Name="ControlType">Edit</PropertyCondition>
+                                      </AndCondition>
+                                      <SupportLevel>0</SupportLevel>
+                                      <Descendants />
+                                    </UIObject>
+                                  </Descendants>
+                                </UIObject>
+                                <UIObject ControlType="Text" Id="UI确认密码Text1" FriendlyName="确认密码" SpecialControlType="None">
+                                  <TechnologyName>Silverlight</TechnologyName>
+                                  <WindowTitles>
+                                    <WindowTitle>PTMS</WindowTitle>
+                                  </WindowTitles>
+                                  <AndCondition>
+                                    <PropertyCondition Name="ControlType">Text</PropertyCondition>
+                                    <PropertyCondition Name="Name">确认密码</PropertyCondition>
+                                  </AndCondition>
+                                  <SupportLevel>0</SupportLevel>
+                                  <Descendants>
+                                    <UIObject ControlType="Edit" Id="UIItemEdit" FriendlyName="" SpecialControlType="None">
+                                      <TechnologyName>Silverlight</TechnologyName>
+                                      <WindowTitles>
+                                        <WindowTitle>PTMS</WindowTitle>
+                                      </WindowTitles>
+                                      <SearchConfigurations>
+                                        <SearchConfiguration>NextTo</SearchConfiguration>
+                                      </SearchConfigurations>
+                                      <AndCondition>
+                                        <PropertyCondition Name="ControlType">Edit</PropertyCondition>
+                                      </AndCondition>
+                                      <SupportLevel>0</SupportLevel>
+                                      <Descendants />
+                                    </UIObject>
+                                  </Descendants>
+                                </UIObject>
+                                <UIObject ControlType="Image" Id="UIExternalResourcecompImage" FriendlyName="/ExternalResource;component/Images/MainPage_line31..." SpecialControlType="None">
+                                  <TechnologyName>Silverlight</TechnologyName>
+                                  <WindowTitles>
+                                    <WindowTitle>PTMS</WindowTitle>
+                                  </WindowTitles>
+                                  <AndCondition>
+                                    <PropertyCondition Name="ControlType">Image</PropertyCondition>
+                                    <PropertyCondition Name="Source">/ExternalResource;component/Images/MainPage_line31.png</PropertyCondition>
+                                  </AndCondition>
+                                  <SupportLevel>0</SupportLevel>
+                                  <Descendants>
+                                    <UIObject ControlType="Button" Id="UIItemButton" SpecialControlType="None">
+                                      <TechnologyName>Silverlight</TechnologyName>
+                                      <WindowTitles>
+                                        <WindowTitle>PTMS</WindowTitle>
+                                      </WindowTitles>
+                                      <SearchConfigurations>
+                                        <SearchConfiguration>NextTo</SearchConfiguration>
+                                      </SearchConfigurations>
+                                      <AndCondition>
+                                        <PropertyCondition Name="ControlType">Button</PropertyCondition>
+                                        <PropertyCondition Name="Instance">2</PropertyCondition>
+                                      </AndCondition>
+                                      <SupportLevel>0</SupportLevel>
+                                      <Descendants />
+                                    </UIObject>
+                                  </Descendants>
+                                </UIObject>
+                              </Descendants>
+                            </UIObject>
+                            <UIObject ControlType="Page" Id="UIItemPage112" SpecialControlType="None">
+                              <TechnologyName>Silverlight</TechnologyName>
+                              <WindowTitles>
+                                <WindowTitle>PTMS</WindowTitle>
+                              </WindowTitles>
+                              <SearchConfigurations>
+                                <SearchConfiguration>AlwaysSearch</SearchConfiguration>
+                              </SearchConfigurations>
+                              <AndCondition>
+                                <PropertyCondition Name="ControlType">Page</PropertyCondition>
+                                <PropertyCondition Name="Title">公共交通整体安全系统</PropertyCondition>
+                                <PropertyCondition Name="Source">/SetupStationListView</PropertyCondition>
+                              </AndCondition>
+                              <SupportLevel>0</SupportLevel>
+                              <Descendants>
+                                <UIObject ControlType="Text" Id="UI用户名Text" FriendlyName="用户名" SpecialControlType="None">
+                                  <TechnologyName>Silverlight</TechnologyName>
+                                  <WindowTitles>
+                                    <WindowTitle>PTMS</WindowTitle>
+                                  </WindowTitles>
+                                  <AndCondition>
+                                    <PropertyCondition Name="ControlType">Text</PropertyCondition>
+                                    <PropertyCondition Name="Name">用户名</PropertyCondition>
+                                  </AndCondition>
+                                  <SupportLevel>0</SupportLevel>
+                                  <Descendants>
+                                    <UIObject ControlType="Edit" Id="UIItemEdit" FriendlyName="" SpecialControlType="None">
+                                      <TechnologyName>Silverlight</TechnologyName>
+                                      <WindowTitles>
+                                        <WindowTitle>PTMS</WindowTitle>
+                                      </WindowTitles>
+                                      <SearchConfigurations>
+                                        <SearchConfiguration>NextTo</SearchConfiguration>
+                                      </SearchConfigurations>
+                                      <AndCondition>
+                                        <PropertyCondition Name="ControlType">Edit</PropertyCondition>
+                                      </AndCondition>
+                                      <SupportLevel>0</SupportLevel>
+                                      <Descendants />
+                                    </UIObject>
+                                  </Descendants>
+                                </UIObject>
+                              </Descendants>
+                            </UIObject>
+                            <UIObject ControlType="Page" Id="UIItemPage113" SpecialControlType="None">
+                              <TechnologyName>Silverlight</TechnologyName>
+                              <WindowTitles>
+                                <WindowTitle>PTMS</WindowTitle>
+                              </WindowTitles>
+                              <SearchConfigurations>
+                                <SearchConfiguration>AlwaysSearch</SearchConfiguration>
+                              </SearchConfigurations>
+                              <AndCondition>
+                                <PropertyCondition Name="ControlType">Page</PropertyCondition>
+                                <PropertyCondition Name="Title">公共交通整体安全系统</PropertyCondition>
+                                <PropertyCondition Name="Source">/SetupStationListView</PropertyCondition>
+                              </AndCondition>
+                              <SupportLevel>0</SupportLevel>
+                              <Descendants>
+                                <UIObject ControlType="Text" Id="UI密码Text" FriendlyName="密码" SpecialControlType="None">
+                                  <TechnologyName>Silverlight</TechnologyName>
+                                  <WindowTitles>
+                                    <WindowTitle>PTMS</WindowTitle>
+                                  </WindowTitles>
+                                  <AndCondition>
+                                    <PropertyCondition Name="ControlType">Text</PropertyCondition>
+                                    <PropertyCondition Name="Name">密码</PropertyCondition>
+                                  </AndCondition>
+                                  <SupportLevel>0</SupportLevel>
+                                  <Descendants>
+                                    <UIObject ControlType="Edit" Id="UIItemEdit" FriendlyName="" SpecialControlType="None">
+                                      <TechnologyName>Silverlight</TechnologyName>
+                                      <WindowTitles>
+                                        <WindowTitle>PTMS</WindowTitle>
+                                      </WindowTitles>
+                                      <SearchConfigurations>
+                                        <SearchConfiguration>NextTo</SearchConfiguration>
+                                      </SearchConfigurations>
+                                      <AndCondition>
+                                        <PropertyCondition Name="ControlType">Edit</PropertyCondition>
+                                      </AndCondition>
+                                      <SupportLevel>0</SupportLevel>
+                                      <Descendants />
+                                    </UIObject>
+                                  </Descendants>
+                                </UIObject>
+                              </Descendants>
+                            </UIObject>
+                            <UIObject ControlType="Page" Id="UIItemPage114" SpecialControlType="None">
+                              <TechnologyName>Silverlight</TechnologyName>
+                              <WindowTitles>
+                                <WindowTitle>PTMS</WindowTitle>
+                              </WindowTitles>
+                              <SearchConfigurations>
+                                <SearchConfiguration>AlwaysSearch</SearchConfiguration>
+                              </SearchConfigurations>
+                              <AndCondition>
+                                <PropertyCondition Name="ControlType">Page</PropertyCondition>
+                                <PropertyCondition Name="Title">公共交通整体安全系统</PropertyCondition>
+                                <PropertyCondition Name="Source">/SetupStationListView</PropertyCondition>
+                              </AndCondition>
+                              <SupportLevel>0</SupportLevel>
+                              <Descendants>
+                                <UIObject ControlType="Text" Id="UI密码Text" FriendlyName="密码" SpecialControlType="None">
+                                  <TechnologyName>Silverlight</TechnologyName>
+                                  <WindowTitles>
+                                    <WindowTitle>PTMS</WindowTitle>
+                                  </WindowTitles>
+                                  <AndCondition>
+                                    <PropertyCondition Name="ControlType">Text</PropertyCondition>
+                                    <PropertyCondition Name="Name">密码</PropertyCondition>
+                                  </AndCondition>
+                                  <SupportLevel>0</SupportLevel>
+                                  <Descendants>
+                                    <UIObject ControlType="Edit" Id="UIItemEdit" FriendlyName="" SpecialControlType="None">
+                                      <TechnologyName>Silverlight</TechnologyName>
+                                      <WindowTitles>
+                                        <WindowTitle>PTMS</WindowTitle>
+                                      </WindowTitles>
+                                      <SearchConfigurations>
+                                        <SearchConfiguration>NextTo</SearchConfiguration>
+                                      </SearchConfigurations>
+                                      <AndCondition>
+                                        <PropertyCondition Name="ControlType">Edit</PropertyCondition>
+                                      </AndCondition>
+                                      <SupportLevel>0</SupportLevel>
+                                      <Descendants />
+                                    </UIObject>
+                                  </Descendants>
+                                </UIObject>
+                              </Descendants>
+                            </UIObject>
+                            <UIObject ControlType="Page" Id="UIItemPage115" SpecialControlType="None">
+                              <TechnologyName>Silverlight</TechnologyName>
+                              <WindowTitles>
+                                <WindowTitle>PTMS</WindowTitle>
+                              </WindowTitles>
+                              <SearchConfigurations>
+                                <SearchConfiguration>AlwaysSearch</SearchConfiguration>
+                              </SearchConfigurations>
+                              <AndCondition>
+                                <PropertyCondition Name="ControlType">Page</PropertyCondition>
+                                <PropertyCondition Name="Title">公共交通整体安全系统</PropertyCondition>
+                                <PropertyCondition Name="Source">/SetupStationListView</PropertyCondition>
+                              </AndCondition>
+                              <SupportLevel>0</SupportLevel>
+                              <Descendants>
+                                <UIObject ControlType="Text" Id="UI确认密码Text" FriendlyName="确认密码" SpecialControlType="None">
+                                  <TechnologyName>Silverlight</TechnologyName>
+                                  <WindowTitles>
+                                    <WindowTitle>PTMS</WindowTitle>
+                                  </WindowTitles>
+                                  <AndCondition>
+                                    <PropertyCondition Name="ControlType">Text</PropertyCondition>
+                                    <PropertyCondition Name="Name">确认密码</PropertyCondition>
+                                  </AndCondition>
+                                  <SupportLevel>0</SupportLevel>
+                                  <Descendants>
+                                    <UIObject ControlType="Edit" Id="UIItemEdit" FriendlyName="" SpecialControlType="None">
+                                      <TechnologyName>Silverlight</TechnologyName>
+                                      <WindowTitles>
+                                        <WindowTitle>PTMS</WindowTitle>
+                                      </WindowTitles>
+                                      <SearchConfigurations>
+                                        <SearchConfiguration>NextTo</SearchConfiguration>
+                                      </SearchConfigurations>
+                                      <AndCondition>
+                                        <PropertyCondition Name="ControlType">Edit</PropertyCondition>
+                                      </AndCondition>
+                                      <SupportLevel>0</SupportLevel>
+                                      <Descendants />
+                                    </UIObject>
+                                  </Descendants>
+                                </UIObject>
+                              </Descendants>
+                            </UIObject>
+                            <UIObject ControlType="Page" Id="UIItemPage116" SpecialControlType="None">
+                              <TechnologyName>Silverlight</TechnologyName>
+                              <WindowTitles>
+                                <WindowTitle>PTMS</WindowTitle>
+                              </WindowTitles>
+                              <SearchConfigurations>
+                                <SearchConfiguration>AlwaysSearch</SearchConfiguration>
+                              </SearchConfigurations>
+                              <AndCondition>
+                                <PropertyCondition Name="ControlType">Page</PropertyCondition>
+                                <PropertyCondition Name="Title">公共交通整体安全系统</PropertyCondition>
+                                <PropertyCondition Name="Source">/SetupStationListView</PropertyCondition>
+                              </AndCondition>
+                              <SupportLevel>0</SupportLevel>
+                              <Descendants>
+                                <UIObject ControlType="Text" Id="UI确认密码Text" FriendlyName="确认密码" SpecialControlType="None">
+                                  <TechnologyName>Silverlight</TechnologyName>
+                                  <WindowTitles>
+                                    <WindowTitle>PTMS</WindowTitle>
+                                  </WindowTitles>
+                                  <AndCondition>
+                                    <PropertyCondition Name="ControlType">Text</PropertyCondition>
+                                    <PropertyCondition Name="Name">确认密码</PropertyCondition>
+                                  </AndCondition>
+                                  <SupportLevel>0</SupportLevel>
+                                  <Descendants>
+                                    <UIObject ControlType="Edit" Id="UIItemEdit" FriendlyName="" SpecialControlType="None">
+                                      <TechnologyName>Silverlight</TechnologyName>
+                                      <WindowTitles>
+                                        <WindowTitle>PTMS</WindowTitle>
+                                      </WindowTitles>
+                                      <SearchConfigurations>
+                                        <SearchConfiguration>NextTo</SearchConfiguration>
+                                      </SearchConfigurations>
+                                      <AndCondition>
+                                        <PropertyCondition Name="ControlType">Edit</PropertyCondition>
+                                      </AndCondition>
+                                      <SupportLevel>0</SupportLevel>
+                                      <Descendants />
+                                    </UIObject>
+                                  </Descendants>
+                                </UIObject>
+                              </Descendants>
+                            </UIObject>
+                            <UIObject ControlType="Page" Id="UIItemPage117" SpecialControlType="None">
+                              <TechnologyName>Silverlight</TechnologyName>
+                              <WindowTitles>
+                                <WindowTitle>PTMS</WindowTitle>
+                              </WindowTitles>
+                              <SearchConfigurations>
+                                <SearchConfiguration>AlwaysSearch</SearchConfiguration>
+                              </SearchConfigurations>
+                              <AndCondition>
+                                <PropertyCondition Name="ControlType">Page</PropertyCondition>
+                                <PropertyCondition Name="Title">公共交通整体安全系统</PropertyCondition>
+                                <PropertyCondition Name="Source">/SetupStationListView</PropertyCondition>
+                              </AndCondition>
+                              <SupportLevel>0</SupportLevel>
+                              <Descendants>
+                                <UIObject ControlType="Text" Id="UI电话Text" FriendlyName="电话" SpecialControlType="None">
+                                  <TechnologyName>Silverlight</TechnologyName>
+                                  <WindowTitles>
+                                    <WindowTitle>PTMS</WindowTitle>
+                                  </WindowTitles>
+                                  <AndCondition>
+                                    <PropertyCondition Name="ControlType">Text</PropertyCondition>
+                                    <PropertyCondition Name="Name">电话</PropertyCondition>
+                                  </AndCondition>
+                                  <SupportLevel>0</SupportLevel>
+                                  <Descendants>
+                                    <UIObject ControlType="Edit" Id="UIItemEdit" FriendlyName="" SpecialControlType="None">
+                                      <TechnologyName>Silverlight</TechnologyName>
+                                      <WindowTitles>
+                                        <WindowTitle>PTMS</WindowTitle>
+                                      </WindowTitles>
+                                      <SearchConfigurations>
+                                        <SearchConfiguration>NextTo</SearchConfiguration>
+                                      </SearchConfigurations>
+                                      <AndCondition>
+                                        <PropertyCondition Name="ControlType">Edit</PropertyCondition>
+                                      </AndCondition>
+                                      <SupportLevel>0</SupportLevel>
+                                      <Descendants />
+                                    </UIObject>
+                                  </Descendants>
+                                </UIObject>
+                              </Descendants>
+                            </UIObject>
+                            <UIObject ControlType="Page" Id="UIItemPage118" SpecialControlType="None">
+                              <TechnologyName>Silverlight</TechnologyName>
+                              <WindowTitles>
+                                <WindowTitle>PTMS</WindowTitle>
+                              </WindowTitles>
+                              <SearchConfigurations>
+                                <SearchConfiguration>AlwaysSearch</SearchConfiguration>
+                              </SearchConfigurations>
+                              <AndCondition>
+                                <PropertyCondition Name="ControlType">Page</PropertyCondition>
+                                <PropertyCondition Name="Title">公共交通整体安全系统</PropertyCondition>
+                                <PropertyCondition Name="Source">/SetupStationListView</PropertyCondition>
+                              </AndCondition>
+                              <SupportLevel>0</SupportLevel>
+                              <Descendants>
+                                <UIObject ControlType="ComboBox" Id="UICmbprovinceComboBox" FriendlyName="cmbprovince" SpecialControlType="None">
+                                  <TechnologyName>Silverlight</TechnologyName>
+                                  <WindowTitles>
+                                    <WindowTitle>PTMS</WindowTitle>
+                                  </WindowTitles>
+                                  <AndCondition>
+                                    <PropertyCondition Name="ControlType">ComboBox</PropertyCondition>
+                                    <PropertyCondition Name="AutomationId">cmbprovince</PropertyCondition>
+                                  </AndCondition>
+                                  <SupportLevel>0</SupportLevel>
+                                  <Descendants />
+                                </UIObject>
+                              </Descendants>
+                            </UIObject>
+                            <UIObject ControlType="Page" Id="UIItemPage119" SpecialControlType="None">
+                              <TechnologyName>Silverlight</TechnologyName>
+                              <WindowTitles>
+                                <WindowTitle>PTMS</WindowTitle>
+                              </WindowTitles>
+                              <SearchConfigurations>
+                                <SearchConfiguration>AlwaysSearch</SearchConfiguration>
+                              </SearchConfigurations>
+                              <AndCondition>
+                                <PropertyCondition Name="ControlType">Page</PropertyCondition>
+                                <PropertyCondition Name="Title">公共交通整体安全系统</PropertyCondition>
+                                <PropertyCondition Name="Source">/SetupStationListView</PropertyCondition>
+                              </AndCondition>
+                              <SupportLevel>0</SupportLevel>
+                              <Descendants>
+                                <UIObject ControlType="ComboBox" Id="UICmbcitynameComboBox" FriendlyName="cmbcityname" SpecialControlType="None">
+                                  <TechnologyName>Silverlight</TechnologyName>
+                                  <WindowTitles>
+                                    <WindowTitle>PTMS</WindowTitle>
+                                  </WindowTitles>
+                                  <AndCondition>
+                                    <PropertyCondition Name="ControlType">ComboBox</PropertyCondition>
+                                    <PropertyCondition Name="AutomationId">cmbcityname</PropertyCondition>
+                                  </AndCondition>
+                                  <SupportLevel>0</SupportLevel>
+                                  <Descendants />
+                                </UIObject>
+                              </Descendants>
+                            </UIObject>
+                            <UIObject ControlType="Page" Id="UIItemPage120" SpecialControlType="None">
+                              <TechnologyName>Silverlight</TechnologyName>
+                              <WindowTitles>
+                                <WindowTitle>PTMS</WindowTitle>
+                              </WindowTitles>
+                              <SearchConfigurations>
+                                <SearchConfiguration>AlwaysSearch</SearchConfiguration>
+                              </SearchConfigurations>
+                              <AndCondition>
+                                <PropertyCondition Name="ControlType">Page</PropertyCondition>
+                                <PropertyCondition Name="Title">公共交通整体安全系统</PropertyCondition>
+                                <PropertyCondition Name="Source">/SetupStationListView</PropertyCondition>
+                              </AndCondition>
+                              <SupportLevel>0</SupportLevel>
+                              <Descendants>
+                                <UIObject ControlType="ComboBox" Id="UICmbSetupStationComboBox" FriendlyName="cmbSetupStation" SpecialControlType="None">
+                                  <TechnologyName>Silverlight</TechnologyName>
+                                  <WindowTitles>
+                                    <WindowTitle>PTMS</WindowTitle>
+                                  </WindowTitles>
+                                  <AndCondition>
+                                    <PropertyCondition Name="ControlType">ComboBox</PropertyCondition>
+                                    <PropertyCondition Name="AutomationId">cmbSetupStation</PropertyCondition>
+                                  </AndCondition>
+                                  <SupportLevel>0</SupportLevel>
+                                  <Descendants />
+                                </UIObject>
+                              </Descendants>
+                            </UIObject>
+                            <UIObject ControlType="Page" Id="UIItemPage121" SpecialControlType="None">
+                              <TechnologyName>Silverlight</TechnologyName>
+                              <WindowTitles>
+                                <WindowTitle>PTMS</WindowTitle>
+                              </WindowTitles>
+                              <SearchConfigurations>
+                                <SearchConfiguration>AlwaysSearch</SearchConfiguration>
+                              </SearchConfigurations>
+                              <AndCondition>
+                                <PropertyCondition Name="ControlType">Page</PropertyCondition>
+                                <PropertyCondition Name="Title">公共交通整体安全系统</PropertyCondition>
+                                <PropertyCondition Name="Source">/SetupStationListView</PropertyCondition>
+                              </AndCondition>
+                              <SupportLevel>0</SupportLevel>
+                              <Descendants>
+                                <UIObject ControlType="Text" Id="UI备注Text" FriendlyName="备注" SpecialControlType="None">
+                                  <TechnologyName>Silverlight</TechnologyName>
+                                  <WindowTitles>
+                                    <WindowTitle>PTMS</WindowTitle>
+                                  </WindowTitles>
+                                  <AndCondition>
+                                    <PropertyCondition Name="ControlType">Text</PropertyCondition>
+                                    <PropertyCondition Name="Name">备注</PropertyCondition>
+                                  </AndCondition>
+                                  <SupportLevel>0</SupportLevel>
+                                  <Descendants>
+                                    <UIObject ControlType="Button" Id="UIItemButton" SpecialControlType="None">
+                                      <TechnologyName>Silverlight</TechnologyName>
+                                      <WindowTitles>
+                                        <WindowTitle>PTMS</WindowTitle>
+                                      </WindowTitles>
+                                      <SearchConfigurations>
+                                        <SearchConfiguration>NextTo</SearchConfiguration>
+                                      </SearchConfigurations>
+                                      <AndCondition>
+                                        <PropertyCondition Name="ControlType">Button</PropertyCondition>
+                                      </AndCondition>
+                                      <SupportLevel>0</SupportLevel>
+                                      <Descendants />
+                                    </UIObject>
+                                  </Descendants>
+                                </UIObject>
+                              </Descendants>
+                            </UIObject>
+                          </Descendants>
+                        </UIObject>
+                        <UIObject ControlType="Window" Id="UIItemWindow" SpecialControlType="None">
+                          <TechnologyName>Silverlight</TechnologyName>
+                          <WindowTitles>
+                            <WindowTitle>PTMS</WindowTitle>
+                          </WindowTitles>
+                          <AndCondition>
+                            <PropertyCondition Name="ControlType">Window</PropertyCondition>
+                          </AndCondition>
+                          <SupportLevel>0</SupportLevel>
+                          <Descendants>
+                            <UIObject ControlType="ChildWindow" Id="UI重置密码ChildWindow" FriendlyName="重置密码" SpecialControlType="None">
+                              <TechnologyName>Silverlight</TechnologyName>
+                              <WindowTitles>
+                                <WindowTitle>PTMS</WindowTitle>
+                              </WindowTitles>
+                              <AndCondition>
+                                <PropertyCondition Name="ControlType">ChildWindow</PropertyCondition>
+                                <PropertyCondition Name="Name">重置密码</PropertyCondition>
+                              </AndCondition>
+                              <SupportLevel>0</SupportLevel>
+                              <Descendants>
+                                <UIObject ControlType="Edit" Id="UINewPasswordBoxEdit" FriendlyName="newPasswordBox" SpecialControlType="None">
+                                  <TechnologyName>Silverlight</TechnologyName>
+                                  <WindowTitles>
+                                    <WindowTitle>PTMS</WindowTitle>
+                                  </WindowTitles>
+                                  <AndCondition>
+                                    <PropertyCondition Name="ControlType">Edit</PropertyCondition>
+                                    <PropertyCondition Name="AutomationId">newPasswordBox</PropertyCondition>
+                                  </AndCondition>
+                                  <SupportLevel>0</SupportLevel>
+                                  <Descendants />
+                                </UIObject>
+                                <UIObject ControlType="Edit" Id="UIConfirmPasswordBoxEdit" FriendlyName="confirmPasswordBox" SpecialControlType="None">
+                                  <TechnologyName>Silverlight</TechnologyName>
+                                  <WindowTitles>
+                                    <WindowTitle>PTMS</WindowTitle>
+                                  </WindowTitles>
+                                  <AndCondition>
+                                    <PropertyCondition Name="ControlType">Edit</PropertyCondition>
+                                    <PropertyCondition Name="AutomationId">confirmPasswordBox</PropertyCondition>
+                                  </AndCondition>
+                                  <SupportLevel>0</SupportLevel>
+                                  <Descendants />
+                                </UIObject>
+                                <UIObject ControlType="Button" Id="UIOKButtonButton" FriendlyName="OKButton" SpecialControlType="None">
+                                  <TechnologyName>Silverlight</TechnologyName>
+                                  <WindowTitles>
+                                    <WindowTitle>PTMS</WindowTitle>
+                                  </WindowTitles>
+                                  <AndCondition>
+                                    <PropertyCondition Name="ControlType">Button</PropertyCondition>
+                                    <PropertyCondition Name="AutomationId">OKButton</PropertyCondition>
+                                  </AndCondition>
+                                  <SupportLevel>0</SupportLevel>
+                                  <Descendants />
+                                </UIObject>
+                              </Descendants>
+                            </UIObject>
+                          </Descendants>
+                        </UIObject>
+                      </Descendants>
+                    </UIObject>
+                  </Descendants>
+                </UIObject>
+              </Descendants>
+            </UIObject>
+          </Descendants>
+        </TopLevelWindow>
+        <TopLevelWindow ControlType="Window" Id="UI提示Window" FriendlyName="提示" SpecialControlType="None" SessionId="14484742">
+          <TechnologyName>MSAA</TechnologyName>
+          <WindowTitles>
+            <WindowTitle>提示</WindowTitle>
+          </WindowTitles>
+          <SearchConfigurations>
+            <SearchConfiguration>VisibleOnly</SearchConfiguration>
+          </SearchConfigurations>
+          <AndCondition Id="SearchCondition">
+            <PropertyCondition Name="Name">提示</PropertyCondition>
+            <PropertyCondition Name="ClassName">#32770</PropertyCondition>
+            <PropertyCondition Name="ControlType">Window</PropertyCondition>
+          </AndCondition>
+          <SupportLevel>0</SupportLevel>
+          <Descendants>
+            <UIObject ControlType="Window" Id="UI确定Window" FriendlyName="确定" SpecialControlType="None">
+              <TechnologyName>MSAA</TechnologyName>
+              <WindowTitles>
+                <WindowTitle>提示</WindowTitle>
+              </WindowTitles>
+              <SearchConfigurations>
+                <SearchConfiguration>VisibleOnly</SearchConfiguration>
+              </SearchConfigurations>
+              <AndCondition Id="SearchCondition">
+                <PropertyCondition Name="ControlId">1</PropertyCondition>
+                <PropertyCondition Name="ControlType">Window</PropertyCondition>
+              </AndCondition>
+              <SupportLevel>0</SupportLevel>
+              <Descendants>
+                <UIObject ControlType="Button" Id="UI确定Button" FriendlyName="确定" SpecialControlType="None">
+                  <TechnologyName>MSAA</TechnologyName>
+                  <WindowTitles>
+                    <WindowTitle>提示</WindowTitle>
+                  </WindowTitles>
+                  <SearchConfigurations>
+                    <SearchConfiguration>VisibleOnly</SearchConfiguration>
+                  </SearchConfigurations>
+                  <AndCondition Id="SearchCondition">
+                    <PropertyCondition Name="Name">确定</PropertyCondition>
+                    <PropertyCondition Name="ControlType">Button</PropertyCondition>
+                  </AndCondition>
+                  <SupportLevel>0</SupportLevel>
+                  <Descendants />
+                </UIObject>
+              </Descendants>
+            </UIObject>
+            <UIObject ControlType="Window" Id="UI确定Window1" FriendlyName="确定" SpecialControlType="None">
+              <TechnologyName>MSAA</TechnologyName>
+              <WindowTitles>
+                <WindowTitle>提示</WindowTitle>
+              </WindowTitles>
+              <SearchConfigurations>
+                <SearchConfiguration>VisibleOnly</SearchConfiguration>
+              </SearchConfigurations>
+              <AndCondition Id="SearchCondition">
+                <PropertyCondition Name="ControlId">2</PropertyCondition>
+                <PropertyCondition Name="ControlType">Window</PropertyCondition>
+              </AndCondition>
+              <SupportLevel>0</SupportLevel>
+              <Descendants>
+                <UIObject ControlType="Button" Id="UI确定Button" FriendlyName="确定" SpecialControlType="None">
+                  <TechnologyName>MSAA</TechnologyName>
+                  <WindowTitles>
+                    <WindowTitle>提示</WindowTitle>
+                  </WindowTitles>
+                  <SearchConfigurations>
+                    <SearchConfiguration>VisibleOnly</SearchConfiguration>
+                  </SearchConfigurations>
+                  <AndCondition Id="SearchCondition">
+                    <PropertyCondition Name="Name">确定</PropertyCondition>
+                    <PropertyCondition Name="ControlType">Button</PropertyCondition>
+                  </AndCondition>
+                  <SupportLevel>0</SupportLevel>
+                  <Descendants />
+                </UIObject>
+              </Descendants>
+            </UIObject>
+          </Descendants>
+        </TopLevelWindow>
+      </TopLevelWindows>
+    </UIMap>
+  </Maps>
+  <ValueMap>
+    <ParameterList />
+  </ValueMap>
+</UITest>

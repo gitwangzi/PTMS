@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="SystemRubbishService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:2259/SystemRubbishService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:2259/SystemRubbishService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:2259/SystemRubbishService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" />
+      <xsd:import schemaLocation="http://localhost:2259/SystemRubbishService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/System" />
+      <xsd:import schemaLocation="http://localhost:2259/SystemRubbishService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Common.Data" />
+      <xsd:import schemaLocation="http://localhost:2259/SystemRubbishService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Common.Enum" />
+      <xsd:import schemaLocation="http://localhost:2259/SystemRubbishService.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Common.Data.Enum" />
+      <xsd:import schemaLocation="http://localhost:2259/SystemRubbishService.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Manager.Contract.Data" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ISystemRubbishService_GetAbandonVehicleList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAbandonVehicleList" />
+  </wsdl:message>
+  <wsdl:message name="ISystemRubbishService_GetAbandonVehicleList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAbandonVehicleListResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISystemRubbishService_RecoverVehicle_InputMessage">
+    <wsdl:part name="parameters" element="tns:RecoverVehicle" />
+  </wsdl:message>
+  <wsdl:message name="ISystemRubbishService_RecoverVehicle_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RecoverVehicleResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISystemRubbishService_GetAbandonDevSuiteList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAbandonDevSuiteList" />
+  </wsdl:message>
+  <wsdl:message name="ISystemRubbishService_GetAbandonDevSuiteList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAbandonDevSuiteListResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISystemRubbishService_RecoverDevSuite_InputMessage">
+    <wsdl:part name="parameters" element="tns:RecoverDevSuite" />
+  </wsdl:message>
+  <wsdl:message name="ISystemRubbishService_RecoverDevSuite_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RecoverDevSuiteResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISystemRubbishService_GetAbandonGUserList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAbandonGUserList" />
+  </wsdl:message>
+  <wsdl:message name="ISystemRubbishService_GetAbandonGUserList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAbandonGUserListResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISystemRubbishService_RecoverGUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:RecoverGUser" />
+  </wsdl:message>
+  <wsdl:message name="ISystemRubbishService_RecoverGUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RecoverGUserResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ISystemRubbishService">
+    <wsdl:operation name="GetAbandonVehicleList">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISystemRubbishService/GetAbandonVehicleList" message="tns:ISystemRubbishService_GetAbandonVehicleList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISystemRubbishService/GetAbandonVehicleListResponse" message="tns:ISystemRubbishService_GetAbandonVehicleList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RecoverVehicle">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISystemRubbishService/RecoverVehicle" message="tns:ISystemRubbishService_RecoverVehicle_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISystemRubbishService/RecoverVehicleResponse" message="tns:ISystemRubbishService_RecoverVehicle_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAbandonDevSuiteList">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISystemRubbishService/GetAbandonDevSuiteList" message="tns:ISystemRubbishService_GetAbandonDevSuiteList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISystemRubbishService/GetAbandonDevSuiteListResponse" message="tns:ISystemRubbishService_GetAbandonDevSuiteList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RecoverDevSuite">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISystemRubbishService/RecoverDevSuite" message="tns:ISystemRubbishService_RecoverDevSuite_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISystemRubbishService/RecoverDevSuiteResponse" message="tns:ISystemRubbishService_RecoverDevSuite_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAbandonGUserList">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISystemRubbishService/GetAbandonGUserList" message="tns:ISystemRubbishService_GetAbandonGUserList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISystemRubbishService/GetAbandonGUserListResponse" message="tns:ISystemRubbishService_GetAbandonGUserList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RecoverGUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISystemRubbishService/RecoverGUser" message="tns:ISystemRubbishService_RecoverGUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISystemRubbishService/RecoverGUserResponse" message="tns:ISystemRubbishService_RecoverGUser_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_ISystemRubbishService" type="tns:ISystemRubbishService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetAbandonVehicleList">
+      <soap:operation soapAction="http://tempuri.org/ISystemRubbishService/GetAbandonVehicleList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RecoverVehicle">
+      <soap:operation soapAction="http://tempuri.org/ISystemRubbishService/RecoverVehicle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAbandonDevSuiteList">
+      <soap:operation soapAction="http://tempuri.org/ISystemRubbishService/GetAbandonDevSuiteList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RecoverDevSuite">
+      <soap:operation soapAction="http://tempuri.org/ISystemRubbishService/RecoverDevSuite" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAbandonGUserList">
+      <soap:operation soapAction="http://tempuri.org/ISystemRubbishService/GetAbandonGUserList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RecoverGUser">
+      <soap:operation soapAction="http://tempuri.org/ISystemRubbishService/RecoverGUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SystemRubbishService">
+    <wsdl:port name="BasicHttpBinding_ISystemRubbishService" binding="tns:BasicHttpBinding_ISystemRubbishService">
+      <soap:address location="http://localhost:2259/SystemRubbishService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

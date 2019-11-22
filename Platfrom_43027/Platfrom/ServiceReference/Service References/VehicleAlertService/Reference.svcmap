@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="a556a61a-10f8-4f9f-8d2a-6cd00d78d45f" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>true</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.ObjectModel.ObservableCollection`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>false</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:2259/VehicleAlertService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="VehicleAlertService2.xsd" MetadataType="Schema" ID="bb1acd10-6de6-47dd-8133-79c45da751a0" SourceId="1" SourceUrl="http://localhost:2259/VehicleAlertService.svc?xsd=xsd5" />
+    <MetadataFile FileName="VehicleAlertService.disco" MetadataType="Disco" ID="947a6492-82f9-4d43-bf9b-96f388634f5c" SourceId="1" SourceUrl="http://localhost:2259/VehicleAlertService.svc?disco" />
+    <MetadataFile FileName="VehicleAlertService21.xsd" MetadataType="Schema" ID="ce01dc2a-0976-4d53-9e76-d3c4e8a99b7b" SourceId="1" SourceUrl="http://localhost:2259/VehicleAlertService.svc?xsd=xsd4" />
+    <MetadataFile FileName="VehicleAlertService22.xsd" MetadataType="Schema" ID="f4b7fce7-7614-4102-9273-e0cff4938247" SourceId="1" SourceUrl="http://localhost:2259/VehicleAlertService.svc?xsd=xsd6" />
+    <MetadataFile FileName="VehicleAlertService23.xsd" MetadataType="Schema" ID="72ff780e-1eae-42c3-825a-f55f5c935feb" SourceId="1" SourceUrl="http://localhost:2259/VehicleAlertService.svc?xsd=xsd1" />
+    <MetadataFile FileName="VehicleAlertService24.xsd" MetadataType="Schema" ID="297c7be9-9cc5-42d6-8d80-2dde366c4d72" SourceId="1" SourceUrl="http://localhost:2259/VehicleAlertService.svc?xsd=xsd0" />
+    <MetadataFile FileName="VehicleAlertService25.xsd" MetadataType="Schema" ID="0f205dc9-74d8-4907-9d5c-6e160f4d69c6" SourceId="1" SourceUrl="http://localhost:2259/VehicleAlertService.svc?xsd=xsd3" />
+    <MetadataFile FileName="VehicleAlertService26.xsd" MetadataType="Schema" ID="c62a7f95-113e-4d31-8e7f-af0995f7164f" SourceId="1" SourceUrl="http://localhost:2259/VehicleAlertService.svc?xsd=xsd2" />
+    <MetadataFile FileName="VehicleAlertService.wsdl" MetadataType="Wsdl" ID="3e244f92-5bc2-4351-bbd6-fbc8cce623da" SourceId="1" SourceUrl="http://localhost:2259/VehicleAlertService.svc?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

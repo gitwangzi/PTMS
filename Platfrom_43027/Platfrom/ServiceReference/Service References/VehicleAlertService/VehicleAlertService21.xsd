@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Alert.Contract.Data" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Alert.Contract.Data" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ArrayOfVehicleAlertEx">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="VehicleAlertEx" nillable="true" type="tns:VehicleAlertEx" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfVehicleAlertEx" nillable="true" type="tns:ArrayOfVehicleAlertEx" />
+  <xs:complexType name="VehicleAlertEx">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:VehicleAlert">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AlertId" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="BUSINESS_ALERT_ID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Content" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DisposeStaff" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DisposeTime" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="VehicleAlertEx" nillable="true" type="tns:VehicleAlertEx" />
+  <xs:complexType name="VehicleAlert">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AlertTime" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="AlertType" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="City" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Cmd" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Direction" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GpsTime" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="GpsValid" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsLocation" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsMonitor" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Latitude" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Longitude" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MdvrCoreId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Owner_Phone" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Province" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Speed" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Status" type="xs:int" />
+      <xs:element minOccurs="0" name="SuiteInfoId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VehicleId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VehicleOwner" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VehicleType" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="VehicleAlert" nillable="true" type="tns:VehicleAlert" />
+  <xs:complexType name="VehicleAlertTreatment">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AlertId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AlertTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Alerttype" type="xs:int" />
+      <xs:element minOccurs="0" name="Content" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DisposeStaff" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MDVRID" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="VehicleAlertTreatment" nillable="true" type="tns:VehicleAlertTreatment" />
+  <xs:complexType name="VehicleAlertDetail">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:VehicleAlert">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CityName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ProvinceName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SuiteId" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="VehicleAlertDetail" nillable="true" type="tns:VehicleAlertDetail" />
+  <xs:complexType name="ArrayOfVehicleFenceAlert">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="VehicleFenceAlert" nillable="true" type="tns:VehicleFenceAlert" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfVehicleFenceAlert" nillable="true" type="tns:ArrayOfVehicleFenceAlert" />
+  <xs:complexType name="VehicleFenceAlert">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:DeviceAlert">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="InFenceTime" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OutFenceTime" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="alertType" type="xs:short" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="VehicleFenceAlert" nillable="true" type="tns:VehicleFenceAlert" />
+  <xs:complexType name="DeviceAlert">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AdditionalInfo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AlertTime" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="AlertType" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="AlertTypeName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CheckID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ClientID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Cmd" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CreateTime" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Direction" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DistrictCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GpsTime" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="GpsValid" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="HandleId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Latitude" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Longitude" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MdvrCoreId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RuleId" type="xs:int" />
+      <xs:element minOccurs="0" name="ShowType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Speed" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Status" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="SuiteId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SuiteInfoId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SuiteStatus" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="TagValue" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VehicleId" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DeviceAlert" nillable="true" type="tns:DeviceAlert" />
+</xs:schema>

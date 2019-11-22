@@ -1,0 +1,64 @@
+﻿<UserControl
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk" x:Class="Gsafety.PTMS.Manager.Views.VideoDetail"
+    mc:Ignorable="d"
+  d:DesignHeight="768" d:DesignWidth="1024">
+
+    <Grid x:Name="LayoutRoot"  Width="Auto" Height="Auto"  Background="{StaticResource DetailBG}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Border BorderThickness="0,1,0,1" BorderBrush="{StaticResource MenuBarLine}" Background="{StaticResource NavBarBG}" Height="35" Grid.RowSpan="3" Grid.Row="0"  VerticalAlignment="Top" ScrollViewer.HorizontalScrollBarVisibility="Auto"/>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="视频详情" VerticalAlignment="Center" Margin="36,0,0,0"  Style="{StaticResource Menu2TextBlock}"/>
+        <Image Stretch="None" Source="/ExternalResource;component/Images/navigation.png" Margin="10,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" />
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="28"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="200"/>
+                <RowDefinition Height="50"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="55.224"/>
+                <ColumnDefinition Width="25.373"/>
+                <ColumnDefinition Width="126.403"/>
+                <ColumnDefinition Width="305*"/>
+            </Grid.ColumnDefinitions>
+            <sdk:Label Grid.Column="2" HorizontalAlignment="Right" Height="28" Margin="59.403,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="57"   FontSize="14" Content="{Binding [MANAGER_Downloader:], Source={StaticResource SR}}"/>
+            <sdk:Label Grid.Column="2" HorizontalAlignment="Right" Height="28" Margin="59.403,10,0,0" Grid.Row="2" VerticalAlignment="Top" Width="57" FontSize="14" Content="维修时间："/>
+            <sdk:Label Grid.Column="2" HorizontalAlignment="Right" Height="28" Margin="59.403,10,0,0" Grid.Row="3" VerticalAlignment="Top" Width="57" FontSize="14" Content="MDVR芯片号："/>
+            <sdk:Label Grid.Column="2" HorizontalAlignment="Right" Height="28" Margin="59.403,10,0,0" Grid.Row="4" VerticalAlignment="Top" Width="57" FontSize="14" Content="车牌号："/>
+            <sdk:Label Grid.Column="2" HorizontalAlignment="Right" Height="28" Margin="59.403,10,0,0" Grid.Row="5" VerticalAlignment="Top" Width="57" FontSize="14" Content="频道号："/>
+            <sdk:Label Grid.Column="2" HorizontalAlignment="Right" Height="28" Margin="59.403,10,0,0" Grid.Row="6" VerticalAlignment="Top" Width="57" FontSize="14" Content="下载状态："/>
+            <sdk:Label Grid.Column="2" HorizontalAlignment="Right" Height="28" Margin="59.403,10,0,0" Grid.Row="7" VerticalAlignment="Top" Width="57" FontSize="14" Content="开始下载时间："/>
+            <sdk:Label Grid.Column="2" HorizontalAlignment="Right" Height="28" Margin="59.403,10,0,0" Grid.Row="8" VerticalAlignment="Top" Width="57" FontSize="14" Content="结束下载时间："/>
+            <sdk:Label Grid.Column="2" HorizontalAlignment="Right" Height="28" Margin="59.403,10,0,0" Grid.Row="9" VerticalAlignment="Top" Width="57" FontSize="14" Content="文件名："/>
+
+            <TextBlock Grid.Column="3" HorizontalAlignment="Left" Margin="25,10,0,0" Grid.Row="1" TextWrapping="Wrap" Text="{Binding DownLoader}" VerticalAlignment="Top" RenderTransformOrigin="0.463,-0.75" Width="375" Height="28"/>
+            <TextBlock Grid.Column="3" HorizontalAlignment="Left" Margin="25,10,0,0" Grid.Row="2" TextWrapping="Wrap" Text="{Binding DownLoadTime}" VerticalAlignment="Top" RenderTransformOrigin="0.463,-0.75" Width="375" Height="28"/>
+            <TextBlock Grid.Column="3" HorizontalAlignment="Left" Margin="25,10,0,0" Grid.Row="3" TextWrapping="Wrap" Text="{Binding MDVRId}" VerticalAlignment="Top" RenderTransformOrigin="0.463,-0.75" Width="375" Height="28"/>
+            <TextBlock Grid.Column="3" HorizontalAlignment="Left" Margin="25,10,0,0" Grid.Row="4" TextWrapping="Wrap" Text="{Binding VehicleID}" VerticalAlignment="Top" RenderTransformOrigin="0.463,-0.75" Width="375" Height="28"/>
+            <TextBlock Grid.Column="3" HorizontalAlignment="Left" Margin="25,10,0,0" Grid.Row="5" TextWrapping="Wrap" Text="{Binding ChannelId}" VerticalAlignment="Top" RenderTransformOrigin="0.463,-0.75" Width="375" Height="28"/>
+            <TextBlock Grid.Column="3" HorizontalAlignment="Left" Margin="25,10,0,0" Grid.Row="6" TextWrapping="Wrap" Text="{Binding SubType}" VerticalAlignment="Top" RenderTransformOrigin="0.463,-0.75" Width="375" Height="28"/>
+            <TextBlock Grid.Column="3" HorizontalAlignment="Left" Margin="25,10,0,0" Grid.Row="7" TextWrapping="Wrap" Text="{Binding VideoStartTime}" VerticalAlignment="Top" RenderTransformOrigin="0.463,-0.75" Width="375" Height="28"/>
+            <TextBlock Grid.Column="3" HorizontalAlignment="Left" Margin="25,10,0,0" Grid.Row="8" TextWrapping="Wrap" Text="{Binding VideoEndtime}" VerticalAlignment="Top" RenderTransformOrigin="0.463,-0.75" Width="375" Height="28"/>
+            <TextBlock Grid.Column="3" HorizontalAlignment="Left" Margin="25,10,0,0" Grid.Row="9" TextWrapping="Wrap" Text="gdfgdgdffggggg" VerticalAlignment="Top" RenderTransformOrigin="0.463,-0.75" Width="375" Height="28"/>
+
+
+            <Button Content="返回" Command="{Binding GoBackCommand, Mode=TwoWay}"  Grid.Column="3" HorizontalAlignment="Left" Margin="207,41,0,0" Grid.Row="10" VerticalAlignment="Top" Width="147" Height="33"/>
+
+        </Grid>
+    </Grid>
+</UserControl>

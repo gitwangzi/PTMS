@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="MaintainService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:2258/MaintainService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:2258/MaintainService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:2258/MaintainService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Common.Data" />
+      <xsd:import schemaLocation="http://localhost:2258/MaintainService.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://localhost:2258/MaintainService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" />
+      <xsd:import schemaLocation="http://localhost:2258/MaintainService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/System" />
+      <xsd:import schemaLocation="http://localhost:2258/MaintainService.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.BaseInformation.Contract.Data" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IMaintainApplication_InsertMaintainApplication_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertMaintainApplication" />
+  </wsdl:message>
+  <wsdl:message name="IMaintainApplication_InsertMaintainApplication_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertMaintainApplicationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMaintainApplication_UpdateMaintainApplication_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateMaintainApplication" />
+  </wsdl:message>
+  <wsdl:message name="IMaintainApplication_UpdateMaintainApplication_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateMaintainApplicationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMaintainApplication_DeleteMaintainApplicationByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteMaintainApplicationByID" />
+  </wsdl:message>
+  <wsdl:message name="IMaintainApplication_DeleteMaintainApplicationByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteMaintainApplicationByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMaintainApplication_GetMaintainApplication_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMaintainApplication" />
+  </wsdl:message>
+  <wsdl:message name="IMaintainApplication_GetMaintainApplication_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMaintainApplicationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMaintainApplication_GetMaintainApplicationList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMaintainApplicationList" />
+  </wsdl:message>
+  <wsdl:message name="IMaintainApplication_GetMaintainApplicationList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMaintainApplicationListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMaintainApplication_GetInstallStationList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetInstallStationList" />
+  </wsdl:message>
+  <wsdl:message name="IMaintainApplication_GetInstallStationList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetInstallStationListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMaintainRecord_InsertMaintainRecord_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertMaintainRecord" />
+  </wsdl:message>
+  <wsdl:message name="IMaintainRecord_InsertMaintainRecord_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertMaintainRecordResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMaintainRecord_UpdateMaintainRecord_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateMaintainRecord" />
+  </wsdl:message>
+  <wsdl:message name="IMaintainRecord_UpdateMaintainRecord_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateMaintainRecordResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMaintainRecord_DeleteMaintainRecordByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteMaintainRecordByID" />
+  </wsdl:message>
+  <wsdl:message name="IMaintainRecord_DeleteMaintainRecordByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteMaintainRecordByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMaintainRecord_GetMaintainRecord_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMaintainRecord" />
+  </wsdl:message>
+  <wsdl:message name="IMaintainRecord_GetMaintainRecord_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMaintainRecordResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMaintainRecord_GetMaintainRecordList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMaintainRecordList" />
+  </wsdl:message>
+  <wsdl:message name="IMaintainRecord_GetMaintainRecordList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMaintainRecordListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMaintainRecord_GetMaintainRecordUnfinishedList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMaintainRecordUnfinishedList" />
+  </wsdl:message>
+  <wsdl:message name="IMaintainRecord_GetMaintainRecordUnfinishedList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMaintainRecordUnfinishedListResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IMaintainApplication">
+    <wsdl:operation name="InsertMaintainApplication">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMaintainApplication/InsertMaintainApplication" message="tns:IMaintainApplication_InsertMaintainApplication_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMaintainApplication/InsertMaintainApplicationResponse" message="tns:IMaintainApplication_InsertMaintainApplication_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMaintainApplication">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMaintainApplication/UpdateMaintainApplication" message="tns:IMaintainApplication_UpdateMaintainApplication_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMaintainApplication/UpdateMaintainApplicationResponse" message="tns:IMaintainApplication_UpdateMaintainApplication_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteMaintainApplicationByID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMaintainApplication/DeleteMaintainApplicationByID" message="tns:IMaintainApplication_DeleteMaintainApplicationByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMaintainApplication/DeleteMaintainApplicationByIDResponse" message="tns:IMaintainApplication_DeleteMaintainApplicationByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMaintainApplication">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMaintainApplication/GetMaintainApplication" message="tns:IMaintainApplication_GetMaintainApplication_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMaintainApplication/GetMaintainApplicationResponse" message="tns:IMaintainApplication_GetMaintainApplication_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMaintainApplicationList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMaintainApplication/GetMaintainApplicationList" message="tns:IMaintainApplication_GetMaintainApplicationList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMaintainApplication/GetMaintainApplicationListResponse" message="tns:IMaintainApplication_GetMaintainApplicationList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInstallStationList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMaintainApplication/GetInstallStationList" message="tns:IMaintainApplication_GetInstallStationList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMaintainApplication/GetInstallStationListResponse" message="tns:IMaintainApplication_GetInstallStationList_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="IMaintainRecord">
+    <wsdl:operation name="InsertMaintainRecord">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMaintainRecord/InsertMaintainRecord" message="tns:IMaintainRecord_InsertMaintainRecord_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMaintainRecord/InsertMaintainRecordResponse" message="tns:IMaintainRecord_InsertMaintainRecord_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMaintainRecord">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMaintainRecord/UpdateMaintainRecord" message="tns:IMaintainRecord_UpdateMaintainRecord_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMaintainRecord/UpdateMaintainRecordResponse" message="tns:IMaintainRecord_UpdateMaintainRecord_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteMaintainRecordByID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMaintainRecord/DeleteMaintainRecordByID" message="tns:IMaintainRecord_DeleteMaintainRecordByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMaintainRecord/DeleteMaintainRecordByIDResponse" message="tns:IMaintainRecord_DeleteMaintainRecordByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMaintainRecord">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMaintainRecord/GetMaintainRecord" message="tns:IMaintainRecord_GetMaintainRecord_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMaintainRecord/GetMaintainRecordResponse" message="tns:IMaintainRecord_GetMaintainRecord_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMaintainRecordList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMaintainRecord/GetMaintainRecordList" message="tns:IMaintainRecord_GetMaintainRecordList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMaintainRecord/GetMaintainRecordListResponse" message="tns:IMaintainRecord_GetMaintainRecordList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMaintainRecordUnfinishedList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMaintainRecord/GetMaintainRecordUnfinishedList" message="tns:IMaintainRecord_GetMaintainRecordUnfinishedList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMaintainRecord/GetMaintainRecordUnfinishedListResponse" message="tns:IMaintainRecord_GetMaintainRecordUnfinishedList_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IMaintainApplication" type="tns:IMaintainApplication">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="InsertMaintainApplication">
+      <soap:operation soapAction="http://tempuri.org/IMaintainApplication/InsertMaintainApplication" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMaintainApplication">
+      <soap:operation soapAction="http://tempuri.org/IMaintainApplication/UpdateMaintainApplication" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteMaintainApplicationByID">
+      <soap:operation soapAction="http://tempuri.org/IMaintainApplication/DeleteMaintainApplicationByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMaintainApplication">
+      <soap:operation soapAction="http://tempuri.org/IMaintainApplication/GetMaintainApplication" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMaintainApplicationList">
+      <soap:operation soapAction="http://tempuri.org/IMaintainApplication/GetMaintainApplicationList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInstallStationList">
+      <soap:operation soapAction="http://tempuri.org/IMaintainApplication/GetInstallStationList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BasicHttpBinding_IMaintainRecord" type="tns:IMaintainRecord">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="InsertMaintainRecord">
+      <soap:operation soapAction="http://tempuri.org/IMaintainRecord/InsertMaintainRecord" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMaintainRecord">
+      <soap:operation soapAction="http://tempuri.org/IMaintainRecord/UpdateMaintainRecord" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteMaintainRecordByID">
+      <soap:operation soapAction="http://tempuri.org/IMaintainRecord/DeleteMaintainRecordByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMaintainRecord">
+      <soap:operation soapAction="http://tempuri.org/IMaintainRecord/GetMaintainRecord" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMaintainRecordList">
+      <soap:operation soapAction="http://tempuri.org/IMaintainRecord/GetMaintainRecordList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMaintainRecordUnfinishedList">
+      <soap:operation soapAction="http://tempuri.org/IMaintainRecord/GetMaintainRecordUnfinishedList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="MaintainService">
+    <wsdl:port name="BasicHttpBinding_IMaintainApplication" binding="tns:BasicHttpBinding_IMaintainApplication">
+      <soap:address location="http://localhost:2258/MaintainService.svc" />
+    </wsdl:port>
+    <wsdl:port name="BasicHttpBinding_IMaintainRecord" binding="tns:BasicHttpBinding_IMaintainRecord">
+      <soap:address location="http://localhost:2258/MaintainService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

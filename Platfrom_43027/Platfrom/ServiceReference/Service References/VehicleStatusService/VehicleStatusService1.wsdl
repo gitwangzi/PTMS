@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="VehicleStatusService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:2258/VehicleStatusService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:2258/VehicleStatusService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:2258/VehicleStatusService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" />
+      <xsd:import schemaLocation="http://localhost:2258/VehicleStatusService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/System" />
+      <xsd:import schemaLocation="http://localhost:2258/VehicleStatusService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.SecuritySuite.Contract.Data" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IVehicleStatusService_GetVehicleStatusByDistrict_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetVehicleStatusByDistrict" />
+  </wsdl:message>
+  <wsdl:message name="IVehicleStatusService_GetVehicleStatusByDistrict_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetVehicleStatusByDistrictResponse" />
+  </wsdl:message>
+  <wsdl:message name="IVehicleStatusService_GetVehicleStatusByDistrictEx_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetVehicleStatusByDistrictEx" />
+  </wsdl:message>
+  <wsdl:message name="IVehicleStatusService_GetVehicleStatusByDistrictEx_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetVehicleStatusByDistrictExResponse" />
+  </wsdl:message>
+  <wsdl:message name="IVehicleStatusService_GetVehicleStatusByStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetVehicleStatusByStatus" />
+  </wsdl:message>
+  <wsdl:message name="IVehicleStatusService_GetVehicleStatusByStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetVehicleStatusByStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="IVehicleStatusService_GetVehicleStatusByGroup_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetVehicleStatusByGroup" />
+  </wsdl:message>
+  <wsdl:message name="IVehicleStatusService_GetVehicleStatusByGroup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetVehicleStatusByGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="IVehicleStatusService_GetVehicleStatusByVehicleNumber_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetVehicleStatusByVehicleNumber" />
+  </wsdl:message>
+  <wsdl:message name="IVehicleStatusService_GetVehicleStatusByVehicleNumber_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetVehicleStatusByVehicleNumberResponse" />
+  </wsdl:message>
+  <wsdl:message name="IVehicleStatusService_GetVehicleStatusByTimeSpan_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetVehicleStatusByTimeSpan" />
+  </wsdl:message>
+  <wsdl:message name="IVehicleStatusService_GetVehicleStatusByTimeSpan_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetVehicleStatusByTimeSpanResponse" />
+  </wsdl:message>
+  <wsdl:message name="IVehicleStatusService_GetSuiteStatusFuzzy_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSuiteStatusFuzzy" />
+  </wsdl:message>
+  <wsdl:message name="IVehicleStatusService_GetSuiteStatusFuzzy_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSuiteStatusFuzzyResponse" />
+  </wsdl:message>
+  <wsdl:message name="IVehicleStatusService_GetVehicleTimeSpanFuzzy_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetVehicleTimeSpanFuzzy" />
+  </wsdl:message>
+  <wsdl:message name="IVehicleStatusService_GetVehicleTimeSpanFuzzy_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetVehicleTimeSpanFuzzyResponse" />
+  </wsdl:message>
+  <wsdl:message name="IVehicleStatusService_GetSuiteStatusManagement_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSuiteStatusManagement" />
+  </wsdl:message>
+  <wsdl:message name="IVehicleStatusService_GetSuiteStatusManagement_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSuiteStatusManagementResponse" />
+  </wsdl:message>
+  <wsdl:message name="IVehicleStatusService_RunningToAbnoraml_InputMessage">
+    <wsdl:part name="parameters" element="tns:RunningToAbnoraml" />
+  </wsdl:message>
+  <wsdl:message name="IVehicleStatusService_RunningToAbnoraml_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RunningToAbnoramlResponse" />
+  </wsdl:message>
+  <wsdl:message name="IVehicleStatusService_AbnoramlToRepair_InputMessage">
+    <wsdl:part name="parameters" element="tns:AbnoramlToRepair" />
+  </wsdl:message>
+  <wsdl:message name="IVehicleStatusService_AbnoramlToRepair_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AbnoramlToRepairResponse" />
+  </wsdl:message>
+  <wsdl:message name="IVehicleStatusService_AbnoramlToRunning_InputMessage">
+    <wsdl:part name="parameters" element="tns:AbnoramlToRunning" />
+  </wsdl:message>
+  <wsdl:message name="IVehicleStatusService_AbnoramlToRunning_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AbnoramlToRunningResponse" />
+  </wsdl:message>
+  <wsdl:message name="IVehicleStatusService_RepairToInitial_InputMessage">
+    <wsdl:part name="parameters" element="tns:RepairToInitial" />
+  </wsdl:message>
+  <wsdl:message name="IVehicleStatusService_RepairToInitial_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RepairToInitialResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IVehicleStatusService">
+    <wsdl:operation name="GetVehicleStatusByDistrict">
+      <wsdl:input wsaw:Action="http://tempuri.org/IVehicleStatusService/GetVehicleStatusByDistrict" message="tns:IVehicleStatusService_GetVehicleStatusByDistrict_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IVehicleStatusService/GetVehicleStatusByDistrictResponse" message="tns:IVehicleStatusService_GetVehicleStatusByDistrict_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetVehicleStatusByDistrictEx">
+      <wsdl:input wsaw:Action="http://tempuri.org/IVehicleStatusService/GetVehicleStatusByDistrictEx" message="tns:IVehicleStatusService_GetVehicleStatusByDistrictEx_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IVehicleStatusService/GetVehicleStatusByDistrictExResponse" message="tns:IVehicleStatusService_GetVehicleStatusByDistrictEx_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetVehicleStatusByStatus">
+      <wsdl:input wsaw:Action="http://tempuri.org/IVehicleStatusService/GetVehicleStatusByStatus" message="tns:IVehicleStatusService_GetVehicleStatusByStatus_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IVehicleStatusService/GetVehicleStatusByStatusResponse" message="tns:IVehicleStatusService_GetVehicleStatusByStatus_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetVehicleStatusByGroup">
+      <wsdl:input wsaw:Action="http://tempuri.org/IVehicleStatusService/GetVehicleStatusByGroup" message="tns:IVehicleStatusService_GetVehicleStatusByGroup_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IVehicleStatusService/GetVehicleStatusByGroupResponse" message="tns:IVehicleStatusService_GetVehicleStatusByGroup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetVehicleStatusByVehicleNumber">
+      <wsdl:input wsaw:Action="http://tempuri.org/IVehicleStatusService/GetVehicleStatusByVehicleNumber" message="tns:IVehicleStatusService_GetVehicleStatusByVehicleNumber_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IVehicleStatusService/GetVehicleStatusByVehicleNumberResponse" message="tns:IVehicleStatusService_GetVehicleStatusByVehicleNumber_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetVehicleStatusByTimeSpan">
+      <wsdl:input wsaw:Action="http://tempuri.org/IVehicleStatusService/GetVehicleStatusByTimeSpan" message="tns:IVehicleStatusService_GetVehicleStatusByTimeSpan_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IVehicleStatusService/GetVehicleStatusByTimeSpanResponse" message="tns:IVehicleStatusService_GetVehicleStatusByTimeSpan_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSuiteStatusFuzzy">
+      <wsdl:input wsaw:Action="http://tempuri.org/IVehicleStatusService/GetSuiteStatusFuzzy" message="tns:IVehicleStatusService_GetSuiteStatusFuzzy_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IVehicleStatusService/GetSuiteStatusFuzzyResponse" message="tns:IVehicleStatusService_GetSuiteStatusFuzzy_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetVehicleTimeSpanFuzzy">
+      <wsdl:input wsaw:Action="http://tempuri.org/IVehicleStatusService/GetVehicleTimeSpanFuzzy" message="tns:IVehicleStatusService_GetVehicleTimeSpanFuzzy_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IVehicleStatusService/GetVehicleTimeSpanFuzzyResponse" message="tns:IVehicleStatusService_GetVehicleTimeSpanFuzzy_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSuiteStatusManagement">
+      <wsdl:input wsaw:Action="http://tempuri.org/IVehicleStatusService/GetSuiteStatusManagement" message="tns:IVehicleStatusService_GetSuiteStatusManagement_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IVehicleStatusService/GetSuiteStatusManagementResponse" message="tns:IVehicleStatusService_GetSuiteStatusManagement_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RunningToAbnoraml">
+      <wsdl:input wsaw:Action="http://tempuri.org/IVehicleStatusService/RunningToAbnoraml" message="tns:IVehicleStatusService_RunningToAbnoraml_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IVehicleStatusService/RunningToAbnoramlResponse" message="tns:IVehicleStatusService_RunningToAbnoraml_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AbnoramlToRepair">
+      <wsdl:input wsaw:Action="http://tempuri.org/IVehicleStatusService/AbnoramlToRepair" message="tns:IVehicleStatusService_AbnoramlToRepair_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IVehicleStatusService/AbnoramlToRepairResponse" message="tns:IVehicleStatusService_AbnoramlToRepair_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AbnoramlToRunning">
+      <wsdl:input wsaw:Action="http://tempuri.org/IVehicleStatusService/AbnoramlToRunning" message="tns:IVehicleStatusService_AbnoramlToRunning_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IVehicleStatusService/AbnoramlToRunningResponse" message="tns:IVehicleStatusService_AbnoramlToRunning_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RepairToInitial">
+      <wsdl:input wsaw:Action="http://tempuri.org/IVehicleStatusService/RepairToInitial" message="tns:IVehicleStatusService_RepairToInitial_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IVehicleStatusService/RepairToInitialResponse" message="tns:IVehicleStatusService_RepairToInitial_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IVehicleStatusService" type="tns:IVehicleStatusService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetVehicleStatusByDistrict">
+      <soap:operation soapAction="http://tempuri.org/IVehicleStatusService/GetVehicleStatusByDistrict" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVehicleStatusByDistrictEx">
+      <soap:operation soapAction="http://tempuri.org/IVehicleStatusService/GetVehicleStatusByDistrictEx" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVehicleStatusByStatus">
+      <soap:operation soapAction="http://tempuri.org/IVehicleStatusService/GetVehicleStatusByStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVehicleStatusByGroup">
+      <soap:operation soapAction="http://tempuri.org/IVehicleStatusService/GetVehicleStatusByGroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVehicleStatusByVehicleNumber">
+      <soap:operation soapAction="http://tempuri.org/IVehicleStatusService/GetVehicleStatusByVehicleNumber" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVehicleStatusByTimeSpan">
+      <soap:operation soapAction="http://tempuri.org/IVehicleStatusService/GetVehicleStatusByTimeSpan" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSuiteStatusFuzzy">
+      <soap:operation soapAction="http://tempuri.org/IVehicleStatusService/GetSuiteStatusFuzzy" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVehicleTimeSpanFuzzy">
+      <soap:operation soapAction="http://tempuri.org/IVehicleStatusService/GetVehicleTimeSpanFuzzy" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSuiteStatusManagement">
+      <soap:operation soapAction="http://tempuri.org/IVehicleStatusService/GetSuiteStatusManagement" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RunningToAbnoraml">
+      <soap:operation soapAction="http://tempuri.org/IVehicleStatusService/RunningToAbnoraml" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AbnoramlToRepair">
+      <soap:operation soapAction="http://tempuri.org/IVehicleStatusService/AbnoramlToRepair" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AbnoramlToRunning">
+      <soap:operation soapAction="http://tempuri.org/IVehicleStatusService/AbnoramlToRunning" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RepairToInitial">
+      <soap:operation soapAction="http://tempuri.org/IVehicleStatusService/RepairToInitial" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="VehicleStatusService">
+    <wsdl:port name="BasicHttpBinding_IVehicleStatusService" binding="tns:BasicHttpBinding_IVehicleStatusService">
+      <soap:address location="http://localhost:2258/VehicleStatusService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

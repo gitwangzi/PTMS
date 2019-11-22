@@ -1,0 +1,377 @@
+﻿<UserControl xmlns:toolkit="http://schemas.microsoft.com/winfx/2006/xaml/presentation/toolkit"  xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"  x:Class="Gsafety.PTMS.Manager.SystemManageMainView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="800" d:DesignWidth="800">
+
+    <Grid x:Name="LayoutRoot" Style="{StaticResource ContentGridStyle}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="250"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <toolkit:Accordion x:Name="NativeAccordion"
+                           HorizontalAlignment="Stretch"
+                           VerticalAlignment="Stretch"
+                           Margin="0,0,0,0"
+                           Grid.Column="0"
+                           SelectionChanged="NativeAccordion_OnSelectionChanged">
+
+            <toolkit:AccordionItem Header="{Binding [MANAGER_UserManger], Source={StaticResource SR}}"
+                                   HorizontalContentAlignment="Stretch"
+                                   VerticalContentAlignment="Stretch"
+                                   Style="{StaticResource AdviceMenu_AccordionItemStyle}">
+
+                <toolkit:AccordionItem.Content>
+                    <StackPanel Orientation="Vertical">
+
+                        <Button Content="{Binding [SystemUser], Source={StaticResource SR}}"                                   
+                                HorizontalContentAlignment="Center" 
+                                VerticalContentAlignment="Center"
+                                Height="30"
+                                Margin="0,5,0,5"
+                                FontSize="14"
+                                FontWeight="Bold"
+                                x:Name="SystemUserButton"
+                                Click="SystemUserButton_OnClick"/>
+
+                        <Button Content="{Binding [UserOnLine], Source={StaticResource SR}}"
+                                HorizontalContentAlignment="Center" 
+                                VerticalContentAlignment="Center"
+                                Height="30"
+                                Margin="0,5,0,5"
+                                FontSize="14"
+                                FontWeight="Bold"
+                                x:Name="UserOnlineInfoButton"
+                                Click="UserOnlineInfoButton_OnClick"/>
+                        <Button Content="{Binding [MANAGE_RegionAllocation], Source={StaticResource SR}}"                                   
+                                HorizontalContentAlignment="Center" 
+                                VerticalContentAlignment="Center"
+                                Height="30"
+                                Margin="0,5,0,5"
+                                FontSize="14"
+                                FontWeight="Bold"
+                                x:Name="RegionAssignButton"
+                                Click="RegionAssignButton_OnClick"/>
+
+                        <Button Content="{Binding [PhoneUser], Source={StaticResource SR}}"
+                                HorizontalContentAlignment="Center" 
+                                VerticalContentAlignment="Center"
+                                Height="30"
+                                Margin="0,5,0,5"
+                                FontSize="14"
+                                FontWeight="Bold"
+                                x:Name="MobileUserButton"
+                                Click="MobileUserButton_OnClick"/>
+
+                    </StackPanel>
+                </toolkit:AccordionItem.Content>
+
+            </toolkit:AccordionItem>
+
+            <toolkit:AccordionItem Header="{Binding [Organization], Source={StaticResource SR}}"
+                                   HorizontalContentAlignment="Stretch"
+                                   VerticalContentAlignment="Stretch"
+                                   Style="{StaticResource AdviceMenu_AccordionItemStyle}">
+
+            </toolkit:AccordionItem>
+
+            <toolkit:AccordionItem Header="{Binding [MANAGER_SettingManage], Source={StaticResource SR}}"
+                                   HorizontalContentAlignment="Stretch"
+                                   VerticalContentAlignment="Stretch"
+                                   Style="{StaticResource AdviceMenu_AccordionItemStyle}">
+
+                <toolkit:AccordionItem.Content>
+                    <StackPanel Orientation="Vertical">
+
+                        <Button Content="{Binding [MANAGE_Parm], Source={StaticResource SR}}"                                   
+                                HorizontalContentAlignment="Center" 
+                                VerticalContentAlignment="Center"
+                                Height="30"
+                                Margin="0,5,0,5"
+                                FontSize="14"
+                                FontWeight="Bold"
+                                x:Name="ParametersSettingButton"
+                                Click="ParametersSettingButton_OnClick"/>
+
+                        <Button Content="{Binding [ExternalOnlineTime], Source={StaticResource SR}}"
+                                HorizontalContentAlignment="Center" 
+                                VerticalContentAlignment="Center"
+                                Height="30"
+                                Margin="0,5,0,5"
+                                FontSize="14"
+                                FontWeight="Bold"
+                                x:Name="DeviceOutlineTimeSetting"
+                                Click="DeviceOutlineTimeSetting_OnClick"/>
+                        <Button Content="{Binding [SetMessage], Source={StaticResource SR}}"                                   
+                                HorizontalContentAlignment="Center" 
+                                VerticalContentAlignment="Center"
+                                Height="30"
+                                Margin="0,5,0,5"
+                                FontSize="14"
+                                FontWeight="Bold"
+                                x:Name="WarrantyNotifySetting"
+                                Click="WarrantyNotifySetting_OnClick"/>
+
+                        <Button Content="{Binding [SetColor], Source={StaticResource SR}}"
+                                HorizontalContentAlignment="Center" 
+                                VerticalContentAlignment="Center"
+                                Height="30"
+                                Margin="0,5,0,5"
+                                FontSize="14"
+                                FontWeight="Bold"
+                                x:Name="AlarmTypeColorSetting"
+                                Click="AlarmTypeColorSetting_OnClick"/>
+
+                        <Button Content="{Binding [SetSound], Source={StaticResource SR}}"
+                                HorizontalContentAlignment="Center" 
+                                VerticalContentAlignment="Center"
+                                Height="30"
+                                Margin="0,5,0,5"
+                                FontSize="14"
+                                FontWeight="Bold"
+                                x:Name="AlarmTypeSoundSetting"
+                                Click="AlarmTypeSoundSetting_OnClick"/>
+
+                        <Button Content="{Binding [VehicleSetAlarm], Source={StaticResource SR}}"
+                                HorizontalContentAlignment="Center" 
+                                VerticalContentAlignment="Center"
+                                Height="30"
+                                Margin="0,5,0,5"
+                                FontSize="14"
+                                FontWeight="Bold"
+                                x:Name="VehicleAlarmSetting"
+                                Click="VehicleAlarmSetting_OnClick"/>
+                        <Button Content="{Binding [DeviceSetAlarm], Source={StaticResource SR}}"
+                                HorizontalContentAlignment="Center" 
+                                VerticalContentAlignment="Center"
+                                Height="30"
+                                Margin="0,5,0,5"
+                                FontSize="14"
+                                FontWeight="Bold"
+                                x:Name="DeviceAlarmSetting"
+                                Click="DeviceAlarmSetting_OnClick"/>
+
+                    </StackPanel>
+                </toolkit:AccordionItem.Content>
+
+            </toolkit:AccordionItem>
+
+            <toolkit:AccordionItem Header="{Binding [CommandManager], Source={StaticResource SR}}"
+                                   HorizontalContentAlignment="Stretch"
+                                   VerticalContentAlignment="Stretch"
+                                   Style="{StaticResource AdviceMenu_AccordionItemStyle}">
+
+                <toolkit:AccordionItem.Content>
+                    <StackPanel Orientation="Vertical">
+
+                        <Button Content="{Binding [SetGpsRule], Source={StaticResource SR}}"                                   
+                                HorizontalContentAlignment="Center" 
+                                VerticalContentAlignment="Center"
+                                Height="30"
+                                Margin="0,5,0,5"
+                                FontSize="14"
+                                FontWeight="Bold"
+                                x:Name="SetGPSInfoRoleButton"
+                                Click="SetGPSInfoRoleButton_OnClick"/>
+
+                        <Button Content="{Binding [SpeedSetRule], Source={StaticResource SR}}"                                   
+                                HorizontalContentAlignment="Center" 
+                                VerticalContentAlignment="Center"
+                                Height="30"
+                                Margin="0,5,0,5"
+                                FontSize="14"
+                                FontWeight="Bold"
+                                x:Name="SpeedRoleParameterSettingButton"
+                                Click="SpeedRoleParameterSettingButton_OnClick"/>
+
+                        <Button Content="{Binding [IPSetParma], Source={StaticResource SR}}"                                   
+                                HorizontalContentAlignment="Center" 
+                                VerticalContentAlignment="Center"
+                                Height="30"
+                                Margin="0,5,0,5"
+                                FontSize="14"
+                                FontWeight="Bold"
+                                x:Name="IpParameterSetting"
+                                Click="IpParameterSetting_OnClick"/>
+
+
+                        <Button Content="{Binding [Setheartbeat], Source={StaticResource SR}}"
+                                HorizontalContentAlignment="Center" 
+                                VerticalContentAlignment="Center"
+                                Height="30"
+                                Margin="0,5,0,5"
+                                FontSize="14"
+                                FontWeight="Bold"
+                                x:Name="SetHeartBeatRoleButton"
+                                Click="SetHeartBeatRoleButton_OnClick"/>
+
+                        <Button Content="{Binding [SetLEDParm], Source={StaticResource SR}}"                                   
+                                HorizontalContentAlignment="Center" 
+                                VerticalContentAlignment="Center"
+                                Height="30"
+                                Margin="0,5,0,5"
+                                FontSize="14"
+                                FontWeight="Bold"
+                                x:Name="SetLedScreenRoleButton"
+                                Click="SetLedScreenRoleButton_OnClick"/>
+
+                        <Button Content="{Binding [SetLEDMessage], Source={StaticResource SR}}"                                   
+                                HorizontalContentAlignment="Center" 
+                                VerticalContentAlignment="Center"
+                                Height="30"
+                                Margin="0,5,0,5"
+                                FontSize="14"
+                                FontWeight="Bold"
+                                x:Name="SetLedScreenMessageParameter"
+                                Click="SetLedScreenMessageParameter_OnClick"/>
+
+                        <Button Content="{Binding [SetQueryRule], Source={StaticResource SR}}"
+                                HorizontalContentAlignment="Center" 
+                                VerticalContentAlignment="Center"
+                                Height="30"
+                                Margin="0,5,0,5"
+                                FontSize="14"
+                                FontWeight="Bold"
+                                x:Name="SearchRoleConfigureationButton"
+                                Click="SearchRoleConfigureationButton_OnClick"/>
+
+                    </StackPanel>
+                </toolkit:AccordionItem.Content>
+
+
+
+            </toolkit:AccordionItem>
+
+            <toolkit:AccordionItem Header="{Binding [SetSysLog], Source={StaticResource SR}}"
+                                   HorizontalContentAlignment="Stretch"
+                                   VerticalContentAlignment="Stretch"
+                                   Style="{StaticResource AdviceMenu_AccordionItemStyle}">
+
+                <toolkit:AccordionItem.Content>
+                    <StackPanel Orientation="Vertical">
+
+                        <Button Content="{Binding [SetAlarmLog], Source={StaticResource SR}}"                                   
+                                HorizontalContentAlignment="Center" 
+                                VerticalContentAlignment="Center"
+                                Height="30"
+                                Margin="0,5,0,5"
+                                FontSize="14"
+                                FontWeight="Bold"
+                                x:Name="AlarmDisposedLog"
+                                Click="AlarmDisposedLog_OnClick"/>
+
+
+                        <Button Content="{Binding [SetVeAlarmLog], Source={StaticResource SR}}"                                   
+                                HorizontalContentAlignment="Center" 
+                                VerticalContentAlignment="Center"
+                                Height="30"
+                                Margin="0,5,0,5"
+                                FontSize="14"
+                                FontWeight="Bold"
+                                x:Name="VehicleAlarmDisposeButton"
+                                Click="VehicleAlarmDisposeButton_OnClick"/>
+
+                        <Button Content="{Binding [DeviceDisposeLog], Source={StaticResource SR}}"
+                                HorizontalContentAlignment="Center" 
+                                VerticalContentAlignment="Center"
+                                Height="30"
+                                Margin="0,5,0,5"
+                                FontSize="14"
+                                FontWeight="Bold"
+                                x:Name="DeviceAlarmDisposeButton"
+                                Click="DeviceAlarmDisposeButton_OnClick"/>
+                        <Button Content="{Binding [InstallLog], Source={StaticResource SR}}"                                   
+                                HorizontalContentAlignment="Center" 
+                                VerticalContentAlignment="Center"
+                                Height="30"
+                                Margin="0,5,0,5"
+                                FontSize="14"
+                                FontWeight="Bold"
+                                x:Name="InstallLogButton"
+                                Click="InstallLogButton_OnClick"/>
+
+                        <Button Content="{Binding [SysLoginLog], Source={StaticResource SR}}"
+                                HorizontalContentAlignment="Center" 
+                                VerticalContentAlignment="Center"
+                                Height="30"
+                                Margin="0,5,0,5"
+                                FontSize="14"
+                                FontWeight="Bold"
+                                x:Name="SystemLoginLogButton"
+                                Click="SystemLoginLogButton_OnClick"/>
+
+                        <Button Content="{Binding [VedioDownLoadLog], Source={StaticResource SR}}"
+                                HorizontalContentAlignment="Center" 
+                                VerticalContentAlignment="Center"
+                                Height="30"
+                                Margin="0,5,0,5"
+                                FontSize="14"
+                                FontWeight="Bold"
+                                x:Name="VideoDownloadButton"
+                                Click="VideoDownloadButton_OnClick"/>
+
+                        <Button Content="{Binding [LocalDownLoadLog], Source={StaticResource SR}}"
+                                HorizontalContentAlignment="Center" 
+                                VerticalContentAlignment="Center"
+                                Height="30"
+                                Margin="0,5,0,5"
+                                FontSize="14"
+                                FontWeight="Bold"
+                                x:Name="LocalVedioDownloadLogButton"
+                                Click="LocalVedioDownloadLogButton_OnClick"/>
+                        <Button Content="{Binding [VedioRunLog], Source={StaticResource SR}}"
+                                HorizontalContentAlignment="Center" 
+                                VerticalContentAlignment="Center"
+                                Height="30"
+                                Margin="0,5,0,5"
+                                FontSize="14"
+                                FontWeight="Bold"
+                                x:Name="VedioPlayLogButton"
+                                Click="VedioPlayLogButton_OnClick"/>
+
+                        <Button Content="{Binding [OperateManagerLog], Source={StaticResource SR}}"
+                                HorizontalContentAlignment="Center" 
+                                VerticalContentAlignment="Center"
+                                Height="30"
+                                Margin="0,5,0,5"
+                                FontSize="14"
+                                FontWeight="Bold"
+                                x:Name="UserManageLogButton"
+                                Click="UserManageLogButton_OnClick"/>
+                        <Button Content="{Binding [Log911], Source={StaticResource SR}}"
+                                HorizontalContentAlignment="Center" 
+                                VerticalContentAlignment="Center"
+                                Height="30"
+                                Margin="0,5,0,5"
+                                FontSize="14"
+                                FontWeight="Bold"
+                                x:Name="Assist911UserLogButton"
+                                Click="Assist911UserLogButton_OnClick"/>
+
+
+                    </StackPanel>
+                </toolkit:AccordionItem.Content>
+
+
+            </toolkit:AccordionItem>
+
+        </toolkit:Accordion>
+
+        <sdk:Frame x:Name="NativeFrame"
+                   Grid.Column="1"
+                   Source="/SystemManagement;component/Views/User/SystemUserManageView">
+
+            <sdk:Frame.UriMapper>
+                <sdk:UriMapper>
+                    <sdk:UriMapping Uri="/{addr}"  
+                                    MappedUri="/{addr}.xaml"/>
+                </sdk:UriMapper>
+            </sdk:Frame.UriMapper>
+
+        </sdk:Frame>
+
+
+    </Grid>
+</UserControl>

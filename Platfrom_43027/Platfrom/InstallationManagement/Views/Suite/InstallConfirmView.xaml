@@ -1,0 +1,378 @@
+﻿<UserControl x:Class="Gsafety.PTMS.Installation.Views.InstallConfirmView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:Converts="clr-namespace:Gsafety.Common.Converts;assembly=Converts"
+                 xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"  
+    mc:Ignorable="d"
+    d:DesignHeight="900" d:DesignWidth="1000">
+    <UserControl.Resources>
+        <Converts:PassConverter x:Key="PassConverter"/>
+        <Converts:LanguageToImage x:Key="LanguageToImage"/>
+        <Converts:DateTimeConverter x:Key="DateTimeConverter"/>
+    </UserControl.Resources>
+
+    <Grid x:Name="LayoutRoot" Style="{StaticResource ContentGridStyle}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Style="{StaticResource ViewFirstTitleWhiteGridStyle}"
+              Height="40"
+              Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="20"/>
+            </Grid.ColumnDefinitions>
+
+            <Image Grid.Column="0" Style="{StaticResource TitleImageStyle}"/>
+
+            <TextBlock Text="{Binding [ID_INSTALL_InstallProcess], Source={StaticResource SR}}" 
+                       Style="{StaticResource SecondTitleTextBlockStyle}"
+                       Grid.Column="1"/>
+        </Grid>
+
+        <Grid Grid.Row="1"  Style="{StaticResource ContentGridWhiteStyle}">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="100"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+               
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition Width="350"/>
+                <ColumnDefinition Width="250"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Row="0" Margin="0,10,0,0" Grid.ColumnSpan="4"  Height="84"  Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center"  Width="860" >
+                <Image Source="{Binding ImageSource,Converter={StaticResource LanguageToImage}}" Stretch="None"/>
+            </StackPanel>
+
+            <Grid Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="4">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="121"/>
+                    <RowDefinition Height="81"/>
+                    <RowDefinition Height="121"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="10"/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="1"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="200"/>
+                        <ColumnDefinition Width="250"/>
+                        <ColumnDefinition Width="200"/>
+                        <ColumnDefinition Width="250"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!--<TextBlock TextWrapping="Wrap" Text="{Binding [BASEINFO_VehicleInfo], Source={StaticResource SR}}" 
+                               VerticalAlignment="Center" Margin="10,0,0,0" Grid.Column="0" Grid.Row="0"/>
+                    
+                    <Path Grid.Column="0" Data="M104,10 L1000,10" Height="1" Stretch="Fill" UseLayoutRounding="False" VerticalAlignment="Center" Stroke="#FFBBBCBC" Grid.Row="1" Grid.ColumnSpan="4" />-->
+
+
+                    <Grid Style="{StaticResource ViewFirstTitleWhiteGridStyle}"
+                          Height="40"
+                          Grid.Row="0"
+                          Grid.Column="0"
+                          Grid.ColumnSpan="5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="20"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Image Grid.Column="0" Style="{StaticResource TitleImageStyle}"/>
+
+                        <TextBlock Text="{Binding [BASEINFO_VehicleInfo], Source={StaticResource SR}}" 
+                       Style="{StaticResource SecondTitleTextBlockStyle}"
+                       Grid.Column="1"/>
+                    </Grid>
+
+
+                    <!--License plate number-->
+
+                    <TextBlock HorizontalAlignment="Right"
+                               Margin="0,5,20,5" TextWrapping="Wrap" 
+                               Text="{Binding [ID_INSTALL_CarNumber], Source={StaticResource SR}}" 
+                               VerticalAlignment="Center" Grid.Row="2" Grid.Column="1"  />
+
+                    <TextBox x:Name="txtCarNumber" 
+                             TabIndex="7" MaxLength="100" 
+                             IsReadOnly="True" Grid.Column="2" 
+                             Grid.Row="2" HorizontalAlignment="Stretch" Margin="0,5,0,5" 
+                             TextWrapping="Wrap" 
+                             Text="{Binding InstallInfo.VehicleID, NotifyOnValidationError=True, ValidatesOnDataErrors=True, Mode=TwoWay}" 
+                             VerticalAlignment="Center" />
+
+                    <!--Mounting points-->
+                    <TextBlock HorizontalAlignment="Right" 
+                               Margin="0,5,20,5" TextWrapping="Wrap" 
+                               Text="{Binding [ID_INSTALL_User_InstallStation], Source={StaticResource SR}}" 
+                               VerticalAlignment="Center" Grid.Row="2" Grid.Column="3"  />
+
+
+                    <TextBox x:Name="siteName" TabIndex="7" 
+                             MaxLength="100" IsReadOnly="True" 
+                             Grid.Column="4" Grid.Row="2" HorizontalAlignment="Stretch"  Margin="0,5,0,5" TextWrapping="Wrap" 
+                             Text="{Binding InstallInfo.InstallationStationName, NotifyOnValidationError=True, ValidatesOnDataErrors=True,Mode=TwoWay}"
+                             VerticalAlignment="Center" />
+
+                    <!--Installer-->
+                    <TextBlock HorizontalAlignment="Right" 
+                               Margin="0,5,20,5" TextWrapping="Wrap" 
+                               Text="{Binding [ID_INSTALL_SetupStaff], Source={StaticResource SR}}" 
+                               VerticalAlignment="Center" Grid.Row="3" Grid.Column="1"/>
+
+                    <TextBox x:Name="txtSetupStaff" 
+                             TabIndex="7" MaxLength="100" 
+                             IsReadOnly="True" 
+                             Grid.Column="2" Grid.Row="3" HorizontalAlignment="Stretch"  Margin="0,5,0,5" TextWrapping="Wrap" 
+                             Text="{Binding InstallInfo.InstallationStaff, NotifyOnValidationError=True, ValidatesOnDataErrors=True,Mode=TwoWay}" 
+                             VerticalAlignment="Center" />
+
+                    <!--Installation date-->
+                    <TextBlock HorizontalAlignment="Right" 
+                               Margin="0,5,20,5" TextWrapping="Wrap" 
+                               Text="{Binding [ID_INSTALL_InstallTime], Source={StaticResource SR}}" 
+                               VerticalAlignment="Bottom" Grid.Row="3" Grid.Column="3" />
+
+                    <TextBox x:Name="txtCarTime" 
+                             Text="{Binding InstallInfo.CreateTime,Converter={StaticResource DateTimeConverter}}" 
+                             TabIndex="7" MaxLength="100" 
+                             IsReadOnly="True" Grid.Column="4" 
+                             Grid.Row="3" HorizontalAlignment="Stretch"  Margin="0,5,0,5" TextWrapping="Wrap" VerticalAlignment="Center" />
+                </Grid>
+                <Grid Grid.Row="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="1"/>
+                        <RowDefinition Height="40"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="200"/>
+                        <ColumnDefinition Width="250"/>
+                        <ColumnDefinition Width="200"/>
+                        <ColumnDefinition Width="250"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!--<TextBlock TextWrapping="Wrap" Text="{Binding [ID_INSTALL_SecuritySuiteInfo], Source={StaticResource SR}}" VerticalAlignment="Center" Margin="10,0,0,0" Grid.Column="0" Grid.Row="0"/>
+                    
+                    <Path Grid.Column="0" Data="M104,10 L1000,10" Height="1" Stretch="Fill" UseLayoutRounding="False" VerticalAlignment="Center" Stroke="#FFBBBCBC" Grid.Row="1" Grid.ColumnSpan="4" />-->
+                    <Grid Style="{StaticResource ViewFirstTitleWhiteGridStyle}"
+                          Height="40"
+                          Grid.Row="0"
+                          Grid.Column="0"
+                          Grid.ColumnSpan="5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="20"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Image Grid.Column="0" Style="{StaticResource TitleImageStyle}"/>
+
+                        <TextBlock Text="{Binding [ID_INSTALL_SecuritySuiteInfo], Source={StaticResource SR}}" 
+                       Style="{StaticResource SecondTitleTextBlockStyle}"
+                       Grid.Column="1"/>
+                    </Grid>
+
+
+                    <!--Security Suite-->
+                    <TextBlock HorizontalAlignment="Right" 
+                               Margin="0,5,20,5" TextWrapping="Wrap" 
+                               Text="{Binding [ID_INSTALL_SuiteID], Source={StaticResource SR}}" 
+                               VerticalAlignment="Center" Grid.Row="2" Grid.Column="1" />
+
+                    <TextBox x:Name="txt01" 
+                             Text="{Binding InstallInfo.DeviceSN,Mode=TwoWay}" 
+                             TabIndex="7" MaxLength="100" IsReadOnly="True"
+                             Grid.Column="2" Grid.Row="2" HorizontalAlignment="Stretch"
+                             Margin="0,5,0,5" TextWrapping="Wrap" VerticalAlignment="Center" />
+
+                    <!--MDVR host number-->
+                    <TextBlock HorizontalAlignment="Right"
+                               Margin="0,5,20,5" TextWrapping="Wrap" 
+                               Text="{Binding [ID_INSTALL_MDVR_CORE_SN], Source={StaticResource SR}}" 
+                               VerticalAlignment="Center" Grid.Row="2" Grid.Column="3" Height="17"  />
+
+
+                    <TextBox x:Name="txt02" 
+                             Text="{Binding InstallInfo.DeviceCoreId,Mode=TwoWay}" 
+                             TabIndex="7" MaxLength="100" IsReadOnly="True" 
+                             Grid.Column="4" Grid.Row="2" 
+                             HorizontalAlignment="Stretch"  Margin="0,5,0,5" TextWrapping="Wrap" VerticalAlignment="Center" />
+                    <!--Self-test case-->
+                    <!--<TextBlock HorizontalAlignment="Right" Margin="0,5,20,5" 
+                               TextWrapping="Wrap" Text="{Binding [ID_INSTALL_SelfTestProcess],Source={StaticResource SR}}" 
+                               VerticalAlignment="Center" Grid.Row="6" Grid.Column="0"  />
+                    
+                    <TextBox x:Name="txt03" 
+                             Text="{Binding AuditInfo.IsSuccess,Converter={StaticResource PassConverter},Mode=TwoWay}" 
+                             TabIndex="7" MaxLength="100" IsReadOnly="True" Grid.Column="1" Grid.Row="6"
+                             HorizontalAlignment="Stretch" 
+                             Margin="0,5,0,5" TextWrapping="Wrap" VerticalAlignment="Center" />-->
+
+                </Grid>
+                <Grid Grid.Row="2">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="1"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="200"/>
+                        <ColumnDefinition Width="250"/>
+                        <ColumnDefinition Width="200"/>
+                        <ColumnDefinition Width="250"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!--<TextBlock TextWrapping="Wrap" 
+                               Text="{Binding [ID_INSTALL_FunctionCheck], Source={StaticResource SR}}" 
+                               VerticalAlignment="Center" Margin="10,0,0,0" Grid.Column="0" Grid.Row="0"/>
+                    <Path Grid.Column="0" Data="M104,10 L1000,10" Height="1" Stretch="Fill" UseLayoutRounding="False" VerticalAlignment="Center" Stroke="#FFBBBCBC" Grid.Row="1" Grid.ColumnSpan="4" />-->
+
+                    <Grid Style="{StaticResource ViewFirstTitleWhiteGridStyle}"
+                        Height="40"
+                         Grid.Row="0"
+                          Grid.Column="0"
+                          Grid.ColumnSpan="5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="20"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Image Grid.Column="0" Style="{StaticResource TitleImageStyle}"/>
+
+                        <TextBlock Text="{Binding [ID_INSTALL_FunctionCheck], Source={StaticResource SR}}" 
+                       Style="{StaticResource SecondTitleTextBlockStyle}"
+                       Grid.Column="1"/>
+                    </Grid>
+
+
+                    <TextBlock HorizontalAlignment="Right" 
+                               Margin="0,5,20,5" TextWrapping="Wrap" 
+                               Text="{Binding [ID_INSTALL_AlarmInfor], Source={StaticResource SR}}"
+                               VerticalAlignment="Center" Grid.Row="2" Grid.Column="1"  />
+
+                    <TextBlock HorizontalAlignment="Right" 
+                               Margin="0,5,20,5" TextWrapping="Wrap" 
+                               Text="{Binding [ID_INSTALL_GPS_lnfo], Source={StaticResource SR}}" 
+                               VerticalAlignment="Center" Grid.Row="2" Grid.Column="3"  />
+
+                    <TextBlock HorizontalAlignment="Right" 
+                               Margin="0,5,20,5" TextWrapping="Wrap" 
+                               Text="{Binding [ID_INSTALL_VedioInfo], Source={StaticResource SR}}" 
+                               VerticalAlignment="Center" Grid.Row="3" Grid.Column="1" />
+
+                    <!--A key alarm-->
+                    <TextBox x:Name="txt05" 
+                             Text="{Binding AuditInfo.AlarmCheck,Converter={StaticResource PassConverter},Mode=TwoWay}" 
+                             TabIndex="7" MaxLength="100" IsReadOnly="True" 
+                             Grid.Column="2" Grid.Row="2" HorizontalAlignment="Stretch"  
+                             Margin="0,5,0,5" TextWrapping="Wrap" VerticalAlignment="Center" />
+
+                    <!--GPS information-->
+                    <TextBox x:Name="txt04" 
+                             Text="{Binding AuditInfo.GpsCheck,Converter={StaticResource PassConverter},Mode=TwoWay}" 
+                             TabIndex="7" MaxLength="100" IsReadOnly="True" 
+                             Grid.Column="4" Grid.Row="2" 
+                             HorizontalAlignment="Stretch"  Margin="0,5,0,5" TextWrapping="Wrap"
+                             VerticalAlignment="Center" />
+                    <!--Video Information-->
+                    <TextBox x:Name="txt06" Text="{Binding AuditInfo.VideoCheck,Converter={StaticResource PassConverter},Mode=TwoWay}" 
+                             TabIndex="7" MaxLength="100" 
+                             IsReadOnly="True" Grid.Column="2" 
+                             Grid.Row="3" HorizontalAlignment="Stretch" 
+                             Margin="0,5,0,5" TextWrapping="Wrap" VerticalAlignment="Center"/>
+
+                </Grid>
+                <Grid Grid.Row="3">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="1"/>
+                        <RowDefinition Height="*"/>
+
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="200"/>
+                        <ColumnDefinition Width="250"/>
+                        <ColumnDefinition Width="200"/>
+                        <ColumnDefinition Width="250"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid Style="{StaticResource ViewFirstTitleWhiteGridStyle}"
+                          Height="40"
+                          Grid.Row="0"
+                          Grid.Column="0"
+                          Grid.ColumnSpan="5">
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="20"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Image Grid.Column="0" Style="{StaticResource TitleImageStyle}"/>
+
+                        <TextBlock Text="{Binding [AlertCondition], Source={StaticResource SR}}" 
+                       Style="{StaticResource SecondTitleTextBlockStyle}"
+                       Grid.Column="1"/>
+                    </Grid>
+
+                    <sdk:DataGrid  Grid.Row="2"
+                                           x:Name="dgAlert"
+                                           HorizontalAlignment="Stretch"
+                                           VerticalAlignment="Stretch" Style="{StaticResource DataGridWhiteStyleRxx}"
+                                           MinHeight="200" AutoGenerateColumns="False" ItemsSource="{Binding DeviceAlerts,Mode=TwoWay}" IsReadOnly="True"
+                                           SelectionMode="Single" Grid.ColumnSpan="5">
+                        <sdk:DataGrid.Columns>
+                            <sdk:DataGridTextColumn Header="ALERT_AlertType" Width="*" Binding="{Binding ShowType}"  HeaderStyle="{StaticResource ColumnHeaderWhiteStyle}"></sdk:DataGridTextColumn>
+                            <sdk:DataGridTextColumn Header="ALERT_ALERTTime" Width="*" Binding="{Binding AlertTime}"  HeaderStyle="{StaticResource ColumnHeaderWhiteStyle}"></sdk:DataGridTextColumn>
+                        </sdk:DataGrid.Columns>
+
+                    </sdk:DataGrid>
+                </Grid>
+                <!--Button operation-->
+                <StackPanel Grid.Column="2" Grid.Row="4"  Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,0">
+                    <!--<Button x:Name="btnFinish" Command="{Binding OKCommand}" TabIndex="12" Tag="{Binding [ID_INSTALL_FinishInstall], Source={StaticResource SR}}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,5,0" Style="{StaticResource Search_ButtonStyle}">
+                        <Image Height="15" Source="/ExternalResource;component/Images/MainPage_complete.png" Stretch="Fill" Width="15"/>
+                    </Button>-->
+
+                    <Button x:Name="btnFinish" Command="{Binding OKCommand}" TabIndex="12" Width="Auto" MinWidth="100"
+                            Tag="{Binding [ID_INSTALL_FinishInstall], Source={StaticResource SR}}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,5,0" Style="{StaticResource ResertButtonStyle}"
+                            Content="{Binding [ID_INSTALL_FinishInstall], Source={StaticResource SR}}">
+                    </Button>
+
+                </StackPanel>
+            </Grid>
+        </Grid>
+
+    </Grid>
+</UserControl>

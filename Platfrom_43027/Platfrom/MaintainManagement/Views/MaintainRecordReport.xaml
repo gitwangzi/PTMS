@@ -1,0 +1,63 @@
+﻿<UserControl x:Class="Gsafety.PTMS.Maintain.Views.MaintainRecordReport"
+             xmlns:Controls="clr-namespace:Gsafety.Common.Controls;assembly=CommonControls"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
+    mc:Ignorable="d"
+    d:DesignHeight="800" d:DesignWidth="1000">
+
+    <Grid x:Name="LayoutRoot" Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="28"/>
+        </Grid.RowDefinitions>
+        <Border BorderBrush="{StaticResource MenuBarLine}" Background="{StaticResource NavBarBG}" Height="35" VerticalAlignment="Top" Grid.Row="0" Margin="0" BorderThickness="0,1,0,1">
+        </Border>
+        <Image Source="/ANT;component/Images/a07b.png" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,0,0,0" Stretch="None"/>
+        <TextBlock TextWrapping="Wrap" Text="{Binding [SUITE_MaintainRecordReport], Source={StaticResource SR}}"  VerticalAlignment="Center" HorizontalAlignment="Left" Margin="36,0,0,0" Style="{StaticResource Menu2TextBlock}"/>
+        <StackPanel Orientation="Horizontal" Grid.Row="1" Background="#FFd0dcea">
+            <Button Command="{Binding GoBackCommand}" Margin="21,10,0,8" Tag="{Binding [Back], Source={StaticResource SR}}" VerticalAlignment="Center" >
+                <Image Source="/SecuritySuiteManagement;component/Images/return.png" Stretch="None"/>
+            </Button>
+            <!--安全套件号-->
+            <TextBlock Grid.Column="1" Grid.Row="0" HorizontalAlignment="Right" Margin="20,0,5,0" TextWrapping="Wrap" Text="{Binding [SUITE_MenuTitleNum], Source={StaticResource SR}}" VerticalAlignment="Center" Style="{StaticResource ViewFont}"/>
+            <TextBlock Name="tbSuiteID" Text="{Binding SuiteID, Mode=TwoWay}" Height="24" />
+            <!--开始时间-->
+            <TextBlock HorizontalAlignment="Right" Margin="40,22,5,21" TextWrapping="Wrap" Text="{Binding [StartUseTime], Source={StaticResource SR}}" VerticalAlignment="Center" Grid.Column="3" Style="{StaticResource ViewFont}" />
+            <TextBlock Name="tbStartTime" Text="{Binding StartUseTime, Mode=TwoWay}" Height="24" />
+            <!--结束时间-->
+            <TextBlock  Grid.Column="5" Grid.Row="0" HorizontalAlignment="Right" Margin="40,20,5,20" TextWrapping="Wrap" Text="{Binding [LastMaintainceTime], Source={StaticResource SR}}" VerticalAlignment="Center" Style="{StaticResource ViewFont}"/>
+            <TextBlock Name="tbEndTime" Text="{Binding LastMaintanceTime, Mode=TwoWay}" Height="24" />
+ 
+        </StackPanel>
+        <Border BorderBrush="{StaticResource MenuBarLine}" Background="{StaticResource NavBarBG}" Height="35" VerticalAlignment="Top" Grid.Row="2" Margin="0" BorderThickness="0,1,0,1">
+        </Border>
+
+        <Image VerticalAlignment="Center" HorizontalAlignment="Left" Source="/ANT;component/Images/a07b.png" Grid.Row="2" Stretch="None" Margin="10,0,0,0"/>
+        <TextBlock TextWrapping="Wrap" Text="{Binding [SUITE_MaintainRecordList], Source={StaticResource SR}}" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="36,0,0,0" Style="{StaticResource Menu2TextBlock}" Grid.Row="2"/>
+
+        <sdk:DataGrid CellStyle="{StaticResource DataGridCellStyle}"  x:Name="SuiteDataGrid" IsReadOnly="True" Grid.Row="3" AutoGenerateColumns="False" 
+                      SelectedItem="{Binding CurrentDataInfo, Mode=TwoWay}" ItemsSource="{Binding DataInfoPage, Mode=TwoWay}" Background="Transparent">
+            <sdk:DataGrid.Columns>
+                <sdk:DataGridTextColumn Header="SuiteName" Binding="{Binding DeviceName, Mode=TwoWay}" Width="3*" ></sdk:DataGridTextColumn>
+                <sdk:DataGridTextColumn Header="SUITE_OldSuiteID" Binding="{Binding OldID, Mode=TwoWay}" Width="4*" ></sdk:DataGridTextColumn>
+                <sdk:DataGridTextColumn Header="SUITE_NewSuiteID" Binding="{Binding NewID, Mode=TwoWay}" Width="4*" ></sdk:DataGridTextColumn>
+                <sdk:DataGridTextColumn Header="MaintainTime" Binding="{Binding MaintanceTime, Mode=TwoWay}" Width="4*" ></sdk:DataGridTextColumn>
+                <sdk:DataGridTextColumn Header="Maintainer" Binding="{Binding Maintainer, Mode=TwoWay}" Width="3*" ></sdk:DataGridTextColumn>
+            </sdk:DataGrid.Columns>
+        </sdk:DataGrid>
+        <Border BorderBrush="{StaticResource BorderBrushDeep}" Background="{StaticResource OptionBgColorBrush}" BorderThickness="1" Height="28" Grid.Row="4"  VerticalAlignment="Center" Width="Auto">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,0,0">
+                <TextBlock HorizontalAlignment="Left" Margin="0,0,5,0" Grid.Row="4" TextWrapping="Wrap" Text="{Binding [PageSize], Source={StaticResource SR}}" VerticalAlignment="Center" Foreground="Black" FontSize="12"/>
+                <ComboBox SelectedItem="{Binding PageSizeValue,Mode=TwoWay}"  Height="26" ItemsSource="{Binding PageSizeList}" Margin="0,0,0,0" Width="50" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                <sdk:DataPager PageIndex="-1" Name="DataPager1"   Height="26" Margin="0,0,0,0" PageSize="{Binding PageSizeValue,Mode=TwoWay}" IsTotalItemCountFixed="True" Grid.Row="1" Source="{Binding DataInfoPage, Mode=TwoWay}" VerticalAlignment="Center"  HorizontalAlignment="Center" />
+            </StackPanel>
+        </Border>
+    </Grid>
+
+</UserControl>

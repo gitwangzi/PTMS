@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="78d0e64c-910a-42b5-9c67-05974746232b" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>true</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.ObjectModel.ObservableCollection`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>false</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:2258/VehicleStatusService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="VehicleStatusService5.xsd" MetadataType="Schema" ID="e65accf4-4912-4ccb-ac85-781735828acf" SourceId="1" SourceUrl="http://localhost:2258/VehicleStatusService.svc?xsd=xsd2" />
+    <MetadataFile FileName="VehicleStatusService51.xsd" MetadataType="Schema" ID="4f540512-8b4e-4096-b1f8-f8da3d909971" SourceId="1" SourceUrl="http://localhost:2258/VehicleStatusService.svc?xsd=xsd1" />
+    <MetadataFile FileName="VehicleStatusService52.xsd" MetadataType="Schema" ID="ab3c11c9-9274-4f08-a1e8-d65a1e36fa2d" SourceId="1" SourceUrl="http://localhost:2258/VehicleStatusService.svc?xsd=xsd4" />
+    <MetadataFile FileName="VehicleStatusService1.disco" MetadataType="Disco" ID="cb31c6bf-a897-4b16-bdb7-1b2ed0177f69" SourceId="1" SourceUrl="http://localhost:2258/VehicleStatusService.svc?disco" />
+    <MetadataFile FileName="VehicleStatusService53.xsd" MetadataType="Schema" ID="5f6737dd-8e26-451e-a42c-ed7b553687f2" SourceId="1" SourceUrl="http://localhost:2258/VehicleStatusService.svc?xsd=xsd3" />
+    <MetadataFile FileName="VehicleStatusService1.wsdl" MetadataType="Wsdl" ID="5f52d002-47a2-487d-a701-5c7e6a75f715" SourceId="1" SourceUrl="http://localhost:2258/VehicleStatusService.svc?wsdl" />
+    <MetadataFile FileName="VehicleStatusService54.xsd" MetadataType="Schema" ID="14aed495-ff21-4756-aadc-51b158efda65" SourceId="1" SourceUrl="http://localhost:2258/VehicleStatusService.svc?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

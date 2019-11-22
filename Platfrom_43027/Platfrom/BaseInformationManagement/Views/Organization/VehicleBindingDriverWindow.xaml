@@ -1,0 +1,140 @@
+﻿<controls:ChildWindow x:Class="Gsafety.Ant.BaseInformation.Views.Organization.VehicleBindingDriverWindow"
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+                      xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
+           Width="800" Height="600" 
+           Style="{StaticResource SelfChildenWindowWhiteStyle}"
+           Title="{Binding [Churffure],Source={StaticResource SR}}">
+    <Grid x:Name="LayoutRoot" Style="{StaticResource ContentGridWhiteStyle}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="0"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+        <sdk:DataGrid  Grid.Row="1"
+                       x:Name="ListDataGrid"          
+                       IsReadOnly="True"
+                      AutoGenerateColumns="False"
+                      ItemsSource="{Binding Data}" 
+                       Style="{StaticResource DataGridWhiteStyleRxx}">
+            <sdk:DataGrid.Columns>
+                <!--<sdk:DataGridTextColumn  HeaderStyle="{StaticResource ColumnHeaderWhiteStyle}"
+                                        Header="ChuffeurName"
+                                        Visibility="Visible" 
+                                        Width="2.2*"
+                                        Binding="{Binding Name}">
+
+                </sdk:DataGridTextColumn>-->
+
+                <sdk:DataGridTemplateColumn 	HeaderStyle="{StaticResource ColumnHeaderWhiteStyle}" Header="ChuffeurName" Width="2.2*">
+                    <sdk:DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+
+                            <TextBlock TextAlignment="Left" Text="{Binding Name}" ToolTipService.ToolTip="{Binding Name}"  Width="200" HorizontalAlignment="Left"
+                                                               VerticalAlignment="Center" 
+                                                              />
+                        </DataTemplate>
+                    </sdk:DataGridTemplateColumn.CellTemplate>
+                </sdk:DataGridTemplateColumn>
+
+                <sdk:DataGridTemplateColumn 	HeaderStyle="{StaticResource ColumnHeaderWhiteStyle}" Header="DRIVER_LICENSE" Width="1.2*">
+                    <sdk:DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+
+                            <TextBlock TextAlignment="Left" Text="{Binding DriverLicense}" ToolTipService.ToolTip="{Binding DriverLicense}"  Width="200" HorizontalAlignment="Left"
+                                                               VerticalAlignment="Center" 
+                                                              />
+                        </DataTemplate>
+                    </sdk:DataGridTemplateColumn.CellTemplate>
+                </sdk:DataGridTemplateColumn>
+                <!--<sdk:DataGridTextColumn  Header="DRIVER_LICENSE" HeaderStyle="{StaticResource ColumnHeaderWhiteStyle}"
+                                        Visibility="Visible"
+                                        Width="1.2*"
+                                        Binding="{Binding DriverLicense}"/>-->
+                <!--<sdk:DataGridTextColumn  Header="BASEINFO_IdentityID" HeaderStyle="{StaticResource ColumnHeaderWhiteStyle}"
+                                        Visibility="Visible"
+                                        Width="1.2*"
+                                        Binding="{Binding ICardID}"/>-->
+                <sdk:DataGridTemplateColumn 	HeaderStyle="{StaticResource ColumnHeaderWhiteStyle}" Header="BASEINFO_IdentityID" Width="1.2*">
+                    <sdk:DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+
+                            <TextBlock TextAlignment="Left" Text="{Binding ICardID}" ToolTipService.ToolTip="{Binding ICardID}"  Width="200" HorizontalAlignment="Left"
+                                                               VerticalAlignment="Center" 
+                                                              />
+                        </DataTemplate>
+                    </sdk:DataGridTemplateColumn.CellTemplate>
+                </sdk:DataGridTemplateColumn>
+
+                <sdk:DataGridTextColumn  Header="ContactPhone" HeaderStyle="{StaticResource ColumnHeaderWhiteStyle}"
+                                        Visibility="Visible"
+                                        Width="1.2*"
+                                        Binding="{Binding Phone}"/>
+                <!--<sdk:DataGridTextColumn  Header="BASEINFO_EMail" HeaderStyle="{StaticResource ColumnHeaderWhiteStyle}"
+                                        Visibility="Visible"
+                                        Width="1.2*"
+                                        Binding="{Binding Email}"/>-->
+                <sdk:DataGridTemplateColumn 	HeaderStyle="{StaticResource ColumnHeaderWhiteStyle}" Header="BASEINFO_EMail" Width="1.2*">
+                    <sdk:DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+
+                            <TextBlock TextAlignment="Left" Text="{Binding Email}" ToolTipService.ToolTip="{Binding Email}"  Width="200" HorizontalAlignment="Left"
+                                                               VerticalAlignment="Center" 
+                                                              />
+                        </DataTemplate>
+                    </sdk:DataGridTemplateColumn.CellTemplate>
+                </sdk:DataGridTemplateColumn>
+                <sdk:DataGridTextColumn  HeaderStyle="{StaticResource ColumnHeaderWhiteStyle}"
+                                        Header="MAINPAGE_Address"
+                                        Visibility="Visible" 
+                                        Width="1.2*"
+                                        Binding="{Binding Address}">
+                </sdk:DataGridTextColumn>
+            </sdk:DataGrid.Columns>
+        </sdk:DataGrid>
+        <Border Grid.Row="4" Height="35">
+            <Grid  Style="{StaticResource SearchContentGridStyle}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock HorizontalAlignment="Right" Margin="0,0,10,0"   Text="{Binding [PageSize], Source={StaticResource SR}}" VerticalAlignment="Center" />
+                <ComboBox Grid.Column="1" SelectedItem="{Binding PageSizeValue,Mode=TwoWay}" 
+                          Style="{StaticResource lightComboBox}"
+                          ItemsSource="{Binding PageSizeList}" HorizontalAlignment="Right" 
+                          Height="20" Margin="0,0,20,0" VerticalAlignment="Center" Width="50" 
+                          Background="{Binding ElementName=ListDataGrid, Path=Background}"/>
+                <TextBlock Grid.Column="2"
+                    Text="{Binding [Total],Source={StaticResource SR}}"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Center"
+                    Margin="0,2,10,2"/>
+                <TextBlock Text="{Binding Data.ItemCount}" Grid.Column="3"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                    Margin="10,2,10,2"/>
+                <sdk:DataPager Style="{StaticResource DataPagerStyle}"   
+                Grid.Column="4"
+                Height="25"
+                    Source="{Binding Data}"
+                    PageSize="{Binding PageSizeValue}"
+                    Background="{Binding ElementName=ListDataGrid, Path=Background}"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Center"/>
+            </Grid>
+        </Border>
+        <Button Content="{Binding [Back], Source={StaticResource SR}}" 
+                Grid.Row="5"
+                Style="{StaticResource CancelButtonStyle}"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Click="CancelButton_Click"/>
+    </Grid>
+</controls:ChildWindow>

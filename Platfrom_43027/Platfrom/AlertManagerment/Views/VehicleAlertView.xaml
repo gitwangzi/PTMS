@@ -1,0 +1,377 @@
+﻿<UserControl xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"  
+             xmlns:toolkit="http://schemas.microsoft.com/winfx/2006/xaml/presentation/toolkit" 
+             x:Class="Gsafety.PTMS.Alert.Views.VehicleAlertView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:uc="clr-namespace:Gsafety.Common.Controls;assembly=CommonControls"
+    xmlns:Converter="clr-namespace:Gsafety.Common.Converts;assembly=Converts"
+    xmlns:AlertView="clr-namespace:Gsafety.PTMS.Alert.Views"
+    xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+    xmlns:GisComm="clr-namespace:GisManagement.Views;assembly=GisManagement" 
+    xmlns:cv="clr-namespace:Gsafety.PTMS.Alert.Converts;assembly=AlertManagerment"
+    xmlns:ca="clr-namespace:Gsafety.Common.Converts;assembly=Converts"
+    xmlns:ia="http://schemas.microsoft.com/expression/2010/interactions"
+    xmlns:share="clr-namespace:Gsafety.PTMS.Share;assembly=Share"
+    mc:Ignorable="d"
+    d:DesignHeight="600" d:DesignWidth="800">
+
+    <UserControl.Resources>
+        <Converter:ToVehicleAlertType x:Key="ToVehicleAlertType"></Converter:ToVehicleAlertType>
+        <cv:LocateVechicleAlartStateConvert x:Key="LocateVechicleAlartStateConvert"/>
+        <cv:VehicleAlertLocationConvert x:Key="VehicleAlertLocationConvert"/>
+        <ca:AlertTypeColorConvert x:Key="alertcolor"/>
+        <Storyboard x:Key="collapseTransition">
+            <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="SuiteLeftContent" 
+                    Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.X)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:00.1000000" Value="-250"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="expandTransition">
+            <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="SuiteLeftContent" 
+                    Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.X)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="-250"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:00.1000000" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </UserControl.Resources>
+
+    <Grid x:Name="LayoutRoot" Background="White">
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="360" MaxWidth="500"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions >
+            <Grid x:Name="collapsedPane" Grid.Column="0" Grid.Row="0" Canvas.ZIndex="100" Margin="-5,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" Visibility="Collapsed" >
+                <Image x:Name="showL" Source="/ExternalResource;component/Images/slidearrow06.png" Cursor="Hand" Stretch="None" Opacity="0.9" 
+                   ToolTipService.ToolTip="{Binding [MenuVisibleToolTip], Source={StaticResource SR}}" Margin="0,0,0,0" MouseLeftButtonDown="showL_MouseLeftButtonDown"/>
+            </Grid>
+            <Grid x:Name="SuiteLeftContent" Grid.Column="0" >
+                <Grid.RenderTransform>
+                    <TranslateTransform/>
+                </Grid.RenderTransform>
+                <Image x:Name="hiddenL" Source="/ExternalResource;component/Images/MainPage_menu_arrowleft.png" Cursor="Hand" Margin="0,6,10,0" HorizontalAlignment="Right" 
+                   VerticalAlignment="Top" Canvas.ZIndex="100" Stretch="None" MouseLeftButtonDown="hiddenL_MouseLeftButtonDown"
+                   ToolTipService.ToolTip="{Binding [MenuCollapsedToolTip], Source={StaticResource SR}}"/>
+                <Grid x:Name="stackPanel" Grid.Column="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                    </Grid.RowDefinitions>
+
+                    <Border Grid.Row="0" Height="40" BorderThickness="0,1,1,1" BorderBrush="{StaticResource MenuBarLine}" Background="{StaticResource NavBarBG}">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="70*"></ColumnDefinition>
+                                <ColumnDefinition Width="50*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Grid.Background>
+                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                    <GradientStop Color="#FF29C7E5" Offset="0.017"/>
+                                    <GradientStop Color="#FF0053A0" Offset="1"/>
+                                    <GradientStop Color="#FF1B8FCA" Offset="0.037"/>
+                                </LinearGradientBrush>
+                            </Grid.Background>
+                            <StackPanel Grid.Column="0" Orientation="Horizontal" >
+                                <StackPanel Orientation="Horizontal">
+                                    <Image Source="/ExternalResource;component/Images/MainPage_menu_vehiclealarm.png" Stretch="None" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="8,4,0,6"></Image>
+                                    <TextBlock Text="{Binding [ALERT_VehicleAlert],Source={StaticResource SR}}" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="5,0,0,0" Style="{StaticResource MainPage_menu_tle_TextBlockStyle}"></TextBlock>
+                                </StackPanel>
+                            </StackPanel>
+                            <StackPanel Grid.Column="1" Orientation="Horizontal"  HorizontalAlignment="Right">
+                                <Button Margin="2,0,10,0"  Style="{StaticResource SearchButtonStyle}"  Command="{Binding Path=DataContext.OpenDetailViewCommand,ElementName=LayoutRoot}"  Width="29" Height="29" BorderThickness="0" VerticalAlignment="Center" HorizontalAlignment="Right">
+                                    <Image  ToolTipService.ToolTip="{Binding [MONITOR_BaseInfo], Source={StaticResource SR}}" Width="29" Height="29" Source="/ExternalResource;component/Images/MainPage_menu_info.png" VerticalAlignment="Center" HorizontalAlignment="Center" Stretch ="Fill"/>
+                                </Button>
+                                <Canvas Width="30"></Canvas>
+                            </StackPanel>
+                        </Grid>
+                    </Border>
+                    <Grid Grid.Row="1" Margin="0,0,5,0">
+                        <toolkit:Accordion  VerticalAlignment="Stretch" BorderThickness="0"  SelectionMode="ZeroOrOne"  x:Name="Accordion">
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="SelectionChanged">
+                                    <ia:CallMethodAction TargetObject="{Binding}" MethodName="Accordion_SelectionChanged"/>
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
+                            <toolkit:AccordionItem Header="{Binding [ALERT_UnHandleAlert],Source={StaticResource SR}}" Style="{StaticResource Menu_AccordionItemStyle}" VerticalContentAlignment="Stretch" VerticalAlignment="Stretch">
+                                <toolkit:AccordionItem.Content>
+                                    <toolkit:BusyIndicator IsBusy="{Binding IsUnhandledBusy, Mode=TwoWay}" BusyContent="{Binding BusyContent, Mode=TwoWay}">
+                                        <Grid share:ButtonServices.DefaultButton="{Binding ElementName=UnAlertSearch}">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="70"></RowDefinition>
+                                                <RowDefinition Height="*"></RowDefinition>
+                                            </Grid.RowDefinitions>
+                                            <Grid Grid.Row="0">
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="5"></RowDefinition>
+                                                    <RowDefinition Height="30"></RowDefinition>
+                                                    <RowDefinition Height="30"></RowDefinition>
+                                                    <RowDefinition Height="5"></RowDefinition>
+                                                </Grid.RowDefinitions>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="138"></ColumnDefinition>
+                                                    <ColumnDefinition></ColumnDefinition>
+                                                </Grid.ColumnDefinitions>
+                                                <TextBlock Grid.Row="1" Grid.Column="0" Text="{Binding [ALERT_VehicleId],Source={StaticResource SR}}" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,0,0" Style="{StaticResource MainPage_Main_search_TextBlockStyle}"></TextBlock>
+                                                <TextBox Grid.Row="1" Grid.Column="1" Width="150" Margin="5,0,0,0" Style="{StaticResource MainPage_Main_TextBoxStyle}" 
+                                                         Text="{Binding CarNumber, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" MaxLength="20" HorizontalAlignment="Left"></TextBox>
+                                                <TextBlock Grid.Row="2" Grid.Column="0" Text="{Binding [ALERT_AlertType],Source={StaticResource SR}}" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,0,0" Style="{StaticResource MainPage_Main_search_TextBlockStyle}"></TextBlock>
+                                                <ComboBox Grid.Row="2" Grid.Column="1" Width="150" Margin="5,0,0,0" ItemsSource="{Binding VehicleAlertTypeList}" DisplayMemberPath="Name" 
+                                                          SelectedValuePath="Code" SelectedItem="{Binding AlertType, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" 
+                                                          HorizontalAlignment="Left" Style="{StaticResource MainPage_Main_Search_ComboBoxStyle}"></ComboBox>
+                                                <Button Name="UnAlertSearch" Grid.Row="2"  Style="{StaticResource Main_search_ButtonStyle}" ToolTipService.ToolTip="{Binding [ALARM_Query],Source={StaticResource SR}}"  VerticalAlignment="Center" HorizontalAlignment="Left" Margin="160,0,0,0" Command="{Binding GetVehicleAlertCommand}" Grid.Column="1" >
+                                                    <Image Source="/ExternalResource;component/Images/MainPage_search_gray.png" Stretch="Fill" Width="14" Height="14"/>
+                                                </Button>
+                                            </Grid>
+                                            <Grid Grid.Row="1">
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="*"></RowDefinition>
+                                                    <RowDefinition Height="30"></RowDefinition>
+                                                </Grid.RowDefinitions>
+                                                <sdk:DataGrid x:Name="UnhandleGrid" ItemsSource="{Binding VehicleAlertUnHandledPagedCV,Mode=TwoWay}" SelectedItem="{Binding SelectedVehicleAlertModel, Mode=TwoWay}" AutoGenerateColumns="False" IsReadOnly="True" VerticalAlignment="Top"
+                                                              ColumnHeaderStyle="{StaticResource DataGridColumnHeaderStyle}" CellStyle="{StaticResource DataGridCellStyle}"
+                                                              GridLinesVisibility="Horizontal" HorizontalGridLinesBrush="#FFDCDAD5" RowStyle="{StaticResource DataGridRowStyle}" Background="Transparent">
+                                                    <sdk:DataGrid.Columns>
+                                                        <sdk:DataGridTemplateColumn Header="ALERT_VehicleId" Width="*" CanUserSort="True" SortMemberPath="VehicleId">
+
+                                                            <sdk:DataGridTemplateColumn.CellTemplate>
+                                                                <DataTemplate>
+                                                                    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Left">
+                                                                        <TextBlock  Foreground="{Binding AlertType,Converter={StaticResource alertcolor}}" Text="{Binding VehicleId}"></TextBlock>
+                                                                    </StackPanel>
+                                                                </DataTemplate>
+                                                            </sdk:DataGridTemplateColumn.CellTemplate>
+                                                        </sdk:DataGridTemplateColumn>
+                                                        <sdk:DataGridTemplateColumn Header="ALERT_AlertType" Width="*" CanUserSort="True" SortMemberPath="AlertType" >
+                                                            <sdk:DataGridTemplateColumn.CellTemplate>
+                                                                <DataTemplate>
+                                                                    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Left">
+                                                                        <TextBlock  Foreground="{Binding AlertType,Converter={StaticResource alertcolor}}" Text="{Binding AlertType, Converter={StaticResource ToVehicleAlertType}}"></TextBlock>
+                                                                    </StackPanel>
+                                                                </DataTemplate>
+                                                            </sdk:DataGridTemplateColumn.CellTemplate>
+                                                        </sdk:DataGridTemplateColumn>
+                                                        <sdk:DataGridTemplateColumn Header="ALERT_Operator" Width="1.4*">
+                                                            <sdk:DataGridTemplateColumn.CellTemplate>
+                                                                <DataTemplate>
+                                                                    <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
+                                                                        <ToggleButton x:Name="locateButton"  IsThreeState="False" Style="{StaticResource ToggleButtonStyle}" 
+                                                                          Command="{Binding DataContext.LocateCommand,RelativeSource={RelativeSource AncestorType=sdk:DataGrid}}"  CommandParameter="{Binding}"
+                                                                          ToolTipService.ToolTip="{Binding [ALERT_HappendLocate],Source={StaticResource SR}}"
+                                                                           Cursor="Hand" HorizontalAlignment="Center" VerticalAlignment="Center" Height="22" MinWidth="32">
+                                                                            <ToggleButton.Content>
+
+                                                                                <StackPanel Orientation="Horizontal">
+                                                                                    <Image Source="{Binding IsMonitor,Converter={StaticResource  LocateVechicleAlartStateConvert}}" Width="16" Height="16" />
+                                                                                </StackPanel>
+                                                                            </ToggleButton.Content>
+                                                                        </ToggleButton>
+
+                                                                        <ToggleButton x:Name="OriginlocateButton"  IsThreeState="False" Style="{StaticResource ToggleButtonStyle}" 
+                                                                          Command="{Binding DataContext.LocatePositionCommand,RelativeSource={RelativeSource AncestorType=sdk:DataGrid}}"  CommandParameter="{Binding}"
+                                                                          ToolTipService.ToolTip="{Binding [ALARM_Loacte],Source={StaticResource SR}}"
+                                                                           Cursor="Hand" HorizontalAlignment="Center" VerticalAlignment="Center" Height="22" MinWidth="32">
+                                                                            <ToggleButton.Content>
+
+                                                                                <StackPanel Orientation="Horizontal">
+                                                                                    <Image Source="{Binding IsLocation,Converter={StaticResource  VehicleAlertLocationConvert}}" Width="16" Height="16" />
+                                                                                </StackPanel>
+                                                                            </ToggleButton.Content>
+                                                                        </ToggleButton>
+
+                                                                        <ToggleButton x:Name="handleButton"  IsThreeState="False" Style="{StaticResource ToggleButtonStyle}" 
+                                                                          Command="{Binding DataContext.HandleCommand,RelativeSource={RelativeSource AncestorType=sdk:DataGrid}}"  CommandParameter="0"
+                                                                          ToolTipService.ToolTip="{Binding [ALERT_Handle],Source={StaticResource SR}}"
+                                                                           Cursor="Hand" HorizontalAlignment="Center" VerticalAlignment="Center" Height="22" MinWidth="32">
+                                                                            <ToggleButton.Content>
+                                                                                <StackPanel Orientation="Horizontal">
+                                                                                    <Image Source="/ExternalResource;component/Images/DataGrid_deal.png"></Image>
+                                                                                </StackPanel>
+                                                                            </ToggleButton.Content>
+                                                                        </ToggleButton>
+
+                                                                        <ToggleButton x:Name="MonotorVechile"  IsThreeState="False" Style="{StaticResource ToggleButtonStyle}" 
+                                                                          Command="{Binding DataContext.SelectMonitorGroup,RelativeSource={RelativeSource AncestorType=sdk:DataGrid}}"  CommandParameter="0"
+                                                                                ToolTipService.ToolTip="{Binding [MONITOR_Group],Source={StaticResource SR}}"
+                                                                                      Cursor="Hand" HorizontalAlignment="Center" VerticalAlignment="Center" Height="22" MinWidth="32">
+                                                                            <ToggleButton.Content>
+                                                                                <StackPanel Orientation="Horizontal">
+                                                                                    <Image  Source="/ExternalResource;component/Images/DataGrid_detail.png"/>
+                                                                                </StackPanel>
+                                                                            </ToggleButton.Content>
+                                                                        </ToggleButton>
+
+
+                                                                    </StackPanel>
+                                                                </DataTemplate>
+                                                            </sdk:DataGridTemplateColumn.CellTemplate>
+                                                        </sdk:DataGridTemplateColumn>
+                                                    </sdk:DataGrid.Columns>
+                                                </sdk:DataGrid>
+                                                <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="0,0,0,0" >
+                                                    <TextBlock Grid.Row="1" Margin="0,0,5,0" TextWrapping="Wrap" Text="{Binding [ALARM_NumUnHandleAlarm], Source={StaticResource SR}}" VerticalAlignment="Center" Foreground="Black" FontSize="12"/>
+                                                    <TextBlock ToolTipService.ToolTip="{Binding [UnhandleAlart],Source={StaticResource SR}}" Grid.Row="1" Margin="0,0,5,0" TextWrapping="Wrap" Text="{Binding Path=VehicleAlertUnHandledPagedCV.ItemCount, Mode=OneWay}" VerticalAlignment="Center" Foreground="Black" FontSize="12"/>
+                                                </StackPanel>
+                                                <sdk:DataPager  Grid.Row="1" PageSize="20" HorizontalAlignment="Right"  VerticalAlignment="Bottom" Source="{Binding VehicleAlertUnHandledPagedCV, Mode=TwoWay}" IsTotalItemCountFixed="True"/>
+                                            </Grid>
+                                        </Grid>
+                                    </toolkit:BusyIndicator>
+                                </toolkit:AccordionItem.Content>
+                            </toolkit:AccordionItem>
+                            <toolkit:AccordionItem Header="{Binding [ALERT_HandledAlert],Source={StaticResource SR}}" Style="{StaticResource Menu_AccordionItemStyle}" VerticalContentAlignment="Stretch" VerticalAlignment="Stretch">
+                                <toolkit:AccordionItem.Content>
+                                    <toolkit:BusyIndicator IsBusy="{Binding IsHandledBusy, Mode=TwoWay}" VerticalAlignment="Stretch" BusyContent="{Binding BusyContent, Mode=TwoWay}">
+                                        <Grid share:ButtonServices.DefaultButton="{Binding ElementName=HandledAlertSearch}">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="125"></RowDefinition>
+                                                <RowDefinition Height="*"></RowDefinition>
+                                            </Grid.RowDefinitions>
+                                            <Grid Grid.Row="0">
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="3"></RowDefinition>
+                                                    <RowDefinition Height="30"></RowDefinition>
+                                                    <RowDefinition Height="30"></RowDefinition>
+                                                    <RowDefinition Height="30"></RowDefinition>
+                                                    <RowDefinition Height="30"></RowDefinition>
+                                                    <RowDefinition Height="2"></RowDefinition>
+                                                </Grid.RowDefinitions>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="138"></ColumnDefinition>
+                                                    <ColumnDefinition></ColumnDefinition>
+                                                </Grid.ColumnDefinitions>
+
+                                                <TextBlock Grid.Row="1" Grid.Column="0" Text="{Binding [ALERT_VehicleId],Source={StaticResource SR}}" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,6,0,5" Style="{StaticResource MainPage_Main_search_TextBlockStyle}"></TextBlock>
+                                                <TextBox Grid.Row="1" Grid.Column="1" Width="145" Margin="5,0,0,0" Text="{Binding CarNumberHandled, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" MaxLength="20"
+                                                          Style="{StaticResource MainPage_Main_TextBoxStyle}"  HorizontalAlignment="Left" TabIndex="1"></TextBox>
+
+                                                <TextBlock Grid.Row="2" Grid.Column="0" Text="{Binding [ALERT_AlertType],Source={StaticResource SR}}" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,6,0,5" Style="{StaticResource MainPage_Main_search_TextBlockStyle}"></TextBlock>
+                                                <ComboBox Grid.Row="2" Grid.Column="1" Width="145" Margin="5,3,0,2" ItemsSource="{Binding VehicleAlertTypeList}" DisplayMemberPath="Name" SelectedValuePath="Code" 
+                                                          TabIndex="2" SelectedItem="{Binding AlertTypeHandled,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Style="{StaticResource MainPage_Main_Search_ComboBoxStyle}"></ComboBox>
+
+                                                <TextBlock Grid.Row="3" Grid.Column="0"  Text="{Binding [ALERT_StartTime],Source={StaticResource SR}}" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,6,0,5" Style="{StaticResource MainPage_Main_search_TextBlockStyle}"></TextBlock>
+
+                                                <uc:DatePickerEx Grid.Row="3" Grid.Column="1" x:Name="startDatePicker"  Width="145" Height="22" Margin="5,4,0,4" 
+                                                                 SelectedDate="{Binding StartTime, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged, ValidatesOnExceptions=True, ValidatesOnDataErrors=True}" 
+                                                                 TabIndex="3"  HorizontalAlignment="Left" />
+
+                                                <TextBlock Grid.Row="4" Grid.Column="0" Text="{Binding [ALERT_EndTime],Source={StaticResource SR}}" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,0,0" Style="{StaticResource MainPage_Main_search_TextBlockStyle}"></TextBlock>
+                                                <uc:DatePickerEx Grid.Row="4" Grid.Column="1" x:Name="endDatePicker" Width="145" Height="22" Margin="5,0,0,0" 
+                                                                 DisplayDateStart="{Binding ElementName=startDatePicker, Path=SelectedDate}" 
+                                                             TabIndex="4" SelectedDate="{Binding EndTime, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged, 
+                                                    ValidatesOnExceptions=True, ValidatesOnDataErrors=True,StringFormat=dd-MM-yyyy}"  HorizontalAlignment="Left"/>
+
+                                                <Button Name="HandledAlertSearch" Grid.Row="4"  Style="{StaticResource Main_search_ButtonStyle}" ToolTipService.ToolTip="{Binding [ALARM_Query],Source={StaticResource SR}}" Margin="120,0,0,0" 
+                                                        Command="{Binding GetVehicleAlertExCommand}"  TabIndex="5" Grid.Column="1" >
+                                                    <Image Source="/ExternalResource;component/Images/MainPage_search_gray.png" Stretch="Fill" Width="14" Height="14"/>
+                                                </Button>
+                                            </Grid>
+                                            <Grid Grid.Row="1" VerticalAlignment="Stretch">
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="*"></RowDefinition>
+                                                    <RowDefinition Height="30"></RowDefinition>
+                                                </Grid.RowDefinitions>
+                                                <sdk:DataGrid AutoGenerateColumns="False" x:Name="HandleGrid" ItemsSource="{Binding VehicleAlertHandledModels, Mode=TwoWay}" CanUserSortColumns="True" IsReadOnly="True" SelectedItem="{Binding SelectedVehicleAlertHandledModel, Mode=TwoWay}"
+                                                              ColumnHeaderStyle="{StaticResource DataGridColumnHeaderStyle}" CellStyle="{StaticResource DataGridCellStyle}"
+                                                              GridLinesVisibility="Horizontal" HorizontalGridLinesBrush="#FFDCDAD5" RowStyle="{StaticResource DataGridRowStyle}" Background="Transparent">
+                                                    <sdk:DataGrid.Columns>
+                                                        <sdk:DataGridTemplateColumn Header="ALERT_VehicleId" Width="*" CanUserSort="True" SortMemberPath="VehicleId">
+
+                                                            <sdk:DataGridTemplateColumn.CellTemplate>
+                                                                <DataTemplate>
+                                                                    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Left">
+                                                                        <TextBlock  Foreground="{Binding AlertType,Converter={StaticResource alertcolor}}" Text="{Binding VehicleId}"></TextBlock>
+                                                                    </StackPanel>
+                                                                </DataTemplate>
+                                                            </sdk:DataGridTemplateColumn.CellTemplate>
+                                                        </sdk:DataGridTemplateColumn>
+                                                        <sdk:DataGridTemplateColumn Header="ALERT_AlertType" Width="*"  CanUserSort="True" SortMemberPath="AlertType">
+
+                                                            <sdk:DataGridTemplateColumn.CellTemplate>
+                                                                <DataTemplate>
+                                                                    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Left">
+                                                                        <TextBlock  Foreground="{Binding AlertType,Converter={StaticResource alertcolor}}" Text="{Binding AlertType, Converter={StaticResource ToVehicleAlertType}}"></TextBlock>
+                                                                    </StackPanel>
+                                                                </DataTemplate>
+                                                            </sdk:DataGridTemplateColumn.CellTemplate>
+                                                        </sdk:DataGridTemplateColumn>
+
+                                                        <sdk:DataGridTemplateColumn Header="ALERT_Operator" Width="*" >
+                                                            <sdk:DataGridTemplateColumn.CellTemplate>
+                                                                <DataTemplate>
+                                                                    <StackPanel Orientation="Horizontal">
+                                                                        <ToggleButton x:Name="locateButton"  IsThreeState="False" Style="{StaticResource ToggleButtonStyle}" 
+                                                                          Command="{Binding DataContext.LocateHandledCommand,RelativeSource={RelativeSource AncestorType=sdk:DataGrid}}"  CommandParameter="{Binding}"
+                                                                          ToolTipService.ToolTip="{Binding [ALERT_HappendLocate],Source={StaticResource SR}}"
+                                                                           Cursor="Hand" HorizontalAlignment="Center" VerticalAlignment="Center" Height="22" MinWidth="32">
+                                                                            <ToggleButton.Content>
+
+                                                                                <StackPanel Orientation="Horizontal">
+                                                                                    <Image Source="{Binding IsMonitor,Converter={StaticResource  LocateVechicleAlartStateConvert}}" Width="16" Height="16" />
+                                                                                </StackPanel>
+                                                                            </ToggleButton.Content>
+                                                                        </ToggleButton>
+                                                                        <ToggleButton x:Name="OriginlocateButton"  IsThreeState="False" Style="{StaticResource ToggleButtonStyle}" 
+                                                                          Command="{Binding DataContext.LocatePositionCommand,RelativeSource={RelativeSource AncestorType=sdk:DataGrid}}"  CommandParameter="{Binding}"
+                                                                          ToolTipService.ToolTip="{Binding [ALARM_Loacte],Source={StaticResource SR}}"
+                                                                           Cursor="Hand" HorizontalAlignment="Center" VerticalAlignment="Center" Height="22" MinWidth="32">
+                                                                            <ToggleButton.Content>
+
+                                                                                <StackPanel Orientation="Horizontal">
+                                                                                    <Image Source="{Binding IsLocation,Converter={StaticResource  VehicleAlertLocationConvert}}" Width="16" Height="16" />
+                                                                                </StackPanel>
+                                                                            </ToggleButton.Content>
+                                                                        </ToggleButton>
+                                                                        <ToggleButton x:Name="MonotorVechile"  IsThreeState="False" Style="{StaticResource ToggleButtonStyle}" 
+                                                                          Command="{Binding DataContext.SelectHandledMonitorGroup,RelativeSource={RelativeSource AncestorType=sdk:DataGrid}}"  CommandParameter="0"
+                                                                                ToolTipService.ToolTip="{Binding [MONITOR_Group],Source={StaticResource SR}}"
+                                                                                      Cursor="Hand" HorizontalAlignment="Center" VerticalAlignment="Center" Height="22" MinWidth="32">
+                                                                            <ToggleButton.Content>
+                                                                                <StackPanel Orientation="Horizontal">
+                                                                                    <Image  Source="/ExternalResource;component/Images/DataGrid_detail.png"/>
+                                                                                </StackPanel>
+                                                                            </ToggleButton.Content>
+                                                                        </ToggleButton>
+                                                                    </StackPanel>
+                                                                </DataTemplate>
+                                                            </sdk:DataGridTemplateColumn.CellTemplate>
+                                                        </sdk:DataGridTemplateColumn>
+                                                    </sdk:DataGrid.Columns>
+                                                </sdk:DataGrid>
+                                                <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="0,0,0,0" >
+                                                    <TextBlock Grid.Row="1" Margin="0,0,5,0" TextWrapping="Wrap" Text="{Binding [ALARM_NumUnHandleAlarm], Source={StaticResource SR}}" VerticalAlignment="Center" Foreground="Black" FontSize="12"/>
+                                                    <TextBlock Grid.Row="1" Margin="0,0,5,0" TextWrapping="Wrap" Text="{Binding Path=VehicleAlertPageView.TotalItemCount, Mode=OneWay}" VerticalAlignment="Center" Foreground="Black" FontSize="12"/>
+                                                </StackPanel>
+                                                <sdk:DataPager Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Bottom" Source="{Binding VehicleAlertPageView, Mode=TwoWay}" IsTotalItemCountFixed="True" PageSize="{Binding HandleAlertPageSizeValue}"/>
+                                            </Grid>
+                                        </Grid>
+                                    </toolkit:BusyIndicator>
+                                </toolkit:AccordionItem.Content>
+                            </toolkit:AccordionItem>
+                        </toolkit:Accordion>
+                    </Grid>
+                </Grid>
+            </Grid>
+            <sdk:GridSplitter Width="6" Style="{StaticResource ANTGridSplitter}"/>
+            <Border Name="GISContent" Grid.Column="1" BorderThickness="1,0"  BorderBrush="#00ffffff">
+                <Grid Name="ContentGrid">
+                    <sdk:Frame  JournalOwnership="OwnsJournal"               
+        			x:Name="ContentFrame"
+        			Style="{StaticResource ContentFrameStyle}" Source="/MonitorGisView" Navigated="ContentFrame_Navigated" NavigationFailed="ContentFrame_NavigationFailed">
+                        <sdk:Frame.UriMapper>
+                            <sdk:UriMapper>
+                                <sdk:UriMapping Uri="" MappedUri="/GisManagement;component/Views/GisNavigationer.xaml"/>
+                                <sdk:UriMapping Uri="/ShowText/{text}" MappedUri="/GisManagement;component/Views/GisNavigationer.xaml?view=TextView&amp;text={text}"/>
+                                <sdk:UriMapping Uri="/{pageName}" MappedUri="/GisManagement;component/Views/GisNavigationer.xaml?view={pageName}"/>
+                            </sdk:UriMapper>
+                        </sdk:Frame.UriMapper>
+                    </sdk:Frame>
+                </Grid>
+
+            </Border>
+        </Grid>
+
+
+    </Grid>
+</UserControl>

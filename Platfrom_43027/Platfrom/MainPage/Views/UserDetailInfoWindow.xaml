@@ -1,0 +1,189 @@
+﻿<controls:ChildWindow x:Class="Gsafety.Ant.MainPage.Views.UserDetailInfoWindow"
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+           Width="500" Height="320" 
+           Title="{Binding [MAINPAGE_UserInformant], Source={StaticResource SR}}"
+           Style="{StaticResource SelfChildenWindowWhiteStyle}">
+    <Grid x:Name="LayoutRoot" Style="{StaticResource ContentGridWhiteStyle}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+ 
+        <Grid Grid.Row="1" Style="{StaticResource ContentGridWhiteStyle}">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0" Style="{StaticResource ContentGridWhiteStyle}" Margin="0,20,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Grid.Column="1"
+                           Grid.Row="0"
+                           HorizontalAlignment="Right"
+                           VerticalAlignment="Center"
+                           Margin="0,5,5,5"
+                           Text="{Binding [LoginName], Source={StaticResource SR}}"/>
+                <TextBlock Grid.Column="2"
+                         Grid.Row="0"
+                         Width="250"
+                         HorizontalAlignment="Stretch"
+                         VerticalAlignment="Center"                      
+                         Text="{Binding Account}"                
+                         Margin="0,5,0,5"/>
+
+                <TextBlock Grid.Column="1"
+                           Grid.Row="1"
+                           HorizontalAlignment="Right"
+                           VerticalAlignment="Center"
+                           Margin="0,5,5,5"
+                           Text="{Binding [UserName], Source={StaticResource SR}}"/>
+                <TextBox Grid.Column="2"
+                         Grid.Row="1"
+                         IsEnabled="False"
+                         HorizontalAlignment="Stretch"
+                         VerticalAlignment="Center"
+                         IsReadOnly="{Binding IsReadOnly}"
+                         Text="{Binding UserName, Mode=TwoWay}"
+                         MaxWidth="250"
+                         MaxLength="50"
+                         Margin="0,5,0,5"/>             
+             
+                <TextBlock Grid.Column="1"
+                           Grid.Row="2"
+                           HorizontalAlignment="Right"
+                           VerticalAlignment="Center"
+                           Margin="0,5,5,5"
+                           Text="{Binding [Phone], Source={StaticResource SR}}"/>
+                <TextBox Grid.Column="2"
+                         Grid.Row="2"
+                           IsEnabled="False"
+                         HorizontalAlignment="Stretch"
+                         VerticalAlignment="Center"
+                         IsReadOnly="{Binding IsReadOnly}"
+                         Text="{Binding Phone, Mode=TwoWay}"
+                         MaxWidth="250"
+                         Margin="0,5,0,5"
+                         MaxLength="50"/>
+
+                <TextBlock Grid.Column="1"
+                           Grid.Row="3"
+                           HorizontalAlignment="Right"
+                           VerticalAlignment="Center"
+                           Margin="0,5,5,5"
+                           Text="{Binding [CellPhone], Source={StaticResource SR}}"/>
+                <TextBox Grid.Column="2"
+                         Grid.Row="3"
+                           IsEnabled="False"
+                         HorizontalAlignment="Stretch"
+                         VerticalAlignment="Center"
+                         IsReadOnly="{Binding IsReadOnly}"
+                         Text="{Binding Mobile, Mode=TwoWay}"
+                         MaxWidth="250"
+                         Margin="0,5,0,5"
+                         MaxLength="50"/>
+
+                <TextBlock Grid.Column="1"
+                           Grid.Row="4"
+                           HorizontalAlignment="Right"
+                           VerticalAlignment="Center"
+                           Margin="0,5,5,5"
+                           Text="{Binding [Email], Source={StaticResource SR}}"/>
+                <TextBox Grid.Column="2"
+                         Grid.Row="4"
+                           IsEnabled="False"
+                         HorizontalAlignment="Stretch"
+                         VerticalAlignment="Center"
+                         IsReadOnly="{Binding IsReadOnly}"
+                         Text="{Binding Email, Mode=TwoWay}"
+                         MaxWidth="250"
+                         Margin="0,5,0,5"
+                         MaxLength="100"/>
+
+                <TextBlock Grid.Column="1"
+                           Grid.Row="5"
+                           HorizontalAlignment="Right"
+                           VerticalAlignment="Center"
+                           Margin="0,5,5,5"
+                           Text="{Binding [Address], Source={StaticResource SR}}"/>
+                <TextBox Grid.Column="2"
+                         Grid.Row="5"
+                           IsEnabled="False"
+                         HorizontalAlignment="Stretch"
+                         VerticalAlignment="Center"
+                         IsReadOnly="{Binding IsReadOnly}"
+                         Text="{Binding Address, Mode=TwoWay}"
+                         MaxWidth="250"
+                         Margin="0,5,0,5"
+                         MaxLength="512"/>
+          
+                <TextBlock Grid.Column="1"
+                           Grid.Row="6"
+                           HorizontalAlignment="Right"
+                           VerticalAlignment="Center"
+                           Margin="0,5,5,5"
+                           Text="{Binding [Note], Source={StaticResource SR}}"/>
+                <TextBox Grid.Column="2"
+                         Grid.Row="6"
+                           IsEnabled="False"
+                         HorizontalAlignment="Stretch"
+                         VerticalAlignment="Center"
+                         IsReadOnly="{Binding IsReadOnly}"
+                         Text="{Binding Description, Mode=TwoWay}"
+                         MaxWidth="250"
+                         Margin="0,5,0,5"
+                         MaxLength="2000"/>
+
+                <Grid 
+                      Grid.Row="8"
+                      Style="{StaticResource ContentGridWhiteStyle}" Grid.ColumnSpan="3" Margin="75,0,76,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <Button Visibility="Collapsed" Grid.Column="0" TabIndex="0"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Center"
+                        Content="{Binding [Done], Source={StaticResource SR}}"
+                        Style="{StaticResource SaveButtonStyle}"
+                        Command="{Binding CommitCommand}"
+                        IsEnabled="{Binding IsCanCommit}"
+                   
+                            Margin="0,0,10,0"/>
+                    <Button Grid.Column="2"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Center"
+                        Content="{Binding [Return], Source={StaticResource SR}}"
+                        Click="CancelButton_Click"
+                        Style="{StaticResource BackButtonStyle}"
+                            Margin="10,0,0,0"/>
+                </Grid>
+            </Grid>
+        </Grid>
+    </Grid>
+</controls:ChildWindow>

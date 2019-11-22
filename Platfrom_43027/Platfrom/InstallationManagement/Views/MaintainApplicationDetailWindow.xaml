@@ -1,0 +1,245 @@
+﻿<controls:ChildWindow x:Class="Gsafety.PTMS.Installation.Views.MaintainApplicationDetailWindow"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+               xmlns:Controls="clr-namespace:Gsafety.Common.Controls;assembly=CommonControls" 
+                      
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk" 
+	xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls" 
+	mc:Ignorable="d"
+	d:DesignHeight="630" d:DesignWidth="550" Style="{StaticResource SelfChildenWindowStyle}" Title="{Binding Title}">
+    <Grid x:Name="LayoutRoot" Style="{StaticResource ContentGridWhiteStyle}">
+        <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,20,0,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" MinWidth="140"/>
+
+                <ColumnDefinition Width="340"/>
+                <ColumnDefinition Width="20"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Margin="0,5,20,5"
+				Grid.Row="1" 
+			Grid.Column="0" 
+			Text="{Binding [MaintainRecord_Applicant], Source={StaticResource SR}}" 
+			HorizontalAlignment="Right" 
+			VerticalAlignment="Center"/>
+            <TextBox x:Name="txtID"
+				Margin="0,5,0,5" 
+			Grid.Row="1" 
+				Grid.Column="1" 
+				Text="{Binding Applicant,Mode=TwoWay,NotifyOnValidationError=True,ValidatesOnDataErrors=True}" 
+				MaxLength="36"
+				HorizontalAlignment="Stretch"
+				IsReadOnly="{Binding IsReadOnly, Mode=OneWay}"/>
+            <TextBlock Margin="0,5,20,5"
+				Grid.Row="2" 
+			Grid.Column="0" 
+			Text="{Binding [MaintainRecord_VehicleID], Source={StaticResource SR}}" 
+			HorizontalAlignment="Right" 
+			VerticalAlignment="Center"/>
+            <TextBox x:Name="txtClientID"
+				Margin="0,5,0,5" 
+			Grid.Row="2" 
+				Grid.Column="1" 
+				Text="{Binding VehicleID,Mode=TwoWay,NotifyOnValidationError=True,ValidatesOnDataErrors=True}" 
+				MaxLength="36"
+				HorizontalAlignment="Stretch"
+				IsReadOnly="{Binding IsReadOnly, Mode=OneWay}"/>
+            <TextBlock Margin="0,5,20,5"
+				Grid.Row="3" 
+			Grid.Column="0" 
+			Text="{Binding [MaintainRecord_Contact], Source={StaticResource SR}}" 
+			HorizontalAlignment="Right" 
+			VerticalAlignment="Center"/>
+            <TextBox x:Name="txtApplicant"
+				Margin="0,5,0,5" 
+			Grid.Row="3" 
+				Grid.Column="1" 
+				Text="{Binding Contact,Mode=TwoWay,NotifyOnValidationError=True,ValidatesOnDataErrors=True}" 
+				MaxLength="30"
+				HorizontalAlignment="Stretch"
+				IsReadOnly="{Binding IsReadOnly, Mode=OneWay}"/>
+            <TextBlock Margin="0,5,20,5"
+				Grid.Row="4" 
+			Grid.Column="0" 
+			Text="{Binding [MaintainRecord_Problem], Source={StaticResource SR}}" 
+			HorizontalAlignment="Right" 
+			VerticalAlignment="Center"/>
+            <TextBox x:Name="txtSetupStation"
+				Margin="0,5,0,5" 
+			    Grid.Row="4" 
+				Grid.Column="1" 
+                TextWrapping="Wrap"
+                
+			    MaxLength="512"
+                Height="80"
+				Text="{Binding Problem,Mode=TwoWay,NotifyOnValidationError=True,ValidatesOnDataErrors=True}" 
+				
+				HorizontalAlignment="Stretch"
+				IsReadOnly="{Binding IsReadOnly, Mode=OneWay}"/>
+
+
+            <TextBlock Margin="0,5,10,5"
+				Grid.Row="5" 
+			Grid.Column="1" 
+			HorizontalAlignment="Left" 
+			VerticalAlignment="Center"/>
+
+
+
+            <TextBlock Margin="0,5,20,5"
+				Grid.Row="6" 
+			Grid.Column="0" 
+			Text="{Binding [MaintainApplication_yuyue], Source={StaticResource SR}}" 
+			HorizontalAlignment="Right" 
+			VerticalAlignment="Center"/>
+
+            <CheckBox 
+                Grid.Row="6"
+                Grid.Column="1"
+                Margin="0,5,10,5"
+                HorizontalAlignment="Left"
+                IsChecked="{Binding IsChecked,Mode=TwoWay}"></CheckBox>
+
+
+
+            <TextBlock Margin="0,5,20,5"
+				Grid.Row="7" 
+			Grid.Column="0" 
+			Text="{Binding [MaintainApplication_ScheduleDate], Source={StaticResource SR}}" 
+			HorizontalAlignment="Right" 
+			VerticalAlignment="Center"/>
+            <!--<TextBox x:Name="txtWorker"
+				Margin="0,5,0,5" 
+			    Grid.Row="7" 
+				Grid.Column="1" 
+				Text="{Binding ScheduleDate,Mode=TwoWay,NotifyOnValidationError=True,ValidatesOnDataErrors=True}" 
+				MaxLength="512"
+				HorizontalAlignment="Stretch"
+				IsReadOnly="{Binding IsReadOnly, Mode=OneWay}"/>-->
+             <Controls:DatePickerEx    IsReadOnly="True"  Margin="0,5,0,5" 
+                               Grid.Row="7" Style="{StaticResource lightDatePicker}"
+                               Grid.Column="1"
+                               SelectedDate="{Binding ScheduleDate,Mode=TwoWay,NotifyOnValidationError=True,ValidatesOnDataErrors=True}" 
+                               VerticalAlignment="Center"
+                               IsEnabled="{Binding IsChecked}"
+                               />
+
+            <TextBlock Margin="0,5,20,5"
+				Grid.Row="8" 
+			Grid.Column="0" 
+			Text="{Binding [MANAGE_InstallStation], Source={StaticResource SR}}" 
+			HorizontalAlignment="Right" 
+			VerticalAlignment="Center"/>
+            <ComboBox Grid.Column="1"
+                     Grid.Row="8"
+                     Margin="0,3,0,3"
+                     ItemsSource="{Binding ZInstallStation}"
+                     DisplayMemberPath="Value" FontSize="11"
+                     SelectedItem="{Binding VInstallStation,Mode=TwoWay}"
+                     Style="{StaticResource lightComboBox}"
+                     HorizontalAlignment="Stretch"
+                      VerticalAlignment="Center"
+                     IsEnabled="{Binding IsChecked}"  Name="comboStatus"/>
+
+
+            <TextBlock Margin="0,5,20,5"
+				Grid.Row="9" 
+			Grid.Column="0" 
+			Text="{Binding [MaintainApplication_Worker], Source={StaticResource SR}}" 
+			HorizontalAlignment="Right" 
+			VerticalAlignment="Center"/>
+            <TextBox x:Name="txtWorker"
+				Margin="0,5,0,5" 
+			Grid.Row="9" 
+				Grid.Column="1" 
+				Text="{Binding Worker,Mode=TwoWay,NotifyOnValidationError=True,ValidatesOnDataErrors=True}" 
+				HorizontalAlignment="Stretch"
+                MaxLength="30"
+                IsEnabled="{Binding IsChecked}"
+				IsReadOnly="{Binding IsReadOnly}"/>
+            <TextBlock Margin="0,5,20,5"
+				Grid.Row="10" 
+			Grid.Column="0" 
+			Text="{Binding [MaintainApplication_WorkerPhone], Source={StaticResource SR}}" 
+			HorizontalAlignment="Right" 
+			VerticalAlignment="Center"/>
+            <TextBox x:Name="txtCreator"
+				Margin="0,5,0,5" 
+			Grid.Row="10" 
+				Grid.Column="1" 
+				Text="{Binding WorkerPhone,Mode=TwoWay,NotifyOnValidationError=True,ValidatesOnDataErrors=True}" 
+				MaxLength="30"
+				HorizontalAlignment="Stretch"
+                IsEnabled="{Binding IsChecked}"
+				IsReadOnly="{Binding IsReadOnly}"/>
+
+            <TextBlock Margin="0,5,20,5"
+				Grid.Row="11" 
+			Grid.Column="0" 
+			Text="{Binding [MANAGE_Note], Source={StaticResource SR}}" 
+			HorizontalAlignment="Right" 
+			VerticalAlignment="Center"/>
+
+            <TextBox x:Name="txtCreator2"
+				Margin="0,5,0,5" 
+			    Grid.Row="11" 
+				Grid.Column="1" 
+				Text="{Binding Note,Mode=TwoWay,NotifyOnValidationError=True,ValidatesOnDataErrors=True}" 
+				MaxLength="512"
+				HorizontalAlignment="Stretch"
+                IsEnabled="{Binding IsChecked}"
+				IsReadOnly="{Binding IsReadOnly}"/>
+
+
+            <Grid Grid.Row="16"  Grid.Column="0" Grid.ColumnSpan="2"  Margin="0,15,0,20">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="*"/>
+                 
+                </Grid.ColumnDefinitions>
+                <Button HorizontalAlignment="Right"
+					Grid.Column="0" FontSize="12"
+					Style="{StaticResource SaveButtonStyle}"
+					Content="{Binding [Save], Source={StaticResource SR}}" 
+					Visibility="{Binding SaveButtonVisibility, Mode=OneWay}"
+					Command="{Binding CommitCommand}"
+					/>
+                <Button Grid.Column="2"  FontSize="12"
+					Style="{StaticResource ResertButtonStyle}"
+					Content="{Binding [Resert], Source={StaticResource SR}}" 
+					Visibility="{Binding ResertButtonVisibility}"
+					Command="{Binding ResetCommand}"/>
+                <Button Content="{Binding [Back], Source={StaticResource SR}}" 
+					Grid.Column="4"  FontSize="12"
+					Style="{StaticResource BackButtonStyle}"
+					HorizontalAlignment="Left"
+					Visibility="{Binding BackButtonVisibity}"
+					Click="CancelButton_Click"/>
+            </Grid>
+        </Grid>
+    </Grid>
+</controls:ChildWindow>
+

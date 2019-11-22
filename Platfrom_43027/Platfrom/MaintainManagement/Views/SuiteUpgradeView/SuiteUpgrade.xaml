@@ -1,0 +1,124 @@
+﻿<UserControl x:Class="Gsafety.PTMS.Maintain.Views.SuiteUpgrade"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk" 
+    xmlns:b="clr-namespace:Gsafety.PTMS.Maintain.Converter"
+    xmlns:converter="clr-namespace:Gsafety.Common.Converts;assembly=Converts"
+    mc:Ignorable="d"
+    d:DesignHeight="800" d:DesignWidth="1000">
+
+    <UserControl.Resources>
+        <converter:LocalizedStringConverter  x:Key="localize"></converter:LocalizedStringConverter>
+    </UserControl.Resources>
+    <Grid x:Name="LayoutRoot" Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="28"/>
+        </Grid.RowDefinitions>
+        <Border BorderBrush="{StaticResource MenuBarLine}" Background="{StaticResource NavBarBG}" Height="35" VerticalAlignment="Top" Grid.Row="0" Margin="0" BorderThickness="0,1,0,1" />
+        <Image Source="/ExternalResource;component/Images/a07b.png" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,0,0,0" Stretch="None"/>
+        <TextBlock  Text="{Binding [MAINTAIN_SuiteUpgrade],Source={StaticResource SR}}" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="36,0,0,0" Style="{StaticResource Menu2TextBlock}"/>
+        <Grid Grid.Row="1" Background="#FFd0dcea">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="150"/>
+                <ColumnDefinition Width="150"/>
+                <ColumnDefinition Width="150"/>
+                <ColumnDefinition Width="150"/>
+                <ColumnDefinition Width="150"/>
+                <ColumnDefinition Width="150"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <!--版本升级情况-->
+            <TextBlock  Grid.Column="4"  HorizontalAlignment="Right"  Text="{Binding [MAINTAIN_UpgradeStatus],Source={StaticResource SR}}" VerticalAlignment="Center" Style="{StaticResource ViewFont}"  />
+            <ComboBox  Grid.Column="5"   SelectedItem="{Binding CurrentUpgradeStatus, Mode=TwoWay}" ItemsSource="{Binding UpgradeStatusList}" HorizontalAlignment="Left" VerticalAlignment="Center" Width="145" Height="28" >
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock  Text="{Binding ShowName}"></TextBlock>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+            <!--车牌号-->
+            <TextBlock HorizontalAlignment="Right" Text="{Binding [BASEINFO_VehicleNumber],Source={StaticResource SR}}" VerticalAlignment="Center" Style="{StaticResource ViewFont}"/>
+            <TextBox TabIndex="4" MaxLength="25" Text="{Binding VehicleId, Mode=TwoWay}" Grid.Column="1" HorizontalAlignment="Left" Height="28"    VerticalAlignment="Center" Width="145" />
+            <!--套件号-->
+            <TextBlock  Grid.Column="2" HorizontalAlignment="Right" Text="{Binding [BASEINFO_SuiteID],Source= {StaticResource SR}}" VerticalAlignment="Center" Style="{StaticResource ViewFont}"/>
+            <TextBox TabIndex="4" MaxLength="25" Text="{Binding SuiteId, Mode=TwoWay}" Grid.Column="3" HorizontalAlignment="Left" Height="28"    VerticalAlignment="Center" Width="145" />
+            <!--查询-->
+            <Button TabIndex="5" x:Name="btnQuery"  Command="{Binding QueryCommand}" Tag="{Binding [Query], Source={StaticResource SR}}" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Column="6" MinWidth="100" >
+                <Image x:Name="imQuery" Source="/ExternalResource;component/Images/seach.png" Stretch="None"/>
+            </Button>
+        </Grid>
+        <Border BorderBrush="{StaticResource MenuBarLine}" Background="{StaticResource NavBarBG}" Height="35" VerticalAlignment="Top" Grid.Row="2" Margin="0" BorderThickness="0,1,0,0" />
+        <Image VerticalAlignment="Center" HorizontalAlignment="Left" Source="/ExternalResource;component/Images/a07b.png" Grid.Row="2" Stretch="None" Margin="10,0,0,0"/>
+        <TextBlock  Text="{Binding [MAINTAIN_SuiteUpgradeList],Source={StaticResource SR}}" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="36,0,0,0" Style="{StaticResource Menu2TextBlock}" Grid.Row="2"/>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right"  Grid.Row="2">
+            <Button Command="{Binding AllUpgradeCommand}" Tag="{Binding [MAINTAIN_UpgradeSelectedItems],Source={StaticResource SR}}" IsEnabled="{Binding IsEnabled}" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,10,0">
+                <Image Source="/ExternalResource;component/Images/singleupgrade.png" Stretch="None"/>
+            </Button>
+        </StackPanel>
+        <Border BorderBrush="{StaticResource BorderBrushDeep}" Background="{StaticResource OptionBgColorBrush}" BorderThickness="1" Height="28" Grid.Row="4"  VerticalAlignment="Center" Width="Auto">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,0,0">
+                <TextBlock HorizontalAlignment="Left" Margin="0,0,5,0" Grid.Row="4"  Text="{Binding [PageSize], Source={StaticResource SR}}" VerticalAlignment="Center" Foreground="Black" FontSize="12"/>
+                <ComboBox SelectedItem="{Binding PageSizeValue,Mode=TwoWay}"  Height="26" ItemsSource="{Binding PageSizeList}" Margin="0,0,0,0" Width="50" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                <sdk:DataPager PageIndex="-1" Name="DataPager1"   Height="26" Margin="0,0,0,0" PageSize="{Binding PageSizeValue,Mode=OneWay}" Grid.Row="1" Source="{Binding PSC_SuiteUpdateInfo, Mode=TwoWay}" VerticalAlignment="Center"  HorizontalAlignment="Center" />
+            </StackPanel>
+        </Border>
+        <sdk:DataGrid  CellStyle="{StaticResource DataGridCellStyle}"  x:Name="SuiteUpdateRecordDataGrid" IsReadOnly="True" Grid.Row="3" AutoGenerateColumns="False" SelectedItem="{Binding CurrentSuiteUpdateInfo, Mode=TwoWay}" ItemsSource="{Binding PSC_SuiteUpdateInfo}" Background="Transparent">
+            <sdk:DataGrid.Columns>
+                <sdk:DataGridTemplateColumn Header="BASEINFO_Selected" Width="50" >
+                
+                    <sdk:DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                                <CheckBox IsChecked="{Binding SelectedFlag,Mode=TwoWay}"  Command="{Binding DataContext.CheckCommand, RelativeSource={RelativeSource AncestorType=sdk:DataGrid}}"  ></CheckBox>                             
+                            </StackPanel>
+                        </DataTemplate>
+                    </sdk:DataGridTemplateColumn.CellTemplate>
+                </sdk:DataGridTemplateColumn>
+                <sdk:DataGridTextColumn Binding="{Binding VehicleId}" Header="BASEINFO_VehicleNumber" CanUserSort="True"  Width="*" >
+                  
+                </sdk:DataGridTextColumn>
+                <sdk:DataGridTextColumn Binding="{Binding SuiteId}" Header="BASEINFO_SuiteID" CanUserSort="True"  Width="*" >
+                   
+                </sdk:DataGridTextColumn>
+                <sdk:DataGridTextColumn Binding="{Binding UpgradeStatus, Converter={ StaticResource  localize}}" Header="MAINTAIN_UpgradeStatus" CanUserSort="True"  Width="*" >
+                  
+                </sdk:DataGridTextColumn>
+                <sdk:DataGridTextColumn Binding="{Binding CurrentVersion}" Header="MAINTAIN_UnifiedVesionNumber" CanUserSort="True"  Width="*" >
+                 
+                </sdk:DataGridTextColumn>
+                <sdk:DataGridTextColumn Binding="{Binding LastestVersionFlag, Converter={ StaticResource  localize}}" Header="MAINTAIN_IsLatestVersion" CanUserSort="True" Width="*" >
+                  
+                </sdk:DataGridTextColumn>
+
+                <sdk:DataGridTemplateColumn Header="Operation" Width="100" >
+                   
+                    <sdk:DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                <Button Style="{StaticResource ANTBaseInfoGridBtn}" IsEnabled="{Binding UpgradeFlag}" Command="{Binding DataContext.SingleUpgradeCommand, RelativeSource={RelativeSource AncestorType=sdk:DataGrid}}"  
+                                        ToolTipService.ToolTip="{Binding [MAINTAIN_Upgrade],Source={StaticResource SR}}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,10,0">
+                                    <Image Source="/ExternalResource;component/Images/singleupgrade.png" Stretch="None" />
+                                </Button>
+
+                                <Button Style="{StaticResource ANTBaseInfoGridBtn}" IsEnabled="{Binding CancelFlag}" Command="{Binding DataContext.Cancel, RelativeSource={RelativeSource AncestorType=sdk:DataGrid}}" 
+                                        ToolTipService.ToolTip="{Binding [MAINTAIN_CancelUpgrade],Source={StaticResource SR}}"  HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,10,0">
+                                    <Image Source="/ExternalResource;component/Images/delete.png" Stretch="None"  />
+                                </Button>
+                            </StackPanel>
+                        </DataTemplate>
+                    </sdk:DataGridTemplateColumn.CellTemplate>
+                </sdk:DataGridTemplateColumn>
+            </sdk:DataGrid.Columns>
+        </sdk:DataGrid>
+    </Grid>
+</UserControl>

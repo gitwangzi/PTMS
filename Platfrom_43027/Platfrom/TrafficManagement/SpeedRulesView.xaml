@@ -1,0 +1,98 @@
+﻿<UserControl
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
+    x:Class="Gsafety.PTMS.Traffic.Views.SpeedRulesView"
+    mc:Ignorable="d"
+    d:DesignHeight="800" d:DesignWidth="1000">
+
+    <Grid x:Name="LayoutRoot" >
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="646*"/>
+                <RowDefinition Height="30"/>
+            </Grid.RowDefinitions>
+            <Border BorderThickness="1" Style="{StaticResource TopBorderStyle}"/>
+            <Image Margin="10,0,0,0" Stretch="None" VerticalAlignment="Center" HorizontalAlignment="Left" Source="/ExternalResource;component/Images/navigation.png" />
+            <TextBlock HorizontalAlignment="Left" Margin="30,0,0,0" TextWrapping="Wrap" Text="{Binding [TRAFFIC_SpeedLimit],Source={StaticResource SR}}" VerticalAlignment="Center" Style="{StaticResource MainPage_Main_tle_TextBlockStyle}" />
+            <Grid  Grid.Row="1" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="240"/>
+                    <ColumnDefinition Width="150"/>
+                    <ColumnDefinition Width="240"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="150"/>
+                </Grid.ColumnDefinitions>
+                <!--<TextBlock HorizontalAlignment="Right" TextWrapping="Wrap" Text="{Binding [CarNumber], Source={StaticResource SR}}" Style="{StaticResource MainPage_Main_search_TextBlockStyle}" VerticalAlignment="Center" Grid.Column="2" Margin="0,0,0,0"/>-->
+                <TextBox Grid.Column="1" HorizontalAlignment="Left"  Margin="10,0,0,0" TextWrapping="Wrap" Text="{Binding VehicleID,Mode= TwoWay}" VerticalAlignment="Center" Width="200" MaxLength="10"/>
+                <TextBlock HorizontalAlignment="Right" TextWrapping="Wrap" Text="{Binding [ MANAGE_Rule_Name], Source={StaticResource SR}}" VerticalAlignment="Center"  Style="{StaticResource MainPage_Main_search_TextBlockStyle}" Margin="0,0,0,0" />
+                <!--<TextBox Grid.Column="3" HorizontalAlignment="Left"  Margin="10,0,0,0" TextWrapping="Wrap" Text="{Binding LimitSpeedName,Mode= TwoWay}" VerticalAlignment="Center" Width="200"/>-->
+                <Button TabIndex="2" x:Name="searchButton" Command="{Binding QueryCommand}" Tag="{Binding [Query], Source={StaticResource SR}}" HorizontalAlignment="Right" VerticalAlignment="Center" Style="{StaticResource Search_ButtonStyle}" Grid.Column="8" Margin="0,0,40,0">
+                    <Image Source="/ExternalResource;component/Images/MainPage_search.png" Stretch="Fill" Width="14" Height="14"/>
+                </Button>
+            </Grid>
+            <Border BorderThickness="1"  Grid.Row="2"  Style="{StaticResource MiddleBorderStyle}">
+                <Button Command="{Binding AddCommand}" Tag="{Binding [MANAGE_Add], Source={StaticResource SR}}" HorizontalAlignment="Right" VerticalAlignment="Center" MinWidth="100" Margin="0,0,20,0" Style="{StaticResource Main_center_ButtonStyle}">
+                    <Image Source="/ExternalResource;component/Images/Main_add.png" Stretch="Fill" Width="22" Height="22"/>
+                </Button>
+            </Border>
+            <TextBlock TextWrapping="Wrap" Text="{Binding [TRAFFIC_SpeedLimitList],Source={StaticResource SR}}" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="30,0,0,0" Style="{StaticResource MainPage_Main_tle_TextBlockStyle}" Grid.Row="2"/>
+            <Image Margin="10,0,0,0" Stretch="None" VerticalAlignment="Center" HorizontalAlignment="Left" Source="/ExternalResource;component/Images/navigation.png" Grid.Row="2"/>
+            <sdk:DataGrid x:Name="SpeedlimitDataGrid" Grid.Row="3" AutoGenerateColumns="False"  ColumnHeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Background="Transparent"  CellStyle="{StaticResource DataGridCellStyle}" ItemsSource="{Binding LimitSpeed_List}" SelectedItem="{Binding speedLimit,Mode=TwoWay}"
+                           RowStyle="{StaticResource DataGridRowStyle}" GridLinesVisibility="Horizontal" HorizontalGridLinesBrush="#FFDCDAD5" >
+                <sdk:DataGrid.Columns>
+                    <sdk:DataGridTextColumn Header="MANAGE_Rule_Name" Binding="{Binding NAME}" Width="150">
+                    </sdk:DataGridTextColumn>
+
+                    <sdk:DataGridTextColumn Header="TRAFFIC_MaxSpeed" Binding="{Binding MAX_SPEED}" Width="150">
+                    </sdk:DataGridTextColumn>
+
+                    <sdk:DataGridTextColumn Header="TRAFFIC_SpeedLimit_DURATION" Binding="{Binding DURATION}" Width="150">
+                    </sdk:DataGridTextColumn>
+
+                    <!--<sdk:DataGridTextColumn Header="TRAFFIC_GpsSetting_Total" Binding="{Binding TotalCount}" Width="150">
+                    </sdk:DataGridTextColumn>-->
+
+                    <sdk:DataGridTemplateColumn Header="TRAFFIC_Operation" Width="*">
+                        <sdk:DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel VerticalAlignment="Center" Orientation="Horizontal" HorizontalAlignment="Center">
+                                    <Button x:Name="detail" Style="{StaticResource ANTBaseInfoGridBtn}" Command="{Binding DataContext.DetailCommand, RelativeSource={RelativeSource AncestorType=sdk:DataGrid}}" VerticalAlignment="Center" HorizontalAlignment="Center"
+                                            ToolTipService.ToolTip="{Binding [MANAGER_LookDetail],Source={StaticResource SR}}" Margin="0,0,10,0">
+                                        <Image Source="/ExternalResource;component/Images/DataGrid_detail.png" Stretch="None"/>
+                                    </Button>
+                                    <Button x:Name="repair" Style="{StaticResource ANTBaseInfoGridBtn}" Command="{Binding DataContext.RepairCommand, RelativeSource={RelativeSource AncestorType=sdk:DataGrid}}" VerticalAlignment="Center" HorizontalAlignment="Center"
+                                        ToolTipService.ToolTip="{Binding [MANAGER_Modify],Source={StaticResource SR}}" Margin="0,0,10,0">
+                                        <Image Source="/ExternalResource;component/Images/DataGrid_edit.png" Stretch="None"/>
+                                    </Button>
+                                    <Button x:Name="toVehicle" Style="{StaticResource ANTBaseInfoGridBtn}" Command="{Binding DataContext.ToVehicleCommand, RelativeSource={RelativeSource AncestorType=sdk:DataGrid}}" VerticalAlignment="Center" HorizontalAlignment="Center"
+                                            ToolTipService.ToolTip="{Binding [Manager_toVehicle],Source={StaticResource SR}}" Margin="0,0,10,0">
+                                        <Image Source="/ExternalResource;component/Images/DataGrid_vehicle.png" Stretch="None" />
+                                    </Button>
+                                    <Button x:Name="delete" Style="{StaticResource ANTBaseInfoGridBtn}" Command="{Binding DataContext.DeleteCommand, RelativeSource={RelativeSource AncestorType=sdk:DataGrid}}" VerticalAlignment="Center" HorizontalAlignment="Center"
+                                            ToolTipService.ToolTip="{Binding [MANAGE_Delete],Source={StaticResource SR}}" Margin="0,0,10,0">
+                                        <Image Source="/ExternalResource;component/Images/DataGrid_dele.png" Stretch="None"/>
+                                    </Button>
+                                </StackPanel>
+                            </DataTemplate>
+                        </sdk:DataGridTemplateColumn.CellTemplate>
+                    </sdk:DataGridTemplateColumn>
+
+                </sdk:DataGrid.Columns>
+            </sdk:DataGrid>
+            <Border BorderThickness="1"  Grid.Row="4">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,0,0">
+                    <TextBlock HorizontalAlignment="Left" Margin="0,0,0,0" Grid.Row="4"  Text="{Binding [PageSize], Source={StaticResource SR}}" VerticalAlignment="Center" Style="{StaticResource DataGrid_Page_TextBlockStyle}"/>
+                    <ComboBox SelectedItem="{Binding PageSizeValue,Mode=TwoWay}"   ItemsSource="{Binding PageSizeList}" HorizontalAlignment="Left" Height="25" Margin="0,0,0,0" VerticalAlignment="Center" Width="50" Style="{StaticResource DataGrid_Page_ComboBoxStyle}"/>
+                    <sdk:DataPager PageIndex="-1" IsTotalItemCountFixed="True" Height="25" Margin="0,0,0,0" PageSize="{Binding PageSizeValue,Mode=TwoWay}" Source="{Binding LimitSpeed_List, Mode=TwoWay}" Grid.Row="1"  VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                </StackPanel>
+            </Border>
+        </Grid>
+    </Grid>
+</UserControl>

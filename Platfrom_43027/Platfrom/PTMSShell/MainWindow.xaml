@@ -1,0 +1,9 @@
+﻿<Window x:Class="PTMSShell.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Loaded="Window_Loaded_1" Title="Vehicle Management" BorderThickness="0" WindowState="Normal"   WindowStyle="None" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen" Topmost="False" >
+    <Grid>
+        <WebBrowser  x:Name="ptms" ></WebBrowser>
+        
+    </Grid>
+</Window>

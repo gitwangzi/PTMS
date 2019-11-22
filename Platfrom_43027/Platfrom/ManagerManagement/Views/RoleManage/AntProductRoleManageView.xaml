@@ -1,0 +1,247 @@
+﻿<UserControl x:Class="Gsafety.PTMS.Manager.Views.RoleManage.AntProductRoleManageView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
+    xmlns:Converter="clr-namespace:Gsafety.Common.Converts;assembly=Converts"
+    xmlns:EnumConverter="clr-namespace:Gsafety.PTMS.Bases.Enums;assembly=Enums"
+             xmlns:Converts="clr-namespace:Gsafety.Common.Converts;assembly=Converts"
+    mc:Ignorable="d"
+    d:DesignHeight="700" d:DesignWidth="900">
+    <UserControl.Resources>
+        <Converter:BoolToVisibility x:Key="BoolToVisibility"/>
+        <EnumConverter:RoleCategoryConverter x:Key="RoleCategoryConverter"/>
+        <Converter:FunItemVisibilityConverter x:Key="FunItemVisibilityConverter"/>
+        <Converts:DateTimeConverFormate x:Key="DateTimeConverFormate"/>
+    </UserControl.Resources>
+    <Grid x:Name="LayoutRoot" Style="{StaticResource ContentGridStyle}" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="1"/>
+        </Grid.RowDefinitions>
+
+        <Grid  Style="{StaticResource ViewFirstTitleWhiteGridStyle}"
+              Height="35"
+              Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Image Grid.Column="0"
+                   Style="{StaticResource TitleImageStyle}"/>
+
+            <TextBlock Text="{Binding [RoleManage], Source={StaticResource SR}}" 
+                       Grid.Column="1"
+                       Style="{StaticResource SecondTitleTextBlockWhiteStyle}"/>
+        </Grid>
+
+        <Grid Grid.Row="1" 
+              Style="{StaticResource SearchContentGridStyle}" 
+              Height="35">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="1.5*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="1.5*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Text="{Binding [Role_Name], Source={StaticResource SR}}"
+                       Grid.Column="0" Style="{StaticResource TextBlockBlackStyle}"
+                       Margin="5,5,5,5"
+                       HorizontalAlignment="Right"
+                       VerticalAlignment="Center"/>
+            <TextBox Grid.Column="1"
+                     Height="25"
+                     MaxLength="20"
+                      Text="{Binding SearchInfo,Mode=TwoWay}"
+                     HorizontalAlignment="Stretch"
+                     VerticalAlignment="Center"/>          
+            <Button Grid.Column="2"
+                    Style="{StaticResource SearchButtonCommonStyle}"
+                    Command="{Binding BtnSearchCommand}"
+                    ToolTipService.ToolTip="{Binding [Search], Source={StaticResource SR}}"/>
+        </Grid>
+
+        <Grid Grid.Row="2"
+              Style="{StaticResource ViewFirstTitleWhiteGridStyle}"
+              Height="35">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="20"/>
+            </Grid.ColumnDefinitions>
+
+            <Image Grid.Column="0"
+                   Style="{StaticResource TitleImageStyle}"/>
+
+            <TextBlock Text="{Binding [RoleList], Source={StaticResource SR}}" 
+                       Grid.Column="1"
+                       Style="{StaticResource SecondTitleTextBlockWhiteStyle}"/>
+
+            <Button Grid.Column="3"
+                    Style="{StaticResource AddButtonCommonStyle}"
+                    Command="{Binding BtnAddCommand}"
+                    ToolTipService.ToolTip="{Binding [Common_Add], Source={StaticResource SR}}"
+                    Visibility="{Binding RelativeSource={RelativeSource Self}, Converter={StaticResource FunItemVisibilityConverter},ConverterParameter='02-08-01-01-02'}"/>
+
+        </Grid>
+        
+        <sdk:DataGrid  Grid.Row="3"
+                       x:Name="ListDataGrid"
+                        ItemsSource="{Binding Data}" Style="{StaticResource DataGridWhiteStyleRxx}"
+                        SelectedItem="{Binding CurrentModel,Mode=TwoWay}">
+            <sdk:DataGrid.Columns>
+                <sdk:DataGridTemplateColumn  
+                                        HeaderStyle="{StaticResource ColumnHeaderWhiteStyle}"
+                                        Header="Role_Name"
+                                        Visibility="Visible" 
+                                        Width="1.5*">
+                    <sdk:DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Name}" HorizontalAlignment="Left" VerticalAlignment="Center"
+                                       ToolTipService.ToolTip="{Binding Name}"/>
+                        </DataTemplate>
+                    </sdk:DataGridTemplateColumn.CellTemplate>
+
+                </sdk:DataGridTemplateColumn>
+
+
+                <sdk:DataGridTextColumn  
+                                        HeaderStyle="{StaticResource ColumnHeaderWhiteStyle}"
+                                        Header="RoleType"
+                                        Visibility="Visible" 
+                                        Width="2*"
+                                        Binding="{Binding RoleCategory,Converter={StaticResource RoleCategoryConverter}}">
+
+                </sdk:DataGridTextColumn>
+
+
+                <!--<sdk:DataGridTextColumn  Header="MANAGE_Rule_Creator" 
+                                        HeaderStyle="{StaticResource ColumnHeaderWhiteStyle}"
+                                        Visibility="Visible"
+                                        Width="*"  ToolTipService.ToolTip="{Binding Creator}"
+                                        Binding="{Binding Creator}"/>-->
+
+                <sdk:DataGridTemplateColumn  
+                                        HeaderStyle="{StaticResource ColumnHeaderWhiteStyle}"
+                                        Header="MANAGE_Rule_Creator"
+                                        Visibility="Visible" 
+                                        Width="*">
+                    <sdk:DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Creator}" HorizontalAlignment="Left" VerticalAlignment="Center"
+                                       ToolTipService.ToolTip="{Binding Creator}"/>
+                        </DataTemplate>
+                    </sdk:DataGridTemplateColumn.CellTemplate>
+
+                </sdk:DataGridTemplateColumn>
+
+                <sdk:DataGridTextColumn  Header="MANAGE_Rule_CreateTime" 
+                                        HeaderStyle="{StaticResource ColumnHeaderWhiteStyle}"
+                                        Visibility="Visible"
+                                        Width="1.5*"
+                                        Binding="{Binding CreateTime,Converter={StaticResource DateTimeConverFormate}}"/>
+
+                <sdk:DataGridTemplateColumn Header="Operation" 
+                                            Width="110"
+                                            HeaderStyle="{StaticResource ColumnHeaderWhiteStyle}">
+                    <sdk:DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Button Grid.Column="1"
+                                        ToolTipService.ToolTip="{Binding [Common_Update], Source={StaticResource SR}}"
+                                        Style="{StaticResource EditButtonCommonStyle}" 
+                                        Command="{Binding DataContext.BtnEditCommand, RelativeSource={RelativeSource AncestorType=sdk:DataGrid}}"
+                                        Visibility="{Binding RelativeSource={RelativeSource Self}, Converter={StaticResource FunItemVisibilityConverter},ConverterParameter='02-08-01-01-03'}"
+                                        IsEnabled="{Binding Editable}">
+                                </Button>
+
+                                <Button Grid.Column="2"
+                                        ToolTipService.ToolTip="{Binding [Common_View], Source={StaticResource SR}}"
+                                        Style="{StaticResource DetailButtonCommonStyle}" 
+                                        Command="{Binding DataContext.BtnViewDetailCommand, RelativeSource={RelativeSource AncestorType=sdk:DataGrid}}"
+                                        Visibility="{Binding DataContext.RoleVisibility, RelativeSource={RelativeSource  AncestorType=sdk:DataGrid}}"/>
+
+                                <Button Grid.Column="3"
+                                        ToolTipService.ToolTip="{Binding [Role_Credential], Source={StaticResource SR}}"
+                                        Style="{StaticResource EditRoleButtonCommonStyle}" 
+                                        Command="{Binding DataContext.BtnPermissionCommand, RelativeSource={RelativeSource AncestorType=sdk:DataGrid}}"
+                                        />
+                                <Button Grid.Column="4"
+                                        ToolTipService.ToolTip="{Binding [Delete], Source={StaticResource SR}}"
+                                        Style="{StaticResource DeleteButtonCommonStyle}" 
+                                        Command="{Binding DataContext.BtnDeleteCommand, RelativeSource={RelativeSource AncestorType=sdk:DataGrid}}"
+                                        IsEnabled="{Binding Editable}"    
+                                        Visibility="{Binding RelativeSource={RelativeSource Self}, Converter={StaticResource FunItemVisibilityConverter},ConverterParameter='02-08-01-01-04'}"/>
+
+                            </Grid>
+                        </DataTemplate>
+                    </sdk:DataGridTemplateColumn.CellTemplate>
+                </sdk:DataGridTemplateColumn>
+            </sdk:DataGrid.Columns>
+
+        </sdk:DataGrid>
+
+
+
+        <Border Grid.Row="4" Height="35">
+            <Grid  Style="{StaticResource SearchContentGridStyle}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock HorizontalAlignment="Right" Margin="0,0,5,0"   Text="{Binding [PageSize], Source={StaticResource SR}}" VerticalAlignment="Center" 
+                           Grid.Column="0"/>
+                
+                <ComboBox SelectedItem="{Binding PageSizeValue,Mode=TwoWay}"  
+                          Style="{StaticResource lightComboBox}"
+                          ItemsSource="{Binding PageSizeList}" HorizontalAlignment="Right" 
+                          Height="20"  VerticalAlignment="Center" Width="50" Background="{Binding ElementName=ListDataGrid, Path=Background}"
+                          Grid.Column="1"/>
+
+                <TextBlock Grid.Column="2"
+                       Text="{Binding [Total],Source={StaticResource SR}}"
+                       HorizontalAlignment="Right"
+                       VerticalAlignment="Center"
+                       Margin="5,0,5,0"/>
+
+            <TextBlock Text="{Binding Data.ItemCount}" Grid.Column="3"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       Margin="5,0,5,0"/>
+
+            <sdk:DataPager Style="{StaticResource DataPagerStyle}"   x:Name="DataPager"
+                       Source="{Binding Data}"
+                       Height="25"
+                       Grid.Column="4"
+                       Background="{Binding ElementName=ListDataGrid, Path=Background}"
+                       PageSize="30"
+                       HorizontalAlignment="Stretch"
+                       VerticalAlignment="Center"/>
+        </Grid>
+
+        </Border>
+    </Grid>
+</UserControl>

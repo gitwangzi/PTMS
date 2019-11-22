@@ -1,0 +1,93 @@
+﻿<UserControl x:Class="Gsafety.PTMS.Maintain.Views.VersionMappingEdit"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:converter="clr-namespace:Gsafety.Common.Converts;assembly=Converts"
+    mc:Ignorable="d"
+    d:DesignHeight="800" d:DesignWidth="1000">
+    <UserControl.Resources>
+        <converter:VisibilityConverter  x:Key="visibility"></converter:VisibilityConverter>
+    </UserControl.Resources>
+
+    <Grid x:Name="LayoutRoot" Background="Transparent"  Width="Auto" Height="Auto">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Border Grid.RowSpan="3" Background="{StaticResource BlueBgStyleBrush}">
+        </Border>
+        <Border Height="35" VerticalAlignment="Top" Grid.Row="0" Margin="0" BorderThickness="0,1,0,1" BorderBrush="{StaticResource MenuBarLine}" Background="{StaticResource NavBarBG}">
+            <Image Source="/ExternalResource;component/Images/a07b.png" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,0,0,0" Stretch="None"/>
+        </Border>
+        <TextBlock Text="{Binding Title}" HorizontalAlignment="Left"   VerticalAlignment="Center" Style="{StaticResource Menu2TextBlock}" Margin="36,0,0,0"/>
+        <Image Source="/ANT;component/Images/a07b.png" HorizontalAlignment="Left" VerticalAlignment="Center" Stretch="None" Margin="10,0,0,0"/>
+
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="10"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+
+                <RowDefinition Height="100"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="260"/>
+                <ColumnDefinition Width="350"/>
+
+                <ColumnDefinition Width="10*"/>
+            </Grid.ColumnDefinitions>
+            
+            <!--统一版本号-->
+            <TextBlock HorizontalAlignment="Right"   Text="{Binding [MAINTAIN_UnifiedVesionNumber],Source={StaticResource SR}}" VerticalAlignment="Center" Grid.Row="1" Style="{StaticResource ViewFont}"/>
+            <TextBox TabIndex="1" MaxLength="50" IsReadOnly="True" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left" Height="28"   
+                     Text="{Binding UnifyVersion, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" Width="300" />
+
+            <!--内部版本号-->
+            <TextBlock HorizontalAlignment="Right"   Text="{Binding [MAINTAIN_BuildVersionNumber],Source={StaticResource SR}}" VerticalAlignment="Center" Grid.Row="2" Style="{StaticResource ViewFont}" />
+            <TextBox IsReadOnly="{Binding IsReadOnly}" TabIndex="2" MaxLength="200" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" Height="28"  
+                     Text="{Binding VendorVersion, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" Width="300" />
+
+            <!--文件名-->
+            <TextBlock HorizontalAlignment="Right"   Text="{Binding [MAINTAIN_FileName],Source={StaticResource SR}}" VerticalAlignment="Center" Grid.Row="3" Style="{StaticResource ViewFont}" />
+            <TextBox IsReadOnly="{Binding IsReadOnly}" TabIndex="2" MaxLength="200" Grid.Column="1" Grid.Row="3" HorizontalAlignment="Left" Height="28"  
+                     Text="{Binding FileName, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" Width="300" />
+            
+            <!--文件长度-->
+            <TextBlock HorizontalAlignment="Right"   Text="{Binding [MAINTAIN_FileLength],Source={StaticResource SR}}" VerticalAlignment="Center" Grid.Row="4" Style="{StaticResource ViewFont}"/>
+            <TextBox IsReadOnly="True" TabIndex="3" MaxLength="256" Grid.Column="1" Grid.Row="4" HorizontalAlignment="Left" Height="28"  
+                     Text="{Binding FileSize, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" Width="300"/>
+
+            <!--硬件厂家-->
+            <TextBlock HorizontalAlignment="Right"   Text="{Binding [MAINTAIN_HardwareFactory],Source={StaticResource SR}}" VerticalAlignment="Center" Grid.Row="5" Style="{StaticResource ViewFont}"/>
+            <TextBox TabIndex="4" MaxLength="256" IsReadOnly="True" Grid.Column="1" Grid.Row="5" HorizontalAlignment="Left" Height="28"  
+                     Text="{Binding CurrentSuiteVersionMap.Vendor, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnDataErrors=True}" VerticalAlignment="Center" Width="300"  />
+
+
+            <!--按钮操作-->
+            <StackPanel Grid.Row="6" Height="35"  Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center"  Grid.Column="1" >
+                <Button TabIndex="11"  Visibility="{Binding IsView, Converter={StaticResource visibility}}"   Command="{Binding CommitCommand}" Tag="{Binding [Finish], Source={StaticResource SR}}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,5,0" MinWidth="100">
+                    <Image Source="/ExternalResource;component/Images/ok.png" Stretch="None"/>
+                </Button>
+                <Button TabIndex="12" Visibility="{Binding IsView, Converter={StaticResource visibility}}"  Command="{Binding ResetCommand}" Tag="{Binding [Reset], Source={StaticResource SR}}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,5,0" MinWidth="100">
+                    <Image Source="/ExternalResource;component/Images/reset.png" Stretch="None"/>
+                </Button>
+                <Button TabIndex="13" Command="{Binding ReturnCommand}" Tag="{Binding [Return], Source={StaticResource SR}}" HorizontalAlignment="Center" VerticalAlignment="Center" MinWidth="100" Margin="5,0,5,0">
+                    <Image Source="/ExternalResource;component/Images/return.png" Stretch="None"/>
+                </Button>
+            </StackPanel>
+            <Button Content="{Binding [MAINTAIN_GetFileLength],Source={StaticResource SR}}" Visibility="{Binding IsView, Converter={StaticResource visibility}}" Command="{Binding GetCommand}"  Grid.Column="1" HorizontalAlignment="Left" Margin="334,8,0,0" Grid.Row="4" VerticalAlignment="Top" Width="234" Grid.ColumnSpan="2"/>
+        </Grid>
+
+    </Grid>
+</UserControl>

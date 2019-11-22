@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="0fa746b2-d9cd-4907-9f18-428b072b5c77" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>true</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.ObjectModel.ObservableCollection`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>false</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:2258/RunVehicleLocationService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="RunVehicleLocationService.xsd" MetadataType="Schema" ID="7acbafbb-b0d2-4460-83f1-0cf8a5bec8e6" SourceId="1" SourceUrl="http://localhost:2258/RunVehicleLocationService.svc?xsd=xsd3" />
+    <MetadataFile FileName="RunVehicleLocationService1.xsd" MetadataType="Schema" ID="822dc9a2-1350-4766-a5e6-f0686d8166d9" SourceId="1" SourceUrl="http://localhost:2258/RunVehicleLocationService.svc?xsd=xsd1" />
+    <MetadataFile FileName="RunVehicleLocationService.wsdl" MetadataType="Wsdl" ID="7534ee58-b8e8-493f-991f-da94b811c1d6" SourceId="1" SourceUrl="http://localhost:2258/RunVehicleLocationService.svc?wsdl" />
+    <MetadataFile FileName="RunVehicleLocationService2.xsd" MetadataType="Schema" ID="9da76b15-4059-40e2-8220-340742c18b01" SourceId="1" SourceUrl="http://localhost:2258/RunVehicleLocationService.svc?xsd=xsd4" />
+    <MetadataFile FileName="RunVehicleLocationService3.xsd" MetadataType="Schema" ID="3fa55a64-2408-443c-8831-993245ca5ce9" SourceId="1" SourceUrl="http://localhost:2258/RunVehicleLocationService.svc?xsd=xsd2" />
+    <MetadataFile FileName="RunVehicleLocationService.disco" MetadataType="Disco" ID="dcb0b74c-0843-4475-9bef-d620b623b42e" SourceId="1" SourceUrl="http://localhost:2258/RunVehicleLocationService.svc?disco" />
+    <MetadataFile FileName="RunVehicleLocationService4.xsd" MetadataType="Schema" ID="5d1c4560-b04d-4627-9671-90e0aad8c05e" SourceId="1" SourceUrl="http://localhost:2258/RunVehicleLocationService.svc?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

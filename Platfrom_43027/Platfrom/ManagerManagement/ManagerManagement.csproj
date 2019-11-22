@@ -1,0 +1,515 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F60409EF-0F9B-45C9-AFEC-9349D1E9FBF8}</ProjectGuid>
+    <ProjectTypeGuids>{A1591282-1198-4647-A2B1-27E5FF5F6F3B};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Gsafety.PTMS.Manager</RootNamespace>
+    <AssemblyName>ManagerManagement</AssemblyName>
+    <TargetFrameworkIdentifier>Silverlight</TargetFrameworkIdentifier>
+    <TargetFrameworkVersion>v5.0</TargetFrameworkVersion>
+    <SilverlightVersion>$(TargetFrameworkVersion)</SilverlightVersion>
+    <SilverlightApplication>false</SilverlightApplication>
+    <SupportedCultures>en-US;zh-CN;es-ES;pt-BR;zh-Hans</SupportedCultures>
+    <ValidateXaml>true</ValidateXaml>
+    <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
+  </PropertyGroup>
+  <!-- This property group is only here to support building this project using the 
+       MSBuild 3.5 toolset. In order to work correctly with this older toolset, it needs 
+       to set the TargetFrameworkVersion to v3.5 -->
+  <PropertyGroup Condition="'$(MSBuildToolsVersion)' == '3.5'">
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Divelements.SilverlightTools, Version=1.0.2.25469, Culture=neutral, PublicKeyToken=75b7ec17dd7c14c3, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Assemblies\Divelements.SilverlightTools.dll</HintPath>
+    </Reference>
+    <Reference Include="ESRI.ArcGIS.Client, Version=10.1.1.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=MSIL" />
+    <Reference Include="FiftyNine.Ag.OpenXML.Common">
+      <HintPath>..\Assemblies\FiftyNine.Ag.OpenXML.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Jounce, Version=1.0.5420.27005, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Assemblies\Jounce.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Threading.Tasks, Version=1.0.12.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Assemblies\Microsoft.Threading.Tasks.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Threading.Tasks.Extensions, Version=1.0.12.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Assemblies\Microsoft.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Threading.Tasks.Extensions.Silverlight">
+      <HintPath>..\Assemblies\Microsoft.Threading.Tasks.Extensions.Silverlight.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="mscorlib" />
+    <Reference Include="System.ComponentModel.Composition, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.ComponentModel.Composition.Initialization, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.ComponentModel.DataAnnotations, Version=5.0.5.0, Culture=neutral, PublicKeyToken=ddd0da4d3e678217, processorArchitecture=MSIL" />
+    <Reference Include="System.Data.Services.Client, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Web" />
+    <Reference Include="System.Threading.Tasks, Version=2.6.10.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Assemblies\System.Threading.Tasks.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows" />
+    <Reference Include="system" />
+    <Reference Include="System.Core">
+      <HintPath>$(TargetFrameworkDirectory)System.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Controls, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.Data, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="system.windows.controls.data.dataform.toolkit, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>C:\Program Files (x86)\Microsoft SDKs\Silverlight\v5.0\Toolkit\dec11\Bin\System.Windows.Controls.Data.DataForm.Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Controls.Data.Input, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.Data.Toolkit, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>C:\Program Files (x86)\Microsoft SDKs\Silverlight\v5.0\Toolkit\dec11\Bin\System.Windows.Controls.Data.Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Controls.DataVisualization.Toolkit">
+      <HintPath>C:\Program Files (x86)\Microsoft SDKs\Silverlight\v5.0\Toolkit\dec11\Bin\System.Windows.Controls.DataVisualization.Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Controls.Input, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="system.windows.controls.input.toolkit, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>C:\Program Files (x86)\Microsoft SDKs\Silverlight\v5.0\Toolkit\dec11\Bin\System.Windows.Controls.Input.Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="system.windows.controls.layout.toolkit, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>C:\Program Files (x86)\Microsoft SDKs\Silverlight\v5.0\Toolkit\dec11\Bin\System.Windows.Controls.Layout.Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Controls.Navigation, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.Toolkit, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>C:\Program Files (x86)\Microsoft SDKs\Silverlight\v5.0\Toolkit\dec11\Bin\System.Windows.Controls.Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Controls.Toolkit.Internals, Version=4.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>C:\Program Files (x86)\Microsoft SDKs\Silverlight\v5.0\Toolkit\dec11\Bin\System.Windows.Controls.Toolkit.Internals.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Data, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Interactivity, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Assemblies\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Windows.Browser" />
+    <Reference Include="System.Xml.Linq, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Xml.Serialization, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AppControl\CompxControl.xaml.cs">
+      <DependentUpon>CompxControl.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Converts\CommandTypeConvert.cs" />
+    <Compile Include="Converts\TemperatureSetTypeConvert.cs" />
+    <Compile Include="Converts\TemperatureTypeConvert.cs" />
+    <Compile Include="ManagerBinding.cs" />
+    <Compile Include="ManagerName.cs" />
+    <Compile Include="Models\BaseEnumInfo.cs" />
+    <Compile Include="Models\PasswordInfo.cs" />
+    <Compile Include="Models\SelectedOrgStatus.cs" />
+    <Compile Include="Models\TemperatrueSettingType.cs" />
+    <Compile Include="Models\TemperatrueType.cs" />
+    <Compile Include="Models\TreeViewItemExt.cs" />
+    <Compile Include="Models\UserInfo.cs" />
+    <Compile Include="Models\ViewParameters.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Models\ModelBase.cs" />
+    <Compile Include="Models\SectionLevelModel.cs" />
+    <Compile Include="Models\SerializableItem.cs" />
+    <Compile Include="ViewModels\AntProductManagerMainPageViewModel.cs" />
+    <Compile Include="ViewModels\CommandManageViewModel\GPSConfigureViewModel.cs" />
+    <Compile Include="ViewModels\CommandManageViewModel\HeartbeatRuleDetailViewModel.cs" />
+    <Compile Include="ViewModels\CommandManageViewModel\HeartbeatRuleManageViewModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ViewModels\ConfigurationManage\VehicleTypeDetailViewModel.cs" />
+    <Compile Include="ViewModels\ConfigurationManage\VehicleTypeManageViewModel.cs" />
+    <Compile Include="ViewModels\CommandManageViewModel\LocationReportRuleDetailViewModel.cs" />
+    <Compile Include="ViewModels\OrganizationViewModel\AntProductUserDepartmentDetailViewModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ViewModels\OrganizationViewModel\AntProductUserDepartmentViewModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ViewModels\OrganizationViewModel\AntProductUserDetailViewModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ViewModels\OrganizationViewModel\AntProductUserManageViewModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ViewModels\OrganizationViewModel\ResetPasswordViewModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ViewModels\RoleManage\AntProductRoleManageViewModel.cs" />
+    <Compile Include="ViewModels\RoleManage\AntProductRoleMangeDetailViewModel.cs" />
+    <Compile Include="ViewModels\RoleManage\AntProductRoleSelectViewModel.cs" />
+    <Compile Include="ViewModels\SystemLog\SystemErrorLogViewModel.cs" />
+    <Compile Include="ViewModels\SystemLog\SystemLogBaseViewModel.cs" />
+    <Compile Include="ViewModels\SystemLog\SystemLoginLogViewModel.cs" />
+    <Compile Include="ViewModels\SystemLog\OperationLogViewModel.cs" />
+    <Compile Include="ViewModels\SystemLog\VideoDownloadViewModel.cs" />
+    <Compile Include="ViewModels\SystemLog\VideoPlayViewModel.cs" />
+    <Compile Include="ViewModels\SystemLog\InstallLogViewModel.cs" />
+    <Compile Include="ViewModels\SystemLog\AlarmDisposedLogViewModel.cs" />
+    <Compile Include="ViewModels\SystemLog\AlertDisposedLogViewModel.cs" />
+    <Compile Include="ViewModels\ManageMenuVm.cs" />
+    <Compile Include="ViewModels\ManagerMainPageVm.cs" />
+    <Compile Include="ViewModels\UserManageViewModel\UserUpdatePasswordViewModel.cs" />
+    <Compile Include="ViewModels\User\UserOnlineManageViewModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Views\AntProductManagerMainPage.xaml.cs">
+      <DependentUpon>AntProductManagerMainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ComandManage\GPSConfigureView.xaml.cs">
+      <DependentUpon>GPSConfigureView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ComandManage\HeartbeatRuleDetailWindow.xaml.cs">
+      <DependentUpon>HeartbeatRuleDetailWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ComandManage\LocationReportRuleDetailWindow.xaml.cs">
+      <DependentUpon>LocationReportRuleDetailWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ComandManage\SetHeartBeatRuleView.xaml.cs">
+      <DependentUpon>SetHeartBeatRuleView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ConfigurManage\SpeedColorEdit.xaml.cs">
+      <DependentUpon>SpeedColorEdit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ConfigurManage\VehicleTypeDetailWindow.xaml.cs">
+      <DependentUpon>VehicleTypeDetailWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ConfigurManage\VehicleTypeManageView.xaml.cs">
+      <DependentUpon>VehicleTypeManageView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Organization\AntProductUserDepartmentDetailView.xaml.cs">
+      <DependentUpon>AntProductUserDepartmentDetailView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Organization\AntProductUserDepartmentDetailWindow.xaml.cs">
+      <DependentUpon>AntProductUserDepartmentDetailWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Organization\AntProductUserDetailView.xaml.cs">
+      <DependentUpon>AntProductUserDetailView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Organization\AntProductUserDetailWindow.xaml.cs">
+      <DependentUpon>AntProductUserDetailWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Organization\AntProductUserManageView.xaml.cs">
+      <DependentUpon>AntProductUserManageView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Organization\DepartmentNavigationContainer.xaml.cs">
+      <DependentUpon>DepartmentNavigationContainer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Organization\DepartmentNavigationer.xaml.cs">
+      <DependentUpon>DepartmentNavigationer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Organization\EmptyView.xaml.cs">
+      <DependentUpon>EmptyView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Organization\ResetPasswordView.xaml.cs">
+      <DependentUpon>ResetPasswordView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Organization\AntProductUserDepartmentView.xaml.cs">
+      <DependentUpon>AntProductUserDepartmentView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\RoleManage\AntProductRoleManageDetailWindow.xaml.cs">
+      <DependentUpon>AntProductRoleManageDetailWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\RoleManage\AntProductRoleManageView.xaml.cs">
+      <DependentUpon>AntProductRoleManageView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\RoleManage\RoleSelectView.xaml.cs">
+      <DependentUpon>RoleSelectView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SystemLog\AlarmDisposedLogView.xaml.cs">
+      <DependentUpon>AlarmDisposedLogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SystemLog\InstallLogView.xaml.cs">
+      <DependentUpon>InstallLogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SystemLog\SystemErrorLogView.xaml.cs">
+      <DependentUpon>SystemErrorLogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SystemLog\SystemLoginLogView.xaml.cs">
+      <DependentUpon>SystemLoginLogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SystemLog\OperationLogView.xaml.cs">
+      <DependentUpon>OperationLogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SystemLog\VedioDownLoadLogView.xaml.cs">
+      <DependentUpon>VedioDownLoadLogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SystemLog\VedioPlayLogView.xaml.cs">
+      <DependentUpon>VedioPlayLogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SystemLog\AlertDisposeLogView.xaml.cs">
+      <DependentUpon>AlertDisposeLogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ManagerNavigationContainer.xaml.cs">
+      <DependentUpon>ManagerNavigationContainer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ManagerNavigationer.xaml.cs">
+      <DependentUpon>ManagerNavigationer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\User\MobileUserView.xaml.cs">
+      <DependentUpon>MobileUserView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\User\SystemUserManageView.xaml.cs">
+      <DependentUpon>SystemUserManageView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\User\UserOnlineInfoView.xaml.cs">
+      <DependentUpon>UserOnlineInfoView.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="AppControl\CompxControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Generic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\AntProductManagerMainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ComandManage\GPSConfigureView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ComandManage\HeartbeatRuleDetailWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ComandManage\LocationReportRuleDetailWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ComandManage\SetHeartBeatRuleView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ConfigurManage\SpeedColorEdit.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ConfigurManage\VehicleTypeDetailWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ConfigurManage\VehicleTypeManageView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Organization\AntProductUserDepartmentDetailView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Organization\AntProductUserDepartmentDetailWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Organization\AntProductUserDetailView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Organization\AntProductUserDetailWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Organization\AntProductUserManageView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Organization\DepartmentNavigationContainer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Organization\DepartmentNavigationer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Organization\EmptyView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Organization\ResetPasswordView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Organization\AntProductUserDepartmentView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\RoleManage\AntProductRoleManageDetailWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\RoleManage\AntProductRoleManageView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\RoleManage\RoleSelectView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SystemLog\AlarmDisposedLogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SystemLog\InstallLogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SystemLog\SystemErrorLogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SystemLog\SystemLoginLogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SystemLog\OperationLogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SystemLog\VedioDownLoadLogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SystemLog\VedioPlayLogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SystemLog\AlertDisposeLogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ManagerNavigationContainer.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ManagerNavigationer.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\User\MobileUserView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\User\SystemUserManageView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\User\UserOnlineInfoView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BaseLib\BaseLib.csproj">
+      <Project>{f6106c3b-65a3-45a0-ac41-80fb7c127c1f}</Project>
+      <Name>BaseLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BasicPage\BasicPage.csproj">
+      <Project>{336f0b83-4fda-40a9-b09a-c598b6e90d69}</Project>
+      <Name>BasicPage</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CommMessage\CommMessage.csproj">
+      <Project>{6e8e7e73-2eb1-4d7c-9273-f81fc2d30a10}</Project>
+      <Name>CommMessage</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CommonControl\Controls.csproj">
+      <Project>{E5A6C07A-D661-4528-866F-922C00081BDE}</Project>
+      <Name>Controls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Constants\Constants.csproj">
+      <Project>{96a43019-0ee2-4b44-b688-96dd0f418b19}</Project>
+      <Name>Constants</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Converts\Converts.csproj">
+      <Project>{e43eb997-b440-4fed-b261-4fbc7e2b6880}</Project>
+      <Name>Converts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Enums\Enums.csproj">
+      <Project>{3e850ec1-7a17-4b42-be32-efd1382d337e}</Project>
+      <Name>Enums</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Librarys\Librarys.csproj">
+      <Project>{80fb8b20-0514-46d0-adc4-99abf4246f5b}</Project>
+      <Name>Librarys</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Localization\Localization.csproj">
+      <Project>{3765593e-f466-42af-b3bb-56d825954072}</Project>
+      <Name>Localization</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Models\Models.csproj">
+      <Project>{44ebb496-2c26-475f-ad39-0117cc7f31f3}</Project>
+      <Name>Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ServiceReference\ServiceReference.csproj">
+      <Project>{116e9ab2-db01-41d6-bd5e-805cac206b32}</Project>
+      <Name>ServiceReference</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Share\Share.csproj">
+      <Project>{84fc8750-50d0-40ba-a5b8-be0bb014057e}</Project>
+      <Name>Share</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Spreadsheet\Spreadsheet.csproj">
+      <Project>{4f26e030-9aa3-46cf-9f7d-c23c38faccb9}</Project>
+      <Name>Spreadsheet</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Utilities\Utilities.csproj">
+      <Project>{a9d13f4e-3f78-48cf-9081-e12c108de4b4}</Project>
+      <Name>Utilities</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{A1591282-1198-4647-A2B1-27E5FF5F6F3B}">
+        <SilverlightProjectProperties />
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,73 @@
+﻿<UserControl x:Class="Gsafety.PTMS.Maintain.Views.SuiteUpgradeView.UpgradeOvertime"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"            
+    mc:Ignorable="d"
+    d:DesignHeight="800" d:DesignWidth="1000">
+
+    <Grid x:Name="LayoutRoot" Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="28"/>
+        </Grid.RowDefinitions>
+        <Border BorderBrush="{StaticResource MenuBarLine}" Background="{StaticResource NavBarBG}" Height="35" VerticalAlignment="Top" Grid.Row="0"  BorderThickness="0,1,0,1"/>
+        <Image Source="/SecuritySuiteManagement;component/Images/a07b.png" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,0,0,0" Stretch="None"/>
+        <TextBlock Text="{Binding [MAINTAIN_UpgradeOvertime], Source={StaticResource SR}}"  VerticalAlignment="Center" HorizontalAlignment="Left" Margin="36,0,0,0" Style="{StaticResource Menu2TextBlock}"/>
+
+        <Border BorderBrush="{StaticResource BorderBrushDeep}" Background="{StaticResource OptionBgColorBrush}" BorderThickness="1" Height="28" Grid.Row="4"  VerticalAlignment="Center" Width="Auto">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,0,0">
+                <TextBlock HorizontalAlignment="Left" Margin="0,0,5,0" Grid.Row="4" Text="{Binding [PageSize], Source={StaticResource SR}}" VerticalAlignment="Center" Foreground="Black" FontSize="12"/>
+                <ComboBox SelectedItem="{Binding PageSizeValue, Mode=TwoWay}"  Height="26" ItemsSource="{Binding PageSizeList}" Margin="0,0,0,0" Width="50" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                <sdk:DataPager PageIndex="{Binding PageIndex, Mode=TwoWay}" Name="DataPager1" IsTotalItemCountFixed="True" Height="26" Margin="0,0,0,0" PageSize="{Binding PageSizeValue,Mode=TwoWay}" Grid.Row="1" Source="{Binding PSC_UpgradeOvertime, Mode=TwoWay}" VerticalAlignment="Center"  HorizontalAlignment="Center" />
+            </StackPanel>
+        </Border>
+
+        <Grid Grid.Row="1" Background="#FFd0dcea">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="250"/>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Row="0" HorizontalAlignment="Right"  Text="{Binding [MAINTAIN_OvertimeTimeSpan], Source={StaticResource SR}}" VerticalAlignment="Center" Style="{StaticResource ViewFont}" Margin="0,16,8,16"  />
+            <ComboBox  TabIndex="1" IsEnabled="{Binding IsEnabled}" SelectedItem="{Binding CurrentTime, Mode=TwoWay}" ItemsSource="{Binding TimeList}" HorizontalAlignment="Left" VerticalAlignment="Center" Width="145" Height="28"  Grid.Row="0"  Grid.Column="1" Foreground="Black" Margin="0,11" >
+            </ComboBox>
+            <!--查询按钮-->
+            <Button TabIndex="5" x:Name="btnQuery"  Command="{Binding QueryCommand}" Tag="{Binding [Query], Source={StaticResource SR}}" HorizontalAlignment="Left"  VerticalAlignment="Center" Grid.Column="2" MinWidth="100"  Height="24" Width="100">
+                <Image x:Name="imQuery" Source="/InstallationManagement;component/Images/seach.png" Stretch="None"/>
+            </Button>
+
+        </Grid>
+
+
+        <Border BorderBrush="{StaticResource MenuBarLine}" Background="{StaticResource NavBarBG}" Height="35" VerticalAlignment="Top" Grid.Row="2" Margin="0" BorderThickness="0,1,0,1"/>
+
+        <Image VerticalAlignment="Center" HorizontalAlignment="Left" Source="/SecuritySuiteManagement;component/Images/a07b.png" Grid.Row="2" Stretch="None" Margin="10,0,0,0"/>
+        <TextBlock Text="{Binding [MAINTAIN_UpgradeOvertimeList], Source={StaticResource SR}}" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="36,0,0,0" Style="{StaticResource Menu2TextBlock}" Grid.Row="2"/>
+
+
+        <sdk:DataGrid  CellStyle="{StaticResource DataGridCellStyle}"  x:Name="UpgradeOvertimeDataGrid" IsReadOnly="True" Grid.Row="3" AutoGenerateColumns="False"  ItemsSource="{Binding PSC_UpgradeOvertime}" Background="Transparent">
+            <sdk:DataGrid.Columns>
+                <sdk:DataGridTextColumn Header="BASEINFO_VehicleNumber" Binding="{Binding VehicleId}" CanUserSort="True"  Width="*" >
+                    
+                </sdk:DataGridTextColumn>
+                <sdk:DataGridTextColumn Header="BASEINFO_SuiteID" Binding="{Binding SuiteId}" CanUserSort="True"  Width="*" >
+                   
+                </sdk:DataGridTextColumn>
+                <sdk:DataGridTextColumn Header="MAINTAIN_UpgradeTime" Binding="{Binding UpgradeTime, StringFormat=yyyy-MM-dd HH:mm:ss}" CanUserSort="True"  Width="*"  >
+                 
+                </sdk:DataGridTextColumn>
+                <sdk:DataGridTextColumn Header="MAINTAIN_UpgradeStaff" Binding="{Binding UpgradeOperator}" CanUserSort="True"  Width="*" >
+                    
+                </sdk:DataGridTextColumn>
+            </sdk:DataGrid.Columns>
+        </sdk:DataGrid>
+    </Grid>
+</UserControl>

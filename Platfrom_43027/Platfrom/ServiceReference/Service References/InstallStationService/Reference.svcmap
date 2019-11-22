@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="29f0cb4f-38ad-4729-a26c-8db79234dadf" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>true</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.ObjectModel.ObservableCollection`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>false</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:2258/InstallStationService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="InstallStationService5.xsd" MetadataType="Schema" ID="d4d64382-0911-4c6b-a826-036ae8670f3e" SourceId="1" SourceUrl="http://localhost:2258/InstallStationService.svc?xsd=xsd0" />
+    <MetadataFile FileName="InstallStationService51.xsd" MetadataType="Schema" ID="9236d0d4-a6e7-4a35-85a9-1a4c4380e493" SourceId="1" SourceUrl="http://localhost:2258/InstallStationService.svc?xsd=xsd2" />
+    <MetadataFile FileName="InstallStationService1.disco" MetadataType="Disco" ID="e8685488-3f6b-4df5-897b-3f28c545b85b" SourceId="1" SourceUrl="http://localhost:2258/InstallStationService.svc?disco" />
+    <MetadataFile FileName="InstallStationService52.xsd" MetadataType="Schema" ID="6c3c4e07-f835-437e-bfb8-d85fe1bec4eb" SourceId="1" SourceUrl="http://localhost:2258/InstallStationService.svc?xsd=xsd4" />
+    <MetadataFile FileName="InstallStationService53.xsd" MetadataType="Schema" ID="394e5a4f-7b00-40eb-9c91-c12cc0f1599d" SourceId="1" SourceUrl="http://localhost:2258/InstallStationService.svc?xsd=xsd1" />
+    <MetadataFile FileName="InstallStationService1.wsdl" MetadataType="Wsdl" ID="595095bc-7bcc-42bf-b906-22831047eda7" SourceId="1" SourceUrl="http://localhost:2258/InstallStationService.svc?wsdl" />
+    <MetadataFile FileName="InstallStationService54.xsd" MetadataType="Schema" ID="623006c2-9ea0-4cec-b3d4-7cbd7b9f2ca6" SourceId="1" SourceUrl="http://localhost:2258/InstallStationService.svc?xsd=xsd3" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

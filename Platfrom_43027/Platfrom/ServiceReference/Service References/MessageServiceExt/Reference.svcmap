@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="690daf47-077e-47bd-b5fe-8735cd76602c" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>true</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.ObjectModel.ObservableCollection`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>false</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="net.tcp://172.16.80.40:4503/MessageService/mex" Protocol="mex" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="83d21c26-77a0-4f6b-9c12-149584beaad4" SourceId="1" SourceUrl="net.tcp://172.16.80.40:4503/MessageService/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="262026e4-9605-405f-895b-a76c629f8cb1" SourceId="1" SourceUrl="net.tcp://172.16.80.40:4503/MessageService/mex" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="eabbcd2b-659d-4ae4-b0c6-d49fd6ae2361" SourceId="1" SourceUrl="net.tcp://172.16.80.40:4503/MessageService/mex" />
+    <MetadataFile FileName="Gsafety.PTMS.Common.Data1.xsd" MetadataType="Schema" ID="fffb608e-5810-4393-a813-0f8a47bc31ea" SourceId="1" SourceUrl="net.tcp://172.16.80.40:4503/MessageService/mex" />
+    <MetadataFile FileName="Arrays.xsd" MetadataType="Schema" ID="e6dede16-33aa-4c99-9168-618f0c0a21b4" SourceId="1" SourceUrl="net.tcp://172.16.80.40:4503/MessageService/mex" />
+    <MetadataFile FileName="Gsafety.PTMS.Common.Data.Data.Video1.xsd" MetadataType="Schema" ID="c703cf84-a6cf-4797-bc54-56b6e3dbf401" SourceId="1" SourceUrl="net.tcp://172.16.80.40:4503/MessageService/mex" />
+    <MetadataFile FileName="Gsafety.PTMS.Common.Data.Enum1.xsd" MetadataType="Schema" ID="2d44ac08-b364-4596-8ded-e75de68b7b9c" SourceId="1" SourceUrl="net.tcp://172.16.80.40:4503/MessageService/mex" />
+    <MetadataFile FileName="Gsafety.PTMS.Message.Contract.xsd" MetadataType="Schema" ID="685268b3-e784-48d3-ba6a-67a0d5a38b13" SourceId="1" SourceUrl="net.tcp://172.16.80.40:4503/MessageService/mex" />
+    <MetadataFile FileName="Gsafety.PTMS.Message.Contract.Data1.xsd" MetadataType="Schema" ID="0cf2bb6c-c418-4493-a39b-603e6210d954" SourceId="1" SourceUrl="net.tcp://172.16.80.40:4503/MessageService/mex" />
+    <MetadataFile FileName="Gsafety.PTMS.Common.Enum1.xsd" MetadataType="Schema" ID="47dda1f4-2614-4a39-a097-dedad0c13608" SourceId="1" SourceUrl="net.tcp://172.16.80.40:4503/MessageService/mex" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

@@ -1,0 +1,191 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{87BE9A73-29A2-450A-922F-6A2EE2761D26}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Gsafety.PTMS.Reports</RootNamespace>
+    <AssemblyName>Reports</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DBEntity">
+      <HintPath>..\DataModel\bin\Debug\DBEntity.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Charts.v13.2.Core, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\Assemblies\DevExpress.Charts.v13.2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Data.v13.2, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\Assemblies\DevExpress.Data.v13.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Office.v13.2.Core, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\Assemblies\DevExpress.Office.v13.2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.PivotGrid.v13.2.Core, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\Assemblies\DevExpress.PivotGrid.v13.2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Printing.v13.2.Core, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\Assemblies\DevExpress.Printing.v13.2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.RichEdit.v13.2.Core, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\Assemblies\DevExpress.RichEdit.v13.2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Sparkline.v13.2.Core, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\Assemblies\DevExpress.Sparkline.v13.2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraCharts.v13.2, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\Assemblies\DevExpress.XtraCharts.v13.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraReports.v13.2, Version=13.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\Assemblies\DevExpress.XtraReports.v13.2.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\Assemblies\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Localization, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Localization\Bin\Debug\Localization.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\Assemblies\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.OracleClient" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="AlarmStatisticsReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="AlarmStatisticsReport.designer.cs">
+      <DependentUpon>AlarmStatisticsReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessAlertReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="BusinessAlertReport.designer.cs">
+      <DependentUpon>BusinessAlertReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DeviceAlertReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DeviceAlertReport.designer.cs">
+      <DependentUpon>DeviceAlertReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportBase.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="VechileOffLineReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="VechileOffLineReport.designer.cs">
+      <DependentUpon>VechileOffLineReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserOnlineReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UserOnlineReport.designer.cs">
+      <DependentUpon>UserOnlineReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VideoFlowReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="VideoFlowReport.designer.cs">
+      <DependentUpon>VideoFlowReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VehicleHistoryReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="VehicleHistoryReport.designer.cs">
+      <DependentUpon>VehicleHistoryReport.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="AlarmStatisticsReport.resx">
+      <DependentUpon>AlarmStatisticsReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BusinessAlertReport.resx">
+      <DependentUpon>BusinessAlertReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DeviceAlertReport.resx">
+      <DependentUpon>DeviceAlertReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportBase.resx">
+      <DependentUpon>ReportBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VechileOffLineReport.resx">
+      <DependentUpon>VechileOffLineReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserOnlineReport.resx">
+      <DependentUpon>UserOnlineReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VideoFlowReport.resx">
+      <DependentUpon>VideoFlowReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VehicleHistoryReport.resx">
+      <DependentUpon>VehicleHistoryReport.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LogManage\LogManage.csproj">
+      <Project>{48e5a665-a6c2-49a2-96d3-031eaa67de3d}</Project>
+      <Name>LogManage</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ReportRepository\ReportRepository.csproj">
+      <Project>{09cebc25-e267-455f-8a22-bb19fe385b0b}</Project>
+      <Name>ReportRepository</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

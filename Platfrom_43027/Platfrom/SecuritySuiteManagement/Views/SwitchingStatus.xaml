@@ -1,0 +1,116 @@
+﻿<UserControl x:Class="Gsafety.PTMS.SecuritySuite.Views.SwitchingStatus"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk" 
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:converter="clr-namespace:Gsafety.Common.Converts;assembly=Converts"
+    xmlns:Controls="clr-namespace:Gsafety.Common.Controls;assembly=CommonControls"
+    mc:Ignorable="d"
+    d:DesignHeight="800" d:DesignWidth="1000">
+
+    <UserControl.Resources>
+        <converter:LocalizedStringConverter  x:Key="localize"></converter:LocalizedStringConverter>
+        <!--<converter:InstallStatusColorConverter x:Key="color"></converter:InstallStatusColorConverter>-->
+    </UserControl.Resources>
+
+    <Grid x:Name="LayoutRoot">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="28"/>
+        </Grid.RowDefinitions>
+        <Border Style="{StaticResource TopBorderStyle}" Height="40" VerticalAlignment="Top" Grid.Row="0" Margin="0" BorderThickness="0,1,0,1" />
+        <Image Source="/ExternalResource;component/Images/navigation.png" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,0,0,0" Stretch="None"/>
+        <TextBlock Text="{Binding [MAINTAIN_SuiteSwitchStatus], Source={StaticResource SR}}" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="36,0,0,0" Style="{StaticResource MainPage_Main_tle_TextBlockStyle}"/>
+        <Border Style="{StaticResource GridBorderStyle}" Grid.Row="1" >
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="150"/>
+                    <ColumnDefinition Width="200"/>
+                    <ColumnDefinition Width="150"/>
+                    <ColumnDefinition Width="200"/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="2"/>
+                    <ColumnDefinition Width="180"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="40"/>
+                </Grid.RowDefinitions>
+                <!--VehcileID-->
+                <TextBlock HorizontalAlignment="Right"  Text="{Binding [CarNumber],Source={StaticResource SR}}" VerticalAlignment="Center"  Grid.Row="0" Style="{StaticResource MainPage_Main_search_TextBlockStyle}" Margin="0,0,5,0"/>
+                <TextBox TabIndex="1" MaxLength="20" Text="{Binding VehicleId, Mode=TwoWay}"  HorizontalAlignment="Left"  VerticalAlignment="Center" Width="170" Grid.Column="1"  Margin="5,0,0,0" Style="{StaticResource MainPage_Main_TextBoxStyle}"/>
+                <!--SuiteID-->
+                <TextBlock HorizontalAlignment="Right" Text="{Binding [BASEINFO_SuiteID],Source={StaticResource SR}}" VerticalAlignment="Center" Grid.Column="2" Grid.Row="0" Style="{StaticResource MainPage_Main_search_TextBlockStyle}" Margin="0,0,5,0"/>
+                <TextBox TabIndex="2" MaxLength="25" Text="{Binding SuiteId, Mode=TwoWay}"  HorizontalAlignment="Left" VerticalAlignment="Center" Width="170" Grid.Column="3"  Margin="5,0,0,0" Style="{StaticResource MainPage_Main_TextBoxStyle}"/>
+                <!--StartDate-->
+                <TextBlock Grid.Row="1" HorizontalAlignment="Right"  Text="{Binding [MAINTAIN_StartDate], Source={StaticResource SR}}" VerticalAlignment="Center" Style="{StaticResource MainPage_Main_search_TextBlockStyle}" Margin="0,0,5,0"/>
+                <Controls:DatePickerEx x:Name="startDatePicker"  IsReadOnly="True" Grid.Row="1" Grid.Column="1" DisplayDateEnd="{Binding ElementName=endDatePicker, Path=SelectedDate}" HorizontalAlignment="Left"  VerticalAlignment="Center" Width="170" 
+                SelectedDate="{Binding BeginDate, Mode=TwoWay, ValidatesOnExceptions=True, ValidatesOnDataErrors=True}" Margin="5,0,0,0"/>
+                <!--EndDate-->
+                <TextBlock  Grid.Column="2" Grid.Row="1" HorizontalAlignment="Right"   Text="{Binding [MAINTAIN_EndDate] , Source={StaticResource SR}}" VerticalAlignment="Center" Style="{StaticResource MainPage_Main_search_TextBlockStyle}" Margin="0,0,5,0"/>
+                <Controls:DatePickerEx x:Name="endDatePicker" IsReadOnly="True" Grid.Row="1" Grid.Column="3" DisplayDateStart="{Binding ElementName=startDatePicker, Path=SelectedDate}" HorizontalAlignment="Left"  VerticalAlignment="Center" Width="170" 
+                SelectedDate="{Binding EndDate, Mode=TwoWay}" Margin="5,0,0,0"/>
+                <Image HorizontalAlignment="Left" Grid.RowSpan="2" VerticalAlignment="Center" Grid.Column="5" Width="2" Height="62" Source="/ExternalResource;component/Images/MainPage_line.png"/>
+                <Button TabIndex="4" x:Name="btnQuery"  Command="{Binding QueryCommand}" Tag="{Binding [Query], Source={StaticResource SR}}" HorizontalAlignment="Right"  VerticalAlignment="Center" Grid.Column="6" Grid.RowSpan="2" Style="{StaticResource Search_ButtonStyle}" Margin="30,0,40,0">
+                    <Image x:Name="imQuery" Source="/SecuritySuiteManagement;component/Images/MainPage_search.png" Stretch="Fill" Width="14" Height="14"/>
+                </Button>
+            </Grid>
+        </Border>
+        <Border  Style="{StaticResource MiddleBorderStyle}" Height="35" VerticalAlignment="Top" Grid.Row="2" Margin="0"/>
+
+        <Image VerticalAlignment="Center" HorizontalAlignment="Left" Source="/ExternalResource;component/Images/navigation.png" Grid.Row="2" Stretch="None" Margin="10,0,0,0"/>
+        <TextBlock Text="{Binding [MAINTAIN_SuiteSwitchStatusList], Source={StaticResource SR}}" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="36,0,0,0" Style="{StaticResource MainPage_Main_tle_TextBlockStyle}" Grid.Row="2"/>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right"  Grid.Row="2"/>
+
+        <Border Style="{StaticResource BottonBorderStyle}" BorderThickness="1" Height="25" Grid.Row="4"  VerticalAlignment="Center" Width="Auto">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,0,0">
+                <TextBlock HorizontalAlignment="Left"  Grid.Row="4" Text="{Binding [PageSize], Source={StaticResource SR}}" VerticalAlignment="Center" Style="{StaticResource DataGrid_Page_TextBlockStyle}"/>
+                <ComboBox SelectedItem="{Binding PageSizeValue,Mode=TwoWay}"  Height="25" ItemsSource="{Binding PageSizeList,Mode=TwoWay}" Margin="0,0,0,0" Width="50" VerticalAlignment="Center" HorizontalAlignment="Center" Style="{StaticResource DataGrid_Page_ComboBoxStyle}"/>
+                <sdk:DataPager Name="DataPager1" PageIndex="-1" Height="25" Margin="0,0,0,0" DisplayMode="FirstLastPreviousNext" PageSize="{Binding PageSizeValue,Mode=OneWay}" Grid.Row="1" Source="{Binding PSC_SelfInspectInfo, Mode=TwoWay}" VerticalAlignment="Center"  HorizontalAlignment="Center" IsTotalItemCountFixed="True" />
+            </StackPanel>
+        </Border>
+        <sdk:DataGrid  CellStyle="{StaticResource DataGridCellStyle}"  x:Name="SwitchingStatusDataGrid" IsReadOnly="True" Grid.Row="3" AutoGenerateColumns="False" SelectedItem="{Binding CurrentSelfInspectInfo, Mode=TwoWay}" ItemsSource="{Binding PSC_SelfInspectInfo}" Background="Transparent"
+                       GridLinesVisibility="Horizontal" HorizontalGridLinesBrush="#FFDCDAD5" RowStyle="{StaticResource DataGridRowStyle}" ColumnHeaderStyle="{StaticResource DataGridColumnHeaderStyle}" >
+            <sdk:DataGrid.Columns>
+                <sdk:DataGridTextColumn Binding="{Binding VehicleId}" Header="CarNumber" CanUserSort="True" Width="*" >
+
+                </sdk:DataGridTextColumn>
+                <sdk:DataGridTextColumn Binding="{Binding SuiteId}" Header="BASEINFO_SuiteID" CanUserSort="True"  Width="*" >
+
+                </sdk:DataGridTextColumn>
+                <sdk:DataGridTextColumn Binding="{Binding CurInTemperature}" Header="ID_INSTALL_CurrentInternalTemperature" CanUserSort="True" Width="*" >
+
+                </sdk:DataGridTextColumn>
+                <sdk:DataGridTextColumn Binding="{Binding CurVoltage}" Header="ID_INSTALL_InputVoltage" CanUserSort="True" Width="*" >
+                   
+                </sdk:DataGridTextColumn>
+                <sdk:DataGridTextColumn Binding="{Binding RecSD, Converter={StaticResource  localize}}" Header="ID_INSTALL_VideoSD" CanUserSort="True" Width="*" >
+
+                </sdk:DataGridTextColumn>
+                <sdk:DataGridTextColumn Binding="{Binding GpsInfo, Converter={StaticResource  localize}}" Header="GIS_GPSInforToolTip" CanUserSort="True" Width="*" >
+
+                </sdk:DataGridTextColumn>
+                <sdk:DataGridTextColumn Binding="{Binding SimCard, Converter={StaticResource  localize}}" Header="Status_SIM" CanUserSort="True" Width="*" >
+                    
+                </sdk:DataGridTextColumn>                
+                <sdk:DataGridTemplateColumn Header="Operation" Width="80" >
+
+                    <sdk:DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                <Button Style="{StaticResource ANTBaseInfoGridBtn}" Command="{Binding DataContext.ViewCommand, RelativeSource={RelativeSource AncestorType=sdk:DataGrid}}"  
+                                        ToolTipService.ToolTip="{Binding [Look],Source={StaticResource SR}}" HorizontalAlignment="Center" VerticalAlignment="Center" >
+                                    <Image Source="/ExternalResource;component/Images/DataGrid_detail.png" Stretch="None" />
+                                </Button>
+                            </StackPanel>
+                        </DataTemplate>
+                    </sdk:DataGridTemplateColumn.CellTemplate>
+                </sdk:DataGridTemplateColumn>
+            </sdk:DataGrid.Columns>
+        </sdk:DataGrid>
+    </Grid>
+</UserControl>

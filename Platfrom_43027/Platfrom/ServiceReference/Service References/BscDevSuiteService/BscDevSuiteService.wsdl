@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="BscDevSuiteService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:2258/BscDevSuiteService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:2258/BscDevSuiteService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:2258/BscDevSuiteService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Common.Data" />
+      <xsd:import schemaLocation="http://localhost:2258/BscDevSuiteService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Common.Enum" />
+      <xsd:import schemaLocation="http://localhost:2258/BscDevSuiteService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" />
+      <xsd:import schemaLocation="http://localhost:2258/BscDevSuiteService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/System" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IBscDevSuiteService_InsertBscDevSuite_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertBscDevSuite" />
+  </wsdl:message>
+  <wsdl:message name="IBscDevSuiteService_InsertBscDevSuite_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertBscDevSuiteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBscDevSuiteService_UpdateBscDevSuite_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateBscDevSuite" />
+  </wsdl:message>
+  <wsdl:message name="IBscDevSuiteService_UpdateBscDevSuite_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateBscDevSuiteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBscDevSuiteService_DeleteBscDevSuiteByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteBscDevSuiteByID" />
+  </wsdl:message>
+  <wsdl:message name="IBscDevSuiteService_DeleteBscDevSuiteByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteBscDevSuiteByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBscDevSuiteService_GetBscDevSuite_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBscDevSuite" />
+  </wsdl:message>
+  <wsdl:message name="IBscDevSuiteService_GetBscDevSuite_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBscDevSuiteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBscDevSuiteService_GetDevSuiteBySuiteID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDevSuiteBySuiteID" />
+  </wsdl:message>
+  <wsdl:message name="IBscDevSuiteService_GetDevSuiteBySuiteID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDevSuiteBySuiteIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBscDevSuiteService_GetBscDevSuiteList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBscDevSuiteList" />
+  </wsdl:message>
+  <wsdl:message name="IBscDevSuiteService_GetBscDevSuiteList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBscDevSuiteListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBscDevSuiteService_BatchAdd_InputMessage">
+    <wsdl:part name="parameters" element="tns:BatchAdd" />
+  </wsdl:message>
+  <wsdl:message name="IBscDevSuiteService_BatchAdd_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BatchAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBscDevSuiteService_CheckSecuritySuiteExist_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckSecuritySuiteExist" />
+  </wsdl:message>
+  <wsdl:message name="IBscDevSuiteService_CheckSecuritySuiteExist_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckSecuritySuiteExistResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBscDevSuiteService_GetBscDevSuiteExportList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBscDevSuiteExportList" />
+  </wsdl:message>
+  <wsdl:message name="IBscDevSuiteService_GetBscDevSuiteExportList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBscDevSuiteExportListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBscDevSuiteService_GetBscDevSuiteIDByVehicleSN_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBscDevSuiteIDByVehicleSN" />
+  </wsdl:message>
+  <wsdl:message name="IBscDevSuiteService_GetBscDevSuiteIDByVehicleSN_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBscDevSuiteIDByVehicleSNResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBscDevSuitePartService_InsertBscDevSuitePart_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertBscDevSuitePart" />
+  </wsdl:message>
+  <wsdl:message name="IBscDevSuitePartService_InsertBscDevSuitePart_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertBscDevSuitePartResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBscDevSuitePartService_UpdateBscDevSuitePart_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateBscDevSuitePart" />
+  </wsdl:message>
+  <wsdl:message name="IBscDevSuitePartService_UpdateBscDevSuitePart_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateBscDevSuitePartResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBscDevSuitePartService_DeleteBscDevSuitePartByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteBscDevSuitePartByID" />
+  </wsdl:message>
+  <wsdl:message name="IBscDevSuitePartService_DeleteBscDevSuitePartByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteBscDevSuitePartByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBscDevSuitePartService_GetCameraListBySuiteInfoID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCameraListBySuiteInfoID" />
+  </wsdl:message>
+  <wsdl:message name="IBscDevSuitePartService_GetCameraListBySuiteInfoID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCameraListBySuiteInfoIDResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IBscDevSuiteService">
+    <wsdl:operation name="InsertBscDevSuite">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBscDevSuiteService/InsertBscDevSuite" message="tns:IBscDevSuiteService_InsertBscDevSuite_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBscDevSuiteService/InsertBscDevSuiteResponse" message="tns:IBscDevSuiteService_InsertBscDevSuite_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateBscDevSuite">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBscDevSuiteService/UpdateBscDevSuite" message="tns:IBscDevSuiteService_UpdateBscDevSuite_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBscDevSuiteService/UpdateBscDevSuiteResponse" message="tns:IBscDevSuiteService_UpdateBscDevSuite_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteBscDevSuiteByID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBscDevSuiteService/DeleteBscDevSuiteByID" message="tns:IBscDevSuiteService_DeleteBscDevSuiteByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBscDevSuiteService/DeleteBscDevSuiteByIDResponse" message="tns:IBscDevSuiteService_DeleteBscDevSuiteByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBscDevSuite">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBscDevSuiteService/GetBscDevSuite" message="tns:IBscDevSuiteService_GetBscDevSuite_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBscDevSuiteService/GetBscDevSuiteResponse" message="tns:IBscDevSuiteService_GetBscDevSuite_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDevSuiteBySuiteID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBscDevSuiteService/GetDevSuiteBySuiteID" message="tns:IBscDevSuiteService_GetDevSuiteBySuiteID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBscDevSuiteService/GetDevSuiteBySuiteIDResponse" message="tns:IBscDevSuiteService_GetDevSuiteBySuiteID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBscDevSuiteList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBscDevSuiteService/GetBscDevSuiteList" message="tns:IBscDevSuiteService_GetBscDevSuiteList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBscDevSuiteService/GetBscDevSuiteListResponse" message="tns:IBscDevSuiteService_GetBscDevSuiteList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BatchAdd">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBscDevSuiteService/BatchAdd" message="tns:IBscDevSuiteService_BatchAdd_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBscDevSuiteService/BatchAddResponse" message="tns:IBscDevSuiteService_BatchAdd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckSecuritySuiteExist">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBscDevSuiteService/CheckSecuritySuiteExist" message="tns:IBscDevSuiteService_CheckSecuritySuiteExist_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBscDevSuiteService/CheckSecuritySuiteExistResponse" message="tns:IBscDevSuiteService_CheckSecuritySuiteExist_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBscDevSuiteExportList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBscDevSuiteService/GetBscDevSuiteExportList" message="tns:IBscDevSuiteService_GetBscDevSuiteExportList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBscDevSuiteService/GetBscDevSuiteExportListResponse" message="tns:IBscDevSuiteService_GetBscDevSuiteExportList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBscDevSuiteIDByVehicleSN">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBscDevSuiteService/GetBscDevSuiteIDByVehicleSN" message="tns:IBscDevSuiteService_GetBscDevSuiteIDByVehicleSN_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBscDevSuiteService/GetBscDevSuiteIDByVehicleSNResponse" message="tns:IBscDevSuiteService_GetBscDevSuiteIDByVehicleSN_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="IBscDevSuitePartService">
+    <wsdl:operation name="InsertBscDevSuitePart">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBscDevSuitePartService/InsertBscDevSuitePart" message="tns:IBscDevSuitePartService_InsertBscDevSuitePart_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBscDevSuitePartService/InsertBscDevSuitePartResponse" message="tns:IBscDevSuitePartService_InsertBscDevSuitePart_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateBscDevSuitePart">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBscDevSuitePartService/UpdateBscDevSuitePart" message="tns:IBscDevSuitePartService_UpdateBscDevSuitePart_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBscDevSuitePartService/UpdateBscDevSuitePartResponse" message="tns:IBscDevSuitePartService_UpdateBscDevSuitePart_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteBscDevSuitePartByID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBscDevSuitePartService/DeleteBscDevSuitePartByID" message="tns:IBscDevSuitePartService_DeleteBscDevSuitePartByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBscDevSuitePartService/DeleteBscDevSuitePartByIDResponse" message="tns:IBscDevSuitePartService_DeleteBscDevSuitePartByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCameraListBySuiteInfoID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBscDevSuitePartService/GetCameraListBySuiteInfoID" message="tns:IBscDevSuitePartService_GetCameraListBySuiteInfoID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBscDevSuitePartService/GetCameraListBySuiteInfoIDResponse" message="tns:IBscDevSuitePartService_GetCameraListBySuiteInfoID_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IBscDevSuiteService" type="tns:IBscDevSuiteService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="InsertBscDevSuite">
+      <soap:operation soapAction="http://tempuri.org/IBscDevSuiteService/InsertBscDevSuite" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateBscDevSuite">
+      <soap:operation soapAction="http://tempuri.org/IBscDevSuiteService/UpdateBscDevSuite" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteBscDevSuiteByID">
+      <soap:operation soapAction="http://tempuri.org/IBscDevSuiteService/DeleteBscDevSuiteByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBscDevSuite">
+      <soap:operation soapAction="http://tempuri.org/IBscDevSuiteService/GetBscDevSuite" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDevSuiteBySuiteID">
+      <soap:operation soapAction="http://tempuri.org/IBscDevSuiteService/GetDevSuiteBySuiteID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBscDevSuiteList">
+      <soap:operation soapAction="http://tempuri.org/IBscDevSuiteService/GetBscDevSuiteList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BatchAdd">
+      <soap:operation soapAction="http://tempuri.org/IBscDevSuiteService/BatchAdd" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckSecuritySuiteExist">
+      <soap:operation soapAction="http://tempuri.org/IBscDevSuiteService/CheckSecuritySuiteExist" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBscDevSuiteExportList">
+      <soap:operation soapAction="http://tempuri.org/IBscDevSuiteService/GetBscDevSuiteExportList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBscDevSuiteIDByVehicleSN">
+      <soap:operation soapAction="http://tempuri.org/IBscDevSuiteService/GetBscDevSuiteIDByVehicleSN" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BasicHttpBinding_IBscDevSuitePartService" type="tns:IBscDevSuitePartService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="InsertBscDevSuitePart">
+      <soap:operation soapAction="http://tempuri.org/IBscDevSuitePartService/InsertBscDevSuitePart" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateBscDevSuitePart">
+      <soap:operation soapAction="http://tempuri.org/IBscDevSuitePartService/UpdateBscDevSuitePart" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteBscDevSuitePartByID">
+      <soap:operation soapAction="http://tempuri.org/IBscDevSuitePartService/DeleteBscDevSuitePartByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCameraListBySuiteInfoID">
+      <soap:operation soapAction="http://tempuri.org/IBscDevSuitePartService/GetCameraListBySuiteInfoID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="BscDevSuiteService">
+    <wsdl:port name="BasicHttpBinding_IBscDevSuiteService" binding="tns:BasicHttpBinding_IBscDevSuiteService">
+      <soap:address location="http://localhost:2258/BscDevSuiteService.svc" />
+    </wsdl:port>
+    <wsdl:port name="BasicHttpBinding_IBscDevSuitePartService" binding="tns:BasicHttpBinding_IBscDevSuitePartService">
+      <soap:address location="http://localhost:2258/BscDevSuiteService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

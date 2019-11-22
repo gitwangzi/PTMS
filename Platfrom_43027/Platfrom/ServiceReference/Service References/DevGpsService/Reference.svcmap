@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="03a7eba9-15e4-47ca-8209-b99216748d39" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>true</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.ObjectModel.ObservableCollection`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>false</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:2259/DevGpsService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="DevGpsService6.xsd" MetadataType="Schema" ID="a07563ed-a267-412c-9823-638ff6256e65" SourceId="1" SourceUrl="http://localhost:2259/DevGpsService.svc?xsd=xsd3" />
+    <MetadataFile FileName="DevGpsService61.xsd" MetadataType="Schema" ID="c19c58b3-5817-4b8c-9636-515b7e632f0e" SourceId="1" SourceUrl="http://localhost:2259/DevGpsService.svc?xsd=xsd0" />
+    <MetadataFile FileName="DevGpsService1.disco" MetadataType="Disco" ID="e4cf7d66-8704-44c7-beff-3c2ad9d2b53c" SourceId="1" SourceUrl="http://localhost:2259/DevGpsService.svc?disco" />
+    <MetadataFile FileName="DevGpsService62.xsd" MetadataType="Schema" ID="417bfc06-211a-4c4b-af69-5ec9bf5a1c38" SourceId="1" SourceUrl="http://localhost:2259/DevGpsService.svc?xsd=xsd5" />
+    <MetadataFile FileName="DevGpsService63.xsd" MetadataType="Schema" ID="56432291-30df-4c9f-9e11-49249b14de83" SourceId="1" SourceUrl="http://localhost:2259/DevGpsService.svc?xsd=xsd1" />
+    <MetadataFile FileName="DevGpsService64.xsd" MetadataType="Schema" ID="0fdaf544-83d8-4e89-95c3-781b4a7fa1e4" SourceId="1" SourceUrl="http://localhost:2259/DevGpsService.svc?xsd=xsd2" />
+    <MetadataFile FileName="DevGpsService65.xsd" MetadataType="Schema" ID="ec171614-d304-4583-b3bd-3801e6418ee9" SourceId="1" SourceUrl="http://localhost:2259/DevGpsService.svc?xsd=xsd4" />
+    <MetadataFile FileName="DevGpsService1.wsdl" MetadataType="Wsdl" ID="1c839632-787b-41d8-b59b-d6cb05dd1bea" SourceId="1" SourceUrl="http://localhost:2259/DevGpsService.svc?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

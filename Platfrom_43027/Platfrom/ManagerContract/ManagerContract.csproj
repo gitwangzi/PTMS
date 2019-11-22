@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5955C031-5415-457C-95D3-B06E38279572}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Gsafety.PTMS.Manager.Contract</RootNamespace>
+    <AssemblyName>ManagerContract</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ContentType.cs" />
+    <Compile Include="Data\UserManage\AccountInfo.cs" />
+    <Compile Include="Data\ADAccountInfo.cs" />
+    <Compile Include="Data\AppConfig.cs" />
+    <Compile Include="Data\CommandManage\AbnormalDoorRuleInfo.cs" />
+    <Compile Include="Data\CommandManage\AlarmSettingRules.cs" />
+    <Compile Include="Data\CommandManage\ConfigDetail.cs" />
+    <Compile Include="Data\CommandManage\ConfigInfo.cs" />
+    <Compile Include="Data\CommandManage\CurrentSettingRuleInfo.cs" />
+    <Compile Include="Data\CommandManage\GpsSettingInfo.cs" />
+    <Compile Include="Data\CommandManage\RuleBaseInfo.cs" />
+    <Compile Include="Data\CommandManage\TemperatureRuleInfo.cs" />
+    <Compile Include="Data\CommandManage\TemperatureSettingType.cs" />
+    <Compile Include="Data\CommandManage\VehicleRuleRelation.cs" />
+    <Compile Include="Data\ConfigTree.cs" />
+    <Compile Include="Data\ConfigItem.cs" />
+    <Compile Include="Data\UserManage\FuncItem.cs" />
+    <Compile Include="Data\UserManage\GUser.cs" />
+    <Compile Include="Data\LogManage\AlarmDealLogInfo.cs" />
+    <Compile Include="Data\LogManage\CarAlertLogInfo.cs" />
+    <Compile Include="Data\LogManage\InstallLogInfo.cs" />
+    <Compile Include="Data\LogManage\LoginLogInfo.cs" />
+    <Compile Include="Data\LogManage\SuiteInfoLog.cs" />
+    <Compile Include="Data\LogManage\VideoDowmLoadInfo.cs" />
+    <Compile Include="Data\LogManage\VideoLogInfo.cs" />
+    <Compile Include="Data\LogManage\VisitLogInfo.cs" />
+    <Compile Include="Data\UserManage\Role.cs" />
+    <Compile Include="Data\UserManage\UsrDepartment.cs" />
+    <Compile Include="Enums\CheckType.cs" />
+    <Compile Include="Enums\RoleCategory.cs" />
+    <Compile Include="Enums\SuiteStatus.cs" />
+    <Compile Include="Enums\UserRole.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IADUserInfoService.cs" />
+    <Compile Include="IAppConfigManager.cs" />
+    <Compile Include="ICommandManageService.cs" />
+    <Compile Include="IGroupService.cs" />
+    <Compile Include="IHeartbeatRuleContract.cs" />
+    <Compile Include="IHeartbeatVehicleContract.cs" />
+    <Compile Include="ILocationReportRuleService.cs" />
+    <Compile Include="ILocationReportVehicleContract.cs" />
+    <Compile Include="ISpeedLimitContract.cs" />
+    <Compile Include="IUserOnlineContract.cs" />
+    <Compile Include="IUserService.cs" />
+    <Compile Include="IUsrDepartment.cs" />
+    <Compile Include="IVehicleSpeedContract.cs" />
+    <Compile Include="IVideoRule.cs" />
+    <Compile Include="IVideoRuleVehicleContract.cs" />
+    <Compile Include="LogManager\IAlarmDealLogService.cs" />
+    <Compile Include="LogManager\ICarAlertDealLogService.cs" />
+    <Compile Include="LogManager\IInstallLogService.cs" />
+    <Compile Include="LogManager\ILoginLogService.cs" />
+    <Compile Include="LogManager\IVideoDowmloadLogService.cs" />
+    <Compile Include="LogManager\IVideoLogSerVice.cs" />
+    <Compile Include="LogManager\IVisitLogService.cs" />
+    <Compile Include="LogManager\IGetSuiteInfoService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="IRoleService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BaseContract\BaseContract.csproj">
+      <Project>{a6c2a532-546d-4dae-8aa3-4c01de81f462}</Project>
+      <Name>BaseContract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Common.Data\Common.Data.csproj">
+      <Project>{2b4caa14-181a-4b8d-9dc6-891bea684735}</Project>
+      <Name>Common.Data</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

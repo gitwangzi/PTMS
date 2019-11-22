@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="GroupService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:26396/GroupService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:26396/GroupService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:26396/GroupService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" />
+      <xsd:import schemaLocation="http://localhost:26396/GroupService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/System" />
+      <xsd:import schemaLocation="http://localhost:26396/GroupService.svc?xsd=xsd4" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://localhost:26396/GroupService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/Gsafety.Ant.Manager.Contract.Data" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IGroupService_AddGroup_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddGroup" />
+  </wsdl:message>
+  <wsdl:message name="IGroupService_AddGroup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGroupService_DeleteGroup_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteGroup" />
+  </wsdl:message>
+  <wsdl:message name="IGroupService_DeleteGroup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGroupService_GetAllGroupNames_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllGroupNames" />
+  </wsdl:message>
+  <wsdl:message name="IGroupService_GetAllGroupNames_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllGroupNamesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGroupService_GetAccountInfoByGroupName_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAccountInfoByGroupName" />
+  </wsdl:message>
+  <wsdl:message name="IGroupService_GetAccountInfoByGroupName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAccountInfoByGroupNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGroupService_GetAccountInfoByGrouplist_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAccountInfoByGrouplist" />
+  </wsdl:message>
+  <wsdl:message name="IGroupService_GetAccountInfoByGrouplist_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAccountInfoByGrouplistResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IGroupService">
+    <wsdl:operation name="AddGroup">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGroupService/AddGroup" message="tns:IGroupService_AddGroup_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGroupService/AddGroupResponse" message="tns:IGroupService_AddGroup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteGroup">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGroupService/DeleteGroup" message="tns:IGroupService_DeleteGroup_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGroupService/DeleteGroupResponse" message="tns:IGroupService_DeleteGroup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllGroupNames">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGroupService/GetAllGroupNames" message="tns:IGroupService_GetAllGroupNames_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGroupService/GetAllGroupNamesResponse" message="tns:IGroupService_GetAllGroupNames_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountInfoByGroupName">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGroupService/GetAccountInfoByGroupName" message="tns:IGroupService_GetAccountInfoByGroupName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGroupService/GetAccountInfoByGroupNameResponse" message="tns:IGroupService_GetAccountInfoByGroupName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountInfoByGrouplist">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGroupService/GetAccountInfoByGrouplist" message="tns:IGroupService_GetAccountInfoByGrouplist_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGroupService/GetAccountInfoByGrouplistResponse" message="tns:IGroupService_GetAccountInfoByGrouplist_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IGroupService" type="tns:IGroupService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddGroup">
+      <soap:operation soapAction="http://tempuri.org/IGroupService/AddGroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteGroup">
+      <soap:operation soapAction="http://tempuri.org/IGroupService/DeleteGroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllGroupNames">
+      <soap:operation soapAction="http://tempuri.org/IGroupService/GetAllGroupNames" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountInfoByGroupName">
+      <soap:operation soapAction="http://tempuri.org/IGroupService/GetAccountInfoByGroupName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountInfoByGrouplist">
+      <soap:operation soapAction="http://tempuri.org/IGroupService/GetAccountInfoByGrouplist" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="GroupService">
+    <wsdl:port name="BasicHttpBinding_IGroupService" binding="tns:BasicHttpBinding_IGroupService">
+      <soap:address location="http://localhost:26396/GroupService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

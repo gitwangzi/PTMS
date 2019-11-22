@@ -1,0 +1,124 @@
+﻿<UserControl x:Class="Gsafety.PTMS.BaseInformation.Views.SetupStationManage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:converter="clr-namespace:Gsafety.Common.Converts;assembly=Converts"
+    mc:Ignorable="d"
+    d:DesignHeight="800" d:DesignWidth="1000">
+    <UserControl.Resources>
+        <converter:VisibilityConverter  x:Key="visibility"></converter:VisibilityConverter>
+    </UserControl.Resources>
+
+    <Grid x:Name="LayoutRoot" Background="Transparent"  Width="Auto" Height="Auto">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Border Height="40" VerticalAlignment="Top" Grid.Row="0" Margin="0" Style="{StaticResource PageBorderStyle}">
+            <Image Source="/ExternalResource;component/Images/navigation.png" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,0,0,0" Stretch="None"/>
+        </Border>
+        <TextBlock Text="{Binding Title}" HorizontalAlignment="Left"   VerticalAlignment="Center" Style="{StaticResource MainPage_Main_tle_TextBlockStyle}" Margin="36,0,0,0"/>
+        <Image Source="/ExternalResource;component/Images/navigation.png" HorizontalAlignment="Left" VerticalAlignment="Center" Stretch="None" Margin="10,0,0,0"/>
+
+        <ScrollViewer Grid.Row="1" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+            <Grid HorizontalAlignment="Center"  VerticalAlignment="Top">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="95"/>
+                    <RowDefinition Height="60"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="180"/>
+                    <ColumnDefinition Width="220"/>
+                    <ColumnDefinition Width="180"/>
+                    <ColumnDefinition Width="220"/>
+                </Grid.ColumnDefinitions>
+                <!--SetupStation-->
+                <TextBlock HorizontalAlignment="Right"   Text="{Binding [BASEINFO_SetupStation],Source={StaticResource SR}}" VerticalAlignment="Center" Grid.Row="1" Style="{StaticResource MainPage_Main_search_TextBlockStyle}" Margin="0,0,5,0"/>
+                <TextBox Style="{StaticResource MainPage_Main_TextBoxStyle}"  TabIndex="1" MaxLength="512" IsReadOnly="{Binding KeyIsReadOnly}" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left"  
+                     Text="{Binding Name, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" Width="210" Margin="5,0,0,0"/>
+
+                <!--Province-->
+                <TextBlock HorizontalAlignment="Right"   Text="{Binding [BASEINFO_Province],Source={StaticResource SR}}" VerticalAlignment="Center" Grid.Row="1" Grid.Column="2" Style="{StaticResource MainPage_Main_search_TextBlockStyle}" Margin="0,0,5,0"/>
+                <TextBox Style="{StaticResource MainPage_Main_TextBoxStyle}"  Visibility="{Binding IsView}" IsReadOnly="True" TabIndex="2" MaxLength="100" Grid.Column="3" Grid.Row="1" HorizontalAlignment="Left"  
+                     Text="{Binding CurrentProvince.Name, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnDataErrors=True}" VerticalAlignment="Center" Width="210" Margin="5,0,0,0"/>
+                <ComboBox TabIndex="2" Visibility="{Binding IsView ,Converter={StaticResource visibility} }" SelectedItem="{Binding CurrentProvince, Mode=TwoWay}" ItemsSource="{Binding ProvinceList}" Grid.Row="1" Grid.Column="3"  HorizontalAlignment="Left" VerticalAlignment="Center" Width="210" Foreground="Black" Style="{StaticResource MainPage_Main_Search_ComboBoxStyle}" Margin="5,0,0,0">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Name}"/>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+
+                <!--City-->
+                <TextBlock HorizontalAlignment="Right"   Text="{Binding [BASEINFO_City],Source={StaticResource SR}}" VerticalAlignment="Center" Grid.Row="2" Style="{StaticResource MainPage_Main_search_TextBlockStyle}" Margin="0,0,5,0"/>
+                <TextBox Style="{StaticResource MainPage_Main_TextBoxStyle}"  Visibility="{Binding IsView}" IsReadOnly="True" TabIndex="3" MaxLength="100" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left"  
+                     Text="{Binding CurrentCity.Name, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnDataErrors=True}" VerticalAlignment="Center" Width="210" Margin="5,0,0,0"/>
+                <ComboBox  TabIndex="3" Visibility="{Binding IsView, Converter={StaticResource visibility} }"  SelectedItem="{Binding CurrentCity, Mode=TwoWay}" ItemsSource="{Binding CityList}" HorizontalAlignment="Left" VerticalAlignment="Center" Width="210" Grid.Row="2"  Grid.Column="1" Foreground="Black" Style="{StaticResource MainPage_Main_Search_ComboBoxStyle}" Margin="5,0,0,0">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Name}"></TextBlock>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+
+                <!--Address-->
+                <TextBlock HorizontalAlignment="Right"   Text="{Binding [BASEINFO_Address], Source={StaticResource SR}}" VerticalAlignment="Center" Grid.Row="2" Grid.Column="2" Style="{StaticResource MainPage_Main_search_TextBlockStyle}" Margin="0,0,5,0"/>
+                <TextBox Style="{StaticResource MainPage_Main_TextBoxStyle}"  TabIndex="4" MaxLength="512" IsReadOnly="{Binding IsReadOnly}" Grid.Column="3" Grid.Row="2" HorizontalAlignment="Left" 
+                     Text="{Binding CurrentInstallStation.Address, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnDataErrors=True}" VerticalAlignment="Center" Width="210"  Margin="5,0,0,0"/>
+
+                <!--EMail-->
+                <TextBlock HorizontalAlignment="Right"    Text="{Binding [BASEINFO_EMail],Source={StaticResource SR}}" VerticalAlignment="Center" Grid.Row="3" Style="{StaticResource MainPage_Main_search_TextBlockStyle}" Margin="0,0,5,0"/>
+                <TextBox Style="{StaticResource MainPage_Main_TextBoxStyle}"  TabIndex="5" MaxLength="100" IsReadOnly="{Binding IsReadOnly}" Grid.Column="1" Grid.Row="3" HorizontalAlignment="Left" 
+                     Text="{Binding Email, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" Width="210" Margin="5,0,0,0"/>
+
+                <!--ContactPerson-->
+                <TextBlock HorizontalAlignment="Right"    Text="{Binding [BASEINFO_ContactPerson],Source={StaticResource SR}}" VerticalAlignment="Center" Grid.Row="3" Grid.Column="2" Style="{StaticResource MainPage_Main_search_TextBlockStyle}" Margin="0,0,5,0"/>
+                <TextBox Style="{StaticResource MainPage_Main_TextBoxStyle}"  TabIndex="6" MaxLength="512" IsReadOnly="{Binding IsReadOnly}" Grid.Column="4" Grid.Row="3" HorizontalAlignment="Left"  
+                     Text="{Binding CurrentInstallStation.Contact, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnDataErrors=True}" VerticalAlignment="Center" Width="210" Margin="5,0,0,0"/>
+
+
+                <!--Contact-->
+                <TextBlock HorizontalAlignment="Right"    Text="{Binding [BASEINFO_Contact],Source={StaticResource SR}}" VerticalAlignment="Center" Grid.Row="4" Style="{StaticResource MainPage_Main_search_TextBlockStyle}" Margin="0,0,5,0"/>
+                <TextBox Style="{StaticResource MainPage_Main_TextBoxStyle}"  TabIndex="7" MaxLength="20" IsReadOnly="{Binding IsReadOnly}" Grid.Column="1" Grid.Row="4" HorizontalAlignment="Left" 
+                     Text="{Binding ContactPhone, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" Width="210" Margin="5,0,0,0"/>
+
+                <!--Director-->
+                <TextBlock HorizontalAlignment="Right"   Text="{Binding [BASEINFO_Director],Source={StaticResource SR}}" VerticalAlignment="Center" Grid.Row="4" Grid.Column="2" Style="{StaticResource MainPage_Main_search_TextBlockStyle}" Margin="0,0,5,0"/>
+                <TextBox Style="{StaticResource MainPage_Main_TextBoxStyle}"  TabIndex="8" MaxLength="512" IsReadOnly="{Binding IsReadOnly}" Grid.Column="3" Grid.Row="4" HorizontalAlignment="Left"
+                     Text="{Binding CurrentInstallStation.Director, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnDataErrors=True}" VerticalAlignment="Center" Width="210" Margin="5,0,0,0"/>
+
+
+                <!--DirecotrPhone-->
+                <TextBlock HorizontalAlignment="Right"   Text="{Binding [BASEINFO_DirecotrPhone],Source={StaticResource SR}}" VerticalAlignment="Center" Grid.Row="5" Style="{StaticResource MainPage_Main_search_TextBlockStyle}" Margin="0,0,5,0"/>
+                <TextBox Style="{StaticResource MainPage_Main_TextBoxStyle}"  TabIndex="9" MaxLength="50" IsReadOnly="{Binding IsReadOnly}" Grid.Column="1" Grid.Row="5" HorizontalAlignment="Left"
+                     Text="{Binding DirectorPhone, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" Width="210" Margin="5,0,0,0"/>
+
+
+                <!--Note-->
+                <TextBlock HorizontalAlignment="Right"  Text="{Binding [Note], Source={StaticResource SR}}" VerticalAlignment="Center" Grid.Row="6" Style="{StaticResource MainPage_Main_search_TextBlockStyle}" Margin="0,0,5,0"/>
+                <TextBox  Style="{StaticResource MainPage_Main_TextBoxStyle_h}" TabIndex="10" MaxLength="2000"  TextWrapping="Wrap" IsReadOnly="{Binding IsReadOnly}" Grid.Column="1" Grid.Row="6" Grid.ColumnSpan="3" HorizontalAlignment="Left" Height="85"  
+                     Text="{Binding CurrentInstallStation.Note, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnDataErrors=True}" VerticalAlignment="Bottom" Width="610" VerticalScrollBarVisibility="Auto" Margin="5,0,0,0"/>
+
+                <!--Button-->
+                <StackPanel  Grid.Row="7" Grid.ColumnSpan="4"  Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top"  Margin="0,15,0,0">
+                    <Button TabIndex="11"  Visibility="{Binding IsView, Converter={StaticResource visibility}}"  Command="{Binding CommitCommand}" Tag="{Binding [Finish], Source={StaticResource SR}}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,8,0"  Style="{StaticResource Search_ButtonStyle}">
+                        <Image Source="/ExternalResource;component/Images/MainPage_complete.png" Stretch="Fill" Width="15" Height="15"/>
+                    </Button>
+                    <Button TabIndex="12" Visibility="{Binding IsView, Converter={StaticResource visibility}}" Command="{Binding ResetCommand}" Tag="{Binding [Reset], Source={StaticResource SR}}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,8,0"  Style="{StaticResource Search_ButtonStyle}">
+                        <Image Source="/ExternalResource;component/Images/MainPage_reset.png" Stretch="Fill" Width="15" Height="15"/>
+                    </Button>
+                    <Button TabIndex="13" Command="{Binding ReturnCommand}" Tag="{Binding [Return], Source={StaticResource SR}}" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource Search_ButtonStyle}">
+                        <Image Source="/ExternalResource;component/Images/MainPage_return.png" Stretch="Fill" Width="15" Height="15"/>
+                    </Button>
+                </StackPanel>
+            </Grid>
+        </ScrollViewer>
+    </Grid>
+</UserControl>

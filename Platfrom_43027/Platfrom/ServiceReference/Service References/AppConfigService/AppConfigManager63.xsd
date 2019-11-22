@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Manager.Contract.Data" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Manager.Contract.Data" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ArrayOfConfigTree">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ConfigTree" nillable="true" type="tns:ConfigTree" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfConfigTree" nillable="true" type="tns:ArrayOfConfigTree" />
+  <xs:complexType name="ConfigTree">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Children" nillable="true" type="tns:ArrayOfConfigTree" />
+      <xs:element minOccurs="0" name="Value" nillable="true" type="tns:ConfigItem" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ConfigTree" nillable="true" type="tns:ConfigTree" />
+  <xs:complexType name="ConfigItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ParentId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SectionDescription" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SectionLevel" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SectionName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SectionType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SectionValue" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ConfigItem" nillable="true" type="tns:ConfigItem" />
+  <xs:complexType name="ArrayOfAppConfig">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AppConfig" nillable="true" type="tns:AppConfig" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAppConfig" nillable="true" type="tns:ArrayOfAppConfig" />
+  <xs:complexType name="AppConfig">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PARENT" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SECTION_DESC" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SECTION_LEVEL" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SECTION_NAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SECTION_TYPE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SECTION_UNIT" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SECTION_VALUE" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AppConfig" nillable="true" type="tns:AppConfig" />
+</xs:schema>

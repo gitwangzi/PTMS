@@ -1,0 +1,170 @@
+﻿<UserControl x:Class="Gsafety.PTMS.PublicServiceManagement.Views.PublicServiceMainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:toolkit="http://schemas.microsoft.com/winfx/2006/xaml/presentation/toolkit"
+    xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
+    xmlns:Converter="clr-namespace:Gsafety.Common.Converts;assembly=Converts"
+    mc:Ignorable="d"
+    d:DesignHeight="300" d:DesignWidth="400">
+
+    <UserControl.Resources>
+        <Storyboard x:Key="collapseTransition">
+            <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="SythesesLeftContent" 
+                    Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.X)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:00.1000000" Value="-250"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="expandTransition">
+            <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="SythesesLeftContent" 
+                    Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.X)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="-250"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:00.1000000" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Converter:FunItemVisibilityConverter x:Key="FunItemVisibilityConverter"/>
+        <Converter:FunItemEnableConverter x:Key="FunItemEnableConverter"/>
+    </UserControl.Resources>
+
+    <Grid x:Name="LayoutRoot" Style="{StaticResource ContentGridStyle}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="250" MaxWidth="350"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid x:Name="collapsedPane" 
+              Grid.Column="0" Grid.Row="0"
+              Canvas.ZIndex="100" Margin="-5,0,0,0" 
+              HorizontalAlignment="Left" VerticalAlignment="Center"
+              Visibility="Collapsed" >
+
+            <Image x:Name="showlL" Source="/ExternalResource;component/Images/slideShow.png" Cursor="Hand" Stretch="None" Opacity="0.9" 
+                   ToolTipService.ToolTip="{Binding [MenuVisibleToolTip], Source={StaticResource SR}}" Margin="0,0,0,0" MouseLeftButtonDown="showL_MouseLeftButtonDown"/>
+        </Grid>
+        <Grid x:Name="SythesesLeftContent" Grid.Column="0">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="35"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Grid.RenderTransform>
+                <TranslateTransform/>
+            </Grid.RenderTransform>
+            <Image x:Name="hiddenL" Source="/ExternalResource;component/Images/MainPage_menu_arrowleft.png"
+                   Cursor="Hand" Margin="0,3,10,3" HorizontalAlignment="Right" 
+                   VerticalAlignment="Center" Canvas.ZIndex="100" Stretch="None" MouseLeftButtonDown="hiddenL_MouseLeftButtonDown"
+                   ToolTipService.ToolTip="{Binding [MenuCollapsedToolTip], Source={StaticResource SR}}"/>
+
+            <Grid Grid.Row="0" Style="{StaticResource ViewFirstTitleGridStyle}">
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <Image Source="/ExternalResource;component/Images/MainPage_suite.png"
+                           HorizontalAlignment="Stretch"
+                           VerticalAlignment="Stretch"
+                           Stretch="Uniform"
+                           Height="30"
+                           Width="30"
+                       Grid.Column="0"/>
+
+                <TextBlock Text="{Binding [PublicService],Source={StaticResource SR}}" 
+                               Grid.Column="1"
+                               HorizontalAlignment="Left"
+                               VerticalAlignment="Center"
+                               FontSize="16"
+                               Foreground="#f0f0f0"
+                               FontWeight="Bold"/>
+
+            </Grid>
+
+            <!--<views:BaseInfoMenu x:Name="baseInfoMenu"/>-->
+            <toolkit:Accordion x:Name="NativeAccordion"
+                           HorizontalAlignment="Stretch"
+                           VerticalAlignment="Stretch"
+                           Margin="0,0,0,0"
+                               BorderThickness="0"
+                               Grid.Row="1" Background="#272c32">
+
+                <toolkit:AccordionItem Header="{Binding [MessageManage],Source={StaticResource SR}}" HorizontalContentAlignment="Stretch"
+                                          VerticalContentAlignment="Stretch"
+                                       Visibility="{Binding RelativeSource={RelativeSource Self}, Converter={StaticResource FunItemVisibilityConverter},ConverterParameter='02-07-01'}"
+                                          Style="{StaticResource AdviceMenu_AccordionItemStyle}">
+
+                    <StackPanel Width="Auto" MinWidth="245" HorizontalAlignment="Stretch">
+                        <ItemsControl x:Name="MessageManagement" ItemsSource="{Binding Path=MessageMenus}">
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <StackPanel Orientation="Vertical" Margin="0"/>
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate >
+                                    <HyperlinkButton x:Name="Link1" 
+                                                         Style="{StaticResource View_Menu_HyperlinkButtonStyle}" 
+                                                         NavigateUri="{Binding Uri}" 
+                                                         TargetName="PublicServiceFrame"
+                                                         Height="25"
+                                                         VerticalContentAlignment="Center"
+                                                         Content="{Binding MenuTitle}"/>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </StackPanel>
+
+
+                </toolkit:AccordionItem>
+
+                <toolkit:AccordionItem Header="{Binding [LostGet],Source={StaticResource SR}}" HorizontalContentAlignment="Stretch"
+                                          VerticalContentAlignment="Stretch"
+                                       Visibility="{Binding RelativeSource={RelativeSource Self}, Converter={StaticResource FunItemVisibilityConverter},ConverterParameter='02-07-02'}"
+                                          Style="{StaticResource AdviceMenu_AccordionItemStyle}">
+                    <StackPanel Width="Auto" MinWidth="245" HorizontalAlignment="Stretch">
+                        <ItemsControl x:Name="RegistryManagement" ItemsSource="{Binding Path=RegistryMenus}">
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <StackPanel Orientation="Vertical" Margin="0"/>
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate >
+                                    <HyperlinkButton x:Name="Link2" 
+                                                         Style="{StaticResource View_Menu_HyperlinkButtonStyle}" 
+                                                         NavigateUri="{Binding Uri}" 
+                                                         TargetName="PublicServiceFrame"
+                                                         Height="25"
+                                                         VerticalContentAlignment="Center"
+                                                         Content="{Binding MenuTitle}"/>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </StackPanel>
+                </toolkit:AccordionItem>
+
+            </toolkit:Accordion>
+        </Grid>
+
+        <sdk:GridSplitter/>
+        <Border x:Name="ContentBorder" Style="{StaticResource ContentBorderStyle}" Margin="0,0,0,0" Grid.Column="1">
+            <sdk:Frame    
+                Margin="0,0,0,0"
+                BorderThickness="0"
+                x:Name="PublicServiceFrame"
+                Style="{StaticResource ContentFrameStyle}"  Navigated="ContentFrame_Navigated" NavigationFailed="ContentFrame_NavigationFailed">
+                <sdk:Frame.UriMapper>
+                    <sdk:UriMapper>
+                        <sdk:UriMapping Uri="" MappedUri="/PublicServiceManagement;component/Views/Navigationer.xaml"/>
+                        <sdk:UriMapping Uri="/ShowText/{text}" MappedUri="/PublicServiceManagement;component/Views/Navigationer.xaml?view=TextView&amp;text={text}"/>
+                        <sdk:UriMapping Uri="/{pageName}" MappedUri="/PublicServiceManagement;component/Views/Navigationer.xaml?view={pageName}"/>
+                    </sdk:UriMapper>
+                </sdk:Frame.UriMapper>
+            </sdk:Frame>
+        </Border>
+    </Grid>
+</UserControl>

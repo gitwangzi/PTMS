@@ -1,0 +1,226 @@
+﻿
+<UserControl xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk" 
+        x:Class="Gsafety.Ant.BaseInformation.Views.InstallPlaceBindingView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        d:DesignHeight="800" d:DesignWidth="800"
+        x:Name="root">
+    <Grid x:Name="LayoutRoot" Style="{StaticResource ContentGridStyle}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="1"/>
+        </Grid.RowDefinitions>
+        <Grid Style="{StaticResource ViewFirstTitleGridStyle}"
+            Height="35"
+            Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="20"/>
+            </Grid.ColumnDefinitions>
+            <Image Grid.Column="0" Style="{StaticResource TitleImageStyle}"/>
+            <TextBlock Text="{Binding [current.Name], Source={StaticResource SR}}" 
+                       Grid.Column="1"
+                     Style="{StaticResource SecondTitleTextBlockStyle}"/>
+        </Grid>
+        <Grid Grid.Row="1" 
+            Style="{StaticResource ContentGridStyle}" Height="60">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="1.5*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="1.5*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="1.5*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <!--<TextBlock Text="{Binding [TypeName], Source={StaticResource SR}}"
+                    HorizontalAlignment="Right"
+                    Margin="0,5,5,5"
+                    VerticalAlignment="Center"
+                    Grid.Row="0"
+                    Grid.Column="0"/>
+            <TextBox Grid.Column="1"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Center"
+                    Text="{Binding SearchByName,Mode=TwoWay}"                   
+                    Margin="0,5,0,5"/>-->
+            <!--<Button Grid.Column="4"
+                    Style="{StaticResource SaveButtonStyle}"
+                    Content="{Binding [Save], Source={StaticResource SR}}" 
+                    Visibility="{Binding SaveButtonVisibility}"
+                    Command="{Binding BtnSaveBindingCommand}"
+                    Margin="10,5,0,5"/>-->
+        </Grid>
+        <Grid Style="{StaticResource ViewFirstTitleGridStyle}"
+                Height="35"
+                Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Image Grid.Column="0" Style="{StaticResource TitleImageStyle}"/>
+            <TextBlock Text="{Binding [Binding], Source={StaticResource SR}}" 
+                       Style="{StaticResource SecondTitleTextBlockStyle}"
+                       Grid.Column="1"/>
+            
+            <Button Grid.Column="3"
+                    Style="{StaticResource SaveButtonStyle}"
+                    Content="{Binding [Save], Source={StaticResource SR}}" 
+                    Visibility="{Binding SaveButtonVisibility}"
+                    Command="{Binding BtnAddCommand}"
+                    Margin="0,5,0,5"/>
+            
+            <Button Content="{Binding [Back], Source={StaticResource SR}}" 
+                                    Grid.Column="4"
+                                    Style="{StaticResource BackButtonStyle}"
+                                    HorizontalAlignment="Left"
+                                    Visibility="{Binding BackButtonVisibity, Mode=TwoWay}"
+                                    Command="{Binding ReturnCommand}"/>
+        </Grid>
+
+
+        <sdk:DataGrid x:Name="ListDataGrid"
+                      Grid.Row="3"
+                      IsReadOnly="True"
+                      AutoGenerateColumns="False"
+                      ItemsSource="{Binding AllUsers}" 
+                      SelectedItem="{Binding GUser,Mode=TwoWay}">
+            <sdk:DataGrid.Columns>
+
+                <sdk:DataGridTemplateColumn HeaderStyle="{StaticResource ColumnHeaderStyle}" Visibility="Visible" Width="0.3*">
+                    <sdk:DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate >
+                            <CheckBox  IsChecked="{Binding IsChecked,Mode=TwoWay}"></CheckBox>
+                        </DataTemplate>
+                    </sdk:DataGridTemplateColumn.CellTemplate>
+                </sdk:DataGridTemplateColumn>   
+    
+
+                <!--<sdk:DataGridTextColumn  Header="ClientID" 
+                                        HeaderStyle="{StaticResource ColumnHeaderStyle}"
+                                        Visibility="Visible"
+                                        Width="1.5*"
+                                        Binding="{Binding ClientID}"/>-->
+
+                <sdk:DataGridTextColumn  Header="UserName" 
+                                        HeaderStyle="{StaticResource ColumnHeaderStyle}"
+                                        Visibility="Visible"
+                                        Width="1.5*"
+                                        Binding="{Binding GUsers.UserName}"/>
+
+
+                <!--<sdk:DataGridTextColumn  Header="Valid" 
+                                        HeaderStyle="{StaticResource ColumnHeaderStyle}"
+                                        Visibility="Visible"
+                                        Width="1.5*" 
+                                        Binding="{Binding Valid}"/>-->
+
+                <sdk:DataGridTextColumn  Header="Phone" 
+                                        HeaderStyle="{StaticResource ColumnHeaderStyle}"
+                                        Visibility="Visible"
+                                        Width="1.5*" 
+                                        Binding="{Binding GUsers.Phone}"/>
+
+                <sdk:DataGridTextColumn  Header="Email" 
+                                        HeaderStyle="{StaticResource ColumnHeaderStyle}"
+                                        Visibility="Visible"
+                                        Width="1.5*" 
+                                        Binding="{Binding GUsers.Email}"/>
+
+                <sdk:DataGridTextColumn  Header="Address" 
+                                        HeaderStyle="{StaticResource ColumnHeaderStyle}"
+                                        Visibility="Visible"
+                                        Width="*"
+                                        Binding="{Binding GUsers.Address}"/>
+                
+                <sdk:DataGridTextColumn  Header="CreateTime" 
+                                        HeaderStyle="{StaticResource ColumnHeaderStyle}"
+                                        Visibility="Visible"
+                                        Width="*"
+                                        Binding="{Binding GUsers.CreateTime}"/>
+                <!--<sdk:DataGridTemplateColumn Header="CreateTime" 
+                                            Width="110"
+                                            HeaderStyle="{StaticResource ColumnHeaderStyle}"
+
+                                            >
+                    <sdk:DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Button Grid.Column="1"
+                                        ToolTipService.ToolTip="{Binding [Edit], Source={StaticResource SR}}"
+                                        Style="{StaticResource EditButtonCommonStyle}" 
+                                        Command="{Binding DataContext.BtnEditCommand, RelativeSource={RelativeSource AncestorType=sdk:DataGrid}}"
+                                        Visibility="{Binding DataContext.RoleVisibility, Mode=TwoWay, RelativeSource={RelativeSource  Mode=FindAncestor, AncestorType=sdk:DataGrid}}"/>
+
+                                <Button Grid.Column="2"
+                                        ToolTipService.ToolTip="{Binding [Detail],Source={StaticResource SR}}"
+                                        Style="{StaticResource DetailButtonCommonStyle}"
+                                        Command="{Binding DataContext.BtnViewDetailCommand,RelativeSource={RelativeSource AncestorType=sdk:DataGrid}}"
+                                        Visibility="{Binding DataContext.RoleVisibility, Mode=TwoWay, RelativeSource={RelativeSource  Mode=FindAncestor, AncestorType=sdk:DataGrid}}"/>
+                                <Button Grid.Column="3"
+                                        ToolTipService.ToolTip="{Binding [Delete],Source={StaticResource SR}}"
+                                        Style="{StaticResource DeleteButtonCommonStyle}" 
+                                        Command="{Binding DataContext.BtnDeleteCommand,RelativeSource={RelativeSource AncestorType=sdk:DataGrid}}"
+                                        Visibility="{Binding DataContext.RoleVisibility, Mode=TwoWay, RelativeSource={RelativeSource  Mode=FindAncestor, AncestorType=sdk:DataGrid}}"/>
+
+
+                            </Grid>
+                        </DataTemplate>
+                    </sdk:DataGridTemplateColumn.CellTemplate>
+                </sdk:DataGridTemplateColumn>-->
+                
+                
+            </sdk:DataGrid.Columns>
+        </sdk:DataGrid>
+
+        <Border BorderBrush="#FF617584" Grid.Row="4" BorderThickness="0.5" Height="25">
+            <Grid Style="{StaticResource ContentGridStyle}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="0"
+                    Text="{Binding [Total],Source={StaticResource SR}}"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Center"
+                    Margin="0,2,10,2"/>
+            <TextBlock Text="{Binding Data.ItemCount}" Grid.Column="1"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                    Margin="0,2,10,2"/>
+            <sdk:DataPager 
+                Grid.Column="2"
+                Height="25"
+                    Source="{Binding ElementName=ListDataGrid, Path=ItemsSource}"
+                    PageSize="30"
+                    Background="{Binding ElementName=ListDataGrid, Path=Background}"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Center"/>
+        </Grid>
+        </Border>    
+    </Grid>
+</UserControl>
+

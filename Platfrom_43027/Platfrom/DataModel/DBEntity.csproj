@@ -1,0 +1,442 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B8EDEF26-D01B-42CC-9A6F-5802D4C5F43C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Gsafety.PTMS.DBEntity</RootNamespace>
+    <AssemblyName>DBEntity</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ALARM_UNHANDLED_VIEW.cs">
+      <DependentUpon>PTMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ALM_911_DISPOSE.cs">
+      <DependentUpon>PTMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ALM_ALARM_DISPOSE.cs">
+      <DependentUpon>PTMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ALM_ALARM_MAIL.cs">
+      <DependentUpon>PTMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ALM_ALARM_NOTE.cs">
+      <DependentUpon>PTMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ALM_ALARM_RECORD.cs">
+      <DependentUpon>PTMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ALT_BUSINESS_ALERT.cs">
+      <DependentUpon>PTMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ALT_BUSINESS_ALERT_HANDLE.cs">
+      <DependentUpon>PTMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ALT_DEVICE_ALERT.cs">
+      <DependentUpon>PTMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ALT_DEVICE_ALERT_CHECK.cs">
+      <DependentUpon>PTMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BSC_CHAUFFEUR.cs">
+      <DependentUpon>PTMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BSC_DEV_GPS.cs">
+      <DependentUpon>PTMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BSC_DEV_SUITE.cs">
+      <DependentUpon>PTMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BSC_DEV_SUITE_PART.cs">
+      <DependentUpon>PTMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BSC_DISTRICT.cs">
+      <DependentUpon>PTMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BSC_GEO_POI.cs">
+      <DependentUpon>PTMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BSC_GPS_VIEW.cs">
+      <DependentUpon>PTMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BSC_INSTALLATION_STAFF.cs">
+      <DependentUpon>PTMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BSC_ORDER_CLIENT.cs">
+      <DependentUpon>PTMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BSC_SETUPSTATION_USER.cs">
+      <DependentUpon>PTMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BSC_SETUP_STATION.cs">
+      <DependentUpon>PTMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BSC_SUITE_VIEW.cs">
+      <DependentUpon>PTMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BSC_VEHICLE.cs">
+      <DependentUpon>PTMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BSC_VEHICLE_CHAUFFEUR.cs">
+      <DependentUpon>PTMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BSC_VEHICLE_SPEEDCOLOR.cs">
+      <DependentUpon>PTMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BSC_VEHICLE_TYPE.cs">
+      <DependentUpon>PTMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BUSINESS_ALERT_UNHANDLED_VIEW.cs">
+      <DependentUpon>PTMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BUSINESS_ALERT_VIEW.cs">
+      <DependentUpon>PTMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CFG_APP_CONFIG.cs">
+      <DependentUpon>PTMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CFG_TRANSFER_MAPPING.cs">
+      <DependentUpon>PTMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DEVICEALERT_VECHILESER_VIEW.cs">
+      <DependentUpon>PTMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DISTRICT_LEVEL_VIEW.cs">
+      <DependentUpon>PTMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="INSTALLATION_VIEW.cs">
+      <DependentUpon>PTMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="INSTALL_STATISTICS_VIEW.cs">
+      <DependentUpon>PTMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="INSTALL_SUITE_INFO_VIEW.cs">
+      <DependentUpon>PTMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LOG_ACCESS.cs">
+      <DependentUpon>PTMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LOG_DATA.cs">
+      <DependentUpon>PTMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LOG_ERROR.cs">
+      <DependentUpon>PTMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LOG_MANAGER.cs">
+      <DependentUpon>PTMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LOG_OPERATE.cs">
+      <DependentUpon>PTMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LOG_VIDEO.cs">
+      <DependentUpon>PTMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MDI_ALARM_VIDEO.cs">
+      <DependentUpon>PTMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MDI_DOWNLOAD_VIDEO.cs">
+      <DependentUpon>PTMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MDI_LIVE_VIDEO.cs">
+      <DependentUpon>PTMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MDI_PHOTOGRAPH.cs">
+      <DependentUpon>PTMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MNT_MAINTAINRECORD_UNFINISHED.cs">
+      <DependentUpon>PTMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MTN_GPS_INSTALLATION_DETAIL.cs">
+      <DependentUpon>PTMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MTN_INSTALLATION_AUDIT.cs">
+      <DependentUpon>PTMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MTN_INSTALLATION_DETAIL.cs">
+      <DependentUpon>PTMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MTN_MAINTAIN_APPLICATION.cs">
+      <DependentUpon>PTMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MTN_MAINTAIN_RECORD.cs">
+      <DependentUpon>PTMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MTN_MDVR_REGISTER.cs">
+      <DependentUpon>PTMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MTN_PART_AUDIT.cs">
+      <DependentUpon>PTMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MTN_VIDEO_UPLOAD_COMMAND.cs">
+      <DependentUpon>PTMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PTMSModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PTMSModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PTMSModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PTMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PTMSModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PTMSModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="RUN_APPMESSAGE_VEHICLE.cs">
+      <DependentUpon>PTMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RUN_APP_MESSAGE.cs">
+      <DependentUpon>PTMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RUN_APP_ONLINE_RECORD.cs">
+      <DependentUpon>PTMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RUN_FOUND_REGISTRY.cs">
+      <DependentUpon>PTMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RUN_GPS_ONLINE_RECORD.cs">
+      <DependentUpon>PTMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RUN_GPS_STATUS_CHANGE.cs">
+      <DependentUpon>PTMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RUN_GPS_WORKING.cs">
+      <DependentUpon>PTMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RUN_LOST_REGISTRY.cs">
+      <DependentUpon>PTMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RUN_MDVRMESSAGE_VEHICLE.cs">
+      <DependentUpon>PTMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RUN_MDVR_MESSAGE.cs">
+      <DependentUpon>PTMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RUN_MOBILE_WORKING.cs">
+      <DependentUpon>PTMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RUN_MONITOR_GROUP.cs">
+      <DependentUpon>PTMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RUN_MONITOR_GROUP_VEHICLE.cs">
+      <DependentUpon>PTMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RUN_SUITE_ONLINE_RECORD.cs">
+      <DependentUpon>PTMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RUN_SUITE_STATUS_CHANGE.cs">
+      <DependentUpon>PTMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RUN_SUITE_WORKING.cs">
+      <DependentUpon>PTMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RUN_TAKEPICTURE.cs">
+      <DependentUpon>PTMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RUN_USER_ONLINE.cs">
+      <DependentUpon>PTMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RUN_VEHICLE_LOCATION.cs">
+      <DependentUpon>PTMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RUN_VEHICLE_ONLINE_TIME.cs">
+      <DependentUpon>PTMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RUN_VIDEO_QUERY.cs">
+      <DependentUpon>PTMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="STATUS_CHANGING_VIEW.cs">
+      <DependentUpon>PTMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SUITE_SOFTWARE_VERSION_VIEW.cs">
+      <DependentUpon>PTMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SUITE_UPGRADE_RECORD_VIEW.cs">
+      <DependentUpon>PTMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SUITE_VIEW.cs">
+      <DependentUpon>PTMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TRF_COMMAND_PARAM.cs">
+      <DependentUpon>PTMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TRF_COMMAND_VEHICLE.cs">
+      <DependentUpon>PTMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TRF_FENCE.cs">
+      <DependentUpon>PTMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TRF_FENCEQUEUE_DELETED.cs">
+      <DependentUpon>PTMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TRF_FENCEQUEUE_DELETEFENCEID.cs">
+      <DependentUpon>PTMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TRF_FENCEQUEUE_INVALIDID.cs">
+      <DependentUpon>PTMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TRF_FENCEQUEUE_ONVEHICLE.cs">
+      <DependentUpon>PTMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TRF_FENCEQUEUE_SUCCEEDID.cs">
+      <DependentUpon>PTMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TRF_FENCEQUEUE_TOVEHICLE.cs">
+      <DependentUpon>PTMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TRF_FENCE_QUEUE.cs">
+      <DependentUpon>PTMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TRF_ROUTE.cs">
+      <DependentUpon>PTMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TRF_ROUTEQUEUE_DELETED.cs">
+      <DependentUpon>PTMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TRF_ROUTEQUEUE_DELETEID.cs">
+      <DependentUpon>PTMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TRF_ROUTEQUEUE_INVALIDID.cs">
+      <DependentUpon>PTMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TRF_ROUTEQUEUE_ONVEHCILE.cs">
+      <DependentUpon>PTMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TRF_ROUTEQUEUE_SUCCEEDID.cs">
+      <DependentUpon>PTMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TRF_ROUTEQUEUE_TOVEHICLE.cs">
+      <DependentUpon>PTMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TRF_ROUTE_QUEUE.cs">
+      <DependentUpon>PTMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TRF_SOFTWARE_VERSION.cs">
+      <DependentUpon>PTMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TRF_UPGRADE_RECORD.cs">
+      <DependentUpon>PTMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="USR_DEPARTMENT.cs">
+      <DependentUpon>PTMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="USR_FUNC_ITEM.cs">
+      <DependentUpon>PTMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="USR_GUSER.cs">
+      <DependentUpon>PTMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="USR_ORGANIZATION.cs">
+      <DependentUpon>PTMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="USR_ORGANIZATION_USER.cs">
+      <DependentUpon>PTMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="USR_ROLE.cs">
+      <DependentUpon>PTMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="USR_ROLE_FUNCS.cs">
+      <DependentUpon>PTMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VEHICLEGPS_VIEW.cs">
+      <DependentUpon>PTMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VEHICLE_ONLINE_TIME_VIEW.cs">
+      <DependentUpon>PTMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VEHICLE_STATUS_VIEW.cs">
+      <DependentUpon>PTMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VEHICLE_WORKING_VIEW.cs">
+      <DependentUpon>PTMSModel.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="CodeTemplates\ReverseEngineerCodeFirst\Context.tt" />
+    <None Include="CodeTemplates\ReverseEngineerCodeFirst\Entity.tt" />
+    <None Include="CodeTemplates\ReverseEngineerCodeFirst\Mapping.tt" />
+    <None Include="FakesAssemblies\EntityFramework.Fakes.fakesconfig" />
+    <None Include="FakesAssemblies\svn-2EF757B8" />
+    <None Include="packages.config" />
+    <EntityDeploy Include="PTMSModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>PTMSModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="PTMSModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>PTMSModel.edmx</DependentUpon>
+      <LastGenOutput>PTMSModel.Context.cs</LastGenOutput>
+    </None>
+    <None Include="PTMSModel.edmx.diagram">
+      <DependentUpon>PTMSModel.edmx</DependentUpon>
+    </None>
+    <None Include="PTMSModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>PTMSModel.edmx</DependentUpon>
+      <LastGenOutput>PTMSModel.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="FakesAssemblies\EntityFramework.Fakes.dll" />
+    <Content Include="FakesAssemblies\EntityFramework.Fakes.xml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

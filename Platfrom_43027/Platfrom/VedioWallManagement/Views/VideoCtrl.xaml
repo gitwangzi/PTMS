@@ -1,0 +1,38 @@
+﻿<UserControl x:Class="Gsafety.PTMS.VideoManagement.Views.VideoCtrl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
+    xmlns:sys="clr-namespace:System;assembly=System.Core"
+    xmlns:System="clr-namespace:System;assembly=mscorlib"
+    xmlns:toolkit="http://schemas.microsoft.com/winfx/2006/xaml/presentation/toolkit"
+    xmlns:local="clr-namespace:Gsafety.Common.Controls;assembly=CommonControls"
+    mc:Ignorable="d"
+    d:DesignHeight="300" d:DesignWidth="400">
+    <Grid x:Name="LayoutRoot" Style="{StaticResource ContentGridWhiteStyle}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+            <HyperlinkButton Click="HyperlinkButton_Click">
+                <Image Source="/ExternalResource;component/Images/Camera/DisableVideoWall1.png" Width="24" Height="24"/>
+            </HyperlinkButton>
+            <HyperlinkButton Click="HyperlinkButton_Click_1">
+                <Image Source="/ExternalResource;component/Images/Camera/DisableVideoWall4.png" Width="24" Height="24"/>
+            </HyperlinkButton>
+            <HyperlinkButton Click="HyperlinkButton_Click_2">
+                <Image Source="/ExternalResource;component/Images/Camera/DisableVideoWall9.png" Width="24" Height="24"/>
+            </HyperlinkButton>
+            <HyperlinkButton Click="HyperlinkButton_Click_3">
+                <Image Source="/ExternalResource;component/Images/Camera/DisableVideoWall16.png" Width="24" Height="24"/>
+            </HyperlinkButton>
+        </StackPanel>
+
+        <Grid x:Name="contentGrid" Grid.Row="1" Background="#f5f5f5">
+
+        </Grid>
+    </Grid>
+</UserControl>

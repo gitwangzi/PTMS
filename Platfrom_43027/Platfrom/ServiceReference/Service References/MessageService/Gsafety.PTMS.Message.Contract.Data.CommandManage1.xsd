@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Message.Contract.Data.CommandManage" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Message.Contract.Data.CommandManage" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" />
+  <xs:complexType name="SendInfomationCMD">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" base="q1:DownwardBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="DispatchType" type="tns:SendInfomationType" />
+          <xs:element minOccurs="0" name="DisplayPosition" nillable="true" type="tns:ArrayOfDisplayPositionType" />
+          <xs:element minOccurs="0" name="DisplayTime" type="xs:int" />
+          <xs:element minOccurs="0" name="ManualControl" type="xs:boolean" />
+          <xs:element minOccurs="0" name="SendContent" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SendTime" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SendInfomationCMD" nillable="true" type="tns:SendInfomationCMD" />
+  <xs:simpleType name="SendInfomationType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Car" />
+      <xs:enumeration value="Alert" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="SendInfomationType" nillable="true" type="tns:SendInfomationType" />
+  <xs:complexType name="ArrayOfDisplayPositionType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DisplayPositionType" type="tns:DisplayPositionType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDisplayPositionType" nillable="true" type="tns:ArrayOfDisplayPositionType" />
+  <xs:simpleType name="DisplayPositionType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="DriverScreen" />
+      <xs:enumeration value="CarFrontLED" />
+      <xs:enumeration value="CarInnerLED" />
+      <xs:enumeration value="CarInnerScreen" />
+      <xs:enumeration value="CarOuterPlate" />
+      <xs:enumeration value="CarBroadside" />
+      <xs:enumeration value="CarAfterbody" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="DisplayPositionType" nillable="true" type="tns:DisplayPositionType" />
+</xs:schema>

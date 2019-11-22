@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="RunVehicleLocationService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:2258/RunVehicleLocationService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:2258/RunVehicleLocationService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:2258/RunVehicleLocationService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.BaseInformation.Contract.Data" />
+      <xsd:import schemaLocation="http://localhost:2258/RunVehicleLocationService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" />
+      <xsd:import schemaLocation="http://localhost:2258/RunVehicleLocationService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/System" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IRunVehicleLocationService_InsertRunVehicleLocation_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertRunVehicleLocation" />
+  </wsdl:message>
+  <wsdl:message name="IRunVehicleLocationService_InsertRunVehicleLocation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertRunVehicleLocationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRunVehicleLocationService_UpdateRunVehicleLocation_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateRunVehicleLocation" />
+  </wsdl:message>
+  <wsdl:message name="IRunVehicleLocationService_UpdateRunVehicleLocation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateRunVehicleLocationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRunVehicleLocationService_DeleteRunVehicleLocationByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteRunVehicleLocationByID" />
+  </wsdl:message>
+  <wsdl:message name="IRunVehicleLocationService_DeleteRunVehicleLocationByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteRunVehicleLocationByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRunVehicleLocationService_GetRunVehicleLocation_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRunVehicleLocation" />
+  </wsdl:message>
+  <wsdl:message name="IRunVehicleLocationService_GetRunVehicleLocation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRunVehicleLocationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRunVehicleLocationService_GetRunVehicleLocationList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRunVehicleLocationList" />
+  </wsdl:message>
+  <wsdl:message name="IRunVehicleLocationService_GetRunVehicleLocationList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRunVehicleLocationListResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IRunVehicleLocationService">
+    <wsdl:operation name="InsertRunVehicleLocation">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRunVehicleLocationService/InsertRunVehicleLocation" message="tns:IRunVehicleLocationService_InsertRunVehicleLocation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRunVehicleLocationService/InsertRunVehicleLocationResponse" message="tns:IRunVehicleLocationService_InsertRunVehicleLocation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateRunVehicleLocation">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRunVehicleLocationService/UpdateRunVehicleLocation" message="tns:IRunVehicleLocationService_UpdateRunVehicleLocation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRunVehicleLocationService/UpdateRunVehicleLocationResponse" message="tns:IRunVehicleLocationService_UpdateRunVehicleLocation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteRunVehicleLocationByID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRunVehicleLocationService/DeleteRunVehicleLocationByID" message="tns:IRunVehicleLocationService_DeleteRunVehicleLocationByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRunVehicleLocationService/DeleteRunVehicleLocationByIDResponse" message="tns:IRunVehicleLocationService_DeleteRunVehicleLocationByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRunVehicleLocation">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRunVehicleLocationService/GetRunVehicleLocation" message="tns:IRunVehicleLocationService_GetRunVehicleLocation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRunVehicleLocationService/GetRunVehicleLocationResponse" message="tns:IRunVehicleLocationService_GetRunVehicleLocation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRunVehicleLocationList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRunVehicleLocationService/GetRunVehicleLocationList" message="tns:IRunVehicleLocationService_GetRunVehicleLocationList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRunVehicleLocationService/GetRunVehicleLocationListResponse" message="tns:IRunVehicleLocationService_GetRunVehicleLocationList_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IRunVehicleLocationService" type="tns:IRunVehicleLocationService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="InsertRunVehicleLocation">
+      <soap:operation soapAction="http://tempuri.org/IRunVehicleLocationService/InsertRunVehicleLocation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateRunVehicleLocation">
+      <soap:operation soapAction="http://tempuri.org/IRunVehicleLocationService/UpdateRunVehicleLocation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteRunVehicleLocationByID">
+      <soap:operation soapAction="http://tempuri.org/IRunVehicleLocationService/DeleteRunVehicleLocationByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRunVehicleLocation">
+      <soap:operation soapAction="http://tempuri.org/IRunVehicleLocationService/GetRunVehicleLocation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRunVehicleLocationList">
+      <soap:operation soapAction="http://tempuri.org/IRunVehicleLocationService/GetRunVehicleLocationList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="RunVehicleLocationService">
+    <wsdl:port name="BasicHttpBinding_IRunVehicleLocationService" binding="tns:BasicHttpBinding_IRunVehicleLocationService">
+      <soap:address location="http://localhost:2258/RunVehicleLocationService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

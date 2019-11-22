@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="dd7c3ade-d535-4827-b68b-fa5680c0f6cf" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="net.tcp://pc-xuhj.test.gsafety.com/MqTestService/MessageService.svc/mex/mex/mex/mex/mex/mex/mex" Protocol="mex" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="service1.wsdl" MetadataType="Wsdl" ID="e07b6314-618d-4aea-b1a2-f4207554c1c0" SourceId="1" SourceUrl="net.tcp://pc-xuhj.test.gsafety.com/MqTestService/MessageService.svc/mex/mex/mex/mex/mex/mex/mex" />
+    <MetadataFile FileName="service2.xsd" MetadataType="Schema" ID="709bd3cb-afd4-47aa-9066-9837bd895fd5" SourceId="1" SourceUrl="net.tcp://pc-xuhj.test.gsafety.com/MqTestService/MessageService.svc/mex/mex/mex/mex/mex/mex/mex" />
+    <MetadataFile FileName="Gsafety.Ant.Message.Contract.Data1.xsd" MetadataType="Schema" ID="9f9d2f8f-7801-4212-aecd-cd76c953964c" SourceId="1" SourceUrl="net.tcp://pc-xuhj.test.gsafety.com/MqTestService/MessageService.svc/mex/mex/mex/mex/mex/mex/mex" />
+    <MetadataFile FileName="Gsafety.PTMS.Base.Contract.Data1.xsd" MetadataType="Schema" ID="b09bdf39-f7bf-4089-92ad-9d4219710aa3" SourceId="1" SourceUrl="net.tcp://pc-xuhj.test.gsafety.com/MqTestService/MessageService.svc/mex/mex/mex/mex/mex/mex/mex" />
+    <MetadataFile FileName="Gsafety.Ant.Message.Contract.Data.UserMessage1.xsd" MetadataType="Schema" ID="ad4d088e-63fb-48d6-b077-08a136b85506" SourceId="1" SourceUrl="net.tcp://pc-xuhj.test.gsafety.com/MqTestService/MessageService.svc/mex/mex/mex/mex/mex/mex/mex" />
+    <MetadataFile FileName="service21.xsd" MetadataType="Schema" ID="f4ac215a-73a6-4f64-a337-9952031c46d9" SourceId="1" SourceUrl="net.tcp://pc-xuhj.test.gsafety.com/MqTestService/MessageService.svc/mex/mex/mex/mex/mex/mex/mex" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Configuration>
+  <TestData>
+    <add key="Addusername" value="normalpalt" Remark="添加用户名"/>
+    <add key="Addusername2" value="" Remark="空用户名"/>
+    <add key="Adduserpwd" value="wang_123" Remark="用户密码"/>
+    <add key="Addgroupname" value="SiteManager" Remark="安全组名称"/>
+    <add key="Addgroupname1" value="" Remark=""/>
+    <add key="Addcompany" value="gesafe" Remark="公司名称"/>
+    <add key="Adddesciption" value="正式平台测试用户" Remark="用户描述"/>
+    <add key="Addphone" value="13698741256" Remark="电话号码"/>
+    <add key="Deleteuser" value="normalpalt" Remark="正确的用户名"/>
+    <add key="Deleteuser1" value="noexit" Remark="不存在的用户名"/>
+    <add key="Updateusername" value="ant_tester" Remark=""/>
+    <add key="Updateusername" value="ant_tester" Remark=""/>
+    <add key="Updatephone" value="11111" Remark=""/>
+    <add key="Updatedescription" value="11111" Remark=""/>
+    <add key="GetUserInfoName" value="ant_tester" Remark=""/>
+    <add key="GetUserInfoName1" value="" Remark=""/>
+    <add key="addgroupname" value="" Remark=""/>
+    <add key="addgroupname1" value="" Remark=""/>
+    <add key="deletegroupname" value="" Remark=""/>
+    <add key="deletegroupname1" value="" Remark=""/>
+  </TestData>
+</Configuration>

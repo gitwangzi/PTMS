@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="fb257fe1-8e5e-4d56-92e7-ca27b1a5ecc7" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>true</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.ObjectModel.ObservableCollection`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>false</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:2258/VehicleMonitorService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="VehicleMonitorService6.xsd" MetadataType="Schema" ID="31256853-880c-4d37-aa4b-0cdbd35affbe" SourceId="1" SourceUrl="http://localhost:2258/VehicleMonitorService.svc?xsd=xsd4" />
+    <MetadataFile FileName="VehicleMonitorService61.xsd" MetadataType="Schema" ID="4ba05df3-3ce8-478b-b550-5387169d5d1c" SourceId="1" SourceUrl="http://localhost:2258/VehicleMonitorService.svc?xsd=xsd1" />
+    <MetadataFile FileName="VehicleMonitorService1.disco" MetadataType="Disco" ID="853143ed-7169-4cc6-b49b-45670fade6c2" SourceId="1" SourceUrl="http://localhost:2258/VehicleMonitorService.svc?disco" />
+    <MetadataFile FileName="VehicleMonitorService63.xsd" MetadataType="Schema" ID="080ae1a0-c179-4dea-9019-cdef83c17c37" SourceId="1" SourceUrl="http://localhost:2258/VehicleMonitorService.svc?xsd=xsd5" />
+    <MetadataFile FileName="VehicleMonitorService1.wsdl" MetadataType="Wsdl" ID="52b75178-7e05-4f50-95e4-c7a8caa853d8" SourceId="1" SourceUrl="http://localhost:2258/VehicleMonitorService.svc?wsdl" />
+    <MetadataFile FileName="VehicleMonitorService64.xsd" MetadataType="Schema" ID="ca96eeb5-17ce-4948-918c-c834cfc497ac" SourceId="1" SourceUrl="http://localhost:2258/VehicleMonitorService.svc?xsd=xsd0" />
+    <MetadataFile FileName="VehicleMonitorService65.xsd" MetadataType="Schema" ID="4e0f5d0e-ad06-4bef-9787-a1cfaa2d5ac1" SourceId="1" SourceUrl="http://localhost:2258/VehicleMonitorService.svc?xsd=xsd3" />
+    <MetadataFile FileName="VehicleMonitorService66.xsd" MetadataType="Schema" ID="6e5c9c6d-0584-4b25-a3fb-8987d2edf531" SourceId="1" SourceUrl="http://localhost:2258/VehicleMonitorService.svc?xsd=xsd2" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

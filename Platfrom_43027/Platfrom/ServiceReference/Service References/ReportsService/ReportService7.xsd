@@ -1,0 +1,488 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/DevExpress.DocumentServices.ServiceModel.DataContracts.Xpf.Designer" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/DevExpress.DocumentServices.ServiceModel.DataContracts.Xpf.Designer" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:2038/ReportService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/DevExpress.DocumentServices.ServiceModel.DataContracts" />
+  <xs:import schemaLocation="http://localhost:2038/ReportService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/DevExpress.XtraPrinting" />
+  <xs:import schemaLocation="http://localhost:2038/ReportService.svc?xsd=xsd11" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="http://localhost:2038/ReportService.svc?xsd=xsd12" namespace="http://schemas.datacontract.org/2004/07/DevExpress.Data.Browsing.Design" />
+  <xs:import schemaLocation="http://localhost:2038/ReportService.svc?xsd=xsd13" namespace="http://schemas.datacontract.org/2004/07/DevExpress.Printing.Core" />
+  <xs:complexType name="ReportDesignerPage">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="PageData" nillable="true" type="xs:base64Binary" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/DevExpress.DocumentServices.ServiceModel.DataContracts" minOccurs="0" name="ReportSessionId" nillable="true" type="q1:ReportSessionId" />
+      <xs:element minOccurs="0" name="Watermark" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="Xaml" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ReportDesignerPage" nillable="true" type="tns:ReportDesignerPage" />
+  <xs:complexType name="ArrayOfEditActionBase">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="EditActionBase" nillable="true" type="tns:EditActionBase" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfEditActionBase" nillable="true" type="tns:ArrayOfEditActionBase" />
+  <xs:complexType name="EditActionBase">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ControlName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EditActionBase" nillable="true" type="tns:EditActionBase" />
+  <xs:complexType name="ChangeBordersAction">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EditActionBase">
+        <xs:sequence>
+          <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/DevExpress.XtraPrinting" minOccurs="0" name="BorderSide" type="q2:BorderSide" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ChangeBordersAction" nillable="true" type="tns:ChangeBordersAction" />
+  <xs:complexType name="ChangeDataSourceAction">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EditActionBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="DataSourceName" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ChangeDataSourceAction" nillable="true" type="tns:ChangeDataSourceAction" />
+  <xs:complexType name="AssignWatermarkAction">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EditActionBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Watermark" nillable="true" type="xs:base64Binary" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="AssignWatermarkAction" nillable="true" type="tns:AssignWatermarkAction" />
+  <xs:complexType name="ChangeLineAction">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EditActionBase">
+        <xs:sequence>
+          <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/DevExpress.XtraPrinting" minOccurs="0" name="LineSpecifics" type="q3:LineSpecifics" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ChangeLineAction" nillable="true" type="tns:ChangeLineAction" />
+  <xs:complexType name="CallMethodAction">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EditActionBase">
+        <xs:sequence>
+          <xs:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Arguments" nillable="true" type="q4:ArrayOfanyType" />
+          <xs:element minOccurs="0" name="MethodName" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CallMethodAction" nillable="true" type="tns:CallMethodAction" />
+  <xs:complexType name="AssignPropertyAction">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EditActionBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="PropertyName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Value" nillable="true" type="xs:anyType" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="AssignPropertyAction" nillable="true" type="tns:AssignPropertyAction" />
+  <xs:complexType name="AssignColorPropertyAction">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:AssignPropertyAction">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="AssignColorPropertyAction" nillable="true" type="tns:AssignColorPropertyAction" />
+  <xs:complexType name="ResizeControlAction">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EditActionBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="HeightChange" type="xs:float" />
+          <xs:element minOccurs="0" name="OffsetX" type="xs:float" />
+          <xs:element minOccurs="0" name="OffsetY" type="xs:float" />
+          <xs:element minOccurs="0" name="WidthChange" type="xs:float" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ResizeControlAction" nillable="true" type="tns:ResizeControlAction" />
+  <xs:complexType name="ChangeParentAction">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EditActionBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Left" type="xs:float" />
+          <xs:element minOccurs="0" name="ParentName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Top" type="xs:float" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ChangeParentAction" nillable="true" type="tns:ChangeParentAction" />
+  <xs:complexType name="ChangeReportMarginsAction">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EditActionBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="LeftChange" type="xs:int" />
+          <xs:element minOccurs="0" name="RightChange" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ChangeReportMarginsAction" nillable="true" type="tns:ChangeReportMarginsAction" />
+  <xs:complexType name="MoveControlAction">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EditActionBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="OffsetX" type="xs:float" />
+          <xs:element minOccurs="0" name="OffsetY" type="xs:float" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MoveControlAction" nillable="true" type="tns:MoveControlAction" />
+  <xs:complexType name="DeleteControlAction">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EditActionBase">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DeleteControlAction" nillable="true" type="tns:DeleteControlAction" />
+  <xs:complexType name="ChangeFontAction">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EditActionBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="FontFamilyName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FontSize" nillable="true" type="xs:float" />
+          <xs:element minOccurs="0" name="FontStyle" nillable="true" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ChangeFontAction" nillable="true" type="tns:ChangeFontAction" />
+  <xs:complexType name="ExecuteCommandAction">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EditActionBase">
+        <xs:sequence>
+          <xs:element xmlns:q5="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ControlNames" nillable="true" type="q5:ArrayOfstring" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ExecuteCommandAction" nillable="true" type="tns:ExecuteCommandAction" />
+  <xs:complexType name="AlignInHeightCommandAction">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ExecuteCommandAction">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="AlignInHeightCommandAction" nillable="true" type="tns:AlignInHeightCommandAction" />
+  <xs:complexType name="AlignRightCommandAction">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ExecuteCommandAction">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="AlignRightCommandAction" nillable="true" type="tns:AlignRightCommandAction" />
+  <xs:complexType name="AlignHorizontalCenterCommandAction">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ExecuteCommandAction">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="AlignHorizontalCenterCommandAction" nillable="true" type="tns:AlignHorizontalCenterCommandAction" />
+  <xs:complexType name="AlignVerticalCenterCommandAction">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ExecuteCommandAction">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="AlignVerticalCenterCommandAction" nillable="true" type="tns:AlignVerticalCenterCommandAction" />
+  <xs:complexType name="AlignInWidthCommandAction">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ExecuteCommandAction">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="AlignInWidthCommandAction" nillable="true" type="tns:AlignInWidthCommandAction" />
+  <xs:complexType name="AlignBottomCommandAction">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ExecuteCommandAction">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="AlignBottomCommandAction" nillable="true" type="tns:AlignBottomCommandAction" />
+  <xs:complexType name="AlignInSizeCommandAction">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ExecuteCommandAction">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="AlignInSizeCommandAction" nillable="true" type="tns:AlignInSizeCommandAction" />
+  <xs:complexType name="EqualSpacingHorizontallyCommandAction">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ExecuteCommandAction">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EqualSpacingHorizontallyCommandAction" nillable="true" type="tns:EqualSpacingHorizontallyCommandAction" />
+  <xs:complexType name="AlignLeftCommandAction">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ExecuteCommandAction">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="AlignLeftCommandAction" nillable="true" type="tns:AlignLeftCommandAction" />
+  <xs:complexType name="IncreaseHorizontalSpacingCommandAction">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ExecuteCommandAction">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="IncreaseHorizontalSpacingCommandAction" nillable="true" type="tns:IncreaseHorizontalSpacingCommandAction" />
+  <xs:complexType name="DecreaseHorizontalSpacingCommandAction">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ExecuteCommandAction">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DecreaseHorizontalSpacingCommandAction" nillable="true" type="tns:DecreaseHorizontalSpacingCommandAction" />
+  <xs:complexType name="IncreaseVerticalSpacingCommandAction">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ExecuteCommandAction">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="IncreaseVerticalSpacingCommandAction" nillable="true" type="tns:IncreaseVerticalSpacingCommandAction" />
+  <xs:complexType name="DecreaseVerticalSpacingCommandAction">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ExecuteCommandAction">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DecreaseVerticalSpacingCommandAction" nillable="true" type="tns:DecreaseVerticalSpacingCommandAction" />
+  <xs:complexType name="RemoveHorizontalSpacingCommandAction">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ExecuteCommandAction">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RemoveHorizontalSpacingCommandAction" nillable="true" type="tns:RemoveHorizontalSpacingCommandAction" />
+  <xs:complexType name="AlignTopCommandAction">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ExecuteCommandAction">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="AlignTopCommandAction" nillable="true" type="tns:AlignTopCommandAction" />
+  <xs:complexType name="RemoveVerticalSpacingCommandAction">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ExecuteCommandAction">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RemoveVerticalSpacingCommandAction" nillable="true" type="tns:RemoveVerticalSpacingCommandAction" />
+  <xs:complexType name="LayoutCenterHorizontallyCommandAction">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ExecuteCommandAction">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="LayoutCenterHorizontallyCommandAction" nillable="true" type="tns:LayoutCenterHorizontallyCommandAction" />
+  <xs:complexType name="LayoutCenterVerticallyCommandAction">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ExecuteCommandAction">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="LayoutCenterVerticallyCommandAction" nillable="true" type="tns:LayoutCenterVerticallyCommandAction" />
+  <xs:complexType name="SendToBackCommandAction">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ExecuteCommandAction">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SendToBackCommandAction" nillable="true" type="tns:SendToBackCommandAction" />
+  <xs:complexType name="BringToFrontCommandAction">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ExecuteCommandAction">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="BringToFrontCommandAction" nillable="true" type="tns:BringToFrontCommandAction" />
+  <xs:complexType name="EqualSpacingVerticallyCommandAction">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ExecuteCommandAction">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EqualSpacingVerticallyCommandAction" nillable="true" type="tns:EqualSpacingVerticallyCommandAction" />
+  <xs:complexType name="ChangeTextAlignmentAction">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EditActionBase">
+        <xs:sequence>
+          <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/DevExpress.XtraPrinting" minOccurs="0" name="TextAlignment" type="q6:TextAlignment" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ChangeTextAlignmentAction" nillable="true" type="tns:ChangeTextAlignmentAction" />
+  <xs:complexType name="ChangePageSettingsAction">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EditActionBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="SerializedPageData" nillable="true" type="xs:base64Binary" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ChangePageSettingsAction" nillable="true" type="tns:ChangePageSettingsAction" />
+  <xs:complexType name="AssignXRBindingAction">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EditActionBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Binding" nillable="true" type="tns:XRBindingProxy" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="AssignXRBindingAction" nillable="true" type="tns:AssignXRBindingAction" />
+  <xs:complexType name="XRBindingProxy">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DataMember" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DataSource" nillable="true" type="tns:DataSourceId" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="XRBindingProxy" nillable="true" type="tns:XRBindingProxy" />
+  <xs:complexType name="DataSourceId">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Value" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DataSourceId" nillable="true" type="tns:DataSourceId" />
+  <xs:complexType name="DropFieldAction">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ChangeParentAction">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CellFieldInfos" nillable="true" type="tns:ArrayOfFieldInfo" />
+          <xs:element minOccurs="0" name="FieldInfo" nillable="true" type="tns:FieldInfo" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DropFieldAction" nillable="true" type="tns:DropFieldAction" />
+  <xs:complexType name="ArrayOfFieldInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="FieldInfo" nillable="true" type="tns:FieldInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfFieldInfo" nillable="true" type="tns:ArrayOfFieldInfo" />
+  <xs:complexType name="FieldInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Binding" nillable="true" type="tns:XRBindingProxy" />
+      <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/DevExpress.Data.Browsing.Design" minOccurs="0" name="Specifics" type="q7:TypeSpecifics" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FieldInfo" nillable="true" type="tns:FieldInfo" />
+  <xs:complexType name="DropControlAction">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ChangeParentAction">
+        <xs:sequence>
+          <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/DevExpress.Printing.Core" minOccurs="0" name="Specifics" type="q8:FieldListNodeSpecifics" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DropControlAction" nillable="true" type="tns:DropControlAction" />
+  <xs:complexType name="ChangeImageAction">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EditActionBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Image" nillable="true" type="xs:base64Binary" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ChangeImageAction" nillable="true" type="tns:ChangeImageAction" />
+  <xs:complexType name="ChangeBordersWidthAction">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EditActionBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="BorderWidth" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ChangeBordersWidthAction" nillable="true" type="tns:ChangeBordersWidthAction" />
+  <xs:complexType name="ChangeBordersDashStyleAction">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EditActionBase">
+        <xs:sequence>
+          <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/DevExpress.XtraPrinting" minOccurs="0" name="BorderDashStyle" type="q9:BorderDashStyle" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ChangeBordersDashStyleAction" nillable="true" type="tns:ChangeBordersDashStyleAction" />
+  <xs:complexType name="ChangeShapeAction">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EditActionBase">
+        <xs:sequence>
+          <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/DevExpress.XtraPrinting" minOccurs="0" name="ShapeSpecifics" type="q10:ShapeSpecifics" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ChangeShapeAction" nillable="true" type="tns:ChangeShapeAction" />
+  <xs:simpleType name="ShapeKind">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Arrow" />
+      <xs:enumeration value="Brace" />
+      <xs:enumeration value="Bracket" />
+      <xs:enumeration value="Cross" />
+      <xs:enumeration value="Ellipse" />
+      <xs:enumeration value="Line" />
+      <xs:enumeration value="Polygon" />
+      <xs:enumeration value="Rectangle" />
+      <xs:enumeration value="Star" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ShapeKind" nillable="true" type="tns:ShapeKind" />
+  <xs:complexType name="ArrayOfDataSourceInformation">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DataSourceInformation" nillable="true" type="tns:DataSourceInformation" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDataSourceInformation" nillable="true" type="tns:ArrayOfDataSourceInformation" />
+  <xs:complexType name="DataSourceInformation">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" nillable="true" type="tns:DataSourceId" />
+      <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/DevExpress.Data.Browsing.Design" minOccurs="0" name="Specifics" type="q11:TypeSpecifics" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DataSourceInformation" nillable="true" type="tns:DataSourceInformation" />
+</xs:schema>

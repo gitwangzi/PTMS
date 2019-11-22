@@ -1,0 +1,854 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ReportService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:2038/ReportService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:2038/ReportService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/System.ServiceModel" />
+      <xsd:import schemaLocation="http://localhost:2038/ReportService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:2038/ReportService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/DevExpress.DocumentServices.ServiceModel.DataContracts" />
+      <xsd:import schemaLocation="http://localhost:2038/ReportService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/System" />
+      <xsd:import schemaLocation="http://localhost:2038/ReportService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/DevExpress.XtraPrinting" />
+      <xsd:import schemaLocation="http://localhost:2038/ReportService.svc?xsd=xsd6" namespace="http://schemas.microsoft.com/Message" />
+      <xsd:import schemaLocation="http://localhost:2038/ReportService.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/DevExpress.XtraPrinting.XamlExport" />
+      <xsd:import schemaLocation="http://localhost:2038/ReportService.svc?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/DevExpress.DocumentServices.ServiceModel.DataContracts.Xpf.Designer" />
+      <xsd:import schemaLocation="http://localhost:2038/ReportService.svc?xsd=xsd9" namespace="http://schemas.datacontract.org/2004/07/DevExpress.XtraReports.UI" />
+      <xsd:import schemaLocation="http://localhost:2038/ReportService.svc?xsd=xsd10" namespace="http://schemas.datacontract.org/2004/07/System.Drawing.Drawing2D" />
+      <xsd:import schemaLocation="http://localhost:2038/ReportService.svc?xsd=xsd11" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://localhost:2038/ReportService.svc?xsd=xsd12" namespace="http://schemas.datacontract.org/2004/07/DevExpress.Data.Browsing.Design" />
+      <xsd:import schemaLocation="http://localhost:2038/ReportService.svc?xsd=xsd13" namespace="http://schemas.datacontract.org/2004/07/DevExpress.Printing.Core" />
+      <xsd:import schemaLocation="http://localhost:2038/ReportService.svc?xsd=xsd14" namespace="http://schemas.datacontract.org/2004/07/DevExpress.Data.XtraReports.ServiceModel.DataContracts" />
+      <xsd:import schemaLocation="http://localhost:2038/ReportService.svc?xsd=xsd15" namespace="http://schemas.datacontract.org/2004/07/DevExpress.Data.XtraReports.DataProviders" />
+      <xsd:import schemaLocation="http://localhost:2038/ReportService.svc?xsd=xsd16" namespace="http://schemas.datacontract.org/2004/07/DevExpress.Data.XtraReports.Wizard" />
+      <xsd:import schemaLocation="http://localhost:2038/ReportService.svc?xsd=xsd17" namespace="http://schemas.datacontract.org/2004/07/DevExpress.Data.WizardFramework" />
+      <xsd:import schemaLocation="http://localhost:2038/ReportService.svc?xsd=xsd18" namespace="http://schemas.datacontract.org/2004/07/DevExpress.XtraReports.Parameters" />
+      <xsd:import schemaLocation="http://localhost:2038/ReportService.svc?xsd=xsd19" namespace="http://schemas.datacontract.org/2004/07/DevExpress.XtraPrinting.Native" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IReportService_StartUpload_InputMessage">
+    <wsdl:part name="parameters" element="tns:StartUpload" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_StartUpload_OutputMessage">
+    <wsdl:part name="parameters" element="tns:StartUploadResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_StartUpload_FaultExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q1="http://schemas.datacontract.org/2004/07/System.ServiceModel" name="detail" element="q1:FaultException" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_UploadResourceChunk_InputMessage">
+    <wsdl:part name="parameters" element="tns:UploadResourceChunk" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_UploadResourceChunk_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UploadResourceChunkResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_AssembleDocument_InputMessage">
+    <wsdl:part name="parameters" element="tns:AssembleDocument" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_AssembleDocument_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AssembleDocumentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_AssembleDocument_FaultExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q2="http://schemas.datacontract.org/2004/07/System.ServiceModel" name="detail" element="q2:FaultException" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_ClearDocument_InputMessage">
+    <wsdl:part name="parameters" element="tns:ClearDocument" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_ClearDocument_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ClearDocumentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_ClearDocument_FaultExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q3="http://schemas.datacontract.org/2004/07/System.ServiceModel" name="detail" element="q3:FaultException" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_StartExport_InputMessage">
+    <wsdl:part name="parameters" element="tns:StartExport" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_StartExport_OutputMessage">
+    <wsdl:part name="parameters" element="tns:StartExportResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_StartExport_FaultExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q4="http://schemas.datacontract.org/2004/07/System.ServiceModel" name="detail" element="q4:FaultException" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_GetExportStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetExportStatus" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_GetExportStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetExportStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_GetExportStatus_FaultExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q5="http://schemas.datacontract.org/2004/07/System.ServiceModel" name="detail" element="q5:FaultException" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_GetExportedDocument_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetExportedDocument" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_GetExportedDocument_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetExportedDocumentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_GetExportedDocument_FaultExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q6="http://schemas.datacontract.org/2004/07/System.ServiceModel" name="detail" element="q6:FaultException" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_StartDesign_InputMessage">
+    <wsdl:part name="parameters" element="tns:StartDesign" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_StartDesign_OutputMessage">
+    <wsdl:part name="parameters" element="tns:StartDesignResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_StartDesign_FaultExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q7="http://schemas.datacontract.org/2004/07/System.ServiceModel" name="detail" element="q7:FaultException" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_SaveReport_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveReport" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_SaveReport_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveReportResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_SaveReport_FaultExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q8="http://schemas.datacontract.org/2004/07/System.ServiceModel" name="detail" element="q8:FaultException" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_InvokeReportEditing_InputMessage">
+    <wsdl:part name="parameters" element="tns:InvokeReportEditing" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_InvokeReportEditing_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InvokeReportEditingResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_InvokeReportEditing_FaultExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q9="http://schemas.datacontract.org/2004/07/System.ServiceModel" name="detail" element="q9:FaultException" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_ClearReport_InputMessage">
+    <wsdl:part name="parameters" element="tns:ClearReport" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_ClearReport_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ClearReportResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_GetDataSourcesForFieldList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDataSourcesForFieldList" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_GetDataSourcesForFieldList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDataSourcesForFieldListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_GetDataSourcesForFieldList_FaultExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q10="http://schemas.datacontract.org/2004/07/System.ServiceModel" name="detail" element="q10:FaultException" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_GetItemPropertiesForFieldList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetItemPropertiesForFieldList" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_GetItemPropertiesForFieldList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetItemPropertiesForFieldListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_GetItemPropertiesForFieldList_FaultExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q11="http://schemas.datacontract.org/2004/07/System.ServiceModel" name="detail" element="q11:FaultException" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_GetListItemPropertiesForFieldList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetListItemPropertiesForFieldList" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_GetListItemPropertiesForFieldList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetListItemPropertiesForFieldListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_GetListItemPropertiesForFieldList_FaultExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q12="http://schemas.datacontract.org/2004/07/System.ServiceModel" name="detail" element="q12:FaultException" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_GetDataSourceDisplayNameForFieldList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDataSourceDisplayNameForFieldList" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_GetDataSourceDisplayNameForFieldList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDataSourceDisplayNameForFieldListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_GetDataSourceDisplayNameForFieldList_FaultExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q13="http://schemas.datacontract.org/2004/07/System.ServiceModel" name="detail" element="q13:FaultException" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_GetDataSources_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDataSources" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_GetDataSources_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDataSourcesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_GetDataMembers_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDataMembers" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_GetDataMembers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDataMembersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_GetColumns_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetColumns" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_GetColumns_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetColumnsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_AddNewReport_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddNewReport" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_AddNewReport_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddNewReportResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_GetDataSourceDisplayName_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDataSourceDisplayName" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_GetDataSourceDisplayName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDataSourceDisplayNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_GetItemProperties_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetItemProperties" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_GetItemProperties_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetItemPropertiesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_GetListItemProperties_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetListItemProperties" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_GetListItemProperties_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetListItemPropertiesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_GetReportParameters_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetReportParameters" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_GetReportParameters_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetReportParametersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_GetReportParameters_FaultExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q14="http://schemas.datacontract.org/2004/07/System.ServiceModel" name="detail" element="q14:FaultException" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_StartBuild_InputMessage">
+    <wsdl:part name="parameters" element="tns:StartBuild" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_StartBuild_OutputMessage">
+    <wsdl:part name="parameters" element="tns:StartBuildResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_StartBuild_FaultExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q15="http://schemas.datacontract.org/2004/07/System.ServiceModel" name="detail" element="q15:FaultException" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_StopBuild_InputMessage">
+    <wsdl:part name="parameters" element="tns:StopBuild" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_StopBuild_OutputMessage">
+    <wsdl:part name="parameters" element="tns:StopBuildResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_StopBuild_FaultExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q16="http://schemas.datacontract.org/2004/07/System.ServiceModel" name="detail" element="q16:FaultException" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_GetBuildStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBuildStatus" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_GetBuildStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBuildStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_GetBuildStatus_FaultExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q17="http://schemas.datacontract.org/2004/07/System.ServiceModel" name="detail" element="q17:FaultException" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_GetPage_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPage" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_GetPage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_GetPage_FaultExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q18="http://schemas.datacontract.org/2004/07/System.ServiceModel" name="detail" element="q18:FaultException" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_GetPages_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPages" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_GetPages_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPagesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_GetPages_FaultExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q19="http://schemas.datacontract.org/2004/07/System.ServiceModel" name="detail" element="q19:FaultException" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_GetDocumentData_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDocumentData" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_GetDocumentData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDocumentDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_GetDocumentData_FaultExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q20="http://schemas.datacontract.org/2004/07/System.ServiceModel" name="detail" element="q20:FaultException" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_StartPrint_InputMessage">
+    <wsdl:part name="parameters" element="tns:StartPrint" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_StartPrint_OutputMessage">
+    <wsdl:part name="parameters" element="tns:StartPrintResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_StartPrint_FaultExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q21="http://schemas.datacontract.org/2004/07/System.ServiceModel" name="detail" element="q21:FaultException" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_StopPrint_InputMessage">
+    <wsdl:part name="parameters" element="tns:StopPrint" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_StopPrint_OutputMessage">
+    <wsdl:part name="parameters" element="tns:StopPrintResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_StopPrint_FaultExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q22="http://schemas.datacontract.org/2004/07/System.ServiceModel" name="detail" element="q22:FaultException" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_GetPrintStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPrintStatus" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_GetPrintStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPrintStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_GetPrintStatus_FaultExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q23="http://schemas.datacontract.org/2004/07/System.ServiceModel" name="detail" element="q23:FaultException" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_GetPrintDocument_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPrintDocument" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_GetPrintDocument_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPrintDocumentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_GetPrintDocument_FaultExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q24="http://schemas.datacontract.org/2004/07/System.ServiceModel" name="detail" element="q24:FaultException" />
+  </wsdl:message>
+  <wsdl:message name="IExportServiceRest_WebGetExportedDocument_InputMessage">
+    <wsdl:part name="parameters" element="tns:WebGetExportedDocument" />
+  </wsdl:message>
+  <wsdl:message name="IExportServiceRest_WebGetExportedDocument_OutputMessage">
+    <wsdl:part name="parameters" element="tns:WebGetExportedDocumentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExportServiceRest_WebGetResource_InputMessage">
+    <wsdl:part name="parameters" element="tns:WebGetResource" />
+  </wsdl:message>
+  <wsdl:message name="IExportServiceRest_WebGetResource_OutputMessage">
+    <wsdl:part name="parameters" element="tns:WebGetResourceResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IReportService">
+    <wsdl:operation name="StartUpload">
+      <wsdl:input wsaw:Action="http://tempuri.org/IExportService/StartUpload" message="tns:IReportService_StartUpload_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IExportService/StartUploadResponse" message="tns:IReportService_StartUpload_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IExportService/StartUploadFaultExceptionFault" name="FaultExceptionFault" message="tns:IReportService_StartUpload_FaultExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UploadResourceChunk">
+      <wsdl:input wsaw:Action="http://tempuri.org/IExportService/UploadResourceChunk" message="tns:IReportService_UploadResourceChunk_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IExportService/UploadResourceChunkResponse" message="tns:IReportService_UploadResourceChunk_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AssembleDocument">
+      <wsdl:input wsaw:Action="http://tempuri.org/IExportService/AssembleDocument" message="tns:IReportService_AssembleDocument_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IExportService/AssembleDocumentResponse" message="tns:IReportService_AssembleDocument_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IExportService/AssembleDocumentFaultExceptionFault" name="FaultExceptionFault" message="tns:IReportService_AssembleDocument_FaultExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ClearDocument">
+      <wsdl:input wsaw:Action="http://tempuri.org/IExportService/ClearDocument" message="tns:IReportService_ClearDocument_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IExportService/ClearDocumentResponse" message="tns:IReportService_ClearDocument_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IExportService/ClearDocumentFaultExceptionFault" name="FaultExceptionFault" message="tns:IReportService_ClearDocument_FaultExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="StartExport">
+      <wsdl:input wsaw:Action="http://tempuri.org/IExportService/StartExport" message="tns:IReportService_StartExport_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IExportService/StartExportResponse" message="tns:IReportService_StartExport_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IExportService/StartExportFaultExceptionFault" name="FaultExceptionFault" message="tns:IReportService_StartExport_FaultExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetExportStatus">
+      <wsdl:input wsaw:Action="http://tempuri.org/IExportService/GetExportStatus" message="tns:IReportService_GetExportStatus_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IExportService/GetExportStatusResponse" message="tns:IReportService_GetExportStatus_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IExportService/GetExportStatusFaultExceptionFault" name="FaultExceptionFault" message="tns:IReportService_GetExportStatus_FaultExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetExportedDocument">
+      <wsdl:input wsaw:Action="http://tempuri.org/IExportService/GetExportedDocument" message="tns:IReportService_GetExportedDocument_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IExportService/GetExportedDocumentResponse" message="tns:IReportService_GetExportedDocument_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IExportService/GetExportedDocumentFaultExceptionFault" name="FaultExceptionFault" message="tns:IReportService_GetExportedDocument_FaultExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="StartDesign">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReportService/StartDesign" message="tns:IReportService_StartDesign_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReportService/StartDesignResponse" message="tns:IReportService_StartDesign_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IReportService/StartDesignFaultExceptionFault" name="FaultExceptionFault" message="tns:IReportService_StartDesign_FaultExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveReport">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReportService/SaveReport" message="tns:IReportService_SaveReport_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReportService/SaveReportResponse" message="tns:IReportService_SaveReport_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IReportService/SaveReportFaultExceptionFault" name="FaultExceptionFault" message="tns:IReportService_SaveReport_FaultExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InvokeReportEditing">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReportService/InvokeReportEditing" message="tns:IReportService_InvokeReportEditing_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReportService/InvokeReportEditingResponse" message="tns:IReportService_InvokeReportEditing_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IReportService/InvokeReportEditingFaultExceptionFault" name="FaultExceptionFault" message="tns:IReportService_InvokeReportEditing_FaultExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ClearReport">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReportService/ClearReport" message="tns:IReportService_ClearReport_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReportService/ClearReportResponse" message="tns:IReportService_ClearReport_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDataSourcesForFieldList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReportService/GetDataSourcesForFieldList" message="tns:IReportService_GetDataSourcesForFieldList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReportService/GetDataSourcesForFieldListResponse" message="tns:IReportService_GetDataSourcesForFieldList_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IReportService/GetDataSourcesForFieldListFaultExceptionFault" name="FaultExceptionFault" message="tns:IReportService_GetDataSourcesForFieldList_FaultExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetItemPropertiesForFieldList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReportService/GetItemPropertiesForFieldList" message="tns:IReportService_GetItemPropertiesForFieldList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReportService/GetItemPropertiesForFieldListResponse" message="tns:IReportService_GetItemPropertiesForFieldList_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IReportService/GetItemPropertiesForFieldListFaultExceptionFault" name="FaultExceptionFault" message="tns:IReportService_GetItemPropertiesForFieldList_FaultExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListItemPropertiesForFieldList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReportService/GetListItemPropertiesForFieldList" message="tns:IReportService_GetListItemPropertiesForFieldList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReportService/GetListItemPropertiesForFieldListResponse" message="tns:IReportService_GetListItemPropertiesForFieldList_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IReportService/GetListItemPropertiesForFieldListFaultExceptionFault" name="FaultExceptionFault" message="tns:IReportService_GetListItemPropertiesForFieldList_FaultExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDataSourceDisplayNameForFieldList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReportService/GetDataSourceDisplayNameForFieldList" message="tns:IReportService_GetDataSourceDisplayNameForFieldList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReportService/GetDataSourceDisplayNameForFieldListResponse" message="tns:IReportService_GetDataSourceDisplayNameForFieldList_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IReportService/GetDataSourceDisplayNameForFieldListFaultExceptionFault" name="FaultExceptionFault" message="tns:IReportService_GetDataSourceDisplayNameForFieldList_FaultExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDataSources">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReportService/GetDataSources" message="tns:IReportService_GetDataSources_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReportService/GetDataSourcesResponse" message="tns:IReportService_GetDataSources_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDataMembers">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReportService/GetDataMembers" message="tns:IReportService_GetDataMembers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReportService/GetDataMembersResponse" message="tns:IReportService_GetDataMembers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetColumns">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReportService/GetColumns" message="tns:IReportService_GetColumns_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReportService/GetColumnsResponse" message="tns:IReportService_GetColumns_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddNewReport">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReportService/AddNewReport" message="tns:IReportService_AddNewReport_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReportService/AddNewReportResponse" message="tns:IReportService_AddNewReport_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDataSourceDisplayName">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReportService/GetDataSourceDisplayName" message="tns:IReportService_GetDataSourceDisplayName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReportService/GetDataSourceDisplayNameResponse" message="tns:IReportService_GetDataSourceDisplayName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetItemProperties">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReportService/GetItemProperties" message="tns:IReportService_GetItemProperties_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReportService/GetItemPropertiesResponse" message="tns:IReportService_GetItemProperties_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListItemProperties">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReportService/GetListItemProperties" message="tns:IReportService_GetListItemProperties_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReportService/GetListItemPropertiesResponse" message="tns:IReportService_GetListItemProperties_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReportParameters">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReportService/GetReportParameters" message="tns:IReportService_GetReportParameters_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReportService/GetReportParametersResponse" message="tns:IReportService_GetReportParameters_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IReportService/GetReportParametersFaultExceptionFault" name="FaultExceptionFault" message="tns:IReportService_GetReportParameters_FaultExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="StartBuild">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReportService/StartBuild" message="tns:IReportService_StartBuild_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReportService/StartBuildResponse" message="tns:IReportService_StartBuild_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IReportService/StartBuildFaultExceptionFault" name="FaultExceptionFault" message="tns:IReportService_StartBuild_FaultExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="StopBuild">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReportService/StopBuild" message="tns:IReportService_StopBuild_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReportService/StopBuildResponse" message="tns:IReportService_StopBuild_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IReportService/StopBuildFaultExceptionFault" name="FaultExceptionFault" message="tns:IReportService_StopBuild_FaultExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBuildStatus">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReportService/GetBuildStatus" message="tns:IReportService_GetBuildStatus_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReportService/GetBuildStatusResponse" message="tns:IReportService_GetBuildStatus_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IReportService/GetBuildStatusFaultExceptionFault" name="FaultExceptionFault" message="tns:IReportService_GetBuildStatus_FaultExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReportService/GetPage" message="tns:IReportService_GetPage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReportService/GetPageResponse" message="tns:IReportService_GetPage_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IReportService/GetPageFaultExceptionFault" name="FaultExceptionFault" message="tns:IReportService_GetPage_FaultExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPages">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReportService/GetPages" message="tns:IReportService_GetPages_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReportService/GetPagesResponse" message="tns:IReportService_GetPages_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IReportService/GetPagesFaultExceptionFault" name="FaultExceptionFault" message="tns:IReportService_GetPages_FaultExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentData">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReportService/GetDocumentData" message="tns:IReportService_GetDocumentData_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReportService/GetDocumentDataResponse" message="tns:IReportService_GetDocumentData_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IReportService/GetDocumentDataFaultExceptionFault" name="FaultExceptionFault" message="tns:IReportService_GetDocumentData_FaultExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="StartPrint">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReportService/StartPrint" message="tns:IReportService_StartPrint_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReportService/StartPrintResponse" message="tns:IReportService_StartPrint_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IReportService/StartPrintFaultExceptionFault" name="FaultExceptionFault" message="tns:IReportService_StartPrint_FaultExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="StopPrint">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReportService/StopPrint" message="tns:IReportService_StopPrint_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReportService/StopPrintResponse" message="tns:IReportService_StopPrint_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IReportService/StopPrintFaultExceptionFault" name="FaultExceptionFault" message="tns:IReportService_StopPrint_FaultExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPrintStatus">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReportService/GetPrintStatus" message="tns:IReportService_GetPrintStatus_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReportService/GetPrintStatusResponse" message="tns:IReportService_GetPrintStatus_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IReportService/GetPrintStatusFaultExceptionFault" name="FaultExceptionFault" message="tns:IReportService_GetPrintStatus_FaultExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPrintDocument">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReportService/GetPrintDocument" message="tns:IReportService_GetPrintDocument_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReportService/GetPrintDocumentResponse" message="tns:IReportService_GetPrintDocument_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IReportService/GetPrintDocumentFaultExceptionFault" name="FaultExceptionFault" message="tns:IReportService_GetPrintDocument_FaultExceptionFault_FaultMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="IExportServiceRest">
+    <wsdl:operation name="WebGetExportedDocument">
+      <wsdl:input wsaw:Action="http://tempuri.org/IExportServiceRest/WebGetExportedDocument" message="tns:IExportServiceRest_WebGetExportedDocument_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IExportServiceRest/WebGetExportedDocumentResponse" message="tns:IExportServiceRest_WebGetExportedDocument_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="WebGetResource">
+      <wsdl:input wsaw:Action="http://tempuri.org/IExportServiceRest/WebGetResource" message="tns:IExportServiceRest_WebGetResource_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IExportServiceRest/WebGetResourceResponse" message="tns:IExportServiceRest_WebGetResource_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IReportService" type="tns:IReportService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="StartUpload">
+      <soap:operation soapAction="http://tempuri.org/IExportService/StartUpload" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FaultExceptionFault">
+        <soap:fault use="literal" name="FaultExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="UploadResourceChunk">
+      <soap:operation soapAction="http://tempuri.org/IExportService/UploadResourceChunk" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AssembleDocument">
+      <soap:operation soapAction="http://tempuri.org/IExportService/AssembleDocument" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FaultExceptionFault">
+        <soap:fault use="literal" name="FaultExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ClearDocument">
+      <soap:operation soapAction="http://tempuri.org/IExportService/ClearDocument" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FaultExceptionFault">
+        <soap:fault use="literal" name="FaultExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="StartExport">
+      <soap:operation soapAction="http://tempuri.org/IExportService/StartExport" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FaultExceptionFault">
+        <soap:fault use="literal" name="FaultExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetExportStatus">
+      <soap:operation soapAction="http://tempuri.org/IExportService/GetExportStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FaultExceptionFault">
+        <soap:fault use="literal" name="FaultExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetExportedDocument">
+      <soap:operation soapAction="http://tempuri.org/IExportService/GetExportedDocument" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FaultExceptionFault">
+        <soap:fault use="literal" name="FaultExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="StartDesign">
+      <soap:operation soapAction="http://tempuri.org/IReportService/StartDesign" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FaultExceptionFault">
+        <soap:fault use="literal" name="FaultExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SaveReport">
+      <soap:operation soapAction="http://tempuri.org/IReportService/SaveReport" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FaultExceptionFault">
+        <soap:fault use="literal" name="FaultExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="InvokeReportEditing">
+      <soap:operation soapAction="http://tempuri.org/IReportService/InvokeReportEditing" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FaultExceptionFault">
+        <soap:fault use="literal" name="FaultExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ClearReport">
+      <soap:operation soapAction="http://tempuri.org/IReportService/ClearReport" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDataSourcesForFieldList">
+      <soap:operation soapAction="http://tempuri.org/IReportService/GetDataSourcesForFieldList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FaultExceptionFault">
+        <soap:fault use="literal" name="FaultExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetItemPropertiesForFieldList">
+      <soap:operation soapAction="http://tempuri.org/IReportService/GetItemPropertiesForFieldList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FaultExceptionFault">
+        <soap:fault use="literal" name="FaultExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetListItemPropertiesForFieldList">
+      <soap:operation soapAction="http://tempuri.org/IReportService/GetListItemPropertiesForFieldList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FaultExceptionFault">
+        <soap:fault use="literal" name="FaultExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetDataSourceDisplayNameForFieldList">
+      <soap:operation soapAction="http://tempuri.org/IReportService/GetDataSourceDisplayNameForFieldList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FaultExceptionFault">
+        <soap:fault use="literal" name="FaultExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetDataSources">
+      <soap:operation soapAction="http://tempuri.org/IReportService/GetDataSources" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDataMembers">
+      <soap:operation soapAction="http://tempuri.org/IReportService/GetDataMembers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetColumns">
+      <soap:operation soapAction="http://tempuri.org/IReportService/GetColumns" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddNewReport">
+      <soap:operation soapAction="http://tempuri.org/IReportService/AddNewReport" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDataSourceDisplayName">
+      <soap:operation soapAction="http://tempuri.org/IReportService/GetDataSourceDisplayName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetItemProperties">
+      <soap:operation soapAction="http://tempuri.org/IReportService/GetItemProperties" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListItemProperties">
+      <soap:operation soapAction="http://tempuri.org/IReportService/GetListItemProperties" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReportParameters">
+      <soap:operation soapAction="http://tempuri.org/IReportService/GetReportParameters" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FaultExceptionFault">
+        <soap:fault use="literal" name="FaultExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="StartBuild">
+      <soap:operation soapAction="http://tempuri.org/IReportService/StartBuild" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FaultExceptionFault">
+        <soap:fault use="literal" name="FaultExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="StopBuild">
+      <soap:operation soapAction="http://tempuri.org/IReportService/StopBuild" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FaultExceptionFault">
+        <soap:fault use="literal" name="FaultExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetBuildStatus">
+      <soap:operation soapAction="http://tempuri.org/IReportService/GetBuildStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FaultExceptionFault">
+        <soap:fault use="literal" name="FaultExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetPage">
+      <soap:operation soapAction="http://tempuri.org/IReportService/GetPage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FaultExceptionFault">
+        <soap:fault use="literal" name="FaultExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetPages">
+      <soap:operation soapAction="http://tempuri.org/IReportService/GetPages" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FaultExceptionFault">
+        <soap:fault use="literal" name="FaultExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentData">
+      <soap:operation soapAction="http://tempuri.org/IReportService/GetDocumentData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FaultExceptionFault">
+        <soap:fault use="literal" name="FaultExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="StartPrint">
+      <soap:operation soapAction="http://tempuri.org/IReportService/StartPrint" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FaultExceptionFault">
+        <soap:fault use="literal" name="FaultExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="StopPrint">
+      <soap:operation soapAction="http://tempuri.org/IReportService/StopPrint" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FaultExceptionFault">
+        <soap:fault use="literal" name="FaultExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetPrintStatus">
+      <soap:operation soapAction="http://tempuri.org/IReportService/GetPrintStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FaultExceptionFault">
+        <soap:fault use="literal" name="FaultExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetPrintDocument">
+      <soap:operation soapAction="http://tempuri.org/IReportService/GetPrintDocument" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FaultExceptionFault">
+        <soap:fault use="literal" name="FaultExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ReportService">
+    <wsdl:port name="BasicHttpBinding_IReportService" binding="tns:BasicHttpBinding_IReportService">
+      <soap:address location="http://localhost:2038/ReportService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

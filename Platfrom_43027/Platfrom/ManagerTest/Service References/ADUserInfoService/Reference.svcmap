@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="f7da9d5e-41dc-4e6d-9792-bc5a40a7ca8e" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:26396/ADUserInfoService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="ADUserInfoService.disco" MetadataType="Disco" ID="cb6d168e-cc57-4cec-9aa3-58ac50f822ce" SourceId="1" SourceUrl="http://localhost:26396/ADUserInfoService.svc?disco" />
+    <MetadataFile FileName="ADUserInfoService.xsd" MetadataType="Schema" ID="03894e7a-56f1-4592-ae17-19121fded99f" SourceId="1" SourceUrl="http://localhost:26396/ADUserInfoService.svc?xsd=xsd4" />
+    <MetadataFile FileName="ADUserInfoService.wsdl" MetadataType="Wsdl" ID="29713bf5-c80b-44ae-8aa3-d1afa0e288d1" SourceId="1" SourceUrl="http://localhost:26396/ADUserInfoService.svc?wsdl" />
+    <MetadataFile FileName="ADUserInfoService1.xsd" MetadataType="Schema" ID="885bfc01-e9a4-4817-87fd-08f76628e7b4" SourceId="1" SourceUrl="http://localhost:26396/ADUserInfoService.svc?xsd=xsd0" />
+    <MetadataFile FileName="ADUserInfoService2.xsd" MetadataType="Schema" ID="27fb7dc3-954c-45e7-b4d8-04894b6a70f3" SourceId="1" SourceUrl="http://localhost:26396/ADUserInfoService.svc?xsd=xsd3" />
+    <MetadataFile FileName="ADUserInfoService3.xsd" MetadataType="Schema" ID="1773aab7-db89-4562-b189-c4c333ddee15" SourceId="1" SourceUrl="http://localhost:26396/ADUserInfoService.svc?xsd=xsd2" />
+    <MetadataFile FileName="ADUserInfoService4.xsd" MetadataType="Schema" ID="68378135-3e14-45c0-a629-3939aa8ec0da" SourceId="1" SourceUrl="http://localhost:26396/ADUserInfoService.svc?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

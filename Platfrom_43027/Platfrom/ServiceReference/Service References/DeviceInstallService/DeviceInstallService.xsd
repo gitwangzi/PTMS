@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Common.Data" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Common.Data" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:2258/DeviceInstallService.svc?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/Gs.PTMS.Common.Data.Enum" />
+  <xs:import schemaLocation="http://localhost:2258/DeviceInstallService.svc?xsd=xsd5" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="http://localhost:2258/DeviceInstallService.svc?xsd=xsd9" namespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Common.Data.Enum" />
+  <xs:complexType name="ArrayOfCameraInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CameraInfo" nillable="true" type="tns:CameraInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCameraInfo" nillable="true" type="tns:ArrayOfCameraInfo" />
+  <xs:complexType name="CameraInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ChannelID" nillable="true" type="xs:string" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Gs.PTMS.Common.Data.Enum" minOccurs="0" name="InstallLocation" type="q1:CameraInstallLocationEnum" />
+      <xs:element minOccurs="0" name="SuitPartID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SuitPartSn" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CameraInfo" nillable="true" type="tns:CameraInfo" />
+  <xs:complexType name="SetAlarmPara">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AlarmBeforeTime" type="xs:int" />
+      <xs:element minOccurs="0" name="AlarmEndTime" type="xs:int" />
+      <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ChannelList" nillable="true" type="q2:ArrayOfint" />
+      <xs:element minOccurs="0" name="CommandID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="InstallationDetailID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MDVRID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RelatedData" type="xs:int" />
+      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Common.Data.Enum" minOccurs="0" name="SuccessFlag" type="q3:CommandStateEnum" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SetAlarmPara" nillable="true" type="tns:SetAlarmPara" />
+  <xs:complexType name="ArrayOfInstallStatisticsView">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="InstallStatisticsView" nillable="true" type="tns:InstallStatisticsView" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfInstallStatisticsView" nillable="true" type="tns:ArrayOfInstallStatisticsView" />
+  <xs:complexType name="InstallStatisticsView">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Count" type="xs:int" />
+      <xs:element minOccurs="0" name="DeviceSn" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DeviceType" type="xs:decimal" />
+      <xs:element minOccurs="0" name="OrganizationName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OrgnizationID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StartTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Station" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StationName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Step" type="xs:decimal" />
+      <xs:element minOccurs="0" name="VehicleID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VehicleType" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="InstallStatisticsView" nillable="true" type="tns:InstallStatisticsView" />
+  <xs:complexType name="ArrayOfDeviceAlertStatistics">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DeviceAlertStatistics" nillable="true" type="tns:DeviceAlertStatistics" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDeviceAlertStatistics" nillable="true" type="tns:ArrayOfDeviceAlertStatistics" />
+  <xs:complexType name="DeviceAlertStatistics">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AlertType" type="xs:short" />
+      <xs:element minOccurs="0" name="Count" type="xs:int" />
+      <xs:element minOccurs="0" name="OrganizatioName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VehicleID" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DeviceAlertStatistics" nillable="true" type="tns:DeviceAlertStatistics" />
+</xs:schema>

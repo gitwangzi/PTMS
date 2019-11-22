@@ -1,0 +1,23 @@
+﻿<controls:ChildWindow x:Class="Gsafety.PTMS.Alert.Views.ChildSendMail"
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+           Width="400" Height="278.448" Style="{StaticResource ChildWindowStyle}"
+           Title="{Binding [ALERT_SendMail],Source={StaticResource SR}}">
+    <Grid x:Name="LayoutRoot" Margin="2">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="33"/>
+            <RowDefinition Height="32"/>
+            <RowDefinition Height="122"/>
+            <RowDefinition Height="Auto" MinHeight="59" />
+        </Grid.RowDefinitions>
+
+        <Button x:Name="CancelButton" Content="{Binding [ALERT_Cancle],Source={StaticResource SR}}" Click="CancelButton_Click" Width="100" HorizontalAlignment="Right" Margin="0,5,5,23" Grid.Row="3" Height="22" />
+        <Button x:Name="OKButton" Content="{Binding [ALERT_OK],Source={StaticResource SR}}" Click="OKButton_Click" Width="100" HorizontalAlignment="Right" Margin="0,5,125,23" Grid.Row="3" Height="22" />
+        <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="2" TextWrapping="Wrap" Text="{Binding [ALERT_SendPerson],Source={StaticResource SR}}" VerticalAlignment="Top" Width="81" Height="19" Style="{StaticResource MainPage_Main_search_TextBlockStyle}"/>
+        <TextBox x:Name="DecValue" HorizontalAlignment="Left" Height="60" Margin="91,10,0,0" Grid.Row="2" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="282"/>
+        <CheckBox x:Name="ToCompany" Click="ToCompany_Click"  Content="{Binding [ALERT_SendToCompany],Source={StaticResource SR}}" Margin="72,10,10,0" VerticalAlignment="Top" Height="17"/>
+        <CheckBox x:Name="ToEdit" Click="ToEdit_Checked"  Content="{Binding [ALERT_Edit],Source={StaticResource SR}}" HorizontalAlignment="Left" Margin="72,10,0,0" Grid.Row="1" VerticalAlignment="Top" Height="17" Width="296"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,81,0,0" Grid.Row="2" TextWrapping="Wrap" Text="{Binding [ALERT_Notice],Source={StaticResource SR}}" VerticalAlignment="Top" Width="358" Height="19" Style="{StaticResource MainPage_Main_search_TextBlockStyle}"/>
+    </Grid>
+</controls:ChildWindow>

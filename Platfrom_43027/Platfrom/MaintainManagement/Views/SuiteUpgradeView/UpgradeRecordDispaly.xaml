@@ -1,0 +1,167 @@
+﻿<UserControl x:Class="Gsafety.PTMS.Maintain.Views.UpgradeRecordDispaly"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="800" d:DesignWidth="1000">
+
+    <Grid x:Name="LayoutRoot" Background="Transparent"  Width="Auto" Height="Auto">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Border  Background="{StaticResource BlueBgStyleBrush}"  Grid.RowSpan="2">
+        </Border>
+        <Border Height="35" VerticalAlignment="Top" Grid.Row="0" Margin="0" BorderThickness="0,1,0,1" BorderBrush="{StaticResource MenuBarLine}" Background="{StaticResource NavBarBG}">
+            <Image Source="/ExternalResource;component/Images/a07b.png" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,0,0,0" Stretch="None"/>
+        </Border>
+        <TextBlock Text="{Binding [MAINTAIN_UpgradeRecord],Source={StaticResource SR}}" HorizontalAlignment="Left"   VerticalAlignment="Center" Style="{StaticResource Menu2TextBlock}" Margin="36,0,0,0"/>
+        <Image Source="/ANT;component/Images/a07b.png" HorizontalAlignment="Left" VerticalAlignment="Center" Stretch="None" Margin="10,0,0,0"/>
+
+        <Grid Grid.Row="1" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="20"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="450"/>
+                <ColumnDefinition Width="250*"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <!--安全套件-->
+            <TextBlock Grid.Column="1" Grid.Row="1"    HorizontalAlignment="Right"
+                       Text="{Binding [BASEINFO_SuiteID], Source={StaticResource SR}}" VerticalAlignment="Center" Style="{StaticResource ViewFont}"  />
+            <TextBox TabIndex="1" MaxLength="20" Grid.Column="2"  Grid.Row="1" IsReadOnly="True"  HorizontalAlignment="Left" Height="28"  
+                     Text="{Binding CurrentSuiteUpdateRecord.SuiteId}" VerticalAlignment="Center" Width="245"  />
+            
+            <!--车牌号-->
+            <TextBlock  Grid.Column="2" Grid.Row="1"  HorizontalAlignment="Right"   
+                        Text="{Binding [BASEINFO_VehicleNumber], Source={StaticResource SR}}" VerticalAlignment="Center"  Style="{StaticResource ViewFont}"  />
+            <TextBox TabIndex="2" MaxLength="20" Grid.Column="3"  Grid.Row="1" IsReadOnly="True"  HorizontalAlignment="Left" Height="28"  
+                     Text="{Binding CurrentSuiteUpdateRecord.VehicleId}" VerticalAlignment="Center" Width="245" />
+            
+            <!--MDVR芯片-->
+            <TextBlock Grid.Column="1" Grid.Row="2" HorizontalAlignment="Right"   
+                       Text="{Binding [BASEINFO_MDVR_CORE_SN], Source={StaticResource SR}}" VerticalAlignment="Center" Style="{StaticResource ViewFont}" />
+            <TextBox TabIndex="3" MaxLength="20" Grid.Column="2"  Grid.Row="2" IsReadOnly="True"  HorizontalAlignment="Left" Height="28"   
+                     Text="{Binding CurrentSuiteUpdateRecord.MdvrCoreId}" VerticalAlignment="Center" Width="245" />
+            
+            <!--操作时间-->
+            <TextBlock Grid.Column="2"  Grid.Row="6" HorizontalAlignment="Right"   
+                       Text="{Binding [MAINTAIN_OperationTime],Source={StaticResource SR}}" VerticalAlignment="Center" Style="{StaticResource ViewFont}"   />
+            <TextBox TabIndex="12" MaxLength="50" Grid.Column="3"  Grid.Row="6" IsReadOnly="True"  HorizontalAlignment="Left" Height="28"   
+                     Text="{Binding CurrentSuiteUpdateRecord.OperateTime}" VerticalAlignment="Center" Width="245" />
+
+            <!--状态-->
+            <TextBlock Grid.Column="1" Grid.Row="6" HorizontalAlignment="Right"   
+                       Text="{Binding [MAINTAIN_Status],Source={StaticResource SR}}" VerticalAlignment="Center"  Style="{StaticResource ViewFont}"   />
+            <TextBox TabIndex="11" MaxLength="50" Grid.Column="2" Grid.Row="6" IsReadOnly="True"  HorizontalAlignment="Left" Height="28"   
+                     Text="{Binding CurrentSuiteUpdateRecord.Status}" VerticalAlignment="Center" Width="245" />
+
+            <!--上一次升级时间-->
+            <TextBlock Grid.Column="1" Grid.Row="4" HorizontalAlignment="Right"   
+                       Text="{Binding [MAINTAIN_LastUpgradeTime], Source={StaticResource SR}}" VerticalAlignment="Center" Style="{StaticResource ViewFont}" />
+            <TextBox TabIndex="7" MaxLength="20" Grid.Column="2" Grid.Row="4" IsReadOnly="True"  HorizontalAlignment="Left" Height="28"   
+                     Text="{Binding CurrentSuiteUpdateRecord.OldUpdateTime}" VerticalAlignment="Center" Width="245" />
+            
+            <!--开始升级时间-->
+            <TextBlock Grid.Column="2" Grid.Row="4" HorizontalAlignment="Right"   
+                       Text="{Binding [MAINTAIN_UpgradeStartTime], Source={StaticResource SR}}" VerticalAlignment="Center" Style="{StaticResource ViewFont}" />
+            <TextBox TabIndex="8" MaxLength="20" Grid.Column="3" Grid.Row="4" IsReadOnly="True"  HorizontalAlignment="Left" Height="28"   
+                     Text="{Binding CurrentSuiteUpdateRecord.StartTime}" VerticalAlignment="Center" Width="245" />
+            
+            <!--升级结束时间-->
+            <TextBlock Grid.Column="1" Grid.Row="5" HorizontalAlignment="Right"   
+                       Text="{Binding [MAINTAIN_UpgradeEndTime], Source={StaticResource SR}}" VerticalAlignment="Center" Style="{StaticResource ViewFont}" />
+            <TextBox TabIndex="9" MaxLength="20" Grid.Column="2" Grid.Row="5" IsReadOnly="True"  HorizontalAlignment="Left" Height="28"   
+                     Text="{Binding CurrentSuiteUpdateRecord.EndTime}" VerticalAlignment="Center" Width="245" />
+            
+            <!--操作人-->
+            <TextBlock Grid.Column="2" Grid.Row="5" HorizontalAlignment="Right"   
+                       Text="{Binding [MAINTAIN_UpgradeStaff], Source={StaticResource SR}}" VerticalAlignment="Center" Style="{StaticResource ViewFont}" />
+            <TextBox TabIndex="10" MaxLength="50" Grid.Column="3" Grid.Row="5" IsReadOnly="True"  HorizontalAlignment="Left" Height="28"   
+                     Text="{Binding CurrentSuiteUpdateRecord.Operator}" VerticalAlignment="Center" Width="245" />
+
+            <!--升级前版本号-->
+            <TextBlock Grid.Column="1" Grid.Row="3"  HorizontalAlignment="Right"   
+                       Text="{Binding [MAINTAIN_UpgradeBeforeVersion],Source={StaticResource SR}}" VerticalAlignment="Center" Style="{StaticResource ViewFont}" />
+            <TextBox TabIndex="5" MaxLength="20" Grid.Column="2" Grid.Row="3" IsReadOnly="True"  HorizontalAlignment="Left" Height="28"   
+                     Text="{Binding CurrentSuiteUpdateRecord.OldVersion}" VerticalAlignment="Center" Width="245"  />
+
+            <!--升级结果-->
+            <TextBlock Grid.Column="2" Grid.Row="2"  HorizontalAlignment="Right"   
+                       Text="{Binding [MAINTAIN_UpgradeResult], Source={StaticResource SR}}" VerticalAlignment="Center" Style="{StaticResource ViewFont}" />
+            <TextBox TabIndex="4" MaxLength="50" Grid.Column="3" Grid.Row="2" IsReadOnly="True"  HorizontalAlignment="Left" Height="28"   
+                     Text="{Binding CurrentSuiteUpdateRecord.Result}" Width="245" VerticalAlignment="Center" />
+
+            <!--升级后版本号-->
+            <TextBlock Grid.Column="2" Grid.Row="3"  HorizontalAlignment="Right"   
+                       Text="{Binding [MAINTAIN_UpgradeAfterVersion],Source={StaticResource SR}}" VerticalAlignment="Center" Style="{StaticResource ViewFont}" />
+            <TextBox TabIndex="6" MaxLength="20" Grid.Column="3" Grid.Row="3" IsReadOnly="True"  HorizontalAlignment="Left" Height="28"   
+                     Text="{Binding CurrentSuiteUpdateRecord.NewVersion}" Width="245" VerticalAlignment="Center" />
+
+            <!--经度-->
+            <TextBlock Grid.Column="1" Grid.Row="7" HorizontalAlignment="Right"   
+                       Text="{Binding [GIS_Lon],Source={StaticResource SR}}" VerticalAlignment="Center"  Style="{StaticResource ViewFont}"   />
+            <TextBox TabIndex="13" MaxLength="100" Grid.Column="2" Grid.Row="7" IsReadOnly="True"  HorizontalAlignment="Left" Height="28"   
+                     Text="{Binding CurrentSuiteUpdateRecord.Longitude}" VerticalAlignment="Center" Width="245" />
+            
+            <!--速度-->
+            <TextBlock Grid.Column="1" Grid.Row="8" HorizontalAlignment="Right"   
+                       Text="{Binding [GIS_Speed],Source={StaticResource SR}}" VerticalAlignment="Center"  Style="{StaticResource ViewFont}"   />
+            <TextBox TabIndex="15" MaxLength="100" Grid.Column="2" Grid.Row="8" IsReadOnly="True"  HorizontalAlignment="Left" Height="28"   
+                     Text="{Binding CurrentSuiteUpdateRecord.Latituadt}" VerticalAlignment="Center" Width="245" />
+            
+            <!--方向-->
+            <TextBlock Grid.Column="2" Grid.Row="8" HorizontalAlignment="Right"   
+                       Text="{Binding [GIS_Dir],Source={StaticResource SR}}" VerticalAlignment="Center"  Style="{StaticResource ViewFont}"  />
+            <TextBox TabIndex="16" MaxLength="100" Grid.Column="3" Grid.Row="8" IsReadOnly="True"  HorizontalAlignment="Left" Height="28"   
+                     Text="{Binding CurrentSuiteUpdateRecord.Direction}" VerticalAlignment="Center" Width="245" />
+
+            <!--GPS时间-->
+            <TextBlock Grid.Column="1" Grid.Row="9" HorizontalAlignment="Right"   
+                       Text="{Binding [GIS_GpsTime],Source={StaticResource SR}}" VerticalAlignment="Center"  Style="{StaticResource ViewFont}" />
+            <TextBox TabIndex="17" MaxLength="100" Grid.Column="2" Grid.Row="9" IsReadOnly="True"  HorizontalAlignment="Left" Height="28"    
+                     Text="{Binding CurrentSuiteUpdateRecord.GPS_Time}" VerticalAlignment="Center" Width="245" />
+            
+            <!--GPS是否有效-->
+            <TextBlock Grid.Column="2" Grid.Row="9" HorizontalAlignment="Right"   
+                       Text="{Binding [MAINTAIN_IsGpsValid],Source={StaticResource SR}}" VerticalAlignment="Center"  Style="{StaticResource ViewFont}"  />
+            <TextBox TabIndex="18" MaxLength="100" Grid.Column="3" Grid.Row="9" IsReadOnly="True"  HorizontalAlignment="Left" Height="28"   
+                     Text="{Binding CurrentSuiteUpdateRecord.GPS_Valid}" VerticalAlignment="Center" Width="245" />
+
+            <!--纬度-->
+            <TextBlock Grid.Column="2" Grid.Row="7" HorizontalAlignment="Right"   
+            	    Text="{Binding [GIS_Lat],Source={StaticResource SR}}" VerticalAlignment="Center"  Style="{StaticResource ViewFont}" />
+            <TextBox TabIndex="14" MaxLength="100" Grid.Column="3" Grid.Row="7" IsReadOnly="True"  HorizontalAlignment="Left" Height="28"  
+            	    Text="{Binding CurrentSuiteUpdateRecord.Latituadt}" VerticalAlignment="Center" Width="245"  />
+
+            <StackPanel Grid.Column="0" Grid.ColumnSpan="4" Grid.Row="10" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Horizontal" >
+                <!--<Button TabIndex="26"  Command="{Binding CommitCommand}"  Tag="{Binding [Finish], Source={StaticResource SR}}" HorizontalAlignment="Left" Margin="5,0,0,0"  VerticalAlignment="Center" MinWidth="100">
+                    <Image Source="/ExternalResource;component/Images/ok.png" Stretch="None"/>
+                </Button>
+                <Button TabIndex="27"  Command="{Binding ResetCommand}"  Tag="{Binding [Reset], Source={StaticResource SR}}" HorizontalAlignment="Left" Margin="5,0,0,0" VerticalAlignment="Center" MinWidth="100">
+                    <Image Source="/ExternalResource;component/Images/reset.png" Stretch="None"/>
+                </Button>-->
+                <Button TabIndex="28" Command="{Binding CommitCommand}" Tag="{Binding [Return], Source={StaticResource SR}}" HorizontalAlignment="Left" Margin="5,0,0,0" VerticalAlignment="Center" MinWidth="100">
+                    <Image Source="/ExternalResource;component/Images/return.png" Stretch="None"/>
+                </Button>
+            </StackPanel>
+
+        </Grid>
+    </Grid>
+</UserControl>

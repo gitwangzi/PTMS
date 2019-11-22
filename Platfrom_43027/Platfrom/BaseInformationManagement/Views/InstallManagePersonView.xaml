@@ -1,0 +1,264 @@
+﻿<UserControl x:Class="Gsafety.Ant.BaseInformation.Views.InstallManagePersonView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
+    mc:Ignorable="d"
+    d:DesignHeight="700" d:DesignWidth="800">
+
+    <Grid x:Name="LayoutRoot" Style="{StaticResource ContentGridWhiteStyle}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="1"/>
+        </Grid.RowDefinitions>
+
+        <Grid  Style="{StaticResource ViewFirstTitleWhiteGridStyle}"
+              Height="35"
+              Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <!--<Image Grid.Column="0" Stretch="Uniform"
+                   Margin="5,5,5,5"
+                   Width="20"
+                   Source="/ExternalResource;component/Images/ReportDocument.png"/>-->
+
+            <Image Grid.Column="0"
+                   Style="{StaticResource TitleImageStyle}"/>
+
+            <TextBlock Text="安装人员管理" 
+                       Grid.Column="1"
+                       Style="{StaticResource SecondTitleTextBlockStyle}"/>
+
+
+        </Grid>
+
+        <Grid Grid.Row="1"   Style="{StaticResource SearchContentGridStyle}" Height="60">
+            <Grid.ColumnDefinitions>
+
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+
+
+            <TextBlock Text="组织机构" HorizontalAlignment="Right"
+                       VerticalAlignment="Center"
+                       Margin="5,5,5,5"
+                       Grid.Column="0"/>
+            <ComboBox Grid.Column="1"  Style="{StaticResource lightComboBox}"
+                      Height="25"  Name="comboStatus"/>
+
+            <TextBlock Text="安装维修人员" HorizontalAlignment="Right"
+                       VerticalAlignment="Center"
+                       Margin="5,5,5,5"
+                       Grid.Column="2"/>
+            <TextBox Height="25"
+                     Margin="0,5,0,5"
+                     Grid.Column="3"
+                     HorizontalAlignment="Stretch"
+                     VerticalAlignment="Center"/>
+            <!--<Button Grid.Column="4"
+                    Height="30"
+                    Width="30"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Left"
+                    Margin="10,5,0,5"
+                    Template="{StaticResource SearchButtonStyle}"/>-->
+            <Button Grid.Column="4"
+                    Style="{StaticResource SearchButtonCommonStyle}"
+                    ToolTipService.ToolTip="{Binding [Search], Source={StaticResource SR}}"/>
+
+        </Grid>
+
+        <Grid Grid.Row="2"  Style="{StaticResource ViewFirstTitleWhiteGridStyle}"
+              Height="35">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="20"/>
+            </Grid.ColumnDefinitions>
+
+            <!--<Button Width="20"
+                    Height="20"
+                    Margin="10,5,5,5"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Center"
+                    Grid.Column="2"
+                    Template="{StaticResource ExportButtonStyle}"
+                    ToolTipService.ToolTip="导出"/>
+            
+            <Button Width="20"
+                    Height="20"
+                    Margin="10,5,5,5"
+                    Grid.Column="1"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Center"
+                    Template="{StaticResource AddButtonStyle}"
+                    ToolTipService.ToolTip="添加"/>-->
+
+            <Image Grid.Column="0" Style="{StaticResource TitleImageStyle}"/>
+
+            <TextBlock Text="人员列表" 
+                       Grid.Column="1"
+                       Style="{StaticResource SecondTitleTextBlockStyle}"/>
+            
+            <Button Grid.Column="2"
+                    ToolTipService.ToolTip="添加"
+                    Style="{StaticResource AddButtonCommonStyle}"/>
+
+            <Button Grid.Column="3"
+                    ToolTipService.ToolTip="导出"
+                    Style="{StaticResource ExpertButtonCommonStyle}"/>
+
+
+        </Grid>
+
+        <sdk:DataGrid  Grid.Row="3"
+                       x:Name="ListDataGrid"
+                      Style="{StaticResource DataGridWhiteStyleRxx}">
+            <sdk:DataGrid.Columns>
+
+                <sdk:DataGridTextColumn  HeaderStyle="{StaticResource ColumnHeaderWhiteStyle}"
+                                        Header="安装维修人员"
+                                        Visibility="Visible" 
+                                        Width="1.5*"
+                                        Binding="{Binding Name}">
+
+                </sdk:DataGridTextColumn>
+
+                <sdk:DataGridTextColumn  HeaderStyle="{StaticResource ColumnHeaderWhiteStyle}"
+                                        Header="身份证"
+                                        Visibility="Visible" 
+                                        Width="1.5*"
+                                        Binding="{Binding Id}">
+
+                </sdk:DataGridTextColumn>
+
+
+                <sdk:DataGridTextColumn  Header="级别" HeaderStyle="{StaticResource ColumnHeaderWhiteStyle}"
+                                        Visibility="Visible"
+                                        Width="1.5*"
+                                        Binding="{Binding Level}"/>
+
+                <sdk:DataGridTextColumn  Header="类型" HeaderStyle="{StaticResource ColumnHeaderWhiteStyle}"
+                                        Visibility="Visible"
+                                        Width="1.5*"
+                                        Binding="{Binding Type}"/>
+
+                <sdk:DataGridTextColumn  Header="联系电话" HeaderStyle="{StaticResource ColumnHeaderWhiteStyle}"
+                                        Visibility="Visible"
+                                        Width="1.5*"
+                                        Binding="{Binding ContactPhone}"/>
+
+                <sdk:DataGridTextColumn  Header="电子邮件" HeaderStyle="{StaticResource ColumnHeaderWhiteStyle}"
+                                        Visibility="Visible"
+                                        Width="1.5*"
+                                        Binding="{Binding Email}"/>
+
+
+                <sdk:DataGridTemplateColumn Header="Common_Operate" 
+                                            Width="0.5*"
+                                            MinWidth="80" HeaderStyle="{StaticResource ColumnHeaderWhiteStyle}">
+                    <sdk:DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Button Template="{StaticResource EditButtonStyle}"
+                                        HorizontalAlignment="Stretch"
+                                        VerticalAlignment="Center"
+                                        ToolTipService.ToolTip="编辑"
+                                        Margin="0,2,2,2"
+                                        Height="20"
+                                        Width="20"
+                                        Grid.Column="1"/>
+
+                                <Button Template="{StaticResource DetailButtonStyle}"
+                                        HorizontalAlignment="Stretch"
+                                        VerticalAlignment="Center"
+                                        ToolTipService.ToolTip="查看详情"
+                                        Margin="0,2,2,2"
+                                        Grid.Column="2"
+                                        Height="20"
+                                        Width="20"/>
+
+                                <Button Template="{StaticResource DeleteButtonStyle}"
+                                        HorizontalAlignment="Stretch"
+                                        VerticalAlignment="Center"
+                                        ToolTipService.ToolTip="删除"
+                                        Margin="0,2,2,2"
+                                        Grid.Column="3"
+                                        Height="20"
+                                        Width="20"/>
+
+                            </Grid>
+
+                        </DataTemplate>
+                    </sdk:DataGridTemplateColumn.CellTemplate>
+                </sdk:DataGridTemplateColumn>
+            </sdk:DataGrid.Columns>
+
+        </sdk:DataGrid>
+
+        <Border Grid.Row="4" BorderThickness="0.5" Height="35">
+
+            <Grid  Style="{StaticResource SearchContentGridStyle}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock HorizontalAlignment="Right" Margin="0,0,5,0"   
+                           Text="{Binding [PageSize], Source={StaticResource SR}}" 
+                           VerticalAlignment="Center" 
+                           Grid.Column="0"/>
+
+                <ComboBox SelectedItem="{Binding PageSizeValue,Mode=TwoWay}"  Style="{StaticResource lightComboBox}"   
+                          ItemsSource="{Binding PageSizeList}" HorizontalAlignment="Right" 
+                          Height="20"  VerticalAlignment="Center" Width="50" Background="{Binding ElementName=ListDataGrid, Path=Background}"
+                          Grid.Column="1"/>
+
+                <TextBlock Grid.Column="2"
+                    Text="{Binding [Total],Source={StaticResource SR}}"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Center"
+                    Margin="5,0,5,0"/>
+                <TextBlock Text="{Binding Data.ItemCount}" Grid.Column="3"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Margin="5,0,5,0"/>
+                <sdk:DataPager Style="{StaticResource DataPagerStyle}"   
+                    Grid.Column="4"
+                    x:Name="DataPager"
+                       Source="{Binding Data}"
+                       Height="25"
+                       Background="{Binding ElementName=ListDataGrid, Path=Background}"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Center"
+                       PageSize="30"/>
+            </Grid>
+        </Border>    
+    </Grid>
+</UserControl>

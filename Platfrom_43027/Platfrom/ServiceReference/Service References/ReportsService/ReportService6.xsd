@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/DevExpress.Data.XtraReports.DataProviders" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/DevExpress.Data.XtraReports.DataProviders" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:2038/ReportService.svc?xsd=xsd12" namespace="http://schemas.datacontract.org/2004/07/DevExpress.Data.Browsing.Design" />
+  <xs:complexType name="ArrayOfDataSourceInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DataSourceInfo" nillable="true" type="tns:DataSourceInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDataSourceInfo" nillable="true" type="tns:ArrayOfDataSourceInfo" />
+  <xs:complexType name="DataSourceInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityInfoOfstring">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="TablesOrViewsSupported" type="xs:boolean" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DataSourceInfo" nillable="true" type="tns:DataSourceInfo" />
+  <xs:complexType name="EntityInfoOfstring">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="EntityInfoOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/DevExpress.Data.XtraReports.DataProviders" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="string" Namespace="http://www.w3.org/2001/XMLSchema" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DisplayName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EntityInfoOfstring" nillable="true" type="tns:EntityInfoOfstring" />
+  <xs:complexType name="ArrayOfTableInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TableInfo" nillable="true" type="tns:TableInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTableInfo" nillable="true" type="tns:ArrayOfTableInfo" />
+  <xs:complexType name="TableInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityInfoOfstring">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="DataMemberType" type="tns:DataMemberType" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="TableInfo" nillable="true" type="tns:TableInfo" />
+  <xs:simpleType name="DataMemberType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Table" />
+      <xs:enumeration value="View" />
+      <xs:enumeration value="StoredProcedure" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="DataMemberType" nillable="true" type="tns:DataMemberType" />
+  <xs:complexType name="ArrayOfColumnInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ColumnInfo" nillable="true" type="tns:ColumnInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfColumnInfo" nillable="true" type="tns:ArrayOfColumnInfo" />
+  <xs:complexType name="ColumnInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityInfoOfstring">
+        <xs:sequence>
+          <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/DevExpress.Data.Browsing.Design" minOccurs="0" name="TypeSpecifics" type="q1:TypeSpecifics" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ColumnInfo" nillable="true" type="tns:ColumnInfo" />
+</xs:schema>

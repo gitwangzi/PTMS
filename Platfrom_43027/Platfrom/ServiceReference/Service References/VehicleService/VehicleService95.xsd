@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Common.Data" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Common.Data" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:2259/VehicleService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Common.Enum" />
+  <xs:import schemaLocation="http://localhost:2259/VehicleService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Common.Data.Enum" />
+  <xs:complexType name="Vehicle">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BrandModel" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CityCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CityName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ClientId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Contact" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ContactAddress" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ContactEmail" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ContactPhone" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CreateTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Creator" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DeleteFlag" type="xs:boolean" />
+      <xs:element minOccurs="0" name="DistrictCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EngineId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ficha" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GPSOnline" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="GPS_SN" nillable="true" type="xs:string" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Common.Enum" minOccurs="0" name="InstallStatus" type="q1:InstallStatusType" />
+      <xs:element minOccurs="0" name="IsBinding" type="xs:boolean" />
+      <xs:element minOccurs="0" name="MDVROnline" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="MDVR_SN" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MobileOnline" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Mobile_SN" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Note" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OperationLicense" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OrgnizationId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OrgnizationName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Owner" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ProductDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ProvinceCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ProvinceName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Region" nillable="true" type="xs:string" />
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Common.Data.Enum" minOccurs="0" name="ServiceType" type="q2:VehicleSeviceType" />
+      <xs:element minOccurs="0" name="StartYear" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UpdateFlag" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Valid" type="xs:decimal" />
+      <xs:element minOccurs="0" name="VehicleId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VehicleSn" nillable="true" type="xs:string" />
+      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Common.Data.Enum" minOccurs="0" name="VehicleStatus" type="q3:VehicleConditionType" />
+      <xs:element minOccurs="0" name="VehicleType" nillable="true" type="tns:VehicleType" />
+      <xs:element minOccurs="0" name="VehicleTypeDescribe" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VehicleTypeImage" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Vehicle" nillable="true" type="tns:Vehicle" />
+  <xs:complexType name="VehicleType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ClientID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CreateTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Creator" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Image" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Row" type="xs:int" />
+      <xs:element minOccurs="0" name="Valid" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="VehicleType" nillable="true" type="tns:VehicleType" />
+  <xs:complexType name="VehicleCheckResultExt">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:VehicleCheckResult">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="BusinessType" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ContactPhone" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EngineId" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OperationLicense" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OrganizationID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OrgnizationName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Owner" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="VehicleSn" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="VehicleCheckResultExt" nillable="true" type="tns:VehicleCheckResultExt" />
+  <xs:complexType name="VehicleCheckResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="InvalidCode" type="xs:int" />
+      <xs:element minOccurs="0" name="Result" type="xs:int" />
+      <xs:element minOccurs="0" name="Status" type="xs:int" />
+      <xs:element minOccurs="0" name="Type" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="VehicleCheckResult" nillable="true" type="tns:VehicleCheckResult" />
+  <xs:complexType name="ArrayOfVehicle">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Vehicle" nillable="true" type="tns:Vehicle" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfVehicle" nillable="true" type="tns:ArrayOfVehicle" />
+  <xs:complexType name="ArrayOfVehicleTypeColor">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="VehicleTypeColor" nillable="true" type="tns:VehicleTypeColor" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfVehicleTypeColor" nillable="true" type="tns:ArrayOfVehicleTypeColor" />
+  <xs:complexType name="VehicleTypeColor">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Color" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MaxSpeed" type="xs:int" />
+      <xs:element minOccurs="0" name="MinSpeed" type="xs:int" />
+      <xs:element minOccurs="0" name="TypeID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TypeName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="VehicleTypeColor" nillable="true" type="tns:VehicleTypeColor" />
+  <xs:complexType name="ArrayOfVehicleType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="VehicleType" nillable="true" type="tns:VehicleType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfVehicleType" nillable="true" type="tns:ArrayOfVehicleType" />
+</xs:schema>

@@ -1,0 +1,1127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="TrafficManageService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:2258/TrafficManageService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:2258/TrafficManageService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:2258/TrafficManageService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Common.Data" />
+      <xsd:import schemaLocation="http://localhost:2258/TrafficManageService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" />
+      <xsd:import schemaLocation="http://localhost:2258/TrafficManageService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/System" />
+      <xsd:import schemaLocation="http://localhost:2258/TrafficManageService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Traffic.Contract.Data" />
+      <xsd:import schemaLocation="http://localhost:2258/TrafficManageService.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Traffic.Contract" />
+      <xsd:import schemaLocation="http://localhost:2258/TrafficManageService.svc?xsd=xsd7" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ITrafficManageService_InsertTrafficFence_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertTrafficFence" />
+  </wsdl:message>
+  <wsdl:message name="ITrafficManageService_InsertTrafficFence_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertTrafficFenceResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITrafficManageService_UpdateTrafficFence_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateTrafficFence" />
+  </wsdl:message>
+  <wsdl:message name="ITrafficManageService_UpdateTrafficFence_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateTrafficFenceResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITrafficManageService_DeleteTrafficFenceByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteTrafficFenceByID" />
+  </wsdl:message>
+  <wsdl:message name="ITrafficManageService_DeleteTrafficFenceByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteTrafficFenceByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITrafficManageService_GetTrafficFence_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTrafficFence" />
+  </wsdl:message>
+  <wsdl:message name="ITrafficManageService_GetTrafficFence_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTrafficFenceResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITrafficManageService_IsTrafficExists_InputMessage">
+    <wsdl:part name="parameters" element="tns:IsTrafficExists" />
+  </wsdl:message>
+  <wsdl:message name="ITrafficManageService_IsTrafficExists_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IsTrafficExistsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITrafficManageService_GetDeliveredTrafficFenceListByVehicleID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDeliveredTrafficFenceListByVehicleID" />
+  </wsdl:message>
+  <wsdl:message name="ITrafficManageService_GetDeliveredTrafficFenceListByVehicleID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDeliveredTrafficFenceListByVehicleIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITrafficManageService_GetTrafficFenceListOnVehicleByVehicleID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTrafficFenceListOnVehicleByVehicleID" />
+  </wsdl:message>
+  <wsdl:message name="ITrafficManageService_GetTrafficFenceListOnVehicleByVehicleID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTrafficFenceListOnVehicleByVehicleIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITrafficManageService_GetTrafficFenceListByVehicleIDAndFenceName_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTrafficFenceListByVehicleIDAndFenceName" />
+  </wsdl:message>
+  <wsdl:message name="ITrafficManageService_GetTrafficFenceListByVehicleIDAndFenceName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTrafficFenceListByVehicleIDAndFenceNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITrafficManageService_InsertFenceQueue_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertFenceQueue" />
+  </wsdl:message>
+  <wsdl:message name="ITrafficManageService_InsertFenceQueue_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertFenceQueueResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITrafficManageService_DeleteFenceQueueByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteFenceQueueByID" />
+  </wsdl:message>
+  <wsdl:message name="ITrafficManageService_DeleteFenceQueueByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteFenceQueueByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITrafficManageService_ObsoleteFence_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObsoleteFence" />
+  </wsdl:message>
+  <wsdl:message name="ITrafficManageService_ObsoleteFence_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObsoleteFenceResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITrafficManageService_IsFenceDelivered_InputMessage">
+    <wsdl:part name="parameters" element="tns:IsFenceDelivered" />
+  </wsdl:message>
+  <wsdl:message name="ITrafficManageService_IsFenceDelivered_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IsFenceDeliveredResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITrafficManageService_GetAllFenceQueueListByFenceID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllFenceQueueListByFenceID" />
+  </wsdl:message>
+  <wsdl:message name="ITrafficManageService_GetAllFenceQueueListByFenceID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllFenceQueueListByFenceIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITrafficManageService_GetFenceQueueListByFenceID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFenceQueueListByFenceID" />
+  </wsdl:message>
+  <wsdl:message name="ITrafficManageService_GetFenceQueueListByFenceID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFenceQueueListByFenceIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITrafficManageService_DeliverFenceQueueToVehicle_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeliverFenceQueueToVehicle" />
+  </wsdl:message>
+  <wsdl:message name="ITrafficManageService_DeliverFenceQueueToVehicle_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeliverFenceQueueToVehicleResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITrafficManageService_InsertTrafficRoute_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertTrafficRoute" />
+  </wsdl:message>
+  <wsdl:message name="ITrafficManageService_InsertTrafficRoute_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertTrafficRouteResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITrafficManageService_UpdateTrafficRoute_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateTrafficRoute" />
+  </wsdl:message>
+  <wsdl:message name="ITrafficManageService_UpdateTrafficRoute_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateTrafficRouteResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITrafficManageService_DeleteTrafficRouteByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteTrafficRouteByID" />
+  </wsdl:message>
+  <wsdl:message name="ITrafficManageService_DeleteTrafficRouteByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteTrafficRouteByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITrafficManageService_GetTrafficRoute_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTrafficRoute" />
+  </wsdl:message>
+  <wsdl:message name="ITrafficManageService_GetTrafficRoute_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTrafficRouteResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITrafficManageService_IsRouteExists_InputMessage">
+    <wsdl:part name="parameters" element="tns:IsRouteExists" />
+  </wsdl:message>
+  <wsdl:message name="ITrafficManageService_IsRouteExists_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IsRouteExistsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITrafficManageService_GetTrafficRouteListByVehicleIDAndRouteName_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTrafficRouteListByVehicleIDAndRouteName" />
+  </wsdl:message>
+  <wsdl:message name="ITrafficManageService_GetTrafficRouteListByVehicleIDAndRouteName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTrafficRouteListByVehicleIDAndRouteNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITrafficManageService_ObsoleteTrafficeRoute_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObsoleteTrafficeRoute" />
+  </wsdl:message>
+  <wsdl:message name="ITrafficManageService_ObsoleteTrafficeRoute_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObsoleteTrafficeRouteResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITrafficManageService_IsRouteDelivered_InputMessage">
+    <wsdl:part name="parameters" element="tns:IsRouteDelivered" />
+  </wsdl:message>
+  <wsdl:message name="ITrafficManageService_IsRouteDelivered_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IsRouteDeliveredResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITrafficManageService_GetDeliveredTrafficRouteListByVehicleID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDeliveredTrafficRouteListByVehicleID" />
+  </wsdl:message>
+  <wsdl:message name="ITrafficManageService_GetDeliveredTrafficRouteListByVehicleID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDeliveredTrafficRouteListByVehicleIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITrafficManageService_InsertRouteQueue_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertRouteQueue" />
+  </wsdl:message>
+  <wsdl:message name="ITrafficManageService_InsertRouteQueue_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertRouteQueueResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITrafficManageService_DeleteRouteQueueByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteRouteQueueByID" />
+  </wsdl:message>
+  <wsdl:message name="ITrafficManageService_DeleteRouteQueueByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteRouteQueueByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITrafficManageService_GetRouteQueueByRouteID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRouteQueueByRouteID" />
+  </wsdl:message>
+  <wsdl:message name="ITrafficManageService_GetRouteQueueByRouteID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRouteQueueByRouteIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITrafficManageService_GetAllRouteQueueByRouteID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllRouteQueueByRouteID" />
+  </wsdl:message>
+  <wsdl:message name="ITrafficManageService_GetAllRouteQueueByRouteID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllRouteQueueByRouteIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITrafficManageService_DeliverRouteQueueToVehicle_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeliverRouteQueueToVehicle" />
+  </wsdl:message>
+  <wsdl:message name="ITrafficManageService_DeliverRouteQueueToVehicle_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeliverRouteQueueToVehicleResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITrafficManageService_GetTrafficRouteListOnVehicleByVehicleID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTrafficRouteListOnVehicleByVehicleID" />
+  </wsdl:message>
+  <wsdl:message name="ITrafficManageService_GetTrafficRouteListOnVehicleByVehicleID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTrafficRouteListOnVehicleByVehicleIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITrafficManageService_CheckFenceNameExist_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckFenceNameExist" />
+  </wsdl:message>
+  <wsdl:message name="ITrafficManageService_CheckFenceNameExist_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckFenceNameExistResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITrafficManageService_GetFenceByNameKeyAndVehcleID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFenceByNameKeyAndVehcleID" />
+  </wsdl:message>
+  <wsdl:message name="ITrafficManageService_GetFenceByNameKeyAndVehcleID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFenceByNameKeyAndVehcleIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITrafficManageService_GetAllLFence_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllLFence" />
+  </wsdl:message>
+  <wsdl:message name="ITrafficManageService_GetAllLFence_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllLFenceResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITrafficManageService_AddCarFence_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddCarFence" />
+  </wsdl:message>
+  <wsdl:message name="ITrafficManageService_AddCarFence_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddCarFenceResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITrafficManageService_AddCarFenceList_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddCarFenceList" />
+  </wsdl:message>
+  <wsdl:message name="ITrafficManageService_AddCarFenceList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddCarFenceListResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITrafficManageService_AddCarFenceListForSelectModel_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddCarFenceListForSelectModel" />
+  </wsdl:message>
+  <wsdl:message name="ITrafficManageService_AddCarFenceListForSelectModel_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddCarFenceListForSelectModelResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITrafficManageService_DeleteCarFenceByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteCarFenceByID" />
+  </wsdl:message>
+  <wsdl:message name="ITrafficManageService_DeleteCarFenceByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteCarFenceByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITrafficManageService_DeleteCarFenceByFenceID_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteCarFenceByFenceID" />
+  </wsdl:message>
+  <wsdl:message name="ITrafficManageService_DeleteCarFenceByFenceID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteCarFenceByFenceIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITrafficManageService_DeleteCarFenceList_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteCarFenceList" />
+  </wsdl:message>
+  <wsdl:message name="ITrafficManageService_DeleteCarFenceList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteCarFenceListResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITrafficManageService_GetVehicleByFence_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetVehicleByFence" />
+  </wsdl:message>
+  <wsdl:message name="ITrafficManageService_GetVehicleByFence_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetVehicleByFenceResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITrafficManageService_GetVehicleFenceByFence_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetVehicleFenceByFence" />
+  </wsdl:message>
+  <wsdl:message name="ITrafficManageService_GetVehicleFenceByFence_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetVehicleFenceByFenceResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITrafficManageService_GetValidFenceIDByCarID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetValidFenceIDByCarID" />
+  </wsdl:message>
+  <wsdl:message name="ITrafficManageService_GetValidFenceIDByCarID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetValidFenceIDByCarIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITrafficManageService_UpdateFenceVehicleState_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateFenceVehicleState" />
+  </wsdl:message>
+  <wsdl:message name="ITrafficManageService_UpdateFenceVehicleState_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateFenceVehicleStateResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITrafficManageService_UpdateFenceVehicleListState_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateFenceVehicleListState" />
+  </wsdl:message>
+  <wsdl:message name="ITrafficManageService_UpdateFenceVehicleListState_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateFenceVehicleListStateResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITrafficManageService_GetVehicleFenceFailedReason_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetVehicleFenceFailedReason" />
+  </wsdl:message>
+  <wsdl:message name="ITrafficManageService_GetVehicleFenceFailedReason_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetVehicleFenceFailedReasonResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITrafficManageService_DeleteSpeedLimit_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteSpeedLimit" />
+  </wsdl:message>
+  <wsdl:message name="ITrafficManageService_DeleteSpeedLimit_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteSpeedLimitResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITrafficManageService_CheckSpeedLimitidNameExist_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckSpeedLimitidNameExist" />
+  </wsdl:message>
+  <wsdl:message name="ITrafficManageService_CheckSpeedLimitidNameExist_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckSpeedLimitidNameExistResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITrafficManageService_GetSpeedLimitByNameKeyAndVeicleID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSpeedLimitByNameKeyAndVeicleID" />
+  </wsdl:message>
+  <wsdl:message name="ITrafficManageService_GetSpeedLimitByNameKeyAndVeicleID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSpeedLimitByNameKeyAndVeicleIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITrafficManageService_DeleteVehicleToRule_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteVehicleToRule" />
+  </wsdl:message>
+  <wsdl:message name="ITrafficManageService_DeleteVehicleToRule_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteVehicleToRuleResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITrafficManageService_GetSpeedLimitByNameKey_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSpeedLimitByNameKey" />
+  </wsdl:message>
+  <wsdl:message name="ITrafficManageService_GetSpeedLimitByNameKey_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSpeedLimitByNameKeyResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITrafficManageService_SpeedToVehicleFialState_InputMessage">
+    <wsdl:part name="parameters" element="tns:SpeedToVehicleFialState" />
+  </wsdl:message>
+  <wsdl:message name="ITrafficManageService_SpeedToVehicleFialState_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SpeedToVehicleFialStateResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITrafficManageService_CheckSpeedLimitNameExist_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckSpeedLimitNameExist" />
+  </wsdl:message>
+  <wsdl:message name="ITrafficManageService_CheckSpeedLimitNameExist_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckSpeedLimitNameExistResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITrafficManageService_AddSpeedLimit_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddSpeedLimit" />
+  </wsdl:message>
+  <wsdl:message name="ITrafficManageService_AddSpeedLimit_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddSpeedLimitResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITrafficManageService_DeleteCarSpeedByCarSpeed_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteCarSpeedByCarSpeed" />
+  </wsdl:message>
+  <wsdl:message name="ITrafficManageService_DeleteCarSpeedByCarSpeed_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteCarSpeedByCarSpeedResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITrafficManageService_DeleteVehicleSpeedList_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteVehicleSpeedList" />
+  </wsdl:message>
+  <wsdl:message name="ITrafficManageService_DeleteVehicleSpeedList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteVehicleSpeedListResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITrafficManageService_UpdateSpeedLimite_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateSpeedLimite" />
+  </wsdl:message>
+  <wsdl:message name="ITrafficManageService_UpdateSpeedLimite_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateSpeedLimiteResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITrafficManageService_UpdateVehicleSpeedStateBySpeedIDAndCarNum_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateVehicleSpeedStateBySpeedIDAndCarNum" />
+  </wsdl:message>
+  <wsdl:message name="ITrafficManageService_UpdateVehicleSpeedStateBySpeedIDAndCarNum_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateVehicleSpeedStateBySpeedIDAndCarNumResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITrafficManageService_GetVehicleBySpeedId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetVehicleBySpeedId" />
+  </wsdl:message>
+  <wsdl:message name="ITrafficManageService_GetVehicleBySpeedId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetVehicleBySpeedIdResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ITrafficManageService">
+    <wsdl:operation name="InsertTrafficFence">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITrafficFence/InsertTrafficFence" message="tns:ITrafficManageService_InsertTrafficFence_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITrafficFence/InsertTrafficFenceResponse" message="tns:ITrafficManageService_InsertTrafficFence_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTrafficFence">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITrafficFence/UpdateTrafficFence" message="tns:ITrafficManageService_UpdateTrafficFence_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITrafficFence/UpdateTrafficFenceResponse" message="tns:ITrafficManageService_UpdateTrafficFence_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTrafficFenceByID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITrafficFence/DeleteTrafficFenceByID" message="tns:ITrafficManageService_DeleteTrafficFenceByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITrafficFence/DeleteTrafficFenceByIDResponse" message="tns:ITrafficManageService_DeleteTrafficFenceByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTrafficFence">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITrafficFence/GetTrafficFence" message="tns:ITrafficManageService_GetTrafficFence_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITrafficFence/GetTrafficFenceResponse" message="tns:ITrafficManageService_GetTrafficFence_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IsTrafficExists">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITrafficFence/IsTrafficExists" message="tns:ITrafficManageService_IsTrafficExists_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITrafficFence/IsTrafficExistsResponse" message="tns:ITrafficManageService_IsTrafficExists_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDeliveredTrafficFenceListByVehicleID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITrafficFence/GetDeliveredTrafficFenceListByVehicleID" message="tns:ITrafficManageService_GetDeliveredTrafficFenceListByVehicleID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITrafficFence/GetDeliveredTrafficFenceListByVehicleIDResponse" message="tns:ITrafficManageService_GetDeliveredTrafficFenceListByVehicleID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTrafficFenceListOnVehicleByVehicleID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITrafficFence/GetTrafficFenceListOnVehicleByVehicleID" message="tns:ITrafficManageService_GetTrafficFenceListOnVehicleByVehicleID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITrafficFence/GetTrafficFenceListOnVehicleByVehicleIDResponse" message="tns:ITrafficManageService_GetTrafficFenceListOnVehicleByVehicleID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTrafficFenceListByVehicleIDAndFenceName">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITrafficFence/GetTrafficFenceListByVehicleIDAndFenceName" message="tns:ITrafficManageService_GetTrafficFenceListByVehicleIDAndFenceName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITrafficFence/GetTrafficFenceListByVehicleIDAndFenceNameResponse" message="tns:ITrafficManageService_GetTrafficFenceListByVehicleIDAndFenceName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertFenceQueue">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITrafficFence/InsertFenceQueue" message="tns:ITrafficManageService_InsertFenceQueue_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITrafficFence/InsertFenceQueueResponse" message="tns:ITrafficManageService_InsertFenceQueue_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteFenceQueueByID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITrafficFence/DeleteFenceQueueByID" message="tns:ITrafficManageService_DeleteFenceQueueByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITrafficFence/DeleteFenceQueueByIDResponse" message="tns:ITrafficManageService_DeleteFenceQueueByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObsoleteFence">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITrafficFence/ObsoleteFence" message="tns:ITrafficManageService_ObsoleteFence_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITrafficFence/ObsoleteFenceResponse" message="tns:ITrafficManageService_ObsoleteFence_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IsFenceDelivered">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITrafficFence/IsFenceDelivered" message="tns:ITrafficManageService_IsFenceDelivered_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITrafficFence/IsFenceDeliveredResponse" message="tns:ITrafficManageService_IsFenceDelivered_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllFenceQueueListByFenceID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITrafficFence/GetAllFenceQueueListByFenceID" message="tns:ITrafficManageService_GetAllFenceQueueListByFenceID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITrafficFence/GetAllFenceQueueListByFenceIDResponse" message="tns:ITrafficManageService_GetAllFenceQueueListByFenceID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFenceQueueListByFenceID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITrafficFence/GetFenceQueueListByFenceID" message="tns:ITrafficManageService_GetFenceQueueListByFenceID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITrafficFence/GetFenceQueueListByFenceIDResponse" message="tns:ITrafficManageService_GetFenceQueueListByFenceID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeliverFenceQueueToVehicle">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITrafficFence/DeliverFenceQueueToVehicle" message="tns:ITrafficManageService_DeliverFenceQueueToVehicle_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITrafficFence/DeliverFenceQueueToVehicleResponse" message="tns:ITrafficManageService_DeliverFenceQueueToVehicle_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertTrafficRoute">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITrafficRoute/InsertTrafficRoute" message="tns:ITrafficManageService_InsertTrafficRoute_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITrafficRoute/InsertTrafficRouteResponse" message="tns:ITrafficManageService_InsertTrafficRoute_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTrafficRoute">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITrafficRoute/UpdateTrafficRoute" message="tns:ITrafficManageService_UpdateTrafficRoute_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITrafficRoute/UpdateTrafficRouteResponse" message="tns:ITrafficManageService_UpdateTrafficRoute_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTrafficRouteByID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITrafficRoute/DeleteTrafficRouteByID" message="tns:ITrafficManageService_DeleteTrafficRouteByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITrafficRoute/DeleteTrafficRouteByIDResponse" message="tns:ITrafficManageService_DeleteTrafficRouteByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTrafficRoute">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITrafficRoute/GetTrafficRoute" message="tns:ITrafficManageService_GetTrafficRoute_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITrafficRoute/GetTrafficRouteResponse" message="tns:ITrafficManageService_GetTrafficRoute_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IsRouteExists">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITrafficRoute/IsRouteExists" message="tns:ITrafficManageService_IsRouteExists_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITrafficRoute/IsRouteExistsResponse" message="tns:ITrafficManageService_IsRouteExists_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTrafficRouteListByVehicleIDAndRouteName">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITrafficRoute/GetTrafficRouteListByVehicleIDAndRouteName" message="tns:ITrafficManageService_GetTrafficRouteListByVehicleIDAndRouteName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITrafficRoute/GetTrafficRouteListByVehicleIDAndRouteNameResponse" message="tns:ITrafficManageService_GetTrafficRouteListByVehicleIDAndRouteName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObsoleteTrafficeRoute">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITrafficRoute/ObsoleteTrafficeRoute" message="tns:ITrafficManageService_ObsoleteTrafficeRoute_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITrafficRoute/ObsoleteTrafficeRouteResponse" message="tns:ITrafficManageService_ObsoleteTrafficeRoute_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IsRouteDelivered">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITrafficRoute/IsRouteDelivered" message="tns:ITrafficManageService_IsRouteDelivered_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITrafficRoute/IsRouteDeliveredResponse" message="tns:ITrafficManageService_IsRouteDelivered_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDeliveredTrafficRouteListByVehicleID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITrafficRoute/GetDeliveredTrafficRouteListByVehicleID" message="tns:ITrafficManageService_GetDeliveredTrafficRouteListByVehicleID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITrafficRoute/GetDeliveredTrafficRouteListByVehicleIDResponse" message="tns:ITrafficManageService_GetDeliveredTrafficRouteListByVehicleID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertRouteQueue">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITrafficRoute/InsertRouteQueue" message="tns:ITrafficManageService_InsertRouteQueue_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITrafficRoute/InsertRouteQueueResponse" message="tns:ITrafficManageService_InsertRouteQueue_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteRouteQueueByID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITrafficRoute/DeleteRouteQueueByID" message="tns:ITrafficManageService_DeleteRouteQueueByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITrafficRoute/DeleteRouteQueueByIDResponse" message="tns:ITrafficManageService_DeleteRouteQueueByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRouteQueueByRouteID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITrafficRoute/GetRouteQueueByRouteID" message="tns:ITrafficManageService_GetRouteQueueByRouteID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITrafficRoute/GetRouteQueueByRouteIDResponse" message="tns:ITrafficManageService_GetRouteQueueByRouteID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllRouteQueueByRouteID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITrafficRoute/GetAllRouteQueueByRouteID" message="tns:ITrafficManageService_GetAllRouteQueueByRouteID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITrafficRoute/GetAllRouteQueueByRouteIDResponse" message="tns:ITrafficManageService_GetAllRouteQueueByRouteID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeliverRouteQueueToVehicle">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITrafficRoute/DeliverRouteQueueToVehicle" message="tns:ITrafficManageService_DeliverRouteQueueToVehicle_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITrafficRoute/DeliverRouteQueueToVehicleResponse" message="tns:ITrafficManageService_DeliverRouteQueueToVehicle_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTrafficRouteListOnVehicleByVehicleID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITrafficRoute/GetTrafficRouteListOnVehicleByVehicleID" message="tns:ITrafficManageService_GetTrafficRouteListOnVehicleByVehicleID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITrafficRoute/GetTrafficRouteListOnVehicleByVehicleIDResponse" message="tns:ITrafficManageService_GetTrafficRouteListOnVehicleByVehicleID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckFenceNameExist">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITrafficManageService/CheckFenceNameExist" message="tns:ITrafficManageService_CheckFenceNameExist_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITrafficManageService/CheckFenceNameExistResponse" message="tns:ITrafficManageService_CheckFenceNameExist_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFenceByNameKeyAndVehcleID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITrafficManageService/GetFenceByNameKeyAndVehcleID" message="tns:ITrafficManageService_GetFenceByNameKeyAndVehcleID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITrafficManageService/GetFenceByNameKeyAndVehcleIDResponse" message="tns:ITrafficManageService_GetFenceByNameKeyAndVehcleID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllLFence">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITrafficManageService/GetAllLFence" message="tns:ITrafficManageService_GetAllLFence_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITrafficManageService/GetAllLFenceResponse" message="tns:ITrafficManageService_GetAllLFence_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddCarFence">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITrafficManageService/AddCarFence" message="tns:ITrafficManageService_AddCarFence_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITrafficManageService/AddCarFenceResponse" message="tns:ITrafficManageService_AddCarFence_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddCarFenceList">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITrafficManageService/AddCarFenceList" message="tns:ITrafficManageService_AddCarFenceList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITrafficManageService/AddCarFenceListResponse" message="tns:ITrafficManageService_AddCarFenceList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddCarFenceListForSelectModel">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITrafficManageService/AddCarFenceListForSelectModel" message="tns:ITrafficManageService_AddCarFenceListForSelectModel_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITrafficManageService/AddCarFenceListForSelectModelResponse" message="tns:ITrafficManageService_AddCarFenceListForSelectModel_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCarFenceByID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITrafficManageService/DeleteCarFenceByID" message="tns:ITrafficManageService_DeleteCarFenceByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITrafficManageService/DeleteCarFenceByIDResponse" message="tns:ITrafficManageService_DeleteCarFenceByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCarFenceByFenceID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITrafficManageService/DeleteCarFenceByFenceID" message="tns:ITrafficManageService_DeleteCarFenceByFenceID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITrafficManageService/DeleteCarFenceByFenceIDResponse" message="tns:ITrafficManageService_DeleteCarFenceByFenceID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCarFenceList">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITrafficManageService/DeleteCarFenceList" message="tns:ITrafficManageService_DeleteCarFenceList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITrafficManageService/DeleteCarFenceListResponse" message="tns:ITrafficManageService_DeleteCarFenceList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetVehicleByFence">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITrafficManageService/GetVehicleByFence" message="tns:ITrafficManageService_GetVehicleByFence_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITrafficManageService/GetVehicleByFenceResponse" message="tns:ITrafficManageService_GetVehicleByFence_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetVehicleFenceByFence">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITrafficManageService/GetVehicleFenceByFence" message="tns:ITrafficManageService_GetVehicleFenceByFence_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITrafficManageService/GetVehicleFenceByFenceResponse" message="tns:ITrafficManageService_GetVehicleFenceByFence_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetValidFenceIDByCarID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITrafficManageService/GetValidFenceIDByCarID" message="tns:ITrafficManageService_GetValidFenceIDByCarID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITrafficManageService/GetValidFenceIDByCarIDResponse" message="tns:ITrafficManageService_GetValidFenceIDByCarID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateFenceVehicleState">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITrafficManageService/UpdateFenceVehicleState" message="tns:ITrafficManageService_UpdateFenceVehicleState_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITrafficManageService/UpdateFenceVehicleStateResponse" message="tns:ITrafficManageService_UpdateFenceVehicleState_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateFenceVehicleListState">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITrafficManageService/UpdateFenceVehicleListState" message="tns:ITrafficManageService_UpdateFenceVehicleListState_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITrafficManageService/UpdateFenceVehicleListStateResponse" message="tns:ITrafficManageService_UpdateFenceVehicleListState_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetVehicleFenceFailedReason">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITrafficManageService/GetVehicleFenceFailedReason" message="tns:ITrafficManageService_GetVehicleFenceFailedReason_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITrafficManageService/GetVehicleFenceFailedReasonResponse" message="tns:ITrafficManageService_GetVehicleFenceFailedReason_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSpeedLimit">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITrafficManageService/DeleteSpeedLimit" message="tns:ITrafficManageService_DeleteSpeedLimit_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITrafficManageService/DeleteSpeedLimitResponse" message="tns:ITrafficManageService_DeleteSpeedLimit_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckSpeedLimitidNameExist">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITrafficManageService/CheckSpeedLimitidNameExist" message="tns:ITrafficManageService_CheckSpeedLimitidNameExist_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITrafficManageService/CheckSpeedLimitidNameExistResponse" message="tns:ITrafficManageService_CheckSpeedLimitidNameExist_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSpeedLimitByNameKeyAndVeicleID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITrafficManageService/GetSpeedLimitByNameKeyAndVeicleID" message="tns:ITrafficManageService_GetSpeedLimitByNameKeyAndVeicleID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITrafficManageService/GetSpeedLimitByNameKeyAndVeicleIDResponse" message="tns:ITrafficManageService_GetSpeedLimitByNameKeyAndVeicleID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteVehicleToRule">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITrafficManageService/DeleteVehicleToRule" message="tns:ITrafficManageService_DeleteVehicleToRule_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITrafficManageService/DeleteVehicleToRuleResponse" message="tns:ITrafficManageService_DeleteVehicleToRule_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSpeedLimitByNameKey">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITrafficManageService/GetSpeedLimitByNameKey" message="tns:ITrafficManageService_GetSpeedLimitByNameKey_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITrafficManageService/GetSpeedLimitByNameKeyResponse" message="tns:ITrafficManageService_GetSpeedLimitByNameKey_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SpeedToVehicleFialState">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITrafficManageService/SpeedToVehicleFialState" message="tns:ITrafficManageService_SpeedToVehicleFialState_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITrafficManageService/SpeedToVehicleFialStateResponse" message="tns:ITrafficManageService_SpeedToVehicleFialState_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckSpeedLimitNameExist">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITrafficManageService/CheckSpeedLimitNameExist" message="tns:ITrafficManageService_CheckSpeedLimitNameExist_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITrafficManageService/CheckSpeedLimitNameExistResponse" message="tns:ITrafficManageService_CheckSpeedLimitNameExist_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddSpeedLimit">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITrafficManageService/AddSpeedLimit" message="tns:ITrafficManageService_AddSpeedLimit_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITrafficManageService/AddSpeedLimitResponse" message="tns:ITrafficManageService_AddSpeedLimit_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCarSpeedByCarSpeed">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITrafficManageService/DeleteCarSpeedByCarSpeed" message="tns:ITrafficManageService_DeleteCarSpeedByCarSpeed_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITrafficManageService/DeleteCarSpeedByCarSpeedResponse" message="tns:ITrafficManageService_DeleteCarSpeedByCarSpeed_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteVehicleSpeedList">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITrafficManageService/DeleteVehicleSpeedList" message="tns:ITrafficManageService_DeleteVehicleSpeedList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITrafficManageService/DeleteVehicleSpeedListResponse" message="tns:ITrafficManageService_DeleteVehicleSpeedList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSpeedLimite">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITrafficManageService/UpdateSpeedLimite" message="tns:ITrafficManageService_UpdateSpeedLimite_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITrafficManageService/UpdateSpeedLimiteResponse" message="tns:ITrafficManageService_UpdateSpeedLimite_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateVehicleSpeedStateBySpeedIDAndCarNum">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITrafficManageService/UpdateVehicleSpeedStateBySpeedIDAndCarNum" message="tns:ITrafficManageService_UpdateVehicleSpeedStateBySpeedIDAndCarNum_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITrafficManageService/UpdateVehicleSpeedStateBySpeedIDAndCarNumResponse" message="tns:ITrafficManageService_UpdateVehicleSpeedStateBySpeedIDAndCarNum_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetVehicleBySpeedId">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITrafficManageService/GetVehicleBySpeedId" message="tns:ITrafficManageService_GetVehicleBySpeedId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITrafficManageService/GetVehicleBySpeedIdResponse" message="tns:ITrafficManageService_GetVehicleBySpeedId_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_ITrafficManageService" type="tns:ITrafficManageService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="InsertTrafficFence">
+      <soap:operation soapAction="http://tempuri.org/ITrafficFence/InsertTrafficFence" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTrafficFence">
+      <soap:operation soapAction="http://tempuri.org/ITrafficFence/UpdateTrafficFence" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTrafficFenceByID">
+      <soap:operation soapAction="http://tempuri.org/ITrafficFence/DeleteTrafficFenceByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTrafficFence">
+      <soap:operation soapAction="http://tempuri.org/ITrafficFence/GetTrafficFence" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsTrafficExists">
+      <soap:operation soapAction="http://tempuri.org/ITrafficFence/IsTrafficExists" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDeliveredTrafficFenceListByVehicleID">
+      <soap:operation soapAction="http://tempuri.org/ITrafficFence/GetDeliveredTrafficFenceListByVehicleID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTrafficFenceListOnVehicleByVehicleID">
+      <soap:operation soapAction="http://tempuri.org/ITrafficFence/GetTrafficFenceListOnVehicleByVehicleID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTrafficFenceListByVehicleIDAndFenceName">
+      <soap:operation soapAction="http://tempuri.org/ITrafficFence/GetTrafficFenceListByVehicleIDAndFenceName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertFenceQueue">
+      <soap:operation soapAction="http://tempuri.org/ITrafficFence/InsertFenceQueue" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteFenceQueueByID">
+      <soap:operation soapAction="http://tempuri.org/ITrafficFence/DeleteFenceQueueByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObsoleteFence">
+      <soap:operation soapAction="http://tempuri.org/ITrafficFence/ObsoleteFence" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsFenceDelivered">
+      <soap:operation soapAction="http://tempuri.org/ITrafficFence/IsFenceDelivered" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllFenceQueueListByFenceID">
+      <soap:operation soapAction="http://tempuri.org/ITrafficFence/GetAllFenceQueueListByFenceID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFenceQueueListByFenceID">
+      <soap:operation soapAction="http://tempuri.org/ITrafficFence/GetFenceQueueListByFenceID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeliverFenceQueueToVehicle">
+      <soap:operation soapAction="http://tempuri.org/ITrafficFence/DeliverFenceQueueToVehicle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertTrafficRoute">
+      <soap:operation soapAction="http://tempuri.org/ITrafficRoute/InsertTrafficRoute" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTrafficRoute">
+      <soap:operation soapAction="http://tempuri.org/ITrafficRoute/UpdateTrafficRoute" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTrafficRouteByID">
+      <soap:operation soapAction="http://tempuri.org/ITrafficRoute/DeleteTrafficRouteByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTrafficRoute">
+      <soap:operation soapAction="http://tempuri.org/ITrafficRoute/GetTrafficRoute" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsRouteExists">
+      <soap:operation soapAction="http://tempuri.org/ITrafficRoute/IsRouteExists" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTrafficRouteListByVehicleIDAndRouteName">
+      <soap:operation soapAction="http://tempuri.org/ITrafficRoute/GetTrafficRouteListByVehicleIDAndRouteName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObsoleteTrafficeRoute">
+      <soap:operation soapAction="http://tempuri.org/ITrafficRoute/ObsoleteTrafficeRoute" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsRouteDelivered">
+      <soap:operation soapAction="http://tempuri.org/ITrafficRoute/IsRouteDelivered" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDeliveredTrafficRouteListByVehicleID">
+      <soap:operation soapAction="http://tempuri.org/ITrafficRoute/GetDeliveredTrafficRouteListByVehicleID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertRouteQueue">
+      <soap:operation soapAction="http://tempuri.org/ITrafficRoute/InsertRouteQueue" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteRouteQueueByID">
+      <soap:operation soapAction="http://tempuri.org/ITrafficRoute/DeleteRouteQueueByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRouteQueueByRouteID">
+      <soap:operation soapAction="http://tempuri.org/ITrafficRoute/GetRouteQueueByRouteID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllRouteQueueByRouteID">
+      <soap:operation soapAction="http://tempuri.org/ITrafficRoute/GetAllRouteQueueByRouteID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeliverRouteQueueToVehicle">
+      <soap:operation soapAction="http://tempuri.org/ITrafficRoute/DeliverRouteQueueToVehicle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTrafficRouteListOnVehicleByVehicleID">
+      <soap:operation soapAction="http://tempuri.org/ITrafficRoute/GetTrafficRouteListOnVehicleByVehicleID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckFenceNameExist">
+      <soap:operation soapAction="http://tempuri.org/ITrafficManageService/CheckFenceNameExist" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFenceByNameKeyAndVehcleID">
+      <soap:operation soapAction="http://tempuri.org/ITrafficManageService/GetFenceByNameKeyAndVehcleID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllLFence">
+      <soap:operation soapAction="http://tempuri.org/ITrafficManageService/GetAllLFence" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddCarFence">
+      <soap:operation soapAction="http://tempuri.org/ITrafficManageService/AddCarFence" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddCarFenceList">
+      <soap:operation soapAction="http://tempuri.org/ITrafficManageService/AddCarFenceList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddCarFenceListForSelectModel">
+      <soap:operation soapAction="http://tempuri.org/ITrafficManageService/AddCarFenceListForSelectModel" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCarFenceByID">
+      <soap:operation soapAction="http://tempuri.org/ITrafficManageService/DeleteCarFenceByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCarFenceByFenceID">
+      <soap:operation soapAction="http://tempuri.org/ITrafficManageService/DeleteCarFenceByFenceID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCarFenceList">
+      <soap:operation soapAction="http://tempuri.org/ITrafficManageService/DeleteCarFenceList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVehicleByFence">
+      <soap:operation soapAction="http://tempuri.org/ITrafficManageService/GetVehicleByFence" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVehicleFenceByFence">
+      <soap:operation soapAction="http://tempuri.org/ITrafficManageService/GetVehicleFenceByFence" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetValidFenceIDByCarID">
+      <soap:operation soapAction="http://tempuri.org/ITrafficManageService/GetValidFenceIDByCarID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateFenceVehicleState">
+      <soap:operation soapAction="http://tempuri.org/ITrafficManageService/UpdateFenceVehicleState" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateFenceVehicleListState">
+      <soap:operation soapAction="http://tempuri.org/ITrafficManageService/UpdateFenceVehicleListState" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVehicleFenceFailedReason">
+      <soap:operation soapAction="http://tempuri.org/ITrafficManageService/GetVehicleFenceFailedReason" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSpeedLimit">
+      <soap:operation soapAction="http://tempuri.org/ITrafficManageService/DeleteSpeedLimit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckSpeedLimitidNameExist">
+      <soap:operation soapAction="http://tempuri.org/ITrafficManageService/CheckSpeedLimitidNameExist" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSpeedLimitByNameKeyAndVeicleID">
+      <soap:operation soapAction="http://tempuri.org/ITrafficManageService/GetSpeedLimitByNameKeyAndVeicleID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteVehicleToRule">
+      <soap:operation soapAction="http://tempuri.org/ITrafficManageService/DeleteVehicleToRule" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSpeedLimitByNameKey">
+      <soap:operation soapAction="http://tempuri.org/ITrafficManageService/GetSpeedLimitByNameKey" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SpeedToVehicleFialState">
+      <soap:operation soapAction="http://tempuri.org/ITrafficManageService/SpeedToVehicleFialState" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckSpeedLimitNameExist">
+      <soap:operation soapAction="http://tempuri.org/ITrafficManageService/CheckSpeedLimitNameExist" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddSpeedLimit">
+      <soap:operation soapAction="http://tempuri.org/ITrafficManageService/AddSpeedLimit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCarSpeedByCarSpeed">
+      <soap:operation soapAction="http://tempuri.org/ITrafficManageService/DeleteCarSpeedByCarSpeed" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteVehicleSpeedList">
+      <soap:operation soapAction="http://tempuri.org/ITrafficManageService/DeleteVehicleSpeedList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSpeedLimite">
+      <soap:operation soapAction="http://tempuri.org/ITrafficManageService/UpdateSpeedLimite" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateVehicleSpeedStateBySpeedIDAndCarNum">
+      <soap:operation soapAction="http://tempuri.org/ITrafficManageService/UpdateVehicleSpeedStateBySpeedIDAndCarNum" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVehicleBySpeedId">
+      <soap:operation soapAction="http://tempuri.org/ITrafficManageService/GetVehicleBySpeedId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="TrafficManageService">
+    <wsdl:port name="BasicHttpBinding_ITrafficManageService" binding="tns:BasicHttpBinding_ITrafficManageService">
+      <soap:address location="http://localhost:2258/TrafficManageService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

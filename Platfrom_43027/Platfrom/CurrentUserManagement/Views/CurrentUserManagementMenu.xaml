@@ -1,0 +1,82 @@
+﻿<UserControl x:Class="Gsafety.PTMS.CurrentUserManagement.Views.CurrentUserManagementMenu" 
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+           xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk" 
+           xmlns:Converts="clr-namespace:Gsafety.Common.Converts;assembly=Converts"  
+           mc:Ignorable="d"        
+           d:DesignWidth="640" d:DesignHeight="480"
+          >
+    <UserControl.Resources>       
+            <Converts:VehicleStateToMinImage x:Key="StateToMinImage"/>
+            <sdk:HierarchicalDataTemplate x:Key="VehiclesTemplate">
+                <StackPanel Orientation="Horizontal">
+                    <Image  Width="16" Height="16">
+                        <Converts:BindingUtil.MultiBindings>
+                            <Converts:MultiBindings>
+                                <Converts:MultiBinding TargetProperty="Source" Converter="{StaticResource StateToMinImage}">
+                                    <Converts:MultiBinding.Bindings>
+                                        <Converts:BindingCollection>
+                                            <Binding Path="VehicleType"/>
+                                            <Binding Path="IsOnLine"/>
+                                        </Converts:BindingCollection>
+                                    </Converts:MultiBinding.Bindings>
+                                </Converts:MultiBinding>
+                            </Converts:MultiBindings>
+                        </Converts:BindingUtil.MultiBindings>
+                    </Image>
+                    <TextBlock Text="{Binding VehicleId}" Tag="{Binding}"></TextBlock>
+                </StackPanel>
+            </sdk:HierarchicalDataTemplate>
+
+            <sdk:HierarchicalDataTemplate x:Key="VehicleTypeInfoTemplate" 
+                ItemsSource="{Binding Vehicles}"  ItemTemplate="{StaticResource VehiclesTemplate}">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="{Binding Name}" Foreground="Blue"/>
+                    <TextBlock Text="{Binding VehiclesCount}" Foreground="Blue"/>
+                </StackPanel>
+            </sdk:HierarchicalDataTemplate>
+
+            <sdk:HierarchicalDataTemplate x:Key="CityTemplate"
+                ItemsSource="{Binding VehicleTypes}" ItemTemplate="{StaticResource VehicleTypeInfoTemplate}">
+                <StackPanel>
+                    <TextBlock Text="{Binding Name}"/>
+                </StackPanel>
+            </sdk:HierarchicalDataTemplate>
+            <sdk:HierarchicalDataTemplate x:Key="ProvinceTemplate" ItemsSource="{Binding Citys}" ItemTemplate="{StaticResource CityTemplate}">
+                <StackPanel>
+                    <TextBlock Text="{Binding Name}" Foreground="#ff516ea8"/>
+                </StackPanel>
+            </sdk:HierarchicalDataTemplate>      
+    </UserControl.Resources>
+    <Grid x:Name="LayoutRoot">
+       
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Border Grid.Row="0" Height="40" Margin="-1,0,0,0" BorderThickness="0,1,1,1" BorderBrush="{StaticResource MenuBarLine}" Background="{StaticResource NavBarBG}">
+            <Grid>
+                <Grid.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF29C7E5" Offset="0.017"/>
+                        <GradientStop Color="#FF0053A0" Offset="1"/>
+                        <GradientStop Color="#FF1B8FCA" Offset="0.037"/>
+                    </LinearGradientBrush>
+                </Grid.Background>
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/CurrentUserManagement;component/Images/UserInfo.png" Stretch="None" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="8,0,0,0"></Image>
+                    <TextBlock Text="{Binding [CUM_CurrentUser], Source={StaticResource SR}}" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="5,0,0,0" Style="{StaticResource MainPage_menu_tle_TextBlockStyle}"></TextBlock>
+                </StackPanel>
+            </Grid>
+            
+        </Border>
+        <Border x:Name="content" Grid.Row="1" BorderThickness="1" Background="#FFF5F6F6"  BorderBrush="#FFAEB4BA">
+            <StackPanel Name="LinksSPanel">
+                <HyperlinkButton x:Name="Link1" NavigateUri="{Binding CurrentUrl}"  Style="{StaticResource Menu_HyperlinkButtonStyle}"  TargetName="ContentFrame" Content="{Binding [CUM_UserInfo], Source={StaticResource SR}}"/>
+                <HyperlinkButton x:Name="Link2" NavigateUri="/ChangePassword" Style="{StaticResource Menu_HyperlinkButtonStyle}"  TargetName="ContentFrame" Content="{Binding [Cum_ChangePassword], Source={StaticResource SR}}"/>
+            </StackPanel>
+        </Border>
+    </Grid>
+</UserControl>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="1f934489-0521-4aec-92d5-b8fb2ee49320" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>true</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.ObjectModel.ObservableCollection`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>false</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:26443/InstallStaffService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="InstallStaffService.xsd" MetadataType="Schema" ID="bd679b81-a29b-49c1-8417-98b3dab43f93" SourceId="1" SourceUrl="http://localhost:26443/InstallStaffService.svc?xsd=xsd3" />
+    <MetadataFile FileName="InstallStaffService1.xsd" MetadataType="Schema" ID="b5b2192a-b6ac-4406-a85b-ffbd4f76704b" SourceId="1" SourceUrl="http://localhost:26443/InstallStaffService.svc?xsd=xsd4" />
+    <MetadataFile FileName="InstallStaffService2.xsd" MetadataType="Schema" ID="fbcf8ffb-a609-4a31-8e17-5adec9aee650" SourceId="1" SourceUrl="http://localhost:26443/InstallStaffService.svc?xsd=xsd2" />
+    <MetadataFile FileName="InstallStaffService.disco" MetadataType="Disco" ID="f5d863c8-d589-4b05-b868-385acbaf6eb7" SourceId="1" SourceUrl="http://localhost:26443/InstallStaffService.svc?disco" />
+    <MetadataFile FileName="InstallStaffService3.xsd" MetadataType="Schema" ID="274bc827-ce1c-44a2-91b8-53656f2ab504" SourceId="1" SourceUrl="http://localhost:26443/InstallStaffService.svc?xsd=xsd1" />
+    <MetadataFile FileName="InstallStaffService4.xsd" MetadataType="Schema" ID="0727077e-2491-42c3-81e0-3aa0e70f21cb" SourceId="1" SourceUrl="http://localhost:26443/InstallStaffService.svc?xsd=xsd0" />
+    <MetadataFile FileName="InstallStaffService.wsdl" MetadataType="Wsdl" ID="106136c2-8bfb-4b3d-bc53-f626ca1c5810" SourceId="1" SourceUrl="http://localhost:26443/InstallStaffService.svc?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

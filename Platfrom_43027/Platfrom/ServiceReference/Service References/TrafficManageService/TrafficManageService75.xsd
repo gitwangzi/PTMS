@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Traffic.Contract.Data" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Traffic.Contract.Data" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ArrayOfFence">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Fence" nillable="true" type="tns:Fence" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfFence" nillable="true" type="tns:ArrayOfFence" />
+  <xs:complexType name="Fence">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ADDRESSTEXT" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ALERT_TYPE" nillable="true" type="xs:short" />
+      <xs:element minOccurs="0" name="CIRCLE_CENTER" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CREATTIME" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="CREATUSER" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FENCE_TYPE" nillable="true" type="xs:short" />
+      <xs:element minOccurs="0" name="IsmarkFenceGraphic" type="xs:boolean" />
+      <xs:element minOccurs="0" name="NAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OBJECTID" type="xs:decimal" />
+      <xs:element minOccurs="0" name="PTS" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RAIDUMS" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="SPEED_LIMIT" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TIME_LIMIT" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Valid" nillable="true" type="xs:short" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Fence" nillable="true" type="tns:Fence" />
+  <xs:complexType name="ArrayOfVehicleFenceFailedReason">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="VehicleFenceFailedReason" nillable="true" type="tns:VehicleFenceFailedReason" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfVehicleFenceFailedReason" nillable="true" type="tns:ArrayOfVehicleFenceFailedReason" />
+  <xs:complexType name="VehicleFenceFailedReason">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CarNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FailedReason" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FenceId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SendTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Status" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="VehicleFenceFailedReason" nillable="true" type="tns:VehicleFenceFailedReason" />
+  <xs:complexType name="ArrayOfSpeedLimit">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SpeedLimit" nillable="true" type="tns:SpeedLimit" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSpeedLimit" nillable="true" type="tns:ArrayOfSpeedLimit" />
+  <xs:complexType name="SpeedLimit">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CreateTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Creator" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DURATION" type="xs:int" />
+      <xs:element minOccurs="0" name="END_TIME" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsUsed" type="xs:boolean" />
+      <xs:element minOccurs="0" name="MAX_SPEED" type="xs:decimal" />
+      <xs:element minOccurs="0" name="MIN_SPEED" type="xs:decimal" />
+      <xs:element minOccurs="0" name="NAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="START_TIME" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="SpeedVehicleCount" type="xs:int" />
+      <xs:element minOccurs="0" name="VEHICLE_ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Valid" nillable="true" type="xs:short" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SpeedLimit" nillable="true" type="tns:SpeedLimit" />
+  <xs:complexType name="ArrayOfSpeedStatusFailed">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SpeedStatusFailed" nillable="true" type="tns:SpeedStatusFailed" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSpeedStatusFailed" nillable="true" type="tns:ArrayOfSpeedStatusFailed" />
+  <xs:complexType name="SpeedStatusFailed">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CreateTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Createtor" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DURATION" type="xs:int" />
+      <xs:element minOccurs="0" name="END_TIME" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MAX_SPEED" type="xs:decimal" />
+      <xs:element minOccurs="0" name="MIN_SPEED" type="xs:decimal" />
+      <xs:element minOccurs="0" name="NAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="START_TIME" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="SpeedVehicleFailed" type="xs:short" />
+      <xs:element minOccurs="0" name="VEHICLE_ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Valid" nillable="true" type="xs:short" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SpeedStatusFailed" nillable="true" type="tns:SpeedStatusFailed" />
+  <xs:complexType name="ArrayOfCarSpeed">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CarSpeed" nillable="true" type="tns:CarSpeed" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCarSpeed" nillable="true" type="tns:ArrayOfCarSpeed" />
+  <xs:complexType name="CarSpeed">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CreateTime" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="CreateUser" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MDVR_CORE_SN" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SPEED_ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VALID" type="xs:short" />
+      <xs:element minOccurs="0" name="VEHICLE_ID" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CarSpeed" nillable="true" type="tns:CarSpeed" />
+</xs:schema>

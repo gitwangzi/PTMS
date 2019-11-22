@@ -1,0 +1,184 @@
+﻿<controls:ChildWindow x:Class="Gsafety.Ant.BaseInformation.Views.SafeDevicePartDetailWindow"
+                       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+                       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+                       xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+               xmlns:Controls="clr-namespace:Gsafety.Common.Controls;assembly=CommonControls" 
+                       xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk" 
+                      Width="500" Height="300" 
+                      Title="{Binding Title}"
+                      Style="{StaticResource SelfChildenWindowWhiteStyle}">
+    
+    <Grid x:Name="LayoutRoot" Style="{StaticResource ContentGridWhiteStyle}">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="15"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="20"/>
+        </Grid.RowDefinitions>
+
+
+
+        <Grid Grid.Row="1" Style="{StaticResource ContentGridWhiteStyle}" Margin="0,20,0,0">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                
+            </Grid.RowDefinitions>
+
+
+            <TextBlock Text="{Binding [ZiChanNum], Source={StaticResource SR}}"
+                       Margin="0,5,20,5"
+                       Grid.Column="1"
+                       Grid.Row="0"
+                       HorizontalAlignment="Right"
+                       VerticalAlignment="Center"/>
+            <TextBox Grid.Row="0" 
+                     HorizontalAlignment="Left"
+                     VerticalAlignment="Center"
+                     Width="250"
+                     MaxLength="50"
+                     IsReadOnly="{Binding IsReadOnly}"
+                     Text="{Binding PartSn,Mode=TwoWay,NotifyOnValidationError=True,ValidatesOnDataErrors=True}"
+                     Grid.Column="2"
+                     Margin="0,5,0,5"/>
+
+            <TextBlock Text="{Binding [TRAFFIC_ElectricFence_Name], Source={StaticResource SR}}"
+                       Margin="0,5,20,5"
+                       Grid.Column="1"
+                       Grid.Row="1"
+                       HorizontalAlignment="Right"
+                       VerticalAlignment="Center"/>
+            <TextBox Grid.Row="1" 
+                     HorizontalAlignment="Left"
+                     VerticalAlignment="Center"
+                     Text="{Binding Name,Mode=TwoWay,NotifyOnValidationError=True,ValidatesOnDataErrors=True}"
+                     IsReadOnly="{Binding IsReadOnly}"
+                     Width="250"
+                     MaxLength="500"
+                     Grid.Column="2"
+                     Margin="0,5,0,5"/>
+
+            <TextBlock Text="{Binding [PeiJianXingHao], Source={StaticResource SR}}"
+                       Margin="0,5,20,5"
+                       Grid.Column="1"
+                       Grid.Row="2"
+                       HorizontalAlignment="Right"
+                       VerticalAlignment="Center"/>
+            <TextBox Grid.Row="2" 
+                     HorizontalAlignment="Left"
+                     VerticalAlignment="Center"
+                     Width="250"
+                     MaxLength="500"
+                     IsReadOnly="{Binding IsReadOnly}"
+                     Text="{Binding Model,Mode=TwoWay,NotifyOnValidationError=True,ValidatesOnDataErrors=True}"
+                     Grid.Column="2"
+                     Margin="0,5,0,5"/>
+
+            <TextBlock Text="{Binding [TargetProperty], Source={StaticResource SR}}"
+                       Margin="0,5,20,5"
+                       Grid.Column="1"
+                       Grid.Row="3"
+                       HorizontalAlignment="Right"
+                       VerticalAlignment="Center"/>
+            <ComboBox Grid.Row="3" 
+                     HorizontalAlignment="Left"
+                     VerticalAlignment="Center"
+                     Width="250"
+                      Style="{StaticResource lightComboBox}"
+                      ItemsSource="{Binding PartTypes}"
+                      DisplayMemberPath="ShowName"
+                      SelectedValuePath="EnumValue"
+                      SelectedValue="{Binding PartType,Mode=TwoWay}"
+                      IsEnabled="{Binding Enable}"
+                     Grid.Column="2"
+                     Margin="0,5,0,5"  Name="comboStatus"/>
+
+            <TextBlock Text="{Binding [PruductDateTime], Source={StaticResource SR}}"
+                       Margin="0,5,20,5"
+                       Grid.Column="1"
+                       Grid.Row="4"
+                       HorizontalAlignment="Right"
+                       VerticalAlignment="Center"/>
+             <Controls:DatePickerEx    IsReadOnly="True"  
+                     Grid.Row="4" 
+                     HorizontalAlignment="Left"
+                     VerticalAlignment="Center"
+                     Width="250"
+                     Style="{StaticResource lightDatePicker}"
+                     SelectedDate="{Binding ProduceTime,Mode=TwoWay}"
+                     IsEnabled="{Binding Enable}"                              
+                     Grid.Column="2"
+                     Margin="0,5,0,5"/>
+
+        </Grid>
+
+        <Grid Grid.Row="3" Style="{StaticResource ContentGridWhiteStyle}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1.2*"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="1"
+            Style="{StaticResource ContentGridWhiteStyle}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid Grid.Column="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="10"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="10"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Button Grid.Column="0"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Center"
+                        Content="{Binding [Save], Source={StaticResource SR}}"
+                        Style="{StaticResource SaveButtonStyle}"
+                    Visibility="{Binding ViewVisibility}"
+                    IsEnabled="{Binding IsCanCommit}"
+                    Command="{Binding CommitCommand}"/>
+
+                    <Button Grid.Column="2"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Center"
+                        Content="{Binding [LOGIN_Reset], Source={StaticResource SR}}"
+                    Visibility="Collapsed"
+                        Style="{StaticResource BackButtonStyle}"
+                    Command="{Binding ResetCommand}"/>
+
+                    <Button Grid.Column="4"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Center"
+                        Content="{Binding [MANAGE_Return], Source={StaticResource SR}}"
+                        Style="{StaticResource BackButtonStyle}"
+                    Click="CancelButton_Click"/>
+                </Grid>
+
+            </Grid>
+
+
+        </Grid>
+        
+
+    </Grid>
+</controls:ChildWindow>

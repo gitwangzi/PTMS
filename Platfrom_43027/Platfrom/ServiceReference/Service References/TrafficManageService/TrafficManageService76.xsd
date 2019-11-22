@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Traffic.Contract" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Traffic.Contract" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="CarFence">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CarNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CreateTime" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="CreateUser" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FenceId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MDVR_SN_CODE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Status" nillable="true" type="xs:short" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CarFence" nillable="true" type="tns:CarFence" />
+  <xs:complexType name="ArrayOfCarFence">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CarFence" nillable="true" type="tns:CarFence" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCarFence" nillable="true" type="tns:ArrayOfCarFence" />
+  <xs:complexType name="ArrayOfVehicle">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Vehicle" nillable="true" type="tns:Vehicle" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfVehicle" nillable="true" type="tns:ArrayOfVehicle" />
+  <xs:complexType name="Vehicle">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Company" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MDVR_CODE_SN" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Vehicle_ID" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Vehicle" nillable="true" type="tns:Vehicle" />
+</xs:schema>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Monitor.Contract.Data" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Monitor.Contract.Data" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ArrayOfRunMonitorGroup">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RunMonitorGroup" nillable="true" type="tns:RunMonitorGroup" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRunMonitorGroup" nillable="true" type="tns:ArrayOfRunMonitorGroup" />
+  <xs:complexType name="RunMonitorGroup">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AdUser" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GroupIndex" type="xs:decimal" />
+      <xs:element minOccurs="0" name="GroupName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GroupType" type="xs:decimal" />
+      <xs:element minOccurs="0" name="GroupVehicle" nillable="true" type="tns:ArrayOfRunMonitorGroupVehicle" />
+      <xs:element minOccurs="0" name="ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsDefault" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Note" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RunMonitorGroup" nillable="true" type="tns:RunMonitorGroup" />
+  <xs:complexType name="ArrayOfRunMonitorGroupVehicle">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RunMonitorGroupVehicle" nillable="true" type="tns:RunMonitorGroupVehicle" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRunMonitorGroupVehicle" nillable="true" type="tns:ArrayOfRunMonitorGroupVehicle" />
+  <xs:complexType name="RunMonitorGroupVehicle">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="GroupId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MonitorGroup" nillable="true" type="tns:RunMonitorGroup" />
+      <xs:element minOccurs="0" name="TracedFlag" type="xs:decimal" />
+      <xs:element minOccurs="0" name="VehicleId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VehicleIndex" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RunMonitorGroupVehicle" nillable="true" type="tns:RunMonitorGroupVehicle" />
+</xs:schema>

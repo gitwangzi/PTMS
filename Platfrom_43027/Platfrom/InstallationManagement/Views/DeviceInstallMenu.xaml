@@ -1,0 +1,40 @@
+﻿<UserControl x:Class="Gsafety.Ant.Installation.Views.DeviceInstallMenu"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:toolkit="http://schemas.microsoft.com/winfx/2006/xaml/presentation/toolkit"
+    xmlns:Controls="clr-namespace:ANT.Common.Controls;assembly=CommonControl" 
+    mc:Ignorable="d"
+    d:DesignHeight="300" d:DesignWidth="300">
+
+    <Grid x:Name="LayoutRoot" Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Border Grid.Row="0" Height="35" BorderThickness="0,1,0,1" BorderBrush="{StaticResource MenuBarLine}" Background="{StaticResource NavBarBG}">
+            <StackPanel Orientation="Horizontal">
+                <!--<Image Source="/ANT;component/Images/slidearrow.png" Stretch="None" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="5,0,0,0"></Image>-->
+                <Image Source="/InstallationManagement;component/Images/camcorder-image.png" Stretch="None" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="8,3,0,5"></Image>
+                <TextBlock Text="{Binding [ID_INSTALL_Menu_Navigation], Source={StaticResource SR}}" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="5,0,0,0" Style="{StaticResource Menu2TextBlock}"></TextBlock>
+            </StackPanel>
+        </Border>
+
+        <StackPanel Grid.Row="1" Width="Auto">
+            <ItemsControl x:Name="DeviceInstallMenuControl" ItemsSource="{Binding Path=DeviceInstallMenuItems}">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel Orientation="Vertical" Margin="0"/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <HyperlinkButton x:Name="Link1" Style="{StaticResource NavBarItem}" 
+                                     NavigateUri="{Binding Uri}" TargetName="SupportContentFrame" Content="{Binding MenuTitle}"/>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </StackPanel>
+    </Grid>
+</UserControl>

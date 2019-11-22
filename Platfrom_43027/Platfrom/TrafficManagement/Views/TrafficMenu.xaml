@@ -1,0 +1,1011 @@
+﻿<UserControl x:Class="Gsafety.PTMS.Traffic.Views.TrafficMenu"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk" 
+    xmlns:toolkit="http://schemas.microsoft.com/winfx/2006/xaml/presentation/toolkit"
+    xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+    xmlns:Controls="clr-namespace:Gsafety.Common.Controls;assembly=CommonControls"
+    xmlns:cv="clr-namespace:Gsafety.PTMS.Traffic.Converts;assembly=TrafficManagement" 
+    xmlns:Converts="clr-namespace:Gsafety.Common.Converts;assembly=Converts"
+    xmlns:share="clr-namespace:Gsafety.PTMS.Share;assembly=Share"
+    xmlns:Converter="clr-namespace:Gsafety.Common.Converts;assembly=Converts"
+    xmlns:ia="http://schemas.microsoft.com/expression/2010/interactions"
+    mc:Ignorable="d"
+    d:DesignHeight="1000" d:DesignWidth="350">
+    <UserControl.Resources >
+        <cv:Mark_Point_Convert x:Key="Mark_Point_Convert"/>
+        <cv:Mark_Polygon_Convert x:Key="Mark_Polygon_Convert"/>
+        <Converts:MarkConvert x:Key="MarkConvert"/>
+        <cv:StyleConverter x:Key="StyleConverter"/>
+        <Converts:BoolCoverterToColorConverter x:Key="BoolCoverterToColorConverter"/>
+        <Controls:MenuItemWidth x:Key="menuWidth"/>
+        <Converts:MainPageMenuConvert x:Key="MainPageMenuConvert" />
+        <Converter:FunItemVisibilityConverter x:Key="FunItemVisibilityConverter"/>
+        <Converter:FunItemEnableConverter x:Key="FunItemEnableConverter"/>
+    </UserControl.Resources>
+    <Grid x:Name="LayoutRoot">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.Resources>
+            <Style TargetType="sdk:DataGridCell">
+                <Setter Property="Background" Value="Transparent" />
+                <Setter Property="HorizontalContentAlignment" Value="Center" />
+                <Setter Property="VerticalContentAlignment" Value="Center" />
+                <Setter Property="IsTabStop" Value="False" />
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="sdk:DataGridCell">
+                            <Grid Name="Root" Background="{TemplateBinding Background}">
+                                <VisualStateManager.VisualStateGroups>
+                                    <VisualStateGroup x:Name="CurrentStates">
+                                        <VisualState x:Name="Regular" />
+                                        <VisualState x:Name="Current">
+                                            <Storyboard>
+                                                <DoubleAnimation Storyboard.TargetName="FocusVisual" Storyboard.TargetProperty="Opacity" To="1" Duration="0" />
+                                                <!--更改选中行颜色时修改-->
+                                                <ColorAnimation Storyboard.TargetName="FocusVisual"
+                                                        Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)"
+                                                        To="#0099cb" Duration="0"/>
+
+                                                <!--单元格的边框-->
+                                                <!--更改选中行颜色时修改-->
+                                                <ColorAnimation Storyboard.TargetName="FocusVisual"
+                                                        Storyboard.TargetProperty="(Shape.Stroke).(SolidColorBrush.Color)"
+                                                        To="#0099cb" Duration="0"/>
+                                            </Storyboard>
+                                        </VisualState>
+                                    </VisualStateGroup>
+                                    <VisualStateGroup x:Name="ValidationStates">
+                                        <VisualState x:Name="Valid"/>
+                                        <VisualState x:Name="Invalid">
+                                            <Storyboard>
+                                                <DoubleAnimation Storyboard.TargetName="InvalidVisualElement" Storyboard.TargetProperty="Opacity" Duration="0" To="1"/>
+                                                <ColorAnimation Storyboard.TargetName="FocusVisual" Storyboard.TargetProperty="(Fill).Color" Duration="0" To="#FFFFFFFF"/>
+                                            </Storyboard>
+                                        </VisualState>
+                                    </VisualStateGroup>
+                                </VisualStateManager.VisualStateGroups>
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+
+                                <Rectangle Name="FocusVisual" Stroke="#FF6DBDD1" StrokeThickness="1" Fill="#66FFFFFF" HorizontalAlignment="Stretch" 
+                               VerticalAlignment="Stretch" IsHitTestVisible="false" Opacity="0" />
+
+                                <ContentPresenter
+                                    Content="{TemplateBinding Content}"
+                                    ContentTemplate="{TemplateBinding ContentTemplate}"
+                                    HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                    VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                    Margin="{TemplateBinding Padding}" />
+
+                                <Rectangle x:Name="InvalidVisualElement" IsHitTestVisible="False" StrokeThickness="1" Stroke="#FFDC000C" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Opacity="0"/>
+
+                                <Rectangle Name="RightGridLine" Grid.Column="1" VerticalAlignment="Stretch" Width="1" />
+                            </Grid>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+            <Style TargetType="sdk:DataGridRow">
+
+                <Setter Property="IsTabStop" Value="False" />
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="sdk:DataGridRow">
+                            <sdk:DataGridFrozenGrid Name="Root">
+                                <VisualStateManager.VisualStateGroups>
+                                    <VisualStateGroup x:Name="CommonStates">
+                                        <VisualState x:Name="Normal">
+                                            <Storyboard>
+                                                <DoubleAnimation Storyboard.TargetName="BackgroundRectangle" Storyboard.TargetProperty="Opacity" Duration="0" To="0"/>
+                                            </Storyboard>
+                                        </VisualState>
+
+                                        <VisualState x:Name="NormalAlternatingRow">
+                                            <Storyboard>
+                                                <DoubleAnimation Storyboard.TargetName="BackgroundRectangle" 
+                                                         Storyboard.TargetProperty="Opacity" Duration="0" To="0"/>
+                                            </Storyboard>
+                                        </VisualState>
+                                        <!--设置鼠标滑过每行时显示的颜色-->
+                                        <VisualState x:Name="MouseOver">
+                                            <Storyboard>
+                                                <DoubleAnimation Storyboard.TargetName="BackgroundRectangle" 
+                                                         Storyboard.TargetProperty="Opacity" Duration="0" To=".5"/>
+
+                                                <ColorAnimation Duration="0" Storyboard.TargetName="BackgroundRectangle" 
+                                                        Storyboard.TargetProperty="(Fill).Color" To="#3a3e42"/>
+                                            </Storyboard>
+                                        </VisualState>
+
+                                        <!--选中行颜色时修改-->
+                                        <VisualState x:Name="NormalSelected">
+                                            <Storyboard>
+                                                <DoubleAnimation Storyboard.TargetName="BackgroundRectangle" 
+                                                         Storyboard.TargetProperty="Opacity" Duration="0" To="1"/>
+                                                <ColorAnimation Duration="0" Storyboard.TargetName="BackgroundRectangle" 
+                                                        Storyboard.TargetProperty="(Fill).Color" To="#0099cb"/>
+                                            </Storyboard>
+                                        </VisualState>
+
+                                        <!--选中行颜色时修改-->
+                                        <VisualState x:Name="MouseOverSelected">
+                                            <Storyboard>
+                                                <DoubleAnimation Storyboard.TargetName="BackgroundRectangle" 
+                                                         Storyboard.TargetProperty="Opacity" Duration="0" To="1"/>
+                                            </Storyboard>
+                                        </VisualState>
+                                        <!--选中行颜色时修改-->
+                                        <VisualState x:Name="UnfocusedSelected">
+                                            <Storyboard>
+                                                <DoubleAnimation Storyboard.TargetName="BackgroundRectangle" 
+                                                         Storyboard.TargetProperty="Opacity" Duration="0" To="1"/>
+
+                                                <ColorAnimation Duration="0" Storyboard.TargetName="BackgroundRectangle" 
+                                                        Storyboard.TargetProperty="(Fill).Color" To="#0099cb"/>
+                                            </Storyboard>
+                                        </VisualState>
+                                    </VisualStateGroup>
+                                    <VisualStateGroup x:Name="ValidationStates">
+                                        <VisualState x:Name="Valid"/>
+                                        <VisualState x:Name="Invalid">
+                                            <Storyboard>
+                                                <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetName="BackgroundRectangle" Storyboard.TargetProperty="Visibility">
+                                                    <DiscreteObjectKeyFrame KeyTime="0" Value="Collapsed"/>
+                                                </ObjectAnimationUsingKeyFrames>
+                                                <DoubleAnimation Storyboard.TargetName="InvalidVisualElement" Storyboard.TargetProperty="Opacity" Duration="0" To="1"/>
+                                            </Storyboard>
+                                        </VisualState>
+                                    </VisualStateGroup>
+                                </VisualStateManager.VisualStateGroups>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <!--<RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>-->
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+
+                                <Grid.Resources>
+                                    <Storyboard x:Key="DetailsVisibleTransition">
+                                        <DoubleAnimation Storyboard.TargetName="DetailsPresenter" Storyboard.TargetProperty="ContentHeight" Duration="00:00:0.1" />
+                                    </Storyboard>
+                                </Grid.Resources>
+
+                                <!--<Rectangle x:Name="BackgroundRectangle" Grid.RowSpan="2" Grid.ColumnSpan="2" Opacity="0" Fill="#1bafff"/>
+                        <Rectangle x:Name="InvalidVisualElement" Grid.RowSpan="2" Grid.ColumnSpan="2" Opacity="0" Fill="#1bafff"/>-->
+                                <!--选中行颜色时修改-->
+                                <Rectangle x:Name="BackgroundRectangle" Grid.RowSpan="2" Grid.ColumnSpan="2" Opacity="0" Fill="#0099cb"/>
+                                <!--选中行颜色时修改-->
+                                <Rectangle x:Name="InvalidVisualElement" Grid.RowSpan="2" Grid.ColumnSpan="2" Opacity="0" Fill="#0099cb"/>
+                                <sdk:DataGridRowHeader Grid.RowSpan="3" Name="RowHeader" sdk:DataGridFrozenGrid.IsFrozen="True" />
+                                <sdk:DataGridCellsPresenter Grid.Column="1" Name="CellsPresenter" sdk:DataGridFrozenGrid.IsFrozen="True" />
+                                <sdk:DataGridDetailsPresenter Grid.Row="1" Grid.Column="1" Name="DetailsPresenter" />
+                                <Rectangle Grid.Row="2" Grid.Column="1" Name="BottomGridLine" HorizontalAlignment="Stretch" Height="1" />
+                            </sdk:DataGridFrozenGrid>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+
+            </Style>
+            <Style TargetType="sdk:DataGridColumnHeader" x:Key="CustomColumnHeader">
+                <Setter Property="HorizontalAlignment" Value="Stretch"/>
+                <Setter Property="VerticalAlignment" Value="Center"/>
+                <Setter Property="BorderThickness" Value="0"></Setter>
+                <Setter Property="VerticalContentAlignment" Value="Stretch"/>
+                <Setter Property="Height" Value="28"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="sdk:DataGridColumnHeader">
+                            <Border BorderBrush="#2c3136"
+                            BorderThickness="0"
+                            x:Name="ColumnHeaderBorder">
+                                <Border.Background>
+                                    <LinearGradientBrush StartPoint="0,0.5" EndPoint="0,1.0">
+                                        <!--<GradientStop Color="#353a44" Offset="0.5"/>
+                                <GradientStop Color="#22252c" Offset="1.0"/>-->
+                                        <GradientStop Color="#2c3136" Offset="0.5"/>
+                                        <GradientStop Color="#2c3136" Offset="1.0"/>
+                                    </LinearGradientBrush>
+                                </Border.Background>
+
+                                <StackPanel Background="{TemplateBinding Background}"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center">
+                                    <ContentPresenter>
+                                        <ContentPresenter.Content>
+                                            <TextBlock Text="{TemplateBinding Content}"
+                                                Foreground="#e3dfdf"
+                                                HorizontalAlignment="Stretch"
+                                                VerticalAlignment="Stretch"
+                                                FontSize="12"
+                                               FontWeight="Bold"/>
+                                        </ContentPresenter.Content>
+                                    </ContentPresenter>
+                                </StackPanel>
+                            </Border>
+
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+
+            </Style>
+            <Style x:Key="DataGridStyleRxx3" TargetType="sdk:DataGrid">
+                <Setter Property="HorizontalGridLinesBrush" Value="#1E2126"/>
+                <Setter Property="VerticalGridLinesBrush" Value="#1E2126"/>
+                <Setter Property="HorizontalScrollBarVisibility" Value="Hidden"/>
+                <Setter Property="VerticalScrollBarVisibility" Value="Auto"/>
+                <Setter Property="HorizontalAlignment" Value="Stretch"/>
+                <Setter Property ="VerticalAlignment" Value="Stretch"/>
+                <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                <Setter Property="VerticalContentAlignment" Value="Stretch"/>
+                <Setter Property="Background" Value="#1E2126"/>
+                <Setter Property="AutoGenerateColumns" Value="False"/>
+                <Setter Property="IsReadOnly" Value="True"/>
+                <Setter Property="GridLinesVisibility" Value="All"/>
+                <Setter Property="RowBackground" Value="#1E2126"/>
+                <Setter Property="BorderThickness" Value="0"/>
+                <Setter Property="AlternatingRowBackground" Value="#1E2126"/>
+                <Setter Property="HeadersVisibility" Value="Column"/>
+                <Setter Property="SelectionMode" Value="Extended"/>
+                <Setter Property="CanUserReorderColumns" Value="True"/>
+                <Setter Property="CanUserResizeColumns" Value="True"/>
+                <Setter Property="CanUserSortColumns" Value="True"/>
+                <Setter Property="RowDetailsVisibilityMode" Value="VisibleWhenSelected"/>
+                <Setter Property="BorderBrush">
+                    <Setter.Value>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#1E2126" Offset="0"/>
+                            <GradientStop Color="#1E2126" Offset="0.375"/>
+                            <GradientStop Color="#1E2126" Offset="0.375"/>
+                            <GradientStop Color="#1E2126" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="DragIndicatorStyle">
+                    <Setter.Value>
+                        <Style TargetType="ContentControl">
+                            <Setter Property="Foreground" Value="#7FFFFFFF"/>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="ContentControl">
+                                        <Grid>
+                                            <VisualStateManager.VisualStateGroups>
+                                                <VisualStateGroup x:Name="SortStates">
+                                                    <VisualState x:Name="Unsorted"/>
+                                                    <VisualState x:Name="SortAscending">
+                                                        <Storyboard>
+                                                            <DoubleAnimation Duration="0" To="1.0" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="SortIcon"/>
+                                                        </Storyboard>
+                                                    </VisualState>
+                                                    <VisualState x:Name="SortDescending">
+                                                        <Storyboard>
+                                                            <DoubleAnimation Duration="0" To="1.0" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="SortIcon"/>
+                                                            <DoubleAnimation Duration="0" To="-.9" Storyboard.TargetProperty="(RenderTransform).ScaleY" Storyboard.TargetName="SortIcon"/>
+                                                        </Storyboard>
+                                                    </VisualState>
+                                                </VisualStateGroup>
+                                            </VisualStateManager.VisualStateGroups>
+                                            <Rectangle x:Name="BackgroundRectangle" Grid.ColumnSpan="2" Fill="#1c1f23" Stretch="Fill"/>
+                                            <Rectangle x:Name="BackgroundGradient" Grid.ColumnSpan="2" Opacity="0" Stretch="Fill">
+                                                <Rectangle.Fill>
+                                                    <LinearGradientBrush EndPoint=".7,1" StartPoint=".7,0">
+                                                        <GradientStop Color="#1E2126" Offset="0.015"/>
+                                                        <GradientStop Color="#1E2126" Offset="0.375"/>
+                                                        <GradientStop Color="#1E2126" Offset="0.6"/>
+                                                        <GradientStop Color="#1E2126" Offset="1"/>
+                                                    </LinearGradientBrush>
+                                                </Rectangle.Fill>
+                                            </Rectangle>
+                                            <Grid HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition/>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                </Grid.ColumnDefinitions>
+                                                <ContentPresenter Content="{TemplateBinding Content}"/>
+                                                <Path x:Name="SortIcon" Grid.Column="1" Data="F1 M -5.215,6.099L 5.215,6.099L 0,0L -5.215,6.099 Z " Fill="#7FFFFFFF" HorizontalAlignment="Left" Margin="4,0,0,0" Opacity="0" RenderTransformOrigin=".5,.5" Stretch="Uniform" VerticalAlignment="Center" Width="8">
+                                                    <Path.RenderTransform>
+                                                        <ScaleTransform ScaleY=".9" ScaleX=".9"/>
+                                                    </Path.RenderTransform>
+                                                </Path>
+                                            </Grid>
+                                        </Grid>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="DropLocationIndicatorStyle">
+                    <Setter.Value>
+                        <Style TargetType="ContentControl">
+                            <Setter Property="Background" Value="#FF3F4346"/>
+                            <Setter Property="Width" Value="2"/>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="ContentControl">
+                                        <Rectangle Fill="{TemplateBinding Background}" Height="{TemplateBinding Height}" Width="{TemplateBinding Width}"/>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="IsTabStop" Value="True"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="sdk:DataGrid">
+                            <Grid>
+                                <VisualStateManager.VisualStateGroups>
+                                    <VisualStateGroup x:Name="CommonStates">
+                                        <VisualState x:Name="Normal"/>
+                                        <VisualState x:Name="Disabled">
+                                            <Storyboard>
+                                                <DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="DisabledVisualElement"/>
+                                            </Storyboard>
+                                        </VisualState>
+                                    </VisualStateGroup>
+                                </VisualStateManager.VisualStateGroups>
+                                <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="2">
+                                    <Grid x:Name="Root" Background="{TemplateBinding Background}">
+                                        <Grid.Resources>
+                                            <ControlTemplate x:Key="TopLeftHeaderTemplate" TargetType="sdk:DataGridColumnHeader">
+                                                <Grid x:Name="Root">
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition/>
+                                                        <RowDefinition/>
+                                                        <RowDefinition Height="Auto"/>
+                                                    </Grid.RowDefinitions>
+                                                    <Border BorderBrush="#1E2126" BorderThickness="0,0,1,0" Background="#242930" Grid.RowSpan="2">
+                                                        <Rectangle Stretch="Fill" StrokeThickness="1">
+                                                            <Rectangle.Fill>
+                                                                <LinearGradientBrush EndPoint=".7,1" StartPoint=".7,0">
+                                                                    <GradientStop Color="#1E2126" Offset="0.015"/>
+                                                                    <GradientStop Color="#1E2126" Offset="0.375"/>
+                                                                    <GradientStop Color="#1E2126" Offset="0.6"/>
+                                                                    <GradientStop Color="#1E2126" Offset="1"/>
+                                                                </LinearGradientBrush>
+                                                            </Rectangle.Fill>
+                                                        </Rectangle>
+                                                    </Border>
+                                                    <Rectangle Fill="#1E2126" Height="1" Grid.RowSpan="2" StrokeThickness="1" VerticalAlignment="Bottom" Width="Auto"/>
+                                                </Grid>
+                                            </ControlTemplate>
+                                            <ControlTemplate x:Key="TopRightHeaderTemplate" TargetType="sdk:DataGridColumnHeader">
+                                                <Grid x:Name="RootElement">
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition/>
+                                                        <RowDefinition/>
+                                                        <RowDefinition Height="Auto"/>
+                                                    </Grid.RowDefinitions>
+                                                    <Border BorderBrush="#2c3136" BorderThickness="1,0,0,0" Background="#2c3136" Grid.RowSpan="2">
+                                                        <!--垂直滚动条上的小块-->
+                                                        <Rectangle Stretch="Fill">
+                                                            <Rectangle.Fill>
+                                                                <LinearGradientBrush StartPoint="0,0.5" EndPoint="0,1.0">
+                                                                    <GradientStop Color="#2c3136" Offset="0.5"/>
+                                                                    <GradientStop Color="#2c3136" Offset="1.0"/>
+                                                                </LinearGradientBrush>
+                                                            </Rectangle.Fill>
+                                                        </Rectangle>
+                                                    </Border>
+                                                </Grid>
+                                            </ControlTemplate>
+                                        </Grid.Resources>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition/>
+                                            <ColumnDefinition Width="Auto"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition/>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                        </Grid.RowDefinitions>
+                                        <sdk:DataGridColumnHeader x:Name="TopLeftCornerHeader" Template="{StaticResource TopLeftHeaderTemplate}" Width="22"/>
+                                        <sdk:DataGridColumnHeadersPresenter x:Name="ColumnHeadersPresenter" Grid.Column="1"/>
+                                        <sdk:DataGridColumnHeader x:Name="TopRightCornerHeader" Grid.Column="2" Template="{StaticResource TopRightHeaderTemplate}"/>
+                                        <Rectangle x:Name="ColumnHeadersAndRowsSeparator" Grid.ColumnSpan="3" Fill="#1c1f23" Height="1" StrokeThickness="1" VerticalAlignment="Bottom" Width="Auto"/>
+                                        <sdk:DataGridRowsPresenter x:Name="RowsPresenter" Grid.ColumnSpan="2" Grid.Row="1"/>
+                                        <Rectangle x:Name="BottomRightCorner" Grid.Column="2" Fill="#FFE9EEF4" Grid.Row="2"/>
+                                        <Rectangle x:Name="BottomLeftCorner" Grid.ColumnSpan="2" Fill="#FFE9EEF4" Grid.Row="2"/>
+                                        <ScrollBar x:Name="VerticalScrollbar" Grid.Column="2" Margin="0,-1,-1,-1" Orientation="Vertical" Grid.Row="1" Width="18" 
+                                           Style="{StaticResource SelfScrollBarStyle2}"/>
+                                        <Grid Grid.Column="1" Grid.Row="2">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="Auto"/>
+                                                <ColumnDefinition/>
+                                            </Grid.ColumnDefinitions>
+                                            <Rectangle x:Name="FrozenColumnScrollBarSpacer"/>
+                                            <ScrollBar x:Name="HorizontalScrollbar" Grid.Column="1" Height="18" Margin="-1,0,-1,-1" Orientation="Horizontal"/>
+                                        </Grid>
+                                        <sdk:ValidationSummary x:Name="ValidationSummary" Grid.ColumnSpan="3" MaxHeight="90" Grid.Row="3"/>
+                                    </Grid>
+                                </Border>
+                                <Border x:Name="DisabledVisualElement" Background="#8C1c1f23" CornerRadius="2" HorizontalAlignment="Stretch" Height="Auto" IsHitTestVisible="False" Opacity="0" VerticalAlignment="Stretch" Width="Auto"/>
+                            </Grid>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </Grid.Resources>
+        <Border x:Name="ContentBorder" Style="{StaticResource ContentBorderStyle}" Margin="0,0,0,0" Grid.Row="0">
+            <Grid  Style="{StaticResource ViewFirstTitleGridStyle}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="70*"/>
+                    <ColumnDefinition Width="50*"/>
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.Column="0" Orientation="Horizontal">
+                    <Image Source="/ExternalResource;component/Images/MenuTrafiicManage.png" 
+                           Stretch="None" VerticalAlignment="Center" 
+                           HorizontalAlignment="Left" 
+                           Height="30"
+                           Width="30"/>
+                    <TextBlock Text="{Binding [TRAFFIC_MenuTitle], Source={StaticResource SR}}"
+                               HorizontalAlignment="Left"
+                               VerticalAlignment="Center"
+                               FontSize="16"
+                               Foreground="#f0f0f0"
+                               FontWeight="Bold"
+                               Margin="10,0,0,0"/>
+                </StackPanel>
+                <StackPanel Grid.Column="1" Orientation="Horizontal"  HorizontalAlignment="Right">
+                </StackPanel>
+            </Grid>
+        </Border>
+        <toolkit:Accordion Name="acc_menuContainer" Grid.Row="1"   SelectionMode="ZeroOrOne"
+                           VerticalAlignment="Stretch"  
+                           BorderThickness="0" HorizontalAlignment="Left"   Grid.RowSpan="2"  
+                           Tag="{StaticResource menuWidth}" SizeChanged="AccordionControl_SizeChanged" SelectedIndex="{Binding Traffic_MenuSelectIndex}" Background="#272c32">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="SelectionChanged">
+                    <ia:CallMethodAction TargetObject="{Binding}" MethodName="Accordion_SelectionChanged" />
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+            <toolkit:AccordionItem x:Name="MenuItem_Fence" 
+                                   Visibility="{Binding RelativeSource={RelativeSource Self}, Converter={StaticResource FunItemVisibilityConverter},ConverterParameter='02-03-01-01'}"
+                                   VerticalContentAlignment="Stretch" HorizontalAlignment="Stretch" 
+                                   Style="{StaticResource AdviceMenu_AccordionItemStyle}"
+                                    >
+                <toolkit:HeaderedContentControl.Header>
+                    <Grid x:Name="titleGrid" HorizontalAlignment="Left" VerticalAlignment="Center" Width="265">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <StackPanel Orientation="Horizontal" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="0,0,0,0" Width="133">
+                            <TextBlock FontSize="14" Width="244" FontWeight="Bold" Text="{Binding [TRAFFIC_ElectricFence], Source={StaticResource SR}}"
+                                       HorizontalAlignment="Left" VerticalAlignment="Center" Style="{StaticResource TextBlockLightStyle}"/>
+                        </StackPanel>
+                        <Button Name="btnAddFence" 
+                                 Visibility="{Binding RelativeSource={RelativeSource Self}, Converter={StaticResource FunItemVisibilityConverter},ConverterParameter='02-03-01-01-02'}"                               
+                                Style="{StaticResource AddButtonBlackCommonStyle}"
+                                Grid.Column="1" HorizontalAlignment="Right"   
+                                Command= "{Binding Path=AddFenceCommand}" 
+                                ToolTipService.ToolTip="{Binding [TRAFFIC_ElectricFence_Add], Source={StaticResource SR}}" VerticalAlignment="Center">
+                        </Button>
+                       
+                    </Grid>
+                </toolkit:HeaderedContentControl.Header>
+                <!--<i:Interaction.Triggers>
+                    <i:EventTrigger EventName="Selected">
+                        <i:InvokeCommandAction Command="{Binding SelectedCommand}" CommandParameter="2"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>-->
+                <toolkit:AccordionItem.Content>
+                    <Grid Style="{StaticResource ContentGridStyle}">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="80"/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Grid HorizontalAlignment="Center" Grid.Row="0" share:ButtonServices.DefaultButton="{Binding ElementName=ElectricFenceSearch}">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="10"/>
+                                <RowDefinition Height="30"/>
+                                <RowDefinition Height="30"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="120"/>
+                                <ColumnDefinition Width="180"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Column="0" 
+                                           Grid.Row="1" Text="{Binding [TRAFFIC_ElectricFence_Name], Source={StaticResource SR}}" 
+                                           VerticalAlignment="Center" HorizontalAlignment="Right" Style="{StaticResource TextBlockLightStyle}"/>
+
+                            <TextBox MaxLength="100"  Grid.Column="1" Grid.Row="1"  Width="150"
+                                             Background="#242930" Foreground="#f0f0f0"
+                                         Text="{Binding QueryFenceText, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" 
+                                         Margin="10,0,0,0"  ToolTipService.ToolTip="{Binding [TRAFFIC_Query_NameTip], Source={StaticResource SR}}" 
+                                         />
+
+
+                            <Button Name="ElectricFenceSearch" ToolTipService.ToolTip="{Binding [ALARM_Query], Source={StaticResource SR}}" Grid.Column="2" Grid.Row="2" HorizontalAlignment="Left" Command="{Binding QueryFenceCommand}"
+                                         Visibility="{Binding RelativeSource={RelativeSource Self}, Converter={StaticResource FunItemVisibilityConverter},ConverterParameter='02-03-01-01-01'}"
+                                        Style="{StaticResource SearchButtonCommonStyle}"/>
+
+
+                            <TextBlock  Grid.Column="0" Grid.Row="2"   Text="{Binding [MONITOR_VehicleId], Source={StaticResource SR}}" 
+                                            VerticalAlignment="Center" HorizontalAlignment="Right" Style="{StaticResource TextBlockLightStyle}"/>
+
+                            <TextBox Width="150"  Background="#242930" Foreground="#f0f0f0"  MaxLength="20" Grid.Column="1" Grid.Row="2" Text="{Binding QueryFenceVehicleId, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"  Margin="10,0,0,0" ToolTipService.ToolTip="{Binding [TRAFFIC_Query_VehicleTip], Source={StaticResource SR}}"  />
+                        </Grid>
+
+                        <Grid Grid.Row="1" Margin="0,0,0,0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="30"/>
+                            </Grid.RowDefinitions>
+                            <sdk:DataGrid  Grid.Row="0" x:Name="DataGrid_Fence" 
+                                               AutoGenerateColumns="False" 
+                                               ItemsSource="{Binding FenceSourePage}"  
+                                               SelectedItem="{Binding SelectItem,Mode=TwoWay}"   IsReadOnly="True"
+                                               ColumnHeaderStyle="{StaticResource CustomColumnHeader}" 
+                                               Style="{StaticResource DataGridStyleRxx3}"
+                                               Visibility="{Binding DataContext.MenuShow,ElementName=LayoutRoot, Converter={StaticResource MainPageMenuConvert}, ConverterParameter=TRAFFIC_Fence}">
+                                <sdk:DataGrid.Columns>
+
+                                    <sdk:DataGridTemplateColumn Header="TRAFFIC_ElectricFence_Name" Width="1.4*">
+                                        <sdk:DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <TextBlock  Text="{Binding DisplayName}" Width="265" TextAlignment="Left" ToolTipService.ToolTip="{Binding DisplayName}"
+                                                               Foreground="{Binding Valid, Converter={StaticResource BoolCoverterToColorConverter}}"/>
+                                            </DataTemplate>
+                                        </sdk:DataGridTemplateColumn.CellTemplate>
+                                    </sdk:DataGridTemplateColumn>
+
+                                    <sdk:DataGridTemplateColumn Header="ALARM_Operater" Width="*">
+                                        <sdk:DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                                    <!--创建新版本-->
+                                                    <Button Visibility="{Binding RelativeSource={RelativeSource Self}, Converter={StaticResource FunItemVisibilityConverter},ConverterParameter='02-03-01-01-03'}"                                                               
+                                                                Style="{StaticResource CopyButtonCommonStyle}" 
+                                                                Cursor="Hand" x:Name="Fence_NewVersion" 
+                                                                 Margin="2,0,2,0"
+                                                                ToolTipService.ToolTip="{Binding [TRAFFIC_ElectricFence_NewVersion], Source={StaticResource SR}}"
+                                                                VerticalAlignment="Center" 
+                                                                Command="{Binding DataContext.FenceNewVersionCommand, RelativeSource={RelativeSource AncestorType=sdk:DataGrid}}" IsEnabled="{Binding IsSelect}">
+
+                                                    </Button>
+
+                                                    <Button  Visibility="{Binding RelativeSource={RelativeSource Self}, Converter={StaticResource FunItemVisibilityConverter},ConverterParameter='02-03-01-01-04'}"  Style="{StaticResource EditShapeButtonCommonStyle}" Cursor="Hand" x:Name="EditGeometry_Fence" ToolTipService.ToolTip="{Binding [TRAFFIC_ElectricFence_EditGeometry], Source={StaticResource SR}}" VerticalAlignment="Center" Command="{Binding DataContext.EditFenceCommand, RelativeSource={RelativeSource AncestorType=sdk:DataGrid}}" 
+                                                               IsEnabled="{Binding Valid}"    Margin="2,0,2,0"/>
+
+
+                                                    <!--编辑围栏属性-->
+                                                    <Button Visibility="{Binding RelativeSource={RelativeSource Self}, Converter={StaticResource FunItemVisibilityConverter},ConverterParameter='02-03-01-01-05'}" Style="{StaticResource EditButtonBlackCommonStyle}" Cursor="Hand" x:Name="Fence_EditProperty" ToolTipService.ToolTip="{Binding [TRAFFIC_ElectricFence_EditProperty], Source={StaticResource SR}}" VerticalAlignment="Center" Command="{Binding DataContext.EditFencePropertyCommand, RelativeSource={RelativeSource AncestorType=sdk:DataGrid}}" 
+                                                                   IsEnabled="{Binding Valid}"    Margin="2,0,2,0">
+                                                        <!--<Image Source="/ExternalResource;component/Images/DataGrid_polygon.png" Stretch="None" Width="16" Height="18" />-->
+                                                    </Button>
+
+
+                                                    <Button  Style="{StaticResource IssuedButtonBlackCommonStyle}" Cursor="Hand" x:Name="Fence_SendToVechile" ToolTipService.ToolTip="{Binding [TRAFFIC_Route_SendToVechile], Source={StaticResource SR}}" VerticalAlignment="Center" Command="{Binding DataContext.FenceSendToVehicleCommand, RelativeSource={RelativeSource AncestorType=sdk:DataGrid}}"
+                                                                 Margin="2,0,2,0">
+                                                    </Button>
+
+
+                                                    <!--废弃围栏-->
+                                                    <Button Style="{StaticResource AbandonedButtonCommonStyle}" Cursor="Hand" x:Name="abandon_Fence"  ToolTipService.ToolTip="{Binding [TRAFFIC_ElectricFence_abandon], Source={StaticResource SR}}" VerticalAlignment="Center"  Command="{Binding DataContext.AbandonFenceCommand, RelativeSource={RelativeSource AncestorType=sdk:DataGrid}}"  
+                                                                 Margin="2,0,2,0"
+                                                                Visibility="{Binding RelativeSource={RelativeSource Self}, Converter={StaticResource FunItemVisibilityConverter},ConverterParameter='02-03-01-01-07'}"
+                                                                IsEnabled="{Binding Valid}">
+                                                    </Button>
+
+
+                                                    <!--删除围栏-->
+                                                    <Button Style="{StaticResource DeleteButtonCommonStyle}" Cursor="Hand" x:Name="Delete_Fence"  ToolTipService.ToolTip="{Binding [TRAFFIC_ElectricFence_Delete], Source={StaticResource SR}}" VerticalAlignment="Center"  Command="{Binding DataContext.DeleteFenceCmd, RelativeSource={RelativeSource AncestorType=sdk:DataGrid}}" 
+                                                                Visibility="{Binding RelativeSource={RelativeSource Self}, Converter={StaticResource FunItemVisibilityConverter},ConverterParameter='02-03-01-01-08'}"
+                                                                Margin="2,0,2,0">
+                                                    </Button>
+
+
+                                                    <Button Style="{StaticResource ANTBaseInfoGridBtn}" 
+                                                                Cursor="Hand" Name="MarkFenceGraphic"  
+                                                                ToolTipService.ToolTip="{Binding [Mark], Source={StaticResource SR}}" 
+                                                                VerticalAlignment="Center" 
+                                                                Command="{Binding DataContext.MarkFenceGraphicCommand,RelativeSource={RelativeSource AncestorType=sdk:DataGrid}}"
+                                                                CommandParameter="{Binding}"
+                                                                Margin="2,0,2,0">
+                                                        <Image Source="{Binding IsmarkFenceGraphic,Converter={StaticResource MarkConvert}}" 
+                                                                   Stretch="None" Width="16" Height="16" />
+                                                    </Button>
+                                                </StackPanel>
+                                            </DataTemplate>
+                                        </sdk:DataGridTemplateColumn.CellTemplate>
+                                    </sdk:DataGridTemplateColumn>
+                                </sdk:DataGrid.Columns>
+                            </sdk:DataGrid>
+
+
+                            <Border BorderBrush="#FF617584" Grid.Row="1" BorderThickness="0.5">
+                                <Grid Style="{StaticResource ContentGridStyle}">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Grid.Column="0"
+                                                Text="{Binding [Total],Source={StaticResource SR}}"
+                                                HorizontalAlignment="Right"
+                                                VerticalAlignment="Center"
+                                                Margin="0,2,10,2" Style="{StaticResource TextBlockLightStyle}"/>
+                                    <TextBlock Text="{Binding FenceCount}" Grid.Column="1"
+                                                HorizontalAlignment="Left"
+                                                VerticalAlignment="Center"
+                                                Margin="0,2,10,2" Style="{StaticResource TextBlockLightStyle}"/>
+                                    <sdk:DataPager Style="{StaticResource DataPagerStyle}"   
+                                                Grid.Column="2"
+                                                Margin="0,0,0,0"
+                                                Height="25"
+                                                Foreground="#f0f0f0" 
+                                                Source="{Binding FenceSourePage}"
+                                                PageSize="30"
+                                                Background="{Binding ElementName=DataGrid_Fence, Path=Background}"
+                                                HorizontalAlignment="Stretch"
+                                                VerticalAlignment="Center"/>
+                                </Grid>
+
+                            </Border>
+
+
+                        </Grid>
+                    </Grid>
+                </toolkit:AccordionItem.Content>
+            </toolkit:AccordionItem>
+            <toolkit:AccordionItem x:Name="MenuItem_Route" 
+                                    Visibility="{Binding RelativeSource={RelativeSource Self}, Converter={StaticResource FunItemVisibilityConverter},ConverterParameter='02-03-01-02'}"
+                                   VerticalContentAlignment="Stretch" 
+                                   HorizontalAlignment="Stretch" Style="{StaticResource AdviceMenu_AccordionItemStyle}" >
+                <toolkit:HeaderedContentControl.Header>
+                    <Grid x:Name="titleGrid_Route" HorizontalAlignment="Left" VerticalAlignment="Center" Width="265">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <StackPanel Orientation="Horizontal" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="0,0,0,0" Width="133">
+                            <TextBlock FontSize="14" Width="244" FontWeight="Bold" Text="{Binding [TRAFFIC_Route], Source={StaticResource SR}}"
+                                       HorizontalAlignment="Left" VerticalAlignment="Center" Style="{StaticResource TextBlockLightStyle}"/>
+                        </StackPanel>
+                        <Button Name="btnAddRoute" 
+                                 Visibility="{Binding RelativeSource={RelativeSource Self}, Converter={StaticResource FunItemVisibilityConverter},ConverterParameter='02-03-01-02-02'}"                               
+                                Style="{StaticResource AddButtonBlackCommonStyle}"
+                                Grid.Column="1" HorizontalAlignment="Right"   
+                                Command= "{Binding Path=AddRouteCommand}" 
+                                ToolTipService.ToolTip="{Binding [TRAFFIC_Route_Add], Source={StaticResource SR}}" VerticalAlignment="Center">
+                        </Button>
+                    </Grid>
+                </toolkit:HeaderedContentControl.Header>
+                <!--<i:Interaction.Triggers>
+                    <i:EventTrigger EventName="Selected">
+                        <i:InvokeCommandAction Command="{Binding SelectedCommand}" CommandParameter="3"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>-->
+                <toolkit:AccordionItem.Content>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="80"/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Grid HorizontalAlignment="Center" Grid.Row="0" share:ButtonServices.DefaultButton="{Binding ElementName=RouteSearch}">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="10"/>
+                                <RowDefinition Height="30"/>
+                                <RowDefinition Height="30"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="120"></ColumnDefinition>
+                                <ColumnDefinition Width="180"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Column="0" Grid.Row="1" Text="{Binding [TRAFFIC_Route_Name], Source={StaticResource SR}}" 
+                                           VerticalAlignment="Center" HorizontalAlignment="Right"  Style="{StaticResource TextBlockLightStyle}"/>
+                            <TextBox MaxLength="100"  Grid.Column="1" Grid.Row="1"  Width="150" 
+                                             Background="#242930" Foreground="#f0f0f0"
+                                         Text="{Binding QueryRouteText, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" 
+                                         Margin="10,0,0,0"  ToolTipService.ToolTip="{Binding [TRAFFIC_Query_NameTip], Source={StaticResource SR}}" 
+                                         />
+                            <Button Name="RouteSearch" Grid.Column="2" 
+                                        Grid.Row="2"  Width="30" ToolTipService.ToolTip="{Binding [ALARM_Query], Source={StaticResource SR}}" HorizontalAlignment="Left" Command="{Binding QueryRouteCommand}"  
+                                         Visibility="{Binding RelativeSource={RelativeSource Self}, Converter={StaticResource FunItemVisibilityConverter},ConverterParameter='02-03-01-02-01'}"
+                                        Style="{StaticResource SearchButtonCommonStyle}"/>
+
+                            <TextBlock  Grid.Column="0" Grid.Row="2"   Text="{Binding [MONITOR_VehicleId], Source={StaticResource SR}}" 
+                                            VerticalAlignment="Center" HorizontalAlignment="Right"  Style="{StaticResource TextBlockLightStyle}"/>
+                            <TextBox MaxLength="20" Grid.Column="1" Grid.Row="2"   Width="150"
+                                             Background="#242930" Foreground="#f0f0f0"
+                                         Text="{Binding QueryRouteVehicleId, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"  
+                                         Margin="10,0,0,0" ToolTipService.ToolTip="{Binding [TRAFFIC_Query_VehicleTip], Source={StaticResource SR}}" />
+                        </Grid>
+                        <Grid Grid.Row="1" Margin="0,0,0,0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="30"/>
+                            </Grid.RowDefinitions>
+                            <sdk:DataGrid  Grid.Row="0" x:Name="DataGrid_Route" 
+                                               AutoGenerateColumns="False" 
+                                               ItemsSource="{Binding RouteSourePage}"  SelectedItem="{Binding RouteSelectItem,Mode=TwoWay}"   
+                                               IsReadOnly="True"
+                                               Style="{StaticResource DataGridStyleRxx3}"
+                                               ColumnHeaderStyle="{StaticResource CustomColumnHeader}">
+                                <sdk:DataGrid.Columns>
+                                    <sdk:DataGridTemplateColumn Header="TRAFFIC_Route_Name" Width="1.4*" HeaderStyle="{StaticResource CustomColumnHeader}">
+                                        <sdk:DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <TextBlock Text="{Binding DisplayName, Mode=TwoWay}" Width="265" TextAlignment="Left" ToolTipService.ToolTip="{Binding DisplayName}"
+                                                               Foreground="{Binding Valid,  Converter={StaticResource BoolCoverterToColorConverter}}"/>
+                                            </DataTemplate>
+                                        </sdk:DataGridTemplateColumn.CellTemplate>
+                                    </sdk:DataGridTemplateColumn>
+
+
+
+                                    <sdk:DataGridTemplateColumn Header="ALARM_Operater" Width="*" HeaderStyle="{StaticResource CustomColumnHeader}">
+                                        <sdk:DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                                    <!--创建新版本-->
+                                                    <Button  Visibility="{Binding RelativeSource={RelativeSource Self}, Converter={StaticResource FunItemVisibilityConverter},ConverterParameter='02-03-01-02-03'}" Style="{StaticResource CopyButtonCommonStyle}" Cursor="Hand" x:Name="Route_NewVersion" ToolTipService.ToolTip="{Binding [TRAFFIC_Route_NewVersion], Source={StaticResource SR}}" VerticalAlignment="Center" Command="{Binding DataContext.RouteNewVersionCommand, RelativeSource={RelativeSource AncestorType=sdk:DataGrid}}"
+                                                                 Margin="2,0,2,0">
+
+                                                    </Button>
+
+                                                    <!--编辑路线-->
+                                                    <Button  Visibility="{Binding RelativeSource={RelativeSource Self}, Converter={StaticResource FunItemVisibilityConverter},ConverterParameter='02-03-01-02-04'}" Style="{StaticResource EditLimitButtonCommonStyle}" Cursor="Hand" x:Name="EditGeometry_Route" ToolTipService.ToolTip="{Binding [TRAFFIC_Route_EditGeometry], Source={StaticResource SR}}" VerticalAlignment="Center" Command="{Binding DataContext.EditRouteCommand, RelativeSource={RelativeSource AncestorType=sdk:DataGrid}}" 
+                                                                 Margin="2,0,2,0">
+
+                                                    </Button>
+
+                                                    <!--详细信息-->
+                                                    <!--<Button Visibility="Visible" Style="{StaticResource VehicleDetailInfoButtonCommonStyle}" Cursor="Hand" x:Name="Route_Property" ToolTipService.ToolTip="{Binding [TRAFFIC_Route_Property], Source={StaticResource SR}}" VerticalAlignment="Center" Command="{Binding DataContext.RouteOpenDetailViewCommand, RelativeSource={RelativeSource AncestorType=sdk:DataGrid}}" IsEnabled="{Binding IsSelect,Mode=TwoWay}">
+                                                           
+                                                        </Button>-->
+
+
+                                                    <!--编辑围栏属性-->
+                                                    <Button  Visibility="{Binding RelativeSource={RelativeSource Self}, Converter={StaticResource FunItemVisibilityConverter},ConverterParameter='02-03-01-02-05'}" Style="{StaticResource EditButtonBlackCommonStyle}" Cursor="Hand" x:Name="Route_EditProperty" ToolTipService.ToolTip="{Binding [TRAFFIC_Route_EditProperty], Source={StaticResource SR}}" VerticalAlignment="Center" Command="{Binding DataContext.EditRoutePropertyCommand, RelativeSource={RelativeSource AncestorType=sdk:DataGrid}}" 
+                                                                IsEnabled="{Binding Valid}" Margin="2,0,2,0">
+
+                                                    </Button>
+
+                                                    <!--下发车辆-->
+                                                    <Button  Style="{StaticResource IssuedButtonBlackCommonStyle}" Cursor="Hand" x:Name="Route_SendToVechile" ToolTipService.ToolTip="{Binding [TRAFFIC_Route_SendToVechile], Source={StaticResource SR}}" VerticalAlignment="Center" Command="{Binding DataContext.RouteSendToVehicleCommand, RelativeSource={RelativeSource AncestorType=sdk:DataGrid}}" 
+                                                                 Margin="2,0,2,0">
+
+                                                    </Button>
+                                                    <!--废弃路线-->
+                                                    <Button Style="{StaticResource AbandonedButtonCommonStyle}" Cursor="Hand" x:Name="abandon_Route"  ToolTipService.ToolTip="{Binding [TRAFFIC_Route_abandon], Source={StaticResource SR}}" VerticalAlignment="Center"  Command="{Binding DataContext.AbandonRouteCommand, RelativeSource={RelativeSource AncestorType=sdk:DataGrid}}" 
+                                                                 Margin="2,0,2,0"
+                                                                 Visibility="{Binding RelativeSource={RelativeSource Self}, Converter={StaticResource FunItemVisibilityConverter},ConverterParameter='02-03-01-02-07'}"
+                                                                IsEnabled="{Binding Valid}">
+
+                                                    </Button>
+
+
+                                                    <!--删除路线-->
+                                                    <Button Style="{StaticResource DeleteButtonCommonStyle}"
+                                                                Cursor="Hand" x:Name="Delete_Route"  
+                                                                ToolTipService.ToolTip="{Binding [TRAFFIC_Route_Delete], Source={StaticResource SR}}"
+                                                                VerticalAlignment="Center" 
+                                                                 Visibility="{Binding RelativeSource={RelativeSource Self}, Converter={StaticResource FunItemVisibilityConverter},ConverterParameter='02-03-01-02-08'}"
+                                                                Command="{Binding DataContext.DeleteRouteCmd, RelativeSource={RelativeSource AncestorType=sdk:DataGrid}}" 
+                                                                 Margin="2,0,2,0">
+
+                                                    </Button>
+
+                                                    <!--标识路线-->
+                                                    <Button Style="{StaticResource ANTBaseInfoGridBtn}" 
+                                                                Cursor="Hand" Name="MarkRouteGraphic"  
+                                                                ToolTipService.ToolTip="{Binding [Mark], Source={StaticResource SR}}"
+                                                                VerticalAlignment="Center" 
+                                                                Command="{Binding DataContext.MarkRouteGraphicCommand,RelativeSource={RelativeSource AncestorType=sdk:DataGrid}}" 
+                                                                CommandParameter="{Binding}"  Margin="2,0,2,0">
+                                                        <Image Source="{Binding IsmarkRouteGraphic,Converter={StaticResource MarkConvert}}" Stretch="None" Width="16" Height="16" />
+                                                    </Button>
+
+
+                                                </StackPanel>
+                                            </DataTemplate>
+                                        </sdk:DataGridTemplateColumn.CellTemplate>
+                                    </sdk:DataGridTemplateColumn>
+                                </sdk:DataGrid.Columns>
+                            </sdk:DataGrid>
+
+
+
+                            <Border BorderBrush="#FF617584" Grid.Row="1" BorderThickness="0.5" Height="30">
+
+                                <Grid Style="{StaticResource ContentGridStyle}">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Grid.Column="0"
+                                                Text="{Binding [Total],Source={StaticResource SR}}"
+                                                HorizontalAlignment="Right"
+                                                VerticalAlignment="Center"
+                                                Margin="0,2,10,2" Style="{StaticResource TextBlockLightStyle}"/>
+                                    <TextBlock Text="{Binding RouteCount}" Grid.Column="1"
+                                                HorizontalAlignment="Left"
+                                                VerticalAlignment="Center"
+                                                Margin="0,2,10,2" Style="{StaticResource TextBlockLightStyle}"/>
+                                    <sdk:DataPager Style="{StaticResource DataPagerStyle}"   
+                                                Grid.Column="2"
+                                                Margin="0,0,0,0"
+                                                Height="25"
+                                                Foreground="#f0f0f0" 
+                                                Source="{Binding RouteSourePage}"
+                                                PageSize="30"
+                                                Background="{Binding ElementName=DataGrid_Route, Path=Background}"
+                                                HorizontalAlignment="Stretch"
+                                                VerticalAlignment="Center"/>
+                                </Grid>
+                            </Border>
+                        </Grid>
+                    </Grid>
+
+                </toolkit:AccordionItem.Content>
+            </toolkit:AccordionItem>
+            <toolkit:AccordionItem x:Name="MenuItem_SpeedRule" 
+                                   Visibility="{Binding RelativeSource={RelativeSource Self}, Converter={StaticResource FunItemVisibilityConverter},ConverterParameter='02-03-01-03'}"
+                                   VerticalContentAlignment="Stretch"
+                                   HorizontalAlignment="Stretch" Style="{StaticResource AdviceMenu_AccordionItemStyle}" >
+                <toolkit:HeaderedContentControl.Header>
+                    <Grid x:Name="titleGrid_SpeedRule" HorizontalAlignment="Left" VerticalAlignment="Center" Width="265">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <StackPanel Orientation="Horizontal" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="0,0,0,0">
+                            <TextBlock FontSize="14" FontWeight="Bold" Text="{Binding [SpeedSetRule], Source={StaticResource SR}}"
+                                       HorizontalAlignment="Left" VerticalAlignment="Center" Style="{StaticResource TextBlockLightStyle}"/>
+                        </StackPanel>
+                        <Button Name="btnAddSpeedRule" 
+                                Visibility="{Binding RelativeSource={RelativeSource Self}, Converter={StaticResource FunItemVisibilityConverter},ConverterParameter='02-03-01-03-02'}"                               
+                                Style="{StaticResource AddButtonBlackCommonStyle}"
+                                Grid.Column="1" HorizontalAlignment="Right"   
+                                Command= "{Binding Path=AddSpeedRuleCommand}" 
+                                ToolTipService.ToolTip="{Binding [TRAFFIC_ElectricFence_Add], Source={StaticResource SR}}" VerticalAlignment="Center">
+                        </Button>
+                    </Grid>
+                </toolkit:HeaderedContentControl.Header>
+                <!--<i:Interaction.Triggers>
+                    <i:EventTrigger EventName="Selected">
+                        <i:InvokeCommandAction Command="{Binding SelectedCommand}" CommandParameter="6"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>-->
+                <toolkit:AccordionItem.Content>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="50"/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Grid HorizontalAlignment="Center" Grid.Row="0" share:ButtonServices.DefaultButton="{Binding ElementName=SpeedRuleSearch}">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="10"/>
+                                <RowDefinition Height="30"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="120"></ColumnDefinition>
+                                <ColumnDefinition Width="180"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Column="0" Grid.Row="1" Text="{Binding [MANAGER_RuleName], Source={StaticResource SR}}" 
+                                           VerticalAlignment="Center" HorizontalAlignment="Right"  Style="{StaticResource TextBlockLightStyle}"/>
+                            <TextBox MaxLength="100"  Grid.Column="1" Grid.Row="1"   Background="#242930" Foreground="#f0f0f0"
+                                         Text="{Binding QuerySpeedRuleText, Mode=TwoWay}" Width="150"
+                                         Margin="10,0,0,0"  ToolTipService.ToolTip="{Binding [TRAFFIC_Query_NameTip], Source={StaticResource SR}}"/>
+                            <Button Name="SpeedRuleSearch"  ToolTipService.ToolTip="{Binding [ALARM_Query], Source={StaticResource SR}}" Grid.Column="2" 
+                                        Grid.Row="1"  Width="30"  HorizontalAlignment="Left" 
+                                        Command="{Binding QuerySpeedRuleCommand}"  
+                                        Visibility="{Binding RelativeSource={RelativeSource Self}, Converter={StaticResource FunItemVisibilityConverter},ConverterParameter='02-03-01-03-01'}"
+                                        Style="{StaticResource SearchButtonCommonStyle}"/>
+                        </Grid>
+                        <Grid Grid.Row="1" Margin="0,0,0,0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="30"/>
+                            </Grid.RowDefinitions>
+                            <sdk:DataGrid  Grid.Row="0" x:Name="DataGrid_SpeedRule" 
+                                               AutoGenerateColumns="False" 
+                                               ItemsSource="{Binding SpeedRuleSourcePage}" SelectedItem="{Binding SelectedSpeedLimit,Mode=TwoWay}"   
+                                               IsReadOnly="True"
+                                               Style="{StaticResource DataGridStyleRxx3}"
+                                               ColumnHeaderStyle="{StaticResource CustomColumnHeader}">
+                                <sdk:DataGrid.Columns>
+                                    <sdk:DataGridTemplateColumn Header="MANAGER_RuleName" Width="1.4*" HeaderStyle="{StaticResource CustomColumnHeader}">
+                                        <sdk:DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <TextBlock Text="{Binding Name, Mode=TwoWay}" Width="265" TextAlignment="Left" ToolTipService.ToolTip="{Binding Name}"
+                                                               Foreground="{Binding Valid, Converter={StaticResource BoolCoverterToColorConverter}}"/>
+                                            </DataTemplate>
+                                        </sdk:DataGridTemplateColumn.CellTemplate>
+                                    </sdk:DataGridTemplateColumn>
+                                    <sdk:DataGridTemplateColumn Header="ALARM_Operater" Width="*" HeaderStyle="{StaticResource CustomColumnHeader}">
+                                        <sdk:DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center">
+                                                    <!--编辑超速规则-->
+                                                    <Button  Visibility="{Binding RelativeSource={RelativeSource Self}, Converter={StaticResource FunItemVisibilityConverter},ConverterParameter='02-03-01-03-03'}" 
+                                                                 Style="{StaticResource EditLimitButtonCommonStyle}" Cursor="Hand" 
+                                                                 x:Name="EditGeometry_Route" 
+                                                                 ToolTipService.ToolTip="{Binding [Edit], Source={StaticResource SR}}" 
+                                                                 IsEnabled="{Binding IsVisible}"
+                                                                 VerticalAlignment="Center"
+                                                                 Command="{Binding DataContext.EditSpeedRuleCommand, RelativeSource={RelativeSource AncestorType=sdk:DataGrid}}" 
+                                                                 Margin="2,0,2,0">
+                                                    </Button>
+                                                    <!--下发车辆-->
+                                                    <Button  Style="{StaticResource IssuedButtonBlackCommonStyle}" Cursor="Hand" 
+                                                                 x:Name="Route_SendToVechile" 
+                                                                 ToolTipService.ToolTip="{Binding [TRAFFIC_Route_SendToVechile], Source={StaticResource SR}}" 
+                                                                 VerticalAlignment="Center" 
+                                                                 Command="{Binding DataContext.SendSpeedRuleCommand, RelativeSource={RelativeSource AncestorType=sdk:DataGrid}}" 
+                                                                 
+                                                                 Margin="2,0,2,0">
+                                                    </Button>
+                                                    <!--删除超速规则-->
+                                                    <Button Style="{StaticResource DeleteButtonCommonStyle}"
+                                                                Cursor="Hand" x:Name="Delete_Route"  
+                                                                ToolTipService.ToolTip="{Binding [Delete], Source={StaticResource SR}}"
+                                                                VerticalAlignment="Center" 
+                                                                Visibility="{Binding RelativeSource={RelativeSource Self}, Converter={StaticResource FunItemVisibilityConverter},ConverterParameter='02-03-01-03-04'}"
+                                                                Command="{Binding DataContext.DeleteSpeedRuleCommand, RelativeSource={RelativeSource AncestorType=sdk:DataGrid}}" 
+                                                                IsEnabled="{Binding IsVisible}"
+                                                                Margin="2,0,2,0">
+                                                    </Button>
+                                                </StackPanel>
+                                            </DataTemplate>
+                                        </sdk:DataGridTemplateColumn.CellTemplate>
+                                    </sdk:DataGridTemplateColumn>
+                                </sdk:DataGrid.Columns>
+                            </sdk:DataGrid>
+                            <Border BorderBrush="#FF617584" Grid.Row="1" BorderThickness="0.5" Height="30">
+                                <Grid Style="{StaticResource ContentGridStyle}">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Grid.Column="0"
+                                                Text="{Binding [Total],Source={StaticResource SR}}"
+                                                HorizontalAlignment="Right"
+                                                VerticalAlignment="Center"
+                                                Margin="0,2,10,2" Style="{StaticResource TextBlockLightStyle}"/>
+                                    <TextBlock Text="{Binding SpeedRuleCount}" Grid.Column="1"
+                                                HorizontalAlignment="Left"
+                                                VerticalAlignment="Center"
+                                                Margin="0,2,10,2" Style="{StaticResource TextBlockLightStyle}"/>
+                                    <sdk:DataPager Style="{StaticResource DataPagerStyle}"   
+                                                Grid.Column="2"
+                                                Margin="0,0,0,0"
+                                                Height="25"                                                                           
+                                                Foreground="#f0f0f0" 
+                                                Source="{Binding SpeedRuleSourcePage}"
+                                                PageSize="30"
+                                                Background="{Binding ElementName=DataGrid_SpeedRule, Path=Background}"
+                                                HorizontalAlignment="Stretch"
+                                                VerticalAlignment="Center"/>
+                                </Grid>
+                            </Border>
+                        </Grid>
+                    </Grid>
+
+                </toolkit:AccordionItem.Content>
+            </toolkit:AccordionItem>
+        </toolkit:Accordion>
+    </Grid>
+</UserControl>

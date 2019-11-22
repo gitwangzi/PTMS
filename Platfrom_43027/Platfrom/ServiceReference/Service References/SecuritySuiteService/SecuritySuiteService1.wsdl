@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="SecuritySuiteService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:2258/SecuritySuiteService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:2258/SecuritySuiteService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:2258/SecuritySuiteService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.BaseInformation.Contract.Data" />
+      <xsd:import schemaLocation="http://localhost:2258/SecuritySuiteService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" />
+      <xsd:import schemaLocation="http://localhost:2258/SecuritySuiteService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/System" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ISecuritySuiteService_AddSecuritySuite_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddSecuritySuite" />
+  </wsdl:message>
+  <wsdl:message name="ISecuritySuiteService_AddSecuritySuite_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddSecuritySuiteResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecuritySuiteService_UpdateSecuritySuite_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateSecuritySuite" />
+  </wsdl:message>
+  <wsdl:message name="ISecuritySuiteService_UpdateSecuritySuite_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateSecuritySuiteResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecuritySuiteService_GetSecuritySuiteBySuiteId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSecuritySuiteBySuiteId" />
+  </wsdl:message>
+  <wsdl:message name="ISecuritySuiteService_GetSecuritySuiteBySuiteId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSecuritySuiteBySuiteIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecuritySuiteService_GetSecuritySuitesFuzzy_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSecuritySuitesFuzzy" />
+  </wsdl:message>
+  <wsdl:message name="ISecuritySuiteService_GetSecuritySuitesFuzzy_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSecuritySuitesFuzzyResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecuritySuiteService_UpdateSecuritySuiteStatusByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateSecuritySuiteStatusByID" />
+  </wsdl:message>
+  <wsdl:message name="ISecuritySuiteService_UpdateSecuritySuiteStatusByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateSecuritySuiteStatusByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecuritySuiteService_CheckSecuritySuiteExistBySuiteID_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckSecuritySuiteExistBySuiteID" />
+  </wsdl:message>
+  <wsdl:message name="ISecuritySuiteService_CheckSecuritySuiteExistBySuiteID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckSecuritySuiteExistBySuiteIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecuritySuiteService_CheckSecuritySuiteExistByMdvrCoreId_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckSecuritySuiteExistByMdvrCoreId" />
+  </wsdl:message>
+  <wsdl:message name="ISecuritySuiteService_CheckSecuritySuiteExistByMdvrCoreId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckSecuritySuiteExistByMdvrCoreIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecuritySuiteService_CheckSecuritySuiteExistByMdvrId_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckSecuritySuiteExistByMdvrId" />
+  </wsdl:message>
+  <wsdl:message name="ISecuritySuiteService_CheckSecuritySuiteExistByMdvrId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckSecuritySuiteExistByMdvrIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecuritySuiteService_CheckInstallDetailById_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckInstallDetailById" />
+  </wsdl:message>
+  <wsdl:message name="ISecuritySuiteService_CheckInstallDetailById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckInstallDetailByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecuritySuiteService_BatchAdd_InputMessage">
+    <wsdl:part name="parameters" element="tns:BatchAdd" />
+  </wsdl:message>
+  <wsdl:message name="ISecuritySuiteService_BatchAdd_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BatchAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecuritySuiteService_DeleteSecuritySuite_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteSecuritySuite" />
+  </wsdl:message>
+  <wsdl:message name="ISecuritySuiteService_DeleteSecuritySuite_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteSecuritySuiteResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISecuritySuiteService_CheckSecuritySuiteExist_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckSecuritySuiteExist" />
+  </wsdl:message>
+  <wsdl:message name="ISecuritySuiteService_CheckSecuritySuiteExist_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckSecuritySuiteExistResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ISecuritySuiteService">
+    <wsdl:operation name="AddSecuritySuite">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecuritySuiteService/AddSecuritySuite" message="tns:ISecuritySuiteService_AddSecuritySuite_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecuritySuiteService/AddSecuritySuiteResponse" message="tns:ISecuritySuiteService_AddSecuritySuite_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSecuritySuite">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecuritySuiteService/UpdateSecuritySuite" message="tns:ISecuritySuiteService_UpdateSecuritySuite_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecuritySuiteService/UpdateSecuritySuiteResponse" message="tns:ISecuritySuiteService_UpdateSecuritySuite_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSecuritySuiteBySuiteId">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecuritySuiteService/GetSecuritySuiteBySuiteId" message="tns:ISecuritySuiteService_GetSecuritySuiteBySuiteId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecuritySuiteService/GetSecuritySuiteBySuiteIdResponse" message="tns:ISecuritySuiteService_GetSecuritySuiteBySuiteId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSecuritySuitesFuzzy">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecuritySuiteService/GetSecuritySuitesFuzzy" message="tns:ISecuritySuiteService_GetSecuritySuitesFuzzy_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecuritySuiteService/GetSecuritySuitesFuzzyResponse" message="tns:ISecuritySuiteService_GetSecuritySuitesFuzzy_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSecuritySuiteStatusByID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecuritySuiteService/UpdateSecuritySuiteStatusByID" message="tns:ISecuritySuiteService_UpdateSecuritySuiteStatusByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecuritySuiteService/UpdateSecuritySuiteStatusByIDResponse" message="tns:ISecuritySuiteService_UpdateSecuritySuiteStatusByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckSecuritySuiteExistBySuiteID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecuritySuiteService/CheckSecuritySuiteExistBySuiteID" message="tns:ISecuritySuiteService_CheckSecuritySuiteExistBySuiteID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecuritySuiteService/CheckSecuritySuiteExistBySuiteIDResponse" message="tns:ISecuritySuiteService_CheckSecuritySuiteExistBySuiteID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckSecuritySuiteExistByMdvrCoreId">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecuritySuiteService/CheckSecuritySuiteExistByMdvrCoreId" message="tns:ISecuritySuiteService_CheckSecuritySuiteExistByMdvrCoreId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecuritySuiteService/CheckSecuritySuiteExistByMdvrCoreIdResponse" message="tns:ISecuritySuiteService_CheckSecuritySuiteExistByMdvrCoreId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckSecuritySuiteExistByMdvrId">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecuritySuiteService/CheckSecuritySuiteExistByMdvrId" message="tns:ISecuritySuiteService_CheckSecuritySuiteExistByMdvrId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecuritySuiteService/CheckSecuritySuiteExistByMdvrIdResponse" message="tns:ISecuritySuiteService_CheckSecuritySuiteExistByMdvrId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckInstallDetailById">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecuritySuiteService/CheckInstallDetailById" message="tns:ISecuritySuiteService_CheckInstallDetailById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecuritySuiteService/CheckInstallDetailByIdResponse" message="tns:ISecuritySuiteService_CheckInstallDetailById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BatchAdd">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecuritySuiteService/BatchAdd" message="tns:ISecuritySuiteService_BatchAdd_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecuritySuiteService/BatchAddResponse" message="tns:ISecuritySuiteService_BatchAdd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSecuritySuite">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecuritySuiteService/DeleteSecuritySuite" message="tns:ISecuritySuiteService_DeleteSecuritySuite_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecuritySuiteService/DeleteSecuritySuiteResponse" message="tns:ISecuritySuiteService_DeleteSecuritySuite_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckSecuritySuiteExist">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISecuritySuiteService/CheckSecuritySuiteExist" message="tns:ISecuritySuiteService_CheckSecuritySuiteExist_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISecuritySuiteService/CheckSecuritySuiteExistResponse" message="tns:ISecuritySuiteService_CheckSecuritySuiteExist_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_ISecuritySuiteService" type="tns:ISecuritySuiteService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddSecuritySuite">
+      <soap:operation soapAction="http://tempuri.org/ISecuritySuiteService/AddSecuritySuite" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSecuritySuite">
+      <soap:operation soapAction="http://tempuri.org/ISecuritySuiteService/UpdateSecuritySuite" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSecuritySuiteBySuiteId">
+      <soap:operation soapAction="http://tempuri.org/ISecuritySuiteService/GetSecuritySuiteBySuiteId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSecuritySuitesFuzzy">
+      <soap:operation soapAction="http://tempuri.org/ISecuritySuiteService/GetSecuritySuitesFuzzy" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSecuritySuiteStatusByID">
+      <soap:operation soapAction="http://tempuri.org/ISecuritySuiteService/UpdateSecuritySuiteStatusByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckSecuritySuiteExistBySuiteID">
+      <soap:operation soapAction="http://tempuri.org/ISecuritySuiteService/CheckSecuritySuiteExistBySuiteID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckSecuritySuiteExistByMdvrCoreId">
+      <soap:operation soapAction="http://tempuri.org/ISecuritySuiteService/CheckSecuritySuiteExistByMdvrCoreId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckSecuritySuiteExistByMdvrId">
+      <soap:operation soapAction="http://tempuri.org/ISecuritySuiteService/CheckSecuritySuiteExistByMdvrId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckInstallDetailById">
+      <soap:operation soapAction="http://tempuri.org/ISecuritySuiteService/CheckInstallDetailById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BatchAdd">
+      <soap:operation soapAction="http://tempuri.org/ISecuritySuiteService/BatchAdd" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSecuritySuite">
+      <soap:operation soapAction="http://tempuri.org/ISecuritySuiteService/DeleteSecuritySuite" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckSecuritySuiteExist">
+      <soap:operation soapAction="http://tempuri.org/ISecuritySuiteService/CheckSecuritySuiteExist" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SecuritySuiteService">
+    <wsdl:port name="BasicHttpBinding_ISecuritySuiteService" binding="tns:BasicHttpBinding_ISecuritySuiteService">
+      <soap:address location="http://localhost:2258/SecuritySuiteService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

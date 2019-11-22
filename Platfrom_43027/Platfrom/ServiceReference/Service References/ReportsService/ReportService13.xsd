@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/DevExpress.Data.XtraReports.ServiceModel.DataContracts" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/DevExpress.Data.XtraReports.ServiceModel.DataContracts" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:2038/ReportService.svc?xsd=xsd12" namespace="http://schemas.datacontract.org/2004/07/DevExpress.Data.Browsing.Design" />
+  <xs:complexType name="ArrayOfPropertyDescriptorProxy">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PropertyDescriptorProxy" nillable="true" type="tns:PropertyDescriptorProxy" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPropertyDescriptorProxy" nillable="true" type="tns:ArrayOfPropertyDescriptorProxy" />
+  <xs:complexType name="PropertyDescriptorProxy">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DisplayName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsComplex" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsListType" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/DevExpress.Data.Browsing.Design" minOccurs="0" name="Specifics" type="q1:TypeSpecifics" />
+      <xs:element minOccurs="0" name="ToStringValue" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PropertyDescriptorProxy" nillable="true" type="tns:PropertyDescriptorProxy" />
+</xs:schema>

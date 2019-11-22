@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<antmap>
+  <map name="basemap" url="http://172.16.11.61:6080/arcgis/rest/services/ptms_querymap/MapServer/">
+
+    <onesearch name="Restaurantes" method="query" layerid="1" queryfields="NAME" districtfield="" outfields="*" />
+    <onesearch name="Estación de bombero" method="query" layerid="2" queryfields="NAME" districtfield="" outfields="*" />
+    <onesearch name="Estación de Gas" method="query" layerid="3" queryfields="NAME" districtfield="" outfields="*" />
+    <onesearch name="EI nombre del lugar" method="query" layerid="4" queryfields="NAME" districtfield="" outfields="*" />
+    <onesearch name="Aeropuerto" method="query" layerid="5" queryfields="NAME" districtfield="" outfields="*" />
+    <onesearch name="Estacion de metro" method="query" layerid="9" queryfields="NAME" districtfield="" outfields="*" />
+  </map>
+</antmap>

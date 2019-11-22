@@ -1,0 +1,65 @@
+﻿<UserControl xmlns:Controls="clr-namespace:Gsafety.Common.Controls;assembly=CommonControls"  x:Class="Gsafety.PTMS.Installation.Views.VehicleRegister" 
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+           xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
+           mc:Ignorable="d"
+           xmlns:local="clr-namespace:Gsafety.PTMS.Installation.Views"
+           xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+           d:DesignWidth="1000" d:DesignHeight="800">
+
+    <Grid x:Name="LayoutRoot">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Border BorderBrush="{StaticResource MenuBarLine}" Background="{StaticResource NavBarBG}" Height="35" VerticalAlignment="Top" Grid.Row="0"  BorderThickness="0,1,0,1"/>
+        <Image Source="/InstallationManagement;component/Images/a07b.png" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,0,0,0" Stretch="None"/>
+        <TextBlock  Text="{Binding [ID_INSTALL_CarRegister], Source={StaticResource SR}}"  VerticalAlignment="Center" HorizontalAlignment="Left" Margin="36,0,0,0" Style="{StaticResource Menu2TextBlock}"/>
+        <Grid Grid.Row="1" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="*"/>
+                
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="350"/>
+                <ColumnDefinition Width="130*"/>
+            </Grid.ColumnDefinitions>
+            <!--License plate number-->
+            <TextBlock Grid.Row="1" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,5,0" 
+                       Text="{Binding [ID_INSTALL_CarNumber], Source={StaticResource SR}}" Style="{StaticResource ViewFont}"/>
+            <TextBox  Grid.Row="1" Grid.Column="1" IsReadOnly="True"  TabIndex="1" MaxLength="25" Text="{Binding VehicleId, Mode=TwoWay}"  HorizontalAlignment="Left"    VerticalAlignment="Center" Width="145" Height="24" />
+            <!--Testing and maintenance personnel-->
+            <TextBlock Grid.Row="2" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,5,0" 
+                       Text="{Binding [ID_INSTALL_Maintainer], Source={StaticResource SR}}" Style="{StaticResource ViewFont}"/>
+            <ComboBox  TabIndex="6" SelectedItem="{Binding CurrentInstallStaff, Mode=TwoWay}" ItemsSource="{Binding InstallStaffList}" HorizontalAlignment="Left" Height="24" VerticalAlignment="Center" Width="145"   Grid.Row="2"  Grid.Column="3" >
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock  Text="{Binding Name}"/>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+            <!--Vehicle arrival time-->
+            <TextBlock  Grid.Column="0" Grid.Row="3" HorizontalAlignment="Right" Margin="0,0,5,0" 
+                        Text="{Binding [ID_INSTALL_VehicleArriveTime], Source={StaticResource SR}}" VerticalAlignment="Center" Style="{StaticResource ViewFont}"/>
+            <Controls:DatePickerEx x:Name="arrivalTimePicker"  Grid.Row="3" Grid.Column="1" DisplayDateEnd="{Binding ElementName=arrivalTimePicker, Path=SelectedDate}" HorizontalAlignment="Left" VerticalAlignment="Center" Width="145" 
+                SelectedDate="{Binding ArrivalTime, Mode=TwoWay, ValidatesOnExceptions=True, ValidatesOnDataErrors=True}" Height="24" />
+
+            <StackPanel Grid.Column="1" Grid.Row="4" Height="35"  Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center"  >
+                <Button TabIndex="10" Command="{Binding CommitCommand}" Tag="{Binding [ID_INSTALL_Submit], Source={StaticResource SR}}" HorizontalAlignment="Center" VerticalAlignment="Center"  MinWidth="100" Width="100" Height="22" >
+                    <Image Source="/ExternalResource;component/Images/ok.png" Stretch="None"/>
+                </Button>
+                <Button TabIndex="11" Command="{Binding ReturnCommand}" Tag="{Binding [ID_INSTALL_Return], Source={StaticResource SR}}" HorizontalAlignment="Center" VerticalAlignment="Center" MinWidth="100" Margin="5,0,5,0" Width="100" Height="22" >
+                    <Image Source="/ExternalResource;component/Images/return.png" Stretch="None"/>
+                </Button>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</UserControl>

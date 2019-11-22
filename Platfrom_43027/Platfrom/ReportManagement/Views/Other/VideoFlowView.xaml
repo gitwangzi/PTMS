@@ -1,0 +1,170 @@
+﻿<UserControl xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"  
+             x:Class="Gsafety.PTMS.ReportManager.Views.VideoFlowView"
+               xmlns:Controls="clr-namespace:Gsafety.Common.Controls;assembly=CommonControls" 
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:dxp="http://schemas.devexpress.com/winfx/2008/xaml/printing" 
+    mc:Ignorable="d"
+    d:DesignHeight="600" d:DesignWidth="800">
+
+    <Grid x:Name="LayoutRoot" Style="{StaticResource ContentGridStyle}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" Style="{StaticResource ViewFirstTitleWhiteGridStyle}"
+              Height="35">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <!--<Image Grid.Column="0" Stretch="Uniform"
+                   Margin="5,5,5,5"
+                   Width="20"
+                   Source="/ExternalResource;component/Images/ReportDocument.png"/>-->
+
+            <Image Grid.Column="0"
+                   Style="{StaticResource TitleImageStyle}"/>
+
+            <TextBlock Text="{Binding [VedioFlowStatistics], Source={StaticResource SR}}" 
+                       Grid.Column="1"
+                       Style="{StaticResource SecondTitleTextBlockStyle}"/>
+        </Grid>
+
+        <Grid Row="1" Style="{StaticResource ContentGridStyle}">
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="0" Style="{StaticResource SearchContentGridStyle}" Height="80">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="98*"/>
+                        <ColumnDefinition Width="43*"/>
+                        <ColumnDefinition Width="103*"/>
+                        <ColumnDefinition Width="98*"/>
+                        <ColumnDefinition Width="146*"/>
+                        <ColumnDefinition Width="97*"/>
+                        <ColumnDefinition Width="146*"/>
+                        <ColumnDefinition Width="49*"/>
+                        <ColumnDefinition Width="20"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Text="{Binding [FromDate], Source={StaticResource SR}}" 
+                               HorizontalAlignment="Right"
+                               VerticalAlignment="Center"
+                                Grid.Column="3" Margin="0,5,5,5"/>
+
+                     <Controls:DatePickerEx    IsReadOnly="True"  Grid.Column="4"  Style="{StaticResource lightDatePicker}" x:Name="dpStartTime" SelectedDate="{Binding BeginTime,Mode=TwoWay}" Margin="0,5,0,5"/>
+
+                    <TextBlock Text="{Binding [ToDate], Source={StaticResource SR}}" 
+                               Grid.Column="5"
+                               HorizontalAlignment="Right"
+                               VerticalAlignment="Center" Margin="0,5,5,5"/>
+
+                     <Controls:DatePickerEx    IsReadOnly="True"   Grid.Column="6"  Style="{StaticResource lightDatePicker}" x:Name="dpEndTime"  SelectedDate="{Binding EndTime,Mode=TwoWay}" Margin="0,5,0,5"/>
+
+                    <TextBlock Text="{Binding [BASEINFO_Province], Source={StaticResource SR}}" 
+                               Grid.Column="0"
+                               Grid.Row="1"
+                               HorizontalAlignment="Right"
+                               VerticalAlignment="Center" Margin="0,5,5,5"
+                         />
+
+                    <ComboBox Grid.Row="1" Grid.Column="1" x:Name="combProvince" ItemsSource="{Binding Provinces}"
+                                  DisplayMemberPath="Name"
+                              Style="{StaticResource lightComboBox}"
+                                  SelectedItem="{Binding Province,Mode=TwoWay}" Grid.ColumnSpan="2" Margin="0,5,0,5"/>
+
+                    <TextBlock Text="{Binding [MANAGE_CityName], Source={StaticResource SR}}" 
+                               Grid.Column="3"
+                               Grid.Row="1"
+                               HorizontalAlignment="Right"
+                               VerticalAlignment="Center" Margin="0,5,5,5"
+                         />
+
+                    <ComboBox Grid.Row="1" Grid.Column="4" x:Name="combCity" ItemsSource="{Binding Cities,NotifyOnValidationError=True,ValidatesOnDataErrors=True}"
+                                  DisplayMemberPath="Name"
+                              Style="{StaticResource lightComboBox}"
+                                  SelectedItem="{Binding City,Mode=TwoWay,NotifyOnValidationError=True,ValidatesOnDataErrors=True}" Margin="0,5,0,5"/>
+
+                    <TextBlock Text="{Binding [Organization], Source={StaticResource SR}}"
+                               Grid.Row="1"
+                               Grid.Column="5"
+                               HorizontalAlignment="Right"
+                               VerticalAlignment="Center"
+                               Margin="0,5,5,5"  />
+
+                    <!--<TextBlock Grid.Row="1"
+                               Grid.Column="5"
+                               HorizontalAlignment="Right"
+                               VerticalAlignment="Center"
+                               Margin="0,12" x:Name="tbOrganization" Text="{Binding OrganizationName}" />
+
+                    <Button Grid.Column="6"
+                            Grid.Row="1"
+                            ToolTipService.ToolTip="Binding [Organization], Source={StaticResource SR}}" Content="..." Width="auto" HorizontalAlignment="Left" VerticalAlignment="Center" Command="{Binding SelectOrganizationCommand}"/>-->
+                    <Grid Grid.Row="1"
+                      Grid.Column="6">
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBox Grid.Column="0"
+                         HorizontalAlignment="Stretch"
+                         VerticalAlignment="Center"
+                         Margin="0,5,0,5"
+                         IsReadOnly="True" 
+                         Text="{Binding OrganizationName, Mode=TwoWay}"/>
+
+                        <Button 
+                        Grid.Column="1"
+                        Style="{StaticResource SelectOrganizationWindowButtonCommonStyle}"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Stretch"
+                        Margin="0,5,0,5"
+                        ToolTipService.ToolTip="{Binding [PleaseSelectOrganization], Source={StaticResource SR}}"
+                        Command="{Binding SelectOrganizationCommand}"/>
+
+
+                    </Grid>
+
+                    <TextBlock Text="{Binding [Type], Source={StaticResource SR}}"
+                               HorizontalAlignment="Right"
+                               VerticalAlignment="Center" Margin="0,5,5,5"/>
+
+                    <ComboBox Grid.Column="1"
+                              Style="{StaticResource lightComboBox}"
+                              Height="25"
+                               Name="combVehicleType" ItemsSource="{Binding VehicleTypes}"
+                                  DisplayMemberPath="Name"
+                                  SelectedItem="{Binding VehicleType,Mode=TwoWay}" Grid.ColumnSpan="2" 
+                              Margin="0,5,0,5"/>
+
+
+                    <Button Grid.Column="7"
+                            Grid.Row="1"
+                            Style="{StaticResource SearchButtonCommonStyle}"
+                            ToolTipService.ToolTip="{Binding [Search], Source={StaticResource SR}}"  Command="{Binding SearcherCommand}" Margin="5,5,0,5"/>
+
+                </Grid>
+
+                <dxp:DocumentPreview  Style="{StaticResource DocumentPreviewStyle}"  Name="reportPreView"  Model="{Binding PreviewModel}" Padding="0" Grid.Row="1"></dxp:DocumentPreview>
+            </Grid>
+        </Grid>
+    </Grid>
+</UserControl>

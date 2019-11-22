@@ -1,0 +1,504 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{55F9D251-4A70-4FAA-8FC7-ED206C24BD2D}</ProjectGuid>
+    <ProjectTypeGuids>{A1591282-1198-4647-A2B1-27E5FF5F6F3B};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Gsafety.Ant.Installation</RootNamespace>
+    <AssemblyName>InstallationManagement</AssemblyName>
+    <TargetFrameworkIdentifier>Silverlight</TargetFrameworkIdentifier>
+    <TargetFrameworkVersion>v5.0</TargetFrameworkVersion>
+    <SilverlightVersion>$(TargetFrameworkVersion)</SilverlightVersion>
+    <SilverlightApplication>false</SilverlightApplication>
+    <ValidateXaml>true</ValidateXaml>
+    <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
+  </PropertyGroup>
+  <!-- This property group is only here to support building this project using the 
+       MSBuild 3.5 toolset. In order to work correctly with this older toolset, it needs 
+       to set the TargetFrameworkVersion to v3.5 -->
+  <PropertyGroup Condition="'$(MSBuildToolsVersion)' == '3.5'">
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Jounce">
+      <HintPath>..\Assemblies\Jounce.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Expression.Interactions">
+      <HintPath>..\Assemblies\Microsoft.Expression.Interactions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="mscorlib" />
+    <Reference Include="System.ComponentModel.Composition, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.ComponentModel.DataAnnotations, Version=5.0.5.0, Culture=neutral, PublicKeyToken=ddd0da4d3e678217, processorArchitecture=MSIL" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Windows" />
+    <Reference Include="system" />
+    <Reference Include="System.Core">
+      <HintPath>$(TargetFrameworkDirectory)System.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Controls, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.Data, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.Data.Input, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.Input.Toolkit, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>C:\Program Files (x86)\Microsoft SDKs\Silverlight\v5.0\Toolkit\dec11\Bin\System.Windows.Controls.Input.Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="system.windows.controls.layout.toolkit, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>C:\Program Files (x86)\Microsoft SDKs\Silverlight\v5.0\Toolkit\dec11\Bin\System.Windows.Controls.Layout.Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Controls.Navigation, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.Toolkit, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>C:\Program Files (x86)\Microsoft SDKs\Silverlight\v5.0\Toolkit\dec11\Bin\System.Windows.Controls.Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Data, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Interactivity, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Windows.Browser" />
+    <Reference Include="ToggleSwitch, Version=1.1.1.0, Culture=neutral, PublicKeyToken=8637099990568f75, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Assemblies\ToggleSwitch.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ViewModels\DeviceAlertManagerViewModel.cs" />
+    <Compile Include="ViewModels\DeviceAlertStatisticsViewModel.cs" />
+    <Compile Include="ViewModels\ViewModelBase\InstallGPSViewModelBase.cs" />
+    <Compile Include="ViewModels\ViewModelBase\InstallSuiteViewModelBase.cs" />
+    <Compile Include="ViewModels\Suite\DeviceAlertTypes.cs" />
+    <Compile Include="ViewModels\Suite\InstallConfirmViewModel.cs" />
+    <Compile Include="ViewModels\Suite\InstallInitiateSuiteViewModel.cs" />
+    <Compile Include="ViewModels\Suite\InstallSuiteCheckViewModel.cs" />
+    <Compile Include="ViewModels\Suite\InstallSuiteFunctionCheckViewModel.cs" />
+    <Compile Include="ViewModels\Suite\InstallVehcileSuiteCheckViewModel.cs" />
+    <Compile Include="ViewModels\UnfinishedGPSRecordViewModel.cs" />
+    <Compile Include="InstallationBinding.cs" />
+    <Compile Include="InstallationName.cs" />
+    <Compile Include="Models\MaintainInfo.cs" />
+    <Compile Include="Models\SelfCheckInfor.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\DevGPSManageViewModel.cs" />
+    <Compile Include="ViewModels\DevSuiteManageViewModel.cs" />
+    <Compile Include="ViewModels\InstalledRecordViewModel.cs" />
+    <Compile Include="ViewModels\Suite\InstallVehicleCheckViewModel.cs" />
+    <Compile Include="ViewModels\InstallverifyViewModel.cs" />
+    <Compile Include="ViewModels\ViewModelBase\InstallViewModelBase.cs" />
+    <Compile Include="ViewModels\MaintainApplicationDetailViewModel.cs" />
+    <Compile Include="ViewModels\MaintainApplicationManageViewModel.cs" />
+    <Compile Include="ViewModels\MaintainRecordDetailViewModel.cs" />
+    <Compile Include="ViewModels\MaintainRecordManageViewModel.cs" />
+    <Compile Include="ViewModels\MaintainRecordUnfinishedDetailViewModel.cs" />
+    <Compile Include="ViewModels\MaintainRecordUnfinishedManageViewModel.cs" />
+    <Compile Include="ViewModels\UnfinishedRecordViewModel.cs" />
+    <Compile Include="ViewModels\GPS\InstallGPSVehicleCheckViewModel.cs" />
+    <Compile Include="ViewModels\GPS\InstallGPSCheckViewModel.cs" />
+    <Compile Include="ViewModels\GPS\InstallGPSConfirmViewModel.cs" />
+    <Compile Include="ViewModels\GPS\InstallVehcileGPSCheckViewModel.cs" />
+    <Compile Include="ViewModels\MaintainApplicationScheduledManageViewModel.cs" />
+    <Compile Include="ViewModels\VehicleManageViewModel.cs" />
+    <Compile Include="ViewModels\InstalledGPSRecordViewModel.cs" />
+    <Compile Include="ViewModels\InstallStatisticsViewModel.cs" />
+    <Compile Include="Views\DevGPSManageView.xaml.cs">
+      <DependentUpon>DevGPSManageView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DeviceAlertManagerView.xaml.cs">
+      <DependentUpon>DeviceAlertManagerView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\InstalledRecord.xaml.cs">
+      <DependentUpon>InstalledRecord.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MaintainApplicationDetailWindow.xaml.cs">
+      <DependentUpon>MaintainApplicationDetailWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MaintainApplicationManageView.xaml.cs">
+      <DependentUpon>MaintainApplicationManageView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MaintainRecordDetailWindow.xaml.cs">
+      <DependentUpon>MaintainRecordDetailWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MaintainRecordManageView.xaml.cs">
+      <DependentUpon>MaintainRecordManageView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MaintainRecordUnfinishedDetailWindow.xaml.cs">
+      <DependentUpon>MaintainRecordUnfinishedDetailWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MaintainRecordUnfinishedManageView.xaml.cs">
+      <DependentUpon>MaintainRecordUnfinishedManageView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DevSuiteManageView.xaml.cs">
+      <DependentUpon>DevSuiteManageView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Suite\InstallConfirmView.xaml.cs">
+      <DependentUpon>InstallConfirmView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Suite\InstallInitiateSuiteView.xaml.cs">
+      <DependentUpon>InstallInitiateSuiteView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Suite\InstallSuiteCheckView.xaml.cs">
+      <DependentUpon>InstallSuiteCheckView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Suite\InstallSuiteFunctionCheckView.xaml.cs">
+      <DependentUpon>InstallSuiteFunctionCheckView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Suite\InstallVehcileSuiteCheckView.xaml.cs">
+      <DependentUpon>InstallVehcileSuiteCheckView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Suite\InstallVehicleCheckView.xaml.cs">
+      <DependentUpon>InstallVehicleCheckView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TextBoxWithoutPaste.cs" />
+    <Compile Include="Views\UnfinishedRecord.xaml.cs">
+      <DependentUpon>UnfinishedRecord.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\GPS\InstallGPSVehicleCheckView.xaml.cs">
+      <DependentUpon>InstallGPSVehicleCheckView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\GPS\InstallGPSCheckView.xaml.cs">
+      <DependentUpon>InstallGPSCheckView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\GPS\InstallVehcileGPSCheckView.xaml.cs">
+      <DependentUpon>InstallVehcileGPSCheckView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\GPS\InstallGPSConfirmView.xaml.cs">
+      <DependentUpon>InstallGPSConfirmView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MaintainApplicationScheduledManageView.xaml.cs">
+      <DependentUpon>MaintainApplicationScheduledManageView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\VehicleManageView.xaml.cs">
+      <DependentUpon>VehicleManageView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UnfinishedGPSRecord.xaml.cs">
+      <DependentUpon>UnfinishedGPSRecord.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\InstalledGPSRecord.xaml.cs">
+      <DependentUpon>InstalledGPSRecord.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\InstallStatisticsView.xaml.cs">
+      <DependentUpon>InstallStatisticsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DeviceAlertStatisticsView.xaml.cs">
+      <DependentUpon>DeviceAlertStatisticsView.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Step01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BaseInformationManagement\BaseInformationManagement.csproj">
+      <Project>{4ce7a507-c06e-43ec-8524-9c382029333e}</Project>
+      <Name>BaseInformationManagement</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BaseLib\BaseLib.csproj">
+      <Project>{f6106c3b-65a3-45a0-ac41-80fb7c127c1f}</Project>
+      <Name>BaseLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BasicPage\BasicPage.csproj">
+      <Project>{336f0b83-4fda-40a9-b09a-c598b6e90d69}</Project>
+      <Name>BasicPage</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CommMessage\CommMessage.csproj">
+      <Project>{6e8e7e73-2eb1-4d7c-9273-f81fc2d30a10}</Project>
+      <Name>CommMessage</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CommonControl\Controls.csproj">
+      <Project>{e5a6c07a-d661-4528-866f-922c00081bde}</Project>
+      <Name>Controls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Constants\Constants.csproj">
+      <Project>{96a43019-0ee2-4b44-b688-96dd0f418b19}</Project>
+      <Name>Constants</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Converts\Converts.csproj">
+      <Project>{e43eb997-b440-4fed-b261-4fbc7e2b6880}</Project>
+      <Name>Converts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Enums\Enums.csproj">
+      <Project>{3e850ec1-7a17-4b42-be32-efd1382d337e}</Project>
+      <Name>Enums</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Librarys\Librarys.csproj">
+      <Project>{80fb8b20-0514-46d0-adc4-99abf4246f5b}</Project>
+      <Name>Librarys</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Localization\Localization.csproj">
+      <Project>{3765593e-f466-42af-b3bb-56d825954072}</Project>
+      <Name>Localization</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Models\Models.csproj">
+      <Project>{44ebb496-2c26-475f-ad39-0117cc7f31f3}</Project>
+      <Name>Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ServiceReference\ServiceReference.csproj">
+      <Project>{116e9ab2-db01-41d6-bd5e-805cac206b32}</Project>
+      <Name>ServiceReference</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Share\Share.csproj">
+      <Project>{84fc8750-50d0-40ba-a5b8-be0bb014057e}</Project>
+      <Name>Share</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Views\DevGPSManageView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DeviceAlertManagerView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\InstalledRecord.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MaintainApplicationDetailWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\MaintainApplicationManageView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\MaintainRecordDetailWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\MaintainRecordManageView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\MaintainRecordUnfinishedDetailWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\MaintainRecordUnfinishedManageView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\DevSuiteManageView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Suite\InstallConfirmView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Suite\InstallInitiateSuiteView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Suite\InstallSuiteCheckView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Suite\InstallSuiteFunctionCheckView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Suite\InstallVehcileSuiteCheckView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Suite\InstallVehicleCheckView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\UnfinishedRecord.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\GPS\InstallGPSVehicleCheckView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\GPS\InstallGPSCheckView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\GPS\InstallVehcileGPSCheckView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\GPS\InstallGPSConfirmView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\MaintainApplicationScheduledManageView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\VehicleManageView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\UnfinishedGPSRecord.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\InstalledGPSRecord.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\InstallStatisticsView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\DeviceAlertStatisticsView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\seach.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ok.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\return.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\reset.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\note--pencil.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\note.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Step05.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ImagesPt\Step05.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ImagesEs\Step05.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Step02.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Step03.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Step04.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Step06.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ImagesEs\Step01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ImagesEs\Step02.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ImagesEs\Step03.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ImagesEs\Step04.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ImagesEs\Step06.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ImagesPt\Step01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ImagesPt\Step02.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ImagesPt\Step03.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ImagesPt\Step04.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ImagesPt\Step06.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\clipboard.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\continuance.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\banner_line.png" />
+    <Resource Include="Images\MainPage_complete_blue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\GpsSetp1.png" />
+    <Resource Include="Images\GpsSetp2.png" />
+    <Resource Include="Images\GpsSetp3.png" />
+    <Resource Include="Images\GpsSetp4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ImagesEn\GpsSetp1.png" />
+    <Resource Include="ImagesEn\GpsSetp2.png" />
+    <Resource Include="ImagesEn\GpsSetp3.png" />
+    <Resource Include="ImagesEn\GpsSetp4.png" />
+    <Resource Include="ImagesEn\GpsSetp5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ImagesEn\Step01.png" />
+    <Resource Include="ImagesEn\Step02.png" />
+    <Resource Include="ImagesEn\Step03.png" />
+    <Resource Include="ImagesEn\Step04.png" />
+    <Resource Include="ImagesEn\Step05.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ImagesEn\Step06.png" />
+    <Resource Include="ImagesEn\Step07.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ImagesEs\GpsSetp1.png" />
+    <Resource Include="ImagesEs\GpsSetp2.png" />
+    <Resource Include="ImagesEs\GpsSetp3.png" />
+    <Resource Include="ImagesEs\GpsSetp4.png" />
+    <Resource Include="ImagesEs\GpsSetp5.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{A1591282-1198-4647-A2B1-27E5FF5F6F3B}">
+        <SilverlightProjectProperties />
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

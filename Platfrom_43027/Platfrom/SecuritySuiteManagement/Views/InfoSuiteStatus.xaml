@@ -1,0 +1,62 @@
+﻿<controls:ChildWindow
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"             
+           x:Class="Gsafety.PTMS.SecuritySuite.Views.InfoSuiteStatus"
+           xmlns:lc="clr-namespace:Gsafety.PTMS.Bases.Enums;assembly=Enums"
+           xmlns:converter="clr-namespace:Gsafety.Common.Converts;assembly=Converts"
+           Title="{Binding [SuiteStatusChange], Source={StaticResource SR}}" Style="{StaticResource ChildWindowStyle}"
+           mc:Ignorable="d"
+           Width="380" Height="350" Closing="ChildWindow_Closing">
+    <controls:ChildWindow.Resources>
+        <lc:CurrentStatusConverter  x:Key="localize"></lc:CurrentStatusConverter>
+    </controls:ChildWindow.Resources>
+    <Grid x:Name="LayoutRoot" Margin="0,0,2,6" >
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="Auto" MinHeight="36" />
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="170"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition Height="70"/>
+            </Grid.RowDefinitions>
+            <TextBlock HorizontalAlignment="Right"  TextWrapping="Wrap" Text="{Binding [OLD_Status], Source={StaticResource SR}}" VerticalAlignment="Center" Grid.Column="0" Grid.Row="2" Margin="0,0,5,0" Style="{StaticResource MainPage_Main_search_TextBlockStyle}"/>
+            <TextBlock HorizontalAlignment="Right"  TextWrapping="Wrap" Text="{Binding [Info_Operator], Source={StaticResource SR}}" VerticalAlignment="Center" RenderTransformOrigin="-0.175,-0.053" Grid.Column="0" Grid.Row="4" Margin="0,0,5,0" Style="{StaticResource MainPage_Main_search_TextBlockStyle}"/>
+            <TextBlock HorizontalAlignment="Right" TextWrapping="Wrap" Text="{Binding [Info_Reason], Source={StaticResource SR}}" VerticalAlignment="Center" Grid.Column="0" Grid.Row="5" Margin="0,0,5,0" Style="{StaticResource MainPage_Main_search_TextBlockStyle}"/>
+            <TextBox x:Name="changereason" MaxLength="200"  HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding changeReason,Mode=TwoWay}" VerticalAlignment="Center" Width="170"  Grid.Column="1" Grid.Row="5" Grid.RowSpan="2" Height="90" Margin="5,0,0,0"/>
+            <TextBox x:Name="UserInfo" HorizontalAlignment="Left" VerticalAlignment="Center" IsReadOnly="True" Width="170" Grid.Column="1" Grid.Row="4" Margin="5,0,0,0" Style="{StaticResource MainPage_Main_TextBoxStyle}"/>
+            <TextBox x:Name="currentStatus" HorizontalAlignment="Left"   VerticalAlignment="Center" IsReadOnly="True" Width="170" Text= "{Binding CurrentStatus,Converter={StaticResource  localize}}" Grid.Column="1" Grid.Row="2" Margin="5,0,0,0" Style="{StaticResource MainPage_Main_TextBoxStyle}"/>
+            <TextBox x:Name="suiteID" HorizontalAlignment="Left" VerticalAlignment="Center" IsReadOnly="True" Width="170" Text="{Binding SuiteId}" Grid.Column="1" Grid.Row="1" Margin="5,0,0,0" Style="{StaticResource MainPage_Main_TextBoxStyle}"/>
+            <TextBox x:Name="vehicleID" HorizontalAlignment="Left" VerticalAlignment="Center" IsReadOnly="True" Width="170" Text="{Binding VehicleId}" Grid.Column="1" Grid.Row="0" Margin="5,0,0,0" Style="{StaticResource MainPage_Main_TextBoxStyle}"/>
+            <TextBox x:Name="changedStatus" HorizontalAlignment="Left" VerticalAlignment="Center" IsReadOnly="True" Width="170" Text="{Binding ChangedStatus,Converter={StaticResource  localize}}" Grid.Column="1" Grid.Row="3" Margin="5,0,0,0" Style="{StaticResource MainPage_Main_TextBoxStyle}"/>
+            <TextBlock  Grid.Column="0" Grid.Row="0" HorizontalAlignment="Right"  TextWrapping="Wrap" Text="{Binding [CarNumber], Source={StaticResource SR}}" VerticalAlignment="Center" Margin="0,0,5,0" Style="{StaticResource MainPage_Main_search_TextBlockStyle}"/>
+            <TextBlock  Grid.Column="0" Grid.Row="1" HorizontalAlignment="Right"  TextWrapping="Wrap" Text="{Binding [Info_SuiteID], Source={StaticResource SR}}" VerticalAlignment="Center" Margin="0,0,5,0" Style="{StaticResource MainPage_Main_search_TextBlockStyle}"/>
+            <TextBlock  Grid.Column="0" Grid.Row="2" HorizontalAlignment="Right"  TextWrapping="Wrap" Text="{Binding [OLD_Status], Source={StaticResource SR}}" VerticalAlignment="Center" Margin="0,0,5,0" Style="{StaticResource MainPage_Main_search_TextBlockStyle}" />
+            <TextBlock  Grid.Column="0" Grid.Row="3" HorizontalAlignment="Right"  TextWrapping="Wrap" Text="{Binding [NEW_Status], Source={StaticResource SR}}" VerticalAlignment="Center" Margin="0,0,5,0" Style="{StaticResource MainPage_Main_search_TextBlockStyle}"/>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="CancelButton" Tag="{Binding [ALERT_Cancle],Source={StaticResource SR}}" Click="CancelButton_Click" HorizontalAlignment="Left" Margin="4,15,0,0" Grid.Column="1" VerticalAlignment="Center" Style="{StaticResource Search_ButtonStyle}" >
+                <Image Height="15" Source="/ExternalResource;component/Images/MainPage_canel.png" Stretch="Fill" Width="15"/>
+            </Button>
+            <Button x:Name="OKButton" Tag="{Binding [ALERT_OK],Source={StaticResource SR}}"  Click="OKButton_Click" HorizontalAlignment="Right" Margin="0,15,180,0" VerticalAlignment="Center" Style="{StaticResource Search_ButtonStyle}"  Grid.Column="0" Grid.ColumnSpan="2">
+                <Image Height="15" Source="/ExternalResource;component/Images/MainPage_complete.png" Stretch="Fill" Width="15"/>
+            </Button>
+        </Grid>
+    </Grid>
+</controls:ChildWindow>

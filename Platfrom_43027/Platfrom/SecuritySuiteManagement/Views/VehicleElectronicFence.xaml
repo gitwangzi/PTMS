@@ -1,0 +1,101 @@
+﻿<UserControl x:Class="Gsafety.PTMS.SecuritySuite.Views.VehicleElectronicFence"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
+    xmlns:Controls="clr-namespace:Gsafety.Common.Controls;assembly=CommonControls"
+    xmlns:toolkit="http://schemas.microsoft.com/winfx/2006/xaml/presentation/toolkit"  
+    xmlns:Converter="clr-namespace:Gsafety.Common.Converts;assembly=Converts"
+    mc:Ignorable="d"
+    d:DesignHeight="800" d:DesignWidth="1000">
+
+    <UserControl.Resources>
+        <Converter:FenceAlertTypeConvert x:Key="FenceAlertTypeConvert"></Converter:FenceAlertTypeConvert>
+        <Converter:FenceAlertDateConvert x:Key="FenceAlertDateConvert"></Converter:FenceAlertDateConvert>
+    </UserControl.Resources>
+
+    <!--<toolkit:BusyIndicator x:Name="dataLoading" IsBusy="{Binding IsBusy}"  Style="{StaticResource BusyIndicatorRoundedStyle}" >-->
+        <Grid x:Name="LayoutRoot">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="80"/>
+                <RowDefinition Height="35"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="28"/>
+            </Grid.RowDefinitions>
+        <Border BorderThickness="0,1,0,1" Style="{StaticResource TopBorderStyle}" Height="40" Grid.RowSpan="3" Grid.Row="0"  VerticalAlignment="Top" >
+            </Border>
+        <TextBlock HorizontalAlignment="Left"  Text="{Binding [VehicleElectronicFence], Source={StaticResource SR}}" VerticalAlignment="Center" Margin="36,0,0,0" Style="{StaticResource MainPage_Main_tle_TextBlockStyle}"/>
+        <Image Stretch="None" Source="/ExternalResource;component/Images/navigation.png" Margin="10,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" />
+        <Border Style="{StaticResource GridBorderStyle}" Grid.Row="1" >
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="40"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="2"/>
+                    <ColumnDefinition Width="180"/>
+                </Grid.ColumnDefinitions>
+                <!--VehicleID-->
+                <TextBlock Grid.Row="0" HorizontalAlignment="Right" VerticalAlignment="Center" Text="{Binding [CarNumber], Source={StaticResource SR}}" Style="{StaticResource MainPage_Main_search_TextBlockStyle}" Margin="0,0,5,0"/>
+                <TextBox TabIndex="1" MaxLength="20" Text="{Binding VehicleID, Mode=TwoWay}"  HorizontalAlignment="Left" VerticalAlignment="Center" Width="120" Grid.Column="1" Margin="5,0,0,0"/>
+                <!--SuiteID-->
+                <TextBlock HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Column="2" Margin="0,0,5,0"
+                       Text="{Binding [ElectricFenceName], Source={StaticResource SR}}" Style="{StaticResource MainPage_Main_search_TextBlockStyle}"/>
+                <ComboBox ItemsSource="{Binding FenceList, Mode=TwoWay}" TabIndex="2" HorizontalAlignment="Left" SelectedValuePath="OBJECTID" DisplayMemberPath="NAME" SelectedItem="{Binding SelectedFence, Mode=TwoWay}" Height="25"  VerticalAlignment="Center" Width="120" Grid.Column="3" Margin="5,0,0,0" Style="{StaticResource MainPage_Main_Search_ComboBoxStyle}"/>
+                <!--InstallStation-->
+                <TextBlock  Grid.Column="4" Grid.Row="0" HorizontalAlignment="Right"  Text="{Binding [AlertType],Source={StaticResource SR}}" VerticalAlignment="Center" Style="{StaticResource MainPage_Main_search_TextBlockStyle}" Margin="0,0,5,0"/>
+                <ComboBox TabIndex="3" Grid.Column="5" Grid.Row="0" HorizontalAlignment="Left" Height="25" VerticalAlignment="Center" Width="120"
+                      ItemsSource="{Binding FenceAlerts}" DisplayMemberPath="Name" SelectedValuePath="Id" SelectedItem="{Binding SelectedFenceAlert, Mode=TwoWay}" SelectedIndex="1" Margin="5,0,0,0" Style="{StaticResource MainPage_Main_Search_ComboBoxStyle}"/>
+                <!--StartDate-->
+                <TextBlock Grid.Row="1" HorizontalAlignment="Right"  Text="{Binding [StartDate], Source={StaticResource SR}}" VerticalAlignment="Center" Style="{StaticResource MainPage_Main_search_TextBlockStyle}" Margin="0,0,5,0"/>
+                <Controls:DatePickerEx x:Name="startDatePicker" Grid.Row="1" Grid.Column="1" DisplayDateEnd="{Binding ElementName=endDatePicker, Path=SelectedDate}" HorizontalAlignment="Left" Height="25" VerticalAlignment="Center" Width="120" 
+                        SelectedDate="{Binding StartDate, Mode=TwoWay, ValidatesOnExceptions=True, ValidatesOnDataErrors=True}" IsReadOnly="True" Margin="5,0,0,0"/>
+                <!--EndDate-->
+                <TextBlock  Grid.Column="2" Grid.Row="1" HorizontalAlignment="Right"  Text="{Binding [EndDate], Source={StaticResource SR}}" VerticalAlignment="Center" Style="{StaticResource MainPage_Main_search_TextBlockStyle}" Margin="0,0,5,0"/>
+                <Controls:DatePickerEx x:Name="endDatePicker" Grid.Row="1" Grid.Column="3" DisplayDateStart="{Binding ElementName=startDatePicker, Path=SelectedDate}" HorizontalAlignment="Left" Height="25" VerticalAlignment="Center" Width="120" 
+                        SelectedDate="{Binding EndDate, Mode=TwoWay}" DisplayDateEnd="{Binding Now}" IsReadOnly="True" Margin="5,0,0,0"/>
+                <Image HorizontalAlignment="Left" Grid.RowSpan="2" VerticalAlignment="Center" Grid.Column="6" Width="2" Height="62" Source="/SecuritySuiteManagement;component/Images/MainPage_line.png"/>
+                <!--QueryButton-->
+                <Button TabIndex="5" x:Name="btnQuery"  Command="{Binding QueryCommand}" Tag="{Binding [Query], Source={StaticResource SR}}" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="30,0,40,0" Grid.Column="7" Grid.RowSpan="2" Style="{StaticResource Search_ButtonStyle}">
+                    <Image x:Name="imQuery" Source="/SecuritySuiteManagement;component/Images/MainPage_search.png" Stretch="Fill" Width="14" Height="14"/>
+                </Button>
+            </Grid>
+        </Border>
+        
+
+          <Border Style="{StaticResource MiddleBorderStyle}" Height="35" Grid.Row="2"  VerticalAlignment="Top">
+            </Border>
+        <Image Stretch="None" Source="/ExternalResource;component/Images/navigation.png" Margin="10,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="2"/>
+        <TextBlock HorizontalAlignment="Left"  Text="{Binding [VehicleElectronicFence],Source={StaticResource SR}}" VerticalAlignment="Center" Margin="36,0,0,0" Style="{StaticResource MainPage_Main_tle_TextBlockStyle}" Grid.Row="2"/>
+
+            <Grid Grid.Row="3">
+            <sdk:DataGrid IsReadOnly="True" AutoGenerateColumns="False" x:Name="OnlineSuiteGrid" ItemsSource="{Binding PagedVehicleFenceAlertList}" SelectedItem="{Binding VehicleFenceAlertList, Mode=TwoWay}" Background="Transparent" ColumnHeaderStyle="{StaticResource DataGridColumnHeaderStyle}" 
+                          CellStyle="{StaticResource DataGridCellStyle}" GridLinesVisibility="Horizontal" HorizontalGridLinesBrush="#FFDCDAD5" RowStyle="{StaticResource DataGridRowStyle}">
+                    <sdk:DataGrid.Columns>
+                        <sdk:DataGridTextColumn Binding="{Binding Name}" Header="ElectricFenceName" CanUserSort="True" Width="*" />
+                        <sdk:DataGridTextColumn Binding="{Binding VehicleId}" Header="CarNumber" CanUserSort="True" Width="*" />
+                        <sdk:DataGridTextColumn Binding="{Binding alertType1, Converter={StaticResource FenceAlertTypeConvert}}" Header="AlertType" CanUserSort="True" Width="*" />
+                    <sdk:DataGridTextColumn Binding="{Binding InFenceTime, StringFormat=yyyy-MM-dd HH:mm:ss}"   Header="InFenceTime" CanUserSort="True" Width="*" />
+                    <sdk:DataGridTextColumn Binding="{Binding OutFenceTime,StringFormat=yyyy-MM-dd HH:mm:ss}" Header="OutFenceTime" CanUserSort="True" Width="*" />                   
+                    </sdk:DataGrid.Columns>
+                </sdk:DataGrid>
+            </Grid>
+        <Border Style="{StaticResource BottonBorderStyle}" BorderThickness="1" Height="25" Grid.Row="4"  VerticalAlignment="Center" Width="Auto">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,0,0">
+                <TextBlock HorizontalAlignment="Left" Margin="0,0,5,0" Grid.Row="4"  Text="{Binding [PageSize], Source={StaticResource SR}}" VerticalAlignment="Center" Style="{StaticResource DataGrid_Page_TextBlockStyle}"/>
+                <ComboBox SelectedItem="{Binding PageSizeValue,Mode=TwoWay}" ItemsSource="{Binding PageSizeList}" Height="25" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Center" Width="50" Style="{StaticResource DataGrid_Page_ComboBoxStyle}"/>
+                    <sdk:DataPager DisplayMode="FirstLastPreviousNext" Grid.Row="4" PageIndex="-1" IsTotalItemCountFixed="True" PageSize="{Binding PageSizeValue,Mode=TwoWay}" Source="{Binding PagedVehicleFenceAlertList, Mode=TwoWay}"  Height="25" Margin="0,0,0,0"/>
+                </StackPanel>
+            </Border>
+        </Grid>
+    <!--</toolkit:BusyIndicator>-->
+</UserControl>

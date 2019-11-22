@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Common.Data" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Common.Data" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:2258/MaintainService.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:complexType name="MaintainApplication">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Applicant" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ClientID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Contact" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CreateTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Creator" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Note" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Problem" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ScheduleDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="SetupStation" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ShowStatus" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Status" type="xs:decimal" />
+      <xs:element minOccurs="0" name="VehicleID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Worker" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WorkerPhone" nillable="true" type="xs:string" />
+      <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ZInstallStation" nillable="true" type="q1:ArrayOfKeyValueOfstringstring" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MaintainApplication" nillable="true" type="tns:MaintainApplication" />
+  <xs:complexType name="ArrayOfMaintainApplication">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MaintainApplication" nillable="true" type="tns:MaintainApplication" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMaintainApplication" nillable="true" type="tns:ArrayOfMaintainApplication" />
+  <xs:complexType name="MaintainRecord">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ApplicationID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CreateTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="EndTime" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Note" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ScheduleDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="SetupStation" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ShowStatus" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StartTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Status" type="xs:decimal" />
+      <xs:element minOccurs="0" name="VehicleID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Worker" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MaintainRecord" nillable="true" type="tns:MaintainRecord" />
+  <xs:complexType name="ArrayOfMaintainRecord">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MaintainRecord" nillable="true" type="tns:MaintainRecord" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMaintainRecord" nillable="true" type="tns:ArrayOfMaintainRecord" />
+  <xs:complexType name="ArrayOfMaintainRecordUnfinished">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MaintainRecordUnfinished" nillable="true" type="tns:MaintainRecordUnfinished" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMaintainRecordUnfinished" nillable="true" type="tns:ArrayOfMaintainRecordUnfinished" />
+  <xs:complexType name="MaintainRecordUnfinished">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Applicant" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ApplicationID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ApplicationStatus" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Contact" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CreateTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="EndTime" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Note" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Problem" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ScheduleDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="SetupStation" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ShowStatus" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StartTime" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Status" type="xs:decimal" />
+      <xs:element minOccurs="0" name="VehcileID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Worker" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MaintainRecordUnfinished" nillable="true" type="tns:MaintainRecordUnfinished" />
+</xs:schema>

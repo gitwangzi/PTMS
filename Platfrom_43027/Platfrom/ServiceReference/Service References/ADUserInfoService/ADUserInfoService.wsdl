@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ADUserInfoService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://10.1.8.211/ManagerService/ADUserInfoService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://10.1.8.211/ManagerService/ADUserInfoService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://10.1.8.211/ManagerService/ADUserInfoService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Manager.Contract.Data" />
+      <xsd:import schemaLocation="http://10.1.8.211/ManagerService/ADUserInfoService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" />
+      <xsd:import schemaLocation="http://10.1.8.211/ManagerService/ADUserInfoService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/System" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IADAccountService_AddAccount_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddAccount" />
+  </wsdl:message>
+  <wsdl:message name="IADAccountService_AddAccount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddAccountResponse" />
+  </wsdl:message>
+  <wsdl:message name="IADAccountService_UpdateAccount_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateAccount" />
+  </wsdl:message>
+  <wsdl:message name="IADAccountService_UpdateAccount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateAccountResponse" />
+  </wsdl:message>
+  <wsdl:message name="IADAccountService_DeleteAccount_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteAccount" />
+  </wsdl:message>
+  <wsdl:message name="IADAccountService_DeleteAccount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteAccountResponse" />
+  </wsdl:message>
+  <wsdl:message name="IADAccountService_GetAccount_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAccount" />
+  </wsdl:message>
+  <wsdl:message name="IADAccountService_GetAccount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAccountResponse" />
+  </wsdl:message>
+  <wsdl:message name="IADAccountService_ValidateUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateUser" />
+  </wsdl:message>
+  <wsdl:message name="IADAccountService_ValidateUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IADAccountService_IsUserExits_InputMessage">
+    <wsdl:part name="parameters" element="tns:IsUserExits" />
+  </wsdl:message>
+  <wsdl:message name="IADAccountService_IsUserExits_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IsUserExitsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IADAccountService_EnableAccount_InputMessage">
+    <wsdl:part name="parameters" element="tns:EnableAccount" />
+  </wsdl:message>
+  <wsdl:message name="IADAccountService_EnableAccount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EnableAccountResponse" />
+  </wsdl:message>
+  <wsdl:message name="IADAccountService_DisableAccount_InputMessage">
+    <wsdl:part name="parameters" element="tns:DisableAccount" />
+  </wsdl:message>
+  <wsdl:message name="IADAccountService_DisableAccount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DisableAccountResponse" />
+  </wsdl:message>
+  <wsdl:message name="IADAccountService_ResetPassword_InputMessage">
+    <wsdl:part name="parameters" element="tns:ResetPassword" />
+  </wsdl:message>
+  <wsdl:message name="IADAccountService_ResetPassword_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ResetPasswordResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IADAccountService">
+    <wsdl:operation name="AddAccount">
+      <wsdl:input wsaw:Action="http://tempuri.org/IADAccountService/AddAccount" message="tns:IADAccountService_AddAccount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IADAccountService/AddAccountResponse" message="tns:IADAccountService_AddAccount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAccount">
+      <wsdl:input wsaw:Action="http://tempuri.org/IADAccountService/UpdateAccount" message="tns:IADAccountService_UpdateAccount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IADAccountService/UpdateAccountResponse" message="tns:IADAccountService_UpdateAccount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAccount">
+      <wsdl:input wsaw:Action="http://tempuri.org/IADAccountService/DeleteAccount" message="tns:IADAccountService_DeleteAccount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IADAccountService/DeleteAccountResponse" message="tns:IADAccountService_DeleteAccount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAccount">
+      <wsdl:input wsaw:Action="http://tempuri.org/IADAccountService/GetAccount" message="tns:IADAccountService_GetAccount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IADAccountService/GetAccountResponse" message="tns:IADAccountService_GetAccount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidateUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IADAccountService/ValidateUser" message="tns:IADAccountService_ValidateUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IADAccountService/ValidateUserResponse" message="tns:IADAccountService_ValidateUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IsUserExits">
+      <wsdl:input wsaw:Action="http://tempuri.org/IADAccountService/IsUserExits" message="tns:IADAccountService_IsUserExits_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IADAccountService/IsUserExitsResponse" message="tns:IADAccountService_IsUserExits_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EnableAccount">
+      <wsdl:input wsaw:Action="http://tempuri.org/IADAccountService/EnableAccount" message="tns:IADAccountService_EnableAccount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IADAccountService/EnableAccountResponse" message="tns:IADAccountService_EnableAccount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DisableAccount">
+      <wsdl:input wsaw:Action="http://tempuri.org/IADAccountService/DisableAccount" message="tns:IADAccountService_DisableAccount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IADAccountService/DisableAccountResponse" message="tns:IADAccountService_DisableAccount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ResetPassword">
+      <wsdl:input wsaw:Action="http://tempuri.org/IADAccountService/ResetPassword" message="tns:IADAccountService_ResetPassword_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IADAccountService/ResetPasswordResponse" message="tns:IADAccountService_ResetPassword_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IADAccountService" type="tns:IADAccountService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddAccount">
+      <soap:operation soapAction="http://tempuri.org/IADAccountService/AddAccount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAccount">
+      <soap:operation soapAction="http://tempuri.org/IADAccountService/UpdateAccount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAccount">
+      <soap:operation soapAction="http://tempuri.org/IADAccountService/DeleteAccount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAccount">
+      <soap:operation soapAction="http://tempuri.org/IADAccountService/GetAccount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateUser">
+      <soap:operation soapAction="http://tempuri.org/IADAccountService/ValidateUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsUserExits">
+      <soap:operation soapAction="http://tempuri.org/IADAccountService/IsUserExits" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EnableAccount">
+      <soap:operation soapAction="http://tempuri.org/IADAccountService/EnableAccount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DisableAccount">
+      <soap:operation soapAction="http://tempuri.org/IADAccountService/DisableAccount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ResetPassword">
+      <soap:operation soapAction="http://tempuri.org/IADAccountService/ResetPassword" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ADUserInfoService">
+    <wsdl:port name="BasicHttpBinding_IADAccountService" binding="tns:BasicHttpBinding_IADAccountService">
+      <soap:address location="http://10.1.8.211/ManagerService/ADUserInfoService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

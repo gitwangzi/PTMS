@@ -1,0 +1,247 @@
+﻿<UserControl x:Class="Gsafety.Ant.Installation.Views.DeviceAlertManagerView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk" 
+             xmlns:Converts="clr-namespace:Gsafety.Common.Converts;assembly=Converts"
+               xmlns:Controls="clr-namespace:Gsafety.Common.Controls;assembly=CommonControls" 
+             
+        mc:Ignorable="d"
+        d:DesignHeight="800" d:DesignWidth="800"
+        x:Name="root">
+    <UserControl.Resources>
+        <Converts:LongDateTimeFormate x:Key="LongDateTimeFormate"/>
+    </UserControl.Resources>
+    <Grid x:Name="LayoutRoot" Style="{StaticResource ContentGridWhiteStyle}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="1"/>
+        </Grid.RowDefinitions>
+
+        <Grid Style="{StaticResource ViewFirstTitleWhiteGridStyle}"
+              Height="35"
+              Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Image Grid.Column="0"
+                   Style="{StaticResource TitleImageStyle}"/>
+
+            <TextBlock Text="{Binding [SafeDeiveAlertQuery],Source={StaticResource SR} }" 
+                       Grid.Column="1"
+                       Style="{StaticResource SecondTitleTextBlockStyle}"/>
+
+
+        </Grid>
+
+        <Grid Grid.Row="1" Style="{StaticResource ContentGridWhiteStyle}" Height="35">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.8*"/>
+                <ColumnDefinition Width="1.2*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="1.2*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="1.6*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="1.6*"/>
+                <ColumnDefinition Width="0.5*"/>
+                <ColumnDefinition Width="20"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+
+            <TextBlock Text="{Binding [MaintainRecord_VehicleID], Source={StaticResource SR}}"
+                       HorizontalAlignment="Right"
+                       VerticalAlignment="Center"
+                       Margin="0,10,5,10"
+                       Grid.Column="0"
+                       Grid.Row="0"
+                        />
+
+            <TextBox Height="25"
+                     Margin="0,5,0,5"
+                     Grid.Column="1"
+                     Grid.Row="0"
+                     HorizontalAlignment="Stretch"
+                     VerticalAlignment="Center"
+                     MaxLength="20"
+                     Text="{Binding SearchByVehicleID,Mode=TwoWay}"/>
+
+            <TextBlock Text="{Binding [MAINPAGE_AlertType], Source={StaticResource SR}}"
+                       HorizontalAlignment="Right"
+                       VerticalAlignment="Center"
+                       Margin="0,5,5,5"
+                       Grid.Column="2"
+                       Grid.Row="0"/>
+
+            <ComboBox Grid.Column="3"
+                     Grid.Row="0"
+                     Margin="0,3,0,3"
+                     ItemsSource="{Binding ZAlertTypes}"
+                     DisplayMemberPath="Value"
+                     SelectedItem="{Binding SearchByAlertType,Mode=TwoWay}"
+                     Style="{StaticResource lightComboBox}"
+                     HorizontalAlignment="Stretch"
+                     IsEnabled="{Binding IsEnabled}"  Name="comboStatus"/>
+
+            <TextBlock Text="{Binding [ID_INSTALL_StartDate], Source={StaticResource SR}}"
+                       HorizontalAlignment="Right"
+                       VerticalAlignment="Center"
+                       Margin="0,5,5,5"
+                       Grid.Column="4"
+                       Grid.Row="0"/>
+
+             <Controls:DatePickerEx    IsReadOnly="True"  Margin="0,5,0,5" 
+                               Grid.Row="0" 
+                               Grid.Column="5" Style="{StaticResource lightDatePicker}"
+                               SelectedDate="{Binding StartTime,Mode=TwoWay,NotifyOnValidationError=True,ValidatesOnDataErrors=True}" 
+                               VerticalAlignment="Center" SelectedDateFormat="Short"
+                               />
+            <TextBlock Text="{Binding [ID_INSTALL_EndDate], Source={StaticResource SR}}"
+                       HorizontalAlignment="Right"
+                       VerticalAlignment="Center"
+                       Margin="0,5,5,5"
+                       Grid.Column="6"
+                       Grid.Row="0"/>
+
+             <Controls:DatePickerEx    IsReadOnly="True"  Margin="0,5,0,5" 
+                               Grid.Row="0" Style="{StaticResource lightDatePicker}"
+                               Grid.Column="7"
+                               SelectedDate="{Binding EndTime,Mode=TwoWay,NotifyOnValidationError=True,ValidatesOnDataErrors=True}" 
+                               VerticalAlignment="Center" SelectedDateFormat="Short"  
+                               />
+
+            <Button Grid.Column="8"
+                    Style="{StaticResource SearchButtonCommonStyle}"
+                    ToolTipService.ToolTip="{Binding [ID_INSTALL_Query], Source={StaticResource SR}}"
+                    Command="{Binding BtnSearchCommand}"/>
+
+        </Grid>
+
+        <Grid Grid.Row="2" 
+              Style="{StaticResource ViewFirstTitleWhiteGridStyle}"
+              Height="35">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="20"/>
+            </Grid.ColumnDefinitions>
+
+
+            <Image Grid.Column="0" Style="{StaticResource TitleImageStyle}"/>
+
+            <TextBlock Text="{Binding [DeviceAlertList], Source={StaticResource SR}}"
+                       Grid.Column="1"
+                      Style="{StaticResource SecondTitleTextBlockStyle}"/>
+
+        </Grid>
+
+        <sdk:DataGrid  Grid.Row="3"
+                       x:Name="ListDataGrid"          
+                       IsReadOnly="True"
+                      AutoGenerateColumns="False"
+                      ItemsSource="{Binding Data}" 
+                      SelectedItem="{Binding SelectedItem,Mode=TwoWay}"
+                       Style="{StaticResource DataGridWhiteStyleRxx}">
+            <sdk:DataGrid.Columns>
+
+
+                <sdk:DataGridTextColumn  Header="MaintainRecord_VehicleID" 
+                                        HeaderStyle="{StaticResource ColumnHeaderWhiteStyle}"
+                                        Visibility="Visible"
+                                        Width="1.3*" MinWidth="100"
+                                        Binding="{Binding VehicleId}"/>
+
+                <sdk:DataGridTextColumn  Header="ALARM_Latitude" 
+                                        HeaderStyle="{StaticResource ColumnHeaderWhiteStyle}"
+                                        Visibility="Visible"
+                                        Width="1.5*" MinWidth="100"
+                                        Binding="{Binding Latitude}"/>
+
+                <sdk:DataGridTextColumn  Header="ALARM_Longitude" 
+                                        HeaderStyle="{StaticResource ColumnHeaderWhiteStyle}"
+                                        Visibility="Visible"
+                                        Width="1.3*" MinWidth="100"
+                                        Binding="{Binding Longitude}"/>
+
+                <sdk:DataGridTextColumn  Header="MAINPAGE_AlertType" 
+                                        HeaderStyle="{StaticResource ColumnHeaderWhiteStyle}"
+                                        Visibility="Visible"
+                                        Width="1.5*" MinWidth="300"
+                                        Binding="{Binding ShowType}"/>
+
+                <sdk:DataGridTextColumn  Header="ALERT_Speed" 
+                                        HeaderStyle="{StaticResource ColumnHeaderWhiteStyle}"
+                                        Visibility="Visible"
+                                        Width="1.5*" MinWidth="100"
+                                        Binding="{Binding Speed}"/>
+
+                <sdk:DataGridTextColumn  Header="ALARM_DIR" 
+                                        HeaderStyle="{StaticResource ColumnHeaderWhiteStyle}"
+                                        Visibility="Visible"
+                                        Width="1.5*" MinWidth="100"
+                                        Binding="{Binding Direction}"/>
+
+                <sdk:DataGridTextColumn  Header="MAINPAGE_AlertTime" 
+                                        HeaderStyle="{StaticResource ColumnHeaderWhiteStyle}"
+                                        Visibility="Visible"
+                                        Width="1.4*" MinWidth="200"
+                                        Binding="{Binding AlertTime,Converter={StaticResource LongDateTimeFormate}}"/>
+            </sdk:DataGrid.Columns>
+
+        </sdk:DataGrid>
+
+        <Border Grid.Row="4" BorderThickness="0.5" Height="25">
+            <Grid Style="{StaticResource ContentGridWhiteStyle}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock HorizontalAlignment="Right" Margin="0,0,5,0"   
+                           Text="{Binding [PageSize], Source={StaticResource SR}}" VerticalAlignment="Center" 
+                           Grid.Column="0"/>
+
+                <ComboBox SelectedItem="{Binding PageSizeValue,Mode=TwoWay}"  Style="{StaticResource lightComboBox}"
+                          ItemsSource="{Binding PageSizeList}" HorizontalAlignment="Stretch" Height="20"
+                          VerticalAlignment="Center" Width="50" Background="{Binding ElementName=ListDataGrid, Path=Background}"
+                          Grid.Column="1"/>
+
+                <TextBlock Grid.Column="2"
+                    Text="{Binding [Total],Source={StaticResource SR}}"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Center"
+                    Margin="5,0,5,0"/>
+                <TextBlock Text="{Binding Data.ItemCount}" Grid.Column="3"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Margin="5,0,5,0"/>
+                <sdk:DataPager Style="{StaticResource DataPagerStyle}"   
+                    Grid.Column="4"
+                    Height="25"
+                    Source="{Binding Data}"
+                    PageSize="{Binding PageSizeValue}"
+                    Background="{Binding ElementName=ListDataGrid, Path=Background}"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Center"/>
+            </Grid>
+        </Border>
+    </Grid>
+</UserControl>

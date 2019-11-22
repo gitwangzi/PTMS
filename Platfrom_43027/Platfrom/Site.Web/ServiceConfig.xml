@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<wcfService>
+
+  <!--vehicle alert wcf service address-->
+  <add key="VehicleAlertServiceClient"  value="http://localhost:2259/VehicleAlertService.svc"/>
+  <!--installation platform wcf service address-->
+  <add key="DeviceInstallServiceClient"  value="http://localhost:2259/DeviceInstallService.svc"/>
+  <!--the configuration wcf service address-->
+  <add key="AppConfigManagerClient"  value="http://localhost:2259/AppConfigManager.svc"/>
+  <!--vehicle alarm wcf service address-->
+  <add key="VehicleAlarmServiceClient"  value="http://localhost:2259/VehicleAlarmService.svc"/>
+  <!--district data source wcf service address-->
+  <add key="DistrictServiceClient"  value="http://localhost:2259/DistrictService.svc"/>
+  <!--security management wcf service address-->
+  <add key="SecuritySuiteServiceClient"  value="http://localhost:2259/SecuritySuiteService.svc"/>
+  <!--vehicle service wcf service address-->
+  <add key="VehicleServiceClient"  value="http://localhost:2259/VehicleService.svc"/>
+  <add key="VehicleTypeClient"  value="http://localhost:2259/VehicleService.svc"/>
+  <!--mdvr alert wcf service address-->
+  <add key="DeviceAlertServiceClient"  value="http://localhost:2259/DeviceAlertService.svc"/>
+  <!--installation station wcf service address-->
+  <add key="InstallStationServiceClient"  value="http://localhost:2259/InstallStationService.svc"/>
+  <!--installation station wcf service address-->
+  <add key="ChauffeurServiceClient"  value="http://localhost:2259/ChauffeurService.svc"/>
+  <!--user group wcf service address-->
+  <add key="GroupServiceClient"  value="http://localhost:2259/GroupService.svc"/>
+  <!--credential service address-->
+  <add key="ADAccountServiceClient"  value="http://localhost:2259/ADUserInfoService.svc"/>
+  <!--PTMS log management wcf service address-->
+  <add key="PTMSLogManageService"  value="http://localhost:2259/LogManageService.svc"/>
+  <!--alarm response wcf service address-->
+  <add key="AlarmDealLogServiceClient"  value="http://localhost:2259/LogManageService.svc"/>
+  <!--car business log wcf service address-->
+  <add key="CarAlertDealLogServiceClient"  value="http://localhost:2259/LogManageService.svc"/>
+  <!--mdvr log wcf service address-->
+  <add key="DeviceAlertDealLogServiceClient"  value="http://localhost:2259/LogManageService.svc"/>
+  <!--installation log service address-->
+  <add key="InstallLogServiceClient"  value="http://localhost:2259/LogManageService.svc"/>
+  <!--security suite management wcf service address-->
+  <add key="GetSuiteInfoServiceClient" value="http://localhost:2259/LogManageService.svc"/>
+  <!--the user login log wcf service address-->
+  <add key="PTMSLogErrorClient" value="http://localhost:2259/LogManageService.svc"/>
+  <add key="LoginLogServiceClient"  value="http://localhost:2259/LogManageService.svc"/>
+  <add key="LogOperateClient" value="http://localhost:2259/LogManageService.svc" ></add>
+  <add key="LogVideoClient" value="http://localhost:2259/LogManageService.svc" ></add>
+  <add key="MaintainLogServiceClient"  value="http://localhost:2259/LogManageService.svc"/>
+  <!--mdvr history video download wcf service address-->
+  <add key="VideoDowmloadLogServiceClient"  value="http://localhost:2259/LogManageService.svc"/>
+  <!--video operation wcf service address-->
+  <add key="VideoLogSerViceClient"  value="http://localhost:2259/LogManageService.svc"/>
+  <!--external system log wcf service address-->
+  <add key="VisitLogServiceClient"  value="http://localhost:2259/LogManageService.svc"/>
+  <!--user logout log wcf service address-->
+  <add key="LogoutServiceClient"  value="http://localhost:2259/LoginLogService.svc"/>
+  <!--command sending wcf service address-->
+  <add key="CommandManageServiceClient" value="http://localhost:2259/CommandManageService.svc"/>
+  <!--security suite under working status wcf service address-->
+  <add key="WorkingSuiteServiceClient"  value="http://localhost:2259/WorkingSuiteService.svc"/>
+  <!--vehicle status wcf service address-->
+  <add key="VehicleStatusServiceClient"  value="http://localhost:2259/VehicleStatusService.svc"/>
+  <!--video file management wcf service address -->
+  <add key="VedioServiceClient"  value="http://localhost:2259/VedioService.svc"/>
+  <!--monitor group of vehicle wcf service address-->
+  <add key="MonitorGroupServiceClient"  value="http://localhost:2259/MonitorGroupService.svc"/>
+  <!--vehicle of monitor group management wcf service address-->
+  <add key="MonitorGroupVehicleServiceClient"  value="http://localhost:2259/MonitorGroupVehicleService.svc"/>
+  <!--traffice management wcf service address-->
+  <add key="TrafficManageServiceClient" value="http://localhost:2259/TrafficManageService.svc" />
+  <!--vehicle monitor wcf service address-->
+  <add key="VehicleMonitorServiceClient" value="http://localhost:2259/VehicleMonitorService.svc" />
+  <!--reporting wcf service address-->
+  <add key="UserServiceClient" value="http://localhost:2259/AccountService.svc"/>
+  <add key="RoleServiceClient" value="http://localhost:2259/AccountService.svc"/>
+  <add key="UsrDepartmentClient" value="http://localhost:2259/AccountService.svc"/>
+  <add key="UserOnlineClient" value="http://localhost:2259/AccountService.svc"/>
+  <add key="OrganizationClient" value="http://localhost:2259/OrganizationService.svc"/>
+  <add key="ReportServiceClient" value="http://172.16.80.40:2038/ReportService.svc"/>
+  <add key="OrderClientServiceClient" value="http://localhost:2259/OrderClientService.svc"></add>
+  <add key="BscDevSuiteServiceClient" value="http://localhost:2259/BscDevSuiteService.svc"></add>
+  <add key="BscDevSuitePartServiceClient" value="http://localhost:2259/BscDevSuiteService.svc"></add>
+  <add key="RunMonitorGroupServiceClient" value="http://localhost:2259/RunMonitorGroupService.svc"></add>
+  <!--DevGps -->
+  <add key="DevGpsServiceClient" value="http://localhost:2259/DevGpsService.svc"></add>
+  <add key="MessageServiceExtClient" value="net.tcp://172.16.80.40:4503/MessageService"></add>
+  <!--GIS About Service-->
+  <add key="BscGeoPoiServiceClient" value="http://localhost:2259/BscGeoPoiService.svc"></add>
+  <!--FoundRegistry -->
+  <add key="FoundRegistryClient" value="http://localhost:2259/PublicService.svc"></add>
+  <!--LostRegistry -->
+  <add key="LostRegistryClient" value="http://localhost:2259/PublicService.svc"></add>
+
+  <!--LogServiceClient -->
+  <add key="LogAccessClient" value="http://localhost:2259/LogService.svc"></add>
+  <add key="LogDataClient" value="http://localhost:2259/LogService.svc"></add>
+  <add key="LogManagerClient" value="http://localhost:2259/LogService.svc"></add>
+
+  <add key="RunMdvrMessageClient" value="http://localhost:2259/PublicService.svc"></add>
+  <add key="RunAppMessageClient" value="http://localhost:2259/PublicService.svc"></add>
+  <add key="RunMdvrmessageVehicleClient" value="http://localhost:2259/PublicService.svc"></add>
+  <add key="AppMessageVehicleClient" value="http://localhost:2259/PublicService.svc"></add>
+  <add key="MaintainApplicationClient" value="http://localhost:2259/MaintainService.svc"></add>
+  <add key="MaintainRecordClient" value="http://localhost:2259/MaintainService.svc"></add>
+  <add key="ExternalServiceClient" value="http://localhost:2259/ExternalService.svc"></add>
+
+  <add key="SystemRubbishServiceClient" value="http://localhost:2259/SystemRubbishService.svc"></add>
+  <add key="EmailServiceClient" value="http://localhost:2259/EmailService.svc"></add>
+</wcfService>

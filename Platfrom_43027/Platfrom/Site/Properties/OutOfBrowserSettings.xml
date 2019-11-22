@@ -1,0 +1,15 @@
+<OutOfBrowserSettings ShortName="PTMSClient" EnableGPUAcceleration="False" ShowInstallMenuItem="True">
+  <OutOfBrowserSettings.Blurb>您的桌面上的 AntFrame 应用程序；在家、工作或旅途中均可使用。</OutOfBrowserSettings.Blurb>
+  <OutOfBrowserSettings.WindowSettings>
+    <WindowSettings Title="PTMSClient" Height="1080" Width="1920" WindowStyle="None" />
+  </OutOfBrowserSettings.WindowSettings>
+  <OutOfBrowserSettings.SecuritySettings>
+    <SecuritySettings ElevatedPermissions="Required" />
+  </OutOfBrowserSettings.SecuritySettings>
+  <OutOfBrowserSettings.Icons>
+    <Icon Size="16,16">Icon/Loginlogo.png</Icon>
+    <Icon Size="32,32">Icon/Loginlogo.png</Icon>
+    <Icon Size="48,48">Icon/Loginlogo.png</Icon>
+    <Icon Size="128,128">Icon/Loginlogo.png</Icon>
+  </OutOfBrowserSettings.Icons>
+</OutOfBrowserSettings>

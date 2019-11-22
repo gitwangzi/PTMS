@@ -1,0 +1,182 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"     
+    xmlns:local="clr-namespace:Gsafety.Common.Controls;assembly=CommonControls"
+    xmlns:toolkit="http://schemas.microsoft.com/winfx/2006/xaml/presentation/toolkit" 
+    xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity" 
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    mc:Ignorable="d"
+    xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions">
+
+    <ControlTemplate x:Key="btnFolwTemplate" TargetType="Button">
+        <Grid>
+            <VisualStateManager.VisualStateGroups>
+                <VisualStateGroup x:Name="CommonStates">
+                    <VisualState x:Name="Normal"/>
+                    <VisualState x:Name="MouseOver">
+                        <Storyboard>
+                            <ColorAnimation Duration="0" To="#FFCECECE" Storyboard.TargetProperty="(TextBlock.Foreground).(SolidColorBrush.Color)" Storyboard.TargetName="textBlock" d:IsOptimized="True"/>
+                        </Storyboard>
+                    </VisualState>
+                    <VisualState x:Name="Pressed">
+                        <Storyboard>
+                            <ColorAnimation Duration="0" To="#FFE4E4E4" Storyboard.TargetProperty="(TextBlock.Foreground).(SolidColorBrush.Color)" Storyboard.TargetName="textBlock" d:IsOptimized="True"/>
+                        </Storyboard>
+                    </VisualState>
+                    <VisualState x:Name="Disabled"/>
+                </VisualStateGroup>
+            </VisualStateManager.VisualStateGroups>
+            <TextBlock x:Name="textBlock" TextWrapping="Wrap" Text="{TemplateBinding Content}" d:LayoutOverrides="Width, Height" Foreground="Black" FontSize="24" FontFamily="OCR A Std"/>
+        </Grid>
+    </ControlTemplate>
+
+    <Style TargetType="local:BetweenSilver">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:BetweenSilver">
+                    <Grid>
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="borBarStateGroup">
+                                <VisualState x:Name="Namol"/>
+                                <VisualState x:Name="MouseOver">
+                                    <Storyboard>
+                                        <ColorAnimation Duration="0" To="#FF1C6DED" Storyboard.TargetProperty="(Border.Background).(GradientBrush.GradientStops)[0].(GradientStop.Color)" Storyboard.TargetName="borBarBetween" d:IsOptimized="True"/>
+                                        <ColorAnimation Duration="0" To="#FF063468" Storyboard.TargetProperty="(Border.Background).(GradientBrush.GradientStops)[1].(GradientStop.Color)" Storyboard.TargetName="borBarBetween" d:IsOptimized="True"/>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="MouseDown">
+                                    <Storyboard>
+                                        <ColorAnimation Duration="0" To="#FF084883" Storyboard.TargetProperty="(Border.Background).(GradientBrush.GradientStops)[1].(GradientStop.Color)" Storyboard.TargetName="borBarBetween" d:IsOptimized="True"/>
+                                        <ColorAnimation Duration="0" To="#FF1373CC" Storyboard.TargetProperty="(Border.Background).(GradientBrush.GradientStops)[0].(GradientStop.Color)" Storyboard.TargetName="borBarBetween" d:IsOptimized="True"/>
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid x:Name="gridTop" Height="36">
+                            <Button x:Name="btnPrev" Content="&lt;" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="-26,8,0,0" Template="{StaticResource btnFolwTemplate}"/>
+                            <Button x:Name="btnNext" Content="&gt;" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,8,-26,0" Template="{StaticResource btnFolwTemplate}"/>
+                            <Canvas x:Name="canvasTop"/>
+                            <Canvas x:Name="canvasTopTextBlock"/>
+                        </Grid>
+                        <Canvas x:Name="canvansSubScript" Grid.Row="1"/>
+                        <Canvas x:Name="canvansSubScriptText" Grid.Row="1" Margin="0,22,0,0" d:IsHidden="True"/>
+                        <Canvas x:Name="canvasMain" Grid.Row="1">
+                            <Rectangle x:Name="regBarBg" Height="10" Stroke="#FF454545" RadiusX="5" RadiusY="5" StrokeThickness="0" Width="{TemplateBinding Width}">
+                                <Rectangle.Fill>
+                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                        <GradientStop Color="#FF5a5a5a" Offset="0"/>
+                                        <GradientStop Color="#FF5a5a5a" Offset="1"/>
+                                        <GradientStop Color="#FF5a5a5a" Offset="0.5"/>
+                                    </LinearGradientBrush>
+                                </Rectangle.Fill>
+                            </Rectangle>
+                            <Border x:Name="borBarBetween" BorderBrush="#568D8D8D" BorderThickness="0" Width="160" Height="{Binding Height, ElementName=regBarBg}" Canvas.Left="10">
+                                <Border.Background>
+                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                        <GradientStop Color="#FF0099cb" Offset="0"/>
+                                        <GradientStop Color="#FF0099cb" Offset="1"/>
+                                    </LinearGradientBrush>
+                                </Border.Background>
+                                <Grid>
+
+                                    <!--<Rectangle HorizontalAlignment="Center" StrokeThickness="0" Width="16" Height="8" VerticalAlignment="Center" Margin="0,-1,0,0">
+                                        <Rectangle.Fill>
+                                            <LinearGradientBrush EndPoint="0.017,0.5" StartPoint="0.996,0.5">
+                                                <GradientStop Color="#7Fffffff" Offset="1"/>
+                                                <GradientStop Color="#7Fffffff"/>
+                                                <GradientStop Color="#7Fffffff" Offset="0.07"/>
+                                                <GradientStop Color="#7Fffffff" Offset="0.48"/>
+                                                <GradientStop Color="#7Fffffff" Offset="0.93"/>
+                                                <GradientStop Color="#7Fffffff" Offset="0.071"/>
+                                                <GradientStop Color="#7Fffffff" Offset="0.481"/>
+                                                <GradientStop Color="#7Fffffff" Offset="0.56"/>
+                                                <GradientStop Color="#7Fffffff" Offset="0.561"/>
+                                                <GradientStop Color="#7Fffffff" Offset="0.929"/>
+                                            </LinearGradientBrush>
+                                        </Rectangle.Fill>
+                                    </Rectangle>-->
+
+
+                                    <Rectangle x:Name="regBarMiddleHandle" StrokeThickness="0" Cursor="Hand" Margin="0" Fill="#00000000">
+                                        <i:Interaction.Triggers>
+                                            <i:EventTrigger EventName="MouseMove">
+                                                <ei:GoToStateAction StateName="MouseOver"/>
+                                            </i:EventTrigger>
+                                            <i:EventTrigger EventName="MouseLeave">
+                                                <ei:GoToStateAction StateName="Namol"/>
+                                            </i:EventTrigger>
+                                            <i:EventTrigger EventName="MouseLeftButtonDown">
+                                                <ei:GoToStateAction StateName="MouseDown"/>
+                                            </i:EventTrigger>
+                                            <i:EventTrigger EventName="MouseLeftButtonUp">
+                                                <ei:GoToStateAction StateName="Namol"/>
+                                            </i:EventTrigger>
+                                        </i:Interaction.Triggers>
+                                    </Rectangle>
+                                </Grid>
+                            </Border>
+                            <local:SilverPointer x:Name="silverPointerStart" Content="SilverPointer" d:LayoutOverrides="Width, Height" Canvas.Top="-8"/>
+                            <local:SilverPointer x:Name="silverPointerEnd" Content="SilverPointer" d:LayoutOverrides="Width, Height" Canvas.Top="-8" Canvas.Left="451"/>
+                        </Canvas>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Width" Value="600"/>
+        <Setter Property="Height" Value="90"/>
+    </Style>
+
+    <Style TargetType="local:SilverPointer">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:SilverPointer">
+                    <Canvas Width="{TemplateBinding Width}" Height="{TemplateBinding Height}">
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="MouseStateGroup">
+                                <VisualState x:Name="MouseMove">
+                                    <Storyboard>
+                                        <ColorAnimation Duration="0" To="#FF1C61D2" Storyboard.TargetProperty="(Shape.Fill).(GradientBrush.GradientStops)[0].(GradientStop.Color)" Storyboard.TargetName="path" d:IsOptimized="True"/>
+                                        <ColorAnimation Duration="0" To="#FF1C61D2" Storyboard.TargetProperty="(Shape.Fill).(GradientBrush.GradientStops)[2].(GradientStop.Color)" Storyboard.TargetName="path" d:IsOptimized="True"/>
+                                        <ColorAnimation Duration="0" To="#FF1C61D2" Storyboard.TargetProperty="(Shape.Fill).(GradientBrush.GradientStops)[1].(GradientStop.Color)" Storyboard.TargetName="path" d:IsOptimized="True"/>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="MouseLeave"/>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                        <Border Background="{TemplateBinding Background}"
+                			BorderBrush="White"
+                			BorderThickness="1" Width="{TemplateBinding Width}" Height="{TemplateBinding Height}" d:LayoutOverrides="Margin">
+                            <Path x:Name="path" Data="M1.25,1.1875 C2.3125,-0.25 5.3125,0.00067358895 5.375,-8.8817842E-16 L95.625,0.00063765049 C95.625,0.00063764775 97.994141,-0.44371304 99.125,0.8756339 C100.25,2.1881428 99.864784,4.1893792 99.875,4.1881342 L100,104 L49.224747,149.25 L-0.25,104.25 L0.22601399,5.0010839 C0.22601399,5.0010839 0.1875,2.625 1.25,1.1875 z" Margin="0" Stretch="Fill" Stroke="#FFBABABA" UseLayoutRounding="False">
+                                <Path.Fill>
+                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                        <GradientStop Color="#FF0099cb" Offset="0"/>
+                                        <GradientStop Color="#FF0099cb" Offset="1"/>
+                                        <GradientStop Color="#FF0099cb" Offset="0.104"/>
+                                    </LinearGradientBrush>
+                                </Path.Fill>
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="MouseMove">
+                                        <ei:GoToStateAction StateName="MouseMove"/>
+                                    </i:EventTrigger>
+                                    <i:EventTrigger EventName="MouseLeave">
+                                        <ei:GoToStateAction StateName="MouseLeave"/>
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
+                            </Path>
+                        </Border>
+                        <Border BorderThickness="1" Canvas.Left="-83" Canvas.Top="-15" Width="180">
+                            <TextBlock x:Name="txtTip" TextWrapping="Wrap" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                        </Border>
+                    </Canvas>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Width" Value="14"/>
+        <Setter Property="Height" Value="22"/>
+    </Style>
+</ResourceDictionary>

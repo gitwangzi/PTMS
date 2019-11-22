@@ -1,0 +1,502 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="LogManageService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:2259/LogManageService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:2259/LogManageService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:2259/LogManageService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" />
+      <xsd:import schemaLocation="http://localhost:2259/LogManageService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/System" />
+      <xsd:import schemaLocation="http://localhost:2259/LogManageService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Manager.Contract.Data" />
+      <xsd:import schemaLocation="http://localhost:2259/LogManageService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Common.Data" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IAlarmDealLogService_GetAlarmDealLog_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAlarmDealLog" />
+  </wsdl:message>
+  <wsdl:message name="IAlarmDealLogService_GetAlarmDealLog_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAlarmDealLogResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICarAlertDealLogService_GetCarAlertDealLog_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCarAlertDealLog" />
+  </wsdl:message>
+  <wsdl:message name="ICarAlertDealLogService_GetCarAlertDealLog_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCarAlertDealLogResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInstallLogService_GetInstallLog_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetInstallLog" />
+  </wsdl:message>
+  <wsdl:message name="IInstallLogService_GetInstallLog_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetInstallLogResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILoginLogService_AddLoginLog_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddLoginLog" />
+  </wsdl:message>
+  <wsdl:message name="ILoginLogService_AddLoginLog_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddLoginLogResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILoginLogService_GetLoginLog_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLoginLog" />
+  </wsdl:message>
+  <wsdl:message name="ILoginLogService_GetLoginLog_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLoginLogResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILoginLogService_ClearLoginLog_InputMessage">
+    <wsdl:part name="parameters" element="tns:ClearLoginLog" />
+  </wsdl:message>
+  <wsdl:message name="ILoginLogService_ClearLoginLog_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ClearLoginLogResponse" />
+  </wsdl:message>
+  <wsdl:message name="IVideoDowmloadLogService_GetVideoDownloadLog_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetVideoDownloadLog" />
+  </wsdl:message>
+  <wsdl:message name="IVideoDowmloadLogService_GetVideoDownloadLog_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetVideoDownloadLogResponse" />
+  </wsdl:message>
+  <wsdl:message name="IVideoLogSerVice_GetVideoLog_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetVideoLog" />
+  </wsdl:message>
+  <wsdl:message name="IVideoLogSerVice_GetVideoLog_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetVideoLogResponse" />
+  </wsdl:message>
+  <wsdl:message name="IVisitLogService_AddVisitLog_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddVisitLog" />
+  </wsdl:message>
+  <wsdl:message name="IVisitLogService_AddVisitLog_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddVisitLogResponse" />
+  </wsdl:message>
+  <wsdl:message name="IVisitLogService_GetVisitLog_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetVisitLog" />
+  </wsdl:message>
+  <wsdl:message name="IVisitLogService_GetVisitLog_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetVisitLogResponse" />
+  </wsdl:message>
+  <wsdl:message name="IVisitLogService_ClearVisitLog_InputMessage">
+    <wsdl:part name="parameters" element="tns:ClearVisitLog" />
+  </wsdl:message>
+  <wsdl:message name="IVisitLogService_ClearVisitLog_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ClearVisitLogResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGetSuiteInfoService_GetSuitInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSuitInfo" />
+  </wsdl:message>
+  <wsdl:message name="IGetSuiteInfoService_GetSuitInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSuitInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILogOperate_GetOperationLogList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetOperationLogList" />
+  </wsdl:message>
+  <wsdl:message name="ILogOperate_GetOperationLogList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetOperationLogListResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILogOperate_ClearOperateLog_InputMessage">
+    <wsdl:part name="parameters" element="tns:ClearOperateLog" />
+  </wsdl:message>
+  <wsdl:message name="ILogOperate_ClearOperateLog_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ClearOperateLogResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILogVideo_InsertVideoDownloadLog_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertVideoDownloadLog" />
+  </wsdl:message>
+  <wsdl:message name="ILogVideo_InsertVideoDownloadLog_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertVideoDownloadLogResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILogVideo_InsertVideoPlayLog_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertVideoPlayLog" />
+  </wsdl:message>
+  <wsdl:message name="ILogVideo_InsertVideoPlayLog_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertVideoPlayLogResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILogVideo_ClearVideoDownloadLog_InputMessage">
+    <wsdl:part name="parameters" element="tns:ClearVideoDownloadLog" />
+  </wsdl:message>
+  <wsdl:message name="ILogVideo_ClearVideoDownloadLog_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ClearVideoDownloadLogResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILogVideo_ClearVideoPlayLog_InputMessage">
+    <wsdl:part name="parameters" element="tns:ClearVideoPlayLog" />
+  </wsdl:message>
+  <wsdl:message name="ILogVideo_ClearVideoPlayLog_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ClearVideoPlayLogResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILogVideo_GetVideoPlayLogList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetVideoPlayLogList" />
+  </wsdl:message>
+  <wsdl:message name="ILogVideo_GetVideoPlayLogList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetVideoPlayLogListResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILogVideo_GetVideoDownloadLogList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetVideoDownloadLogList" />
+  </wsdl:message>
+  <wsdl:message name="ILogVideo_GetVideoDownloadLogList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetVideoDownloadLogListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPTMSLogError_GetErrorLog_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetErrorLog" />
+  </wsdl:message>
+  <wsdl:message name="IPTMSLogError_GetErrorLog_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetErrorLogResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IAlarmDealLogService">
+    <wsdl:operation name="GetAlarmDealLog">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAlarmDealLogService/GetAlarmDealLog" message="tns:IAlarmDealLogService_GetAlarmDealLog_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAlarmDealLogService/GetAlarmDealLogResponse" message="tns:IAlarmDealLogService_GetAlarmDealLog_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="ICarAlertDealLogService">
+    <wsdl:operation name="GetCarAlertDealLog">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICarAlertDealLogService/GetCarAlertDealLog" message="tns:ICarAlertDealLogService_GetCarAlertDealLog_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICarAlertDealLogService/GetCarAlertDealLogResponse" message="tns:ICarAlertDealLogService_GetCarAlertDealLog_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="IInstallLogService">
+    <wsdl:operation name="GetInstallLog">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInstallLogService/GetInstallLog" message="tns:IInstallLogService_GetInstallLog_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInstallLogService/GetInstallLogResponse" message="tns:IInstallLogService_GetInstallLog_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="ILoginLogService">
+    <wsdl:operation name="AddLoginLog">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILoginLogService/AddLoginLog" message="tns:ILoginLogService_AddLoginLog_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILoginLogService/AddLoginLogResponse" message="tns:ILoginLogService_AddLoginLog_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLoginLog">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILoginLogService/GetLoginLog" message="tns:ILoginLogService_GetLoginLog_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILoginLogService/GetLoginLogResponse" message="tns:ILoginLogService_GetLoginLog_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ClearLoginLog">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILoginLogService/ClearLoginLog" message="tns:ILoginLogService_ClearLoginLog_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILoginLogService/ClearLoginLogResponse" message="tns:ILoginLogService_ClearLoginLog_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="IVideoDowmloadLogService">
+    <wsdl:operation name="GetVideoDownloadLog">
+      <wsdl:input wsaw:Action="http://tempuri.org/IVideoDowmloadLogService/GetVideoDownloadLog" message="tns:IVideoDowmloadLogService_GetVideoDownloadLog_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IVideoDowmloadLogService/GetVideoDownloadLogResponse" message="tns:IVideoDowmloadLogService_GetVideoDownloadLog_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="IVideoLogSerVice">
+    <wsdl:operation name="GetVideoLog">
+      <wsdl:input wsaw:Action="http://tempuri.org/IVideoLogSerVice/GetVideoLog" message="tns:IVideoLogSerVice_GetVideoLog_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IVideoLogSerVice/GetVideoLogResponse" message="tns:IVideoLogSerVice_GetVideoLog_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="IVisitLogService">
+    <wsdl:operation name="AddVisitLog">
+      <wsdl:input wsaw:Action="http://tempuri.org/IVisitLogService/AddVisitLog" message="tns:IVisitLogService_AddVisitLog_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IVisitLogService/AddVisitLogResponse" message="tns:IVisitLogService_AddVisitLog_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetVisitLog">
+      <wsdl:input wsaw:Action="http://tempuri.org/IVisitLogService/GetVisitLog" message="tns:IVisitLogService_GetVisitLog_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IVisitLogService/GetVisitLogResponse" message="tns:IVisitLogService_GetVisitLog_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ClearVisitLog">
+      <wsdl:input wsaw:Action="http://tempuri.org/IVisitLogService/ClearVisitLog" message="tns:IVisitLogService_ClearVisitLog_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IVisitLogService/ClearVisitLogResponse" message="tns:IVisitLogService_ClearVisitLog_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="IGetSuiteInfoService">
+    <wsdl:operation name="GetSuitInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGetSuiteInfoService/GetSuitInfo" message="tns:IGetSuiteInfoService_GetSuitInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGetSuiteInfoService/GetSuitInfoResponse" message="tns:IGetSuiteInfoService_GetSuitInfo_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="ILogOperate">
+    <wsdl:operation name="GetOperationLogList">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILogOperate/GetOperationLogList" message="tns:ILogOperate_GetOperationLogList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILogOperate/GetOperationLogListResponse" message="tns:ILogOperate_GetOperationLogList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ClearOperateLog">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILogOperate/ClearOperateLog" message="tns:ILogOperate_ClearOperateLog_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILogOperate/ClearOperateLogResponse" message="tns:ILogOperate_ClearOperateLog_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="ILogVideo">
+    <wsdl:operation name="InsertVideoDownloadLog">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILogVideo/InsertVideoDownloadLog" message="tns:ILogVideo_InsertVideoDownloadLog_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILogVideo/InsertVideoDownloadLogResponse" message="tns:ILogVideo_InsertVideoDownloadLog_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertVideoPlayLog">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILogVideo/InsertVideoPlayLog" message="tns:ILogVideo_InsertVideoPlayLog_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILogVideo/InsertVideoPlayLogResponse" message="tns:ILogVideo_InsertVideoPlayLog_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ClearVideoDownloadLog">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILogVideo/ClearVideoDownloadLog" message="tns:ILogVideo_ClearVideoDownloadLog_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILogVideo/ClearVideoDownloadLogResponse" message="tns:ILogVideo_ClearVideoDownloadLog_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ClearVideoPlayLog">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILogVideo/ClearVideoPlayLog" message="tns:ILogVideo_ClearVideoPlayLog_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILogVideo/ClearVideoPlayLogResponse" message="tns:ILogVideo_ClearVideoPlayLog_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetVideoPlayLogList">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILogVideo/GetVideoPlayLogList" message="tns:ILogVideo_GetVideoPlayLogList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILogVideo/GetVideoPlayLogListResponse" message="tns:ILogVideo_GetVideoPlayLogList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetVideoDownloadLogList">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILogVideo/GetVideoDownloadLogList" message="tns:ILogVideo_GetVideoDownloadLogList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILogVideo/GetVideoDownloadLogListResponse" message="tns:ILogVideo_GetVideoDownloadLogList_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="IPTMSLogError">
+    <wsdl:operation name="GetErrorLog">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPTMSLogError/GetErrorLog" message="tns:IPTMSLogError_GetErrorLog_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPTMSLogError/GetErrorLogResponse" message="tns:IPTMSLogError_GetErrorLog_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IAlarmDealLogService" type="tns:IAlarmDealLogService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetAlarmDealLog">
+      <soap:operation soapAction="http://tempuri.org/IAlarmDealLogService/GetAlarmDealLog" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BasicHttpBinding_ICarAlertDealLogService" type="tns:ICarAlertDealLogService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetCarAlertDealLog">
+      <soap:operation soapAction="http://tempuri.org/ICarAlertDealLogService/GetCarAlertDealLog" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BasicHttpBinding_IInstallLogService" type="tns:IInstallLogService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetInstallLog">
+      <soap:operation soapAction="http://tempuri.org/IInstallLogService/GetInstallLog" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BasicHttpBinding_ILoginLogService" type="tns:ILoginLogService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddLoginLog">
+      <soap:operation soapAction="http://tempuri.org/ILoginLogService/AddLoginLog" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLoginLog">
+      <soap:operation soapAction="http://tempuri.org/ILoginLogService/GetLoginLog" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ClearLoginLog">
+      <soap:operation soapAction="http://tempuri.org/ILoginLogService/ClearLoginLog" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BasicHttpBinding_IVideoDowmloadLogService" type="tns:IVideoDowmloadLogService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetVideoDownloadLog">
+      <soap:operation soapAction="http://tempuri.org/IVideoDowmloadLogService/GetVideoDownloadLog" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BasicHttpBinding_IVideoLogSerVice" type="tns:IVideoLogSerVice">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetVideoLog">
+      <soap:operation soapAction="http://tempuri.org/IVideoLogSerVice/GetVideoLog" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BasicHttpBinding_IVisitLogService" type="tns:IVisitLogService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddVisitLog">
+      <soap:operation soapAction="http://tempuri.org/IVisitLogService/AddVisitLog" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVisitLog">
+      <soap:operation soapAction="http://tempuri.org/IVisitLogService/GetVisitLog" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ClearVisitLog">
+      <soap:operation soapAction="http://tempuri.org/IVisitLogService/ClearVisitLog" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BasicHttpBinding_IGetSuiteInfoService" type="tns:IGetSuiteInfoService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetSuitInfo">
+      <soap:operation soapAction="http://tempuri.org/IGetSuiteInfoService/GetSuitInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BasicHttpBinding_ILogOperate" type="tns:ILogOperate">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetOperationLogList">
+      <soap:operation soapAction="http://tempuri.org/ILogOperate/GetOperationLogList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ClearOperateLog">
+      <soap:operation soapAction="http://tempuri.org/ILogOperate/ClearOperateLog" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BasicHttpBinding_ILogVideo" type="tns:ILogVideo">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="InsertVideoDownloadLog">
+      <soap:operation soapAction="http://tempuri.org/ILogVideo/InsertVideoDownloadLog" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertVideoPlayLog">
+      <soap:operation soapAction="http://tempuri.org/ILogVideo/InsertVideoPlayLog" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ClearVideoDownloadLog">
+      <soap:operation soapAction="http://tempuri.org/ILogVideo/ClearVideoDownloadLog" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ClearVideoPlayLog">
+      <soap:operation soapAction="http://tempuri.org/ILogVideo/ClearVideoPlayLog" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVideoPlayLogList">
+      <soap:operation soapAction="http://tempuri.org/ILogVideo/GetVideoPlayLogList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVideoDownloadLogList">
+      <soap:operation soapAction="http://tempuri.org/ILogVideo/GetVideoDownloadLogList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BasicHttpBinding_IPTMSLogError" type="tns:IPTMSLogError">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetErrorLog">
+      <soap:operation soapAction="http://tempuri.org/IPTMSLogError/GetErrorLog" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="LogManageService">
+    <wsdl:port name="BasicHttpBinding_IAlarmDealLogService" binding="tns:BasicHttpBinding_IAlarmDealLogService">
+      <soap:address location="http://localhost:2259/LogManageService.svc" />
+    </wsdl:port>
+    <wsdl:port name="BasicHttpBinding_ICarAlertDealLogService" binding="tns:BasicHttpBinding_ICarAlertDealLogService">
+      <soap:address location="http://localhost:2259/LogManageService.svc" />
+    </wsdl:port>
+    <wsdl:port name="BasicHttpBinding_IInstallLogService" binding="tns:BasicHttpBinding_IInstallLogService">
+      <soap:address location="http://localhost:2259/LogManageService.svc" />
+    </wsdl:port>
+    <wsdl:port name="BasicHttpBinding_ILoginLogService" binding="tns:BasicHttpBinding_ILoginLogService">
+      <soap:address location="http://localhost:2259/LogManageService.svc" />
+    </wsdl:port>
+    <wsdl:port name="BasicHttpBinding_IVideoDowmloadLogService" binding="tns:BasicHttpBinding_IVideoDowmloadLogService">
+      <soap:address location="http://localhost:2259/LogManageService.svc" />
+    </wsdl:port>
+    <wsdl:port name="BasicHttpBinding_IVideoLogSerVice" binding="tns:BasicHttpBinding_IVideoLogSerVice">
+      <soap:address location="http://localhost:2259/LogManageService.svc" />
+    </wsdl:port>
+    <wsdl:port name="BasicHttpBinding_IVisitLogService" binding="tns:BasicHttpBinding_IVisitLogService">
+      <soap:address location="http://localhost:2259/LogManageService.svc" />
+    </wsdl:port>
+    <wsdl:port name="BasicHttpBinding_IGetSuiteInfoService" binding="tns:BasicHttpBinding_IGetSuiteInfoService">
+      <soap:address location="http://localhost:2259/LogManageService.svc" />
+    </wsdl:port>
+    <wsdl:port name="BasicHttpBinding_ILogOperate" binding="tns:BasicHttpBinding_ILogOperate">
+      <soap:address location="http://localhost:2259/LogManageService.svc" />
+    </wsdl:port>
+    <wsdl:port name="BasicHttpBinding_ILogVideo" binding="tns:BasicHttpBinding_ILogVideo">
+      <soap:address location="http://localhost:2259/LogManageService.svc" />
+    </wsdl:port>
+    <wsdl:port name="BasicHttpBinding_IPTMSLogError" binding="tns:BasicHttpBinding_IPTMSLogError">
+      <soap:address location="http://localhost:2259/LogManageService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

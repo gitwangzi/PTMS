@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Common.Data" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Common.Data" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="TrafficFence">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Address" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CircleCenter" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ClientID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CreateTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Creator" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EndTime" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FenceType" type="xs:decimal" />
+      <xs:element minOccurs="0" name="ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MaxSpeed" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OverSpeedDuration" type="xs:int" />
+      <xs:element minOccurs="0" name="PointCount" type="xs:int" />
+      <xs:element minOccurs="0" name="Pts" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Radius" type="xs:int" />
+      <xs:element minOccurs="0" name="RegionProperty" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Shape" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StartTime" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Valid" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TrafficFence" nillable="true" type="tns:TrafficFence" />
+  <xs:complexType name="ArrayOfTrafficFence">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TrafficFence" nillable="true" type="tns:TrafficFence" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTrafficFence" nillable="true" type="tns:ArrayOfTrafficFence" />
+  <xs:complexType name="ArrayOfFenceQueue">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="FenceQueue" nillable="true" type="tns:FenceQueue" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfFenceQueue" nillable="true" type="tns:ArrayOfFenceQueue" />
+  <xs:complexType name="FenceQueue">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AlertType" type="xs:short" />
+      <xs:element minOccurs="0" name="CircleCenter" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ClientID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CreateTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="EndTime" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FenceID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FenceType" type="xs:int" />
+      <xs:element minOccurs="0" name="ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MaxSpeed" type="xs:int" />
+      <xs:element minOccurs="0" name="MdvrCoreSn" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OperType" type="xs:int" />
+      <xs:element minOccurs="0" name="OverSpeedDuration" type="xs:int" />
+      <xs:element minOccurs="0" name="PacketSeq" type="xs:decimal" />
+      <xs:element minOccurs="0" name="PointCount" type="xs:int" />
+      <xs:element minOccurs="0" name="Pts" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Radius" type="xs:int" />
+      <xs:element minOccurs="0" name="RegionProperty" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ResultPacket" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SendTime" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="StartTime" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Status" type="xs:int" />
+      <xs:element minOccurs="0" name="VehicleID" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FenceQueue" nillable="true" type="tns:FenceQueue" />
+  <xs:complexType name="TrafficRoute">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ClientID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CreateTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Creator" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EndTime" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MaxSpeed" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OverSpeedDuration" type="xs:int" />
+      <xs:element minOccurs="0" name="PointCount" type="xs:int" />
+      <xs:element minOccurs="0" name="Pts" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RouteProperty" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RouteSegmentProperty" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StartTime" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TurningCount" type="xs:int" />
+      <xs:element minOccurs="0" name="Valid" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Width" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TrafficRoute" nillable="true" type="tns:TrafficRoute" />
+  <xs:complexType name="ArrayOfTrafficRoute">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TrafficRoute" nillable="true" type="tns:TrafficRoute" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTrafficRoute" nillable="true" type="tns:ArrayOfTrafficRoute" />
+  <xs:complexType name="ArrayOfRouteQueue">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RouteQueue" nillable="true" type="tns:RouteQueue" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRouteQueue" nillable="true" type="tns:ArrayOfRouteQueue" />
+  <xs:complexType name="RouteQueue">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ClientID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CreateTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="EndTime" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MaxSpeed" type="xs:decimal" />
+      <xs:element minOccurs="0" name="MdvrCoreSn" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OperType" type="xs:decimal" />
+      <xs:element minOccurs="0" name="OverSpeedDuration" type="xs:decimal" />
+      <xs:element minOccurs="0" name="PacketSeq" type="xs:decimal" />
+      <xs:element minOccurs="0" name="PointCount" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Pts" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RegionID" type="xs:decimal" />
+      <xs:element minOccurs="0" name="ResultPacket" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RouteID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RouteProperty" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RouteSegmentProperty" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SendTime" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="StartTime" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Status" type="xs:decimal" />
+      <xs:element minOccurs="0" name="VehicleID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Width" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RouteQueue" nillable="true" type="tns:RouteQueue" />
+</xs:schema>

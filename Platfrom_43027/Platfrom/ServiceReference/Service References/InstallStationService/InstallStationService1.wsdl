@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="InstallStationService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:2258/InstallStationService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:2258/InstallStationService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:2258/InstallStationService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.BaseInformation.Contract.Data" />
+      <xsd:import schemaLocation="http://localhost:2258/InstallStationService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" />
+      <xsd:import schemaLocation="http://localhost:2258/InstallStationService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/System" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IInstallStationService_BatchAddStation_InputMessage">
+    <wsdl:part name="parameters" element="tns:BatchAddStation" />
+  </wsdl:message>
+  <wsdl:message name="IInstallStationService_BatchAddStation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BatchAddStationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInstallStationService_AddInstallStation_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddInstallStation" />
+  </wsdl:message>
+  <wsdl:message name="IInstallStationService_AddInstallStation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddInstallStationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInstallStationService_DeleteInstallStation_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteInstallStation" />
+  </wsdl:message>
+  <wsdl:message name="IInstallStationService_DeleteInstallStation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteInstallStationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInstallStationService_UpdateInstallStation_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateInstallStation" />
+  </wsdl:message>
+  <wsdl:message name="IInstallStationService_UpdateInstallStation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateInstallStationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInstallStationService_GetInstallStationsByAlphabet_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetInstallStationsByAlphabet" />
+  </wsdl:message>
+  <wsdl:message name="IInstallStationService_GetInstallStationsByAlphabet_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetInstallStationsByAlphabetResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInstallStationService_GetInstallStationsFuzzy_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetInstallStationsFuzzy" />
+  </wsdl:message>
+  <wsdl:message name="IInstallStationService_GetInstallStationsFuzzy_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetInstallStationsFuzzyResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInstallStationService_GetInstallStations_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetInstallStations" />
+  </wsdl:message>
+  <wsdl:message name="IInstallStationService_GetInstallStations_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetInstallStationsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInstallStationService_CheckInstallStationExistByName_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckInstallStationExistByName" />
+  </wsdl:message>
+  <wsdl:message name="IInstallStationService_CheckInstallStationExistByName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckInstallStationExistByNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInstallStationService_CheckInstallDetailById_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckInstallDetailById" />
+  </wsdl:message>
+  <wsdl:message name="IInstallStationService_CheckInstallDetailById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckInstallDetailByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInstallStationService_CheckInstallStationExist_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckInstallStationExist" />
+  </wsdl:message>
+  <wsdl:message name="IInstallStationService_CheckInstallStationExist_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckInstallStationExistResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInstallStationService_GetInstallStationUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetInstallStationUser" />
+  </wsdl:message>
+  <wsdl:message name="IInstallStationService_GetInstallStationUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetInstallStationUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInstallStationService_SaveInstallStationUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveInstallStationUser" />
+  </wsdl:message>
+  <wsdl:message name="IInstallStationService_SaveInstallStationUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveInstallStationUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IInstallStationService_GetInstallStationsByUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetInstallStationsByUser" />
+  </wsdl:message>
+  <wsdl:message name="IInstallStationService_GetInstallStationsByUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetInstallStationsByUserResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IInstallStationService">
+    <wsdl:operation name="BatchAddStation">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInstallStationService/BatchAddStation" message="tns:IInstallStationService_BatchAddStation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInstallStationService/BatchAddStationResponse" message="tns:IInstallStationService_BatchAddStation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddInstallStation">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInstallStationService/AddInstallStation" message="tns:IInstallStationService_AddInstallStation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInstallStationService/AddInstallStationResponse" message="tns:IInstallStationService_AddInstallStation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteInstallStation">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInstallStationService/DeleteInstallStation" message="tns:IInstallStationService_DeleteInstallStation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInstallStationService/DeleteInstallStationResponse" message="tns:IInstallStationService_DeleteInstallStation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateInstallStation">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInstallStationService/UpdateInstallStation" message="tns:IInstallStationService_UpdateInstallStation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInstallStationService/UpdateInstallStationResponse" message="tns:IInstallStationService_UpdateInstallStation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInstallStationsByAlphabet">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInstallStationService/GetInstallStationsByAlphabet" message="tns:IInstallStationService_GetInstallStationsByAlphabet_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInstallStationService/GetInstallStationsByAlphabetResponse" message="tns:IInstallStationService_GetInstallStationsByAlphabet_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInstallStationsFuzzy">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInstallStationService/GetInstallStationsFuzzy" message="tns:IInstallStationService_GetInstallStationsFuzzy_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInstallStationService/GetInstallStationsFuzzyResponse" message="tns:IInstallStationService_GetInstallStationsFuzzy_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInstallStations">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInstallStationService/GetInstallStations" message="tns:IInstallStationService_GetInstallStations_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInstallStationService/GetInstallStationsResponse" message="tns:IInstallStationService_GetInstallStations_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckInstallStationExistByName">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInstallStationService/CheckInstallStationExistByName" message="tns:IInstallStationService_CheckInstallStationExistByName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInstallStationService/CheckInstallStationExistByNameResponse" message="tns:IInstallStationService_CheckInstallStationExistByName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckInstallDetailById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInstallStationService/CheckInstallDetailById" message="tns:IInstallStationService_CheckInstallDetailById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInstallStationService/CheckInstallDetailByIdResponse" message="tns:IInstallStationService_CheckInstallDetailById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckInstallStationExist">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInstallStationService/CheckInstallStationExist" message="tns:IInstallStationService_CheckInstallStationExist_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInstallStationService/CheckInstallStationExistResponse" message="tns:IInstallStationService_CheckInstallStationExist_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInstallStationUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInstallStationService/GetInstallStationUser" message="tns:IInstallStationService_GetInstallStationUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInstallStationService/GetInstallStationUserResponse" message="tns:IInstallStationService_GetInstallStationUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveInstallStationUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInstallStationService/SaveInstallStationUser" message="tns:IInstallStationService_SaveInstallStationUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInstallStationService/SaveInstallStationUserResponse" message="tns:IInstallStationService_SaveInstallStationUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInstallStationsByUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInstallStationService/GetInstallStationsByUser" message="tns:IInstallStationService_GetInstallStationsByUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInstallStationService/GetInstallStationsByUserResponse" message="tns:IInstallStationService_GetInstallStationsByUser_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IInstallStationService" type="tns:IInstallStationService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="BatchAddStation">
+      <soap:operation soapAction="http://tempuri.org/IInstallStationService/BatchAddStation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddInstallStation">
+      <soap:operation soapAction="http://tempuri.org/IInstallStationService/AddInstallStation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteInstallStation">
+      <soap:operation soapAction="http://tempuri.org/IInstallStationService/DeleteInstallStation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateInstallStation">
+      <soap:operation soapAction="http://tempuri.org/IInstallStationService/UpdateInstallStation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInstallStationsByAlphabet">
+      <soap:operation soapAction="http://tempuri.org/IInstallStationService/GetInstallStationsByAlphabet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInstallStationsFuzzy">
+      <soap:operation soapAction="http://tempuri.org/IInstallStationService/GetInstallStationsFuzzy" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInstallStations">
+      <soap:operation soapAction="http://tempuri.org/IInstallStationService/GetInstallStations" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckInstallStationExistByName">
+      <soap:operation soapAction="http://tempuri.org/IInstallStationService/CheckInstallStationExistByName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckInstallDetailById">
+      <soap:operation soapAction="http://tempuri.org/IInstallStationService/CheckInstallDetailById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckInstallStationExist">
+      <soap:operation soapAction="http://tempuri.org/IInstallStationService/CheckInstallStationExist" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInstallStationUser">
+      <soap:operation soapAction="http://tempuri.org/IInstallStationService/GetInstallStationUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveInstallStationUser">
+      <soap:operation soapAction="http://tempuri.org/IInstallStationService/SaveInstallStationUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInstallStationsByUser">
+      <soap:operation soapAction="http://tempuri.org/IInstallStationService/GetInstallStationsByUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="InstallStationService">
+    <wsdl:port name="BasicHttpBinding_IInstallStationService" binding="tns:BasicHttpBinding_IInstallStationService">
+      <soap:address location="http://localhost:2258/InstallStationService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,1609 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="MessageService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="CustomBinding_IMessageService_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <msb:BinaryEncoding xmlns:msb="http://schemas.microsoft.com/ws/06/2004/mspolicy/netbinary1">
+        </msb:BinaryEncoding>
+        <wsaw:UsingAddressing>
+        </wsaw:UsingAddressing>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import namespace="http://tempuri.org/" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Message.Contract.Data" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Message.Contract.Data.CommandManage" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Message.Contract.Data.Video" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IMessageService_SendCompleteAlarmMessage_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendCompleteAlarmMessage" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_SendCompleteAlarmMessage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendCompleteAlarmMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_GetCompleteAlarmMessage_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCompleteAlarmMessage" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_GetCompleteAlarmMessage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCompleteAlarmMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_SendChangeGroupVechleMessage_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendChangeGroupVechleMessage" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_SendChangeGroupVechleMessage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendChangeGroupVechleMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_GetChangeGroupVechleMessage_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetChangeGroupVechleMessage" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_GetChangeGroupVechleMessage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetChangeGroupVechleMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_SendChangeGroupMessage_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendChangeGroupMessage" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_SendChangeGroupMessage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendChangeGroupMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_GetChangeGroupMessage_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetChangeGroupMessage" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_GetChangeGroupMessage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetChangeGroupMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_SendDeviceInstallMessage_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendDeviceInstallMessage" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_SendDeviceInstallMessage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendDeviceInstallMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_GetDeviceInstallMessage_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDeviceInstallMessage" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_GetDeviceInstallMessage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDeviceInstallMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_SendDeviceMaintainMessage_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendDeviceMaintainMessage" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_SendDeviceMaintainMessage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendDeviceMaintainMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_GetDeviceMaintainMessage_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDeviceMaintainMessage" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_GetDeviceMaintainMessage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDeviceMaintainMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_SendHandingAlertMessage_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendHandingAlertMessage" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_SendHandingAlertMessage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendHandingAlertMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_GetHandingAlertMessage_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetHandingAlertMessage" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_GetHandingAlertMessage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetHandingAlertMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_SendCompleteAlertMessage_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendCompleteAlertMessage" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_SendCompleteAlertMessage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendCompleteAlertMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_GetCompleteAlertMessage_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCompleteAlertMessage" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_GetCompleteAlertMessage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCompleteAlertMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_SendStartInstallMessage_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendStartInstallMessage" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_SendStartInstallMessage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendStartInstallMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_GetStartInstallMessage_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetStartInstallMessage" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_GetStartInstallMessage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetStartInstallMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_SendDeleteInstallMessage_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendDeleteInstallMessage" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_SendDeleteInstallMessage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendDeleteInstallMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_GetDeleteInstallMessage_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDeleteInstallMessage" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_GetDeleteInstallMessage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDeleteInstallMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_GetDeleteUserMessage_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDeleteUserMessage" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_GetDeleteUserMessage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDeleteUserMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_GetChangeUserMessage_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetChangeUserMessage" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_GetChangeUserMessage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetChangeUserMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_SendDeleteUserMessage_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendDeleteUserMessage" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_SendDeleteUserMessage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendDeleteUserMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_SendChangeUserMessage_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendChangeUserMessage" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_SendChangeUserMessage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendChangeUserMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_SendRouteMessage_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendRouteMessage" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_SendRouteMessage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendRouteMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_SendRouteMessageSet_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendRouteMessageSet" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_SendRouteMessageSet_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendRouteMessageSetResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_SendTravelPlanMessage_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendTravelPlanMessage" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_SendTravelPlanMessage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendTravelPlanMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_SendTravelPlanMessageSet_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendTravelPlanMessageSet" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_SendTravelPlanMessageSet_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendTravelPlanMessageSetResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_SendUpgradeNotifyMessage_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendUpgradeNotifyMessage" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_SendUpgradeNotifyMessage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendUpgradeNotifyMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_GetAlarmMessage_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAlarmMessage" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_GetAlarmMessage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAlarmMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_CancelAlarmMessage_InputMessage">
+    <wsdl:part name="parameters" element="tns:CancelAlarmMessage" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_CancelAlarmMessage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CancelAlarmMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_GetCancelAlarmMessage_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCancelAlarmMessage" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_GetCancelAlarmMessage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCancelAlarmMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_GetAlarmGpsMessage_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAlarmGpsMessage" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_GetAlarmGpsMessage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAlarmGpsMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_CancelAlarmGpsMessage_InputMessage">
+    <wsdl:part name="parameters" element="tns:CancelAlarmGpsMessage" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_CancelAlarmGpsMessage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CancelAlarmGpsMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_GetMonitorGpsMessage_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMonitorGpsMessage" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_GetMonitorGpsMessage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMonitorGpsMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_CancelMonitorGpsMessage_InputMessage">
+    <wsdl:part name="parameters" element="tns:CancelMonitorGpsMessage" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_CancelMonitorGpsMessage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CancelMonitorGpsMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_GetLocationMonitorEndMessage_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLocationMonitorEndMessage" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_GetLocationMonitorEndMessage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLocationMonitorEndMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_GetCameraNoSignalAlertMessage_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCameraNoSignalAlertMessage" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_GetCameraNoSignalAlertMessage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCameraNoSignalAlertMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_CancelCameraNoSignalAlertMessage_InputMessage">
+    <wsdl:part name="parameters" element="tns:CancelCameraNoSignalAlertMessage" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_CancelCameraNoSignalAlertMessage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CancelCameraNoSignalAlertMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_GetCameraOcclusionAlertMessage_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCameraOcclusionAlertMessage" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_GetCameraOcclusionAlertMessage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCameraOcclusionAlertMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_CancelCameraOcclusionAlertMessage_InputMessage">
+    <wsdl:part name="parameters" element="tns:CancelCameraOcclusionAlertMessage" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_CancelCameraOcclusionAlertMessage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CancelCameraOcclusionAlertMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_GetFireAlertMessage_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFireAlertMessage" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_GetFireAlertMessage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFireAlertMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_CancelFireAlertMessage_InputMessage">
+    <wsdl:part name="parameters" element="tns:CancelFireAlertMessage" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_CancelFireAlertMessage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CancelFireAlertMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_GetGpsReceiverFaultAlertMessage_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetGpsReceiverFaultAlertMessage" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_GetGpsReceiverFaultAlertMessage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetGpsReceiverFaultAlertMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_CancelGpsReceiverFaultAlertMessage_InputMessage">
+    <wsdl:part name="parameters" element="tns:CancelGpsReceiverFaultAlertMessage" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_CancelGpsReceiverFaultAlertMessage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CancelGpsReceiverFaultAlertMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_GetMdvrMemoryCardErrorAlertMessage_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMdvrMemoryCardErrorAlertMessage" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_GetMdvrMemoryCardErrorAlertMessage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMdvrMemoryCardErrorAlertMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_CancelMdvrMemoryCardErrorAlertMessage_InputMessage">
+    <wsdl:part name="parameters" element="tns:CancelMdvrMemoryCardErrorAlertMessage" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_CancelMdvrMemoryCardErrorAlertMessage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CancelMdvrMemoryCardErrorAlertMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_GetOpenOrCloseDoorAbnormalAlertMessage_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetOpenOrCloseDoorAbnormalAlertMessage" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_GetOpenOrCloseDoorAbnormalAlertMessage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetOpenOrCloseDoorAbnormalAlertMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_CancelOpenOrCloseDoorAbnormalAlertMessage_InputMessage">
+    <wsdl:part name="parameters" element="tns:CancelOpenOrCloseDoorAbnormalAlertMessage" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_CancelOpenOrCloseDoorAbnormalAlertMessage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CancelOpenOrCloseDoorAbnormalAlertMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_GetOverSpeedAlertMessage_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetOverSpeedAlertMessage" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_GetOverSpeedAlertMessage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetOverSpeedAlertMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_CancelOverSpeedAlertMessage_InputMessage">
+    <wsdl:part name="parameters" element="tns:CancelOverSpeedAlertMessage" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_CancelOverSpeedAlertMessage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CancelOverSpeedAlertMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_GetRegionAlertMessage_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRegionAlertMessage" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_GetRegionAlertMessage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRegionAlertMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_CancelRegionAlertMessage_InputMessage">
+    <wsdl:part name="parameters" element="tns:CancelRegionAlertMessage" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_CancelRegionAlertMessage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CancelRegionAlertMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_GetRemoveDeviceSuiteAlertNotifyMessage_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRemoveDeviceSuiteAlertNotifyMessage" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_GetRemoveDeviceSuiteAlertNotifyMessage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRemoveDeviceSuiteAlertNotifyMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_CancelRemoveDeviceSuiteAlertNotifyMessage_InputMessage">
+    <wsdl:part name="parameters" element="tns:CancelRemoveDeviceSuiteAlertNotifyMessage" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_CancelRemoveDeviceSuiteAlertNotifyMessage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CancelRemoveDeviceSuiteAlertNotifyMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_GetTemperatureAlertMessage_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTemperatureAlertMessage" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_GetTemperatureAlertMessage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTemperatureAlertMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_CancelTemperatureAlertMessage_InputMessage">
+    <wsdl:part name="parameters" element="tns:CancelTemperatureAlertMessage" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_CancelTemperatureAlertMessage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CancelTemperatureAlertMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_GetVoltageAbnormalAlertMessage_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetVoltageAbnormalAlertMessage" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_GetVoltageAbnormalAlertMessage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetVoltageAbnormalAlertMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_CancelVoltageAbnormalAlertMessage_InputMessage">
+    <wsdl:part name="parameters" element="tns:CancelVoltageAbnormalAlertMessage" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_CancelVoltageAbnormalAlertMessage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CancelVoltageAbnormalAlertMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_GetInspectMessage_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetInspectMessage" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_GetInspectMessage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetInspectMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_CancelInspectMessage_InputMessage">
+    <wsdl:part name="parameters" element="tns:CancelInspectMessage" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_CancelInspectMessage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CancelInspectMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_GetOnOfflineMessage_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetOnOfflineMessage" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_GetOnOfflineMessage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetOnOfflineMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_CancelOnOfflineMessage_InputMessage">
+    <wsdl:part name="parameters" element="tns:CancelOnOfflineMessage" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_CancelOnOfflineMessage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CancelOnOfflineMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_GetSuiteRunintStatusMessage_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSuiteRunintStatusMessage" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_GetSuiteRunintStatusMessage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSuiteRunintStatusMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_GetFenceReplyMessage_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFenceReplyMessage" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_GetFenceReplyMessage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFenceReplyMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_GetSettingOverSpeedReplyMessage_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSettingOverSpeedReplyMessage" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_GetSettingOverSpeedReplyMessage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSettingOverSpeedReplyMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_SendUpgradeCMD_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendUpgradeCMD" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_SendUpgradeCMD_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendUpgradeCMDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_SendElectricFenceCMD_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendElectricFenceCMD" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_SendElectricFenceCMD_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendElectricFenceCMDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_SendElectricFenceCMDSet_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendElectricFenceCMDSet" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_SendElectricFenceCMDSet_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendElectricFenceCMDSetResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_SendGetUpgradeStatusCMD_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendGetUpgradeStatusCMD" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_SendGetUpgradeStatusCMD_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendGetUpgradeStatusCMDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_SendSettingOverSpeedCMD_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendSettingOverSpeedCMD" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_SendSettingOverSpeedCMD_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendSettingOverSpeedCMDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_SendSettingOverSpeedCMDSet_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendSettingOverSpeedCMDSet" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_SendSettingOverSpeedCMDSet_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendSettingOverSpeedCMDSetResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_SendElectircFenceSetting_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendElectircFenceSetting" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_SendElectircFenceSetting_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendElectircFenceSettingResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_SendOverSpeedSetting_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendOverSpeedSetting" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_SendOverSpeedSetting_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendOverSpeedSettingResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_SendSettingGpsUploadCMDSet_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendSettingGpsUploadCMDSet" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_SendSettingGpsUploadCMDSet_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendSettingGpsUploadCMDSetResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_SendSettingAbnormalDoorUploadCMDSet_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendSettingAbnormalDoorUploadCMDSet" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_SendSettingAbnormalDoorUploadCMDSet_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendSettingAbnormalDoorUploadCMDSetResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_SendSettingTemperatureUploadCMDSet_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendSettingTemperatureUploadCMDSet" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_SendSettingTemperatureUploadCMDSet_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendSettingTemperatureUploadCMDSetResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_SendSettingOneKeyAlarmUploadCMDSet_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendSettingOneKeyAlarmUploadCMDSet" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_SendSettingOneKeyAlarmUploadCMDSet_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendSettingOneKeyAlarmUploadCMDSetResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_SendInfomationCommand_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendInfomationCommand" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_SendInfomationCommand_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendInfomationCommandResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_SendGetVideoListCMD_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendGetVideoListCMD" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_SendGetVideoListCMD_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendGetVideoListCMDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_GetSettingVideoListReplyMessage_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSettingVideoListReplyMessage" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_GetSettingVideoListReplyMessage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSettingVideoListReplyMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_GetV23ReplyMessage_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetV23ReplyMessage" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_GetV23ReplyMessage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetV23ReplyMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_SendDownloadMdvrFile_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendDownloadMdvrFile" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_SendDownloadMdvrFile_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendDownloadMdvrFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_Init_InputMessage">
+    <wsdl:part name="parameters" element="tns:Init" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_Init_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InitResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMessageService_MessageCallBack_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:MessageCallBack" />
+  </wsdl:message>
+  <wsdl:portType name="IMessageService">
+    <wsdl:operation name="SendCompleteAlarmMessage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMessageService/SendCompleteAlarmMessage" message="tns:IMessageService_SendCompleteAlarmMessage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMessageService/SendCompleteAlarmMessageResponse" message="tns:IMessageService_SendCompleteAlarmMessage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCompleteAlarmMessage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMessageService/GetCompleteAlarmMessage" message="tns:IMessageService_GetCompleteAlarmMessage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMessageService/GetCompleteAlarmMessageResponse" message="tns:IMessageService_GetCompleteAlarmMessage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendChangeGroupVechleMessage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMessageService/SendChangeGroupVechleMessage" message="tns:IMessageService_SendChangeGroupVechleMessage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMessageService/SendChangeGroupVechleMessageResponse" message="tns:IMessageService_SendChangeGroupVechleMessage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetChangeGroupVechleMessage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMessageService/GetChangeGroupVechleMessage" message="tns:IMessageService_GetChangeGroupVechleMessage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMessageService/GetChangeGroupVechleMessageResponse" message="tns:IMessageService_GetChangeGroupVechleMessage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendChangeGroupMessage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMessageService/SendChangeGroupMessage" message="tns:IMessageService_SendChangeGroupMessage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMessageService/SendChangeGroupMessageResponse" message="tns:IMessageService_SendChangeGroupMessage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetChangeGroupMessage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMessageService/GetChangeGroupMessage" message="tns:IMessageService_GetChangeGroupMessage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMessageService/GetChangeGroupMessageResponse" message="tns:IMessageService_GetChangeGroupMessage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendDeviceInstallMessage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMessageService/SendDeviceInstallMessage" message="tns:IMessageService_SendDeviceInstallMessage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMessageService/SendDeviceInstallMessageResponse" message="tns:IMessageService_SendDeviceInstallMessage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDeviceInstallMessage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMessageService/GetDeviceInstallMessage" message="tns:IMessageService_GetDeviceInstallMessage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMessageService/GetDeviceInstallMessageResponse" message="tns:IMessageService_GetDeviceInstallMessage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendDeviceMaintainMessage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMessageService/SendDeviceMaintainMessage" message="tns:IMessageService_SendDeviceMaintainMessage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMessageService/SendDeviceMaintainMessageResponse" message="tns:IMessageService_SendDeviceMaintainMessage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDeviceMaintainMessage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMessageService/GetDeviceMaintainMessage" message="tns:IMessageService_GetDeviceMaintainMessage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMessageService/GetDeviceMaintainMessageResponse" message="tns:IMessageService_GetDeviceMaintainMessage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendHandingAlertMessage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMessageService/SendHandingAlertMessage" message="tns:IMessageService_SendHandingAlertMessage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMessageService/SendHandingAlertMessageResponse" message="tns:IMessageService_SendHandingAlertMessage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetHandingAlertMessage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMessageService/GetHandingAlertMessage" message="tns:IMessageService_GetHandingAlertMessage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMessageService/GetHandingAlertMessageResponse" message="tns:IMessageService_GetHandingAlertMessage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendCompleteAlertMessage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMessageService/SendCompleteAlertMessage" message="tns:IMessageService_SendCompleteAlertMessage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMessageService/SendCompleteAlertMessageResponse" message="tns:IMessageService_SendCompleteAlertMessage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCompleteAlertMessage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMessageService/GetCompleteAlertMessage" message="tns:IMessageService_GetCompleteAlertMessage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMessageService/GetCompleteAlertMessageResponse" message="tns:IMessageService_GetCompleteAlertMessage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendStartInstallMessage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMessageService/SendStartInstallMessage" message="tns:IMessageService_SendStartInstallMessage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMessageService/SendStartInstallMessageResponse" message="tns:IMessageService_SendStartInstallMessage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStartInstallMessage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMessageService/GetStartInstallMessage" message="tns:IMessageService_GetStartInstallMessage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMessageService/GetStartInstallMessageResponse" message="tns:IMessageService_GetStartInstallMessage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendDeleteInstallMessage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMessageService/SendDeleteInstallMessage" message="tns:IMessageService_SendDeleteInstallMessage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMessageService/SendDeleteInstallMessageResponse" message="tns:IMessageService_SendDeleteInstallMessage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDeleteInstallMessage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMessageService/GetDeleteInstallMessage" message="tns:IMessageService_GetDeleteInstallMessage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMessageService/GetDeleteInstallMessageResponse" message="tns:IMessageService_GetDeleteInstallMessage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDeleteUserMessage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMessageService/GetDeleteUserMessage" message="tns:IMessageService_GetDeleteUserMessage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMessageService/GetDeleteUserMessageResponse" message="tns:IMessageService_GetDeleteUserMessage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetChangeUserMessage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMessageService/GetChangeUserMessage" message="tns:IMessageService_GetChangeUserMessage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMessageService/GetChangeUserMessageResponse" message="tns:IMessageService_GetChangeUserMessage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendDeleteUserMessage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMessageService/SendDeleteUserMessage" message="tns:IMessageService_SendDeleteUserMessage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMessageService/SendDeleteUserMessageResponse" message="tns:IMessageService_SendDeleteUserMessage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendChangeUserMessage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMessageService/SendChangeUserMessage" message="tns:IMessageService_SendChangeUserMessage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMessageService/SendChangeUserMessageResponse" message="tns:IMessageService_SendChangeUserMessage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendRouteMessage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMessageService/SendRouteMessage" message="tns:IMessageService_SendRouteMessage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMessageService/SendRouteMessageResponse" message="tns:IMessageService_SendRouteMessage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendRouteMessageSet">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMessageService/SendRouteMessageSet" message="tns:IMessageService_SendRouteMessageSet_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMessageService/SendRouteMessageSetResponse" message="tns:IMessageService_SendRouteMessageSet_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendTravelPlanMessage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMessageService/SendTravelPlanMessage" message="tns:IMessageService_SendTravelPlanMessage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMessageService/SendTravelPlanMessageResponse" message="tns:IMessageService_SendTravelPlanMessage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendTravelPlanMessageSet">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMessageService/SendTravelPlanMessageSet" message="tns:IMessageService_SendTravelPlanMessageSet_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMessageService/SendTravelPlanMessageSetResponse" message="tns:IMessageService_SendTravelPlanMessageSet_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendUpgradeNotifyMessage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMessageService/SendUpgradeNotifyMessage" message="tns:IMessageService_SendUpgradeNotifyMessage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMessageService/SendUpgradeNotifyMessageResponse" message="tns:IMessageService_SendUpgradeNotifyMessage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAlarmMessage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMessageService/GetAlarmMessage" message="tns:IMessageService_GetAlarmMessage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMessageService/GetAlarmMessageResponse" message="tns:IMessageService_GetAlarmMessage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CancelAlarmMessage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMessageService/CancelAlarmMessage" message="tns:IMessageService_CancelAlarmMessage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMessageService/CancelAlarmMessageResponse" message="tns:IMessageService_CancelAlarmMessage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCancelAlarmMessage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMessageService/GetCancelAlarmMessage" message="tns:IMessageService_GetCancelAlarmMessage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMessageService/GetCancelAlarmMessageResponse" message="tns:IMessageService_GetCancelAlarmMessage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAlarmGpsMessage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMessageService/GetAlarmGpsMessage" message="tns:IMessageService_GetAlarmGpsMessage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMessageService/GetAlarmGpsMessageResponse" message="tns:IMessageService_GetAlarmGpsMessage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CancelAlarmGpsMessage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMessageService/CancelAlarmGpsMessage" message="tns:IMessageService_CancelAlarmGpsMessage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMessageService/CancelAlarmGpsMessageResponse" message="tns:IMessageService_CancelAlarmGpsMessage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMonitorGpsMessage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMessageService/GetMonitorGpsMessage" message="tns:IMessageService_GetMonitorGpsMessage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMessageService/GetMonitorGpsMessageResponse" message="tns:IMessageService_GetMonitorGpsMessage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CancelMonitorGpsMessage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMessageService/CancelMonitorGpsMessage" message="tns:IMessageService_CancelMonitorGpsMessage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMessageService/CancelMonitorGpsMessageResponse" message="tns:IMessageService_CancelMonitorGpsMessage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLocationMonitorEndMessage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMessageService/GetLocationMonitorEndMessage" message="tns:IMessageService_GetLocationMonitorEndMessage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMessageService/GetLocationMonitorEndMessageResponse" message="tns:IMessageService_GetLocationMonitorEndMessage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCameraNoSignalAlertMessage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMessageService/GetCameraNoSignalAlertMessage" message="tns:IMessageService_GetCameraNoSignalAlertMessage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMessageService/GetCameraNoSignalAlertMessageResponse" message="tns:IMessageService_GetCameraNoSignalAlertMessage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CancelCameraNoSignalAlertMessage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMessageService/CancelCameraNoSignalAlertMessage" message="tns:IMessageService_CancelCameraNoSignalAlertMessage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMessageService/CancelCameraNoSignalAlertMessageResponse" message="tns:IMessageService_CancelCameraNoSignalAlertMessage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCameraOcclusionAlertMessage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMessageService/GetCameraOcclusionAlertMessage" message="tns:IMessageService_GetCameraOcclusionAlertMessage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMessageService/GetCameraOcclusionAlertMessageResponse" message="tns:IMessageService_GetCameraOcclusionAlertMessage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CancelCameraOcclusionAlertMessage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMessageService/CancelCameraOcclusionAlertMessage" message="tns:IMessageService_CancelCameraOcclusionAlertMessage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMessageService/CancelCameraOcclusionAlertMessageResponse" message="tns:IMessageService_CancelCameraOcclusionAlertMessage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFireAlertMessage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMessageService/GetFireAlertMessage" message="tns:IMessageService_GetFireAlertMessage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMessageService/GetFireAlertMessageResponse" message="tns:IMessageService_GetFireAlertMessage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CancelFireAlertMessage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMessageService/CancelFireAlertMessage" message="tns:IMessageService_CancelFireAlertMessage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMessageService/CancelFireAlertMessageResponse" message="tns:IMessageService_CancelFireAlertMessage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGpsReceiverFaultAlertMessage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMessageService/GetGpsReceiverFaultAlertMessage" message="tns:IMessageService_GetGpsReceiverFaultAlertMessage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMessageService/GetGpsReceiverFaultAlertMessageResponse" message="tns:IMessageService_GetGpsReceiverFaultAlertMessage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CancelGpsReceiverFaultAlertMessage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMessageService/CancelGpsReceiverFaultAlertMessage" message="tns:IMessageService_CancelGpsReceiverFaultAlertMessage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMessageService/CancelGpsReceiverFaultAlertMessageResponse" message="tns:IMessageService_CancelGpsReceiverFaultAlertMessage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMdvrMemoryCardErrorAlertMessage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMessageService/GetMdvrMemoryCardErrorAlertMessage" message="tns:IMessageService_GetMdvrMemoryCardErrorAlertMessage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMessageService/GetMdvrMemoryCardErrorAlertMessageResponse" message="tns:IMessageService_GetMdvrMemoryCardErrorAlertMessage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CancelMdvrMemoryCardErrorAlertMessage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMessageService/CancelMdvrMemoryCardErrorAlertMessage" message="tns:IMessageService_CancelMdvrMemoryCardErrorAlertMessage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMessageService/CancelMdvrMemoryCardErrorAlertMessageResponse" message="tns:IMessageService_CancelMdvrMemoryCardErrorAlertMessage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOpenOrCloseDoorAbnormalAlertMessage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMessageService/GetOpenOrCloseDoorAbnormalAlertMessage" message="tns:IMessageService_GetOpenOrCloseDoorAbnormalAlertMessage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMessageService/GetOpenOrCloseDoorAbnormalAlertMessageResponse" message="tns:IMessageService_GetOpenOrCloseDoorAbnormalAlertMessage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CancelOpenOrCloseDoorAbnormalAlertMessage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMessageService/CancelOpenOrCloseDoorAbnormalAlertMessage" message="tns:IMessageService_CancelOpenOrCloseDoorAbnormalAlertMessage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMessageService/CancelOpenOrCloseDoorAbnormalAlertMessageResponse" message="tns:IMessageService_CancelOpenOrCloseDoorAbnormalAlertMessage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOverSpeedAlertMessage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMessageService/GetOverSpeedAlertMessage" message="tns:IMessageService_GetOverSpeedAlertMessage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMessageService/GetOverSpeedAlertMessageResponse" message="tns:IMessageService_GetOverSpeedAlertMessage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CancelOverSpeedAlertMessage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMessageService/CancelOverSpeedAlertMessage" message="tns:IMessageService_CancelOverSpeedAlertMessage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMessageService/CancelOverSpeedAlertMessageResponse" message="tns:IMessageService_CancelOverSpeedAlertMessage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRegionAlertMessage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMessageService/GetRegionAlertMessage" message="tns:IMessageService_GetRegionAlertMessage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMessageService/GetRegionAlertMessageResponse" message="tns:IMessageService_GetRegionAlertMessage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CancelRegionAlertMessage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMessageService/CancelRegionAlertMessage" message="tns:IMessageService_CancelRegionAlertMessage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMessageService/CancelRegionAlertMessageResponse" message="tns:IMessageService_CancelRegionAlertMessage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRemoveDeviceSuiteAlertNotifyMessage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMessageService/GetRemoveDeviceSuiteAlertNotifyMessage" message="tns:IMessageService_GetRemoveDeviceSuiteAlertNotifyMessage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMessageService/GetRemoveDeviceSuiteAlertNotifyMessageResponse" message="tns:IMessageService_GetRemoveDeviceSuiteAlertNotifyMessage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CancelRemoveDeviceSuiteAlertNotifyMessage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMessageService/CancelRemoveDeviceSuiteAlertNotifyMessage" message="tns:IMessageService_CancelRemoveDeviceSuiteAlertNotifyMessage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMessageService/CancelRemoveDeviceSuiteAlertNotifyMessageResponse" message="tns:IMessageService_CancelRemoveDeviceSuiteAlertNotifyMessage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTemperatureAlertMessage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMessageService/GetTemperatureAlertMessage" message="tns:IMessageService_GetTemperatureAlertMessage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMessageService/GetTemperatureAlertMessageResponse" message="tns:IMessageService_GetTemperatureAlertMessage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CancelTemperatureAlertMessage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMessageService/CancelTemperatureAlertMessage" message="tns:IMessageService_CancelTemperatureAlertMessage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMessageService/CancelTemperatureAlertMessageResponse" message="tns:IMessageService_CancelTemperatureAlertMessage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetVoltageAbnormalAlertMessage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMessageService/GetVoltageAbnormalAlertMessage" message="tns:IMessageService_GetVoltageAbnormalAlertMessage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMessageService/GetVoltageAbnormalAlertMessageResponse" message="tns:IMessageService_GetVoltageAbnormalAlertMessage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CancelVoltageAbnormalAlertMessage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMessageService/CancelVoltageAbnormalAlertMessage" message="tns:IMessageService_CancelVoltageAbnormalAlertMessage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMessageService/CancelVoltageAbnormalAlertMessageResponse" message="tns:IMessageService_CancelVoltageAbnormalAlertMessage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInspectMessage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMessageService/GetInspectMessage" message="tns:IMessageService_GetInspectMessage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMessageService/GetInspectMessageResponse" message="tns:IMessageService_GetInspectMessage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CancelInspectMessage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMessageService/CancelInspectMessage" message="tns:IMessageService_CancelInspectMessage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMessageService/CancelInspectMessageResponse" message="tns:IMessageService_CancelInspectMessage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOnOfflineMessage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMessageService/GetOnOfflineMessage" message="tns:IMessageService_GetOnOfflineMessage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMessageService/GetOnOfflineMessageResponse" message="tns:IMessageService_GetOnOfflineMessage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CancelOnOfflineMessage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMessageService/CancelOnOfflineMessage" message="tns:IMessageService_CancelOnOfflineMessage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMessageService/CancelOnOfflineMessageResponse" message="tns:IMessageService_CancelOnOfflineMessage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSuiteRunintStatusMessage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMessageService/GetSuiteRunintStatusMessage" message="tns:IMessageService_GetSuiteRunintStatusMessage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMessageService/GetSuiteRunintStatusMessageResponse" message="tns:IMessageService_GetSuiteRunintStatusMessage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFenceReplyMessage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMessageService/GetFenceReplyMessage" message="tns:IMessageService_GetFenceReplyMessage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMessageService/GetFenceReplyMessageResponse" message="tns:IMessageService_GetFenceReplyMessage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSettingOverSpeedReplyMessage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMessageService/GetSettingOverSpeedReplyMessage" message="tns:IMessageService_GetSettingOverSpeedReplyMessage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMessageService/GetSettingOverSpeedReplyMessageResponse" message="tns:IMessageService_GetSettingOverSpeedReplyMessage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendUpgradeCMD">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMessageService/SendUpgradeCMD" message="tns:IMessageService_SendUpgradeCMD_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMessageService/SendUpgradeCMDResponse" message="tns:IMessageService_SendUpgradeCMD_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendElectricFenceCMD">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMessageService/SendElectricFenceCMD" message="tns:IMessageService_SendElectricFenceCMD_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMessageService/SendElectricFenceCMDResponse" message="tns:IMessageService_SendElectricFenceCMD_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendElectricFenceCMDSet">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMessageService/SendElectricFenceCMDSet" message="tns:IMessageService_SendElectricFenceCMDSet_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMessageService/SendElectricFenceCMDSetResponse" message="tns:IMessageService_SendElectricFenceCMDSet_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendGetUpgradeStatusCMD">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMessageService/SendGetUpgradeStatusCMD" message="tns:IMessageService_SendGetUpgradeStatusCMD_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMessageService/SendGetUpgradeStatusCMDResponse" message="tns:IMessageService_SendGetUpgradeStatusCMD_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendSettingOverSpeedCMD">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMessageService/SendSettingOverSpeedCMD" message="tns:IMessageService_SendSettingOverSpeedCMD_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMessageService/SendSettingOverSpeedCMDResponse" message="tns:IMessageService_SendSettingOverSpeedCMD_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendSettingOverSpeedCMDSet">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMessageService/SendSettingOverSpeedCMDSet" message="tns:IMessageService_SendSettingOverSpeedCMDSet_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMessageService/SendSettingOverSpeedCMDSetResponse" message="tns:IMessageService_SendSettingOverSpeedCMDSet_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendElectircFenceSetting">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMessageService/SendElectircFenceSetting" message="tns:IMessageService_SendElectircFenceSetting_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMessageService/SendElectircFenceSettingResponse" message="tns:IMessageService_SendElectircFenceSetting_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendOverSpeedSetting">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMessageService/SendOverSpeedSetting" message="tns:IMessageService_SendOverSpeedSetting_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMessageService/SendOverSpeedSettingResponse" message="tns:IMessageService_SendOverSpeedSetting_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendSettingGpsUploadCMDSet">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMessageService/SendSettingGpsUploadCMDSet" message="tns:IMessageService_SendSettingGpsUploadCMDSet_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMessageService/SendSettingGpsUploadCMDSetResponse" message="tns:IMessageService_SendSettingGpsUploadCMDSet_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendSettingAbnormalDoorUploadCMDSet">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMessageService/SendSettingAbnormalDoorUploadCMDSet" message="tns:IMessageService_SendSettingAbnormalDoorUploadCMDSet_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMessageService/SendSettingAbnormalDoorUploadCMDSetResponse" message="tns:IMessageService_SendSettingAbnormalDoorUploadCMDSet_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendSettingTemperatureUploadCMDSet">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMessageService/SendSettingTemperatureUploadCMDSet" message="tns:IMessageService_SendSettingTemperatureUploadCMDSet_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMessageService/SendSettingTemperatureUploadCMDSetResponse" message="tns:IMessageService_SendSettingTemperatureUploadCMDSet_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendSettingOneKeyAlarmUploadCMDSet">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMessageService/SendSettingOneKeyAlarmUploadCMDSet" message="tns:IMessageService_SendSettingOneKeyAlarmUploadCMDSet_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMessageService/SendSettingOneKeyAlarmUploadCMDSetResponse" message="tns:IMessageService_SendSettingOneKeyAlarmUploadCMDSet_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendInfomationCommand">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMessageService/SendInfomationCommand" message="tns:IMessageService_SendInfomationCommand_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMessageService/SendInfomationCommandResponse" message="tns:IMessageService_SendInfomationCommand_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendGetVideoListCMD">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMessageService/SendGetVideoListCMD" message="tns:IMessageService_SendGetVideoListCMD_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMessageService/SendGetVideoListCMDResponse" message="tns:IMessageService_SendGetVideoListCMD_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSettingVideoListReplyMessage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMessageService/GetSettingVideoListReplyMessage" message="tns:IMessageService_GetSettingVideoListReplyMessage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMessageService/GetSettingVideoListReplyMessageResponse" message="tns:IMessageService_GetSettingVideoListReplyMessage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetV23ReplyMessage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMessageService/GetV23ReplyMessage" message="tns:IMessageService_GetV23ReplyMessage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMessageService/GetV23ReplyMessageResponse" message="tns:IMessageService_GetV23ReplyMessage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendDownloadMdvrFile">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMessageService/SendDownloadMdvrFile" message="tns:IMessageService_SendDownloadMdvrFile_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMessageService/SendDownloadMdvrFileResponse" message="tns:IMessageService_SendDownloadMdvrFile_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Init">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMessageService/Init" message="tns:IMessageService_Init_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMessageService/InitResponse" message="tns:IMessageService_Init_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MessageCallBack">
+      <wsdl:output wsaw:Action="http://tempuri.org/IMessageService/MessageCallBack" message="tns:IMessageService_MessageCallBack_OutputCallbackMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CustomBinding_IMessageService" type="tns:IMessageService">
+    <wsp:PolicyReference URI="#CustomBinding_IMessageService_policy">
+    </wsp:PolicyReference>
+    <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
+    <wsdl:operation name="SendCompleteAlarmMessage">
+      <soap12:operation soapAction="http://tempuri.org/IMessageService/SendCompleteAlarmMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCompleteAlarmMessage">
+      <soap12:operation soapAction="http://tempuri.org/IMessageService/GetCompleteAlarmMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendChangeGroupVechleMessage">
+      <soap12:operation soapAction="http://tempuri.org/IMessageService/SendChangeGroupVechleMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetChangeGroupVechleMessage">
+      <soap12:operation soapAction="http://tempuri.org/IMessageService/GetChangeGroupVechleMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendChangeGroupMessage">
+      <soap12:operation soapAction="http://tempuri.org/IMessageService/SendChangeGroupMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetChangeGroupMessage">
+      <soap12:operation soapAction="http://tempuri.org/IMessageService/GetChangeGroupMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendDeviceInstallMessage">
+      <soap12:operation soapAction="http://tempuri.org/IMessageService/SendDeviceInstallMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDeviceInstallMessage">
+      <soap12:operation soapAction="http://tempuri.org/IMessageService/GetDeviceInstallMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendDeviceMaintainMessage">
+      <soap12:operation soapAction="http://tempuri.org/IMessageService/SendDeviceMaintainMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDeviceMaintainMessage">
+      <soap12:operation soapAction="http://tempuri.org/IMessageService/GetDeviceMaintainMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendHandingAlertMessage">
+      <soap12:operation soapAction="http://tempuri.org/IMessageService/SendHandingAlertMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHandingAlertMessage">
+      <soap12:operation soapAction="http://tempuri.org/IMessageService/GetHandingAlertMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendCompleteAlertMessage">
+      <soap12:operation soapAction="http://tempuri.org/IMessageService/SendCompleteAlertMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCompleteAlertMessage">
+      <soap12:operation soapAction="http://tempuri.org/IMessageService/GetCompleteAlertMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendStartInstallMessage">
+      <soap12:operation soapAction="http://tempuri.org/IMessageService/SendStartInstallMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStartInstallMessage">
+      <soap12:operation soapAction="http://tempuri.org/IMessageService/GetStartInstallMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendDeleteInstallMessage">
+      <soap12:operation soapAction="http://tempuri.org/IMessageService/SendDeleteInstallMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDeleteInstallMessage">
+      <soap12:operation soapAction="http://tempuri.org/IMessageService/GetDeleteInstallMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDeleteUserMessage">
+      <soap12:operation soapAction="http://tempuri.org/IMessageService/GetDeleteUserMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetChangeUserMessage">
+      <soap12:operation soapAction="http://tempuri.org/IMessageService/GetChangeUserMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendDeleteUserMessage">
+      <soap12:operation soapAction="http://tempuri.org/IMessageService/SendDeleteUserMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendChangeUserMessage">
+      <soap12:operation soapAction="http://tempuri.org/IMessageService/SendChangeUserMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendRouteMessage">
+      <soap12:operation soapAction="http://tempuri.org/IMessageService/SendRouteMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendRouteMessageSet">
+      <soap12:operation soapAction="http://tempuri.org/IMessageService/SendRouteMessageSet" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendTravelPlanMessage">
+      <soap12:operation soapAction="http://tempuri.org/IMessageService/SendTravelPlanMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendTravelPlanMessageSet">
+      <soap12:operation soapAction="http://tempuri.org/IMessageService/SendTravelPlanMessageSet" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendUpgradeNotifyMessage">
+      <soap12:operation soapAction="http://tempuri.org/IMessageService/SendUpgradeNotifyMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAlarmMessage">
+      <soap12:operation soapAction="http://tempuri.org/IMessageService/GetAlarmMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CancelAlarmMessage">
+      <soap12:operation soapAction="http://tempuri.org/IMessageService/CancelAlarmMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCancelAlarmMessage">
+      <soap12:operation soapAction="http://tempuri.org/IMessageService/GetCancelAlarmMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAlarmGpsMessage">
+      <soap12:operation soapAction="http://tempuri.org/IMessageService/GetAlarmGpsMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CancelAlarmGpsMessage">
+      <soap12:operation soapAction="http://tempuri.org/IMessageService/CancelAlarmGpsMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMonitorGpsMessage">
+      <soap12:operation soapAction="http://tempuri.org/IMessageService/GetMonitorGpsMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CancelMonitorGpsMessage">
+      <soap12:operation soapAction="http://tempuri.org/IMessageService/CancelMonitorGpsMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLocationMonitorEndMessage">
+      <soap12:operation soapAction="http://tempuri.org/IMessageService/GetLocationMonitorEndMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCameraNoSignalAlertMessage">
+      <soap12:operation soapAction="http://tempuri.org/IMessageService/GetCameraNoSignalAlertMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CancelCameraNoSignalAlertMessage">
+      <soap12:operation soapAction="http://tempuri.org/IMessageService/CancelCameraNoSignalAlertMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCameraOcclusionAlertMessage">
+      <soap12:operation soapAction="http://tempuri.org/IMessageService/GetCameraOcclusionAlertMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CancelCameraOcclusionAlertMessage">
+      <soap12:operation soapAction="http://tempuri.org/IMessageService/CancelCameraOcclusionAlertMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFireAlertMessage">
+      <soap12:operation soapAction="http://tempuri.org/IMessageService/GetFireAlertMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CancelFireAlertMessage">
+      <soap12:operation soapAction="http://tempuri.org/IMessageService/CancelFireAlertMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGpsReceiverFaultAlertMessage">
+      <soap12:operation soapAction="http://tempuri.org/IMessageService/GetGpsReceiverFaultAlertMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CancelGpsReceiverFaultAlertMessage">
+      <soap12:operation soapAction="http://tempuri.org/IMessageService/CancelGpsReceiverFaultAlertMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMdvrMemoryCardErrorAlertMessage">
+      <soap12:operation soapAction="http://tempuri.org/IMessageService/GetMdvrMemoryCardErrorAlertMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CancelMdvrMemoryCardErrorAlertMessage">
+      <soap12:operation soapAction="http://tempuri.org/IMessageService/CancelMdvrMemoryCardErrorAlertMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOpenOrCloseDoorAbnormalAlertMessage">
+      <soap12:operation soapAction="http://tempuri.org/IMessageService/GetOpenOrCloseDoorAbnormalAlertMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CancelOpenOrCloseDoorAbnormalAlertMessage">
+      <soap12:operation soapAction="http://tempuri.org/IMessageService/CancelOpenOrCloseDoorAbnormalAlertMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOverSpeedAlertMessage">
+      <soap12:operation soapAction="http://tempuri.org/IMessageService/GetOverSpeedAlertMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CancelOverSpeedAlertMessage">
+      <soap12:operation soapAction="http://tempuri.org/IMessageService/CancelOverSpeedAlertMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRegionAlertMessage">
+      <soap12:operation soapAction="http://tempuri.org/IMessageService/GetRegionAlertMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CancelRegionAlertMessage">
+      <soap12:operation soapAction="http://tempuri.org/IMessageService/CancelRegionAlertMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRemoveDeviceSuiteAlertNotifyMessage">
+      <soap12:operation soapAction="http://tempuri.org/IMessageService/GetRemoveDeviceSuiteAlertNotifyMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CancelRemoveDeviceSuiteAlertNotifyMessage">
+      <soap12:operation soapAction="http://tempuri.org/IMessageService/CancelRemoveDeviceSuiteAlertNotifyMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTemperatureAlertMessage">
+      <soap12:operation soapAction="http://tempuri.org/IMessageService/GetTemperatureAlertMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CancelTemperatureAlertMessage">
+      <soap12:operation soapAction="http://tempuri.org/IMessageService/CancelTemperatureAlertMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVoltageAbnormalAlertMessage">
+      <soap12:operation soapAction="http://tempuri.org/IMessageService/GetVoltageAbnormalAlertMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CancelVoltageAbnormalAlertMessage">
+      <soap12:operation soapAction="http://tempuri.org/IMessageService/CancelVoltageAbnormalAlertMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInspectMessage">
+      <soap12:operation soapAction="http://tempuri.org/IMessageService/GetInspectMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CancelInspectMessage">
+      <soap12:operation soapAction="http://tempuri.org/IMessageService/CancelInspectMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOnOfflineMessage">
+      <soap12:operation soapAction="http://tempuri.org/IMessageService/GetOnOfflineMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CancelOnOfflineMessage">
+      <soap12:operation soapAction="http://tempuri.org/IMessageService/CancelOnOfflineMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSuiteRunintStatusMessage">
+      <soap12:operation soapAction="http://tempuri.org/IMessageService/GetSuiteRunintStatusMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFenceReplyMessage">
+      <soap12:operation soapAction="http://tempuri.org/IMessageService/GetFenceReplyMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSettingOverSpeedReplyMessage">
+      <soap12:operation soapAction="http://tempuri.org/IMessageService/GetSettingOverSpeedReplyMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendUpgradeCMD">
+      <soap12:operation soapAction="http://tempuri.org/IMessageService/SendUpgradeCMD" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendElectricFenceCMD">
+      <soap12:operation soapAction="http://tempuri.org/IMessageService/SendElectricFenceCMD" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendElectricFenceCMDSet">
+      <soap12:operation soapAction="http://tempuri.org/IMessageService/SendElectricFenceCMDSet" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendGetUpgradeStatusCMD">
+      <soap12:operation soapAction="http://tempuri.org/IMessageService/SendGetUpgradeStatusCMD" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendSettingOverSpeedCMD">
+      <soap12:operation soapAction="http://tempuri.org/IMessageService/SendSettingOverSpeedCMD" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendSettingOverSpeedCMDSet">
+      <soap12:operation soapAction="http://tempuri.org/IMessageService/SendSettingOverSpeedCMDSet" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendElectircFenceSetting">
+      <soap12:operation soapAction="http://tempuri.org/IMessageService/SendElectircFenceSetting" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendOverSpeedSetting">
+      <soap12:operation soapAction="http://tempuri.org/IMessageService/SendOverSpeedSetting" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendSettingGpsUploadCMDSet">
+      <soap12:operation soapAction="http://tempuri.org/IMessageService/SendSettingGpsUploadCMDSet" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendSettingAbnormalDoorUploadCMDSet">
+      <soap12:operation soapAction="http://tempuri.org/IMessageService/SendSettingAbnormalDoorUploadCMDSet" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendSettingTemperatureUploadCMDSet">
+      <soap12:operation soapAction="http://tempuri.org/IMessageService/SendSettingTemperatureUploadCMDSet" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendSettingOneKeyAlarmUploadCMDSet">
+      <soap12:operation soapAction="http://tempuri.org/IMessageService/SendSettingOneKeyAlarmUploadCMDSet" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendInfomationCommand">
+      <soap12:operation soapAction="http://tempuri.org/IMessageService/SendInfomationCommand" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendGetVideoListCMD">
+      <soap12:operation soapAction="http://tempuri.org/IMessageService/SendGetVideoListCMD" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSettingVideoListReplyMessage">
+      <soap12:operation soapAction="http://tempuri.org/IMessageService/GetSettingVideoListReplyMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetV23ReplyMessage">
+      <soap12:operation soapAction="http://tempuri.org/IMessageService/GetV23ReplyMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendDownloadMdvrFile">
+      <soap12:operation soapAction="http://tempuri.org/IMessageService/SendDownloadMdvrFile" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Init">
+      <soap12:operation soapAction="http://tempuri.org/IMessageService/Init" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MessageCallBack">
+      <soap12:operation soapAction="http://tempuri.org/IMessageService/MessageCallBack" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="MessageService">
+    <wsdl:port name="CustomBinding_IMessageService" binding="tns:CustomBinding_IMessageService">
+      <soap12:address location="net.tcp://10.1.8.211:4503/MessageService.svc" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>net.tcp://10.1.8.211:4503/MessageService.svc</wsa10:Address>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

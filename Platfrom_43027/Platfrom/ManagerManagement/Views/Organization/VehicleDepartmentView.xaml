@@ -1,0 +1,151 @@
+﻿<UserControl xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"  x:Class="Gsafety.PTMS.Manager.Views.Organization.VehicleDepartmentView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="700" d:DesignWidth="900">
+
+    <Grid x:Name="LayoutRoot" Style="{StaticResource ContentGridStyle}">
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="280" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Grid Style="{StaticResource ViewFirstTitleGridStyle}" 
+                      Height="35"
+                      Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Image Grid.Column="0"
+                   Style="{StaticResource TitleImageStyle}"/>
+
+                <TextBlock Text="{Binding [VehicleOrganizationManage], Source={StaticResource SR}}" 
+                       Grid.Column="1"
+                       Style="{StaticResource SecondTitleTextBlockStyle}"/>
+            </Grid>
+
+
+            <Grid Grid.Row="1" Style="{StaticResource ContentGridStyle}"
+                  Height="35">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="1.5*"/>
+                    <ColumnDefinition Width="0.8*"/>
+                    
+                </Grid.ColumnDefinitions>
+                <TextBlock Text="{Binding [OrganizationName], Source={StaticResource SR}}"
+                           Margin="0,5,5,5"
+                           HorizontalAlignment="Right"
+                           VerticalAlignment="Center"/>
+                <TextBox Grid.Column="1"  Text="{Binding OrgName,Mode=TwoWay}"/>
+                <Button Grid.Column="2"
+                    Style="{StaticResource SearchButtonCommonStyle}"
+                    ToolTipService.ToolTip="{Binding [Search], Source={StaticResource SR}}"
+                    Command="{Binding BtnSearchOrgCommand}"/>
+                <!--<Button Grid.Column="3"
+                    Width="15"
+                    Height="15"
+                    Template="{StaticResource AddButtonStyle}"
+                    ToolTipService.ToolTip="{Binding [Add], Source={StaticResource SR}}"
+                    Command="{Binding BtnAddOrgCommand}"/>
+
+                <Button Grid.Column="4"
+                        ToolTipService.ToolTip="{Binding [Edit], Source={StaticResource SR}}"
+                        Style="{StaticResource EditButtonCommonStyle}" 
+                        Command="{Binding BtnEditOrgCommand}"
+                        />
+
+                <Button Grid.Column="5"
+                        ToolTipService.ToolTip="{Binding [Delete], Source={StaticResource SR}}"
+                        Style="{StaticResource DeleteButtonCommonStyle}" 
+                        Command="{Binding BtnDeleteOrgCommand}"
+                        />-->
+
+            </Grid>
+
+            <Grid Grid.Row="2"
+                  Style="{StaticResource ViewFirstTitleGridStyle}"
+                  Height="35">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="20"/>
+                </Grid.ColumnDefinitions>
+                <Image Grid.Column="0"
+                   Style="{StaticResource TitleImageStyle}"/>
+
+                <TextBlock Text="{Binding [VehicleOrganizationList], Source={StaticResource SR}}" 
+                       Grid.Column="1"
+                       Style="{StaticResource SecondTitleTextBlockStyle}"/>
+
+                <Button Grid.Column="2"
+                        Style="{StaticResource AddButtonCommonStyle}"
+                        ToolTipService.ToolTip="{Binding [Add], Source={StaticResource SR}}"
+                        Command="{Binding BtnAddOrgCommand}"/>
+
+                <Button Grid.Column="3"
+                         Height="20"
+                        Width="20"
+                        ToolTipService.ToolTip="{Binding [Edit], Source={StaticResource SR}}"
+                        Style="{StaticResource EditButtonCommonStyle}" 
+                        Command="{Binding BtnEditOrgCommand}"
+                        />
+
+                <Button Grid.Column="4"
+                        Height="20"
+                        Width="20"
+                        ToolTipService.ToolTip="{Binding [Delete], Source={StaticResource SR}}"
+                        Style="{StaticResource DeleteButtonCommonStyle}" 
+                        Command="{Binding BtnDeleteOrgCommand}"
+                        />
+
+            </Grid>
+
+            <Grid Grid.Row="3">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="280"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <sdk:TreeView Grid.Row="0" Grid.Column="0" Margin="0"
+                              HorizontalAlignment="Stretch"
+                              VerticalAlignment="Stretch"
+                          ItemsSource="{Binding TreeData,Mode=TwoWay}"
+                          ItemTemplate="{Binding TreeData,Mode=TwoWay}"
+                          SelectedValuePath="{Binding Path=TreeDataItem}"/>
+            </Grid>
+
+        </Grid>
+
+        <Grid Grid.Column="1" Visibility="Visible">
+            <sdk:Frame  Background="#FF353D46" Foreground="#FFFBFBFB">
+                <sdk:Frame.UriMapper>
+                    <sdk:UriMapper>
+                        <sdk:UriMapping MappedUri="/ManagerManagement;component/Views/Organization/VehicleDepartmentNavigationer.xaml" />
+                        <sdk:UriMapping Uri="/{pageName}" MappedUri="/ManagerManagement;component/Views/Organization/VehicleDepartmentNavigationer.xaml?view={pageName}" />
+                    </sdk:UriMapper>
+                </sdk:Frame.UriMapper>
+            </sdk:Frame>
+        </Grid>
+
+    </Grid>
+</UserControl>

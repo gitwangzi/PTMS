@@ -1,0 +1,259 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Common.Data" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Common.Data" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:complexType name="CompleteAlarm">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AlarmGuid" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AlarmTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ClientID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CompleteTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="HandlerID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsRealAlarm" type="xs:boolean" />
+      <xs:element minOccurs="0" name="MdvrCoreId" nillable="true" type="xs:string" />
+      <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Organizations" nillable="true" type="q1:ArrayOfstring" />
+      <xs:element minOccurs="0" name="VehicleID" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CompleteAlarm" nillable="true" type="tns:CompleteAlarm" />
+  <xs:complexType name="CompleteAlert">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AlertID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ClientID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MdvrCoreId" nillable="true" type="xs:string" />
+      <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Organizations" nillable="true" type="q2:ArrayOfstring" />
+      <xs:element minOccurs="0" name="VehicleID" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CompleteAlert" nillable="true" type="tns:CompleteAlert" />
+  <xs:complexType name="QueryMdvrFileList">
+    <xs:sequence>
+      <xs:element xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Channel" nillable="true" type="q3:ArrayOfint" />
+      <xs:element minOccurs="0" name="End_Time" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="FileType" type="xs:int" />
+      <xs:element minOccurs="0" name="Mdvr_Id" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Start_Time" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="StreamType" type="xs:int" />
+      <xs:element minOccurs="0" name="UserID" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="QueryMdvrFileList" nillable="true" type="tns:QueryMdvrFileList" />
+  <xs:complexType name="DownloadFile">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ChannelID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EndTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="FileId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FileSize" type="xs:decimal" />
+      <xs:element minOccurs="0" name="FileType" type="xs:int" />
+      <xs:element minOccurs="0" name="MdvrCoreSn" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OffSet" type="xs:int" />
+      <xs:element minOccurs="0" name="OffSetFlag" type="xs:int" />
+      <xs:element minOccurs="0" name="StartTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="UUID" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DownloadFile" nillable="true" type="tns:DownloadFile" />
+  <xs:complexType name="BaseInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ClientID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MessageType" type="xs:int" />
+      <xs:element minOccurs="0" name="UserID" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BaseInfo" nillable="true" type="tns:BaseInfo" />
+  <xs:complexType name="OrderClient">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Address" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BeginTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Contact" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DeviceCount" type="xs:int" />
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EndTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Mobile" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Phone" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Status" type="tns:StatusEnum" />
+      <xs:element minOccurs="0" name="TansferMode" type="tns:TansferModeEnum" />
+      <xs:element minOccurs="0" name="UserCount" type="xs:int" />
+      <xs:element minOccurs="0" name="_platformversion" type="xs:short" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="OrderClient" nillable="true" type="tns:OrderClient" />
+  <xs:simpleType name="StatusEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Normal" />
+      <xs:enumeration value="Stop" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="StatusEnum" nillable="true" type="tns:StatusEnum" />
+  <xs:simpleType name="TansferModeEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="NoTransfer" />
+      <xs:enumeration value="DirectTransfer" />
+      <xs:enumeration value="JudgeTransfer" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="TansferModeEnum" nillable="true" type="tns:TansferModeEnum" />
+  <xs:complexType name="DeviceAlertEx">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AdditionalInfo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AlertTime" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="AlertType" nillable="true" type="xs:short" />
+      <xs:element minOccurs="0" name="AlertTypeName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="City" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ClientId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Cmd" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Direction" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DistrictCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GpsTime" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="GpsValid" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Height" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Latitude" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Longitude" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MdvrCoreId" nillable="true" type="xs:string" />
+      <xs:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Organizations" nillable="true" type="q4:ArrayOfstring" />
+      <xs:element minOccurs="0" name="Province" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Speed" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SuiteId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SuiteInfoId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SuiteStatus" nillable="true" type="xs:short" />
+      <xs:element minOccurs="0" name="VehicleId" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DeviceAlertEx" nillable="true" type="tns:DeviceAlertEx" />
+  <xs:complexType name="QueryServerFileListMessageResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="QueryServerFileListMessages" nillable="true" type="tns:ArrayOfQueryServerFileListMessage" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="QueryServerFileListMessageResponse" nillable="true" type="tns:QueryServerFileListMessageResponse" />
+  <xs:complexType name="ArrayOfQueryServerFileListMessage">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="QueryServerFileListMessage" nillable="true" type="tns:QueryServerFileListMessage" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfQueryServerFileListMessage" nillable="true" type="tns:ArrayOfQueryServerFileListMessage" />
+  <xs:complexType name="QueryServerFileListMessage">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CameraInstallLocation" type="xs:int" />
+      <xs:element minOccurs="0" name="Channel" type="xs:decimal" />
+      <xs:element minOccurs="0" name="DownloadStatus" type="xs:int" />
+      <xs:element minOccurs="0" name="EndTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="FileID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FileSize" type="xs:decimal" />
+      <xs:element minOccurs="0" name="StartTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="UUID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VehicleSN" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VideoType" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="QueryServerFileListMessage" nillable="true" type="tns:QueryServerFileListMessage" />
+  <xs:complexType name="GPS">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AlarmFlag" type="xs:long" />
+      <xs:element minOccurs="0" name="ClientID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Direction" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DistrictCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GpsTime" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Height" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Latitude" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Longitude" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Source" type="xs:short" />
+      <xs:element minOccurs="0" name="Speed" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Status" type="xs:long" />
+      <xs:element minOccurs="0" name="UID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Valid" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VehicleId" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GPS" nillable="true" type="tns:GPS" />
+  <xs:complexType name="OnOfflineEx">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:OnOffline">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ClientId" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="MdvrCoreId" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SuiteInfoID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="VehicleId" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="OnOfflineEx" nillable="true" type="tns:OnOfflineEx" />
+  <xs:complexType name="OnOffline">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="IsOnline" type="xs:int" />
+      <xs:element minOccurs="0" name="OnOffLineTime" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="UID" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="OnOffline" nillable="true" type="tns:OnOffline" />
+  <xs:complexType name="AlarmInfoEx">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AdditionalInfo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AlarmGuid" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AlarmStatus" type="xs:int" />
+      <xs:element minOccurs="0" name="AlarmTime" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="AppealStatus" type="xs:short" />
+      <xs:element minOccurs="0" name="ButtonNum" type="xs:int" />
+      <xs:element minOccurs="0" name="City" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ClientId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Direction" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DisposalStatus" type="xs:short" />
+      <xs:element minOccurs="0" name="DistrictCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GpsTime" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="GpsValid" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Height" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Latitude" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Longitude" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MdvrCoreId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OperationLincese" nillable="true" type="xs:string" />
+      <xs:element xmlns:q5="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Organizations" nillable="true" type="q5:ArrayOfstring" />
+      <xs:element minOccurs="0" name="OwnerPhone" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Province" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Source" type="xs:short" />
+      <xs:element minOccurs="0" name="Speed" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SuiteID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SuiteInfoID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SuiteStatus" nillable="true" type="xs:short" />
+      <xs:element minOccurs="0" name="TransferStatus" type="xs:short" />
+      <xs:element minOccurs="0" name="User" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VehicleId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VehicleOwner" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VehicleType" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AlarmInfoEx" nillable="true" type="tns:AlarmInfoEx" />
+  <xs:complexType name="BusinessAlertEx">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AdditionalInfo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AlertTime" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="AlertType" nillable="true" type="xs:short" />
+      <xs:element minOccurs="0" name="City" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ClientId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Direction" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DistrictCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GpsTime" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="GpsValid" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Height" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Latitude" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Longitude" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MdvrCoreId" nillable="true" type="xs:string" />
+      <xs:element xmlns:q6="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Organizations" nillable="true" type="q6:ArrayOfstring" />
+      <xs:element minOccurs="0" name="OwnerPhone" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Province" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Speed" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Status" type="xs:int" />
+      <xs:element minOccurs="0" name="SuiteID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SuiteInfoID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SuiteStatus" nillable="true" type="xs:short" />
+      <xs:element minOccurs="0" name="VehicleId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VehicleOwner" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VehicleType" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BusinessAlertEx" nillable="true" type="tns:BusinessAlertEx" />
+</xs:schema>
