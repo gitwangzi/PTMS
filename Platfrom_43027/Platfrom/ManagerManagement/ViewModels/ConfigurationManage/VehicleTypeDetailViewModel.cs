@@ -396,6 +396,13 @@ namespace Gsafety.PTMS.ManagerManagement.ViewModels
                        
                         byte[] data = new byte[(int)fs.Length];
 
+                        //10M = 10 * 1024 * 1024B
+                        if (data.Length > 10 * 1024 * 1024)
+                        {
+                            MessageBoxHelper.ShowDialog(ApplicationContext.Instance.StringResourceReader.GetString("TRAFFIC_TIP"), ApplicationContext.Instance.StringResourceReader.GetString("ImageSizeError"), MessageDialogButton.Ok);
+                            return;
+                        }
+
                         fs.Read(data, 0, data.Length);
 
                         Base64Image = Convert.ToBase64String(data);

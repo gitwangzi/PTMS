@@ -657,9 +657,9 @@ namespace GisManagement.ViewModels
                 double lslat = double.Parse(Latcon.ConvertBack(xy[1], null, null, null).ToString());
 
                 //3857地图
-                //MapPoint pt = GpsCarListViewModel.GetProjCoord(lslon, lslat);
+                MapPoint pt = GpsCarListViewModel.GetProjCoord(lslon, lslat);
 
-                MapPoint pt = new MapPoint(lslon, lslat);
+                //MapPoint pt = new MapPoint(lslon, lslat);
 
                 pts.Add(pt);
             }
@@ -697,9 +697,9 @@ namespace GisManagement.ViewModels
                 double lslat = double.Parse(Latcon.ConvertBack(xy[1], null, null, null).ToString());
                 
                 //3857地图
-                //MapPoint pt = GpsCarListViewModel.GetProjCoord(lslon, lslat);
+                MapPoint pt = GpsCarListViewModel.GetProjCoord(lslon, lslat);
 
-                MapPoint pt = new MapPoint(lslon, lslat);
+                //MapPoint pt = new MapPoint(lslon, lslat);
 
                 pts.Add(pt);
             }
@@ -736,9 +736,9 @@ namespace GisManagement.ViewModels
                 double lslon = double.Parse(Loncon.ConvertBack(xy[0], null, null, null).ToString());
                 double lslat = double.Parse(Latcon.ConvertBack(xy[1], null, null, null).ToString());
                 //3857地图
-                //MapPoint pt = GpsCarListViewModel.GetProjCoord(lslon, lslat);
+                MapPoint pt = GpsCarListViewModel.GetProjCoord(lslon, lslat);
 
-                MapPoint pt = new MapPoint(lslon, lslat);
+               // MapPoint pt = new MapPoint(lslon, lslat);
 
                 pts.Add(pt);
             }
@@ -766,9 +766,9 @@ namespace GisManagement.ViewModels
             foreach (ESRI.ArcGIS.Client.Geometry.MapPoint pt in ppts)
             {
                 //3857地图
-                //ESRI.ArcGIS.Client.Geometry.MapPoint geopt = GpsCarListViewModel.GetGeoCoord(pt.X, pt.Y);
+                ESRI.ArcGIS.Client.Geometry.MapPoint geopt = GpsCarListViewModel.GetGeoCoord(pt.X, pt.Y);
 
-                ESRI.ArcGIS.Client.Geometry.MapPoint geopt = pt;
+                //ESRI.ArcGIS.Client.Geometry.MapPoint geopt = pt;
                 ptsstring = ptsstring + Loncon.ConvertToSave(geopt.X, null, null, null).ToString() + "," + Latcon.ConvertToSave(geopt.Y, null, null, null).ToString() + ";";
             }
             return ptsstring;
@@ -906,9 +906,9 @@ namespace GisManagement.ViewModels
                 double lslat = double.Parse(Latcon.ConvertBack(xy[1], null, null, null).ToString());
 
                 //3857地图
-                //MapPoint pt = GpsCarListViewModel.GetProjCoord(lslon, lslat);
+                MapPoint pt = GpsCarListViewModel.GetProjCoord(lslon, lslat);
 
-                MapPoint pt = new MapPoint(lslon, lslat);
+               // MapPoint pt = new MapPoint(lslon, lslat);
 
                 pts.Add(pt);
             }

@@ -408,6 +408,7 @@ namespace HistoryQueryManagement.ViewModels
             set
             {
                 _AlertStartTime = value;
+                RaisePropertyChanged(() => this.AlertStartTime);
             }
         }
         /// <summary>
@@ -420,7 +421,8 @@ namespace HistoryQueryManagement.ViewModels
             {
                 if (value != null)
                 {
-                    _AlertEndTime = new DateTime(value.Value.Year, value.Value.Month, value.Value.Day, 23, 59, 59);
+                    _AlertEndTime = value;
+                    RaisePropertyChanged(() => this.AlertEndTime);
                 }
                 else
                 {

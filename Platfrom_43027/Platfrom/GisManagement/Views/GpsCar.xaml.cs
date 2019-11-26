@@ -182,6 +182,22 @@ namespace GisManagement.Views
                 RefreshCarStyleImage();
             }
         }
+
+
+        //上线标识
+        private bool _OnlineFlag;
+        public bool OnlineFlag
+        {
+            get
+            {
+                return _OnlineFlag;
+            }
+            set
+            {
+                _OnlineFlag = value;
+                RefreshCarStyleImage();
+            }
+        }
         private DateTime FLastUpdateTime;
 
         //private VehicleType _CarStyle;
@@ -232,19 +248,51 @@ namespace GisManagement.Views
 
                     if ((_AlarmFlag) && (_AlertFlag))
                     {
-                        return new BitmapImage(new Uri("/GisManagement;component/Image/CarAlarmAlert.png", UriKind.RelativeOrAbsolute));
+                        if (_OnlineFlag)
+                        {
+                            return new BitmapImage(new Uri("/GisManagement;component/Image/CarAlarmAlert.png", UriKind.RelativeOrAbsolute));
+                        }
+                        else
+                        {
+                            return new BitmapImage(new Uri("/GisManagement;component/Image/CarAlarmAlert_offline.png", UriKind.RelativeOrAbsolute));
+
+                        }
                     }
                     else if (_AlarmFlag)
                     {
-                        return new BitmapImage(new Uri("/GisManagement;component/Image/CarAlarm.png", UriKind.RelativeOrAbsolute));
+                        if (_OnlineFlag)
+                        {
+                            return new BitmapImage(new Uri("/GisManagement;component/Image/CarAlarm.png", UriKind.RelativeOrAbsolute));
+                        }
+                        else
+                        {
+                            return new BitmapImage(new Uri("/GisManagement;component/Image/CarAlarm_offline.png", UriKind.RelativeOrAbsolute));
+
+                        }
                     }
                     else if (_AlertFlag)
                     {
-                        return new BitmapImage(new Uri("/GisManagement;component/Image/CarAlert.png", UriKind.RelativeOrAbsolute));
+                        if (_OnlineFlag)
+                        {
+                            return new BitmapImage(new Uri("/GisManagement;component/Image/CarAlert.png", UriKind.RelativeOrAbsolute));
+                        }
+                        else
+                        {
+                            return new BitmapImage(new Uri("/GisManagement;component/Image/CarAlert_offline.png", UriKind.RelativeOrAbsolute));
+
+                        }
                     }
                     else
                     {
-                        return new BitmapImage(new Uri("/GisManagement;component/Image/Car.png", UriKind.RelativeOrAbsolute));
+                        if (_OnlineFlag)
+                        {
+                            return new BitmapImage(new Uri("/GisManagement;component/Image/Car.png", UriKind.RelativeOrAbsolute));
+                        }
+                        else
+                        {
+                            return new BitmapImage(new Uri("/GisManagement;component/Image/Car_offline.png", UriKind.RelativeOrAbsolute));
+
+                        }
                     }
                 }
 
@@ -288,6 +336,7 @@ namespace GisManagement.Views
                 this.AlertFlag = ApplicationContext.Instance.BufferManager.VehicleAlertManager.HasAlert(gpsinfo.VehicleId);
                 this.AlarmFlag = ApplicationContext.Instance.BufferManager.AlarmManager.HasAlarm(gpsinfo.VehicleId);
                 var vehicleInfo = ApplicationContext.Instance.BufferManager.VehicleOrganizationManage.VehicleList.FirstOrDefault(t => t.VehicleId == gpsinfo.VehicleId);
+                this.OnlineFlag = vehicleInfo.IsOnLine;
                 if (vehicleInfo != null)
                 {
                     if (!string.IsNullOrEmpty(vehicleInfo.VehicleTypeImage))
@@ -985,6 +1034,15 @@ namespace GisManagement.Views
                         vedioDisplay.Close();
                     }
                 }
+                else
+                {
+                    EventAggregator.Publish<GisFixChangeRoute>(new GisFixChangeRoute()
+                    {
+                        VechileId = this.CarNo
+                        
+                    }
+                    );
+                }
                 CarBtn1.IsChecked = value;
                 //RaisePropertyChanged("FixOperate");
             }
@@ -1342,16 +1400,16 @@ namespace GisManagement.Views
         private void CarBtn2_Click(object sender, RoutedEventArgs e)
         {
             IsTracked = !IsTracked;
-            if (IsTracked == true)//将其他车的跟踪状态设置为false
-            {
-                foreach (GpsCar car in MonitorList.VechileRealLocationElements.Elements)
-                {
-                    if (car.UniqueID != this.UniqueID)
-                    {
-                        if (car.IsTracked) car.IsTracked = false;
-                    }
-                }
-            }
+            //if (IsTracked == true)//将其他车的跟踪状态设置为false
+            //{
+            //    foreach (GpsCar car in MonitorList.VechileRealLocationElements.Elements)
+            //    {
+            //        if (car.UniqueID != this.UniqueID)
+            //        {
+            //            if (car.IsTracked) car.IsTracked = false;
+            //        }
+            //    }
+            //}
         }
 
         private void CarBtn3_Click(object sender, RoutedEventArgs e)

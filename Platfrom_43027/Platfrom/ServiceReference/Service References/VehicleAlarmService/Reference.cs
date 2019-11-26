@@ -2852,6 +2852,96 @@ namespace Gsafety.PTMS.ServiceReference.VehicleAlarmService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="SingleMessageOfint", Namespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data")]
+    public partial class SingleMessageOfint : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string ErrorDetailMsgField;
+        
+        private string ErrorMsgField;
+        
+        private System.Exception ExceptionMessageField;
+        
+        private bool IsSuccessField;
+        
+        private int ResultField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ErrorDetailMsg {
+            get {
+                return this.ErrorDetailMsgField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ErrorDetailMsgField, value) != true)) {
+                    this.ErrorDetailMsgField = value;
+                    this.RaisePropertyChanged("ErrorDetailMsg");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ErrorMsg {
+            get {
+                return this.ErrorMsgField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ErrorMsgField, value) != true)) {
+                    this.ErrorMsgField = value;
+                    this.RaisePropertyChanged("ErrorMsg");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Exception ExceptionMessage {
+            get {
+                return this.ExceptionMessageField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ExceptionMessageField, value) != true)) {
+                    this.ExceptionMessageField = value;
+                    this.RaisePropertyChanged("ExceptionMessage");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool IsSuccess {
+            get {
+                return this.IsSuccessField;
+            }
+            set {
+                if ((this.IsSuccessField.Equals(value) != true)) {
+                    this.IsSuccessField = value;
+                    this.RaisePropertyChanged("IsSuccess");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Result {
+            get {
+                return this.ResultField;
+            }
+            set {
+                if ((this.ResultField.Equals(value) != true)) {
+                    this.ResultField = value;
+                    this.RaisePropertyChanged("Result");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ManualAlarmInfo", Namespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Common.Data")]
     public partial class ManualAlarmInfo : object, System.ComponentModel.INotifyPropertyChanged {
         
@@ -3249,6 +3339,11 @@ namespace Gsafety.PTMS.ServiceReference.VehicleAlarmService {
         
         Gsafety.PTMS.ServiceReference.VehicleAlarmService.SingleMessageOfTransferDisposei7Zg_POJ5 EndGetTransferDisposeByAlarmID(System.IAsyncResult result);
         
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IVehicleAlarmService/GetTransferDisposeByAlarmID_CAD", ReplyAction="http://tempuri.org/IVehicleAlarmService/GetTransferDisposeByAlarmID_CADResponse")]
+        System.IAsyncResult BeginGetTransferDisposeByAlarmID_CAD(string AlarmID, System.AsyncCallback callback, object asyncState);
+        
+        Gsafety.PTMS.ServiceReference.VehicleAlarmService.SingleMessageOfint EndGetTransferDisposeByAlarmID_CAD(System.IAsyncResult result);
+        
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IVehicleAlarmService/GetAlarmCheck", ReplyAction="http://tempuri.org/IVehicleAlarmService/GetAlarmCheckResponse")]
         System.IAsyncResult BeginGetAlarmCheck(string installationDetailID, System.DateTime date, System.AsyncCallback callback, object asyncState);
         
@@ -3627,6 +3722,25 @@ namespace Gsafety.PTMS.ServiceReference.VehicleAlarmService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class GetTransferDisposeByAlarmID_CADCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public GetTransferDisposeByAlarmID_CADCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public Gsafety.PTMS.ServiceReference.VehicleAlarmService.SingleMessageOfint Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((Gsafety.PTMS.ServiceReference.VehicleAlarmService.SingleMessageOfint)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public partial class GetAlarmCheckCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
         
         private object[] results;
@@ -3781,6 +3895,12 @@ namespace Gsafety.PTMS.ServiceReference.VehicleAlarmService {
         
         private System.Threading.SendOrPostCallback onGetTransferDisposeByAlarmIDCompletedDelegate;
         
+        private BeginOperationDelegate onBeginGetTransferDisposeByAlarmID_CADDelegate;
+        
+        private EndOperationDelegate onEndGetTransferDisposeByAlarmID_CADDelegate;
+        
+        private System.Threading.SendOrPostCallback onGetTransferDisposeByAlarmID_CADCompletedDelegate;
+        
         private BeginOperationDelegate onBeginGetAlarmCheckDelegate;
         
         private EndOperationDelegate onEndGetAlarmCheckDelegate;
@@ -3840,8 +3960,7 @@ namespace Gsafety.PTMS.ServiceReference.VehicleAlarmService {
                     httpCookieContainerManager.CookieContainer = value;
                 }
                 else {
-                    throw new System.InvalidOperationException("Unable to set the CookieContainer. Please make sure the binding contains an HttpC" +
-                            "ookieContainerBindingElement.");
+                    throw new System.InvalidOperationException("无法设置 CookieContainer。请确保绑定包含 HttpCookieContainerBindingElement。");
                 }
             }
         }
@@ -3883,6 +4002,8 @@ namespace Gsafety.PTMS.ServiceReference.VehicleAlarmService {
         public event System.EventHandler<GetApealDisposeByAlarmIDCompletedEventArgs> GetApealDisposeByAlarmIDCompleted;
         
         public event System.EventHandler<GetTransferDisposeByAlarmIDCompletedEventArgs> GetTransferDisposeByAlarmIDCompleted;
+        
+        public event System.EventHandler<GetTransferDisposeByAlarmID_CADCompletedEventArgs> GetTransferDisposeByAlarmID_CADCompleted;
         
         public event System.EventHandler<GetAlarmCheckCompletedEventArgs> GetAlarmCheckCompleted;
         
@@ -4817,6 +4938,52 @@ namespace Gsafety.PTMS.ServiceReference.VehicleAlarmService {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.IAsyncResult Gsafety.PTMS.ServiceReference.VehicleAlarmService.IVehicleAlarmService.BeginGetTransferDisposeByAlarmID_CAD(string AlarmID, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginGetTransferDisposeByAlarmID_CAD(AlarmID, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        Gsafety.PTMS.ServiceReference.VehicleAlarmService.SingleMessageOfint Gsafety.PTMS.ServiceReference.VehicleAlarmService.IVehicleAlarmService.EndGetTransferDisposeByAlarmID_CAD(System.IAsyncResult result) {
+            return base.Channel.EndGetTransferDisposeByAlarmID_CAD(result);
+        }
+        
+        private System.IAsyncResult OnBeginGetTransferDisposeByAlarmID_CAD(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            string AlarmID = ((string)(inValues[0]));
+            return ((Gsafety.PTMS.ServiceReference.VehicleAlarmService.IVehicleAlarmService)(this)).BeginGetTransferDisposeByAlarmID_CAD(AlarmID, callback, asyncState);
+        }
+        
+        private object[] OnEndGetTransferDisposeByAlarmID_CAD(System.IAsyncResult result) {
+            Gsafety.PTMS.ServiceReference.VehicleAlarmService.SingleMessageOfint retVal = ((Gsafety.PTMS.ServiceReference.VehicleAlarmService.IVehicleAlarmService)(this)).EndGetTransferDisposeByAlarmID_CAD(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnGetTransferDisposeByAlarmID_CADCompleted(object state) {
+            if ((this.GetTransferDisposeByAlarmID_CADCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.GetTransferDisposeByAlarmID_CADCompleted(this, new GetTransferDisposeByAlarmID_CADCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void GetTransferDisposeByAlarmID_CADAsync(string AlarmID) {
+            this.GetTransferDisposeByAlarmID_CADAsync(AlarmID, null);
+        }
+        
+        public void GetTransferDisposeByAlarmID_CADAsync(string AlarmID, object userState) {
+            if ((this.onBeginGetTransferDisposeByAlarmID_CADDelegate == null)) {
+                this.onBeginGetTransferDisposeByAlarmID_CADDelegate = new BeginOperationDelegate(this.OnBeginGetTransferDisposeByAlarmID_CAD);
+            }
+            if ((this.onEndGetTransferDisposeByAlarmID_CADDelegate == null)) {
+                this.onEndGetTransferDisposeByAlarmID_CADDelegate = new EndOperationDelegate(this.OnEndGetTransferDisposeByAlarmID_CAD);
+            }
+            if ((this.onGetTransferDisposeByAlarmID_CADCompletedDelegate == null)) {
+                this.onGetTransferDisposeByAlarmID_CADCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGetTransferDisposeByAlarmID_CADCompleted);
+            }
+            base.InvokeAsync(this.onBeginGetTransferDisposeByAlarmID_CADDelegate, new object[] {
+                        AlarmID}, this.onEndGetTransferDisposeByAlarmID_CADDelegate, this.onGetTransferDisposeByAlarmID_CADCompletedDelegate, userState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
         System.IAsyncResult Gsafety.PTMS.ServiceReference.VehicleAlarmService.IVehicleAlarmService.BeginGetAlarmCheck(string installationDetailID, System.DateTime date, System.AsyncCallback callback, object asyncState) {
             return base.Channel.BeginGetAlarmCheck(installationDetailID, date, callback, asyncState);
         }
@@ -5255,6 +5422,19 @@ namespace Gsafety.PTMS.ServiceReference.VehicleAlarmService {
             public Gsafety.PTMS.ServiceReference.VehicleAlarmService.SingleMessageOfTransferDisposei7Zg_POJ5 EndGetTransferDisposeByAlarmID(System.IAsyncResult result) {
                 object[] _args = new object[0];
                 Gsafety.PTMS.ServiceReference.VehicleAlarmService.SingleMessageOfTransferDisposei7Zg_POJ5 _result = ((Gsafety.PTMS.ServiceReference.VehicleAlarmService.SingleMessageOfTransferDisposei7Zg_POJ5)(base.EndInvoke("GetTransferDisposeByAlarmID", _args, result)));
+                return _result;
+            }
+            
+            public System.IAsyncResult BeginGetTransferDisposeByAlarmID_CAD(string AlarmID, System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[1];
+                _args[0] = AlarmID;
+                System.IAsyncResult _result = base.BeginInvoke("GetTransferDisposeByAlarmID_CAD", _args, callback, asyncState);
+                return _result;
+            }
+            
+            public Gsafety.PTMS.ServiceReference.VehicleAlarmService.SingleMessageOfint EndGetTransferDisposeByAlarmID_CAD(System.IAsyncResult result) {
+                object[] _args = new object[0];
+                Gsafety.PTMS.ServiceReference.VehicleAlarmService.SingleMessageOfint _result = ((Gsafety.PTMS.ServiceReference.VehicleAlarmService.SingleMessageOfint)(base.EndInvoke("GetTransferDisposeByAlarmID_CAD", _args, result)));
                 return _result;
             }
             

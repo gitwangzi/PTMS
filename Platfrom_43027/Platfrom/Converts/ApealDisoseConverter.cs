@@ -15,7 +15,35 @@ namespace Gsafety.Common.Converts
                 {
                     int result = int.Parse(value.ToString());
 
+                    if (result == 1)
+                    {
+                       
+                        return ApplicationContext.Instance.StringResourceReader.GetString("NoDisposed");
+                    }
+
+
+                    if (result == 2)
+                    {
+
+                        return ApplicationContext.Instance.StringResourceReader.GetString("ALARM_Handing");
+                    }
+
+
+                    if (result == 3)
+                    {
+
+                        return ApplicationContext.Instance.StringResourceReader.GetString("ALARM_Handing");
+                    }
+
+
                     if (result == 4)
+                    {
+
+                        return ApplicationContext.Instance.StringResourceReader.GetString("ALARM_Handing");
+                    }
+                
+
+                    if (result == 5)
                     {
                         //已处置
                         return ApplicationContext.Instance.StringResourceReader.GetString("Disposed");

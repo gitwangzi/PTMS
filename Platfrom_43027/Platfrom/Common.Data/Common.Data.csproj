@@ -53,6 +53,7 @@
     <Compile Include="Data\Alarm\AlarmNoteInfo.cs" />
     <Compile Include="Data\Alarm\AlarmEmailInfo.cs" />
     <Compile Include="Data\Alarm\AlarmTypeInfo.cs" />
+    <Compile Include="Data\Alarm\AlarmStateInfo.cs" />
     <Compile Include="Data\Alert\AlertHandleResult.cs" />
     <Compile Include="Data\Alert\BusinessAlertHandle.cs" />
     <Compile Include="Data\Alert\CompleteAlert.cs" />

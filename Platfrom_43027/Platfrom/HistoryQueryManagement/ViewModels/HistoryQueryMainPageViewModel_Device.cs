@@ -439,7 +439,7 @@ namespace HistoryQueryManagement.ViewModels
             {
                 if (value != null)
                 {
-                    _DeviceAlertEndTime = new DateTime(value.Value.Year, value.Value.Month, value.Value.Day, 23, 59, 59);
+                    _DeviceAlertEndTime = value;
                     RaisePropertyChanged(() => this.DeviceAlertEndTime);
                 }
                 else

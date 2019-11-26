@@ -17,4 +17,10 @@ namespace GisManagement.Models
         public DateTime StartTime { get; set; }
         public DateTime EndTime { get; set; }
     }
+
+    public class GisFixChangeRoute
+    {
+        public string VechileId { get; set; }
+     
+    }
 }

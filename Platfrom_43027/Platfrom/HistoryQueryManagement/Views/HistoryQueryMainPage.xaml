@@ -29,6 +29,11 @@
 
         <Converts:FunItemVisibilityConverter x:Key="FunItemVisibilityConverter"/>
 
+        <DataTemplate x:Key="timeRangeTemplate">
+            <toolkit:TimePicker  BorderThickness="0" Format="Long" Value="{Binding DownLoadStartTime, Mode=TwoWay}"  Maximum="{Binding MaxChooseTime}" Minimum="{Binding MinChooseTime}" PopupTimeSelectionMode="AllowSecondsSelection" MaxWidth="150" >
+            </toolkit:TimePicker>
+        </DataTemplate>
+
         <Storyboard x:Key="collapseTransition">
             <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" 
                                            Storyboard.TargetName="SythesesLeftContent"
@@ -594,7 +599,7 @@
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="Auto"/>
                                 <RowDefinition Height="*"/>
-                                <RowDefinition Height="10"/>
+                                <RowDefinition Height="35"/>
                             </Grid.RowDefinitions>
 
                             <Grid Grid.Row="0">
@@ -627,107 +632,73 @@
                                             HorizontalAlignment="Stretch"
                                             Background="#242930" Foreground="#f0f0f0"
                                             MaxLength="36"
-                                          Text="{Binding AlarmCarNumber,Mode=TwoWay}"
-                                         
+                                          Text="{Binding AlarmCarNumber,Mode=TwoWay}"                                         
                                          VerticalAlignment="Center"/>
-                                <!--<TextBlock Margin="0,5,10,5" 
-                                            Grid.Row="1" 
-                                            Grid.Column="0" 
-                                            Text="{Binding [MONITOR_Group], Source={StaticResource SR}}" 
-                                            HorizontalAlignment="Right" 
-                                            VerticalAlignment="Center" Style="{StaticResource TextBlockLightStyle}"/>
-                                <ComboBox Grid.Row="1"
-                                         Grid.Column="1"
-                                         Margin="0,5,0,5"
-                                         HorizontalAlignment="Stretch"
-                                         VerticalAlignment="Center"/>
-                                <ComboBox Grid.Row="1" Grid.Column="1"  Margin="0,5,0,5" 
-                                         ItemsSource="{Binding Groups}"
-                                         DisplayMemberPath="GroupName" SelectedValuePath="GroupIndex"
-                                        SelectedItem="{Binding SearchByGroup,Mode=TwoWay}"
-                                        VerticalAlignment="Center"
-                                          ToolTipService.ToolTip="{Binding SearchByGroup.GroupName,Mode=TwoWay}"
-                                        HorizontalAlignment="Stretch"
-                                        IsEnabled="True"></ComboBox>-->
-
-                                <!--<TextBlock Text="{Binding [AlertType],Source={StaticResource SR}}"
-                                           Grid.Row="2"
-                                           Grid.Column="0" Style="{StaticResource TextBlockLightStyle}"
-                                           HorizontalAlignment="Right"
-                                           VerticalAlignment="Center"
-                                           Margin="0,5,10,5"/>
-                                <ComboBox Grid.Row="2"
-                                         Grid.Column="1"
-                                         Margin="0,5,0,5"
-                                         HorizontalAlignment="Stretch"
-                                         VerticalAlignment="Center"/>
-                                <ComboBox Grid.Row="2" Grid.Column="1"  Margin="0,5,0,5" 
-                                         ItemsSource="{Binding BAlertTypes}"
-                                         DisplayMemberPath="Name" SelectedValuePath="Code"
-                                        SelectedItem="{Binding SearchByBAlertType,Mode=TwoWay}"
-                                        VerticalAlignment="Center"
-                                          ToolTipService.ToolTip="{Binding SearchByBAlertType.Name,Mode=TwoWay}"
-                                        HorizontalAlignment="Stretch"
-                                        IsEnabled="True"></ComboBox>-->
-
-
-
-                                <!--<TextBlock Margin="0,5,10,5" 
-                                            Grid.Row="3" 
-                                            Grid.Column="0" 
-                                            Text="{Binding [ALARM_VehicleType], Source={StaticResource SR}}" 
-                                            HorizontalAlignment="Right" 
-                                            VerticalAlignment="Center" Style="{StaticResource TextBlockLightStyle}"/>
-                                <ComboBox Grid.Row="3"
-                                         Grid.Column="1"
-                                         Margin="0,5,0,5"
-                                         HorizontalAlignment="Stretch"
-                                         VerticalAlignment="Center"/>
-                                <ComboBox Grid.Row="3" Grid.Column="1"  Margin="0,5,0,5" 
-                                         ItemsSource="{Binding VehicleTypes}"
-                                         DisplayMemberPath="Name" SelectedValuePath="ID"
-                                        SelectedItem="{Binding SearchByVehicleType,Mode=TwoWay}"
-                                        VerticalAlignment="Center"
-                                          ToolTipService.ToolTip="{Binding SearchByVehicleType.Name,Mode=TwoWay}"
-                                        HorizontalAlignment="Stretch"
-                                        IsEnabled="True"></ComboBox>-->
-
-
+       
                                 <TextBlock Text="{Binding [FromDate],Source={StaticResource SR}}"
                                            Margin="0,5,10,5" 
-                                           Grid.Row="4" 
+                                           Grid.Row="1" 
                                            Grid.Column="0" 
                                            HorizontalAlignment="Right" 
                                            VerticalAlignment="Center" Style="{StaticResource TextBlockLightStyle}"/>
-                                <Controls:DatePickerEx    IsReadOnly="True"
-                                    
-                                    
+                                <Controls:DatePickerEx    IsReadOnly="True"                                                                       
                                             Margin="0,5,0,5" 
-                                            Grid.Row="4"
+                                            Grid.Row="1"
                                             Grid.Column="1" 
-                                            HorizontalAlignment="Stretch"
-                                            VerticalAlignment="Center" SelectedDate="{Binding AlarmStartTime,Mode=TwoWay}"/>
+                                            HorizontalAlignment="Stretch" 
+                                            VerticalAlignment="Center" SelectedDate="{Binding AlarmStartTime,Mode=TwoWay,NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}"/>
+                                
+                                <TextBlock Text="{Binding [StartTime],Source={StaticResource SR}}"
+                                           Margin="0,5,10,5" 
+                                           Grid.Row="2" 
+                                           Grid.Column="0" 
+                                           HorizontalAlignment="Right" 
+                                           VerticalAlignment="Center" Style="{StaticResource TextBlockLightStyle}"/>
+                                <toolkit:TimePicker x:Name="tp_StartTime"  
+                                    Format="Long" Value="{Binding AlarmStartTime, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}" 
+                                    HorizontalAlignment="Stretch"
+                                    VerticalAlignment="Center"
+                                    Grid.Row="2" Foreground="#f0f0f0"
+                                    Grid.Column="1" 
+                                    Margin="0,5,0,5"/>
+                                
                                 <TextBlock Text="{Binding [ToDate],Source={StaticResource SR}}"
                                            Margin="0,5,10,5" 
-                                           Grid.Row="5" 
+                                           Grid.Row="3" 
                                            Grid.Column="0" 
                                            HorizontalAlignment="Right" 
                                            VerticalAlignment="Center" Style="{StaticResource TextBlockLightStyle}"/>
                                  <Controls:DatePickerEx    IsReadOnly="True"  
                                             Margin="0,5,0,5" 
-                                            Grid.Row="5"
+                                            Grid.Row="3"
                                             Grid.Column="1"                                                                  
                                             Foreground="#f0f0f0" 
                                             HorizontalAlignment="Stretch"
-                                            VerticalAlignment="Center" SelectedDate="{Binding AlarmEndTime,Mode=TwoWay}"/>
+                                            VerticalAlignment="Center" SelectedDate="{Binding AlarmEndTime,Mode=TwoWay,NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}"/>
+
+                                <TextBlock Text="{Binding [EndTime],Source={StaticResource SR}}"
+                                           Margin="0,5,10,5" 
+                                           Grid.Row="4" 
+                                           Grid.Column="0" 
+                                           HorizontalAlignment="Right" 
+                                           VerticalAlignment="Center" Style="{StaticResource TextBlockLightStyle}"/>
+                                <toolkit:TimePicker x:Name="tp_EndTime"  
+                                    Format="Long" Value="{Binding AlarmEndTime, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}" 
+                                    HorizontalAlignment="Stretch"
+                                    VerticalAlignment="Center"
+                                    Grid.Row="4"
+                                    Grid.Column="1"  Foreground="#f0f0f0" 
+                                    Margin="0,5,0,5"/>
+                                
+                                
                                 <Button Grid.Column="2"
-                                        Grid.Row="5" Margin="0,0,10,0"
+                                        Grid.Row="4" Margin="5,0,10,0"
                                         Style="{StaticResource SearchButtonCommonStyle}"
                                         ToolTipService.ToolTip="{Binding [VDM_Search], Source={StaticResource SR}}"
                                         Command="{Binding AlarmSearchCommand}"/>
                                 
                                 <Button Grid.Column="2"
-                                        Grid.Row="5" HorizontalAlignment="Right" Margin="20,0,0,0"
+                                        Grid.Row="4" HorizontalAlignment="Right" Margin="20,0,0,0"
                                         Style="{StaticResource ExpertButtonCommonStyle}"
                                         ToolTipService.ToolTip="{Binding [MANAGER_Export], Source={StaticResource SR}}"
                                         Command="{Binding AlarmExportCommand}"/>
@@ -738,7 +709,7 @@
                                            x:Name="dgAlarm"
                                            HorizontalAlignment="Stretch"
                                            VerticalAlignment="Stretch"
-                                           MinHeight="200" AutoGenerateColumns="False" ItemsSource="{Binding AllAlarms}" IsReadOnly="True" 
+                                           MinHeight="170" AutoGenerateColumns="False" ItemsSource="{Binding AllAlarms}" IsReadOnly="True" 
                                           SelectedItem="{Binding SelectedAlarmInfo, Mode=TwoWay}" SelectionMode="Single"
                                            Style="{StaticResource DataGridStyleRxx3}">
                                 <sdk:DataGrid.Columns>
@@ -889,72 +860,52 @@
                                             HorizontalAlignment="Stretch"
                                             Background="#242930" Foreground="#f0f0f0"
                                             MaxLength="36" Text="{Binding AlertCarNumber,Mode=TwoWay}"
-                                         VerticalAlignment="Center"/>
-
-                                <!--<TextBlock Margin="0,5,10,5" 
-                                            Grid.Row="1" 
-                                            Grid.Column="0" 
-                                            Text="{Binding [MONITOR_Group], Source={StaticResource SR}}" 
-                                            HorizontalAlignment="Right" 
-                                            VerticalAlignment="Center" Style="{StaticResource TextBlockLightStyle}"/>
-                                <ComboBox Grid.Row="1"
-                                         Grid.Column="1"
-                                         Margin="0,5,0,5"
-                                         HorizontalAlignment="Stretch"
-                                         VerticalAlignment="Center"/>
-                                <ComboBox Grid.Row="1" Grid.Column="1"  Margin="0,5,0,5" 
-                                         ItemsSource="{Binding Groups}"
-                                         DisplayMemberPath="GroupName" SelectedValuePath="GroupIndex"
-                                        SelectedItem="{Binding SearchByGroup,Mode=TwoWay}"
-                                        VerticalAlignment="Center"
-                                          ToolTipService.ToolTip="{Binding SearchByGroup.GroupName,Mode=TwoWay}"
-                                        HorizontalAlignment="Stretch"
-                                        IsEnabled="True"></ComboBox>-->
-
-
+                                         VerticalAlignment="Center"/>             
 
                                 <TextBlock Text="{Binding [AlertType],Source={StaticResource SR}}"
-                                           Grid.Row="2"
+                                           Grid.Row="1"
                                            Grid.Column="0" Style="{StaticResource TextBlockLightStyle}"
                                            HorizontalAlignment="Right"
                                            VerticalAlignment="Center"
                                            Margin="0,5,10,5"/>
-                                <ComboBox Grid.Row="2"
+                                <ComboBox Grid.Row="1"
                                          Grid.Column="1"
                                          Margin="0,5,0,5"
                                          HorizontalAlignment="Stretch"
                                          VerticalAlignment="Center"  Name="comboStatus1"/>
-                                <ComboBox Grid.Row="2" Grid.Column="1"  Margin="0,5,0,5" 
+                                <ComboBox Grid.Row="1" Grid.Column="1"  Margin="0,5,0,5" 
                                           ItemsSource="{Binding VehicleAlertTypeList}" 
                                           DisplayMemberPath="Name" SelectedValuePath="Code" HorizontalAlignment="Stretch"
                                          VerticalAlignment="Center" SelectedItem="{Binding SelectedAlertType,Mode=TwoWay}" ToolTipService.ToolTip="{Binding SelectedAlertType.Name,Mode=TwoWay}"  Name="comboStatus3" ></ComboBox>
 
-
-
-                                <!--<TextBlock Margin="0,5,10,5" 
-                                            Grid.Row="3" 
-                                            Grid.Column="0" 
-                                            Text="{Binding [ALARM_VehicleType], Source={StaticResource SR}}" 
-                                            HorizontalAlignment="Right" 
-                                            VerticalAlignment="Center" Style="{StaticResource TextBlockLightStyle}"/>
-                                <ComboBox Grid.Row="3"
-                                         Grid.Column="1"
-                                         Margin="0,5,0,5"
-                                         HorizontalAlignment="Stretch"
-                                         VerticalAlignment="Center"/>
-                                <ComboBox Grid.Row="3" Grid.Column="1"  Margin="0,5,0,5" 
-                                         ItemsSource="{Binding VehicleTypes}"
-                                         DisplayMemberPath="Name" SelectedValuePath="ID"
-                                        SelectedItem="{Binding SearchByVehicleType,Mode=TwoWay}"
-                                        VerticalAlignment="Center"
-                                          ToolTipService.ToolTip="{Binding SearchByVehicleType.Name,Mode=TwoWay}"
-                                        HorizontalAlignment="Stretch"
-                                        IsEnabled="True"></ComboBox>-->
-
-
-
-
                                 <TextBlock Text="{Binding [FromDate], Source={StaticResource SR}}"
+                                           Margin="0,5,10,5" 
+                                           Grid.Row="2" 
+                                           Grid.Column="0" 
+                                           HorizontalAlignment="Right" 
+                                           VerticalAlignment="Center" Style="{StaticResource TextBlockLightStyle}"/>
+                                 <Controls:DatePickerEx    IsReadOnly="True"  
+                                            Margin="0,5,0,5" 
+                                            Grid.Row="2"
+                                            Grid.Column="1" 
+                                            HorizontalAlignment="Stretch"
+                                            VerticalAlignment="Center" SelectedDate="{Binding AlertStartTime,Mode=TwoWay}"/>
+
+                                <TextBlock Text="{Binding [StartTime],Source={StaticResource SR}}"
+                                           Margin="0,5,10,5" 
+                                           Grid.Row="3" 
+                                           Grid.Column="0" 
+                                           HorizontalAlignment="Right" 
+                                           VerticalAlignment="Center" Style="{StaticResource TextBlockLightStyle}"/>
+                                <toolkit:TimePicker  
+                                    Format="Long" Value="{Binding AlertStartTime, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}" 
+                                    HorizontalAlignment="Stretch"
+                                    VerticalAlignment="Center"
+                                    Grid.Row="3" Foreground="#f0f0f0"
+                                    Grid.Column="1" 
+                                    Margin="0,5,0,5"/>
+                                
+                                <TextBlock Text="{Binding [ToDate],Source={StaticResource SR}}"
                                            Margin="0,5,10,5" 
                                            Grid.Row="4" 
                                            Grid.Column="0" 
@@ -965,19 +916,22 @@
                                             Grid.Row="4"
                                             Grid.Column="1" 
                                             HorizontalAlignment="Stretch"
-                                            VerticalAlignment="Center" SelectedDate="{Binding AlertStartTime,Mode=TwoWay}"/>
-                                <TextBlock Text="{Binding [ToDate],Source={StaticResource SR}}"
+                                            VerticalAlignment="Center" SelectedDate="{Binding AlertEndTime,Mode=TwoWay}"/>
+                              
+                                <TextBlock Text="{Binding [EndTime],Source={StaticResource SR}}"
                                            Margin="0,5,10,5" 
                                            Grid.Row="5" 
                                            Grid.Column="0" 
                                            HorizontalAlignment="Right" 
                                            VerticalAlignment="Center" Style="{StaticResource TextBlockLightStyle}"/>
-                                 <Controls:DatePickerEx    IsReadOnly="True"  
-                                            Margin="0,5,0,5" 
-                                            Grid.Row="5"
-                                            Grid.Column="1" 
-                                            HorizontalAlignment="Stretch"
-                                            VerticalAlignment="Center" SelectedDate="{Binding AlertEndTime,Mode=TwoWay}"/>
+                                <toolkit:TimePicker  
+                                    Format="Long" Value="{Binding AlertEndTime, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}" 
+                                    HorizontalAlignment="Stretch"
+                                    VerticalAlignment="Center"
+                                    Grid.Row="5"
+                                    Grid.Column="1"  Foreground="#f0f0f0" 
+                                    Margin="0,5,0,5"/>
+
                                 <Button Grid.Column="2"
                                         Grid.Row="5"
                                         Style="{StaticResource SearchButtonCommonStyle}"
@@ -1160,90 +1114,18 @@
                                             HorizontalAlignment="Stretch"
                                             MaxLength="36" Text="{Binding DeviceAlertCarNumber,Mode=TwoWay}"
                                          VerticalAlignment="Center"/>
-
-
-                                <!--<TextBlock Margin="0,5,10,5" 
-                                            Grid.Row="1" 
-                                            Grid.Column="0" 
-                                            Text="{Binding [MONITOR_Group], Source={StaticResource SR}}" 
-                                            HorizontalAlignment="Right" 
-                                            VerticalAlignment="Center" Style="{StaticResource TextBlockLightStyle}"/>
+                                <TextBlock Text="{Binding [AlertType],Source={StaticResource SR}}"
+                                           Grid.Row="1"
+                                           Grid.Column="0" Style="{StaticResource TextBlockLightStyle}"
+                                           HorizontalAlignment="Right"
+                                           VerticalAlignment="Center"
+                                           Margin="0,5,10,5"/>
                                 <ComboBox Grid.Row="1"
                                          Grid.Column="1"
                                          Margin="0,5,0,5"
                                          HorizontalAlignment="Stretch"
                                          VerticalAlignment="Center"/>
                                 <ComboBox Grid.Row="1" Grid.Column="1"  Margin="0,5,0,5" 
-                                         ItemsSource="{Binding Groups}"
-                                         DisplayMemberPath="GroupName" SelectedValuePath="GroupIndex"
-                                        SelectedItem="{Binding SearchByGroup,Mode=TwoWay}"
-                                        VerticalAlignment="Center"
-                                          ToolTipService.ToolTip="{Binding SearchByGroup.GroupName,Mode=TwoWay}"
-                                        HorizontalAlignment="Stretch"
-                                        IsEnabled="True"></ComboBox>-->
-
-
-                                <!--<TextBlock Margin="0,5,10,5" 
-                                            Grid.Row="3" 
-                                            Grid.Column="0" 
-                                            Text="{Binding [ALARM_VehicleType], Source={StaticResource SR}}" 
-                                            HorizontalAlignment="Right" 
-                                            VerticalAlignment="Center" Style="{StaticResource TextBlockLightStyle}"/>
-                                <ComboBox Grid.Row="3"
-                                         Grid.Column="1"
-                                         Margin="0,5,0,5"
-                                         HorizontalAlignment="Stretch"
-                                         VerticalAlignment="Center"/>
-                                <ComboBox Grid.Row="3" Grid.Column="1"  Margin="0,5,0,5" 
-                                         ItemsSource="{Binding VehicleTypes}"
-                                         DisplayMemberPath="Name" SelectedValuePath="ID"
-                                        SelectedItem="{Binding SearchByVehicleType,Mode=TwoWay}"
-                                        VerticalAlignment="Center"
-                                          ToolTipService.ToolTip="{Binding SearchByVehicleType.Name,Mode=TwoWay}"
-                                        HorizontalAlignment="Stretch"
-                                        IsEnabled="True"></ComboBox>-->
-
-
-                                <TextBlock Text="{Binding [FromDate], Source={StaticResource SR}}"
-                                           Margin="0,5,10,5" 
-                                           Grid.Row="4" Style="{StaticResource TextBlockLightStyle}"
-                                           Grid.Column="0" 
-                                           HorizontalAlignment="Right" 
-                                           VerticalAlignment="Center"/>
-                                 <Controls:DatePickerEx    IsReadOnly="True"  
-                                            Margin="0,5,0,5" 
-                                            Grid.Row="4"
-                                            Grid.Column="1" 
-                                            HorizontalAlignment="Stretch"
-                                     DisplayDateEnd="{Binding DeviceAlertEndTime,Mode=TwoWay}"       
-                                
-                                            VerticalAlignment="Center" SelectedDate="{Binding DeviceAlertStartTime,Mode=TwoWay}"/>
-                                <TextBlock Text="{Binding [ToDate],Source={StaticResource SR}}"
-                                           Margin="0,5,10,5" 
-                                           Grid.Row="5" 
-                                           Grid.Column="0" Style="{StaticResource TextBlockLightStyle}"
-                                           HorizontalAlignment="Right" 
-                                           VerticalAlignment="Center"/>
-                                 <Controls:DatePickerEx    IsReadOnly="True"  
-                                            Margin="0,5,0,5" 
-                                            Grid.Row="5"
-                                            Grid.Column="1" 
-                                            HorizontalAlignment="Stretch"
-                                      
-                                    DisplayDateStart="{Binding DeviceAlertStartTime,Mode=TwoWay}"
-                                            VerticalAlignment="Center" SelectedDate="{Binding DeviceAlertEndTime,Mode=TwoWay}"/>
-                                <TextBlock Text="{Binding [AlertType],Source={StaticResource SR}}"
-                                           Grid.Row="2"
-                                           Grid.Column="0" Style="{StaticResource TextBlockLightStyle}"
-                                           HorizontalAlignment="Right"
-                                           VerticalAlignment="Center"
-                                           Margin="0,5,10,5"/>
-                                <ComboBox Grid.Row="2"
-                                         Grid.Column="1"
-                                         Margin="0,5,0,5"
-                                         HorizontalAlignment="Stretch"
-                                         VerticalAlignment="Center"/>
-                                <ComboBox Grid.Row="2" Grid.Column="1"  Margin="0,5,0,5" 
                                          ItemsSource="{Binding ZAlertTypes}"
                                          DisplayMemberPath="Name" SelectedValuePath="Code"
                                         SelectedItem="{Binding SearchByAlertType,Mode=TwoWay}"
@@ -1251,6 +1133,59 @@
                                           ToolTipService.ToolTip="{Binding SearchByAlertType.Name,Mode=TwoWay}"
                                         HorizontalAlignment="Stretch"
                                         IsEnabled="True"></ComboBox>
+                               
+                                <TextBlock Text="{Binding [FromDate], Source={StaticResource SR}}"
+                                           Margin="0,5,10,5" 
+                                           Grid.Row="2" Style="{StaticResource TextBlockLightStyle}"
+                                           Grid.Column="0" 
+                                           HorizontalAlignment="Right" 
+                                           VerticalAlignment="Center"/>
+                                 <Controls:DatePickerEx    IsReadOnly="True"  
+                                            Margin="0,5,0,5" 
+                                            Grid.Row="2"
+                                            Grid.Column="1" 
+                                            HorizontalAlignment="Stretch"
+                                     DisplayDateEnd="{Binding DeviceAlertEndTime,Mode=TwoWay}"                                       
+                                            VerticalAlignment="Center" SelectedDate="{Binding DeviceAlertStartTime,Mode=TwoWay}"/>
+                                <TextBlock Text="{Binding [StartTime],Source={StaticResource SR}}"
+                                           Margin="0,5,10,5" 
+                                           Grid.Row="3" 
+                                           Grid.Column="0" 
+                                           HorizontalAlignment="Right" 
+                                           VerticalAlignment="Center" Style="{StaticResource TextBlockLightStyle}"/>
+                                <toolkit:TimePicker  
+                                    Format="Long" Value="{Binding DeviceAlertStartTime, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}" 
+                                    HorizontalAlignment="Stretch"
+                                    VerticalAlignment="Center"
+                                    Grid.Row="3" Foreground="#f0f0f0"
+                                    Grid.Column="1" 
+                                    Margin="0,5,0,5"/>
+                                <TextBlock Text="{Binding [ToDate],Source={StaticResource SR}}"
+                                           Margin="0,5,10,5" 
+                                           Grid.Row="4" 
+                                           Grid.Column="0" Style="{StaticResource TextBlockLightStyle}"
+                                           HorizontalAlignment="Right" 
+                                           VerticalAlignment="Center"/>
+                                 <Controls:DatePickerEx    IsReadOnly="True"  
+                                            Margin="0,5,0,5" 
+                                            Grid.Row="4"
+                                            Grid.Column="1" 
+                                            HorizontalAlignment="Stretch"                                     
+                                    DisplayDateStart="{Binding DeviceAlertStartTime,Mode=TwoWay}"
+                                            VerticalAlignment="Center" SelectedDate="{Binding DeviceAlertEndTime,Mode=TwoWay}"/>
+                                <TextBlock Text="{Binding [EndTime],Source={StaticResource SR}}"
+                                           Margin="0,5,10,5" 
+                                           Grid.Row="5" 
+                                           Grid.Column="0" 
+                                           HorizontalAlignment="Right" 
+                                           VerticalAlignment="Center" Style="{StaticResource TextBlockLightStyle}"/>
+                                <toolkit:TimePicker  
+                                    Format="Long" Value="{Binding DeviceAlertEndTime, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}" 
+                                    HorizontalAlignment="Stretch"
+                                    VerticalAlignment="Center"
+                                    Grid.Row="5"
+                                    Grid.Column="1"  Foreground="#f0f0f0" 
+                                    Margin="0,5,0,5"/>
                                 <Button Grid.Column="2"
                                         Grid.Row="5"
                                         Style="{StaticResource SearchButtonCommonStyle}"
@@ -2281,7 +2216,7 @@
                                     <ColumnDefinition Width="2*"/>
                                 </Grid.ColumnDefinitions>
 
-                                <TextBlock Text="{Binding [ALARM_HandlePerson],Source={StaticResource SR}}" 
+                                <!--<TextBlock Text="{Binding [ALARM_HandlePerson],Source={StaticResource SR}}" 
                                            VerticalAlignment="Center" HorizontalAlignment="Right" Style="{StaticResource TextBlockLightStyle}"
                                            Grid.Row="1" Grid.Column="0" Margin="0,0,10,3"/>
 
@@ -2300,7 +2235,7 @@
                                 <TextBlock Text="{Binding TransferDisposeTime, Mode=OneWay}" Style="{StaticResource TextBlockLightStyle}"
                                            VerticalAlignment="Center" Grid.Row="2" Grid.Column="1"
                                            Margin="10,3,0,3" 
-                                           ToolTipService.ToolTip="{Binding TransferDisposeTime}"/>
+                                           ToolTipService.ToolTip="{Binding TransferDisposeTime}"/>-->
 
 
                                 <TextBlock  Grid.Row="3" Grid.Column="0" Style="{StaticResource TextBlockLightStyle}"

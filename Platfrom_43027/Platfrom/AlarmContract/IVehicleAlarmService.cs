@@ -203,6 +203,13 @@ namespace Gsafety.PTMS.Alarm.Contract
         SingleMessage<TransferDispose> GetTransferDisposeByAlarmID(string AlarmID);
 
         /// <summary>
+        /// 获取警情处理状态
+        /// </summary>
+        /// <returns>获取警情处理状态</returns>
+        [OperationContract]
+        SingleMessage<int> GetTransferDisposeByAlarmID_CAD(string AlarmID);
+
+        /// <summary>
         /// 安装流程中检查报警
         /// </summary>
         /// <param name="installationDetailID"></param>

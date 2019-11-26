@@ -914,7 +914,7 @@
     <value>Basic Info of Owner</value>
   </data>
   <data name="BASEINFO_VehicleSN" xml:space="preserve">
-    <value>VIN</value>
+    <value>Chassis</value>
   </data>
   <data name="BASEINFO_VehicleStatus" xml:space="preserve">
     <value>Vehicle Condition</value>
@@ -1648,7 +1648,7 @@
     <value>Status</value>
   </data>
   <data name="FromDate" xml:space="preserve">
-    <value>From</value>
+    <value>Start Date</value>
   </data>
   <data name="FunctionChecking" xml:space="preserve">
     <value>Functional Check</value>
@@ -4391,7 +4391,7 @@
     <value>Engine No.</value>
   </data>
   <data name="MONITOR_VehicleZceShelf" xml:space="preserve">
-    <value>VIN</value>
+    <value>Chassis</value>
   </data>
   <data name="MONITOR_VIDEO" xml:space="preserve">
     <value>Daily Monitoring Video Function</value>
@@ -5906,7 +5906,7 @@
     <value>To </value>
   </data>
   <data name="ToDate" xml:space="preserve">
-    <value>To</value>
+    <value>End Date</value>
   </data>
   <data name="Total" xml:space="preserve">
     <value>Total</value>
@@ -6800,7 +6800,7 @@
     <value>Camera Fault</value>
   </data>
   <data name="VIN" xml:space="preserve">
-    <value>VIN</value>
+    <value>Chassis</value>
   </data>
   <data name="Violet" xml:space="preserve">
     <value>Violet</value>
@@ -7266,5 +7266,8 @@
   </data>
   <data name="WrongContent" xml:space="preserve">
     <value>Wrong Content</value>
+  </data>
+  <data name="ImageSizeError" xml:space="preserve">
+    <value>Image size cannot exceed 10M!</value>
   </data>
 </root>

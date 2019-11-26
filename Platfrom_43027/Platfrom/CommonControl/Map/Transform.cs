@@ -238,11 +238,11 @@ namespace Gsafety.Common
                 double ymax = double.Parse(latcon.ConvertBack(temp[3], null, null, null).ToString());
 
                 //3857地图
-                //ESRI.ArcGIS.Client.Geometry.MapPoint pt1 = GetProjCoord(xmin, ymin);
-                //ESRI.ArcGIS.Client.Geometry.MapPoint pt2 = GetProjCoord(xmax, ymax);
+                ESRI.ArcGIS.Client.Geometry.MapPoint pt1 = GetProjCoord(xmin, ymin);
+                ESRI.ArcGIS.Client.Geometry.MapPoint pt2 = GetProjCoord(xmax, ymax);
 
-                ESRI.ArcGIS.Client.Geometry.MapPoint pt1 = new ESRI.ArcGIS.Client.Geometry.MapPoint(xmin, ymin);
-                ESRI.ArcGIS.Client.Geometry.MapPoint pt2 = new ESRI.ArcGIS.Client.Geometry.MapPoint(xmax, ymax);
+                //ESRI.ArcGIS.Client.Geometry.MapPoint pt1 = new ESRI.ArcGIS.Client.Geometry.MapPoint(xmin, ymin);
+                //ESRI.ArcGIS.Client.Geometry.MapPoint pt2 = new ESRI.ArcGIS.Client.Geometry.MapPoint(xmax, ymax);
                 return new Envelope(pt1, pt2);
             }
 

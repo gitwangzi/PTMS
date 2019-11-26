@@ -45,8 +45,10 @@ namespace HistoryQueryManagement.ViewModels
             set
             {
                 _AlarmStartTime = value;
+                RaisePropertyChanged(() => this.AlarmStartTime);               
             }
         }
+     
         /// <summary>
         /// End Time
         /// </summary>
@@ -54,10 +56,12 @@ namespace HistoryQueryManagement.ViewModels
         {
             get { return _AlarmEndTime; }
             set
-            {
+            {                
                 if (value != null)
                 {
-                    _AlarmEndTime = new DateTime(value.Value.Year, value.Value.Month, value.Value.Day, 23, 59, 59);
+                    //_AlarmEndTime = new DateTime(value.Value.Year, value.Value.Month, value.Value.Day, 23, 59, 59); 
+                    _AlarmEndTime = value;
+                    RaisePropertyChanged(() => this.AlarmEndTime);                   
                 }
                 else
                 {
@@ -249,6 +253,7 @@ namespace HistoryQueryManagement.ViewModels
             VehicleAlarmServiceClient vehicleAlarmServiceClient = ServiceClientFactory.Create<VehicleAlarmServiceClient>();
             vehicleAlarmServiceClient.GetAllAlarmsCompleted += vehicleAlarmServiceClient_GetAllAlarmsCompleted;
             vehicleAlarmServiceClient.GetTransferDisposeByAlarmIDCompleted += vehicleAlarmServiceClient_GetTransferDisposeByAlarmIDCompleted;
+            vehicleAlarmServiceClient.GetTransferDisposeByAlarmID_CADCompleted += vehicleAlarmServiceClient_GetTransferDisposeByAlarmID_CADCompleted;
             vehicleAlarmServiceClient.GetApealDisposeByAlarmIDCompleted += vehicleAlarmServiceClient_GetApealDisposeByAlarmIDCompleted;
 
             return vehicleAlarmServiceClient;

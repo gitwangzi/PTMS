@@ -157,7 +157,7 @@ namespace Gs.PTMS.Service
             try
             {
 
-
+                ServicePointManager.ServerCertificateValidationCallback = (sender, certificate, chain, sslPolicyErrors) => true;
                 var httpwebrequest = (HttpWebRequest)WebRequest.Create(url);
                 httpwebrequest.ContentType = "application/json";
                 httpwebrequest.Method = "Get";
@@ -185,7 +185,7 @@ namespace Gs.PTMS.Service
             var result = string.Empty;
             try
             {
-
+                ServicePointManager.ServerCertificateValidationCallback = (sender, certificate, chain, sslPolicyErrors) => true;
                 var httpwebrequest = (HttpWebRequest)WebRequest.Create(url);
                 httpwebrequest.ContentType = "application/json";
                 httpwebrequest.Method = "POST";
@@ -575,6 +575,57 @@ namespace Gs.PTMS.Service
             {
                 Error(ex);
                 return new SingleMessage<TransferDispose>(false, ex);
+            }
+        }
+
+        public SingleMessage<int> GetTransferDisposeByAlarmID_CAD(string AlarmID)
+        {
+            Info("GetTransferDisposeByAlarmID_CAD");
+            Info(AlarmID.ToString());
+            try
+            {
+                SingleMessage<int> result = null;
+
+                string IncidentStateUrl = System.Configuration.ConfigurationManager.AppSettings["IncidentStateUrl"];
+
+                if (IncidentStateUrl != string.Empty)
+                {
+
+                    if (!IncidentStateUrl.EndsWith("/"))
+                    {
+                        IncidentStateUrl += "/";
+                    }
+                }
+
+                string stateinfo = GetDataAsync(IncidentStateUrl + AlarmID);
+
+                int status = 1;
+
+                if (!string.IsNullOrEmpty(stateinfo))
+                {
+                    if (Int32.TryParse(stateinfo,out status))
+                    {
+                        result = new SingleMessage<int>
+                        {
+                            IsSuccess=true,
+                            Result=status
+                        };
+                    
+                    }
+                    else
+                    { 
+                    
+                    }
+                }
+
+
+                Log<int>(result);
+                return result;
+            }
+            catch (Exception ex)
+            {
+                Error(ex);
+                return new SingleMessage<int>(false, ex);
             }
         }
 

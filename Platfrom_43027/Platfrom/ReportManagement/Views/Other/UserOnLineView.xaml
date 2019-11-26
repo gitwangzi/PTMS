@@ -1,4 +1,5 @@
 ﻿<UserControl xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"  
+              xmlns:toolkit="http://schemas.microsoft.com/winfx/2006/xaml/presentation/toolkit"
     x:Class="Gsafety.PTMS.ReportManager.Views.UserOnLineView"
                xmlns:Controls="clr-namespace:Gsafety.Common.Controls;assembly=CommonControls" 
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
@@ -38,7 +39,7 @@
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
 
-                <Grid Grid.Row="0" Style="{StaticResource SearchContentGridStyle}" Height="40">
+                <Grid Grid.Row="0" Style="{StaticResource SearchContentGridStyle}" Height="80">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="1.5*"/>
                         <ColumnDefinition Width="2*"/>
@@ -52,6 +53,7 @@
 
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
 
                     <TextBlock Text="{Binding [FromDate], Source={StaticResource SR}}" 
@@ -59,24 +61,42 @@
                                VerticalAlignment="Center"
                                 Grid.Column="0"
                                Margin="0,5,5,5"/>
-
                      <Controls:DatePickerEx    IsReadOnly="True"  Grid.Column="1" x:Name="dpStartTime" SelectedDate="{Binding BeginTime,Mode=TwoWay}"
                                     Margin="0,5,0,5"
                                     HorizontalAlignment="Stretch"
                                     Style="{StaticResource lightDatePicker}"
                                     VerticalAlignment="Center"/>
+                    <TextBlock Text="{Binding [StartTime],Source={StaticResource SR}}"
+                                           Margin="0,5,5,5" 
+                                           Grid.Column="2" Grid.Row="0"
+                                           HorizontalAlignment="Right" 
+                                           VerticalAlignment="Center"/>
+                    <toolkit:TimePicker  Format="Long" Value="{Binding BeginTime, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}" 
+                                    HorizontalAlignment="Stretch"
+                                    VerticalAlignment="Center"
+                                    Grid.Column="3" Grid.Row="0"
+                                    Margin="0,5,0,5"/>
 
                     <TextBlock Text="{Binding [ToDate], Source={StaticResource SR}}" 
-                               Grid.Column="2"
+                               Grid.Column="0" Grid.Row="1"
                                HorizontalAlignment="Right"
                                VerticalAlignment="Center"
                                Margin="0,5,5,5"/>
-
-                     <Controls:DatePickerEx    IsReadOnly="True"   Grid.Column="3" x:Name="dpEndTime"  SelectedDate="{Binding EndTime,Mode=TwoWay}"
-                                     Margin="0,5,5,5"
+                     <Controls:DatePickerEx    IsReadOnly="True"   Grid.Column="1" x:Name="dpEndTime"  SelectedDate="{Binding EndTime,Mode=TwoWay}"
+                                     Margin="0,5,0,5" Grid.Row="1"
                                      Style="{StaticResource lightDatePicker}"
                                      HorizontalAlignment="Stretch"
                                      VerticalAlignment="Center"/>
+                    <TextBlock Text="{Binding [EndTime],Source={StaticResource SR}}"
+                               Margin="0,5,5,5" Grid.Row="1" Grid.Column="2" 
+                               HorizontalAlignment="Right" 
+                               VerticalAlignment="Center"/>
+                    <toolkit:TimePicker  Format="Long" Value="{Binding EndTime, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}" 
+                                    HorizontalAlignment="Stretch"
+                                    VerticalAlignment="Center"
+                                    Grid.Row="1" 
+                                    Grid.Column="3" 
+                                    Margin="0,5,0,5"/>
 
 
                     <Button Grid.Column="4"

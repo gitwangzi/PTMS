@@ -192,9 +192,9 @@ namespace GisManagement.ViewModels
                         string templon = loncon.ConvertBack(args.Longitude, null, null, null).ToString();
                         string templat = latcon.ConvertBack(args.Latitude, null, null, null).ToString();
                         //3857地图
-                        //ESRI.ArcGIS.Client.Geometry.MapPoint pt = VechileMemDataOperate.GetProjCoord(double.Parse(templon), double.Parse(templat));
+                        ESRI.ArcGIS.Client.Geometry.MapPoint pt = VechileMemDataOperate.GetProjCoord(double.Parse(templon), double.Parse(templat));
 
-                        ESRI.ArcGIS.Client.Geometry.MapPoint pt =  new ESRI.ArcGIS.Client.Geometry.MapPoint(double.Parse(templon), double.Parse(templat));
+                        //ESRI.ArcGIS.Client.Geometry.MapPoint pt =  new ESRI.ArcGIS.Client.Geometry.MapPoint(double.Parse(templon), double.Parse(templat));
                         newpts.Add(pt);
 
                         //if (ind == 0)
@@ -802,9 +802,9 @@ namespace GisManagement.ViewModels
                             //car.onGetNextPointEvent = GetNextValidPoint;
 
                             //3857地图
-                            //MapPoint ptPro = VechileMemDataOperate.GetProjCoord(dx, dy);
+                            MapPoint ptPro = VechileMemDataOperate.GetProjCoord(dx, dy);
 
-                            MapPoint ptPro = new MapPoint(dx, dy);
+                            //MapPoint ptPro = new MapPoint(dx, dy);
                             MonitorList.GpsHisDataSingleVechileElements.AddCars(car, ptPro);
 
                             car.RecDateTime = CurrentSelectedHisDataStore.GPSLst[i].GpsTime.ToString();
@@ -888,9 +888,9 @@ namespace GisManagement.ViewModels
                     _HisDataCar.RefreshDisplay();
 
                     //3857地图
-                   // pt = VechileMemDataOperate.GetProjCoord(double.Parse(templon), double.Parse(templat));
+                    pt = VechileMemDataOperate.GetProjCoord(double.Parse(templon), double.Parse(templat));
 
-                    pt = new MapPoint(double.Parse(templon), double.Parse(templat));
+                    //pt = new MapPoint(double.Parse(templon), double.Parse(templat));
 
                     TraceCar(templon, templat);
                     return;
@@ -1018,9 +1018,9 @@ namespace GisManagement.ViewModels
                 double lslon = double.Parse(car.Lon);
                 double lslat = double.Parse(car.Lat);
                 //3857地图
-                //ESRI.ArcGIS.Client.Geometry.MapPoint pt = VechileMemDataOperate.GetProjCoord(lslon, lslat);
+                ESRI.ArcGIS.Client.Geometry.MapPoint pt = VechileMemDataOperate.GetProjCoord(lslon, lslat);
 
-                ESRI.ArcGIS.Client.Geometry.MapPoint pt = new ESRI.ArcGIS.Client.Geometry.MapPoint(lslon, lslat);
+                //ESRI.ArcGIS.Client.Geometry.MapPoint pt = new ESRI.ArcGIS.Client.Geometry.MapPoint(lslon, lslat);
 
 
                 ESRI.ArcGIS.Client.Geometry.Envelope env = ElementLayer.GetEnvelope(car);
@@ -1061,8 +1061,8 @@ namespace GisManagement.ViewModels
         public void HandleEvent(ShowGpsHisSinglePointInfo publishedEvent)
         {
             //3857地图
-            //MapPoint ptNew = VechileMemDataOperate.GetGeoCoord(publishedEvent.PX, publishedEvent.PY);
-            MapPoint ptNew =  new MapPoint(publishedEvent.PX, publishedEvent.PY);
+            MapPoint ptNew = VechileMemDataOperate.GetGeoCoord(publishedEvent.PX, publishedEvent.PY);
+            //MapPoint ptNew =  new MapPoint(publishedEvent.PX, publishedEvent.PY);
             GetMouseLeftDownPoint(ptNew.X, ptNew.Y, publishedEvent.Visble);
         }
     }

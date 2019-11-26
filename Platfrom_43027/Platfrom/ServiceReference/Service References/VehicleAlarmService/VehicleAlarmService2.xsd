@@ -293,6 +293,20 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="GetTransferDisposeByAlarmID_CAD">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AlarmID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTransferDisposeByAlarmID_CADResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" minOccurs="0" name="GetTransferDisposeByAlarmID_CADResult" nillable="true" type="q27:SingleMessageOfint" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="GetAlarmCheck">
     <xs:complexType>
       <xs:sequence>
@@ -304,21 +318,21 @@
   <xs:element name="GetAlarmCheckResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" minOccurs="0" name="GetAlarmCheckResult" nillable="true" type="q27:SingleMessageOfboolean" />
+        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" minOccurs="0" name="GetAlarmCheckResult" nillable="true" type="q28:SingleMessageOfboolean" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="InsertManualAlarm">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Common.Data" minOccurs="0" name="alarminfo" nillable="true" type="q28:ManualAlarmInfo" />
+        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Common.Data" minOccurs="0" name="alarminfo" nillable="true" type="q29:ManualAlarmInfo" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="InsertManualAlarmResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" minOccurs="0" name="InsertManualAlarmResult" nillable="true" type="q29:SingleMessageOfAlarmInfoExi7Zg_POJ5" />
+        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" minOccurs="0" name="InsertManualAlarmResult" nillable="true" type="q30:SingleMessageOfAlarmInfoExi7Zg_POJ5" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

@@ -172,7 +172,16 @@ namespace Gsafety.Ant.Monitor.ViewModels
                                 }
                                
                             }
+
+                            if (item.GroupVehicle != null && item.GroupName == value.GroupName)
+                            {
+                                foreach (var car in item.GroupVehicle)
+                                {
+                                    AddallDataElement(car.VehicleId);
+                                }
+                            }
                         }
+
                         
                     }
                     else
@@ -420,6 +429,44 @@ namespace Gsafety.Ant.Monitor.ViewModels
                             MonitorGPS(td.VehicleId, td.Orgnization, true, td.HasAlarm, td.HasAlert);
                         }                       
 
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                ApplicationContext.Instance.Logger.LogException(MethodBase.GetCurrentMethod().ToString(), ex);
+            }
+        }
+
+        private void AddallDataElement(string VehicleId)
+        {
+            try
+            {
+                foreach (var ve in ApplicationContext.Instance.BufferManager.VehicleOrganizationManage.VehicleList)
+                {
+                    if (ve.VehicleId == VehicleId)
+                    {
+                        LocateCar(ve.VehicleId);
+
+
+                        if (ve != null)
+                        {
+                            TableDataElement td = new TableDataElement();
+                            td.VehicleId = ve.VehicleId;
+                            td.UniqueId = ve.UniqueId;
+
+                            td.Orgnization = GetOrganizationName(td.VehicleId);
+                            td.VehicleInfo = ve;
+
+                            td.HasAlarm = ApplicationContext.Instance.BufferManager.AlarmManager.HasAlarm(td.VehicleId);
+                            td.HasAlert = ApplicationContext.Instance.BufferManager.VehicleAlertManager.HasAlert(td.VehicleId);
+
+                            if (_FirstInitGISDisplayFromMonitorList)
+                            {
+                                MonitorGPS(td.VehicleId, td.Orgnization, true, td.HasAlarm, td.HasAlert);
+                            }
+
+                        }
                     }
                 }
             }

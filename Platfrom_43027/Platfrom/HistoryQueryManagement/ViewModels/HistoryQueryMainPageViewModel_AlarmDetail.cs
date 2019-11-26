@@ -445,6 +445,46 @@ namespace HistoryQueryManagement.ViewModels
             }
         }
 
+        void vehicleAlarmServiceClient_GetTransferDisposeByAlarmID_CADCompleted(object sender, GetTransferDisposeByAlarmID_CADCompletedEventArgs e)
+        {
+            try
+            {
+                if (e.Error == null)
+                {
+                    if (e.Result.IsSuccess)
+                    {
+                        this.DisposeStatus = e.Result.Result.ToString() ;                       
+                       
+                    }
+                    else
+                    {
+                        if (string.IsNullOrEmpty(e.Result.ErrorMsg))
+                        {
+                            MessageBoxHelper.ShowDialog(ApplicationContext.Instance.StringResourceReader.GetString(LProxy.Caption), ApplicationContext.Instance.StringResourceReader.GetString(LProxy.OperatorServiceError));
+                        }
+                        else
+                        {
+                            MessageBoxHelper.ShowDialog(ApplicationContext.Instance.StringResourceReader.GetString(LProxy.Caption), ApplicationContext.Instance.StringResourceReader.GetString(e.Result.ErrorMsg));
+                        }
+                    }
+                }
+
+                else
+                {
+                    MessageBoxHelper.ShowDialog(ApplicationContext.Instance.StringResourceReader.GetString(LProxy.Caption), ApplicationContext.Instance.StringResourceReader.GetString(LProxy.ServerError));
+                }
+            }
+            catch (Exception ex)
+            {
+                ApplicationContext.Instance.Logger.LogException("vehicleAlarmServiceClient_GetTransferDisposeByAlarmID_CADCompleted", ex);
+
+            }
+            finally
+            {
+                CloseClient(sender);
+            }
+        }
+
         void vehicleAlarmServiceClient_GetTransferDisposeByAlarmIDCompleted(object sender, GetTransferDisposeByAlarmIDCompletedEventArgs e)
         {
             try
@@ -589,7 +629,8 @@ namespace HistoryQueryManagement.ViewModels
                 if (alarmInfo.TransferStatus != 0)
                 {
                     VehicleAlarmServiceClient vehicleAlarmServiceClient = InitialAlarmClient();
-                    vehicleAlarmServiceClient.GetTransferDisposeByAlarmIDAsync(alarmInfo.ID);
+                   // vehicleAlarmServiceClient.GetTransferDisposeByAlarmIDAsync(alarmInfo.ID);
+                     vehicleAlarmServiceClient.GetTransferDisposeByAlarmID_CADAsync(alarmInfo.ID);
                 }
 
                 if (this.client == null)

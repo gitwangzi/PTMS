@@ -30,7 +30,7 @@ namespace Gsafety.PTMS.Report.Repository
     {
         public ReportWhereInfo()
         {
-            DataFromat = Thread.CurrentThread.CurrentCulture.DateTimeFormat.ShortDatePattern;
+            DataFromat = Thread.CurrentThread.CurrentCulture.DateTimeFormat.LongDatePattern;
             Language = System.Threading.Thread.CurrentThread.CurrentCulture.Name;
         }
         /// <summary>

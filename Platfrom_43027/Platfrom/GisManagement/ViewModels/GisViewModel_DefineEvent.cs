@@ -103,9 +103,9 @@ namespace GisManagement.ViewModels
                         case MapEventArgs.MapOperatePanTo://pan to
                             {
                                 //3857地图
-                                //ESRI.ArcGIS.Client.Geometry.MapPoint pt = VechileMemDataOperate.GetProjCoord((publishedEvent as LocateEventArgs).Lon, (publishedEvent as LocateEventArgs).Lat);
+                                ESRI.ArcGIS.Client.Geometry.MapPoint pt = VechileMemDataOperate.GetProjCoord((publishedEvent as LocateEventArgs).Lon, (publishedEvent as LocateEventArgs).Lat);
 
-                                ESRI.ArcGIS.Client.Geometry.MapPoint pt =new  ESRI.ArcGIS.Client.Geometry.MapPoint((publishedEvent as LocateEventArgs).Lon, (publishedEvent as LocateEventArgs).Lat);
+                                //ESRI.ArcGIS.Client.Geometry.MapPoint pt =new  ESRI.ArcGIS.Client.Geometry.MapPoint((publishedEvent as LocateEventArgs).Lon, (publishedEvent as LocateEventArgs).Lat);
                                 
                                 MyMap.PanTo(pt);
                                 if (MyMap.Extent != null) MyMap.Extent = MyMap.Extent.Expand(1.001);
@@ -115,10 +115,10 @@ namespace GisManagement.ViewModels
                         case MapEventArgs.MapOperateLocate://locate 
                             {
                                 //3857地图
-                                //ESRI.ArcGIS.Client.Geometry.MapPoint pt = VechileMemDataOperate.GetProjCoord((publishedEvent as LocateEventArgs).Lon, (publishedEvent as LocateEventArgs).Lat);
+                                ESRI.ArcGIS.Client.Geometry.MapPoint pt = VechileMemDataOperate.GetProjCoord((publishedEvent as LocateEventArgs).Lon, (publishedEvent as LocateEventArgs).Lat);
                                 //If the map scale is not big enough, then zoom in to a specified percentage
 
-                                ESRI.ArcGIS.Client.Geometry.MapPoint pt = new ESRI.ArcGIS.Client.Geometry.MapPoint((publishedEvent as LocateEventArgs).Lon, (publishedEvent as LocateEventArgs).Lat);
+                                //ESRI.ArcGIS.Client.Geometry.MapPoint pt = new ESRI.ArcGIS.Client.Geometry.MapPoint((publishedEvent as LocateEventArgs).Lon, (publishedEvent as LocateEventArgs).Lat);
                                 
                                 string strLocal = ApplicationContext.Instance.ServerConfig.AutoLocateResolution;
                                 strLocal = strLocal.Replace(".", System.Threading.Thread.CurrentThread.CurrentCulture.NumberFormat.CurrencyDecimalSeparator);
@@ -145,10 +145,10 @@ namespace GisManagement.ViewModels
                                 if ((gpscar != null) && (gpscar.Lon != null) && (gpscar.Lat != null) && (gpscar.Lat != "") && (gpscar.Lon != ""))
                                 {
                                     //3857地图
-                                    //ESRI.ArcGIS.Client.Geometry.MapPoint pt = VechileMemDataOperate.GetProjCoord(double.Parse(gpscar.Lon), double.Parse(gpscar.Lat));
+                                    ESRI.ArcGIS.Client.Geometry.MapPoint pt = VechileMemDataOperate.GetProjCoord(double.Parse(gpscar.Lon), double.Parse(gpscar.Lat));
                                     gpscar.AlertFlag = ApplicationContext.Instance.BufferManager.VehicleAlertManager.HasAlert(gpscar.CarNo);
                                     gpscar.AlarmFlag = ApplicationContext.Instance.BufferManager.AlarmManager.HasAlarm(gpscar.CarNo);
-                                    ESRI.ArcGIS.Client.Geometry.MapPoint pt = new ESRI.ArcGIS.Client.Geometry.MapPoint(double.Parse(gpscar.Lon), double.Parse(gpscar.Lat));
+                                   // ESRI.ArcGIS.Client.Geometry.MapPoint pt = new ESRI.ArcGIS.Client.Geometry.MapPoint(double.Parse(gpscar.Lon), double.Parse(gpscar.Lat));
 
 
                                     var vehicleInfo = ApplicationContext.Instance.BufferManager.VehicleOrganizationManage.VehicleList.FirstOrDefault(t => t.VehicleId == gpscar.CarNo);
@@ -196,8 +196,8 @@ namespace GisManagement.ViewModels
                                 if ((gpscar != null) && (gpscar.Lon != null) && (gpscar.Lat != null) && (gpscar.Lat != "") && (gpscar.Lon != ""))
                                 {
                                     //3857地图
-                                    //ESRI.ArcGIS.Client.Geometry.MapPoint pt = VechileMemDataOperate.GetProjCoord(double.Parse(gpscar.Lon), double.Parse(gpscar.Lat));
-                                    ESRI.ArcGIS.Client.Geometry.MapPoint pt = new ESRI.ArcGIS.Client.Geometry.MapPoint(double.Parse(gpscar.Lon), double.Parse(gpscar.Lat));
+                                    ESRI.ArcGIS.Client.Geometry.MapPoint pt = VechileMemDataOperate.GetProjCoord(double.Parse(gpscar.Lon), double.Parse(gpscar.Lat));
+                                    //ESRI.ArcGIS.Client.Geometry.MapPoint pt = new ESRI.ArcGIS.Client.Geometry.MapPoint(double.Parse(gpscar.Lon), double.Parse(gpscar.Lat));
 
                                     ESRI.ArcGIS.Client.Geometry.Envelope env = new ESRI.ArcGIS.Client.Geometry.Envelope(pt.X - 10, pt.Y - 10, pt.X + 10, pt.Y + 10);
                                     double dis = MyMap.Extent.Width / 2;
@@ -217,8 +217,8 @@ namespace GisManagement.ViewModels
                                 isLocate = true;
 
                                 //3857地图
-                                //ESRI.ArcGIS.Client.Geometry.MapPoint pt = VechileMemDataOperate.GetProjCoord((publishedEvent as LocateEventArgs).Lon, (publishedEvent as LocateEventArgs).Lat);
-                                ESRI.ArcGIS.Client.Geometry.MapPoint pt = new ESRI.ArcGIS.Client.Geometry.MapPoint((publishedEvent as LocateEventArgs).Lon, (publishedEvent as LocateEventArgs).Lat);
+                                ESRI.ArcGIS.Client.Geometry.MapPoint pt = VechileMemDataOperate.GetProjCoord((publishedEvent as LocateEventArgs).Lon, (publishedEvent as LocateEventArgs).Lat);
+                                //ESRI.ArcGIS.Client.Geometry.MapPoint pt = new ESRI.ArcGIS.Client.Geometry.MapPoint((publishedEvent as LocateEventArgs).Lon, (publishedEvent as LocateEventArgs).Lat);
 
                                 ESRI.ArcGIS.Client.Geometry.Envelope env = new ESRI.ArcGIS.Client.Geometry.Envelope(pt.X - 10, pt.Y - 10, pt.X + 10, pt.Y + 10);
                                 double dis = MyMap.Extent.Width / 2;

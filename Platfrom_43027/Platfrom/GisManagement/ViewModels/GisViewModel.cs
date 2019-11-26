@@ -489,10 +489,10 @@ namespace GisManagement.ViewModels
                     double xmax = double.Parse(loncon.ConvertBack(temp[2], null, null, null).ToString());
                     double ymax = double.Parse(latcon.ConvertBack(temp[3], null, null, null).ToString());
                     //3857地图
-                    //ESRI.ArcGIS.Client.Geometry.MapPoint pt1 = GpsCarListViewModel.GetProjCoord(xmin, ymin);
-                    //ESRI.ArcGIS.Client.Geometry.MapPoint pt2 = GpsCarListViewModel.GetProjCoord(xmax, ymax);
-                    ESRI.ArcGIS.Client.Geometry.MapPoint pt1 = new ESRI.ArcGIS.Client.Geometry.MapPoint(xmin, ymin);
-                    ESRI.ArcGIS.Client.Geometry.MapPoint pt2 = new ESRI.ArcGIS.Client.Geometry.MapPoint(xmax, ymax);
+                    ESRI.ArcGIS.Client.Geometry.MapPoint pt1 = GpsCarListViewModel.GetProjCoord(xmin, ymin);
+                    ESRI.ArcGIS.Client.Geometry.MapPoint pt2 = GpsCarListViewModel.GetProjCoord(xmax, ymax);
+                    //ESRI.ArcGIS.Client.Geometry.MapPoint pt1 = new ESRI.ArcGIS.Client.Geometry.MapPoint(xmin, ymin);
+                    //ESRI.ArcGIS.Client.Geometry.MapPoint pt2 = new ESRI.ArcGIS.Client.Geometry.MapPoint(xmax, ymax);
                
 
 

@@ -847,7 +847,7 @@
     <value>车主基本信息</value>
   </data>
   <data name="BASEINFO_VehicleSN" xml:space="preserve">
-    <value>车架号</value>
+    <value>底盘</value>
   </data>
   <data name="BASEINFO_VehicleStatus" xml:space="preserve">
     <value>车况</value>
@@ -3419,7 +3419,7 @@
     <value>发动机号</value>
   </data>
   <data name="MONITOR_VehicleZceShelf" xml:space="preserve">
-    <value>车架号</value>
+    <value>底盘</value>
   </data>
   <data name="MONITOR_VIDEO" xml:space="preserve">
     <value>日常监控视频功能</value>
@@ -4994,7 +4994,7 @@
     <value>车辆组织机构管理</value>
   </data>
   <data name="VIN" xml:space="preserve">
-    <value>车架号</value>
+    <value>底盘</value>
   </data>
   <data name="YearLimit" xml:space="preserve">
     <value>年限</value>
@@ -6311,10 +6311,10 @@
     <value>设备编号</value>
   </data>
   <data name="FromDate" xml:space="preserve">
-    <value>开始时间</value>
+    <value>开始日期</value>
   </data>
   <data name="ToDate" xml:space="preserve">
-    <value>结束时间</value>
+    <value>结束日期</value>
   </data>
   <data name="AccountList" xml:space="preserve">
     <value>客户列表</value>
@@ -7166,5 +7166,8 @@
   </data>
   <data name="WrongContent" xml:space="preserve">
     <value>错误内容</value>
+  </data>
+  <data name="ImageSizeError" xml:space="preserve">
+    <value>图片大小不能超过10M!</value>
   </data>
 </root>

@@ -270,9 +270,11 @@ namespace GisManagement.ViewModels
                 {
                     double lslon = double.Parse(car.Lon);
                     double lslat = double.Parse(car.Lat);
-                    //pt = GetProjCoord(lslon, lslat);
 
-                    pt = new ESRI.ArcGIS.Client.Geometry.MapPoint(lslon, lslat);
+                    //3857地图
+                    pt = GetProjCoord(lslon, lslat);
+
+                    //pt = new ESRI.ArcGIS.Client.Geometry.MapPoint(lslon, lslat);
                 }
                 else
                 {
@@ -341,10 +343,10 @@ namespace GisManagement.ViewModels
 
                     car.HasDraw = true;
                     //If the current concern, and is currently displayed mode, the track
-                    if (car.IsTracked)
-                    {
-                        _EventAggregator.Publish<LocateEventArgs>(new LocateEventArgs() { VE = csVE, Operate = MapEventArgs.MapOperateTraceCar, Lat = double.Parse(car.Lat), Lon = double.Parse(car.Lon) });
-                    }
+                    //if (car.IsTracked)
+                    //{
+                    //    _EventAggregator.Publish<LocateEventArgs>(new LocateEventArgs() { VE = csVE, Operate = MapEventArgs.MapOperateTraceCar, Lat = double.Parse(car.Lat), Lon = double.Parse(car.Lon) });
+                    //}
                 }
             }
             catch (Exception ee)

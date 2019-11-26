@@ -1136,8 +1136,8 @@
     <comment>Información básica del dueño del vehículo</comment>
   </data>
   <data name="BASEINFO_VehicleSN" xml:space="preserve">
-    <value>Número de chasis</value>
-    <comment>Número de chasis</comment>
+    <value>Chasis</value>
+    <comment>Chasis</comment>
   </data>
   <data name="BASEINFO_VehicleStatus" xml:space="preserve">
     <value>Estado de vehículo</value>
@@ -5641,8 +5641,8 @@
     <comment>Número de motor</comment>
   </data>
   <data name="MONITOR_VehicleZceShelf" xml:space="preserve">
-    <value>Número de chasis</value>
-    <comment>Número de chasis</comment>
+    <value>Chasis</value>
+    <comment>Chasis</comment>
   </data>
   <data name="MONITOR_VIDEO" xml:space="preserve">
     <value>Función de video de monitoreo cotidiano</value>
@@ -9101,8 +9101,8 @@ luego puede eliminar la ruta!</comment>
     <comment>Avería de cámara</comment>
   </data>
   <data name="VIN" xml:space="preserve">
-    <value>VIN</value>
-    <comment>VIN</comment>
+    <value>Chasis</value>
+    <comment>Chasis</comment>
   </data>
   <data name="VIN1" xml:space="preserve">
     <value>VIN</value>
@@ -9305,8 +9305,8 @@ luego puede eliminar la ruta!</comment>
     <comment>Duración</comment>
   </data>
   <data name="FromDate" xml:space="preserve">
-    <value>Desde</value>
-    <comment>Desde</comment>
+    <value>Fecha de inicio</value>
+    <comment>Fecha de inicio</comment>
   </data>
   <data name="IsTurnAlarm" xml:space="preserve">
     <value>Transferir</value>
@@ -9329,8 +9329,8 @@ luego puede eliminar la ruta!</comment>
     <comment>Lista de accesorio</comment>
   </data>
   <data name="ToDate" xml:space="preserve">
-    <value>Hasta</value>
-    <comment>Hasta</comment>
+    <value>Fecha de finalización</value>
+    <comment>Fecha de finalización</comment>
   </data>
   <data name="TurnAlarmMode" xml:space="preserve">
     <value>Transferir</value>
@@ -9898,5 +9898,9 @@ luego puede eliminar la ruta!</comment>
   <data name="WrongContent" xml:space="preserve">
     <value>Contenido incorrecto</value>
     <comment>Contenido incorrecto</comment>
+  </data>
+  <data name="ImageSizeError" xml:space="preserve">
+    <value>El tamaño de la imagen no puede exceder los 10M!</value>
+    <comment>El tamaño de la imagen no puede exceder los 10M!</comment>
   </data>
 </root>

@@ -333,7 +333,7 @@
     <Resource Include="Image\CarMonitorAlert.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Image\CarAlarmAlert.png" />
+    <Resource Include="Image\CarAlarmAlert_offline.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Image\BusAlarmAlert.png" />
@@ -348,6 +348,10 @@
     <Resource Include="Image\LongDistanceBusAlert.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Image\Car_offline.png" />
+    <Resource Include="Image\CarAlert_offline.png" />
+    <Resource Include="Image\CarAlarm_offline.png" />
+    <Resource Include="Image\CarAlarmAlert.png" />
     <Resource Include="Image\Polygon.png" />
     <Resource Include="Image\Rectangle.png" />
     <Resource Include="Image\Circle.png" />

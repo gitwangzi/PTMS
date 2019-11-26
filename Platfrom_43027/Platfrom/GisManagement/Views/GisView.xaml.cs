@@ -413,8 +413,8 @@ namespace GisManagement.Views
                 {
                     MapPoint point = e.Geometry as MapPoint;
                     //3857地图
-                    //MapPoint geoPt = GpsCarListViewModel.GetGeoCoord(point.X, point.Y);
-                    MapPoint geoPt = point;
+                    MapPoint geoPt = GpsCarListViewModel.GetGeoCoord(point.X, point.Y);
+                    //MapPoint geoPt = point;
                     TextSymbol textSymbol = new TextSymbol
                     {
                         FontSize = 12,
@@ -573,10 +573,12 @@ namespace GisManagement.Views
             MapPoint mapPoint = MyMap.ScreenToMap(pt);
             if (mapPoint != null)
             {
-                MapPoint geoPt = mapPoint;
+                //3857地图
+                //MapPoint geoPt = mapPoint;
+                MapPoint geoPt = GpsCarListViewModel.GetGeoCoord(mapPoint.X, mapPoint.Y);
                 DisplayLonConvert loncon = new DisplayLonConvert();
                 DisplayLatConvert latcon = new DisplayLatConvert();
-
+               
                 if (geoPt != null)
                 {
                     CoordTip.Text = "WGS:" + loncon.ConvertToWESN(geoPt.X, null, null, null).ToString() + "  " + latcon.ConvertToWESN(geoPt.Y, null, null, null).ToString();
@@ -1742,18 +1744,18 @@ namespace GisManagement.Views
                     GpsCar newele = (ele as GpsCar).ConleGPSCar();
 
                     //3857地图
-                    //ESRI.ArcGIS.Client.Geometry.MapPoint pt = VechileMemDataOperate.GetProjCoord(0, 0);
+                    ESRI.ArcGIS.Client.Geometry.MapPoint pt = VechileMemDataOperate.GetProjCoord(0, 0);
 
 
-                    ESRI.ArcGIS.Client.Geometry.MapPoint pt = new ESRI.ArcGIS.Client.Geometry.MapPoint(0, 0);
+                    //ESRI.ArcGIS.Client.Geometry.MapPoint pt = new ESRI.ArcGIS.Client.Geometry.MapPoint(0, 0);
                     if ((newele.Lat != null) && (newele.Lon != null) && (newele.Lat != "") && (newele.Lon != ""))
                     {
                         double lslon = double.Parse(newele.Lon);
                         double lslat = double.Parse(newele.Lat);
                         //3857地图
-                        //pt = VechileMemDataOperate.GetProjCoord(lslon, lslat);
+                        pt = VechileMemDataOperate.GetProjCoord(lslon, lslat);
 
-                        pt = new MapPoint(lslon, lslat);
+                        //pt = new MapPoint(lslon, lslat);
                     }
                     ElementLayer.SetEnvelope(newele, new ESRI.ArcGIS.Client.Geometry.Envelope(pt, pt));
                     printLayer.Children.Add(newele);

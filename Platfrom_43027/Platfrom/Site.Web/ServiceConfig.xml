@@ -74,14 +74,14 @@
   <add key="UsrDepartmentClient" value="http://localhost:2259/AccountService.svc"/>
   <add key="UserOnlineClient" value="http://localhost:2259/AccountService.svc"/>
   <add key="OrganizationClient" value="http://localhost:2259/OrganizationService.svc"/>
-  <add key="ReportServiceClient" value="http://172.16.80.40:2038/ReportService.svc"/>
+  <add key="ReportServiceClient" value="http://localhost:2038/ReportService.svc"/>
   <add key="OrderClientServiceClient" value="http://localhost:2259/OrderClientService.svc"></add>
   <add key="BscDevSuiteServiceClient" value="http://localhost:2259/BscDevSuiteService.svc"></add>
   <add key="BscDevSuitePartServiceClient" value="http://localhost:2259/BscDevSuiteService.svc"></add>
   <add key="RunMonitorGroupServiceClient" value="http://localhost:2259/RunMonitorGroupService.svc"></add>
   <!--DevGps -->
   <add key="DevGpsServiceClient" value="http://localhost:2259/DevGpsService.svc"></add>
-  <add key="MessageServiceExtClient" value="net.tcp://172.16.80.40:4503/MessageService"></add>
+  <add key="MessageServiceExtClient" value="net.tcp://10.10.12.14:4503/MessageService"></add>
   <!--GIS About Service-->
   <add key="BscGeoPoiServiceClient" value="http://localhost:2259/BscGeoPoiService.svc"></add>
   <!--FoundRegistry -->

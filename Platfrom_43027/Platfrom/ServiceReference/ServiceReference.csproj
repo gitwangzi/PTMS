@@ -1370,6 +1370,9 @@
     <None Include="Service References\VehicleAlarmService\Gsafety.PTMS.ServiceReference.VehicleAlarmService.SingleMessageOfboolean.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Service References\VehicleAlarmService\Gsafety.PTMS.ServiceReference.VehicleAlarmService.SingleMessageOfint.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\VehicleAlarmService\Gsafety.PTMS.ServiceReference.VehicleAlarmService.SingleMessageOfTransferDisposei7Zg_POJ5.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>

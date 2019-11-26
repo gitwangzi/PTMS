@@ -11,6 +11,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
 using System.Net.Http;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web.Http;
@@ -209,6 +210,7 @@ namespace Gsafety.PTMS.TransferLib
                                         appealmodel.creatTime = DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss");                                        
                                         
                                         HttpClient client = new HttpClient();
+                                        ServicePointManager.ServerCertificateValidationCallback = (sendern, certificate, chain, sslPolicyErrors) => true;
                                         var hrm = client.PostAsJsonAsync(url, appealmodel).Result;
                                         if (hrm.IsSuccessStatusCode)
                                         {
@@ -358,6 +360,7 @@ namespace Gsafety.PTMS.TransferLib
 
                                         LoggerManager.Logger.Info(JsonConvert.SerializeObject(appealmodel));
                                         HttpClient client = new HttpClient();
+                                        ServicePointManager.ServerCertificateValidationCallback = (sendern, certificate, chain, sslPolicyErrors) => true;
                                         var hrm = client.PostAsJsonAsync(url, appealmodel).Result;
                                         if (hrm.IsSuccessStatusCode)
                                         {

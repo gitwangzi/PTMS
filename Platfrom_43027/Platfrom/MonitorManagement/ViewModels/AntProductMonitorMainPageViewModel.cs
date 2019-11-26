@@ -32,6 +32,7 @@ using System.Reflection;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Linq;
 //using Gsafety.PTMS.ServiceReference.TrafficManageService;
 
 namespace Gsafety.Ant.Monitor.ViewModels
@@ -45,6 +46,7 @@ namespace Gsafety.Ant.Monitor.ViewModels
         IEventSink<AlarmHandleResult>,
         IEventSink<AlarmCountChange>,
         IEventSink<AlertHandleResult>,
+        IEventSink<GisFixChangeRoute>,
         IEventSink<AlertGisArgs>
     {
         #region Public Attributes
@@ -754,6 +756,7 @@ namespace Gsafety.Ant.Monitor.ViewModels
             EventAggregator.SubscribeOnDispatcher<AlarmCountChange>(this);
             EventAggregator.SubscribeOnDispatcher<AlertHandleResult>(this);
             EventAggregator.SubscribeOnDispatcher<AlertGisArgs>(this);
+            EventAggregator.SubscribeOnDispatcher<GisFixChangeRoute>(this);
         }
 
         public void HandleEvent(UpdateOjectStatusNoMarkArgs publishedEvent)
@@ -769,6 +772,26 @@ namespace Gsafety.Ant.Monitor.ViewModels
                         {
                             v.ElectricFence = false;
                         }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                ApplicationContext.Instance.Logger.LogException(MethodBase.GetCurrentMethod().ToString(), ex);
+            }
+        }
+
+        public void HandleEvent(GisFixChangeRoute publishedEvent)
+        {
+            try
+            {
+                if (publishedEvent != null && publishedEvent.VechileId!= null)
+                {
+                    
+                    VehicleEx SelectVehicle = VehicleTreeFactory.VehicleList.FirstOrDefault(t => t.VehicleId == publishedEvent.VechileId);
+                    if (SelectVehicle!=null)
+                    {
+                        MonitorTreeSelectVehicle = SelectVehicle;
                     }
                 }
             }

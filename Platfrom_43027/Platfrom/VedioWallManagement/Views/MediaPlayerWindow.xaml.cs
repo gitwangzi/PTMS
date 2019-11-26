@@ -228,9 +228,9 @@ namespace Gsafety.PTMS.VideoManagement.Views
                         double lslat = double.Parse(_HisDataCar.Lat);
 
                         //3857地图
-                        //MapPoint pt = GetProjCoord(lslon, lslat);
+                        MapPoint pt = GetProjCoord(lslon, lslat);
 
-                        MapPoint pt = new MapPoint(lslon, lslat);
+                        //MapPoint pt = new MapPoint(lslon, lslat);
                         ElementLayer.SetEnvelope(_HisDataCar, new ESRI.ArcGIS.Client.Geometry.Envelope(pt, pt));
                     }
                     //MyMap.PanTo(pt);
@@ -428,9 +428,9 @@ namespace Gsafety.PTMS.VideoManagement.Views
                         string templat = latcon.ConvertBack(args.Latitude, null, null, null).ToString();
 
                         //3857地图
-                        //ESRI.ArcGIS.Client.Geometry.MapPoint pt = GetProjCoord(double.Parse(templon), double.Parse(templat));
+                        ESRI.ArcGIS.Client.Geometry.MapPoint pt = GetProjCoord(double.Parse(templon), double.Parse(templat));
 
-                        ESRI.ArcGIS.Client.Geometry.MapPoint pt = new  ESRI.ArcGIS.Client.Geometry.MapPoint(double.Parse(templon), double.Parse(templat));
+                        //ESRI.ArcGIS.Client.Geometry.MapPoint pt = new  ESRI.ArcGIS.Client.Geometry.MapPoint(double.Parse(templon), double.Parse(templat));
 
                         newpts.Add(pt);
 

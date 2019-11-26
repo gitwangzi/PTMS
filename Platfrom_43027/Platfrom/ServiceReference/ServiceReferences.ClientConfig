@@ -405,9 +405,6 @@
         <endpoint address="http://172.16.80.40:2258/AccountService.svc"
             binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IUserOnline"
             contract="AccountService.IUserOnline" name="BasicHttpBinding_IUserOnline" />
-        <endpoint address="http://localhost:2259/VehicleAlarmService.svc"
-            binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IVehicleAlarmService"
-            contract="VehicleAlarmService.IVehicleAlarmService" name="BasicHttpBinding_IVehicleAlarmService" />
         <endpoint address="http://localhost:2259/EmailService.svc" binding="basicHttpBinding"
             bindingConfiguration="BasicHttpBinding_IEmailService" contract="EmailService.IEmailService"
             name="BasicHttpBinding_IEmailService" />
@@ -468,6 +465,9 @@
         <endpoint address="http://localhost:2259/LogManageService.svc"
             binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IPTMSLogError"
             contract="PTMSLogManageService.IPTMSLogError" name="BasicHttpBinding_IPTMSLogError" />
+        <endpoint address="http://localhost:2259/VehicleAlarmService.svc"
+            binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IVehicleAlarmService"
+            contract="VehicleAlarmService.IVehicleAlarmService" name="BasicHttpBinding_IVehicleAlarmService" />
     </client>
   </system.serviceModel>
 </configuration>
