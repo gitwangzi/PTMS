@@ -7,7 +7,7 @@
 	       xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions"
              xmlns:Converts="clr-namespace:Gsafety.Common.Converts;assembly=Converts"
              xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"  
-           Width="420" Height="550"    FontSize="12" FontWeight="Bold">
+           Width="420" Height="350"    FontSize="12" FontWeight="Bold">
     <UserControl.Resources>
         <Converts:DateTimeConverter x:Key="DateTimeConverter"/>
     </UserControl.Resources>
@@ -202,19 +202,19 @@
                      MaxLength="500" Height="55"/>
 
             <!--发送邮件-->
-            <TextBlock Grid.Row="7" Grid.Column="0" 
+            <TextBlock Grid.Row="7" Grid.Column="0"  Visibility="Collapsed"
                        HorizontalAlignment="Right" VerticalAlignment="Center" 
                        Text="{Binding [MONITOR_SendEmail],Source={StaticResource SR}}" 
                        Margin="0,0,20,0"  Style="{StaticResource TextBlockBlackStyle}"/>                    
             <CheckBox Grid.Row="7" 
-                      Grid.Column="2" 
+                      Grid.Column="2"  Visibility="Collapsed"
                       VerticalAlignment="Center" 
                       HorizontalAlignment="Left"
                       Margin="0,2,0,2" IsChecked="{Binding IsMail, Mode=TwoWay}" 
                       Name="cbMail" 
                       Style="{x:Null}"/>
 
-            <Grid Grid.Row="8" Grid.Column="2">
+            <Grid Grid.Row="8" Grid.Column="2" Visibility="Collapsed">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"></ColumnDefinition>
                     <ColumnDefinition Width="30"></ColumnDefinition>

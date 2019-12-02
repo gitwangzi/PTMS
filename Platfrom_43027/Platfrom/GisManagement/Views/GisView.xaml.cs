@@ -877,8 +877,10 @@ namespace GisManagement.Views
             if (IsDom == false)
             {
                 StringBuilder sb = new StringBuilder();
-                sb.Append("<esri:ArcGISDynamicMapServiceLayer xmlns:esri=\"http://schemas.esri.com/arcgis/client/2009\" ID=\"DynamicMapLayer\" />");
-                ArcGISDynamicMapServiceLayer GisTiledMap = (ArcGISDynamicMapServiceLayer)XamlReader.Load(sb.ToString());
+                sb.Append("<esri:ArcGISTiledMapServiceLayer xmlns:esri=\"http://schemas.esri.com/arcgis/client/2009\" ID=\"DynamicMapLayer\" />");
+               // ArcGISDynamicMapServiceLayer GisTiledMap = (ArcGISDynamicMapServiceLayer)XamlReader.Load(sb.ToString());
+
+                ArcGISTiledMapServiceLayer GisTiledMap = (ArcGISTiledMapServiceLayer)XamlReader.Load(sb.ToString());
 
                 GisTiledMap.Initialized += ArcGISDynamicMapServiceLayer_Initialized;
                 GisTiledMap.InitializationFailed += ArcGISServiceLayer_InitializationFailed;

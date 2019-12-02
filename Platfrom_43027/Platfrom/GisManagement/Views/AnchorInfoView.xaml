@@ -72,7 +72,7 @@
                                Margin="0,20,20,5"
                                Grid.Row="0"
                                Grid.Column="0"/>
-                    <TextBlock x:Name="Name" 
+                    <TextBlock x:Name="Name"   Foreground="#eeeeee" 
                                Text="{Binding Path=Attributes[Name],Mode=OneWay}" 
                                HorizontalAlignment="Left" 
                                VerticalAlignment="Center"
@@ -89,13 +89,13 @@
                                Margin="0,5,20,5"
                                Grid.Row="1"
                                Grid.Column="0"/>
-                    <TextBlock x:Name="Latitude" 
+                    <TextBlock x:Name="Latitude"   Foreground="#eeeeee" 
                                Text="{Binding Path=Attributes[Latitude],Mode=OneWay}" 
                                HorizontalAlignment="Left" VerticalAlignment="Center"
                                Margin="0,5,0,5"
                                Grid.Row="1"
                                Grid.Column="1"/>
-                    <TextBlock Text="Longitude:"
+                    <TextBlock Text="Longitude:" 
                                FontWeight="Bold" 
                                Foreground="#eeeeee" 
                                FontSize="13" 
@@ -104,7 +104,7 @@
                                Margin="0,5,20,5"
                                Grid.Row="2"
                                Grid.Column="0"/>
-                    <TextBlock x:Name="Longitude" 
+                    <TextBlock x:Name="Longitude"   Foreground="#eeeeee" 
                                Text="{Binding Path=Attributes[Longitude],Mode=OneWay}" 
                                HorizontalAlignment="Left" 
                                VerticalAlignment="Center"
@@ -120,14 +120,14 @@
                                Margin="0,5,20,5"
                                Grid.Row="3"
                                Grid.Column="0"/>
-                    <TextBlock x:Name="Address" 
+                    <TextBlock x:Name="Address"   Foreground="#eeeeee" 
                                Text="{Binding Path=Attributes[Address],Mode=OneWay}" 
                                HorizontalAlignment="Left" 
                                VerticalAlignment="Center"
                                 Margin="0,5,0,5"
                                Grid.Row="3"
                                Grid.Column="1"/>
-                    <TextBlock Text="Country:"
+                    <TextBlock Visibility="Collapsed" Text="Country:"
                                FontWeight="Bold" 
                                Foreground="#eeeeee" 
                                FontSize="13" 
@@ -136,7 +136,7 @@
                                Margin="0,5,20,5"
                                Grid.Row="4"
                                Grid.Column="0"/>
-                    <TextBlock x:Name="Country" 
+                    <TextBlock Visibility="Collapsed" x:Name="Country" 
                                Text="{Binding Path=Attributes[Country],Mode=OneWay}" 
                                HorizontalAlignment="Left" 
                                VerticalAlignment="Center"

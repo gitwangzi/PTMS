@@ -64,6 +64,7 @@
     <Compile Include="Data\VehicleStatusEnum.cs" />
     <Compile Include="Data\VehicleServerEnum.cs" />
     <Compile Include="Data\VVehicle.cs" />
+    <Compile Include="Data\BscGeoPoiArgGis.cs" />
     <Compile Include="IBscDevSuitePartService.cs" />
     <Compile Include="IBscDevSuiteService.cs" />
     <Compile Include="IBscDistrictContract.cs" />

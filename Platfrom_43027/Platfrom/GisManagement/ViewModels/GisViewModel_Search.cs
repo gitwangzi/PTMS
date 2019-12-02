@@ -204,6 +204,71 @@ namespace GisManagement.ViewModels
             }
         }
 
+        void client_GetBscGeoPoiList_ArgGisCompleted(object sender, GetBscGeoPoiList_ArgGisCompletedEventArgs e)
+        {
+            try
+            {
+                QuerytContentList = new Dictionary<int, string>();
+                Coordinate = new Dictionary<int, MapPoint>();
+
+                string lineFeed = "\n";
+                string colon = " : ";
+                int row = 0;
+
+                if (e.Result.Result.Count > 0)
+                    foreach (var info in e.Result.Result)
+                    {
+                        row = row + 1;
+                        StringBuilder sb = new StringBuilder();
+
+                        sb.Append(info.Name+ lineFeed);
+                        sb.Append(ApplicationContext.Instance.StringResourceReader.GetString("Latitude") + colon + info.Latitude
+                            + " " + ApplicationContext.Instance.StringResourceReader.GetString("Longitude") + colon + info.Longitude
+                            + lineFeed);
+                        sb.Append(ApplicationContext.Instance.StringResourceReader.GetString("Address") + colon + info.Address
+                            + lineFeed);
+
+
+                        ////类型名称
+                        //string propertyName = ApplicationContext.Instance.StringResourceReader.GetString("Unkown");
+                        //foreach (var item in LocateTypeList)
+                        //{
+                        //    if (((int)item.Key) == ((int)info.Property))
+                        //    {
+                        //        propertyName = item.Value;
+                        //    }
+                        //}
+                        ////sb.Append(ApplicationContext.Instance.StringResourceReader.GetString("TargetProperty") + colon + info.Property);
+                        sb.Append(ApplicationContext.Instance.StringResourceReader.GetString("TargetProperty") + colon + info.Property);
+
+                        QuerytContentList.Add(row, sb.ToString().Trim());
+
+                        //3857地图
+                        //MapPoint mapPoint =
+                        //    ESRI.ArcGIS.Client.Bing.Transform.GeographicToWebMercator(new MapPoint(Convert.ToDouble(info.Latidue), Convert.ToDouble(info.Longitude)));
+                        MapPoint mapPoint = Gsafety.Common.Transform.GeographicToWebMercator(new MapPoint(Convert.ToDouble(info.Longitude, System.Globalization.CultureInfo.InvariantCulture), Convert.ToDouble(info.Latitude, System.Globalization.CultureInfo.InvariantCulture)));
+
+
+                        Coordinate.Add(row, new MapPoint(Convert.ToDouble(info.Longitude, System.Globalization.CultureInfo.InvariantCulture), Convert.ToDouble(info.Latitude, System.Globalization.CultureInfo.InvariantCulture)));
+                       // Coordinate.Add(row, mapPoint);
+
+                        //添加锚点图层
+                        this.MarkerAnchorLocate_ArgGis(mapPoint, GisView.anchorPointSymbol, GisView.anchorPointGraphicsLayer, info);
+                    }
+                else
+                    QuerytContentList.Add(1, ApplicationContext.Instance.StringResourceReader.GetString("None"));
+            }
+            catch (Exception)
+            {
+                client = ServiceClientFactory.Create<BscGeoPoiServiceClient>();
+            }
+            finally
+            {
+                client.CloseAsync();
+                JounceHelper.ExecuteOnUI(() => RaisePropertyChanged(() => QuerytContentList));
+            }
+        }
+
 
         /// <summary>
         /// 
@@ -214,13 +279,14 @@ namespace GisManagement.ViewModels
             if (!string.IsNullOrEmpty(this.searchContent.Trim()))
             {
                 client = ServiceClientFactory.Create<BscGeoPoiServiceClient>();
-                client.GetBscGeoPoiListCompleted += client_GetBscGeoPoiListCompleted;
-
+                //client.GetBscGeoPoiListCompleted += client_GetBscGeoPoiListCompleted;
+                client.GetBscGeoPoiList_ArgGisCompleted += client_GetBscGeoPoiList_ArgGisCompleted;
                 ClearGraphicsLayer();
                 QuerytContentList = new Dictionary<int, string>();
                 SearchContentVisibility = Visibility.Visible;
                 JounceHelper.ExecuteOnUI(() => RaisePropertyChanged(() => LocateType));
-                client.GetBscGeoPoiListAsync(0, 0, this.SearchContent, (decimal)LocateType.Key);
+               // client.GetBscGeoPoiListAsync(0, 0, this.SearchContent, (decimal)LocateType.Key);
+                client.GetBscGeoPoiList_ArgGisAsync(this.SearchContent);
             }
             else
             {
@@ -382,6 +448,40 @@ namespace GisManagement.ViewModels
 
         }
 
+        /// <summary>
+        /// 锚点
+        /// </summary>
+        /// <param name="mapPoint">坐标</param>
+        /// <param name="layoutRoot"></param>
+        /// <param name="anchors">所有位置点</param>
+        /// <param name="anchorLayer">放锚点的图层</param>
+        /// <param name="tipModel">锚点详细信息</param>
+        void MarkerAnchorLocate_ArgGis(MapPoint mapPoint, Symbol anchorPointSymbol, GraphicsLayer anchorLayer, BscGeoPoiArgGis tipModel)
+        {
+            Graphic anchor = new Graphic()
+            {
+                Geometry = mapPoint,
+                Symbol = anchorPointSymbol //layoutRoot.Resources["AnchorPointSymbol"]
+            };
+            anchor.Attributes.Add("PointNumber", anchorLayer.Graphics.Count + 1);
+            anchor.Geometry = mapPoint;
+            anchor.MapTip = this.LoadAnchorTipInfo_ArgGis(tipModel);
+            anchorLayer.Graphics.Add(anchor);//添加一个锚点土层
+
+        }
+        /// <summary>
+        /// 加载锚点上的提示信息框
+        /// </summary>
+        /// <returns></returns>
+        public AnchorInfoView LoadAnchorTipInfo_ArgGis(BscGeoPoiArgGis tipModel)
+        {
+            AnchorInfoView myMapTip = new AnchorInfoView();
+            myMapTip.Name.Text = tipModel.Name;
+            myMapTip.Latitude.Text = tipModel.Latitude.ToString();
+            myMapTip.Longitude.Text = tipModel.Longitude.ToString();
+            myMapTip.Address.Text = tipModel.Address;
+            return myMapTip;
+        }
 
 
         /// <summary>

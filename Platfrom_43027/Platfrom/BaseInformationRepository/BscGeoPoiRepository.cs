@@ -99,6 +99,30 @@ namespace Gsafety.PTMS.BaseInformation.Repository
             return new MultiMessage<BscGeoPoi>(items.ToList(), items.ToList().Count());
         }
 
+        ///// <summary>
+        ///// 获取POI
+        ///// </summary>
+        //public static MultiMessage<BscGeoPoi> GetBscGeoPoiList_ArgGis(PTMSEntities context, int pageIndex, int pageSize, string searchContent, decimal property)
+        //{
+            //int totalCount = 0;
+
+           // string URL= "http://10.10.11.57:6080/arcgis/rest/services/AddressLocato/GeocodeServer/findAddressCandidates?Address=a&maxLocations=20&f=pjson";
+
+        //    List<BSC_GEO_POI> list = new List<BSC_GEO_POI>();
+
+        //    if (property < 0)
+        //    {
+        //        list = context.BSC_GEO_POI.Where(n => n.NAME.ToLower().Contains(searchContent)).ToList();
+        //    }
+        //    else
+        //    {
+        //        list = context.BSC_GEO_POI.Where(n => n.NAME.ToLower().Contains(searchContent) && n.PROPERTY == property).ToList();
+        //    }
+
+        //    var items = list.Select(t => BscGeoPoiUtility.GetModel(t));
+        //    return new MultiMessage<BscGeoPoi>(items.ToList(), items.ToList().Count());
+        //}
+
     }
 }
 

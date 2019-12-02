@@ -419,21 +419,24 @@
     <None Include="Service References\BscDevSuiteService\Gsafety.PTMS.ServiceReference.BscDevSuiteService.SingleMessageOfstring.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\BscGeoPoiService\BscGeoPoiService.wsdl" />
-    <None Include="Service References\BscGeoPoiService\BscGeoPoiService.xsd">
+    <None Include="Service References\BscGeoPoiService\BscGeoPoiService1.wsdl" />
+    <None Include="Service References\BscGeoPoiService\BscGeoPoiService5.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\BscGeoPoiService\BscGeoPoiService1.xsd">
+    <None Include="Service References\BscGeoPoiService\BscGeoPoiService51.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\BscGeoPoiService\BscGeoPoiService2.xsd">
+    <None Include="Service References\BscGeoPoiService\BscGeoPoiService52.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\BscGeoPoiService\BscGeoPoiService3.xsd">
+    <None Include="Service References\BscGeoPoiService\BscGeoPoiService53.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\BscGeoPoiService\BscGeoPoiService4.xsd">
+    <None Include="Service References\BscGeoPoiService\BscGeoPoiService54.xsd">
       <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\BscGeoPoiService\Gsafety.PTMS.ServiceReference.BscGeoPoiService.MultiMessageOfBscGeoPoiArgGish_PhsrrDr.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\BscGeoPoiService\Gsafety.PTMS.ServiceReference.BscGeoPoiService.MultiMessageOfBscGeoPoih_PhsrrDr.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -1655,7 +1658,6 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-    <None Include="Service References\BscGeoPoiService\BscGeoPoiService.disco" />
     <None Include="Service References\BscGeoPoiService\configuration91.svcinfo" />
     <None Include="Service References\BscGeoPoiService\configuration.svcinfo" />
     <None Include="Service References\BscGeoPoiService\Reference.svcmap">
@@ -1721,6 +1723,7 @@
     <None Include="Service References\DevGpsService\DevGpsService1.disco" />
     <None Include="Service References\LogService\LogService1.disco" />
     <None Include="Service References\PTMSLogManageService\LogManageService1.disco" />
+    <None Include="Service References\BscGeoPoiService\BscGeoPoiService1.disco" />
     <Content Include="ServiceReferences.ClientConfig">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <SubType>Designer</SubType>

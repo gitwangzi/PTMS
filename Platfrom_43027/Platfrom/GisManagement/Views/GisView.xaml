@@ -731,8 +731,8 @@
                 <Grid>
                     <Grid x:Name="AddressQuery" Canvas.ZIndex="111"
                           RenderTransformOrigin="0.5,0" 
-                          Width="400" HorizontalAlignment="Right" 
-                          Opacity="0.75">
+                          Width="500"  HorizontalAlignment="Right" 
+                          Opacity="0.8">
                         <Grid.RenderTransform>
                             <CompositeTransform ScaleY="0" TranslateY="-5"/>
                         </Grid.RenderTransform>
@@ -772,7 +772,7 @@
                                     <ColumnDefinition Width="*"/>
                                 </Grid.ColumnDefinitions>
 
-                                <ComboBox    Grid.Row="0" Grid.Column="0" 
+                                <ComboBox  Visibility="Collapsed"  Grid.Row="0" Grid.Column="0" 
                                       ItemsSource="{Binding LocateTypeList,Mode=TwoWay}"
                                       DisplayMemberPath="Value"
                                       SelectedItem="{Binding LocateType,Mode=TwoWay}"
@@ -795,14 +795,32 @@
                                               AutoGenerateColumns="False" 
                                               HeadersVisibility="None"
                                               MouseLeftButtonUp="LocateInfo_MouseLeftButtonUp"
-                                              Height="200"
-                                              Width="400"
+                                              Height="285"
+                                              Width="500"
                                               ColumnHeaderStyle="{StaticResource ColumnHeaderStyle}" 
                                               Style="{StaticResource DataGridStyleRxx}"
                                               >
+
                                 <sdk:DataGrid.Columns>
-                                    <sdk:DataGridTextColumn Binding="{Binding Path=Key,Mode=TwoWay}" FontWeight="Bold" Foreground="White" Width="60"/>
-                                    <sdk:DataGridTextColumn Binding="{Binding Path=Value,Mode=TwoWay}" Foreground="White" Width="*"/>
+
+
+                                    <sdk:DataGridTextColumn   Binding="{Binding Path=Key,Mode=TwoWay}"  FontWeight="Bold" Foreground="White" Width="50">
+                                        <sdk:DataGridTextColumn.CellStyle>
+                                            <Style TargetType="sdk:DataGridCell">
+                                                <Setter Property="HorizontalContentAlignment" Value="Left"/>
+                                            </Style>
+                                        </sdk:DataGridTextColumn.CellStyle>
+
+                                    </sdk:DataGridTextColumn>
+                                    <sdk:DataGridTextColumn Binding="{Binding Path=Value,Mode=TwoWay}" FontSize="9"  Foreground="White" Width="*">
+                                        <sdk:DataGridTextColumn.CellStyle>
+                                            <Style TargetType="sdk:DataGridCell">
+                                                <Setter Property="HorizontalContentAlignment" Value="Left"/>
+                                                
+                                            </Style>
+                                        </sdk:DataGridTextColumn.CellStyle>
+
+                                    </sdk:DataGridTextColumn>
                                 </sdk:DataGrid.Columns>
                             </sdk:DataGrid>
 

@@ -202,6 +202,7 @@
                      Margin="0,3,0,3"
                      MaxLength="100"
                      Width="250"
+                     AcceptsReturn="True"
                      x:Name="BrandModel"
                      TextChanged="BrandModel_TextChanged_1"
                      Text="{Binding BrandModel,Mode=TwoWay, NotifyOnValidationError=True,ValidatesOnDataErrors=True}"

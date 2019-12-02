@@ -45,8 +45,8 @@ namespace Gsafety.PTMS.BasicPage.ViewModels
         private int takePictureType = 0;
         private int SelectChanelCount = 0;
         private string _mdvrCoreID;
-        string serverConfig = "http://" + ApplicationContext.Instance.ServerConfig.VideoServiceFileServerIP + ":" +
-                                          ApplicationContext.Instance.ServerConfig.VideoServiceFileServerPort + "/";
+        string serverConfig = "http://" + ApplicationContext.Instance.ServerConfig.PictureServiceFileServerIP + ":" +
+                                          ApplicationContext.Instance.ServerConfig.PictureServiceFileServerPort + "/";
         private ObservableCollection<string> deleteList = new ObservableCollection<string>();
         public CapturePhotoWindowViewModel(string mdvrCoreID)
         {

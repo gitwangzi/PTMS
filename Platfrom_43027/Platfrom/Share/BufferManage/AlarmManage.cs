@@ -236,6 +236,10 @@ namespace Gsafety.PTMS.Share
                 organizations.Add(item.ID);
             }
             vehicleAlarmServiceClient.GetUnHandledAlarmsAsync(ApplicationContext.Instance.AuthenticationInfo.ClientID, organizations);
+          
+            ApplicationContext.Instance.BufferManager.MonitorGroupManager.DataLoading();
+
+            
             ApplicationContext.Instance.Logger.Log(Jounce.Core.Application.LogSeverity.Information, "AlarmManager", "begin to get unhandledalarms");
             ApplicationContext.Instance.BusyInfo.InitLoadingNum++;
         }
@@ -327,7 +331,7 @@ namespace Gsafety.PTMS.Share
                     }
                 }
 
-                ApplicationContext.Instance.BufferManager.MonitorGroupManager.DataLoading();
+                //ApplicationContext.Instance.BufferManager.MonitorGroupManager.DataLoading();
             }
             catch (Exception ex)
             {

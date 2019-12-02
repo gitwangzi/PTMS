@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="AlSJwIeANU91leyK2eu5Dk7B3mU=">
+<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="V1S6uIDDn+HA2Vh30Qkcg9EawYA=">
   <bindingConfigurations>
     <bindingConfiguration bindingType="basicHttpBinding" name="BasicHttpBinding_IBscGeoPoiService">
       <properties>
@@ -112,10 +112,10 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="BasicHttpBinding_IBscGeoPoiService" contract="BscGeoPoiService.IBscGeoPoiService" bindingType="basicHttpBinding" address="http://localhost:2258/BscGeoPoiService.svc" bindingConfiguration="BasicHttpBinding_IBscGeoPoiService">
+    <endpoint name="BasicHttpBinding_IBscGeoPoiService" contract="BscGeoPoiService.IBscGeoPoiService" bindingType="basicHttpBinding" address="http://localhost:2259/BscGeoPoiService.svc" bindingConfiguration="BasicHttpBinding_IBscGeoPoiService">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>http://localhost:2258/BscGeoPoiService.svc</serializedValue>
+          <serializedValue>http://localhost:2259/BscGeoPoiService.svc</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />

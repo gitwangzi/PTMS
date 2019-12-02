@@ -1,15 +1,28 @@
-﻿using Gsafety.PTMS.Base.Contract.Data;
+﻿using Gsafety.Common.Logging;
+using Gsafety.PTMS.Base.Contract.Data;
 using Gsafety.PTMS.BaseInfo;
 using Gsafety.PTMS.BaseInformation.Contract;
 using Gsafety.PTMS.BaseInformation.Contract.Data;
 using Gsafety.PTMS.BaseInformation.Repository;
+using Gsafety.PTMS.Common.Data;
 using Gsafety.PTMS.DBEntity;
+using Gsafety.PTMS.DBEntity;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Diagnostics;
+using System.IO;
 using System.Linq;
+using System.Net;
+using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
+using System.Threading.Tasks;
+using System.Threading.Tasks;
+using System.Transactions;
 
 namespace Gs.PTMS.Service
 {
@@ -20,6 +33,35 @@ namespace Gs.PTMS.Service
     ///</summary>
     public class BscGeoPoiService : BaseService, IBscGeoPoiService
     {
+
+        public string GetDataAsync(string url)
+        {
+            var result = string.Empty;
+            try
+            {
+
+                ServicePointManager.ServerCertificateValidationCallback = (sender, certificate, chain, sslPolicyErrors) => true;
+                var httpwebrequest = (HttpWebRequest)WebRequest.Create(url);
+                httpwebrequest.ContentType = "application/json";
+                httpwebrequest.Method = "Get";
+
+
+                var httpResponse = (HttpWebResponse)httpwebrequest.GetResponse();
+                using (var sr = new StreamReader(httpResponse.GetResponseStream()))
+                {
+                    result = sr.ReadToEnd();
+                    return result;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+
+                return null;
+
+            }
+        }
 
         /// <summary>
         /// 添加POI
@@ -140,6 +182,67 @@ namespace Gs.PTMS.Service
             {
                 Error(ex);
                 return new MultiMessage<BscGeoPoi>(false, ex);
+            }
+        }
+
+        /// <summary>
+        /// 获取POI
+        /// </summary>
+        public MultiMessage<BscGeoPoiArgGis> GetBscGeoPoiList_ArgGis(string searchContent)
+        {
+            Info("GetBscGeoPoiList_ArgGis");
+            
+            try
+            {
+                MultiMessage<BscGeoPoiArgGis> result = null;
+
+                string GeoUrl = System.Configuration.ConfigurationManager.AppSettings["GisGeocodeServiceUrl"];
+
+                if (GeoUrl != string.Empty)
+                {
+
+                    if (!GeoUrl.EndsWith("/"))
+                    {
+                        GeoUrl += "/";
+                    }
+                }
+
+                string PoiList = GetDataAsync(GeoUrl + "findAddressCandidates?Address=" + searchContent + "&outFields=*&maxLocations=50&f=pjson");
+
+                if (!string.IsNullOrEmpty(PoiList))
+                {
+                    List<BscGeoPoiArgGis> GisData = new List<BscGeoPoiArgGis>();
+                    ArgGisRoot data = JsonConvert.DeserializeObject<ArgGisRoot>(PoiList);
+                    foreach (var item in data.candidates)
+                    {
+                        BscGeoPoiArgGis single = new BscGeoPoiArgGis();
+                        string StrAddress = item.attributes.Place_addr;
+                        char[] cSplit = {';'};
+                        List<string> ListAddress = StrAddress.Split(cSplit, StringSplitOptions.RemoveEmptyEntries).ToList();
+
+                        single.Address = "";
+                        if (ListAddress.Count > 0)
+                        {
+                            single.Address = ListAddress.Last();
+                        }
+                        single.Name = item.attributes.PlaceName;
+                        single.Longitude = item.attributes.DisplayX;
+                        single.Latitude = item.attributes.DisplayY;
+                        single.Property = item.attributes.Type;
+                        
+                        GisData.Add(single);
+                    }
+                    result = new MultiMessage<BscGeoPoiArgGis>(GisData, GisData.Count());
+
+                }
+
+                Log<BscGeoPoiArgGis>(result);
+                return result;
+            }
+            catch (Exception ex)
+            {
+                Error(ex);
+                return new MultiMessage<BscGeoPoiArgGis>(false, ex);
             }
         }
 

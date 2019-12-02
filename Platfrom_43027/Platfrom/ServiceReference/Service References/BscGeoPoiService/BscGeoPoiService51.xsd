@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.BaseInformation.Contract.Data" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.BaseInformation.Contract.Data" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="BscGeoPoi">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Address" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Contry" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Datastatus" type="xs:decimal" />
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="Latidue" type="xs:double" />
+      <xs:element minOccurs="0" name="Longitude" type="xs:double" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Property" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BscGeoPoi" nillable="true" type="tns:BscGeoPoi" />
+  <xs:complexType name="ArrayOfBscGeoPoi">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="BscGeoPoi" nillable="true" type="tns:BscGeoPoi" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfBscGeoPoi" nillable="true" type="tns:ArrayOfBscGeoPoi" />
+  <xs:complexType name="ArrayOfBscGeoPoiArgGis">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="BscGeoPoiArgGis" nillable="true" type="tns:BscGeoPoiArgGis" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfBscGeoPoiArgGis" nillable="true" type="tns:ArrayOfBscGeoPoiArgGis" />
+  <xs:complexType name="BscGeoPoiArgGis">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Address" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Latitude" type="xs:double" />
+      <xs:element minOccurs="0" name="Longitude" type="xs:double" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Property" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BscGeoPoiArgGis" nillable="true" type="tns:BscGeoPoiArgGis" />
+</xs:schema>

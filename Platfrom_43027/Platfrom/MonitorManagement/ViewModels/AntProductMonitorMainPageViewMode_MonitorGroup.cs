@@ -161,17 +161,17 @@ namespace Gsafety.Ant.Monitor.ViewModels
                     if (GroupName.GroupIndex > -1)
                     {
                         _MonitorPageCollectionView.Filter = new Predicate<object>(FilterGroup);
-
+                        DeleteallDataElement();
                         foreach (var item in ApplicationContext.Instance.BufferManager.MonitorGroupManager.MoniterGroupManagerOC)
                         {
-                            if (item.GroupVehicle != null && item.GroupName != value.GroupName)
-                            {
-                                foreach (var car in item.GroupVehicle)
-                                {
-                                    MonitorGPS(car.VehicleId, "", false, false, false);
-                                }
+                            //if (item.GroupVehicle != null && item.GroupName != value.GroupName)
+                            //{
+                            //    foreach (var car in item.GroupVehicle)
+                            //    {
+                            //        MonitorGPS(car.VehicleId, "", false, false, false);
+                            //    }
                                
-                            }
+                            //}
 
                             if (item.GroupVehicle != null && item.GroupName == value.GroupName)
                             {
@@ -334,7 +334,7 @@ namespace Gsafety.Ant.Monitor.ViewModels
                 _MonitorPageCollectionView = new PagedCollectionView(_TableData);
                 _MonitorPageCollectionView.SortDescriptions.Add(new SortDescription() { Direction = ListSortDirection.Ascending, PropertyName = "GroupIndex" });
 
-
+               
 
                 //AddallDataElement();
 
@@ -398,6 +398,22 @@ namespace Gsafety.Ant.Monitor.ViewModels
                 }
             }
             return false;
+        }
+
+        private void DeleteallDataElement()
+        {
+            try
+            {
+                foreach (var ve in ApplicationContext.Instance.BufferManager.VehicleOrganizationManage.VehicleList)
+                {
+
+                    MonitorGPS(ve.VehicleId, "", false, false, false);
+                }
+            }
+            catch (Exception ex)
+            {
+                ApplicationContext.Instance.Logger.LogException(MethodBase.GetCurrentMethod().ToString(), ex);
+            }
         }
 
 

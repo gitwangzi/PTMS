@@ -150,6 +150,10 @@ namespace Gsafety.PTMS.Share
 
         public string VideoServiceFileServerPort { get; set; }
 
+        public string PictureServiceFileServerIP { get; set; }
+
+        public string PictureServiceFileServerPort { get; set; }
+
         public string RTSPServiceIP { get; set; }
         public string RTSPServicePort { get; set; }
         public string RTSPStreamChannel { get; set; }

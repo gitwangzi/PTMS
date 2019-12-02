@@ -21,6 +21,7 @@ using System.Windows.Shapes;
 using Gs.PTMS.Common.Data.Enum;
 using Gsafety.Common.Controls;
 using System.Reflection;
+using Gsafety.PTMS.ServiceReference.MessageServiceExt;
 
 namespace GisManagement.ViewModels
 {
@@ -34,7 +35,8 @@ namespace GisManagement.ViewModels
         IEventSink<DisplayCurrentPositionArgs>,
         IEventSink<Gsafety.PTMS.ServiceReference.MessageServiceExt.GPS>,
         IEventSink<RequestVehicleMonitorArgs>,
-        IEventSink<AlertGisArgs>,
+        IEventSink<AlertGisArgs>, 
+        IEventSink<OnOfflineEx>,
         IPartImportsSatisfiedNotification
     {
         [Import]
@@ -74,6 +76,7 @@ namespace GisManagement.ViewModels
             _EventAggregator.SubscribeOnDispatcher<AlarmGisArgs>(this);
             _EventAggregator.SubscribeOnDispatcher<AlertGisArgs>(this);
             _EventAggregator.SubscribeOnDispatcher<TrackCarArgs>(this);
+            _EventAggregator.SubscribeOnDispatcher<OnOfflineEx>(this);
 
         }
 
@@ -224,6 +227,31 @@ namespace GisManagement.ViewModels
                         Draw(car, publishedEvent, 0, false, false, ElementLayerDefine.miVERealLocation);
                     }
                    
+                }
+            }
+            catch (Exception ee)
+            {
+                ApplicationContext.Instance.Logger.LogException("VechileMemDataOperate", ee);
+            }
+        }
+
+        public void HandleEvent(OnOfflineEx publishedEvent)
+        {
+            try
+            {
+                if (CarExists(ElementLayerDefine.miVERealLocation, publishedEvent.VehicleId))
+                {
+                    GpsCar car = MonitorList.VechileRealLocationElements.GetCarUIElementByUniqueID(publishedEvent.VehicleId) as GpsCar;
+                    if (publishedEvent.IsOnline == 1)
+                    {
+                        car.OnlineFlag = true;
+                    }
+                    else
+                    {
+                        car.OnlineFlag = false;
+                    }
+                   
+
                 }
             }
             catch (Exception ee)

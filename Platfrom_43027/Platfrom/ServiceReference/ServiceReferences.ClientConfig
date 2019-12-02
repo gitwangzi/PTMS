@@ -347,9 +347,6 @@
             binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IRunVehicleLocationService"
             contract="RunVehicleLocationService.IRunVehicleLocationService"
             name="BasicHttpBinding_IRunVehicleLocationService" />
-        <endpoint address="http://localhost:2258/BscGeoPoiService.svc"
-            binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IBscGeoPoiService"
-            contract="BscGeoPoiService.IBscGeoPoiService" name="BasicHttpBinding_IBscGeoPoiService" />
         <endpoint address="http://localhost:2258/RunMonitorGroupService.svc"
             binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IRunMonitorGroupService"
             contract="RunMonitorGroupService.IRunMonitorGroupService"
@@ -468,6 +465,9 @@
         <endpoint address="http://localhost:2259/VehicleAlarmService.svc"
             binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IVehicleAlarmService"
             contract="VehicleAlarmService.IVehicleAlarmService" name="BasicHttpBinding_IVehicleAlarmService" />
+        <endpoint address="http://localhost:2259/BscGeoPoiService.svc"
+            binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IBscGeoPoiService"
+            contract="BscGeoPoiService.IBscGeoPoiService" name="BasicHttpBinding_IBscGeoPoiService" />
     </client>
   </system.serviceModel>
 </configuration>

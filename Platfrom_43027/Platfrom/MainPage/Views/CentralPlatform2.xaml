@@ -3,12 +3,14 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:Converter="clr-namespace:Gsafety.Common.Converts;assembly=Converts"
     xmlns:convert="clr-namespace:Gsafety.PTMS.MainPage.Converts"
     mc:Ignorable="d"
     d:DesignHeight="1080" d:DesignWidth="1920">
     <UserControl.Resources>
         <convert:SoundButtonVisibleConvert x:Key="soundButtonVisible" />
         <convert:ServerStatusConvert x:Key="ServerStatusDescription" />
+        <Converter:FunItemVisibilityConverter x:Key="FunItemVisibilityConverter"/>
         <Style x:Key="MainPage_HyperlinkButtonStyle" TargetType="HyperlinkButton">
             <Setter Property="Foreground" Value="#FF73A9D8"/>
             <Setter Property="Padding" Value="0,0,0,0"/>
@@ -237,7 +239,7 @@
 
                     <Button ToolTipService.ToolTip="{Binding [MAINPAGE_ChangePassword], Source={StaticResource SR}}"
                         Style="{StaticResource ChangPwdButtonCommonStyle}"  Margin="10 0"   
-                        Grid.Column="4"
+                        Grid.Column="4" Visibility="{Binding RelativeSource={RelativeSource Self}, Converter={StaticResource FunItemVisibilityConverter},ConverterParameter='02-08-01-02-08'}"
                         Command="{Binding Path=DataContext.ChangePasswordCommand,ElementName=LayoutRoot}"
                         />
 
@@ -260,7 +262,7 @@
 
                     <Button ToolTipService.ToolTip="{Binding [MAINPAGE_Recycle], Source={StaticResource SR}}"
                         Style="{StaticResource MessageInfoButtonCommonStyle}"
-                        Grid.Column="6"  Margin="10 0"   
+                        Grid.Column="6"  Margin="10 0"  Visibility="{Binding RelativeSource={RelativeSource Self}, Converter={StaticResource FunItemVisibilityConverter},ConverterParameter='02-04'}"  
                         Command="{Binding Path=DataContext.RecycleCommmand,ElementName=LayoutRoot}"
                         >
                         <Image Stretch="Uniform"
@@ -279,41 +281,41 @@
                 <Border x:Name="LinksBorder"  HorizontalAlignment="Stretch" Canvas.ZIndex="2" BorderThickness="1">
                     <StackPanel x:Name="LinksStackPanel" Orientation="Horizontal">
                         <HyperlinkButton MinWidth="130" x:Name="MoniterLink" Style="{StaticResource MainPage_HyperlinkButtonStyle}" ToolTipService.ToolTip="{Binding [LivingMonitorMenu], Source={StaticResource SR}}" Tag="{Binding [LivingMonitorMenu], Source={StaticResource SR}}"
-							Click="MoniorButton_OnClick" TargetName="SuperFrame" Command="{Binding MonitorCommand}">
+							Click="MoniorButton_OnClick"  Visibility="{Binding RelativeSource={RelativeSource Self}, Converter={StaticResource FunItemVisibilityConverter},ConverterParameter='02-01'}" TargetName="SuperFrame" Command="{Binding MonitorCommand}">
                             <StackPanel Orientation="Vertical">
                                 <Image Source="/ExternalResource;component/Images/MenuMonitor.png" Margin="0,0,0,5" Width="30" Height="30"></Image>
                             </StackPanel>
                         </HyperlinkButton>
                         <HyperlinkButton  MinWidth="130" x:Name="OneKeyLink" Style="{StaticResource MainPage_HyperlinkButtonStyle}" ToolTipService.ToolTip="{Binding [HistoryQueryMenu], Source={StaticResource SR}}" Tag="{Binding [HistoryQueryMenu], Source={StaticResource SR}}"
-							 Click="HistoryQueryButton_OnClick" TargetName="SuperFrame" Command="{Binding OneKeyCommand}"  >
+							 Click="HistoryQueryButton_OnClick" Visibility="{Binding RelativeSource={RelativeSource Self}, Converter={StaticResource FunItemVisibilityConverter},ConverterParameter='02-02'}" TargetName="SuperFrame" Command="{Binding OneKeyCommand}"  >
                             <StackPanel Orientation="Vertical">
                                 <Image Margin="0,0,0,5" Source="/ExternalResource;component/Images/MenuHistoryQuery.png" Width="30" Height="30"  ></Image>
                             </StackPanel>
                         </HyperlinkButton>
 
                         <HyperlinkButton  MinWidth="130" x:Name="TrafficLink" Style="{StaticResource MainPage_HyperlinkButtonStyle}" ToolTipService.ToolTip="{Binding [TrafficeManageMenu], Source={StaticResource SR}}" Tag="{Binding [TrafficeManageMenu], Source={StaticResource SR}}"
-							 Click="TrafficManageButton_OnClick" TargetName="SuperFrame" Command="{Binding TrafficCommand}" >
+							 Click="TrafficManageButton_OnClick" Visibility="{Binding RelativeSource={RelativeSource Self}, Converter={StaticResource FunItemVisibilityConverter},ConverterParameter='02-03'}" TargetName="SuperFrame" Command="{Binding TrafficCommand}" >
                             <StackPanel Orientation="Vertical">
                                 <Image Margin="0,0,0,5" Source="/ExternalResource;component/Images/MenuTrafiicManage.png"  Width="30" Height="30" ></Image>
                             </StackPanel>
                         </HyperlinkButton>
 
                         <HyperlinkButton  MinWidth="130" x:Name="BaseinfoLink" Style="{StaticResource MainPage_HyperlinkButtonStyle}" ToolTipService.ToolTip="{Binding [BasicInfoMenu], Source={StaticResource SR}}" Tag="{Binding [BasicInfoMenu], Source={StaticResource SR}}"
-							 Click="BaseInfoButton_OnClick" TargetName="SuperFrame" Command="{Binding OneKeyCommand}"  >
+							 Click="BaseInfoButton_OnClick" Visibility="{Binding RelativeSource={RelativeSource Self}, Converter={StaticResource FunItemVisibilityConverter},ConverterParameter='02-04'}" TargetName="SuperFrame" Command="{Binding OneKeyCommand}"  >
                             <StackPanel Orientation="Vertical">
                                 <Image Margin="0,0,0,5" Source="/ExternalResource;component/Images/MenuBaseInfor.png" Width="30" Height="30"  ></Image>
                             </StackPanel>
                         </HyperlinkButton>
 
                         <HyperlinkButton  MinWidth="130" x:Name="ReportLink" Style="{StaticResource MainPage_HyperlinkButtonStyle}" ToolTipService.ToolTip="{Binding [StatisticsReportMenu], Source={StaticResource SR}}" Tag="{Binding [StatisticsReportMenu], Source={StaticResource SR}}" 
-							Click="StatisticReportButton_OnClick" TargetName="SuperFrame">
+							Click="StatisticReportButton_OnClick" Visibility="{Binding RelativeSource={RelativeSource Self}, Converter={StaticResource FunItemVisibilityConverter},ConverterParameter='02-05'}" TargetName="SuperFrame">
                             <StackPanel Orientation="Vertical">
                                 <Image Margin="0,0,0,5" Source="/ExternalResource;component/Images/MenuStatisticReport.png"
                            Width="30" Height="30"></Image>
                             </StackPanel>
                         </HyperlinkButton>
                         <HyperlinkButton  MinWidth="130" x:Name="VedioWallLink" Style="{StaticResource MainPage_HyperlinkButtonStyle}" ToolTipService.ToolTip="{Binding [VedioWallMenu], Source={StaticResource SR}}" Tag="{Binding [VedioWallMenu], Source={StaticResource SR}}"
-							 Click="VedioWallButton_OnClick" TargetName="SuperFrame">
+							 Click="VedioWallButton_OnClick" Visibility="{Binding RelativeSource={RelativeSource Self}, Converter={StaticResource FunItemVisibilityConverter},ConverterParameter='02-06'}" TargetName="SuperFrame">
                             <StackPanel Orientation="Vertical">
                                 <Image Margin="0,0,0,5" Source="/ExternalResource;component/Images/MenuVedioManagement.png"  Width="30" Height="30"></Image>
                             </StackPanel>
@@ -321,7 +323,7 @@
 
                         <!--Visibility="{Binding ManagerVisibility}"-->
                         <HyperlinkButton  MinWidth="130"  x:Name="MangerLink" Style="{StaticResource MainPage_HyperlinkButtonStyle}" ToolTipService.ToolTip="{Binding [SystemManageMenu], Source={StaticResource SR}}" Tag="{Binding [SystemManageMenu], Source={StaticResource SR}}"
-							Click="SystemManageButton_OnClick" TargetName="SuperFrame">
+							Click="SystemManageButton_OnClick" Visibility="{Binding RelativeSource={RelativeSource Self}, Converter={StaticResource FunItemVisibilityConverter},ConverterParameter='02-08'}" TargetName="SuperFrame">
                             <StackPanel Orientation="Vertical">
                                 <Image Margin="0,0,0,5" Source="/ExternalResource;component/Images/MenuSystemManage.png"  
                            Width="30" Height="30" HorizontalAlignment="Left" 
@@ -335,7 +337,7 @@
 
             <sdk:Frame Grid.Row="2"
                    JournalOwnership="OwnsJournal"
-                   x:Name="SuperFrame">
+                   x:Name="SuperFrame" >
                 <sdk:Frame.UriMapper>
                     <sdk:UriMapper>
                         <!--<sdk:UriMapping Uri=""

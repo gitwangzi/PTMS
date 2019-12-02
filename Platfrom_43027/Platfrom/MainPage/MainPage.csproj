@@ -116,7 +116,7 @@
     <Compile Include="Converts\SoundButtonVisibleConvert.cs" />
     <Compile Include="MainPageBinding.cs" />
     <Compile Include="MainPageName.cs" />
-    <Compile Include="Models\CentralNavigationerMainpage.cs" />
+    <Compile Include="Models\Sound\CentralNavigationerMainpage.cs" />
     <Compile Include="Models\PasswordInfo.cs" />
     <Compile Include="ViewModels\AntProductNativeMenuViewModel.cs" />
     <Compile Include="ViewModels\CentralPlatformVm.cs" />
@@ -349,7 +349,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Sound\alarm.mp3" />
+    <EmbeddedResource Include="Models\Sound\alarm.mp3" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />
   <ProjectExtensions>

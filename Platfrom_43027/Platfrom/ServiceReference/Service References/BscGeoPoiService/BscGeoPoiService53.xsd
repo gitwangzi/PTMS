@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://localhost:2258/BscGeoPoiService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.BaseInformation.Contract.Data" />
-  <xs:import schemaLocation="http://localhost:2258/BscGeoPoiService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" />
+  <xs:import schemaLocation="http://localhost:2259/BscGeoPoiService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.BaseInformation.Contract.Data" />
+  <xs:import schemaLocation="http://localhost:2259/BscGeoPoiService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" />
   <xs:element name="InsertBscGeoPoi">
     <xs:complexType>
       <xs:sequence>
@@ -72,6 +72,20 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" minOccurs="0" name="GetBscGeoPoiListResult" nillable="true" type="q7:MultiMessageOfBscGeoPoih_PhsrrDr" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBscGeoPoiList_ArgGis">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="searchContent" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBscGeoPoiList_ArgGisResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data" minOccurs="0" name="GetBscGeoPoiList_ArgGisResult" nillable="true" type="q8:MultiMessageOfBscGeoPoiArgGish_PhsrrDr" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

@@ -20,16 +20,16 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://localhost:2258/BscGeoPoiService.svc" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://localhost:2259/BscGeoPoiService.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="BscGeoPoiService.xsd" MetadataType="Schema" ID="cf35ab4f-f3a5-4500-9d41-03e1379d8acc" SourceId="1" SourceUrl="http://localhost:2258/BscGeoPoiService.svc?xsd=xsd1" />
-    <MetadataFile FileName="BscGeoPoiService1.xsd" MetadataType="Schema" ID="02379991-223c-433d-9225-6cbc95efb76d" SourceId="1" SourceUrl="http://localhost:2258/BscGeoPoiService.svc?xsd=xsd4" />
-    <MetadataFile FileName="BscGeoPoiService2.xsd" MetadataType="Schema" ID="756ea771-06ad-48a9-a9f0-db1bf516b7fa" SourceId="1" SourceUrl="http://localhost:2258/BscGeoPoiService.svc?xsd=xsd0" />
-    <MetadataFile FileName="BscGeoPoiService.wsdl" MetadataType="Wsdl" ID="586f04d8-7872-40c4-89d1-42af5e0a122f" SourceId="1" SourceUrl="http://localhost:2258/BscGeoPoiService.svc?wsdl" />
-    <MetadataFile FileName="BscGeoPoiService3.xsd" MetadataType="Schema" ID="e3e1487f-04ef-4494-9f6b-050aba15dd00" SourceId="1" SourceUrl="http://localhost:2258/BscGeoPoiService.svc?xsd=xsd3" />
-    <MetadataFile FileName="BscGeoPoiService.disco" MetadataType="Disco" ID="c490449a-2c3e-4c1d-a23a-89691def13e9" SourceId="1" SourceUrl="http://localhost:2258/BscGeoPoiService.svc?disco" />
-    <MetadataFile FileName="BscGeoPoiService4.xsd" MetadataType="Schema" ID="e05e4751-0534-45f8-9c05-8e817f987bf6" SourceId="1" SourceUrl="http://localhost:2258/BscGeoPoiService.svc?xsd=xsd2" />
+    <MetadataFile FileName="BscGeoPoiService5.xsd" MetadataType="Schema" ID="330965c7-3626-4ceb-a10d-f31c2f5432ad" SourceId="1" SourceUrl="http://localhost:2259/BscGeoPoiService.svc?xsd=xsd4" />
+    <MetadataFile FileName="BscGeoPoiService51.xsd" MetadataType="Schema" ID="7e93a6f0-99e1-4df3-8ce8-df50ecdca6d7" SourceId="1" SourceUrl="http://localhost:2259/BscGeoPoiService.svc?xsd=xsd2" />
+    <MetadataFile FileName="BscGeoPoiService1.disco" MetadataType="Disco" ID="f256484b-dba8-4756-84ff-9b92421b1c9f" SourceId="1" SourceUrl="http://localhost:2259/BscGeoPoiService.svc?disco" />
+    <MetadataFile FileName="BscGeoPoiService52.xsd" MetadataType="Schema" ID="ef19f3de-5bcc-4372-ac30-fb960e2917ec" SourceId="1" SourceUrl="http://localhost:2259/BscGeoPoiService.svc?xsd=xsd1" />
+    <MetadataFile FileName="BscGeoPoiService53.xsd" MetadataType="Schema" ID="50ccbe91-cc51-4dbe-8a02-8cc2a413fc58" SourceId="1" SourceUrl="http://localhost:2259/BscGeoPoiService.svc?xsd=xsd0" />
+    <MetadataFile FileName="BscGeoPoiService1.wsdl" MetadataType="Wsdl" ID="1df4ea7c-97bc-49f5-9376-a0b80df46557" SourceId="1" SourceUrl="http://localhost:2259/BscGeoPoiService.svc?wsdl" />
+    <MetadataFile FileName="BscGeoPoiService54.xsd" MetadataType="Schema" ID="7d8b992f-48fc-4d92-9eac-a1e74b7454d6" SourceId="1" SourceUrl="http://localhost:2259/BscGeoPoiService.svc?xsd=xsd3" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

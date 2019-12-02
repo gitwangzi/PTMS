@@ -47,6 +47,13 @@ namespace Gsafety.PTMS.BaseInformation.Contract
 		[OperationContract]
         MultiMessage<BscGeoPoi> GetBscGeoPoiList(int pageIndex, int pageSize, string searchContent, decimal property);
 
+        /// <summary>
+        /// 获取POI列表
+        /// </summary>
+        /// <returns>获取POI</returns>
+        [OperationContract]
+        MultiMessage<BscGeoPoiArgGis> GetBscGeoPoiList_ArgGis(string searchContent);
+
 	}
 }
 

@@ -81,7 +81,7 @@
                 <ColumnDefinition Width="10"/>
             </Grid.ColumnDefinitions>
             <Image Grid.Column="1" x:Name="Ico" Source="{Binding PicUrl}" HorizontalAlignment="Left" Width="29" Height="29"/>
-            <TextBlock   Grid.Column="2" VerticalAlignment="Center" Text="{Binding Title}" FontWeight="Bold" Margin="10,0,0,0" Style="{StaticResource MainPage_menu_title_TextBlockDark}"></TextBlock>
+            <!--<TextBlock   Grid.Column="2" VerticalAlignment="Center" Text="{Binding Title}" FontWeight="Bold" Margin="10,0,0,0" Style="{StaticResource MainPage_menu_title_TextBlockDark}"></TextBlock>-->
             <Image Grid.Column="3" x:Name="MinIco" Source="/ExternalResource;component/Images/CloseImage.png" Stretch="None" Opacity="0.8"
                        Height="16" Width="16">
                 <i:Interaction.Triggers>

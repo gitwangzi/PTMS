@@ -157,6 +157,12 @@ namespace PTMS
                     case "videoServiceFileServerPort":
                         ApplicationContext.Instance.ServerConfig.VideoServiceFileServerPort = param.Value;
                         break;
+                    case "pictureServiceFileServerIp":
+                        ApplicationContext.Instance.ServerConfig.PictureServiceFileServerIP = param.Value;
+                        break;
+                    case "pictureServiceFileServerPort":
+                        ApplicationContext.Instance.ServerConfig.PictureServiceFileServerPort = param.Value;
+                        break;
                     case "RTSPServiceIP":
                         ApplicationContext.Instance.ServerConfig.RTSPServiceIP = param.Value;
                         break;
