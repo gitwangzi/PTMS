@@ -1463,7 +1463,7 @@ namespace Gsafety.PTMS.Report.Repository
         public DataTable GetHistoryTraceStatisticsReport()
         {
             StringBuilder builder = new StringBuilder();
-            builder.Append("select v.vehicle_id,v.district_code, d.name as districtname,t.name as vehicletype,o.name as OrganizationName,vl.latitude as lat,vl.longitude as lon,vl.direction as dir,vl.speed as speed,vl.gps_time as gpstime from run_vehicle_location vl inner join  bsc_vehicle v  on v.vehicle_id = vl.vehicle_id inner join usr_organization o on v.orgnization_id=o.id inner join bsc_vehicle_type t on v.vehicle_type=t.id inner join bsc_district d on v.district_code=d.code where vl.gps_time >='");
+            builder.Append("select v.vehicle_id,v.district_code, d.name as districtname,t.name as vehicletype,o.name as OrganizationName,vl.altitude as alt,vl.latitude as lat,vl.longitude as lon,vl.direction as dir,vl.speed as speed,vl.gps_time as gpstime from run_vehicle_location vl inner join  bsc_vehicle v  on v.vehicle_id = vl.vehicle_id inner join usr_organization o on v.orgnization_id=o.id inner join bsc_vehicle_type t on v.vehicle_type=t.id inner join bsc_district d on v.district_code=d.code where vl.gps_time >='");
            
             builder.Append(WhereInfo.BeginTime.ToString("yyyy-MM-dd HH:mm:ss"));
             builder.Append("'");           

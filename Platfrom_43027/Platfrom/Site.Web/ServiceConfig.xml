@@ -74,7 +74,7 @@
   <add key="UsrDepartmentClient" value="http://localhost:2259/AccountService.svc"/>
   <add key="UserOnlineClient" value="http://localhost:2259/AccountService.svc"/>
   <add key="OrganizationClient" value="http://localhost:2259/OrganizationService.svc"/>
-  <add key="ReportServiceClient" value="http://localhost:2038/ReportService.svc"/>
+  <add key="ReportServiceClient" value="http://localhost:2039/ReportService.svc"/>
   <add key="OrderClientServiceClient" value="http://localhost:2259/OrderClientService.svc"></add>
   <add key="BscDevSuiteServiceClient" value="http://localhost:2259/BscDevSuiteService.svc"></add>
   <add key="BscDevSuitePartServiceClient" value="http://localhost:2259/BscDevSuiteService.svc"></add>

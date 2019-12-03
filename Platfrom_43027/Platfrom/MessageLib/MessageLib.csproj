@@ -63,6 +63,10 @@
     <Compile Include="MessageService_Command.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BaseInformationRepository\BaseInformationRepository.csproj">
+      <Project>{a5efa9ec-ef89-49bd-aa35-913cb278feae}</Project>
+      <Name>BaseInformationRepository</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Common.Data\Common.Data.csproj">
       <Project>{2b4caa14-181a-4b8d-9dc6-891bea684735}</Project>
       <Name>Common.Data</Name>

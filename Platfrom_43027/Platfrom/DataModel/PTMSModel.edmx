@@ -1524,6 +1524,7 @@
           <Property Name="STATUS_FLAG" Type="int" Nullable="false" />
           <Property Name="SOURCE_MODE" Type="int" />
           <Property Name="DEVICE_ID" Type="nvarchar" MaxLength="20" />
+          <Property Name="ALTITUDE" Type="nvarchar" MaxLength="20" />
         </EntityType>
         <EntityType Name="RUN_VEHICLE_ONLINE_TIME">
           <Key>
@@ -3513,6 +3514,7 @@
           <Property Name="STATUS_FLAG" Type="Int32" Nullable="false" />
           <Property Name="SOURCE_MODE" Type="Int32" />
           <Property Name="DEVICE_ID" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+          <Property Type="String" Name="ALTITUDE" MaxLength="20" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="RUN_VEHICLE_ONLINE_TIME">
           <Key>
@@ -5364,6 +5366,7 @@
           <EntitySetMapping Name="RUN_VEHICLE_LOCATION">
             <EntityTypeMapping TypeName="PTMSModel.RUN_VEHICLE_LOCATION">
               <MappingFragment StoreEntitySet="RUN_VEHICLE_LOCATION">
+                <ScalarProperty Name="ALTITUDE" ColumnName="ALTITUDE" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="CLIENT_ID" ColumnName="CLIENT_ID" />
                 <ScalarProperty Name="VEHICLE_ID" ColumnName="VEHICLE_ID" />

@@ -48,6 +48,8 @@ public partial class RUN_VEHICLE_LOCATION
 
     public string DEVICE_ID { get; set; }
 
+    public string ALTITUDE { get; set; }
+
 }
 
 }
