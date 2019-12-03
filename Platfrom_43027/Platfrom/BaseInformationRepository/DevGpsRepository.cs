@@ -281,6 +281,20 @@ namespace Gsafety.Ant.BaseInformation.Repository
             return new SingleMessage<DevGps>(false, "GPSDeviceNoExist");
         }
 
+
+        public static string  GetDevGpsBySN( string sn)
+        {
+            using (var context = new PTMSEntities())
+            {
+                RUN_GPS_WORKING entity = context.RUN_GPS_WORKING.SingleOrDefault(n => n.GPS_SN == sn);
+                if (entity != null)
+                {
+                    return entity.VEHICLE_ID;
+                }
+                return null;
+            }
+        }
+
         public static bool BatchAddDevGps(List<DevGps> devGpsList)
         {
             using (PTMSEntities context = new PTMSEntities())

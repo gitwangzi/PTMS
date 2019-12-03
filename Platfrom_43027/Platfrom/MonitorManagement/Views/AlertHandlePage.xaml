@@ -7,9 +7,10 @@
 	       xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions"
              xmlns:Converts="clr-namespace:Gsafety.Common.Converts;assembly=Converts"
              xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"  
-           Width="420" Height="350"    FontSize="12" FontWeight="Bold">
+           Width="540" Height="550"    FontSize="12" FontWeight="Bold">
     <UserControl.Resources>
         <Converts:DateTimeConverter x:Key="DateTimeConverter"/>
+        <Converts:AlarmLevelConverter x:Key="AlarmLevelConverter"/>
     </UserControl.Resources>
     <Grid x:Name="HandlePage"  Style="{StaticResource ContentGridWhiteStyle}">
         <Grid.RenderTransform>
@@ -84,7 +85,7 @@
         <Border Grid.Row="0" Grid.RowSpan="3" BorderBrush="Gray" BorderThickness="1"></Border>
         <Grid Grid.Row="1" Margin="0,20,0,0">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="0.6*"></ColumnDefinition>
+                <ColumnDefinition Width="0.4*"></ColumnDefinition>
                 <ColumnDefinition Width="5"></ColumnDefinition>
                 <ColumnDefinition Width="1.2*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
@@ -126,39 +127,68 @@
             <TextBox x:Name="txtCarNumber" 
                      HorizontalAlignment="Left" 
                      Grid.Row="0" Grid.Column="2"
-                     Width="239" Margin="0,2,0,2" 
+                     Width="350" Margin="0,2,0,2" 
                      IsReadOnly="True"  Text="{Binding VehicleID}"/>
 
             <TextBox x:Name="txtAlarmTime" 
                      HorizontalAlignment="Left" Grid.Row="1" 
-                     Grid.Column="2" Width="239" Margin="0,2,0,2" IsReadOnly="True" Text="{Binding AlertTime,Converter={StaticResource DateTimeConverter}}" 
+                     Grid.Column="2" Width="350" Margin="0,2,0,2" IsReadOnly="True" Text="{Binding AlertTime,Converter={StaticResource DateTimeConverter}}" 
                      />
             <TextBox x:Name="txtDisposer" 
                      HorizontalAlignment="Left" Grid.Row="2"
-                     Grid.Column="2" Width="239" Margin="0,2,0,2" 
+                     Grid.Column="2" Width="350" Margin="0,2,0,2" 
                      IsReadOnly="True"  Text="{Binding Handler}"/>
-            <!--<Controls:DatePickerEx x:Name="txtDateTime" 
-                                   HorizontalAlignment="Left"  
-                                   Grid.Row="3" Grid.Column="2" 
-                                   Width="239" Margin="0,2,0,2" 
-                                   Foreground="Red"
-                                   SelectedDate="{Binding HandleTime, Mode=TwoWay}">
-            </Controls:DatePickerEx>-->
+            
             <TextBox                   HorizontalAlignment="Left"  
                                    Grid.Row="3" Grid.Column="2" 
-                                   Width="239" Margin="0,2,0,2" 
+                                   Width="350" Margin="0,2,0,2" 
                         IsReadOnly="True"
                                    Text="{Binding HandleTime,Converter={StaticResource DateTimeConverter}}"></TextBox>
 
-            <StackPanel Grid.Row="4" Grid.Column="2" VerticalAlignment="Center">
+            <StackPanel Grid.Row="4" Grid.Column="2" VerticalAlignment="Center" >
                 <Grid>
                     <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
                         <ColumnDefinition Width="Auto"/>
                         <ColumnDefinition Width="Auto"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
 
                     <RadioButton Grid.Column="0" 
+                                             GroupName="Transfer" 
+                                             x:Name="Common"
+                                             Content="{Binding [IncidentCommon], Source={StaticResource SR}}" 
+                                             FontFamily="Segoe UI"
+                                             FontSize="12"
+                                             IsChecked="{Binding FirstCheck,Mode=TwoWay}"
+                                             Margin="0,5,10,5"/>
+
+                    <RadioButton Grid.Column="1" 
+                                             GroupName="Transfer"
+                                             x:Name="Bigger" 
+                                             Content="{Binding [IncidentLarger], Source={StaticResource SR}}" 
+                                             FontFamily="Segoe UI"
+                                             FontSize="12"
+                                             IsChecked="{Binding SecondCheck,Mode=TwoWay}"
+                                             Margin="0,5,10,5"/>
+
+                    <RadioButton Grid.Column="2" 
+                                             GroupName="Transfer" 
+                                             x:Name="Major" 
+                                             Content="{Binding [IncidentMajor], Source={StaticResource SR}}" 
+                                             FontFamily="Segoe UI"
+                                             FontSize="12"
+                                             Margin="0,5,0,5"
+                                             IsChecked="{Binding ThirdCheck,Mode=TwoWay}"/>
+                    <RadioButton Grid.Column="3" 
+                                             GroupName="Transfer" 
+                                             x:Name="EspecialMajor" 
+                                             Content="{Binding [IncidentSpecialSignificant], Source={StaticResource SR}}" 
+                                             FontFamily="Segoe UI"
+                                             FontSize="12"
+                                             Margin="0,5,0,5"
+                                             IsChecked="{Binding FourthCheck,Mode=TwoWay}"/>
+                    <!--<RadioButton Grid.Column="0" 
                                              GroupName="Transfer" 
                                              x:Name="Common"
                                              Content="{Binding [AlertLow], Source={StaticResource SR}}" 
@@ -183,7 +213,7 @@
                                              FontFamily="Segoe UI"
                                              FontSize="12"
                                              Margin="0,5,0,5"
-                                             IsChecked="{Binding ThirdCheck,Mode=TwoWay}"/>
+                                             IsChecked="{Binding ThirdCheck,Mode=TwoWay}"/>-->
                 </Grid>
             </StackPanel>
 
@@ -197,30 +227,30 @@
                      VerticalAlignment="Top"
                      Grid.Row="5" TextWrapping="Wrap" 
                      AcceptsReturn="True" Grid.RowSpan="2" 
-                     Grid.Column="2" Width="239" Margin="0,2,0,2" 
+                     Grid.Column="2" Width="350" Margin="0,2,0,2" 
                      Text="{Binding Note,Mode=TwoWay}"
                      MaxLength="500" Height="55"/>
 
             <!--发送邮件-->
-            <TextBlock Grid.Row="7" Grid.Column="0"  Visibility="Collapsed"
+            <TextBlock Grid.Row="7" Grid.Column="0"  
                        HorizontalAlignment="Right" VerticalAlignment="Center" 
                        Text="{Binding [MONITOR_SendEmail],Source={StaticResource SR}}" 
                        Margin="0,0,20,0"  Style="{StaticResource TextBlockBlackStyle}"/>                    
             <CheckBox Grid.Row="7" 
-                      Grid.Column="2"  Visibility="Collapsed"
+                      Grid.Column="2"  
                       VerticalAlignment="Center" 
                       HorizontalAlignment="Left"
                       Margin="0,2,0,2" IsChecked="{Binding IsMail, Mode=TwoWay}" 
                       Name="cbMail" 
                       Style="{x:Null}"/>
 
-            <Grid Grid.Row="8" Grid.Column="2" Visibility="Collapsed">
+            <Grid Grid.Row="8" Grid.Column="2">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"></ColumnDefinition>
                     <ColumnDefinition Width="30"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
                 <sdk:DataGrid Name="MailListView"  Grid.Column="0"  Height="200"
-                          AutoGenerateColumns="False" Width="240" 
+                          AutoGenerateColumns="False" Width="350" 
                           HorizontalAlignment="Left"
                           CanUserSortColumns="True" 
                           IsReadOnly="True"
@@ -257,7 +287,7 @@
                     </sdk:DataGrid.Columns>
                 </sdk:DataGrid>
 
-                <StackPanel Orientation="Vertical" Grid.Column="1">
+                <StackPanel Orientation="Vertical" Grid.Column="1" Margin="-5,0,10,0">
                     <Button
                     x:Name="BtnAddExtent" 
                     Style="{StaticResource ShowAddButtonCommonStyle}" 

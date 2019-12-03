@@ -129,5 +129,8 @@ namespace Gsafety.PTMS.Common.Data
         /// </summary>
         [DataMember]
         public string HandlePerson { get; set; }
+
+        [DataMember]
+        public int AlertLevel { get; set; }
     }
 }

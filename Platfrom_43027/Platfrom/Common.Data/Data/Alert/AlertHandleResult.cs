@@ -34,5 +34,13 @@ namespace Gsafety.PTMS.Common.Data
             get { return content; }
             set { content = value; }
         }
+
+        int alertLevel;
+        [DataMember]
+        public int AlertLevel
+        {
+            get { return alertLevel; }
+            set { alertLevel = value; }
+        }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using Gsafety.Common.Controls;
 using Gsafety.PTMS.BasicPage.Views;
 using Gsafety.PTMS.ServiceReference.ChauffeurService;
+using Gsafety.PTMS.ServiceReference.VehicleMonitorService;
 using Gsafety.PTMS.Share;
 using Jounce.Core.Event;
 using Jounce.Core.ViewModel;
@@ -25,6 +26,7 @@ namespace Gsafety.PTMS.Monitor.ViewModels
         private int _SelectItemIndex;
 
         private ChauffeurServiceClient client;
+        private VehicleMonitorServiceClient monitorClient;
 
         private ObservableCollection<Chauffeur> _chauffeurList;
         /// <summary>
@@ -75,6 +77,37 @@ namespace Gsafety.PTMS.Monitor.ViewModels
             {
                 ApplicationContext.Instance.Logger.LogException(MethodBase.GetCurrentMethod().ToString(), ex);
             }
+        }
+
+        private void InitiMonitorClient()
+        {
+            monitorClient = ServiceClientFactory.Create<VehicleMonitorServiceClient>();
+            monitorClient.GetLastMonitorGPSCompleted += MonitorClient_GetLastMonitorGPSCompleted;
+        }
+
+        private void MonitorClient_GetLastMonitorGPSCompleted(object sender, GetLastMonitorGPSCompletedEventArgs e)
+        {
+            try
+            {
+                if ((e.Result != null) && (e.Result.Result != null))
+                {
+                    if(e.Result.Result.Source == 0)
+                    {
+                        this.GPSSource = ApplicationContext.Instance.StringResourceReader.GetString("CarKit");
+                    }
+
+                    if(e.Result.Result.Source == 1)
+                    {
+                        this.GPSSource = "AVL";
+                    }
+                    RaisePropertyChanged(() => GPSSource);
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+            
         }
 
         private void InilitClient()
@@ -201,6 +234,16 @@ namespace Gsafety.PTMS.Monitor.ViewModels
             }
         }
 
+        private string _gpsSource;
+        public string GPSSource
+        {
+            get { return _gpsSource; }
+            set
+            {
+                _gpsSource = value;
+                RaisePropertyChanged(() => GPSSource);
+            }
+        }
 
 
         public Gsafety.PTMS.Bases.Models.Vehicle CurrentVehicle
@@ -273,6 +316,12 @@ namespace Gsafety.PTMS.Monitor.ViewModels
                     }
 
                 }
+
+                if(this.monitorClient == null)
+                {
+                    this.InitiMonitorClient();
+                }
+                this.monitorClient.GetLastMonitorGPSAsync(CurrentVehicle.VehicleId);
 
                 if (this.client == null)
                 {

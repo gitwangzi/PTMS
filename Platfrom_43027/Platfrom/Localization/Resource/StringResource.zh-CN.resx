@@ -336,6 +336,9 @@
   <data name="ALARM_Longitude" xml:space="preserve">
     <value>经度</value>
   </data>
+  <data name="ALARM_Height" xml:space="preserve">
+    <value>高度</value>
+  </data>
   <data name="ALARM_Note" xml:space="preserve">
     <value>备注:</value>
   </data>
@@ -7169,5 +7172,11 @@
   </data>
   <data name="ImageSizeError" xml:space="preserve">
     <value>图片大小不能超过10M!</value>
+  </data>
+  <data name="CarKit" xml:space="preserve">
+    <value>车载套件</value>
+  </data>
+  <data name="DeviceType" xml:space="preserve">
+    <value>设备类型</value>
   </data>
 </root>

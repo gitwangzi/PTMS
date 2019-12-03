@@ -1039,6 +1039,7 @@ namespace Gsafety.PTMS.BaseInformation.Repository
                                    VehicleTypeImage = vt.ICON,
                                    MDVR_SN = mdvr.MDVR_CORE_SN,
                                    DistrictCode = veh.DISTRICT_CODE,
+                                   Ficha = veh.FICHA
                                };
 
             vehicles = mdvrvehicles.ToList();
@@ -1072,6 +1073,7 @@ namespace Gsafety.PTMS.BaseInformation.Repository
                                   VehicleTypeImage = vt.ICON,
                                   GPS_SN = gps.GPS_SN,
                                   DistrictCode = veh.DISTRICT_CODE,
+                                  Ficha = veh.FICHA
                               };
 
 
@@ -1118,6 +1120,7 @@ namespace Gsafety.PTMS.BaseInformation.Repository
                                      VehicleTypeImage = vt.ICON,
                                      Mobile_SN = mobile.MOBILE_NUMBER,
                                      DistrictCode = veh.DISTRICT_CODE,
+                                     Ficha = veh.FICHA
                                  };
 
             foreach (var item in mobilevehicles)
@@ -1205,6 +1208,7 @@ namespace Gsafety.PTMS.BaseInformation.Repository
                                    VehicleTypeImage = vt.ICON,
                                    MDVR_SN = mdvr.MDVR_CORE_SN,
                                    DistrictCode = veh.DISTRICT_CODE,
+                                   Ficha = veh.FICHA
                                };
 
             var mdvrvehicle = mdvrvehicles.FirstOrDefault();
@@ -1238,6 +1242,7 @@ namespace Gsafety.PTMS.BaseInformation.Repository
                                   VehicleTypeImage = vt.ICON,
                                   GPS_SN = gps.GPS_SN,
                                   DistrictCode = veh.DISTRICT_CODE,
+                                  Ficha = veh.FICHA
                               };
 
             var gpsvehicle = gpsvehicles.FirstOrDefault();
@@ -1272,6 +1277,7 @@ namespace Gsafety.PTMS.BaseInformation.Repository
                                      VehicleTypeImage = vt.ICON,
                                      Mobile_SN = mobile.MOBILE_NUMBER,
                                      DistrictCode = veh.DISTRICT_CODE,
+                                     Ficha = veh.FICHA
                                  };
 
             var mobilevehicle = mobilevehicles.FirstOrDefault();

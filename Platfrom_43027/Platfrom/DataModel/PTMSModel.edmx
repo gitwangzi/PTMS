@@ -4,12 +4,565 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="PTMSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="PTMSModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="PTMSModelStoreContainer">
+          <EntitySet Name="ALM_911_DISPOSE" EntityType="PTMSModel.Store.ALM_911_DISPOSE" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ALM_ALARM_DISPOSE" EntityType="PTMSModel.Store.ALM_ALARM_DISPOSE" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ALM_ALARM_MAIL" EntityType="PTMSModel.Store.ALM_ALARM_MAIL" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ALM_ALARM_NOTE" EntityType="PTMSModel.Store.ALM_ALARM_NOTE" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ALM_ALARM_RECORD" EntityType="PTMSModel.Store.ALM_ALARM_RECORD" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ALT_BUSINESS_ALERT" EntityType="PTMSModel.Store.ALT_BUSINESS_ALERT" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ALT_BUSINESS_ALERT_HANDLE" EntityType="PTMSModel.Store.ALT_BUSINESS_ALERT_HANDLE" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ALT_DEVICE_ALERT" EntityType="PTMSModel.Store.ALT_DEVICE_ALERT" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ALT_DEVICE_ALERT_CHECK" EntityType="PTMSModel.Store.ALT_DEVICE_ALERT_CHECK" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="BSC_CHAUFFEUR" EntityType="PTMSModel.Store.BSC_CHAUFFEUR" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="BSC_DEV_GPS" EntityType="PTMSModel.Store.BSC_DEV_GPS" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="BSC_DEV_SUITE" EntityType="PTMSModel.Store.BSC_DEV_SUITE" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="BSC_DEV_SUITE_PART" EntityType="PTMSModel.Store.BSC_DEV_SUITE_PART" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="BSC_DISTRICT" EntityType="PTMSModel.Store.BSC_DISTRICT" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="BSC_GEO_POI" EntityType="PTMSModel.Store.BSC_GEO_POI" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="BSC_INSTALLATION_STAFF" EntityType="PTMSModel.Store.BSC_INSTALLATION_STAFF" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="BSC_ORDER_CLIENT" EntityType="PTMSModel.Store.BSC_ORDER_CLIENT" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="BSC_SETUP_STATION" EntityType="PTMSModel.Store.BSC_SETUP_STATION" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="BSC_SETUPSTATION_USER" EntityType="PTMSModel.Store.BSC_SETUPSTATION_USER" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="BSC_VEHICLE" EntityType="PTMSModel.Store.BSC_VEHICLE" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="BSC_VEHICLE_CHAUFFEUR" EntityType="PTMSModel.Store.BSC_VEHICLE_CHAUFFEUR" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="BSC_VEHICLE_SPEEDCOLOR" EntityType="PTMSModel.Store.BSC_VEHICLE_SPEEDCOLOR" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="BSC_VEHICLE_TYPE" EntityType="PTMSModel.Store.BSC_VEHICLE_TYPE" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="CFG_APP_CONFIG" EntityType="PTMSModel.Store.CFG_APP_CONFIG" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="CFG_TRANSFER_MAPPING" EntityType="PTMSModel.Store.CFG_TRANSFER_MAPPING" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="LOG_ACCESS" EntityType="PTMSModel.Store.LOG_ACCESS" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="LOG_DATA" EntityType="PTMSModel.Store.LOG_DATA" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="LOG_ERROR" EntityType="PTMSModel.Store.LOG_ERROR" store:Type="Tables" store:Schema="dbo" store:Name="LOG_ERROR">
+            <DefiningQuery>SELECT 
+      [LOG_ERROR].[ID] AS [ID], 
+      [LOG_ERROR].[IP] AS [IP], 
+      [LOG_ERROR].[SERVICE_NAME] AS [SERVICE_NAME], 
+      [LOG_ERROR].[CREATE_TIME] AS [CREATE_TIME], 
+      [LOG_ERROR].[ERROR_REASON] AS [ERROR_REASON]
+      FROM [dbo].[LOG_ERROR] AS [LOG_ERROR]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="LOG_MANAGER" EntityType="PTMSModel.Store.LOG_MANAGER" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="LOG_OPERATE" EntityType="PTMSModel.Store.LOG_OPERATE" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="LOG_VIDEO" EntityType="PTMSModel.Store.LOG_VIDEO" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="MDI_ALARM_VIDEO" EntityType="PTMSModel.Store.MDI_ALARM_VIDEO" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="MDI_DOWNLOAD_VIDEO" EntityType="PTMSModel.Store.MDI_DOWNLOAD_VIDEO" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="MDI_LIVE_VIDEO" EntityType="PTMSModel.Store.MDI_LIVE_VIDEO" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="MDI_PHOTOGRAPH" EntityType="PTMSModel.Store.MDI_PHOTOGRAPH" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="MTN_GPS_INSTALLATION_DETAIL" EntityType="PTMSModel.Store.MTN_GPS_INSTALLATION_DETAIL" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="MTN_INSTALLATION_AUDIT" EntityType="PTMSModel.Store.MTN_INSTALLATION_AUDIT" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="MTN_INSTALLATION_DETAIL" EntityType="PTMSModel.Store.MTN_INSTALLATION_DETAIL" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="MTN_MAINTAIN_APPLICATION" EntityType="PTMSModel.Store.MTN_MAINTAIN_APPLICATION" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="MTN_MAINTAIN_RECORD" EntityType="PTMSModel.Store.MTN_MAINTAIN_RECORD" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="MTN_MDVR_REGISTER" EntityType="PTMSModel.Store.MTN_MDVR_REGISTER" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="MTN_PART_AUDIT" EntityType="PTMSModel.Store.MTN_PART_AUDIT" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="MTN_VIDEO_UPLOAD_COMMAND" EntityType="PTMSModel.Store.MTN_VIDEO_UPLOAD_COMMAND" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="RUN_APP_MESSAGE" EntityType="PTMSModel.Store.RUN_APP_MESSAGE" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="RUN_APP_ONLINE_RECORD" EntityType="PTMSModel.Store.RUN_APP_ONLINE_RECORD" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="RUN_APPMESSAGE_VEHICLE" EntityType="PTMSModel.Store.RUN_APPMESSAGE_VEHICLE" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="RUN_FOUND_REGISTRY" EntityType="PTMSModel.Store.RUN_FOUND_REGISTRY" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="RUN_GPS_ONLINE_RECORD" EntityType="PTMSModel.Store.RUN_GPS_ONLINE_RECORD" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="RUN_GPS_STATUS_CHANGE" EntityType="PTMSModel.Store.RUN_GPS_STATUS_CHANGE" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="RUN_GPS_WORKING" EntityType="PTMSModel.Store.RUN_GPS_WORKING" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="RUN_LOST_REGISTRY" EntityType="PTMSModel.Store.RUN_LOST_REGISTRY" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="RUN_MDVR_MESSAGE" EntityType="PTMSModel.Store.RUN_MDVR_MESSAGE" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="RUN_MDVRMESSAGE_VEHICLE" EntityType="PTMSModel.Store.RUN_MDVRMESSAGE_VEHICLE" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="RUN_MOBILE_WORKING" EntityType="PTMSModel.Store.RUN_MOBILE_WORKING" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="RUN_MONITOR_GROUP" EntityType="PTMSModel.Store.RUN_MONITOR_GROUP" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="RUN_MONITOR_GROUP_VEHICLE" EntityType="PTMSModel.Store.RUN_MONITOR_GROUP_VEHICLE" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="RUN_SUITE_ONLINE_RECORD" EntityType="PTMSModel.Store.RUN_SUITE_ONLINE_RECORD" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="RUN_SUITE_STATUS_CHANGE" EntityType="PTMSModel.Store.RUN_SUITE_STATUS_CHANGE" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="RUN_SUITE_WORKING" EntityType="PTMSModel.Store.RUN_SUITE_WORKING" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="RUN_TAKEPICTURE" EntityType="PTMSModel.Store.RUN_TAKEPICTURE" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="RUN_USER_ONLINE" EntityType="PTMSModel.Store.RUN_USER_ONLINE" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="RUN_VEHICLE_LOCATION" EntityType="PTMSModel.Store.RUN_VEHICLE_LOCATION" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="RUN_VEHICLE_ONLINE_TIME" EntityType="PTMSModel.Store.RUN_VEHICLE_ONLINE_TIME" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="RUN_VIDEO_QUERY" EntityType="PTMSModel.Store.RUN_VIDEO_QUERY" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TRF_COMMAND_PARAM" EntityType="PTMSModel.Store.TRF_COMMAND_PARAM" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TRF_COMMAND_VEHICLE" EntityType="PTMSModel.Store.TRF_COMMAND_VEHICLE" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TRF_FENCE" EntityType="PTMSModel.Store.TRF_FENCE" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TRF_FENCE_QUEUE" EntityType="PTMSModel.Store.TRF_FENCE_QUEUE" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TRF_ROUTE" EntityType="PTMSModel.Store.TRF_ROUTE" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TRF_ROUTE_QUEUE" EntityType="PTMSModel.Store.TRF_ROUTE_QUEUE" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TRF_SOFTWARE_VERSION" EntityType="PTMSModel.Store.TRF_SOFTWARE_VERSION" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TRF_UPGRADE_RECORD" EntityType="PTMSModel.Store.TRF_UPGRADE_RECORD" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="USR_DEPARTMENT" EntityType="PTMSModel.Store.USR_DEPARTMENT" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="USR_FUNC_ITEM" EntityType="PTMSModel.Store.USR_FUNC_ITEM" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="USR_GUSER" EntityType="PTMSModel.Store.USR_GUSER" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="USR_ORGANIZATION" EntityType="PTMSModel.Store.USR_ORGANIZATION" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="USR_ORGANIZATION_USER" EntityType="PTMSModel.Store.USR_ORGANIZATION_USER" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="USR_ROLE" EntityType="PTMSModel.Store.USR_ROLE" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="USR_ROLE_FUNCS" EntityType="PTMSModel.Store.USR_ROLE_FUNCS" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ALARM_UNHANDLED_VIEW" EntityType="PTMSModel.Store.ALARM_UNHANDLED_VIEW" store:Type="Views" store:Schema="dbo" store:Name="ALARM_UNHANDLED_VIEW">
+            <DefiningQuery>SELECT 
+      [ALARM_UNHANDLED_VIEW].[ID] AS [ID], 
+      [ALARM_UNHANDLED_VIEW].[VEHICLE_ID] AS [VEHICLE_ID], 
+      [ALARM_UNHANDLED_VIEW].[MDVR_CORE_SN] AS [MDVR_CORE_SN], 
+      [ALARM_UNHANDLED_VIEW].[PROVINCE] AS [PROVINCE], 
+      [ALARM_UNHANDLED_VIEW].[CITY] AS [CITY], 
+      [ALARM_UNHANDLED_VIEW].[BUTTON_NUM] AS [BUTTON_NUM], 
+      [ALARM_UNHANDLED_VIEW].[VEHICLE_TYPE] AS [VEHICLE_TYPE], 
+      [ALARM_UNHANDLED_VIEW].[DIRECTION] AS [DIRECTION], 
+      [ALARM_UNHANDLED_VIEW].[ALARM_UID] AS [ALARM_UID], 
+      [ALARM_UNHANDLED_VIEW].[LATITUDE] AS [LATITUDE], 
+      [ALARM_UNHANDLED_VIEW].[LONGITUDE] AS [LONGITUDE], 
+      [ALARM_UNHANDLED_VIEW].[GPS_TIME] AS [GPS_TIME], 
+      [ALARM_UNHANDLED_VIEW].[GPS_VALID] AS [GPS_VALID], 
+      [ALARM_UNHANDLED_VIEW].[SPEED] AS [SPEED], 
+      [ALARM_UNHANDLED_VIEW].[CONTACT_PHONE] AS [CONTACT_PHONE], 
+      [ALARM_UNHANDLED_VIEW].[OWNER] AS [OWNER], 
+      [ALARM_UNHANDLED_VIEW].[SUITE_ID] AS [SUITE_ID], 
+      [ALARM_UNHANDLED_VIEW].[STATUS] AS [STATUS], 
+      [ALARM_UNHANDLED_VIEW].[DISTRICT_CODE] AS [DISTRICT_CODE]
+      FROM [dbo].[ALARM_UNHANDLED_VIEW] AS [ALARM_UNHANDLED_VIEW]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="BSC_GPS_VIEW" EntityType="PTMSModel.Store.BSC_GPS_VIEW" store:Type="Views" store:Schema="dbo" store:Name="BSC_GPS_VIEW">
+            <DefiningQuery>SELECT 
+      [BSC_GPS_VIEW].[ID] AS [ID], 
+      [BSC_GPS_VIEW].[CLIENT_ID] AS [CLIENT_ID], 
+      [BSC_GPS_VIEW].[GPS_SN] AS [GPS_SN], 
+      [BSC_GPS_VIEW].[STATUS] AS [STATUS], 
+      [BSC_GPS_VIEW].[DISTRICT_CODE] AS [DISTRICT_CODE], 
+      [BSC_GPS_VIEW].[GPS_SIM] AS [GPS_SIM], 
+      [BSC_GPS_VIEW].[CREATOR] AS [CREATOR], 
+      [BSC_GPS_VIEW].[CREATE_TIME] AS [CREATE_TIME], 
+      [BSC_GPS_VIEW].[VALID] AS [VALID], 
+      [BSC_GPS_VIEW].[GPS_UID] AS [GPS_UID], 
+      [BSC_GPS_VIEW].[VEHICLE_ID] AS [VEHICLE_ID], 
+      [BSC_GPS_VIEW].[CHECKSTEP] AS [CHECKSTEP]
+      FROM [dbo].[BSC_GPS_VIEW] AS [BSC_GPS_VIEW]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="BSC_SUITE_VIEW" EntityType="PTMSModel.Store.BSC_SUITE_VIEW" store:Type="Views" store:Schema="dbo" store:Name="BSC_SUITE_VIEW">
+            <DefiningQuery>SELECT 
+      [BSC_SUITE_VIEW].[SUITE_INFO_ID] AS [SUITE_INFO_ID], 
+      [BSC_SUITE_VIEW].[CLIENT_ID] AS [CLIENT_ID], 
+      [BSC_SUITE_VIEW].[SUITE_ID] AS [SUITE_ID], 
+      [BSC_SUITE_VIEW].[MDVR_CORE_SN] AS [MDVR_CORE_SN], 
+      [BSC_SUITE_VIEW].[MDVR_SN] AS [MDVR_SN], 
+      [BSC_SUITE_VIEW].[MDVR_SIM] AS [MDVR_SIM], 
+      [BSC_SUITE_VIEW].[MDVR_SIM_MOBILE] AS [MDVR_SIM_MOBILE], 
+      [BSC_SUITE_VIEW].[UPS_SN] AS [UPS_SN], 
+      [BSC_SUITE_VIEW].[SD_SN] AS [SD_SN], 
+      [BSC_SUITE_VIEW].[SOFTWARE_VERSION] AS [SOFTWARE_VERSION], 
+      [BSC_SUITE_VIEW].[MODEL] AS [MODEL], 
+      [BSC_SUITE_VIEW].[PROTOCOL] AS [PROTOCOL], 
+      [BSC_SUITE_VIEW].[STATUS] AS [STATUS], 
+      [BSC_SUITE_VIEW].[NOTE] AS [NOTE], 
+      [BSC_SUITE_VIEW].[CREATE_TIME] AS [CREATE_TIME], 
+      [BSC_SUITE_VIEW].[VALID] AS [VALID], 
+      [BSC_SUITE_VIEW].[VEHICLE_ID] AS [VEHICLE_ID], 
+      [BSC_SUITE_VIEW].[CHECKSTEP] AS [CHECKSTEP]
+      FROM [dbo].[BSC_SUITE_VIEW] AS [BSC_SUITE_VIEW]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="BUSINESS_ALERT_UNHANDLED_VIEW" EntityType="PTMSModel.Store.BUSINESS_ALERT_UNHANDLED_VIEW" store:Type="Views" store:Schema="dbo" store:Name="BUSINESS_ALERT_UNHANDLED_VIEW">
+            <DefiningQuery>SELECT 
+      [BUSINESS_ALERT_UNHANDLED_VIEW].[ID] AS [ID], 
+      [BUSINESS_ALERT_UNHANDLED_VIEW].[VEHICLE_ID] AS [VEHICLE_ID], 
+      [BUSINESS_ALERT_UNHANDLED_VIEW].[ALERT_TYPE] AS [ALERT_TYPE], 
+      [BUSINESS_ALERT_UNHANDLED_VIEW].[ALERT_TIME] AS [ALERT_TIME], 
+      [BUSINESS_ALERT_UNHANDLED_VIEW].[LONGITUDE] AS [LONGITUDE], 
+      [BUSINESS_ALERT_UNHANDLED_VIEW].[LATITUDE] AS [LATITUDE], 
+      [BUSINESS_ALERT_UNHANDLED_VIEW].[STATUS] AS [STATUS], 
+      [BUSINESS_ALERT_UNHANDLED_VIEW].[GPS_VALID] AS [GPS_VALID], 
+      [BUSINESS_ALERT_UNHANDLED_VIEW].[SPEED] AS [SPEED], 
+      [BUSINESS_ALERT_UNHANDLED_VIEW].[GPS_TIME] AS [GPS_TIME], 
+      [BUSINESS_ALERT_UNHANDLED_VIEW].[MDVR_CORE_SN] AS [MDVR_CORE_SN], 
+      [BUSINESS_ALERT_UNHANDLED_VIEW].[DISTRICT_CODE] AS [DISTRICT_CODE], 
+      [BUSINESS_ALERT_UNHANDLED_VIEW].[PROVINCE] AS [PROVINCE], 
+      [BUSINESS_ALERT_UNHANDLED_VIEW].[CITY] AS [CITY], 
+      [BUSINESS_ALERT_UNHANDLED_VIEW].[DIRECTION] AS [DIRECTION]
+      FROM [dbo].[BUSINESS_ALERT_UNHANDLED_VIEW] AS [BUSINESS_ALERT_UNHANDLED_VIEW]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="BUSINESS_ALERT_VIEW" EntityType="PTMSModel.Store.BUSINESS_ALERT_VIEW" store:Type="Views" store:Schema="dbo" store:Name="BUSINESS_ALERT_VIEW">
+            <DefiningQuery>SELECT 
+      [BUSINESS_ALERT_VIEW].[ID] AS [ID], 
+      [BUSINESS_ALERT_VIEW].[VEHICLE_ID] AS [VEHICLE_ID], 
+      [BUSINESS_ALERT_VIEW].[ALERT_TYPE] AS [ALERT_TYPE], 
+      [BUSINESS_ALERT_VIEW].[ALERT_TIME] AS [ALERT_TIME], 
+      [BUSINESS_ALERT_VIEW].[LONGITUDE] AS [LONGITUDE], 
+      [BUSINESS_ALERT_VIEW].[LATITUDE] AS [LATITUDE], 
+      [BUSINESS_ALERT_VIEW].[STATUS] AS [STATUS], 
+      [BUSINESS_ALERT_VIEW].[GPS_VALID] AS [GPS_VALID], 
+      [BUSINESS_ALERT_VIEW].[SPEED] AS [SPEED], 
+      [BUSINESS_ALERT_VIEW].[GPS_TIME] AS [GPS_TIME], 
+      [BUSINESS_ALERT_VIEW].[MDVR_CORE_SN] AS [MDVR_CORE_SN], 
+      [BUSINESS_ALERT_VIEW].[PROVINCE] AS [PROVINCE], 
+      [BUSINESS_ALERT_VIEW].[CITY] AS [CITY]
+      FROM [dbo].[BUSINESS_ALERT_VIEW] AS [BUSINESS_ALERT_VIEW]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="DEVICEALERT_VECHILESER_VIEW" EntityType="PTMSModel.Store.DEVICEALERT_VECHILESER_VIEW" store:Type="Views" store:Schema="dbo" store:Name="DEVICEALERT_VECHILESER_VIEW">
+            <DefiningQuery>SELECT 
+      [DEVICEALERT_VECHILESER_VIEW].[ID] AS [ID], 
+      [DEVICEALERT_VECHILESER_VIEW].[VEHICLE_ID] AS [VEHICLE_ID], 
+      [DEVICEALERT_VECHILESER_VIEW].[SUITE_ID] AS [SUITE_ID], 
+      [DEVICEALERT_VECHILESER_VIEW].[MDVR_CORE_SN] AS [MDVR_CORE_SN], 
+      [DEVICEALERT_VECHILESER_VIEW].[ALERT_TIME] AS [ALERT_TIME], 
+      [DEVICEALERT_VECHILESER_VIEW].[LONGITUDE] AS [LONGITUDE], 
+      [DEVICEALERT_VECHILESER_VIEW].[LATITUDE] AS [LATITUDE], 
+      [DEVICEALERT_VECHILESER_VIEW].[ALERT_TYPE] AS [ALERT_TYPE], 
+      [DEVICEALERT_VECHILESER_VIEW].[STATUS] AS [STATUS]
+      FROM [dbo].[DEVICEALERT_VECHILESER_VIEW] AS [DEVICEALERT_VECHILESER_VIEW]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="DISTRICT_LEVEL_VIEW" EntityType="PTMSModel.Store.DISTRICT_LEVEL_VIEW" store:Type="Views" store:Schema="dbo" store:Name="DISTRICT_LEVEL_VIEW">
+            <DefiningQuery>SELECT 
+      [DISTRICT_LEVEL_VIEW].[CODE] AS [CODE], 
+      [DISTRICT_LEVEL_VIEW].[PROVINCE] AS [PROVINCE], 
+      [DISTRICT_LEVEL_VIEW].[CITY] AS [CITY], 
+      [DISTRICT_LEVEL_VIEW].[PARROQUIA] AS [PARROQUIA]
+      FROM [dbo].[DISTRICT_LEVEL_VIEW] AS [DISTRICT_LEVEL_VIEW]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="INSTALL_STATISTICS_VIEW" EntityType="PTMSModel.Store.INSTALL_STATISTICS_VIEW" store:Type="Views" store:Schema="dbo" store:Name="INSTALL_STATISTICS_VIEW">
+            <DefiningQuery>SELECT 
+      [INSTALL_STATISTICS_VIEW].[VEHICLEID] AS [VEHICLEID], 
+      [INSTALL_STATISTICS_VIEW].[DEVICESN] AS [DEVICESN], 
+      [INSTALL_STATISTICS_VIEW].[STEP] AS [STEP], 
+      [INSTALL_STATISTICS_VIEW].[STATION] AS [STATION], 
+      [INSTALL_STATISTICS_VIEW].[STARTTIME] AS [STARTTIME], 
+      [INSTALL_STATISTICS_VIEW].[DEVICETYPE] AS [DEVICETYPE], 
+      [INSTALL_STATISTICS_VIEW].[ORGNIZATION_ID] AS [ORGNIZATION_ID], 
+      [INSTALL_STATISTICS_VIEW].[VEHICLETYPEID] AS [VEHICLETYPEID], 
+      [INSTALL_STATISTICS_VIEW].[VEHICLETYPE] AS [VEHICLETYPE], 
+      [INSTALL_STATISTICS_VIEW].[ORGANIZATIONNAME] AS [ORGANIZATIONNAME], 
+      [INSTALL_STATISTICS_VIEW].[STATIONNAME] AS [STATIONNAME], 
+      [INSTALL_STATISTICS_VIEW].[CLIENTID] AS [CLIENTID], 
+      [INSTALL_STATISTICS_VIEW].[SUMCOUNT] AS [SUMCOUNT]
+      FROM [dbo].[INSTALL_STATISTICS_VIEW] AS [INSTALL_STATISTICS_VIEW]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="INSTALL_SUITE_INFO_VIEW" EntityType="PTMSModel.Store.INSTALL_SUITE_INFO_VIEW" store:Type="Views" store:Schema="dbo" store:Name="INSTALL_SUITE_INFO_VIEW">
+            <DefiningQuery>SELECT 
+      [INSTALL_SUITE_INFO_VIEW].[SUITE_INFO_ID] AS [SUITE_INFO_ID], 
+      [INSTALL_SUITE_INFO_VIEW].[VEHICLE_ID] AS [VEHICLE_ID], 
+      [INSTALL_SUITE_INFO_VIEW].[DISTRICT_CODE] AS [DISTRICT_CODE], 
+      [INSTALL_SUITE_INFO_VIEW].[STATUS] AS [STATUS]
+      FROM [dbo].[INSTALL_SUITE_INFO_VIEW] AS [INSTALL_SUITE_INFO_VIEW]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="INSTALLATION_VIEW" EntityType="PTMSModel.Store.INSTALLATION_VIEW" store:Type="Views" store:Schema="dbo" store:Name="INSTALLATION_VIEW">
+            <DefiningQuery>SELECT 
+      [INSTALLATION_VIEW].[ID] AS [ID], 
+      [INSTALLATION_VIEW].[SUITE_INFO_ID] AS [SUITE_INFO_ID], 
+      [INSTALLATION_VIEW].[MDVR_CORE_SN] AS [MDVR_CORE_SN], 
+      [INSTALLATION_VIEW].[VEHICLE_ID] AS [VEHICLE_ID], 
+      [INSTALLATION_VIEW].[STATION_ID] AS [STATION_ID], 
+      [INSTALLATION_VIEW].[INSTALL_STAFF] AS [INSTALL_STAFF], 
+      [INSTALLATION_VIEW].[RECORD_STAFF] AS [RECORD_STAFF], 
+      [INSTALLATION_VIEW].[NOTE] AS [NOTE], 
+      [INSTALLATION_VIEW].[CHECKSTEP] AS [CHECKSTEP], 
+      [INSTALLATION_VIEW].[VALID] AS [VALID], 
+      [INSTALLATION_VIEW].[FINISH_TIME] AS [FINISH_TIME], 
+      [INSTALLATION_VIEW].[CREATE_TIME] AS [CREATE_TIME], 
+      [INSTALLATION_VIEW].[GPS_CHECK] AS [GPS_CHECK], 
+      [INSTALLATION_VIEW].[ALARM_CHECK] AS [ALARM_CHECK], 
+      [INSTALLATION_VIEW].[ALARM_ID] AS [ALARM_ID], 
+      [INSTALLATION_VIEW].[AUDIT_FLAG] AS [AUDIT_FLAG], 
+      [INSTALLATION_VIEW].[APPROVER] AS [APPROVER], 
+      [INSTALLATION_VIEW].[APPROVE_TIME] AS [APPROVE_TIME], 
+      [INSTALLATION_VIEW].[CONTENT] AS [CONTENT], 
+      [INSTALLATION_VIEW].[NAME] AS [NAME], 
+      [INSTALLATION_VIEW].[VEHICLE_TYPE] AS [VEHICLE_TYPE], 
+      [INSTALLATION_VIEW].[OWNER] AS [OWNER]
+      FROM [dbo].[INSTALLATION_VIEW] AS [INSTALLATION_VIEW]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="MNT_MAINTAINRECORD_UNFINISHED" EntityType="PTMSModel.Store.MNT_MAINTAINRECORD_UNFINISHED" store:Type="Views" store:Schema="dbo" store:Name="MNT_MAINTAINRECORD_UNFINISHED">
+            <DefiningQuery>SELECT 
+      [MNT_MAINTAINRECORD_UNFINISHED].[APPLICANT] AS [APPLICANT], 
+      [MNT_MAINTAINRECORD_UNFINISHED].[APPLICATIONID] AS [APPLICATIONID], 
+      [MNT_MAINTAINRECORD_UNFINISHED].[SETUP_STATION] AS [SETUP_STATION], 
+      [MNT_MAINTAINRECORD_UNFINISHED].[MAINTAINAPPLICATIONSTATUS] AS [MAINTAINAPPLICATIONSTATUS], 
+      [MNT_MAINTAINRECORD_UNFINISHED].[CONTACT] AS [CONTACT], 
+      [MNT_MAINTAINRECORD_UNFINISHED].[CREATE_TIME] AS [CREATE_TIME], 
+      [MNT_MAINTAINRECORD_UNFINISHED].[SCHEDULE_DATE] AS [SCHEDULE_DATE], 
+      [MNT_MAINTAINRECORD_UNFINISHED].[PROBLEM] AS [PROBLEM], 
+      [MNT_MAINTAINRECORD_UNFINISHED].[VEHCILE_ID] AS [VEHCILE_ID], 
+      [MNT_MAINTAINRECORD_UNFINISHED].[ID] AS [ID], 
+      [MNT_MAINTAINRECORD_UNFINISHED].[APPLICATION_ID] AS [APPLICATION_ID], 
+      [MNT_MAINTAINRECORD_UNFINISHED].[WORKER] AS [WORKER], 
+      [MNT_MAINTAINRECORD_UNFINISHED].[STATUS] AS [STATUS], 
+      [MNT_MAINTAINRECORD_UNFINISHED].[START_TIME] AS [START_TIME], 
+      [MNT_MAINTAINRECORD_UNFINISHED].[END_TIME] AS [END_TIME], 
+      [MNT_MAINTAINRECORD_UNFINISHED].[NOTE] AS [NOTE]
+      FROM [dbo].[MNT_MAINTAINRECORD_UNFINISHED] AS [MNT_MAINTAINRECORD_UNFINISHED]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="STATUS_CHANGING_VIEW" EntityType="PTMSModel.Store.STATUS_CHANGING_VIEW" store:Type="Views" store:Schema="dbo" store:Name="STATUS_CHANGING_VIEW">
+            <DefiningQuery>SELECT 
+      [STATUS_CHANGING_VIEW].[SUITE_INFO_ID] AS [SUITE_INFO_ID], 
+      [STATUS_CHANGING_VIEW].[STATUS] AS [STATUS], 
+      [STATUS_CHANGING_VIEW].[SUITE_ID] AS [SUITE_ID], 
+      [STATUS_CHANGING_VIEW].[STATUS_WORKING] AS [STATUS_WORKING], 
+      [STATUS_CHANGING_VIEW].[VEHICLE_ID] AS [VEHICLE_ID], 
+      [STATUS_CHANGING_VIEW].[MDVR_CORE_SN] AS [MDVR_CORE_SN]
+      FROM [dbo].[STATUS_CHANGING_VIEW] AS [STATUS_CHANGING_VIEW]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="SUITE_SOFTWARE_VERSION_VIEW" EntityType="PTMSModel.Store.SUITE_SOFTWARE_VERSION_VIEW" store:Type="Views" store:Schema="dbo" store:Name="SUITE_SOFTWARE_VERSION_VIEW">
+            <DefiningQuery>SELECT 
+      [SUITE_SOFTWARE_VERSION_VIEW].[ID] AS [ID], 
+      [SUITE_SOFTWARE_VERSION_VIEW].[UNIFIED_VERSION] AS [UNIFIED_VERSION], 
+      [SUITE_SOFTWARE_VERSION_VIEW].[VENDOR_VERSION] AS [VENDOR_VERSION], 
+      [SUITE_SOFTWARE_VERSION_VIEW].[VENDOR] AS [VENDOR], 
+      [SUITE_SOFTWARE_VERSION_VIEW].[VALID] AS [VALID], 
+      [SUITE_SOFTWARE_VERSION_VIEW].[FILE_NAME] AS [FILE_NAME], 
+      [SUITE_SOFTWARE_VERSION_VIEW].[FILE_SIZE] AS [FILE_SIZE]
+      FROM [dbo].[SUITE_SOFTWARE_VERSION_VIEW] AS [SUITE_SOFTWARE_VERSION_VIEW]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="SUITE_UPGRADE_RECORD_VIEW" EntityType="PTMSModel.Store.SUITE_UPGRADE_RECORD_VIEW" store:Type="Views" store:Schema="dbo" store:Name="SUITE_UPGRADE_RECORD_VIEW">
+            <DefiningQuery>SELECT 
+      [SUITE_UPGRADE_RECORD_VIEW].[ID] AS [ID], 
+      [SUITE_UPGRADE_RECORD_VIEW].[SUITE_INFO_ID] AS [SUITE_INFO_ID], 
+      [SUITE_UPGRADE_RECORD_VIEW].[MDVR_CORE_SN] AS [MDVR_CORE_SN], 
+      [SUITE_UPGRADE_RECORD_VIEW].[UPDATE_RESULT] AS [UPDATE_RESULT], 
+      [SUITE_UPGRADE_RECORD_VIEW].[CURR_VERSION] AS [CURR_VERSION], 
+      [SUITE_UPGRADE_RECORD_VIEW].[LAST_VERSION] AS [LAST_VERSION], 
+      [SUITE_UPGRADE_RECORD_VIEW].[LAST_UPDATE_TIME] AS [LAST_UPDATE_TIME], 
+      [SUITE_UPGRADE_RECORD_VIEW].[UPDATE_START_TIME] AS [UPDATE_START_TIME], 
+      [SUITE_UPGRADE_RECORD_VIEW].[UPDATE_END_TIME] AS [UPDATE_END_TIME], 
+      [SUITE_UPGRADE_RECORD_VIEW].[STATUS] AS [STATUS], 
+      [SUITE_UPGRADE_RECORD_VIEW].[CONTENT] AS [CONTENT], 
+      [SUITE_UPGRADE_RECORD_VIEW].[OPERATOR] AS [OPERATOR], 
+      [SUITE_UPGRADE_RECORD_VIEW].[OPER_TIME] AS [OPER_TIME], 
+      [SUITE_UPGRADE_RECORD_VIEW].[GPS_VALID] AS [GPS_VALID], 
+      [SUITE_UPGRADE_RECORD_VIEW].[LONGITUDE] AS [LONGITUDE], 
+      [SUITE_UPGRADE_RECORD_VIEW].[LATITUDE] AS [LATITUDE], 
+      [SUITE_UPGRADE_RECORD_VIEW].[GPS_TIME] AS [GPS_TIME], 
+      [SUITE_UPGRADE_RECORD_VIEW].[SPEED] AS [SPEED], 
+      [SUITE_UPGRADE_RECORD_VIEW].[DIRECTION] AS [DIRECTION], 
+      [SUITE_UPGRADE_RECORD_VIEW].[ERROR_NUMBER] AS [ERROR_NUMBER], 
+      [SUITE_UPGRADE_RECORD_VIEW].[ORIGINAL_CMD] AS [ORIGINAL_CMD]
+      FROM [dbo].[SUITE_UPGRADE_RECORD_VIEW] AS [SUITE_UPGRADE_RECORD_VIEW]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="SUITE_VIEW" EntityType="PTMSModel.Store.SUITE_VIEW" store:Type="Views" store:Schema="dbo" store:Name="SUITE_VIEW">
+            <DefiningQuery>SELECT 
+      [SUITE_VIEW].[SUITE_INFO_ID] AS [SUITE_INFO_ID], 
+      [SUITE_VIEW].[SUITE_ID] AS [SUITE_ID], 
+      [SUITE_VIEW].[MDVR_CORE_SN] AS [MDVR_CORE_SN], 
+      [SUITE_VIEW].[MDVR_SN] AS [MDVR_SN], 
+      [SUITE_VIEW].[VEHICLE_ID] AS [VEHICLE_ID], 
+      [SUITE_VIEW].[CHECKSTEP] AS [CHECKSTEP], 
+      [SUITE_VIEW].[STATION_ID] AS [STATION_ID], 
+      [SUITE_VIEW].[INSTALL_STAFF] AS [INSTALL_STAFF], 
+      [SUITE_VIEW].[RECORD_STAFF] AS [RECORD_STAFF], 
+      [SUITE_VIEW].[FINISH_TIME] AS [FINISH_TIME], 
+      [SUITE_VIEW].[CREATE_TIME] AS [CREATE_TIME], 
+      [SUITE_VIEW].[UPS_SN] AS [UPS_SN], 
+      [SUITE_VIEW].[SD_SN] AS [SD_SN], 
+      [SUITE_VIEW].[STATUS] AS [STATUS], 
+      [SUITE_VIEW].[MDVR_SIM] AS [MDVR_SIM], 
+      [SUITE_VIEW].[MDVR_SIM_MOBILE] AS [MDVR_SIM_MOBILE], 
+      [SUITE_VIEW].[SOFTWARE_VERSION] AS [SOFTWARE_VERSION], 
+      [SUITE_VIEW].[NOTE] AS [NOTE]
+      FROM [dbo].[SUITE_VIEW] AS [SUITE_VIEW]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="TRF_FENCEQUEUE_DELETED" EntityType="PTMSModel.Store.TRF_FENCEQUEUE_DELETED" store:Type="Views" store:Schema="dbo" store:Name="TRF_FENCEQUEUE_DELETED">
+            <DefiningQuery>SELECT 
+      [TRF_FENCEQUEUE_DELETED].[FENCE_ID] AS [FENCE_ID], 
+      [TRF_FENCEQUEUE_DELETED].[VEHICLE_ID] AS [VEHICLE_ID], 
+      [TRF_FENCEQUEUE_DELETED].[CREATE_TIME] AS [CREATE_TIME]
+      FROM [dbo].[TRF_FENCEQUEUE_DELETED] AS [TRF_FENCEQUEUE_DELETED]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="TRF_FENCEQUEUE_DELETEFENCEID" EntityType="PTMSModel.Store.TRF_FENCEQUEUE_DELETEFENCEID" store:Type="Views" store:Schema="dbo" store:Name="TRF_FENCEQUEUE_DELETEFENCEID">
+            <DefiningQuery>SELECT 
+      [TRF_FENCEQUEUE_DELETEFENCEID].[ID] AS [ID]
+      FROM [dbo].[TRF_FENCEQUEUE_DELETEFENCEID] AS [TRF_FENCEQUEUE_DELETEFENCEID]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="TRF_FENCEQUEUE_INVALIDID" EntityType="PTMSModel.Store.TRF_FENCEQUEUE_INVALIDID" store:Type="Views" store:Schema="dbo" store:Name="TRF_FENCEQUEUE_INVALIDID">
+            <DefiningQuery>SELECT 
+      [TRF_FENCEQUEUE_INVALIDID].[ID] AS [ID]
+      FROM [dbo].[TRF_FENCEQUEUE_INVALIDID] AS [TRF_FENCEQUEUE_INVALIDID]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="TRF_FENCEQUEUE_ONVEHICLE" EntityType="PTMSModel.Store.TRF_FENCEQUEUE_ONVEHICLE" store:Type="Views" store:Schema="dbo" store:Name="TRF_FENCEQUEUE_ONVEHICLE">
+            <DefiningQuery>SELECT 
+      [TRF_FENCEQUEUE_ONVEHICLE].[ID] AS [ID], 
+      [TRF_FENCEQUEUE_ONVEHICLE].[FENCE_ID] AS [FENCE_ID], 
+      [TRF_FENCEQUEUE_ONVEHICLE].[CLIENT_ID] AS [CLIENT_ID], 
+      [TRF_FENCEQUEUE_ONVEHICLE].[VEHICLE_ID] AS [VEHICLE_ID], 
+      [TRF_FENCEQUEUE_ONVEHICLE].[NAME] AS [NAME], 
+      [TRF_FENCEQUEUE_ONVEHICLE].[FENCE_TYPE] AS [FENCE_TYPE], 
+      [TRF_FENCEQUEUE_ONVEHICLE].[MDVR_CORE_SN] AS [MDVR_CORE_SN], 
+      [TRF_FENCEQUEUE_ONVEHICLE].[RESULT_PACKET] AS [RESULT_PACKET], 
+      [TRF_FENCEQUEUE_ONVEHICLE].[PTS] AS [PTS], 
+      [TRF_FENCEQUEUE_ONVEHICLE].[RADIUS] AS [RADIUS], 
+      [TRF_FENCEQUEUE_ONVEHICLE].[CIRCLE_CENTER] AS [CIRCLE_CENTER], 
+      [TRF_FENCEQUEUE_ONVEHICLE].[SHAPE] AS [SHAPE], 
+      [TRF_FENCEQUEUE_ONVEHICLE].[CREATE_TIME] AS [CREATE_TIME], 
+      [TRF_FENCEQUEUE_ONVEHICLE].[PACKET_SEQ] AS [PACKET_SEQ], 
+      [TRF_FENCEQUEUE_ONVEHICLE].[SEND_TIME] AS [SEND_TIME], 
+      [TRF_FENCEQUEUE_ONVEHICLE].[STATUS] AS [STATUS], 
+      [TRF_FENCEQUEUE_ONVEHICLE].[OPER_TYPE] AS [OPER_TYPE], 
+      [TRF_FENCEQUEUE_ONVEHICLE].[MAX_SPEED] AS [MAX_SPEED], 
+      [TRF_FENCEQUEUE_ONVEHICLE].[OVER_SPEED_DURATION] AS [OVER_SPEED_DURATION], 
+      [TRF_FENCEQUEUE_ONVEHICLE].[POINT_COUNT] AS [POINT_COUNT], 
+      [TRF_FENCEQUEUE_ONVEHICLE].[REGION_PROPERTY] AS [REGION_PROPERTY], 
+      [TRF_FENCEQUEUE_ONVEHICLE].[END_TIME] AS [END_TIME], 
+      [TRF_FENCEQUEUE_ONVEHICLE].[START_TIME] AS [START_TIME], 
+      [TRF_FENCEQUEUE_ONVEHICLE].[REGION_ID] AS [REGION_ID]
+      FROM [dbo].[TRF_FENCEQUEUE_ONVEHICLE] AS [TRF_FENCEQUEUE_ONVEHICLE]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="TRF_FENCEQUEUE_SUCCEEDID" EntityType="PTMSModel.Store.TRF_FENCEQUEUE_SUCCEEDID" store:Type="Views" store:Schema="dbo" store:Name="TRF_FENCEQUEUE_SUCCEEDID">
+            <DefiningQuery>SELECT 
+      [TRF_FENCEQUEUE_SUCCEEDID].[ID] AS [ID]
+      FROM [dbo].[TRF_FENCEQUEUE_SUCCEEDID] AS [TRF_FENCEQUEUE_SUCCEEDID]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="TRF_FENCEQUEUE_TOVEHICLE" EntityType="PTMSModel.Store.TRF_FENCEQUEUE_TOVEHICLE" store:Type="Views" store:Schema="dbo" store:Name="TRF_FENCEQUEUE_TOVEHICLE">
+            <DefiningQuery>SELECT 
+      [TRF_FENCEQUEUE_TOVEHICLE].[ID] AS [ID], 
+      [TRF_FENCEQUEUE_TOVEHICLE].[FENCE_ID] AS [FENCE_ID], 
+      [TRF_FENCEQUEUE_TOVEHICLE].[CLIENT_ID] AS [CLIENT_ID], 
+      [TRF_FENCEQUEUE_TOVEHICLE].[VEHICLE_ID] AS [VEHICLE_ID], 
+      [TRF_FENCEQUEUE_TOVEHICLE].[NAME] AS [NAME], 
+      [TRF_FENCEQUEUE_TOVEHICLE].[FENCE_TYPE] AS [FENCE_TYPE], 
+      [TRF_FENCEQUEUE_TOVEHICLE].[MDVR_CORE_SN] AS [MDVR_CORE_SN], 
+      [TRF_FENCEQUEUE_TOVEHICLE].[RESULT_PACKET] AS [RESULT_PACKET], 
+      [TRF_FENCEQUEUE_TOVEHICLE].[PTS] AS [PTS], 
+      [TRF_FENCEQUEUE_TOVEHICLE].[RADIUS] AS [RADIUS], 
+      [TRF_FENCEQUEUE_TOVEHICLE].[CIRCLE_CENTER] AS [CIRCLE_CENTER], 
+      [TRF_FENCEQUEUE_TOVEHICLE].[SHAPE] AS [SHAPE], 
+      [TRF_FENCEQUEUE_TOVEHICLE].[CREATE_TIME] AS [CREATE_TIME], 
+      [TRF_FENCEQUEUE_TOVEHICLE].[PACKET_SEQ] AS [PACKET_SEQ], 
+      [TRF_FENCEQUEUE_TOVEHICLE].[SEND_TIME] AS [SEND_TIME], 
+      [TRF_FENCEQUEUE_TOVEHICLE].[STATUS] AS [STATUS], 
+      [TRF_FENCEQUEUE_TOVEHICLE].[OPER_TYPE] AS [OPER_TYPE], 
+      [TRF_FENCEQUEUE_TOVEHICLE].[MAX_SPEED] AS [MAX_SPEED], 
+      [TRF_FENCEQUEUE_TOVEHICLE].[OVER_SPEED_DURATION] AS [OVER_SPEED_DURATION], 
+      [TRF_FENCEQUEUE_TOVEHICLE].[POINT_COUNT] AS [POINT_COUNT], 
+      [TRF_FENCEQUEUE_TOVEHICLE].[REGION_PROPERTY] AS [REGION_PROPERTY], 
+      [TRF_FENCEQUEUE_TOVEHICLE].[END_TIME] AS [END_TIME], 
+      [TRF_FENCEQUEUE_TOVEHICLE].[START_TIME] AS [START_TIME], 
+      [TRF_FENCEQUEUE_TOVEHICLE].[REGION_ID] AS [REGION_ID]
+      FROM [dbo].[TRF_FENCEQUEUE_TOVEHICLE] AS [TRF_FENCEQUEUE_TOVEHICLE]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="TRF_ROUTEQUEUE_DELETED" EntityType="PTMSModel.Store.TRF_ROUTEQUEUE_DELETED" store:Type="Views" store:Schema="dbo" store:Name="TRF_ROUTEQUEUE_DELETED">
+            <DefiningQuery>SELECT 
+      [TRF_ROUTEQUEUE_DELETED].[ROUTE_ID] AS [ROUTE_ID], 
+      [TRF_ROUTEQUEUE_DELETED].[VEHICLE_ID] AS [VEHICLE_ID], 
+      [TRF_ROUTEQUEUE_DELETED].[CREATE_TIME] AS [CREATE_TIME]
+      FROM [dbo].[TRF_ROUTEQUEUE_DELETED] AS [TRF_ROUTEQUEUE_DELETED]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="TRF_ROUTEQUEUE_DELETEID" EntityType="PTMSModel.Store.TRF_ROUTEQUEUE_DELETEID" store:Type="Views" store:Schema="dbo" store:Name="TRF_ROUTEQUEUE_DELETEID">
+            <DefiningQuery>SELECT 
+      [TRF_ROUTEQUEUE_DELETEID].[ID] AS [ID]
+      FROM [dbo].[TRF_ROUTEQUEUE_DELETEID] AS [TRF_ROUTEQUEUE_DELETEID]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="TRF_ROUTEQUEUE_INVALIDID" EntityType="PTMSModel.Store.TRF_ROUTEQUEUE_INVALIDID" store:Type="Views" store:Schema="dbo" store:Name="TRF_ROUTEQUEUE_INVALIDID">
+            <DefiningQuery>SELECT 
+      [TRF_ROUTEQUEUE_INVALIDID].[ID] AS [ID]
+      FROM [dbo].[TRF_ROUTEQUEUE_INVALIDID] AS [TRF_ROUTEQUEUE_INVALIDID]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="TRF_ROUTEQUEUE_ONVEHCILE" EntityType="PTMSModel.Store.TRF_ROUTEQUEUE_ONVEHCILE" store:Type="Views" store:Schema="dbo" store:Name="TRF_ROUTEQUEUE_ONVEHCILE">
+            <DefiningQuery>SELECT 
+      [TRF_ROUTEQUEUE_ONVEHCILE].[ID] AS [ID], 
+      [TRF_ROUTEQUEUE_ONVEHCILE].[CLIENT_ID] AS [CLIENT_ID], 
+      [TRF_ROUTEQUEUE_ONVEHCILE].[RESULT_PACKET] AS [RESULT_PACKET], 
+      [TRF_ROUTEQUEUE_ONVEHCILE].[PACKET_SEQ] AS [PACKET_SEQ], 
+      [TRF_ROUTEQUEUE_ONVEHCILE].[VEHICLE_ID] AS [VEHICLE_ID], 
+      [TRF_ROUTEQUEUE_ONVEHCILE].[END_TIME] AS [END_TIME], 
+      [TRF_ROUTEQUEUE_ONVEHCILE].[REGION_ID] AS [REGION_ID], 
+      [TRF_ROUTEQUEUE_ONVEHCILE].[SEND_TIME] AS [SEND_TIME], 
+      [TRF_ROUTEQUEUE_ONVEHCILE].[MDVR_CORE_SN] AS [MDVR_CORE_SN], 
+      [TRF_ROUTEQUEUE_ONVEHCILE].[OPER_TYPE] AS [OPER_TYPE], 
+      [TRF_ROUTEQUEUE_ONVEHCILE].[STATUS] AS [STATUS], 
+      [TRF_ROUTEQUEUE_ONVEHCILE].[CREATE_TIME] AS [CREATE_TIME], 
+      [TRF_ROUTEQUEUE_ONVEHCILE].[START_TIME] AS [START_TIME], 
+      [TRF_ROUTEQUEUE_ONVEHCILE].[PTS] AS [PTS], 
+      [TRF_ROUTEQUEUE_ONVEHCILE].[ROUTE_PROPERTY] AS [ROUTE_PROPERTY], 
+      [TRF_ROUTEQUEUE_ONVEHCILE].[ROUTE_SEGMENT_PROPERTY] AS [ROUTE_SEGMENT_PROPERTY], 
+      [TRF_ROUTEQUEUE_ONVEHCILE].[WIDTH] AS [WIDTH], 
+      [TRF_ROUTEQUEUE_ONVEHCILE].[MAX_SPEED] AS [MAX_SPEED], 
+      [TRF_ROUTEQUEUE_ONVEHCILE].[NAME] AS [NAME], 
+      [TRF_ROUTEQUEUE_ONVEHCILE].[OVER_SPEED_DURATION] AS [OVER_SPEED_DURATION], 
+      [TRF_ROUTEQUEUE_ONVEHCILE].[POINT_COUNT] AS [POINT_COUNT], 
+      [TRF_ROUTEQUEUE_ONVEHCILE].[ROUTE_ID] AS [ROUTE_ID]
+      FROM [dbo].[TRF_ROUTEQUEUE_ONVEHCILE] AS [TRF_ROUTEQUEUE_ONVEHCILE]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="TRF_ROUTEQUEUE_SUCCEEDID" EntityType="PTMSModel.Store.TRF_ROUTEQUEUE_SUCCEEDID" store:Type="Views" store:Schema="dbo" store:Name="TRF_ROUTEQUEUE_SUCCEEDID">
+            <DefiningQuery>SELECT 
+      [TRF_ROUTEQUEUE_SUCCEEDID].[ID] AS [ID]
+      FROM [dbo].[TRF_ROUTEQUEUE_SUCCEEDID] AS [TRF_ROUTEQUEUE_SUCCEEDID]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="TRF_ROUTEQUEUE_TOVEHICLE" EntityType="PTMSModel.Store.TRF_ROUTEQUEUE_TOVEHICLE" store:Type="Views" store:Schema="dbo" store:Name="TRF_ROUTEQUEUE_TOVEHICLE">
+            <DefiningQuery>SELECT 
+      [TRF_ROUTEQUEUE_TOVEHICLE].[ID] AS [ID], 
+      [TRF_ROUTEQUEUE_TOVEHICLE].[CLIENT_ID] AS [CLIENT_ID], 
+      [TRF_ROUTEQUEUE_TOVEHICLE].[RESULT_PACKET] AS [RESULT_PACKET], 
+      [TRF_ROUTEQUEUE_TOVEHICLE].[PACKET_SEQ] AS [PACKET_SEQ], 
+      [TRF_ROUTEQUEUE_TOVEHICLE].[VEHICLE_ID] AS [VEHICLE_ID], 
+      [TRF_ROUTEQUEUE_TOVEHICLE].[END_TIME] AS [END_TIME], 
+      [TRF_ROUTEQUEUE_TOVEHICLE].[REGION_ID] AS [REGION_ID], 
+      [TRF_ROUTEQUEUE_TOVEHICLE].[SEND_TIME] AS [SEND_TIME], 
+      [TRF_ROUTEQUEUE_TOVEHICLE].[MDVR_CORE_SN] AS [MDVR_CORE_SN], 
+      [TRF_ROUTEQUEUE_TOVEHICLE].[OPER_TYPE] AS [OPER_TYPE], 
+      [TRF_ROUTEQUEUE_TOVEHICLE].[STATUS] AS [STATUS], 
+      [TRF_ROUTEQUEUE_TOVEHICLE].[CREATE_TIME] AS [CREATE_TIME], 
+      [TRF_ROUTEQUEUE_TOVEHICLE].[START_TIME] AS [START_TIME], 
+      [TRF_ROUTEQUEUE_TOVEHICLE].[PTS] AS [PTS], 
+      [TRF_ROUTEQUEUE_TOVEHICLE].[ROUTE_PROPERTY] AS [ROUTE_PROPERTY], 
+      [TRF_ROUTEQUEUE_TOVEHICLE].[ROUTE_SEGMENT_PROPERTY] AS [ROUTE_SEGMENT_PROPERTY], 
+      [TRF_ROUTEQUEUE_TOVEHICLE].[WIDTH] AS [WIDTH], 
+      [TRF_ROUTEQUEUE_TOVEHICLE].[MAX_SPEED] AS [MAX_SPEED], 
+      [TRF_ROUTEQUEUE_TOVEHICLE].[NAME] AS [NAME], 
+      [TRF_ROUTEQUEUE_TOVEHICLE].[OVER_SPEED_DURATION] AS [OVER_SPEED_DURATION], 
+      [TRF_ROUTEQUEUE_TOVEHICLE].[POINT_COUNT] AS [POINT_COUNT], 
+      [TRF_ROUTEQUEUE_TOVEHICLE].[ROUTE_ID] AS [ROUTE_ID]
+      FROM [dbo].[TRF_ROUTEQUEUE_TOVEHICLE] AS [TRF_ROUTEQUEUE_TOVEHICLE]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="VEHICLE_ONLINE_TIME_VIEW" EntityType="PTMSModel.Store.VEHICLE_ONLINE_TIME_VIEW" store:Type="Views" store:Schema="dbo" store:Name="VEHICLE_ONLINE_TIME_VIEW">
+            <DefiningQuery>SELECT 
+      [VEHICLE_ONLINE_TIME_VIEW].[ID] AS [ID], 
+      [VEHICLE_ONLINE_TIME_VIEW].[VEHICLE_ID] AS [VEHICLE_ID], 
+      [VEHICLE_ONLINE_TIME_VIEW].[MDVR_CORE_SN] AS [MDVR_CORE_SN], 
+      [VEHICLE_ONLINE_TIME_VIEW].[ONLINE_TIME] AS [ONLINE_TIME], 
+      [VEHICLE_ONLINE_TIME_VIEW].[OFFLINE_TIME] AS [OFFLINE_TIME], 
+      [VEHICLE_ONLINE_TIME_VIEW].[ONLINE_TIMESPAN] AS [ONLINE_TIMESPAN], 
+      [VEHICLE_ONLINE_TIME_VIEW].[DISTRICT_CODE] AS [DISTRICT_CODE], 
+      [VEHICLE_ONLINE_TIME_VIEW].[DISTANCE] AS [DISTANCE]
+      FROM [dbo].[VEHICLE_ONLINE_TIME_VIEW] AS [VEHICLE_ONLINE_TIME_VIEW]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="VEHICLE_STATUS_VIEW" EntityType="PTMSModel.Store.VEHICLE_STATUS_VIEW" store:Type="Views" store:Schema="dbo" store:Name="VEHICLE_STATUS_VIEW">
+            <DefiningQuery>SELECT 
+      [VEHICLE_STATUS_VIEW].[VEHICLE_ID] AS [VEHICLE_ID], 
+      [VEHICLE_STATUS_VIEW].[BRAND_MODEL] AS [BRAND_MODEL], 
+      [VEHICLE_STATUS_VIEW].[VEHICLE_TYPE] AS [VEHICLE_TYPE], 
+      [VEHICLE_STATUS_VIEW].[OWNER] AS [OWNER], 
+      [VEHICLE_STATUS_VIEW].[CONTACT_PHONE] AS [CONTACT_PHONE], 
+      [VEHICLE_STATUS_VIEW].[CONTACT_ADDRESS] AS [CONTACT_ADDRESS], 
+      [VEHICLE_STATUS_VIEW].[DISTRICT_CODE] AS [DISTRICT_CODE], 
+      [VEHICLE_STATUS_VIEW].[START_YEAR] AS [START_YEAR], 
+      [VEHICLE_STATUS_VIEW].[MDVR_CORE_SN] AS [MDVR_CORE_SN], 
+      [VEHICLE_STATUS_VIEW].[STATUS] AS [STATUS], 
+      [VEHICLE_STATUS_VIEW].[SWITCH_TIME] AS [SWITCH_TIME], 
+      [VEHICLE_STATUS_VIEW].[ONLINE_FLAG] AS [ONLINE_FLAG], 
+      [VEHICLE_STATUS_VIEW].[GROUP_ID] AS [GROUP_ID]
+      FROM [dbo].[VEHICLE_STATUS_VIEW] AS [VEHICLE_STATUS_VIEW]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="VEHICLE_WORKING_VIEW" EntityType="PTMSModel.Store.VEHICLE_WORKING_VIEW" store:Type="Views" store:Schema="dbo" store:Name="VEHICLE_WORKING_VIEW">
+            <DefiningQuery>SELECT 
+      [VEHICLE_WORKING_VIEW].[VEHICLE_ID] AS [VEHICLE_ID], 
+      [VEHICLE_WORKING_VIEW].[BRAND_MODEL] AS [BRAND_MODEL], 
+      [VEHICLE_WORKING_VIEW].[VEHICLE_TYPE] AS [VEHICLE_TYPE], 
+      [VEHICLE_WORKING_VIEW].[OWNER] AS [OWNER], 
+      [VEHICLE_WORKING_VIEW].[CONTACT_PHONE] AS [CONTACT_PHONE], 
+      [VEHICLE_WORKING_VIEW].[CONTACT_ADDRESS] AS [CONTACT_ADDRESS], 
+      [VEHICLE_WORKING_VIEW].[DISTRICT_CODE] AS [DISTRICT_CODE], 
+      [VEHICLE_WORKING_VIEW].[START_YEAR] AS [START_YEAR], 
+      [VEHICLE_WORKING_VIEW].[STATUS] AS [STATUS], 
+      [VEHICLE_WORKING_VIEW].[SWITCH_TIME] AS [SWITCH_TIME], 
+      [VEHICLE_WORKING_VIEW].[ONLINE_FLAG] AS [ONLINE_FLAG], 
+      [VEHICLE_WORKING_VIEW].[PROVINCE] AS [PROVINCE], 
+      [VEHICLE_WORKING_VIEW].[CITY] AS [CITY], 
+      [VEHICLE_WORKING_VIEW].[PARROQUIA] AS [PARROQUIA]
+      FROM [dbo].[VEHICLE_WORKING_VIEW] AS [VEHICLE_WORKING_VIEW]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="VEHICLEGPS_VIEW" EntityType="PTMSModel.Store.VEHICLEGPS_VIEW" store:Type="Views" store:Schema="dbo" store:Name="VEHICLEGPS_VIEW">
+            <DefiningQuery>SELECT 
+      [VEHICLEGPS_VIEW].[ID] AS [ID], 
+      [VEHICLEGPS_VIEW].[VEHICLE_ID] AS [VEHICLE_ID], 
+      [VEHICLEGPS_VIEW].[SPEED] AS [SPEED], 
+      [VEHICLEGPS_VIEW].[GPS_TIME] AS [GPS_TIME]
+      FROM [dbo].[VEHICLEGPS_VIEW] AS [VEHICLEGPS_VIEW]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
         <EntityType Name="ALM_911_DISPOSE">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ALARM_ID" Type="nchar" MaxLength="36" Nullable="false" />
+          <Property Name="ALARM_ID" Type="nchar" Nullable="false" MaxLength="36" />
           <Property Name="FORWARDED_FLAG" Type="int" />
           <Property Name="ALARM_FLAG" Type="int" />
           <Property Name="DISPOSE_TIME" Type="datetime" />
@@ -24,7 +577,7 @@
           <Property Name="APPREAL_STAFF" Type="nvarchar" MaxLength="512" />
           <Property Name="DISPOSE_CONTENT" Type="nvarchar" MaxLength="2000" />
           <Property Name="CREATE_TIME" Type="datetime" Nullable="false" />
-          <Property Name="ID" Type="nchar" MaxLength="36" Nullable="false" />
+          <Property Name="ID" Type="nchar" Nullable="false" MaxLength="36" />
           <Property Name="TRANSFER_MODE" Type="int" />
           <Property Name="IS_TRANSFER" Type="int" />
           <Property Name="APPEAL_TIME" Type="datetime" />
@@ -34,8 +587,8 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="nchar" MaxLength="36" Nullable="false" />
-          <Property Name="ALARM_ID" Type="nchar" MaxLength="36" Nullable="false" />
+          <Property Name="ID" Type="nchar" Nullable="false" MaxLength="36" />
+          <Property Name="ALARM_ID" Type="nchar" Nullable="false" MaxLength="36" />
           <Property Name="ALARM_FLAG" Type="int" />
           <Property Name="CONTENT" Type="nvarchar" MaxLength="2000" />
           <Property Name="DISPOSE_STAFF" Type="nvarchar" MaxLength="512" />
@@ -45,18 +598,19 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="nchar" MaxLength="36" Nullable="false" />
+          <Property Name="ID" Type="nchar" Nullable="false" MaxLength="36" />
           <Property Name="MAIL" Type="varchar" MaxLength="255" />
           <Property Name="NAME" Type="varchar" MaxLength="255" />
           <Property Name="LEVEL" Type="int" />
           <Property Name="VALID" Type="int" />
           <Property Name="CLIENT_ID" Type="nchar" MaxLength="36" />
+          <Property Name="TYPE" Type="int" />
         </EntityType>
         <EntityType Name="ALM_ALARM_NOTE">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="nchar" MaxLength="36" Nullable="false" />
+          <Property Name="ID" Type="nchar" Nullable="false" MaxLength="36" />
           <Property Name="CLIENT_ID" Type="nchar" MaxLength="36" />
           <Property Name="NOTE" Type="varchar" MaxLength="2000" />
           <Property Name="VALID" Type="int" />
@@ -65,8 +619,8 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="nchar" MaxLength="36" Nullable="false" />
-          <Property Name="CLIENT_ID" Type="nchar" MaxLength="36" Nullable="false" />
+          <Property Name="ID" Type="nchar" Nullable="false" MaxLength="36" />
+          <Property Name="CLIENT_ID" Type="nchar" Nullable="false" MaxLength="36" />
           <Property Name="MDVR_CORE_SN" Type="nvarchar" MaxLength="20" />
           <Property Name="SUITE_INFO_ID" Type="nchar" MaxLength="36" />
           <Property Name="VEHICLE_ID" Type="nvarchar" MaxLength="20" />
@@ -96,8 +650,8 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="nchar" MaxLength="36" Nullable="false" />
-          <Property Name="CLIENT_ID" Type="nchar" MaxLength="36" Nullable="false" />
+          <Property Name="ID" Type="nchar" Nullable="false" MaxLength="36" />
+          <Property Name="CLIENT_ID" Type="nchar" Nullable="false" MaxLength="36" />
           <Property Name="SUITE_INFO_ID" Type="nchar" MaxLength="36" />
           <Property Name="MDVR_CORE_SN" Type="nvarchar" MaxLength="20" />
           <Property Name="VEHICLE_ID" Type="nvarchar" MaxLength="20" />
@@ -114,13 +668,13 @@
           <Property Name="DIRECTION" Type="nvarchar" MaxLength="20" />
           <Property Name="RULE_ID" Type="nvarchar" MaxLength="36" />
           <Property Name="ADDITIONAL_INFO" Type="nvarchar" MaxLength="2000" />
-          <Property Name="CREATE_TIME" Type="datetime" Nullable="false" />
+          <Property Name="CREATE_TIME" Type="datetime" />
         </EntityType>
         <EntityType Name="ALT_BUSINESS_ALERT_HANDLE">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="nchar" MaxLength="36" Nullable="false" />
+          <Property Name="ID" Type="nchar" Nullable="false" MaxLength="36" />
           <Property Name="BUSINESS_ALERT_ID" Type="nchar" MaxLength="36" />
           <Property Name="HANDLE_TIME" Type="datetime" />
           <Property Name="HANDLE_USER" Type="nvarchar" MaxLength="512" />
@@ -131,8 +685,8 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="nchar" MaxLength="36" Nullable="false" />
-          <Property Name="CLIENT_ID" Type="nchar" MaxLength="36" Nullable="false" />
+          <Property Name="ID" Type="nchar" Nullable="false" MaxLength="36" />
+          <Property Name="CLIENT_ID" Type="nchar" Nullable="false" MaxLength="36" />
           <Property Name="MDVR_CORE_SN" Type="nvarchar" MaxLength="20" />
           <Property Name="SUITE_INFO_ID" Type="nchar" MaxLength="36" />
           <Property Name="VEHICLE_ID" Type="nvarchar" MaxLength="20" />
@@ -156,7 +710,7 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="nchar" MaxLength="36" Nullable="false" />
+          <Property Name="ID" Type="nchar" Nullable="false" MaxLength="36" />
           <Property Name="CHECK_USER" Type="nvarchar" MaxLength="512" />
           <Property Name="VEHICLE_ID" Type="nvarchar" MaxLength="20" />
           <Property Name="CHECK_CONTENT" Type="nvarchar" MaxLength="2000" />
@@ -166,15 +720,15 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="nchar" MaxLength="36" Nullable="false" />
-          <Property Name="CLIENT_ID" Type="nchar" MaxLength="36" Nullable="false" />
-          <Property Name="NAME" Type="nvarchar" MaxLength="512" Nullable="false" />
-          <Property Name="ICARD_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="DRIVER_LICENSE" Type="nvarchar" MaxLength="512" Nullable="false" />
-          <Property Name="PHONE" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="EMAIL" Type="nvarchar" MaxLength="100" Nullable="false" />
-          <Property Name="CELLPHONE" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="ADDRESS" Type="nvarchar" MaxLength="512" Nullable="false" />
+          <Property Name="ID" Type="nchar" Nullable="false" MaxLength="36" />
+          <Property Name="CLIENT_ID" Type="nchar" Nullable="false" MaxLength="36" />
+          <Property Name="NAME" Type="nvarchar" Nullable="false" MaxLength="512" />
+          <Property Name="ICARD_ID" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="DRIVER_LICENSE" Type="nvarchar" Nullable="false" MaxLength="512" />
+          <Property Name="PHONE" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="EMAIL" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="CELLPHONE" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="ADDRESS" Type="nvarchar" Nullable="false" MaxLength="512" />
           <Property Name="NOTE" Type="nvarchar" MaxLength="2000" />
           <Property Name="CREATOR" Type="nvarchar" MaxLength="512" />
           <Property Name="CREATE_TIME" Type="datetime" Nullable="false" />
@@ -184,23 +738,23 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="nchar" MaxLength="36" Nullable="false" />
-          <Property Name="CLIENT_ID" Type="nchar" MaxLength="36" Nullable="false" />
-          <Property Name="GPS_SN" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ID" Type="nchar" Nullable="false" MaxLength="36" />
+          <Property Name="CLIENT_ID" Type="nchar" Nullable="false" MaxLength="36" />
+          <Property Name="GPS_SN" Type="nvarchar" Nullable="false" MaxLength="50" />
           <Property Name="STATUS" Type="int" Nullable="false" />
           <Property Name="DISTRICT_CODE" Type="nvarchar" MaxLength="15" />
           <Property Name="GPS_SIM" Type="nvarchar" MaxLength="50" />
           <Property Name="CREATOR" Type="nvarchar" MaxLength="512" />
           <Property Name="CREATE_TIME" Type="datetime" Nullable="false" />
           <Property Name="VALID" Type="int" Nullable="false" />
-          <Property Name="GPS_UID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="GPS_UID" Type="nvarchar" Nullable="false" MaxLength="50" />
         </EntityType>
         <EntityType Name="BSC_DEV_SUITE">
           <Key>
             <PropertyRef Name="SUITE_INFO_ID" />
           </Key>
-          <Property Name="SUITE_INFO_ID" Type="nchar" MaxLength="36" Nullable="false" />
-          <Property Name="CLIENT_ID" Type="nchar" MaxLength="36" Nullable="false" />
+          <Property Name="SUITE_INFO_ID" Type="nchar" Nullable="false" MaxLength="36" />
+          <Property Name="CLIENT_ID" Type="nchar" Nullable="false" MaxLength="36" />
           <Property Name="SUITE_ID" Type="nvarchar" MaxLength="20" />
           <Property Name="MDVR_CORE_SN" Type="nvarchar" MaxLength="20" />
           <Property Name="MDVR_SN" Type="nvarchar" MaxLength="20" />
@@ -220,11 +774,11 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="nchar" MaxLength="36" Nullable="false" />
-          <Property Name="SUITE_INFO_ID" Type="nchar" MaxLength="36" Nullable="false" />
-          <Property Name="PART_SN" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="NAME" Type="nvarchar" MaxLength="512" Nullable="false" />
-          <Property Name="MODEL" Type="nvarchar" MaxLength="512" Nullable="false" />
+          <Property Name="ID" Type="nchar" Nullable="false" MaxLength="36" />
+          <Property Name="SUITE_INFO_ID" Type="nchar" Nullable="false" MaxLength="36" />
+          <Property Name="PART_SN" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="NAME" Type="nvarchar" Nullable="false" MaxLength="512" />
+          <Property Name="MODEL" Type="nvarchar" Nullable="false" MaxLength="512" />
           <Property Name="PART_TYPE" Type="int" Nullable="false" />
           <Property Name="PRODUCE_TIME" Type="datetime" />
           <Property Name="CREATE_TIME" Type="datetime" Nullable="false" />
@@ -234,8 +788,8 @@
           <Key>
             <PropertyRef Name="CODE" />
           </Key>
-          <Property Name="CODE" Type="nvarchar" MaxLength="15" Nullable="false" />
-          <Property Name="NAME" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CODE" Type="nvarchar" Nullable="false" MaxLength="15" />
+          <Property Name="NAME" Type="nvarchar" Nullable="false" MaxLength="50" />
           <Property Name="FULLNAME" Type="nvarchar" MaxLength="512" />
           <Property Name="SHORTNAME" Type="nvarchar" MaxLength="256" />
           <Property Name="NOTE" Type="nvarchar" MaxLength="2000" />
@@ -246,11 +800,11 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="int" Nullable="false" />
-          <Property Name="NAME" Type="nvarchar" MaxLength="512" Nullable="false" />
+          <Property Name="NAME" Type="nvarchar" Nullable="false" MaxLength="512" />
           <Property Name="LONGITUDE" Type="float" Nullable="false" />
           <Property Name="LATIDUE" Type="float" Nullable="false" />
-          <Property Name="ADDRESS" Type="nvarchar" MaxLength="512" Nullable="false" />
-          <Property Name="CONTRY" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="ADDRESS" Type="nvarchar" Nullable="false" MaxLength="512" />
+          <Property Name="CONTRY" Type="nvarchar" Nullable="false" MaxLength="100" />
           <Property Name="PROPERTY" Type="int" Nullable="false" />
           <Property Name="DATASTATUS" Type="int" Nullable="false" />
         </EntityType>
@@ -258,7 +812,7 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="nchar" MaxLength="36" Nullable="false" />
+          <Property Name="ID" Type="nchar" Nullable="false" MaxLength="36" />
           <Property Name="NAME" Type="nvarchar" MaxLength="512" />
           <Property Name="ICARD_ID" Type="nvarchar" MaxLength="50" />
           <Property Name="GRADE" Type="int" />
@@ -274,15 +828,15 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="nchar" MaxLength="36" Nullable="false" />
-          <Property Name="NAME" Type="nvarchar" MaxLength="512" Nullable="false" />
+          <Property Name="ID" Type="nchar" Nullable="false" MaxLength="36" />
+          <Property Name="NAME" Type="nvarchar" Nullable="false" MaxLength="512" />
           <Property Name="BEGIN_TIME" Type="datetime" Nullable="false" />
           <Property Name="END_TIME" Type="datetime" Nullable="false" />
-          <Property Name="ADDRESS" Type="nvarchar" MaxLength="512" Nullable="false" />
-          <Property Name="PHONE" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="MOBILE" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="EMAIL" Type="nvarchar" MaxLength="100" Nullable="false" />
-          <Property Name="CONTACT" Type="nvarchar" MaxLength="512" Nullable="false" />
+          <Property Name="ADDRESS" Type="nvarchar" Nullable="false" MaxLength="512" />
+          <Property Name="PHONE" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="MOBILE" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="EMAIL" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="CONTACT" Type="nvarchar" Nullable="false" MaxLength="512" />
           <Property Name="TANSFER_MODE" Type="int" Nullable="false" />
           <Property Name="STATUS" Type="int" Nullable="false" />
           <Property Name="USER_COUNT" Type="int" Nullable="false" />
@@ -294,8 +848,8 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="nchar" MaxLength="36" Nullable="false" />
-          <Property Name="CLIENT_ID" Type="nchar" MaxLength="36" Nullable="false" />
+          <Property Name="ID" Type="nchar" Nullable="false" MaxLength="36" />
+          <Property Name="CLIENT_ID" Type="nchar" Nullable="false" MaxLength="36" />
           <Property Name="NAME" Type="nvarchar" MaxLength="512" />
           <Property Name="DISTRICT_CODE" Type="nvarchar" MaxLength="15" />
           <Property Name="ADDRESS" Type="nvarchar" MaxLength="512" />
@@ -312,16 +866,16 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="nchar" MaxLength="36" Nullable="false" />
-          <Property Name="USER_ID" Type="nchar" MaxLength="36" Nullable="false" />
-          <Property Name="STATION_ID" Type="nchar" MaxLength="36" Nullable="false" />
+          <Property Name="ID" Type="nchar" Nullable="false" MaxLength="36" />
+          <Property Name="USER_ID" Type="nchar" Nullable="false" MaxLength="36" />
+          <Property Name="STATION_ID" Type="nchar" Nullable="false" MaxLength="36" />
           <Property Name="CREATE_TIME" Type="datetime" Nullable="false" />
         </EntityType>
         <EntityType Name="BSC_VEHICLE">
           <Key>
             <PropertyRef Name="VEHICLE_ID" />
           </Key>
-          <Property Name="VEHICLE_ID" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="VEHICLE_ID" Type="nvarchar" Nullable="false" MaxLength="20" />
           <Property Name="VEHICLE_SN" Type="nvarchar" MaxLength="50" />
           <Property Name="ENGINE_ID" Type="nvarchar" MaxLength="50" />
           <Property Name="BRAND_MODEL" Type="nvarchar" MaxLength="100" />
@@ -338,8 +892,8 @@
           <Property Name="VEHICLE_STATUS" Type="int" />
           <Property Name="VEHICLE_TYPE" Type="nchar" MaxLength="36" />
           <Property Name="NOTE" Type="nvarchar" MaxLength="2000" />
-          <Property Name="CLIENT_ID" Type="nchar" MaxLength="36" Nullable="false" />
-          <Property Name="ORGNIZATION_ID" Type="nchar" MaxLength="36" Nullable="false" />
+          <Property Name="CLIENT_ID" Type="nchar" Nullable="false" MaxLength="36" />
+          <Property Name="ORGNIZATION_ID" Type="nchar" Nullable="false" MaxLength="36" />
           <Property Name="VALID" Type="int" />
           <Property Name="CREATOR" Type="nvarchar" MaxLength="512" />
           <Property Name="CREATE_TIME" Type="datetime" />
@@ -350,9 +904,9 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="nchar" MaxLength="36" Nullable="false" />
-          <Property Name="VEHICLE_ID" Type="nvarchar" MaxLength="20" Nullable="false" />
-          <Property Name="CHAUFFEUR_ID" Type="nchar" MaxLength="36" Nullable="false" />
+          <Property Name="ID" Type="nchar" Nullable="false" MaxLength="36" />
+          <Property Name="VEHICLE_ID" Type="nvarchar" Nullable="false" MaxLength="20" />
+          <Property Name="CHAUFFEUR_ID" Type="nchar" Nullable="false" MaxLength="36" />
           <Property Name="CREATE_TIME" Type="datetime" Nullable="false" />
           <Property Name="ACTIVATE" Type="int" Nullable="false" />
         </EntityType>
@@ -360,7 +914,7 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="nchar" MaxLength="36" Nullable="false" />
+          <Property Name="ID" Type="nchar" Nullable="false" MaxLength="36" />
           <Property Name="TYPE_ID" Type="nchar" MaxLength="36" />
           <Property Name="MINSPEED" Type="int" />
           <Property Name="MAXSPEED" Type="int" />
@@ -371,7 +925,7 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="nchar" MaxLength="36" Nullable="false" />
+          <Property Name="ID" Type="nchar" Nullable="false" MaxLength="36" />
           <Property Name="CLIENT_ID" Type="nchar" MaxLength="36" />
           <Property Name="NAME" Type="nvarchar" MaxLength="512" />
           <Property Name="CREATE_TIME" Type="datetime" />
@@ -384,7 +938,7 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="nchar" MaxLength="36" Nullable="false" />
+          <Property Name="ID" Type="nchar" Nullable="false" MaxLength="36" />
           <Property Name="SECTION_DESC" Type="nvarchar" MaxLength="2000" />
           <Property Name="SECTION_NAME" Type="nvarchar" MaxLength="200" />
           <Property Name="SECTION_TYPE" Type="nvarchar" MaxLength="200" />
@@ -396,8 +950,8 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="nchar" MaxLength="36" Nullable="false" />
-          <Property Name="CLIENT_ID" Type="nchar" MaxLength="36" Nullable="false" />
+          <Property Name="ID" Type="nchar" Nullable="false" MaxLength="36" />
+          <Property Name="CLIENT_ID" Type="nchar" Nullable="false" MaxLength="36" />
           <Property Name="DISTRICT_CODE" Type="nvarchar" MaxLength="15" />
           <Property Name="NAME" Type="nvarchar" MaxLength="200" />
           <Property Name="URL" Type="nvarchar" MaxLength="200" />
@@ -408,7 +962,7 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="nchar" MaxLength="36" Nullable="false" />
+          <Property Name="ID" Type="nchar" Nullable="false" MaxLength="36" />
           <Property Name="CLIENT_ID" Type="nchar" MaxLength="36" />
           <Property Name="LOGIN_TIME" Type="datetime" />
           <Property Name="LOGOUT_TIME" Type="datetime" />
@@ -421,8 +975,8 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="nchar" MaxLength="36" Nullable="false" />
-          <Property Name="CLIENT_ID" Type="nchar" MaxLength="36" Nullable="false" />
+          <Property Name="ID" Type="nchar" Nullable="false" MaxLength="36" />
+          <Property Name="CLIENT_ID" Type="nchar" Nullable="false" MaxLength="36" />
           <Property Name="USER_NAME" Type="nvarchar" MaxLength="512" />
           <Property Name="MSG_ID" Type="nchar" MaxLength="36" />
           <Property Name="USER_TYPE" Type="nvarchar" MaxLength="200" />
@@ -430,7 +984,7 @@
           <Property Name="USER_DEPT" Type="nvarchar" MaxLength="200" />
           <Property Name="MDVR_CORE_SN" Type="nvarchar" MaxLength="20" />
           <Property Name="ACCESS_TIME" Type="datetime" />
-          <Property Name="VEHICLE_ID" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="VEHICLE_ID" Type="nvarchar" Nullable="false" MaxLength="20" />
           <Property Name="CHANNEL" Type="nvarchar" MaxLength="10" />
           <Property Name="START_TIME" Type="datetime" />
           <Property Name="END_TIME" Type="datetime" />
@@ -442,24 +996,25 @@
           <Property Name="ORGANIZATION_ID" Type="nchar" MaxLength="36" />
         </EntityType>
         <!--生成过程中发现错误:
-警告 6002: 表/视图“RDPTMS.dbo.LOG_ERROR”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+      警告 6002: 表/视图“RDPTMS.dbo.LOG_ERROR”未定义主键。已推断出该键，并将定义创建为只读的表/视图。
+      -->
         <EntityType Name="LOG_ERROR">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="nchar" MaxLength="36" Nullable="false" />
+          <Property Name="ID" Type="nchar" Nullable="false" MaxLength="36" />
           <Property Name="IP" Type="nvarchar" MaxLength="255" />
           <Property Name="SERVICE_NAME" Type="nvarchar" MaxLength="255" />
           <Property Name="CREATE_TIME" Type="datetime" />
-          <Property Name="ERROR_REASON" Type="nvarchar" MaxLength="4000" />
+          <Property Name="ERROR_REASON" Type="nvarchar" />
         </EntityType>
         <EntityType Name="LOG_MANAGER">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="nchar" MaxLength="36" Nullable="false" />
+          <Property Name="ID" Type="nchar" Nullable="false" MaxLength="36" />
           <Property Name="CONTENT" Type="nvarchar" MaxLength="2000" />
-          <Property Name="MANAGER_ID" Type="nchar" MaxLength="36" Nullable="false" />
+          <Property Name="MANAGER_ID" Type="nchar" Nullable="false" MaxLength="36" />
           <Property Name="MANAGER" Type="nvarchar" MaxLength="512" />
           <Property Name="CREATE_TIME" Type="datetime" />
           <Property Name="CLIENT_ID" Type="nchar" MaxLength="36" />
@@ -469,7 +1024,7 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="nchar" MaxLength="36" Nullable="false" />
+          <Property Name="ID" Type="nchar" Nullable="false" MaxLength="36" />
           <Property Name="OPERATOR_ID" Type="nchar" MaxLength="36" />
           <Property Name="OPERATE_TIME" Type="datetime" />
           <Property Name="OPERATE_CONTENT" Type="nvarchar" MaxLength="2000" />
@@ -481,8 +1036,8 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="nchar" MaxLength="36" Nullable="false" />
-          <Property Name="CLIENT_ID" Type="nchar" MaxLength="36" Nullable="false" />
+          <Property Name="ID" Type="nchar" Nullable="false" MaxLength="36" />
+          <Property Name="CLIENT_ID" Type="nchar" Nullable="false" MaxLength="36" />
           <Property Name="CONTENT" Type="nvarchar" MaxLength="2000" />
           <Property Name="OPERATE_TIME" Type="datetime" Nullable="false" />
           <Property Name="LOG_TYPE" Type="int" />
@@ -497,8 +1052,8 @@
           <Key>
             <PropertyRef Name="UUID" />
           </Key>
-          <Property Name="UUID" Type="nchar" MaxLength="36" Nullable="false" />
-          <Property Name="MDVR_CORE_SN" Type="char" MaxLength="12" Nullable="false" />
+          <Property Name="UUID" Type="nchar" Nullable="false" MaxLength="36" />
+          <Property Name="MDVR_CORE_SN" Type="char" Nullable="false" MaxLength="12" />
           <Property Name="ALARM_ID" Type="nchar" MaxLength="36" />
           <Property Name="CHANNEL_ID" Type="int" Nullable="false" />
           <Property Name="STREAM_ID" Type="int" Nullable="false" />
@@ -508,7 +1063,7 @@
           <Property Name="UPDATE_TIME" Type="datetime" />
           <Property Name="PICTURE_URL" Type="nvarchar" MaxLength="160" />
           <Property Name="TEST_INSTALL" Type="int" />
-          <Property Name="VIDEO_URL" Type="nvarchar" MaxLength="160" Nullable="false" />
+          <Property Name="VIDEO_URL" Type="nvarchar" Nullable="false" MaxLength="160" />
           <Property Name="VIDEO_SIZE" Type="int" Nullable="false" />
           <Property Name="EXT_DATA" Type="nvarchar" MaxLength="1024" />
           <Property Name="CREATE_TIME" Type="datetime" />
@@ -518,9 +1073,9 @@
           <Key>
             <PropertyRef Name="UUID" />
           </Key>
-          <Property Name="UUID" Type="nchar" MaxLength="36" Nullable="false" />
+          <Property Name="UUID" Type="nchar" Nullable="false" MaxLength="36" />
           <Property Name="CHANNEL_ID" Type="int" />
-          <Property Name="MDVR_CORE_SN" Type="nvarchar" MaxLength="12" Nullable="false" />
+          <Property Name="MDVR_CORE_SN" Type="nvarchar" Nullable="false" MaxLength="12" />
           <Property Name="STREAM_ID" Type="int" />
           <Property Name="START_TIME" Type="datetime" />
           <Property Name="END_TIME" Type="datetime" />
@@ -549,8 +1104,8 @@
           <Key>
             <PropertyRef Name="UUID" />
           </Key>
-          <Property Name="UUID" Type="nchar" MaxLength="36" Nullable="false" />
-          <Property Name="MDVR_CORE_SN" Type="nvarchar" MaxLength="12" Nullable="false" />
+          <Property Name="UUID" Type="nchar" Nullable="false" MaxLength="36" />
+          <Property Name="MDVR_CORE_SN" Type="nvarchar" Nullable="false" MaxLength="12" />
           <Property Name="CHANNEL_ID" Type="int" Nullable="false" />
           <Property Name="STREAM_ID" Type="int" Nullable="false" />
           <Property Name="START_TIME" Type="datetime" Nullable="false" />
@@ -559,7 +1114,7 @@
           <Property Name="PICTURE_URL" Type="nvarchar" MaxLength="160" />
           <Property Name="TEST_INSTALL" Type="int" />
           <Property Name="UPDATE_TIME" Type="datetime" />
-          <Property Name="VIDEO_URL" Type="nvarchar" MaxLength="160" Nullable="false" />
+          <Property Name="VIDEO_URL" Type="nvarchar" Nullable="false" MaxLength="160" />
           <Property Name="VIDEO_SIZE" Type="int" Nullable="false" />
           <Property Name="EXT_DATA" Type="nvarchar" MaxLength="1024" />
           <Property Name="CREATE_TIME" Type="datetime" />
@@ -570,17 +1125,17 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="nchar" MaxLength="36" Nullable="false" />
-          <Property Name="CLIENT_ID" Type="nchar" MaxLength="36" Nullable="false" />
+          <Property Name="ID" Type="nchar" Nullable="false" MaxLength="36" />
+          <Property Name="CLIENT_ID" Type="nchar" Nullable="false" MaxLength="36" />
           <Property Name="DEVICE_TYPE" Type="int" Nullable="false" />
-          <Property Name="DEVICE_SN" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="DEVICE_SN" Type="nvarchar" Nullable="false" MaxLength="50" />
           <Property Name="CHANNEL_ID" Type="int" Nullable="false" />
-          <Property Name="IMG_URL" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="IMG_URL" Type="nvarchar" Nullable="false" MaxLength="200" />
           <Property Name="CREATE_TIME" Type="datetime" Nullable="false" />
           <Property Name="IMGSIZE" Type="int" Nullable="false" />
           <Property Name="STATUS" Type="int" Nullable="false" />
           <Property Name="NOTE" Type="nvarchar" MaxLength="500" />
-          <Property Name="MINIIMG_URL" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="MINIIMG_URL" Type="nvarchar" Nullable="false" MaxLength="200" />
           <Property Name="LONGITUDE" Type="nvarchar" MaxLength="50" />
           <Property Name="LATITUDE" Type="nvarchar" MaxLength="50" />
         </EntityType>
@@ -588,7 +1143,7 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="nchar" MaxLength="36" Nullable="false" />
+          <Property Name="ID" Type="nchar" Nullable="false" MaxLength="36" />
           <Property Name="GPS_ID" Type="nchar" MaxLength="36" />
           <Property Name="VEHICLE_ID" Type="nvarchar" MaxLength="20" />
           <Property Name="STATION_ID" Type="nchar" MaxLength="36" />
@@ -606,7 +1161,7 @@
           <Key>
             <PropertyRef Name="INSTALL_ID" />
           </Key>
-          <Property Name="INSTALL_ID" Type="nchar" MaxLength="36" Nullable="false" />
+          <Property Name="INSTALL_ID" Type="nchar" Nullable="false" MaxLength="36" />
           <Property Name="ALARM_ID" Type="nchar" MaxLength="36" />
           <Property Name="GPS_CHECK" Type="int" />
           <Property Name="ALARM_CHECK" Type="int" />
@@ -620,7 +1175,7 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="nchar" MaxLength="36" Nullable="false" />
+          <Property Name="ID" Type="nchar" Nullable="false" MaxLength="36" />
           <Property Name="VEHICLE_ID" Type="nvarchar" MaxLength="20" />
           <Property Name="SUITE_INFO_ID" Type="nchar" MaxLength="36" />
           <Property Name="MDVR_CORE_SN" Type="nvarchar" MaxLength="20" />
@@ -637,9 +1192,9 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="nchar" MaxLength="36" Nullable="false" />
-          <Property Name="CLIENT_ID" Type="nchar" MaxLength="36" Nullable="false" />
-          <Property Name="APPLICANT" Type="nvarchar" MaxLength="512" Nullable="false" />
+          <Property Name="ID" Type="nchar" Nullable="false" MaxLength="36" />
+          <Property Name="CLIENT_ID" Type="nchar" Nullable="false" MaxLength="36" />
+          <Property Name="APPLICANT" Type="nvarchar" Nullable="false" MaxLength="512" />
           <Property Name="SETUP_STATION" Type="nchar" MaxLength="36" />
           <Property Name="STATUS" Type="int" Nullable="false" />
           <Property Name="NOTE" Type="nvarchar" MaxLength="2000" />
@@ -648,43 +1203,43 @@
           <Property Name="SCHEDULE_DATE" Type="datetime" />
           <Property Name="CREATOR" Type="nvarchar" MaxLength="512" />
           <Property Name="CREATE_TIME" Type="datetime" Nullable="false" />
-          <Property Name="PROBLEM" Type="nvarchar" MaxLength="2000" Nullable="false" />
-          <Property Name="CONTACT" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="VEHCILE_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="PROBLEM" Type="nvarchar" Nullable="false" MaxLength="2000" />
+          <Property Name="CONTACT" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="VEHCILE_ID" Type="nvarchar" Nullable="false" MaxLength="50" />
         </EntityType>
         <EntityType Name="MTN_MAINTAIN_RECORD">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="nchar" MaxLength="36" Nullable="false" />
-          <Property Name="APPLICATION_ID" Type="nchar" MaxLength="36" Nullable="false" />
+          <Property Name="ID" Type="nchar" Nullable="false" MaxLength="36" />
+          <Property Name="APPLICATION_ID" Type="nchar" Nullable="false" MaxLength="36" />
           <Property Name="WORKER" Type="nvarchar" MaxLength="512" />
           <Property Name="CREATE_TIME" Type="datetime" Nullable="false" />
           <Property Name="STATUS" Type="int" Nullable="false" />
           <Property Name="START_TIME" Type="datetime" Nullable="false" />
           <Property Name="END_TIME" Type="datetime" />
-          <Property Name="NOTE" Type="nvarchar" MaxLength="2000" Nullable="false" />
+          <Property Name="NOTE" Type="nvarchar" Nullable="false" MaxLength="2000" />
         </EntityType>
         <EntityType Name="MTN_MDVR_REGISTER">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="nchar" MaxLength="36" Nullable="false" />
-          <Property Name="VEHICLE_ID" Type="nvarchar" MaxLength="20" Nullable="false" />
-          <Property Name="SUITE_INFO_ID" Type="nchar" MaxLength="36" Nullable="false" />
-          <Property Name="MDVR_CORE_SN" Type="nvarchar" MaxLength="20" Nullable="false" />
-          <Property Name="CLIENT_ID" Type="nchar" MaxLength="36" Nullable="false" />
+          <Property Name="ID" Type="nchar" Nullable="false" MaxLength="36" />
+          <Property Name="VEHICLE_ID" Type="nvarchar" Nullable="false" MaxLength="20" />
+          <Property Name="SUITE_INFO_ID" Type="nchar" Nullable="false" MaxLength="36" />
+          <Property Name="MDVR_CORE_SN" Type="nvarchar" Nullable="false" MaxLength="20" />
+          <Property Name="CLIENT_ID" Type="nchar" Nullable="false" MaxLength="36" />
           <Property Name="REGISTER_TIME" Type="datetime" Nullable="false" />
-          <Property Name="REGISTER_CODE" Type="nvarchar" MaxLength="512" Nullable="false" />
+          <Property Name="REGISTER_CODE" Type="nvarchar" Nullable="false" MaxLength="512" />
         </EntityType>
         <EntityType Name="MTN_PART_AUDIT">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="nchar" MaxLength="36" Nullable="false" />
-          <Property Name="INSTALL_AUDIT_ID" Type="nchar" MaxLength="36" Nullable="false" />
-          <Property Name="PART_ID" Type="nchar" MaxLength="36" Nullable="false" />
-          <Property Name="VIDEO_FILE" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="ID" Type="nchar" Nullable="false" MaxLength="36" />
+          <Property Name="INSTALL_AUDIT_ID" Type="nchar" Nullable="false" MaxLength="36" />
+          <Property Name="PART_ID" Type="nchar" Nullable="false" MaxLength="36" />
+          <Property Name="VIDEO_FILE" Type="nvarchar" Nullable="false" MaxLength="256" />
           <Property Name="VIDEO_FILE_SIZE" Type="int" Nullable="false" />
           <Property Name="RESULT" Type="int" Nullable="false" />
           <Property Name="INSTALL_LOCATION" Type="int" Nullable="false" />
@@ -694,21 +1249,21 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="nchar" MaxLength="36" Nullable="false" />
+          <Property Name="ID" Type="nchar" Nullable="false" MaxLength="36" />
           <Property Name="PACKAGE_SEQ" Type="int" />
           <Property Name="STATUS" Type="int" Nullable="false" />
           <Property Name="CREATE_TIME" Type="datetime" Nullable="false" />
-          <Property Name="MDVR_CORE_SN" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="MDVR_CORE_SN" Type="nvarchar" Nullable="false" MaxLength="20" />
           <Property Name="SEND_TIME" Type="datetime" />
-          <Property Name="INSTALLATION_DETAIL_ID" Type="nchar" MaxLength="36" Nullable="false" />
+          <Property Name="INSTALLATION_DETAIL_ID" Type="nchar" Nullable="false" MaxLength="36" />
         </EntityType>
         <EntityType Name="RUN_APP_MESSAGE">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="nchar" MaxLength="36" Nullable="false" />
-          <Property Name="CLIENT_ID" Type="nchar" MaxLength="36" Nullable="false" />
-          <Property Name="MESSAGE" Type="nvarchar" MaxLength="2000" Nullable="false" />
+          <Property Name="ID" Type="nchar" Nullable="false" MaxLength="36" />
+          <Property Name="CLIENT_ID" Type="nchar" Nullable="false" MaxLength="36" />
+          <Property Name="MESSAGE" Type="nvarchar" Nullable="false" MaxLength="2000" />
           <Property Name="MESSAGE_TYPE" Type="int" Nullable="false" />
           <Property Name="CREATOR" Type="nvarchar" MaxLength="512" />
           <Property Name="CREATE_TIME" Type="datetime" Nullable="false" />
@@ -718,19 +1273,19 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="CLIENT_ID" Type="nchar" MaxLength="36" Nullable="false" />
+          <Property Name="CLIENT_ID" Type="nchar" Nullable="false" MaxLength="36" />
           <Property Name="CHAUFFEUR_ID" Type="nchar" MaxLength="36" />
           <Property Name="VEHICLE_ID" Type="nvarchar" MaxLength="20" />
           <Property Name="STATUS" Type="int" />
           <Property Name="GPS_TIME" Type="datetime" />
-          <Property Name="ID" Type="nchar" MaxLength="36" Nullable="false" />
+          <Property Name="ID" Type="nchar" Nullable="false" MaxLength="36" />
           <Property Name="MOBILE_SIM" Type="nvarchar" MaxLength="20" />
         </EntityType>
         <EntityType Name="RUN_APPMESSAGE_VEHICLE">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="nchar" MaxLength="36" Nullable="false" />
+          <Property Name="ID" Type="nchar" Nullable="false" MaxLength="36" />
           <Property Name="MESSAGE_ID" Type="nchar" MaxLength="36" />
           <Property Name="CHAUFFEUR_ID" Type="nchar" MaxLength="36" />
           <Property Name="CHAUFFEUR_NAME" Type="nvarchar" MaxLength="512" />
@@ -748,14 +1303,14 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="nchar" MaxLength="36" Nullable="false" />
-          <Property Name="CLIENT_ID" Type="nchar" MaxLength="36" Nullable="false" />
-          <Property Name="FOUNDER" Type="nvarchar" MaxLength="512" Nullable="false" />
+          <Property Name="ID" Type="nchar" Nullable="false" MaxLength="36" />
+          <Property Name="CLIENT_ID" Type="nchar" Nullable="false" MaxLength="36" />
+          <Property Name="FOUNDER" Type="nvarchar" Nullable="false" MaxLength="512" />
           <Property Name="FOUNDER_ID_CARD" Type="nvarchar" MaxLength="512" />
           <Property Name="FOUND_PHONE" Type="nvarchar" MaxLength="512" />
           <Property Name="FOUND_TIME" Type="datetime" Nullable="false" />
-          <Property Name="CONTENT" Type="nvarchar" MaxLength="512" Nullable="false" />
-          <Property Name="KEYWORD" Type="nvarchar" MaxLength="512" Nullable="false" />
+          <Property Name="CONTENT" Type="nvarchar" Nullable="false" MaxLength="512" />
+          <Property Name="KEYWORD" Type="nvarchar" Nullable="false" MaxLength="512" />
           <Property Name="LOST_NAME" Type="nvarchar" MaxLength="512" />
           <Property Name="LOST_PHONE" Type="nvarchar" MaxLength="512" />
           <Property Name="ADDRESS" Type="nvarchar" MaxLength="512" />
@@ -768,21 +1323,21 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="CLIENT_ID" Type="nchar" MaxLength="36" Nullable="false" />
+          <Property Name="CLIENT_ID" Type="nchar" Nullable="false" MaxLength="36" />
           <Property Name="DEV_GPS_ID" Type="nchar" MaxLength="36" />
           <Property Name="VEHICLE_ID" Type="nvarchar" MaxLength="20" />
           <Property Name="STATUS" Type="int" />
           <Property Name="GPS_TIME" Type="datetime" />
-          <Property Name="ID" Type="nchar" MaxLength="36" Nullable="false" />
+          <Property Name="ID" Type="nchar" Nullable="false" MaxLength="36" />
           <Property Name="GPS_SN" Type="nvarchar" MaxLength="20" />
         </EntityType>
         <EntityType Name="RUN_GPS_STATUS_CHANGE">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="nchar" MaxLength="36" Nullable="false" />
-          <Property Name="CLIENT_ID" Type="nchar" MaxLength="36" Nullable="false" />
-          <Property Name="DEV_GPS_ID" Type="nchar" MaxLength="36" Nullable="false" />
+          <Property Name="ID" Type="nchar" Nullable="false" MaxLength="36" />
+          <Property Name="CLIENT_ID" Type="nchar" Nullable="false" MaxLength="36" />
+          <Property Name="DEV_GPS_ID" Type="nchar" Nullable="false" MaxLength="36" />
           <Property Name="OLD_STATUS" Type="int" />
           <Property Name="NEW_STATUS" Type="int" />
           <Property Name="OPERATING_TIME" Type="datetime" />
@@ -793,8 +1348,8 @@
           <Key>
             <PropertyRef Name="GPS_ID" />
           </Key>
-          <Property Name="GPS_ID" Type="nchar" MaxLength="36" Nullable="false" />
-          <Property Name="CLIENT_ID" Type="nchar" MaxLength="36" Nullable="false" />
+          <Property Name="GPS_ID" Type="nchar" Nullable="false" MaxLength="36" />
+          <Property Name="CLIENT_ID" Type="nchar" Nullable="false" MaxLength="36" />
           <Property Name="VEHICLE_ID" Type="nvarchar" MaxLength="20" />
           <Property Name="ONLINE_FLAG" Type="int" />
           <Property Name="SWITCH_TIME" Type="datetime" />
@@ -808,12 +1363,12 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="nchar" MaxLength="36" Nullable="false" />
-          <Property Name="CLIENT_ID" Type="nchar" MaxLength="36" Nullable="false" />
-          <Property Name="LOST_NAME" Type="nvarchar" MaxLength="512" Nullable="false" />
-          <Property Name="CONTENT" Type="nvarchar" MaxLength="512" Nullable="false" />
+          <Property Name="ID" Type="nchar" Nullable="false" MaxLength="36" />
+          <Property Name="CLIENT_ID" Type="nchar" Nullable="false" MaxLength="36" />
+          <Property Name="LOST_NAME" Type="nvarchar" Nullable="false" MaxLength="512" />
+          <Property Name="CONTENT" Type="nvarchar" Nullable="false" MaxLength="512" />
           <Property Name="LOST_TIME" Type="datetime" Nullable="false" />
-          <Property Name="KEYWORD" Type="nvarchar" MaxLength="512" Nullable="false" />
+          <Property Name="KEYWORD" Type="nvarchar" Nullable="false" MaxLength="512" />
           <Property Name="LOST_IDCARD" Type="nvarchar" MaxLength="512" />
           <Property Name="LOST_PHONE" Type="nvarchar" MaxLength="512" />
           <Property Name="ADDRESS" Type="nvarchar" MaxLength="512" />
@@ -823,9 +1378,9 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="nchar" MaxLength="36" Nullable="false" />
-          <Property Name="CLIENT_ID" Type="nchar" MaxLength="36" Nullable="false" />
-          <Property Name="CONTENT" Type="nvarchar" MaxLength="2000" Nullable="false" />
+          <Property Name="ID" Type="nchar" Nullable="false" MaxLength="36" />
+          <Property Name="CLIENT_ID" Type="nchar" Nullable="false" MaxLength="36" />
+          <Property Name="CONTENT" Type="nvarchar" Nullable="false" MaxLength="2000" />
           <Property Name="MESSAGE_TYPE" Type="int" Nullable="false" />
           <Property Name="CREATE_TIME" Type="datetime" Nullable="false" />
           <Property Name="CREATOR" Type="nvarchar" MaxLength="512" />
@@ -835,9 +1390,9 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="nchar" MaxLength="36" Nullable="false" />
-          <Property Name="MESSAGE_ID" Type="nchar" MaxLength="36" Nullable="false" />
-          <Property Name="VEHICLE_ID" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="ID" Type="nchar" Nullable="false" MaxLength="36" />
+          <Property Name="MESSAGE_ID" Type="nchar" Nullable="false" MaxLength="36" />
+          <Property Name="VEHICLE_ID" Type="nvarchar" Nullable="false" MaxLength="20" />
           <Property Name="SEND_TIME" Type="datetime" Nullable="false" />
           <Property Name="PACKET_SEQ" Type="int" />
           <Property Name="STATUS" Type="int" Nullable="false" />
@@ -850,10 +1405,10 @@
           <Key>
             <PropertyRef Name="MOBILE_NUMBER" />
           </Key>
-          <Property Name="MOBILE_NUMBER" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="CLIENT_ID" Type="nchar" MaxLength="36" Nullable="false" />
-          <Property Name="VEHICLE_ID" Type="nvarchar" MaxLength="20" Nullable="false" />
-          <Property Name="ORGANIZATION_ID" Type="nchar" MaxLength="36" Nullable="false" />
+          <Property Name="MOBILE_NUMBER" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="CLIENT_ID" Type="nchar" Nullable="false" MaxLength="36" />
+          <Property Name="VEHICLE_ID" Type="nvarchar" Nullable="false" MaxLength="20" />
+          <Property Name="ORGANIZATION_ID" Type="nchar" Nullable="false" MaxLength="36" />
           <Property Name="ONLINE_FLAG" Type="int" Nullable="false" />
           <Property Name="SWITCH_TIME" Type="datetime" />
         </EntityType>
@@ -861,7 +1416,7 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="nchar" MaxLength="36" Nullable="false" />
+          <Property Name="ID" Type="nchar" Nullable="false" MaxLength="36" />
           <Property Name="AD_USER" Type="nvarchar" MaxLength="50" />
           <Property Name="GROUP_NAME" Type="nvarchar" MaxLength="20" />
           <Property Name="GROUP_TYPE" Type="int" Nullable="false" />
@@ -873,7 +1428,7 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="nchar" MaxLength="36" Nullable="false" />
+          <Property Name="ID" Type="nchar" Nullable="false" MaxLength="36" />
           <Property Name="GROUP_ID" Type="nchar" MaxLength="36" />
           <Property Name="VEHICLE_ID" Type="nvarchar" MaxLength="20" />
           <Property Name="TRACED_FLAG" Type="int" />
@@ -883,8 +1438,8 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="nchar" MaxLength="36" Nullable="false" />
-          <Property Name="CLIENT_ID" Type="nchar" MaxLength="36" Nullable="false" />
+          <Property Name="ID" Type="nchar" Nullable="false" MaxLength="36" />
+          <Property Name="CLIENT_ID" Type="nchar" Nullable="false" MaxLength="36" />
           <Property Name="SUITE_INFO_ID" Type="nchar" MaxLength="36" />
           <Property Name="VEHICLE_ID" Type="nvarchar" MaxLength="20" />
           <Property Name="MDVR_CORE_SN" Type="nvarchar" MaxLength="20" />
@@ -895,9 +1450,9 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="nchar" MaxLength="36" Nullable="false" />
-          <Property Name="CLIENT_ID" Type="nchar" MaxLength="36" Nullable="false" />
-          <Property Name="SUITE_INFO_ID" Type="nchar" MaxLength="36" Nullable="false" />
+          <Property Name="ID" Type="nchar" Nullable="false" MaxLength="36" />
+          <Property Name="CLIENT_ID" Type="nchar" Nullable="false" MaxLength="36" />
+          <Property Name="SUITE_INFO_ID" Type="nchar" Nullable="false" MaxLength="36" />
           <Property Name="OLD_STATUS" Type="int" />
           <Property Name="NEW_STATUS" Type="int" />
           <Property Name="OPERATING_TIME" Type="datetime" />
@@ -908,8 +1463,8 @@
           <Key>
             <PropertyRef Name="SUITE_INFO_ID" />
           </Key>
-          <Property Name="SUITE_INFO_ID" Type="nchar" MaxLength="36" Nullable="false" />
-          <Property Name="CLIENT_ID" Type="nchar" MaxLength="36" Nullable="false" />
+          <Property Name="SUITE_INFO_ID" Type="nchar" Nullable="false" MaxLength="36" />
+          <Property Name="CLIENT_ID" Type="nchar" Nullable="false" MaxLength="36" />
           <Property Name="VEHICLE_ID" Type="nvarchar" MaxLength="20" />
           <Property Name="MDVR_CORE_SN" Type="nvarchar" MaxLength="20" />
           <Property Name="STATUS" Type="int" />
@@ -923,12 +1478,12 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="nchar" MaxLength="36" Nullable="false" />
+          <Property Name="ID" Type="nchar" Nullable="false" MaxLength="36" />
           <Property Name="PACKAGE_SEQ" Type="int" Nullable="false" />
-          <Property Name="USER_ID" Type="nchar" MaxLength="36" Nullable="false" />
+          <Property Name="USER_ID" Type="nchar" Nullable="false" MaxLength="36" />
           <Property Name="CREATE_TIME" Type="datetime" Nullable="false" />
           <Property Name="SEND_TIME" Type="datetime" Nullable="false" />
-          <Property Name="MDVR_CORE_SN" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="MDVR_CORE_SN" Type="nvarchar" Nullable="false" MaxLength="20" />
           <Property Name="CHANNEL" Type="int" Nullable="false" />
           <Property Name="CMD" Type="int" Nullable="false" />
           <Property Name="INTERVAL" Type="int" Nullable="false" />
@@ -944,18 +1499,18 @@
           <Key>
             <PropertyRef Name="USER_ID" />
           </Key>
-          <Property Name="USER_ID" Type="nchar" MaxLength="36" Nullable="false" />
-          <Property Name="CLIENT_ID" Type="nchar" MaxLength="36" Nullable="false" />
+          <Property Name="USER_ID" Type="nchar" Nullable="false" MaxLength="36" />
+          <Property Name="CLIENT_ID" Type="nchar" Nullable="false" MaxLength="36" />
           <Property Name="ONLINE_TIME" Type="datetime" Nullable="false" />
-          <Property Name="SESSION_ID" Type="nchar" MaxLength="36" Nullable="false" />
+          <Property Name="SESSION_ID" Type="nchar" Nullable="false" MaxLength="36" />
           <Property Name="UPDATE_TIME" Type="datetime" />
         </EntityType>
         <EntityType Name="RUN_VEHICLE_LOCATION">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="nchar" MaxLength="36" Nullable="false" />
-          <Property Name="CLIENT_ID" Type="nchar" MaxLength="36" Nullable="false" />
+          <Property Name="ID" Type="nchar" Nullable="false" MaxLength="36" />
+          <Property Name="CLIENT_ID" Type="nchar" Nullable="false" MaxLength="36" />
           <Property Name="VEHICLE_ID" Type="nvarchar" MaxLength="20" />
           <Property Name="SOURCE" Type="int" Nullable="false" />
           <Property Name="GPS_VALID" Type="nvarchar" MaxLength="2" />
@@ -974,10 +1529,10 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="nchar" MaxLength="36" Nullable="false" />
-          <Property Name="CLIENT_ID" Type="nchar" MaxLength="36" Nullable="false" />
+          <Property Name="ID" Type="nchar" Nullable="false" MaxLength="36" />
+          <Property Name="CLIENT_ID" Type="nchar" Nullable="false" MaxLength="36" />
           <Property Name="MDVR_CORE_SN" Type="nvarchar" MaxLength="20" />
-          <Property Name="VEHICLE_ID" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="VEHICLE_ID" Type="nvarchar" Nullable="false" MaxLength="20" />
           <Property Name="DISTANCE" Type="int" />
           <Property Name="OFFLINE_TIME" Type="datetime" />
           <Property Name="ONLINE_TIME" Type="datetime" />
@@ -987,7 +1542,7 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="nchar" MaxLength="36" Nullable="false" />
+          <Property Name="ID" Type="nchar" Nullable="false" MaxLength="36" />
           <Property Name="PACKAGE_SEQ" Type="int" />
           <Property Name="USER_ID" Type="nchar" MaxLength="36" />
           <Property Name="CREATE_TIME" Type="datetime" />
@@ -1003,7 +1558,7 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="nchar" MaxLength="36" Nullable="false" />
+          <Property Name="ID" Type="nchar" Nullable="false" MaxLength="36" />
           <Property Name="NAME" Type="nvarchar" MaxLength="512" />
           <Property Name="CLIENT_ID" Type="nchar" MaxLength="36" />
           <Property Name="CREATOR" Type="nvarchar" MaxLength="512" />
@@ -1023,7 +1578,7 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="nchar" MaxLength="36" Nullable="false" />
+          <Property Name="ID" Type="nchar" Nullable="false" MaxLength="36" />
           <Property Name="COMMAND_PARAM_ID" Type="nchar" MaxLength="36" />
           <Property Name="MDVR_CORE_SN" Type="nvarchar" MaxLength="20" />
           <Property Name="STATUS" Type="int" />
@@ -1038,7 +1593,7 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="nchar" MaxLength="51" Nullable="false" />
+          <Property Name="ID" Type="nchar" Nullable="false" MaxLength="51" />
           <Property Name="CLIENT_ID" Type="nchar" MaxLength="36" />
           <Property Name="NAME" Type="nvarchar" MaxLength="100" />
           <Property Name="FENCE_TYPE" Type="int" />
@@ -1061,10 +1616,10 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="nchar" MaxLength="36" Nullable="false" />
-          <Property Name="FENCE_ID" Type="nchar" MaxLength="51" Nullable="false" />
+          <Property Name="ID" Type="nchar" Nullable="false" MaxLength="36" />
+          <Property Name="FENCE_ID" Type="nchar" Nullable="false" MaxLength="51" />
           <Property Name="CLIENT_ID" Type="nchar" MaxLength="36" />
-          <Property Name="VEHICLE_ID" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="VEHICLE_ID" Type="nvarchar" Nullable="false" MaxLength="20" />
           <Property Name="NAME" Type="nvarchar" MaxLength="100" />
           <Property Name="FENCE_TYPE" Type="int" />
           <Property Name="MDVR_CORE_SN" Type="nvarchar" MaxLength="20" />
@@ -1090,7 +1645,7 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="nchar" MaxLength="51" Nullable="false" />
+          <Property Name="ID" Type="nchar" Nullable="false" MaxLength="51" />
           <Property Name="CLIENT_ID" Type="nvarchar" MaxLength="36" />
           <Property Name="NAME" Type="nvarchar" MaxLength="512" />
           <Property Name="PTS" Type="nvarchar" MaxLength="1000" />
@@ -1110,11 +1665,11 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="nchar" MaxLength="36" Nullable="false" />
+          <Property Name="ID" Type="nchar" Nullable="false" MaxLength="36" />
           <Property Name="CLIENT_ID" Type="nchar" MaxLength="36" />
           <Property Name="RESULT_PACKET" Type="nvarchar" MaxLength="2000" />
           <Property Name="PACKET_SEQ" Type="int" />
-          <Property Name="VEHICLE_ID" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="VEHICLE_ID" Type="nvarchar" Nullable="false" MaxLength="20" />
           <Property Name="END_TIME" Type="nvarchar" MaxLength="50" />
           <Property Name="REGION_ID" Type="int" />
           <Property Name="SEND_TIME" Type="datetime" Nullable="false" />
@@ -1137,14 +1692,14 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="nchar" MaxLength="36" Nullable="false" />
-          <Property Name="CLIENT_ID" Type="nchar" MaxLength="36" Nullable="false" />
+          <Property Name="ID" Type="nchar" Nullable="false" MaxLength="36" />
+          <Property Name="CLIENT_ID" Type="nchar" Nullable="false" MaxLength="36" />
           <Property Name="UNIFIED_VERSION" Type="nvarchar" MaxLength="50" />
           <Property Name="VENDOR_VERSION" Type="nvarchar" MaxLength="200" />
           <Property Name="VENDOR" Type="nvarchar" MaxLength="256" />
           <Property Name="FILE_SIZE" Type="int" />
           <Property Name="FILE_NAME" Type="nvarchar" MaxLength="512" />
-          <Property Name="DATA" Type="binary" MaxLength="1" Nullable="false" />
+          <Property Name="DATA" Type="binary" Nullable="false" MaxLength="1" />
           <Property Name="CREATOR" Type="nvarchar" MaxLength="512" />
           <Property Name="CREATE_TIME" Type="datetime" Nullable="false" />
           <Property Name="VALID" Type="int" />
@@ -1154,8 +1709,8 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="nchar" MaxLength="36" Nullable="false" />
-          <Property Name="CLIENT_ID" Type="nchar" MaxLength="36" Nullable="false" />
+          <Property Name="ID" Type="nchar" Nullable="false" MaxLength="36" />
+          <Property Name="CLIENT_ID" Type="nchar" Nullable="false" MaxLength="36" />
           <Property Name="SUITE_INFO_ID" Type="nchar" MaxLength="36" />
           <Property Name="CURR_VERSION" Type="nvarchar" MaxLength="50" />
           <Property Name="MDVR_CORE_SN" Type="nvarchar" MaxLength="20" />
@@ -1182,14 +1737,14 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="nchar" MaxLength="36" Nullable="false" />
-          <Property Name="CLIENT_ID" Type="nchar" MaxLength="36" Nullable="false" />
-          <Property Name="NAME" Type="nvarchar" MaxLength="512" Nullable="false" />
+          <Property Name="ID" Type="nchar" Nullable="false" MaxLength="36" />
+          <Property Name="CLIENT_ID" Type="nchar" Nullable="false" MaxLength="36" />
+          <Property Name="NAME" Type="nvarchar" Nullable="false" MaxLength="512" />
           <Property Name="PARENT_ID" Type="nchar" MaxLength="36" />
           <Property Name="CONTACT" Type="nvarchar" MaxLength="512" />
           <Property Name="EMAIL" Type="nvarchar" MaxLength="100" />
           <Property Name="PHONE" Type="nvarchar" MaxLength="50" />
-          <Property Name="CREATOR" Type="nvarchar" MaxLength="512" Nullable="false" />
+          <Property Name="CREATOR" Type="nvarchar" Nullable="false" MaxLength="512" />
           <Property Name="CREATE_TIME" Type="datetime" Nullable="false" />
           <Property Name="VALID" Type="int" Nullable="false" />
         </EntityType>
@@ -1197,27 +1752,27 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="ID" Type="nvarchar" Nullable="false" MaxLength="30" />
           <Property Name="NAME" Type="nvarchar" MaxLength="512" />
           <Property Name="URL" Type="nvarchar" MaxLength="2000" />
-          <Property Name="VERSION" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="VERSION" Type="nvarchar" Nullable="false" MaxLength="50" />
           <Property Name="MODULE" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="USR_GUSER">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="nchar" MaxLength="36" Nullable="false" />
-          <Property Name="ACCOUNT" Type="nvarchar" MaxLength="512" Nullable="false" />
-          <Property Name="USER_NAME" Type="nvarchar" MaxLength="512" Nullable="false" />
+          <Property Name="ID" Type="nchar" Nullable="false" MaxLength="36" />
+          <Property Name="ACCOUNT" Type="nvarchar" Nullable="false" MaxLength="512" />
+          <Property Name="USER_NAME" Type="nvarchar" Nullable="false" MaxLength="512" />
           <Property Name="CREATE_TIME" Type="datetime" Nullable="false" />
-          <Property Name="PASSWORD" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="PASSWORD" Type="nvarchar" Nullable="false" MaxLength="50" />
           <Property Name="PHONE" Type="nvarchar" MaxLength="50" />
           <Property Name="MOBILE" Type="nvarchar" MaxLength="50" />
           <Property Name="EMAIL" Type="nvarchar" MaxLength="100" />
           <Property Name="ADDRESS" Type="nvarchar" MaxLength="512" />
           <Property Name="DESCRIPTION" Type="nvarchar" MaxLength="2000" />
-          <Property Name="ROLE_ID" Type="nchar" MaxLength="36" Nullable="false" />
+          <Property Name="ROLE_ID" Type="nchar" Nullable="false" MaxLength="36" />
           <Property Name="CREATOR" Type="nvarchar" MaxLength="512" />
           <Property Name="IS_CLIENT_CREATE" Type="int" Nullable="false" />
           <Property Name="DEPARTMENT" Type="nchar" MaxLength="36" />
@@ -1228,32 +1783,32 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="nchar" MaxLength="36" Nullable="false" />
-          <Property Name="NAME" Type="nvarchar" MaxLength="512" Nullable="false" />
-          <Property Name="PARENT_ID" Type="nchar" MaxLength="36" Nullable="false" />
+          <Property Name="ID" Type="nchar" Nullable="false" MaxLength="36" />
+          <Property Name="NAME" Type="nvarchar" Nullable="false" MaxLength="512" />
+          <Property Name="PARENT_ID" Type="nchar" Nullable="false" MaxLength="36" />
           <Property Name="CONTACT" Type="nvarchar" MaxLength="512" />
           <Property Name="EMAIL" Type="nvarchar" MaxLength="100" />
           <Property Name="PHONE" Type="nvarchar" MaxLength="50" />
           <Property Name="CREATE_TIME" Type="datetime" Nullable="false" />
           <Property Name="CREATOR" Type="nvarchar" MaxLength="512" />
-          <Property Name="CLIENT_ID" Type="nchar" MaxLength="36" Nullable="false" />
+          <Property Name="CLIENT_ID" Type="nchar" Nullable="false" MaxLength="36" />
           <Property Name="VALID" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="USR_ORGANIZATION_USER">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="nchar" MaxLength="36" Nullable="false" />
-          <Property Name="USER_ID" Type="nchar" MaxLength="36" Nullable="false" />
-          <Property Name="ORGANIZATION_ID" Type="nchar" MaxLength="36" Nullable="false" />
+          <Property Name="ID" Type="nchar" Nullable="false" MaxLength="36" />
+          <Property Name="USER_ID" Type="nchar" Nullable="false" MaxLength="36" />
+          <Property Name="ORGANIZATION_ID" Type="nchar" Nullable="false" MaxLength="36" />
           <Property Name="CREATE_TIME" Type="datetime" Nullable="false" />
         </EntityType>
         <EntityType Name="USR_ROLE">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="nchar" MaxLength="36" Nullable="false" />
-          <Property Name="NAME" Type="nvarchar" MaxLength="512" Nullable="false" />
+          <Property Name="ID" Type="nchar" Nullable="false" MaxLength="36" />
+          <Property Name="NAME" Type="nvarchar" Nullable="false" MaxLength="512" />
           <Property Name="CLIENT_ID" Type="nchar" MaxLength="36" />
           <Property Name="CREATE_TIME" Type="datetime" Nullable="false" />
           <Property Name="DESCRIPTION" Type="nvarchar" MaxLength="512" />
@@ -1266,18 +1821,19 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="nchar" MaxLength="36" Nullable="false" />
+          <Property Name="ID" Type="nchar" Nullable="false" MaxLength="36" />
           <Property Name="FUNC_ID" Type="nvarchar" MaxLength="36" />
           <Property Name="ROLE_ID" Type="nchar" MaxLength="36" />
           <Property Name="CREATE_TIME" Type="datetime" />
         </EntityType>
         <!--生成过程中发现错误:
-警告 6002: 表/视图“RDPTMS.dbo.ALARM_UNHANDLED_VIEW”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+      警告 6002: 表/视图“RDPTMS.dbo.ALARM_UNHANDLED_VIEW”未定义主键。已推断出该键，并将定义创建为只读的表/视图。
+      -->
         <EntityType Name="ALARM_UNHANDLED_VIEW">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="nchar" MaxLength="36" Nullable="false" />
+          <Property Name="ID" Type="nchar" Nullable="false" MaxLength="36" />
           <Property Name="VEHICLE_ID" Type="nvarchar" MaxLength="20" />
           <Property Name="MDVR_CORE_SN" Type="nvarchar" MaxLength="20" />
           <Property Name="PROVINCE" Type="nvarchar" MaxLength="50" />
@@ -1298,7 +1854,8 @@
           <Property Name="DISTRICT_CODE" Type="nvarchar" MaxLength="15" />
         </EntityType>
         <!--生成过程中发现错误:
-警告 6002: 表/视图“RDPTMS.dbo.BSC_GPS_VIEW”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+      警告 6002: 表/视图“RDPTMS.dbo.BSC_GPS_VIEW”未定义主键。已推断出该键，并将定义创建为只读的表/视图。
+      -->
         <EntityType Name="BSC_GPS_VIEW">
           <Key>
             <PropertyRef Name="ID" />
@@ -1309,21 +1866,22 @@
             <PropertyRef Name="VALID" />
             <PropertyRef Name="GPS_UID" />
           </Key>
-          <Property Name="ID" Type="nchar" MaxLength="36" Nullable="false" />
-          <Property Name="CLIENT_ID" Type="nchar" MaxLength="36" Nullable="false" />
-          <Property Name="GPS_SN" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ID" Type="nchar" Nullable="false" MaxLength="36" />
+          <Property Name="CLIENT_ID" Type="nchar" Nullable="false" MaxLength="36" />
+          <Property Name="GPS_SN" Type="nvarchar" Nullable="false" MaxLength="50" />
           <Property Name="STATUS" Type="int" Nullable="false" />
           <Property Name="DISTRICT_CODE" Type="nvarchar" MaxLength="15" />
           <Property Name="GPS_SIM" Type="nvarchar" MaxLength="50" />
           <Property Name="CREATOR" Type="nvarchar" MaxLength="512" />
           <Property Name="CREATE_TIME" Type="datetime" Nullable="false" />
           <Property Name="VALID" Type="int" Nullable="false" />
-          <Property Name="GPS_UID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="GPS_UID" Type="nvarchar" Nullable="false" MaxLength="50" />
           <Property Name="VEHICLE_ID" Type="nvarchar" MaxLength="20" />
           <Property Name="CHECKSTEP" Type="int" />
         </EntityType>
         <!--生成过程中发现错误:
-警告 6002: 表/视图“RDPTMS.dbo.BSC_SUITE_VIEW”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+      警告 6002: 表/视图“RDPTMS.dbo.BSC_SUITE_VIEW”未定义主键。已推断出该键，并将定义创建为只读的表/视图。
+      -->
         <EntityType Name="BSC_SUITE_VIEW">
           <Key>
             <PropertyRef Name="SUITE_INFO_ID" />
@@ -1333,8 +1891,8 @@
             <PropertyRef Name="CREATE_TIME" />
             <PropertyRef Name="VALID" />
           </Key>
-          <Property Name="SUITE_INFO_ID" Type="nchar" MaxLength="36" Nullable="false" />
-          <Property Name="CLIENT_ID" Type="nchar" MaxLength="36" Nullable="false" />
+          <Property Name="SUITE_INFO_ID" Type="nchar" Nullable="false" MaxLength="36" />
+          <Property Name="CLIENT_ID" Type="nchar" Nullable="false" MaxLength="36" />
           <Property Name="SUITE_ID" Type="nvarchar" MaxLength="20" />
           <Property Name="MDVR_CORE_SN" Type="nvarchar" MaxLength="20" />
           <Property Name="MDVR_SN" Type="nvarchar" MaxLength="20" />
@@ -1353,12 +1911,13 @@
           <Property Name="CHECKSTEP" Type="int" />
         </EntityType>
         <!--生成过程中发现错误:
-警告 6002: 表/视图“RDPTMS.dbo.BUSINESS_ALERT_UNHANDLED_VIEW”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+      警告 6002: 表/视图“RDPTMS.dbo.BUSINESS_ALERT_UNHANDLED_VIEW”未定义主键。已推断出该键，并将定义创建为只读的表/视图。
+      -->
         <EntityType Name="BUSINESS_ALERT_UNHANDLED_VIEW">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="nchar" MaxLength="36" Nullable="false" />
+          <Property Name="ID" Type="nchar" Nullable="false" MaxLength="36" />
           <Property Name="VEHICLE_ID" Type="nvarchar" MaxLength="20" />
           <Property Name="ALERT_TYPE" Type="int" />
           <Property Name="ALERT_TIME" Type="datetime" />
@@ -1375,12 +1934,13 @@
           <Property Name="DIRECTION" Type="nvarchar" MaxLength="20" />
         </EntityType>
         <!--生成过程中发现错误:
-警告 6002: 表/视图“RDPTMS.dbo.BUSINESS_ALERT_VIEW”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+      警告 6002: 表/视图“RDPTMS.dbo.BUSINESS_ALERT_VIEW”未定义主键。已推断出该键，并将定义创建为只读的表/视图。
+      -->
         <EntityType Name="BUSINESS_ALERT_VIEW">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="nchar" MaxLength="36" Nullable="false" />
+          <Property Name="ID" Type="nchar" Nullable="false" MaxLength="36" />
           <Property Name="VEHICLE_ID" Type="nvarchar" MaxLength="20" />
           <Property Name="ALERT_TYPE" Type="int" />
           <Property Name="ALERT_TIME" Type="datetime" />
@@ -1395,12 +1955,13 @@
           <Property Name="CITY" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <!--生成过程中发现错误:
-警告 6002: 表/视图“RDPTMS.dbo.DEVICEALERT_VECHILESER_VIEW”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+      警告 6002: 表/视图“RDPTMS.dbo.DEVICEALERT_VECHILESER_VIEW”未定义主键。已推断出该键，并将定义创建为只读的表/视图。
+      -->
         <EntityType Name="DEVICEALERT_VECHILESER_VIEW">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="nchar" MaxLength="36" Nullable="false" />
+          <Property Name="ID" Type="nchar" Nullable="false" MaxLength="36" />
           <Property Name="VEHICLE_ID" Type="nvarchar" MaxLength="20" />
           <Property Name="SUITE_ID" Type="nvarchar" MaxLength="20" />
           <Property Name="MDVR_CORE_SN" Type="nvarchar" MaxLength="20" />
@@ -1411,18 +1972,20 @@
           <Property Name="STATUS" Type="int" />
         </EntityType>
         <!--生成过程中发现错误:
-警告 6002: 表/视图“RDPTMS.dbo.DISTRICT_LEVEL_VIEW”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+      警告 6002: 表/视图“RDPTMS.dbo.DISTRICT_LEVEL_VIEW”未定义主键。已推断出该键，并将定义创建为只读的表/视图。
+      -->
         <EntityType Name="DISTRICT_LEVEL_VIEW">
           <Key>
             <PropertyRef Name="CODE" />
           </Key>
-          <Property Name="CODE" Type="nvarchar" MaxLength="15" Nullable="false" />
+          <Property Name="CODE" Type="nvarchar" Nullable="false" MaxLength="15" />
           <Property Name="PROVINCE" Type="nvarchar" MaxLength="50" />
           <Property Name="CITY" Type="nvarchar" MaxLength="50" />
           <Property Name="PARROQUIA" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <!--生成过程中发现错误:
-警告 6002: 表/视图“RDPTMS.dbo.INSTALL_STATISTICS_VIEW”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+      警告 6002: 表/视图“RDPTMS.dbo.INSTALL_STATISTICS_VIEW”未定义主键。已推断出该键，并将定义创建为只读的表/视图。
+      -->
         <EntityType Name="INSTALL_STATISTICS_VIEW">
           <Key>
             <PropertyRef Name="DEVICETYPE" />
@@ -1438,34 +2001,36 @@
           <Property Name="STATION" Type="nchar" MaxLength="36" />
           <Property Name="STARTTIME" Type="datetime" />
           <Property Name="DEVICETYPE" Type="int" Nullable="false" />
-          <Property Name="ORGNIZATION_ID" Type="nchar" MaxLength="36" Nullable="false" />
-          <Property Name="VEHICLETYPEID" Type="nchar" MaxLength="36" Nullable="false" />
+          <Property Name="ORGNIZATION_ID" Type="nchar" Nullable="false" MaxLength="36" />
+          <Property Name="VEHICLETYPEID" Type="nchar" Nullable="false" MaxLength="36" />
           <Property Name="VEHICLETYPE" Type="nvarchar" MaxLength="512" />
-          <Property Name="ORGANIZATIONNAME" Type="nvarchar" MaxLength="512" Nullable="false" />
+          <Property Name="ORGANIZATIONNAME" Type="nvarchar" Nullable="false" MaxLength="512" />
           <Property Name="STATIONNAME" Type="nvarchar" MaxLength="512" />
-          <Property Name="CLIENTID" Type="nchar" MaxLength="36" Nullable="false" />
+          <Property Name="CLIENTID" Type="nchar" Nullable="false" MaxLength="36" />
           <Property Name="SUMCOUNT" Type="int" Nullable="false" />
         </EntityType>
         <!--生成过程中发现错误:
-警告 6002: 表/视图“RDPTMS.dbo.INSTALL_SUITE_INFO_VIEW”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+      警告 6002: 表/视图“RDPTMS.dbo.INSTALL_SUITE_INFO_VIEW”未定义主键。已推断出该键，并将定义创建为只读的表/视图。
+      -->
         <EntityType Name="INSTALL_SUITE_INFO_VIEW">
           <Key>
             <PropertyRef Name="SUITE_INFO_ID" />
             <PropertyRef Name="VEHICLE_ID" />
             <PropertyRef Name="STATUS" />
           </Key>
-          <Property Name="SUITE_INFO_ID" Type="nchar" MaxLength="36" Nullable="false" />
-          <Property Name="VEHICLE_ID" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="SUITE_INFO_ID" Type="nchar" Nullable="false" MaxLength="36" />
+          <Property Name="VEHICLE_ID" Type="nvarchar" Nullable="false" MaxLength="20" />
           <Property Name="DISTRICT_CODE" Type="nvarchar" MaxLength="15" />
           <Property Name="STATUS" Type="int" Nullable="false" />
         </EntityType>
         <!--生成过程中发现错误:
-警告 6002: 表/视图“RDPTMS.dbo.INSTALLATION_VIEW”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+      警告 6002: 表/视图“RDPTMS.dbo.INSTALLATION_VIEW”未定义主键。已推断出该键，并将定义创建为只读的表/视图。
+      -->
         <EntityType Name="INSTALLATION_VIEW">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="nchar" MaxLength="36" Nullable="false" />
+          <Property Name="ID" Type="nchar" Nullable="false" MaxLength="36" />
           <Property Name="SUITE_INFO_ID" Type="nchar" MaxLength="36" />
           <Property Name="MDVR_CORE_SN" Type="nvarchar" MaxLength="20" />
           <Property Name="VEHICLE_ID" Type="nvarchar" MaxLength="20" />
@@ -1489,7 +2054,8 @@
           <Property Name="OWNER" Type="nvarchar" MaxLength="512" />
         </EntityType>
         <!--生成过程中发现错误:
-警告 6002: 表/视图“RDPTMS.dbo.MNT_MAINTAINRECORD_UNFINISHED”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+      警告 6002: 表/视图“RDPTMS.dbo.MNT_MAINTAINRECORD_UNFINISHED”未定义主键。已推断出该键，并将定义创建为只读的表/视图。
+      -->
         <EntityType Name="MNT_MAINTAINRECORD_UNFINISHED">
           <Key>
             <PropertyRef Name="APPLICANT" />
@@ -1500,15 +2066,15 @@
             <PropertyRef Name="PROBLEM" />
             <PropertyRef Name="VEHCILE_ID" />
           </Key>
-          <Property Name="APPLICANT" Type="nvarchar" MaxLength="512" Nullable="false" />
-          <Property Name="APPLICATIONID" Type="nchar" MaxLength="36" Nullable="false" />
+          <Property Name="APPLICANT" Type="nvarchar" Nullable="false" MaxLength="512" />
+          <Property Name="APPLICATIONID" Type="nchar" Nullable="false" MaxLength="36" />
           <Property Name="SETUP_STATION" Type="nchar" MaxLength="36" />
           <Property Name="MAINTAINAPPLICATIONSTATUS" Type="int" Nullable="false" />
-          <Property Name="CONTACT" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CONTACT" Type="nvarchar" Nullable="false" MaxLength="50" />
           <Property Name="CREATE_TIME" Type="datetime" Nullable="false" />
           <Property Name="SCHEDULE_DATE" Type="datetime" />
-          <Property Name="PROBLEM" Type="nvarchar" MaxLength="2000" Nullable="false" />
-          <Property Name="VEHCILE_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="PROBLEM" Type="nvarchar" Nullable="false" MaxLength="2000" />
+          <Property Name="VEHCILE_ID" Type="nvarchar" Nullable="false" MaxLength="50" />
           <Property Name="ID" Type="nchar" MaxLength="36" />
           <Property Name="APPLICATION_ID" Type="nchar" MaxLength="36" />
           <Property Name="WORKER" Type="nvarchar" MaxLength="512" />
@@ -1518,13 +2084,14 @@
           <Property Name="NOTE" Type="nvarchar" MaxLength="2000" />
         </EntityType>
         <!--生成过程中发现错误:
-警告 6002: 表/视图“RDPTMS.dbo.STATUS_CHANGING_VIEW”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+      警告 6002: 表/视图“RDPTMS.dbo.STATUS_CHANGING_VIEW”未定义主键。已推断出该键，并将定义创建为只读的表/视图。
+      -->
         <EntityType Name="STATUS_CHANGING_VIEW">
           <Key>
             <PropertyRef Name="SUITE_INFO_ID" />
             <PropertyRef Name="STATUS" />
           </Key>
-          <Property Name="SUITE_INFO_ID" Type="nchar" MaxLength="36" Nullable="false" />
+          <Property Name="SUITE_INFO_ID" Type="nchar" Nullable="false" MaxLength="36" />
           <Property Name="STATUS" Type="int" Nullable="false" />
           <Property Name="SUITE_ID" Type="nvarchar" MaxLength="20" />
           <Property Name="STATUS_WORKING" Type="int" />
@@ -1532,12 +2099,13 @@
           <Property Name="MDVR_CORE_SN" Type="nvarchar" MaxLength="20" />
         </EntityType>
         <!--生成过程中发现错误:
-警告 6002: 表/视图“RDPTMS.dbo.SUITE_SOFTWARE_VERSION_VIEW”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+      警告 6002: 表/视图“RDPTMS.dbo.SUITE_SOFTWARE_VERSION_VIEW”未定义主键。已推断出该键，并将定义创建为只读的表/视图。
+      -->
         <EntityType Name="SUITE_SOFTWARE_VERSION_VIEW">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="nchar" MaxLength="36" Nullable="false" />
+          <Property Name="ID" Type="nchar" Nullable="false" MaxLength="36" />
           <Property Name="UNIFIED_VERSION" Type="nvarchar" MaxLength="50" />
           <Property Name="VENDOR_VERSION" Type="nvarchar" MaxLength="200" />
           <Property Name="VENDOR" Type="nvarchar" MaxLength="256" />
@@ -1546,12 +2114,13 @@
           <Property Name="FILE_SIZE" Type="int" />
         </EntityType>
         <!--生成过程中发现错误:
-警告 6002: 表/视图“RDPTMS.dbo.SUITE_UPGRADE_RECORD_VIEW”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+      警告 6002: 表/视图“RDPTMS.dbo.SUITE_UPGRADE_RECORD_VIEW”未定义主键。已推断出该键，并将定义创建为只读的表/视图。
+      -->
         <EntityType Name="SUITE_UPGRADE_RECORD_VIEW">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="nchar" MaxLength="36" Nullable="false" />
+          <Property Name="ID" Type="nchar" Nullable="false" MaxLength="36" />
           <Property Name="SUITE_INFO_ID" Type="nchar" MaxLength="36" />
           <Property Name="MDVR_CORE_SN" Type="nvarchar" MaxLength="20" />
           <Property Name="UPDATE_RESULT" Type="nvarchar" MaxLength="20" />
@@ -1574,13 +2143,14 @@
           <Property Name="ORIGINAL_CMD" Type="nvarchar" MaxLength="200" />
         </EntityType>
         <!--生成过程中发现错误:
-警告 6002: 表/视图“RDPTMS.dbo.SUITE_VIEW”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+      警告 6002: 表/视图“RDPTMS.dbo.SUITE_VIEW”未定义主键。已推断出该键，并将定义创建为只读的表/视图。
+      -->
         <EntityType Name="SUITE_VIEW">
           <Key>
             <PropertyRef Name="SUITE_INFO_ID" />
             <PropertyRef Name="STATUS" />
           </Key>
-          <Property Name="SUITE_INFO_ID" Type="nchar" MaxLength="36" Nullable="false" />
+          <Property Name="SUITE_INFO_ID" Type="nchar" Nullable="false" MaxLength="36" />
           <Property Name="SUITE_ID" Type="nvarchar" MaxLength="20" />
           <Property Name="MDVR_CORE_SN" Type="nvarchar" MaxLength="20" />
           <Property Name="MDVR_SN" Type="nvarchar" MaxLength="20" />
@@ -1600,34 +2170,38 @@
           <Property Name="NOTE" Type="nvarchar" MaxLength="2000" />
         </EntityType>
         <!--生成过程中发现错误:
-警告 6002: 表/视图“RDPTMS.dbo.TRF_FENCEQUEUE_DELETED”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+      警告 6002: 表/视图“RDPTMS.dbo.TRF_FENCEQUEUE_DELETED”未定义主键。已推断出该键，并将定义创建为只读的表/视图。
+      -->
         <EntityType Name="TRF_FENCEQUEUE_DELETED">
           <Key>
             <PropertyRef Name="FENCE_ID" />
             <PropertyRef Name="VEHICLE_ID" />
           </Key>
-          <Property Name="FENCE_ID" Type="nchar" MaxLength="51" Nullable="false" />
-          <Property Name="VEHICLE_ID" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="FENCE_ID" Type="nchar" Nullable="false" MaxLength="51" />
+          <Property Name="VEHICLE_ID" Type="nvarchar" Nullable="false" MaxLength="20" />
           <Property Name="CREATE_TIME" Type="datetime" />
         </EntityType>
         <!--生成过程中发现错误:
-警告 6002: 表/视图“RDPTMS.dbo.TRF_FENCEQUEUE_DELETEFENCEID”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+      警告 6002: 表/视图“RDPTMS.dbo.TRF_FENCEQUEUE_DELETEFENCEID”未定义主键。已推断出该键，并将定义创建为只读的表/视图。
+      -->
         <EntityType Name="TRF_FENCEQUEUE_DELETEFENCEID">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="nchar" MaxLength="36" Nullable="false" />
+          <Property Name="ID" Type="nchar" Nullable="false" MaxLength="36" />
         </EntityType>
         <!--生成过程中发现错误:
-警告 6002: 表/视图“RDPTMS.dbo.TRF_FENCEQUEUE_INVALIDID”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+      警告 6002: 表/视图“RDPTMS.dbo.TRF_FENCEQUEUE_INVALIDID”未定义主键。已推断出该键，并将定义创建为只读的表/视图。
+      -->
         <EntityType Name="TRF_FENCEQUEUE_INVALIDID">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="nchar" MaxLength="36" Nullable="false" />
+          <Property Name="ID" Type="nchar" Nullable="false" MaxLength="36" />
         </EntityType>
         <!--生成过程中发现错误:
-警告 6002: 表/视图“RDPTMS.dbo.TRF_FENCEQUEUE_ONVEHICLE”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+      警告 6002: 表/视图“RDPTMS.dbo.TRF_FENCEQUEUE_ONVEHICLE”未定义主键。已推断出该键，并将定义创建为只读的表/视图。
+      -->
         <EntityType Name="TRF_FENCEQUEUE_ONVEHICLE">
           <Key>
             <PropertyRef Name="ID" />
@@ -1636,10 +2210,10 @@
             <PropertyRef Name="SEND_TIME" />
             <PropertyRef Name="OPER_TYPE" />
           </Key>
-          <Property Name="ID" Type="nchar" MaxLength="36" Nullable="false" />
-          <Property Name="FENCE_ID" Type="nchar" MaxLength="51" Nullable="false" />
+          <Property Name="ID" Type="nchar" Nullable="false" MaxLength="36" />
+          <Property Name="FENCE_ID" Type="nchar" Nullable="false" MaxLength="51" />
           <Property Name="CLIENT_ID" Type="nchar" MaxLength="36" />
-          <Property Name="VEHICLE_ID" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="VEHICLE_ID" Type="nvarchar" Nullable="false" MaxLength="20" />
           <Property Name="NAME" Type="nvarchar" MaxLength="100" />
           <Property Name="FENCE_TYPE" Type="int" />
           <Property Name="MDVR_CORE_SN" Type="nvarchar" MaxLength="20" />
@@ -1662,15 +2236,17 @@
           <Property Name="REGION_ID" Type="int" />
         </EntityType>
         <!--生成过程中发现错误:
-警告 6002: 表/视图“RDPTMS.dbo.TRF_FENCEQUEUE_SUCCEEDID”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+      警告 6002: 表/视图“RDPTMS.dbo.TRF_FENCEQUEUE_SUCCEEDID”未定义主键。已推断出该键，并将定义创建为只读的表/视图。
+      -->
         <EntityType Name="TRF_FENCEQUEUE_SUCCEEDID">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="nchar" MaxLength="36" Nullable="false" />
+          <Property Name="ID" Type="nchar" Nullable="false" MaxLength="36" />
         </EntityType>
         <!--生成过程中发现错误:
-警告 6002: 表/视图“RDPTMS.dbo.TRF_FENCEQUEUE_TOVEHICLE”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+      警告 6002: 表/视图“RDPTMS.dbo.TRF_FENCEQUEUE_TOVEHICLE”未定义主键。已推断出该键，并将定义创建为只读的表/视图。
+      -->
         <EntityType Name="TRF_FENCEQUEUE_TOVEHICLE">
           <Key>
             <PropertyRef Name="ID" />
@@ -1679,10 +2255,10 @@
             <PropertyRef Name="SEND_TIME" />
             <PropertyRef Name="OPER_TYPE" />
           </Key>
-          <Property Name="ID" Type="nchar" MaxLength="36" Nullable="false" />
-          <Property Name="FENCE_ID" Type="nchar" MaxLength="51" Nullable="false" />
+          <Property Name="ID" Type="nchar" Nullable="false" MaxLength="36" />
+          <Property Name="FENCE_ID" Type="nchar" Nullable="false" MaxLength="51" />
           <Property Name="CLIENT_ID" Type="nchar" MaxLength="36" />
-          <Property Name="VEHICLE_ID" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="VEHICLE_ID" Type="nvarchar" Nullable="false" MaxLength="20" />
           <Property Name="NAME" Type="nvarchar" MaxLength="100" />
           <Property Name="FENCE_TYPE" Type="int" />
           <Property Name="MDVR_CORE_SN" Type="nvarchar" MaxLength="20" />
@@ -1705,33 +2281,37 @@
           <Property Name="REGION_ID" Type="int" />
         </EntityType>
         <!--生成过程中发现错误:
-警告 6002: 表/视图“RDPTMS.dbo.TRF_ROUTEQUEUE_DELETED”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+      警告 6002: 表/视图“RDPTMS.dbo.TRF_ROUTEQUEUE_DELETED”未定义主键。已推断出该键，并将定义创建为只读的表/视图。
+      -->
         <EntityType Name="TRF_ROUTEQUEUE_DELETED">
           <Key>
             <PropertyRef Name="VEHICLE_ID" />
           </Key>
           <Property Name="ROUTE_ID" Type="nchar" MaxLength="51" />
-          <Property Name="VEHICLE_ID" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="VEHICLE_ID" Type="nvarchar" Nullable="false" MaxLength="20" />
           <Property Name="CREATE_TIME" Type="datetime" />
         </EntityType>
         <!--生成过程中发现错误:
-警告 6002: 表/视图“RDPTMS.dbo.TRF_ROUTEQUEUE_DELETEID”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+      警告 6002: 表/视图“RDPTMS.dbo.TRF_ROUTEQUEUE_DELETEID”未定义主键。已推断出该键，并将定义创建为只读的表/视图。
+      -->
         <EntityType Name="TRF_ROUTEQUEUE_DELETEID">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="nchar" MaxLength="36" Nullable="false" />
+          <Property Name="ID" Type="nchar" Nullable="false" MaxLength="36" />
         </EntityType>
         <!--生成过程中发现错误:
-警告 6002: 表/视图“RDPTMS.dbo.TRF_ROUTEQUEUE_INVALIDID”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+      警告 6002: 表/视图“RDPTMS.dbo.TRF_ROUTEQUEUE_INVALIDID”未定义主键。已推断出该键，并将定义创建为只读的表/视图。
+      -->
         <EntityType Name="TRF_ROUTEQUEUE_INVALIDID">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="nchar" MaxLength="36" Nullable="false" />
+          <Property Name="ID" Type="nchar" Nullable="false" MaxLength="36" />
         </EntityType>
         <!--生成过程中发现错误:
-警告 6002: 表/视图“RDPTMS.dbo.TRF_ROUTEQUEUE_ONVEHCILE”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+      警告 6002: 表/视图“RDPTMS.dbo.TRF_ROUTEQUEUE_ONVEHCILE”未定义主键。已推断出该键，并将定义创建为只读的表/视图。
+      -->
         <EntityType Name="TRF_ROUTEQUEUE_ONVEHCILE">
           <Key>
             <PropertyRef Name="ID" />
@@ -1739,11 +2319,11 @@
             <PropertyRef Name="SEND_TIME" />
             <PropertyRef Name="OPER_TYPE" />
           </Key>
-          <Property Name="ID" Type="nchar" MaxLength="36" Nullable="false" />
+          <Property Name="ID" Type="nchar" Nullable="false" MaxLength="36" />
           <Property Name="CLIENT_ID" Type="nchar" MaxLength="36" />
           <Property Name="RESULT_PACKET" Type="nvarchar" MaxLength="2000" />
           <Property Name="PACKET_SEQ" Type="int" />
-          <Property Name="VEHICLE_ID" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="VEHICLE_ID" Type="nvarchar" Nullable="false" MaxLength="20" />
           <Property Name="END_TIME" Type="nvarchar" MaxLength="50" />
           <Property Name="REGION_ID" Type="int" />
           <Property Name="SEND_TIME" Type="datetime" Nullable="false" />
@@ -1763,15 +2343,17 @@
           <Property Name="ROUTE_ID" Type="nchar" MaxLength="51" />
         </EntityType>
         <!--生成过程中发现错误:
-警告 6002: 表/视图“RDPTMS.dbo.TRF_ROUTEQUEUE_SUCCEEDID”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+      警告 6002: 表/视图“RDPTMS.dbo.TRF_ROUTEQUEUE_SUCCEEDID”未定义主键。已推断出该键，并将定义创建为只读的表/视图。
+      -->
         <EntityType Name="TRF_ROUTEQUEUE_SUCCEEDID">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="nchar" MaxLength="36" Nullable="false" />
+          <Property Name="ID" Type="nchar" Nullable="false" MaxLength="36" />
         </EntityType>
         <!--生成过程中发现错误:
-警告 6002: 表/视图“RDPTMS.dbo.TRF_ROUTEQUEUE_TOVEHICLE”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+      警告 6002: 表/视图“RDPTMS.dbo.TRF_ROUTEQUEUE_TOVEHICLE”未定义主键。已推断出该键，并将定义创建为只读的表/视图。
+      -->
         <EntityType Name="TRF_ROUTEQUEUE_TOVEHICLE">
           <Key>
             <PropertyRef Name="ID" />
@@ -1779,11 +2361,11 @@
             <PropertyRef Name="SEND_TIME" />
             <PropertyRef Name="OPER_TYPE" />
           </Key>
-          <Property Name="ID" Type="nchar" MaxLength="36" Nullable="false" />
+          <Property Name="ID" Type="nchar" Nullable="false" MaxLength="36" />
           <Property Name="CLIENT_ID" Type="nchar" MaxLength="36" />
           <Property Name="RESULT_PACKET" Type="nvarchar" MaxLength="2000" />
           <Property Name="PACKET_SEQ" Type="int" />
-          <Property Name="VEHICLE_ID" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="VEHICLE_ID" Type="nvarchar" Nullable="false" MaxLength="20" />
           <Property Name="END_TIME" Type="nvarchar" MaxLength="50" />
           <Property Name="REGION_ID" Type="int" />
           <Property Name="SEND_TIME" Type="datetime" Nullable="false" />
@@ -1803,14 +2385,15 @@
           <Property Name="ROUTE_ID" Type="nchar" MaxLength="51" />
         </EntityType>
         <!--生成过程中发现错误:
-警告 6002: 表/视图“RDPTMS.dbo.VEHICLE_ONLINE_TIME_VIEW”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+      警告 6002: 表/视图“RDPTMS.dbo.VEHICLE_ONLINE_TIME_VIEW”未定义主键。已推断出该键，并将定义创建为只读的表/视图。
+      -->
         <EntityType Name="VEHICLE_ONLINE_TIME_VIEW">
           <Key>
             <PropertyRef Name="ID" />
             <PropertyRef Name="VEHICLE_ID" />
           </Key>
-          <Property Name="ID" Type="nchar" MaxLength="36" Nullable="false" />
-          <Property Name="VEHICLE_ID" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="ID" Type="nchar" Nullable="false" MaxLength="36" />
+          <Property Name="VEHICLE_ID" Type="nvarchar" Nullable="false" MaxLength="20" />
           <Property Name="MDVR_CORE_SN" Type="nvarchar" MaxLength="20" />
           <Property Name="ONLINE_TIME" Type="datetime" />
           <Property Name="OFFLINE_TIME" Type="datetime" />
@@ -1819,12 +2402,13 @@
           <Property Name="DISTANCE" Type="int" />
         </EntityType>
         <!--生成过程中发现错误:
-警告 6002: 表/视图“RDPTMS.dbo.VEHICLE_STATUS_VIEW”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+      警告 6002: 表/视图“RDPTMS.dbo.VEHICLE_STATUS_VIEW”未定义主键。已推断出该键，并将定义创建为只读的表/视图。
+      -->
         <EntityType Name="VEHICLE_STATUS_VIEW">
           <Key>
             <PropertyRef Name="VEHICLE_ID" />
           </Key>
-          <Property Name="VEHICLE_ID" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="VEHICLE_ID" Type="nvarchar" Nullable="false" MaxLength="20" />
           <Property Name="BRAND_MODEL" Type="nvarchar" MaxLength="100" />
           <Property Name="VEHICLE_TYPE" Type="nchar" MaxLength="36" />
           <Property Name="OWNER" Type="nvarchar" MaxLength="512" />
@@ -1839,12 +2423,13 @@
           <Property Name="GROUP_ID" Type="nchar" MaxLength="36" />
         </EntityType>
         <!--生成过程中发现错误:
-警告 6002: 表/视图“RDPTMS.dbo.VEHICLE_WORKING_VIEW”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+      警告 6002: 表/视图“RDPTMS.dbo.VEHICLE_WORKING_VIEW”未定义主键。已推断出该键，并将定义创建为只读的表/视图。
+      -->
         <EntityType Name="VEHICLE_WORKING_VIEW">
           <Key>
             <PropertyRef Name="VEHICLE_ID" />
           </Key>
-          <Property Name="VEHICLE_ID" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="VEHICLE_ID" Type="nvarchar" Nullable="false" MaxLength="20" />
           <Property Name="BRAND_MODEL" Type="nvarchar" MaxLength="100" />
           <Property Name="VEHICLE_TYPE" Type="nchar" MaxLength="36" />
           <Property Name="OWNER" Type="nvarchar" MaxLength="512" />
@@ -1860,569 +2445,17 @@
           <Property Name="PARROQUIA" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <!--生成过程中发现错误:
-警告 6002: 表/视图“RDPTMS.dbo.VEHICLEGPS_VIEW”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+      警告 6002: 表/视图“RDPTMS.dbo.VEHICLEGPS_VIEW”未定义主键。已推断出该键，并将定义创建为只读的表/视图。
+      -->
         <EntityType Name="VEHICLEGPS_VIEW">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="nchar" MaxLength="36" Nullable="false" />
+          <Property Name="ID" Type="nchar" Nullable="false" MaxLength="36" />
           <Property Name="VEHICLE_ID" Type="nvarchar" MaxLength="20" />
           <Property Name="SPEED" Type="int" />
           <Property Name="GPS_TIME" Type="datetime" />
         </EntityType>
-        <EntityContainer Name="PTMSModelStoreContainer">
-          <EntitySet Name="ALM_911_DISPOSE" EntityType="Self.ALM_911_DISPOSE" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="ALM_ALARM_DISPOSE" EntityType="Self.ALM_ALARM_DISPOSE" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="ALM_ALARM_MAIL" EntityType="Self.ALM_ALARM_MAIL" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="ALM_ALARM_NOTE" EntityType="Self.ALM_ALARM_NOTE" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="ALM_ALARM_RECORD" EntityType="Self.ALM_ALARM_RECORD" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="ALT_BUSINESS_ALERT" EntityType="Self.ALT_BUSINESS_ALERT" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="ALT_BUSINESS_ALERT_HANDLE" EntityType="Self.ALT_BUSINESS_ALERT_HANDLE" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="ALT_DEVICE_ALERT" EntityType="Self.ALT_DEVICE_ALERT" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="ALT_DEVICE_ALERT_CHECK" EntityType="Self.ALT_DEVICE_ALERT_CHECK" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="BSC_CHAUFFEUR" EntityType="Self.BSC_CHAUFFEUR" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="BSC_DEV_GPS" EntityType="Self.BSC_DEV_GPS" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="BSC_DEV_SUITE" EntityType="Self.BSC_DEV_SUITE" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="BSC_DEV_SUITE_PART" EntityType="Self.BSC_DEV_SUITE_PART" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="BSC_DISTRICT" EntityType="Self.BSC_DISTRICT" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="BSC_GEO_POI" EntityType="Self.BSC_GEO_POI" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="BSC_INSTALLATION_STAFF" EntityType="Self.BSC_INSTALLATION_STAFF" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="BSC_ORDER_CLIENT" EntityType="Self.BSC_ORDER_CLIENT" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="BSC_SETUP_STATION" EntityType="Self.BSC_SETUP_STATION" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="BSC_SETUPSTATION_USER" EntityType="Self.BSC_SETUPSTATION_USER" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="BSC_VEHICLE" EntityType="Self.BSC_VEHICLE" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="BSC_VEHICLE_CHAUFFEUR" EntityType="Self.BSC_VEHICLE_CHAUFFEUR" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="BSC_VEHICLE_SPEEDCOLOR" EntityType="Self.BSC_VEHICLE_SPEEDCOLOR" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="BSC_VEHICLE_TYPE" EntityType="Self.BSC_VEHICLE_TYPE" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="CFG_APP_CONFIG" EntityType="Self.CFG_APP_CONFIG" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="CFG_TRANSFER_MAPPING" EntityType="Self.CFG_TRANSFER_MAPPING" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="LOG_ACCESS" EntityType="Self.LOG_ACCESS" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="LOG_DATA" EntityType="Self.LOG_DATA" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="LOG_MANAGER" EntityType="Self.LOG_MANAGER" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="LOG_OPERATE" EntityType="Self.LOG_OPERATE" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="LOG_VIDEO" EntityType="Self.LOG_VIDEO" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="MDI_ALARM_VIDEO" EntityType="Self.MDI_ALARM_VIDEO" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="MDI_DOWNLOAD_VIDEO" EntityType="Self.MDI_DOWNLOAD_VIDEO" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="MDI_LIVE_VIDEO" EntityType="Self.MDI_LIVE_VIDEO" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="MDI_PHOTOGRAPH" EntityType="Self.MDI_PHOTOGRAPH" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="MTN_GPS_INSTALLATION_DETAIL" EntityType="Self.MTN_GPS_INSTALLATION_DETAIL" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="MTN_INSTALLATION_AUDIT" EntityType="Self.MTN_INSTALLATION_AUDIT" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="MTN_INSTALLATION_DETAIL" EntityType="Self.MTN_INSTALLATION_DETAIL" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="MTN_MAINTAIN_APPLICATION" EntityType="Self.MTN_MAINTAIN_APPLICATION" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="MTN_MAINTAIN_RECORD" EntityType="Self.MTN_MAINTAIN_RECORD" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="MTN_MDVR_REGISTER" EntityType="Self.MTN_MDVR_REGISTER" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="MTN_PART_AUDIT" EntityType="Self.MTN_PART_AUDIT" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="MTN_VIDEO_UPLOAD_COMMAND" EntityType="Self.MTN_VIDEO_UPLOAD_COMMAND" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="RUN_APP_MESSAGE" EntityType="Self.RUN_APP_MESSAGE" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="RUN_APP_ONLINE_RECORD" EntityType="Self.RUN_APP_ONLINE_RECORD" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="RUN_APPMESSAGE_VEHICLE" EntityType="Self.RUN_APPMESSAGE_VEHICLE" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="RUN_FOUND_REGISTRY" EntityType="Self.RUN_FOUND_REGISTRY" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="RUN_GPS_ONLINE_RECORD" EntityType="Self.RUN_GPS_ONLINE_RECORD" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="RUN_GPS_STATUS_CHANGE" EntityType="Self.RUN_GPS_STATUS_CHANGE" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="RUN_GPS_WORKING" EntityType="Self.RUN_GPS_WORKING" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="RUN_LOST_REGISTRY" EntityType="Self.RUN_LOST_REGISTRY" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="RUN_MDVR_MESSAGE" EntityType="Self.RUN_MDVR_MESSAGE" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="RUN_MDVRMESSAGE_VEHICLE" EntityType="Self.RUN_MDVRMESSAGE_VEHICLE" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="RUN_MOBILE_WORKING" EntityType="Self.RUN_MOBILE_WORKING" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="RUN_MONITOR_GROUP" EntityType="Self.RUN_MONITOR_GROUP" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="RUN_MONITOR_GROUP_VEHICLE" EntityType="Self.RUN_MONITOR_GROUP_VEHICLE" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="RUN_SUITE_ONLINE_RECORD" EntityType="Self.RUN_SUITE_ONLINE_RECORD" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="RUN_SUITE_STATUS_CHANGE" EntityType="Self.RUN_SUITE_STATUS_CHANGE" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="RUN_SUITE_WORKING" EntityType="Self.RUN_SUITE_WORKING" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="RUN_TAKEPICTURE" EntityType="Self.RUN_TAKEPICTURE" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="RUN_USER_ONLINE" EntityType="Self.RUN_USER_ONLINE" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="RUN_VEHICLE_LOCATION" EntityType="Self.RUN_VEHICLE_LOCATION" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="RUN_VEHICLE_ONLINE_TIME" EntityType="Self.RUN_VEHICLE_ONLINE_TIME" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="RUN_VIDEO_QUERY" EntityType="Self.RUN_VIDEO_QUERY" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="TRF_COMMAND_PARAM" EntityType="Self.TRF_COMMAND_PARAM" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="TRF_COMMAND_VEHICLE" EntityType="Self.TRF_COMMAND_VEHICLE" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="TRF_FENCE" EntityType="Self.TRF_FENCE" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="TRF_FENCE_QUEUE" EntityType="Self.TRF_FENCE_QUEUE" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="TRF_ROUTE" EntityType="Self.TRF_ROUTE" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="TRF_ROUTE_QUEUE" EntityType="Self.TRF_ROUTE_QUEUE" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="TRF_SOFTWARE_VERSION" EntityType="Self.TRF_SOFTWARE_VERSION" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="TRF_UPGRADE_RECORD" EntityType="Self.TRF_UPGRADE_RECORD" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="USR_DEPARTMENT" EntityType="Self.USR_DEPARTMENT" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="USR_FUNC_ITEM" EntityType="Self.USR_FUNC_ITEM" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="USR_GUSER" EntityType="Self.USR_GUSER" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="USR_ORGANIZATION" EntityType="Self.USR_ORGANIZATION" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="USR_ORGANIZATION_USER" EntityType="Self.USR_ORGANIZATION_USER" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="USR_ROLE" EntityType="Self.USR_ROLE" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="USR_ROLE_FUNCS" EntityType="Self.USR_ROLE_FUNCS" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="LOG_ERROR" EntityType="Self.LOG_ERROR" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-[LOG_ERROR].[ID] AS [ID], 
-[LOG_ERROR].[IP] AS [IP], 
-[LOG_ERROR].[SERVICE_NAME] AS [SERVICE_NAME], 
-[LOG_ERROR].[CREATE_TIME] AS [CREATE_TIME], 
-[LOG_ERROR].[ERROR_REASON] AS [ERROR_REASON]
-FROM [dbo].[LOG_ERROR] AS [LOG_ERROR]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="ALARM_UNHANDLED_VIEW" EntityType="Self.ALARM_UNHANDLED_VIEW" store:Type="Views" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-[ALARM_UNHANDLED_VIEW].[ID] AS [ID], 
-[ALARM_UNHANDLED_VIEW].[VEHICLE_ID] AS [VEHICLE_ID], 
-[ALARM_UNHANDLED_VIEW].[MDVR_CORE_SN] AS [MDVR_CORE_SN], 
-[ALARM_UNHANDLED_VIEW].[PROVINCE] AS [PROVINCE], 
-[ALARM_UNHANDLED_VIEW].[CITY] AS [CITY], 
-[ALARM_UNHANDLED_VIEW].[BUTTON_NUM] AS [BUTTON_NUM], 
-[ALARM_UNHANDLED_VIEW].[VEHICLE_TYPE] AS [VEHICLE_TYPE], 
-[ALARM_UNHANDLED_VIEW].[DIRECTION] AS [DIRECTION], 
-[ALARM_UNHANDLED_VIEW].[ALARM_UID] AS [ALARM_UID], 
-[ALARM_UNHANDLED_VIEW].[LATITUDE] AS [LATITUDE], 
-[ALARM_UNHANDLED_VIEW].[LONGITUDE] AS [LONGITUDE], 
-[ALARM_UNHANDLED_VIEW].[GPS_TIME] AS [GPS_TIME], 
-[ALARM_UNHANDLED_VIEW].[GPS_VALID] AS [GPS_VALID], 
-[ALARM_UNHANDLED_VIEW].[SPEED] AS [SPEED], 
-[ALARM_UNHANDLED_VIEW].[CONTACT_PHONE] AS [CONTACT_PHONE], 
-[ALARM_UNHANDLED_VIEW].[OWNER] AS [OWNER], 
-[ALARM_UNHANDLED_VIEW].[SUITE_ID] AS [SUITE_ID], 
-[ALARM_UNHANDLED_VIEW].[STATUS] AS [STATUS], 
-[ALARM_UNHANDLED_VIEW].[DISTRICT_CODE] AS [DISTRICT_CODE]
-FROM [dbo].[ALARM_UNHANDLED_VIEW] AS [ALARM_UNHANDLED_VIEW]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="BSC_GPS_VIEW" EntityType="Self.BSC_GPS_VIEW" store:Type="Views" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-[BSC_GPS_VIEW].[ID] AS [ID], 
-[BSC_GPS_VIEW].[CLIENT_ID] AS [CLIENT_ID], 
-[BSC_GPS_VIEW].[GPS_SN] AS [GPS_SN], 
-[BSC_GPS_VIEW].[STATUS] AS [STATUS], 
-[BSC_GPS_VIEW].[DISTRICT_CODE] AS [DISTRICT_CODE], 
-[BSC_GPS_VIEW].[GPS_SIM] AS [GPS_SIM], 
-[BSC_GPS_VIEW].[CREATOR] AS [CREATOR], 
-[BSC_GPS_VIEW].[CREATE_TIME] AS [CREATE_TIME], 
-[BSC_GPS_VIEW].[VALID] AS [VALID], 
-[BSC_GPS_VIEW].[GPS_UID] AS [GPS_UID], 
-[BSC_GPS_VIEW].[VEHICLE_ID] AS [VEHICLE_ID], 
-[BSC_GPS_VIEW].[CHECKSTEP] AS [CHECKSTEP]
-FROM [dbo].[BSC_GPS_VIEW] AS [BSC_GPS_VIEW]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="BSC_SUITE_VIEW" EntityType="Self.BSC_SUITE_VIEW" store:Type="Views" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-[BSC_SUITE_VIEW].[SUITE_INFO_ID] AS [SUITE_INFO_ID], 
-[BSC_SUITE_VIEW].[CLIENT_ID] AS [CLIENT_ID], 
-[BSC_SUITE_VIEW].[SUITE_ID] AS [SUITE_ID], 
-[BSC_SUITE_VIEW].[MDVR_CORE_SN] AS [MDVR_CORE_SN], 
-[BSC_SUITE_VIEW].[MDVR_SN] AS [MDVR_SN], 
-[BSC_SUITE_VIEW].[MDVR_SIM] AS [MDVR_SIM], 
-[BSC_SUITE_VIEW].[MDVR_SIM_MOBILE] AS [MDVR_SIM_MOBILE], 
-[BSC_SUITE_VIEW].[UPS_SN] AS [UPS_SN], 
-[BSC_SUITE_VIEW].[SD_SN] AS [SD_SN], 
-[BSC_SUITE_VIEW].[SOFTWARE_VERSION] AS [SOFTWARE_VERSION], 
-[BSC_SUITE_VIEW].[MODEL] AS [MODEL], 
-[BSC_SUITE_VIEW].[PROTOCOL] AS [PROTOCOL], 
-[BSC_SUITE_VIEW].[STATUS] AS [STATUS], 
-[BSC_SUITE_VIEW].[NOTE] AS [NOTE], 
-[BSC_SUITE_VIEW].[CREATE_TIME] AS [CREATE_TIME], 
-[BSC_SUITE_VIEW].[VALID] AS [VALID], 
-[BSC_SUITE_VIEW].[VEHICLE_ID] AS [VEHICLE_ID], 
-[BSC_SUITE_VIEW].[CHECKSTEP] AS [CHECKSTEP]
-FROM [dbo].[BSC_SUITE_VIEW] AS [BSC_SUITE_VIEW]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="BUSINESS_ALERT_UNHANDLED_VIEW" EntityType="Self.BUSINESS_ALERT_UNHANDLED_VIEW" store:Type="Views" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-[BUSINESS_ALERT_UNHANDLED_VIEW].[ID] AS [ID], 
-[BUSINESS_ALERT_UNHANDLED_VIEW].[VEHICLE_ID] AS [VEHICLE_ID], 
-[BUSINESS_ALERT_UNHANDLED_VIEW].[ALERT_TYPE] AS [ALERT_TYPE], 
-[BUSINESS_ALERT_UNHANDLED_VIEW].[ALERT_TIME] AS [ALERT_TIME], 
-[BUSINESS_ALERT_UNHANDLED_VIEW].[LONGITUDE] AS [LONGITUDE], 
-[BUSINESS_ALERT_UNHANDLED_VIEW].[LATITUDE] AS [LATITUDE], 
-[BUSINESS_ALERT_UNHANDLED_VIEW].[STATUS] AS [STATUS], 
-[BUSINESS_ALERT_UNHANDLED_VIEW].[GPS_VALID] AS [GPS_VALID], 
-[BUSINESS_ALERT_UNHANDLED_VIEW].[SPEED] AS [SPEED], 
-[BUSINESS_ALERT_UNHANDLED_VIEW].[GPS_TIME] AS [GPS_TIME], 
-[BUSINESS_ALERT_UNHANDLED_VIEW].[MDVR_CORE_SN] AS [MDVR_CORE_SN], 
-[BUSINESS_ALERT_UNHANDLED_VIEW].[DISTRICT_CODE] AS [DISTRICT_CODE], 
-[BUSINESS_ALERT_UNHANDLED_VIEW].[PROVINCE] AS [PROVINCE], 
-[BUSINESS_ALERT_UNHANDLED_VIEW].[CITY] AS [CITY], 
-[BUSINESS_ALERT_UNHANDLED_VIEW].[DIRECTION] AS [DIRECTION]
-FROM [dbo].[BUSINESS_ALERT_UNHANDLED_VIEW] AS [BUSINESS_ALERT_UNHANDLED_VIEW]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="BUSINESS_ALERT_VIEW" EntityType="Self.BUSINESS_ALERT_VIEW" store:Type="Views" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-[BUSINESS_ALERT_VIEW].[ID] AS [ID], 
-[BUSINESS_ALERT_VIEW].[VEHICLE_ID] AS [VEHICLE_ID], 
-[BUSINESS_ALERT_VIEW].[ALERT_TYPE] AS [ALERT_TYPE], 
-[BUSINESS_ALERT_VIEW].[ALERT_TIME] AS [ALERT_TIME], 
-[BUSINESS_ALERT_VIEW].[LONGITUDE] AS [LONGITUDE], 
-[BUSINESS_ALERT_VIEW].[LATITUDE] AS [LATITUDE], 
-[BUSINESS_ALERT_VIEW].[STATUS] AS [STATUS], 
-[BUSINESS_ALERT_VIEW].[GPS_VALID] AS [GPS_VALID], 
-[BUSINESS_ALERT_VIEW].[SPEED] AS [SPEED], 
-[BUSINESS_ALERT_VIEW].[GPS_TIME] AS [GPS_TIME], 
-[BUSINESS_ALERT_VIEW].[MDVR_CORE_SN] AS [MDVR_CORE_SN], 
-[BUSINESS_ALERT_VIEW].[PROVINCE] AS [PROVINCE], 
-[BUSINESS_ALERT_VIEW].[CITY] AS [CITY]
-FROM [dbo].[BUSINESS_ALERT_VIEW] AS [BUSINESS_ALERT_VIEW]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="DEVICEALERT_VECHILESER_VIEW" EntityType="Self.DEVICEALERT_VECHILESER_VIEW" store:Type="Views" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-[DEVICEALERT_VECHILESER_VIEW].[ID] AS [ID], 
-[DEVICEALERT_VECHILESER_VIEW].[VEHICLE_ID] AS [VEHICLE_ID], 
-[DEVICEALERT_VECHILESER_VIEW].[SUITE_ID] AS [SUITE_ID], 
-[DEVICEALERT_VECHILESER_VIEW].[MDVR_CORE_SN] AS [MDVR_CORE_SN], 
-[DEVICEALERT_VECHILESER_VIEW].[ALERT_TIME] AS [ALERT_TIME], 
-[DEVICEALERT_VECHILESER_VIEW].[LONGITUDE] AS [LONGITUDE], 
-[DEVICEALERT_VECHILESER_VIEW].[LATITUDE] AS [LATITUDE], 
-[DEVICEALERT_VECHILESER_VIEW].[ALERT_TYPE] AS [ALERT_TYPE], 
-[DEVICEALERT_VECHILESER_VIEW].[STATUS] AS [STATUS]
-FROM [dbo].[DEVICEALERT_VECHILESER_VIEW] AS [DEVICEALERT_VECHILESER_VIEW]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="DISTRICT_LEVEL_VIEW" EntityType="Self.DISTRICT_LEVEL_VIEW" store:Type="Views" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-[DISTRICT_LEVEL_VIEW].[CODE] AS [CODE], 
-[DISTRICT_LEVEL_VIEW].[PROVINCE] AS [PROVINCE], 
-[DISTRICT_LEVEL_VIEW].[CITY] AS [CITY], 
-[DISTRICT_LEVEL_VIEW].[PARROQUIA] AS [PARROQUIA]
-FROM [dbo].[DISTRICT_LEVEL_VIEW] AS [DISTRICT_LEVEL_VIEW]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="INSTALL_STATISTICS_VIEW" EntityType="Self.INSTALL_STATISTICS_VIEW" store:Type="Views" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-[INSTALL_STATISTICS_VIEW].[VEHICLEID] AS [VEHICLEID], 
-[INSTALL_STATISTICS_VIEW].[DEVICESN] AS [DEVICESN], 
-[INSTALL_STATISTICS_VIEW].[STEP] AS [STEP], 
-[INSTALL_STATISTICS_VIEW].[STATION] AS [STATION], 
-[INSTALL_STATISTICS_VIEW].[STARTTIME] AS [STARTTIME], 
-[INSTALL_STATISTICS_VIEW].[DEVICETYPE] AS [DEVICETYPE], 
-[INSTALL_STATISTICS_VIEW].[ORGNIZATION_ID] AS [ORGNIZATION_ID], 
-[INSTALL_STATISTICS_VIEW].[VEHICLETYPEID] AS [VEHICLETYPEID], 
-[INSTALL_STATISTICS_VIEW].[VEHICLETYPE] AS [VEHICLETYPE], 
-[INSTALL_STATISTICS_VIEW].[ORGANIZATIONNAME] AS [ORGANIZATIONNAME], 
-[INSTALL_STATISTICS_VIEW].[STATIONNAME] AS [STATIONNAME], 
-[INSTALL_STATISTICS_VIEW].[CLIENTID] AS [CLIENTID], 
-[INSTALL_STATISTICS_VIEW].[SUMCOUNT] AS [SUMCOUNT]
-FROM [dbo].[INSTALL_STATISTICS_VIEW] AS [INSTALL_STATISTICS_VIEW]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="INSTALL_SUITE_INFO_VIEW" EntityType="Self.INSTALL_SUITE_INFO_VIEW" store:Type="Views" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-[INSTALL_SUITE_INFO_VIEW].[SUITE_INFO_ID] AS [SUITE_INFO_ID], 
-[INSTALL_SUITE_INFO_VIEW].[VEHICLE_ID] AS [VEHICLE_ID], 
-[INSTALL_SUITE_INFO_VIEW].[DISTRICT_CODE] AS [DISTRICT_CODE], 
-[INSTALL_SUITE_INFO_VIEW].[STATUS] AS [STATUS]
-FROM [dbo].[INSTALL_SUITE_INFO_VIEW] AS [INSTALL_SUITE_INFO_VIEW]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="INSTALLATION_VIEW" EntityType="Self.INSTALLATION_VIEW" store:Type="Views" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-[INSTALLATION_VIEW].[ID] AS [ID], 
-[INSTALLATION_VIEW].[SUITE_INFO_ID] AS [SUITE_INFO_ID], 
-[INSTALLATION_VIEW].[MDVR_CORE_SN] AS [MDVR_CORE_SN], 
-[INSTALLATION_VIEW].[VEHICLE_ID] AS [VEHICLE_ID], 
-[INSTALLATION_VIEW].[STATION_ID] AS [STATION_ID], 
-[INSTALLATION_VIEW].[INSTALL_STAFF] AS [INSTALL_STAFF], 
-[INSTALLATION_VIEW].[RECORD_STAFF] AS [RECORD_STAFF], 
-[INSTALLATION_VIEW].[NOTE] AS [NOTE], 
-[INSTALLATION_VIEW].[CHECKSTEP] AS [CHECKSTEP], 
-[INSTALLATION_VIEW].[VALID] AS [VALID], 
-[INSTALLATION_VIEW].[FINISH_TIME] AS [FINISH_TIME], 
-[INSTALLATION_VIEW].[CREATE_TIME] AS [CREATE_TIME], 
-[INSTALLATION_VIEW].[GPS_CHECK] AS [GPS_CHECK], 
-[INSTALLATION_VIEW].[ALARM_CHECK] AS [ALARM_CHECK], 
-[INSTALLATION_VIEW].[ALARM_ID] AS [ALARM_ID], 
-[INSTALLATION_VIEW].[AUDIT_FLAG] AS [AUDIT_FLAG], 
-[INSTALLATION_VIEW].[APPROVER] AS [APPROVER], 
-[INSTALLATION_VIEW].[APPROVE_TIME] AS [APPROVE_TIME], 
-[INSTALLATION_VIEW].[CONTENT] AS [CONTENT], 
-[INSTALLATION_VIEW].[NAME] AS [NAME], 
-[INSTALLATION_VIEW].[VEHICLE_TYPE] AS [VEHICLE_TYPE], 
-[INSTALLATION_VIEW].[OWNER] AS [OWNER]
-FROM [dbo].[INSTALLATION_VIEW] AS [INSTALLATION_VIEW]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="MNT_MAINTAINRECORD_UNFINISHED" EntityType="Self.MNT_MAINTAINRECORD_UNFINISHED" store:Type="Views" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-[MNT_MAINTAINRECORD_UNFINISHED].[APPLICANT] AS [APPLICANT], 
-[MNT_MAINTAINRECORD_UNFINISHED].[APPLICATIONID] AS [APPLICATIONID], 
-[MNT_MAINTAINRECORD_UNFINISHED].[SETUP_STATION] AS [SETUP_STATION], 
-[MNT_MAINTAINRECORD_UNFINISHED].[MAINTAINAPPLICATIONSTATUS] AS [MAINTAINAPPLICATIONSTATUS], 
-[MNT_MAINTAINRECORD_UNFINISHED].[CONTACT] AS [CONTACT], 
-[MNT_MAINTAINRECORD_UNFINISHED].[CREATE_TIME] AS [CREATE_TIME], 
-[MNT_MAINTAINRECORD_UNFINISHED].[SCHEDULE_DATE] AS [SCHEDULE_DATE], 
-[MNT_MAINTAINRECORD_UNFINISHED].[PROBLEM] AS [PROBLEM], 
-[MNT_MAINTAINRECORD_UNFINISHED].[VEHCILE_ID] AS [VEHCILE_ID], 
-[MNT_MAINTAINRECORD_UNFINISHED].[ID] AS [ID], 
-[MNT_MAINTAINRECORD_UNFINISHED].[APPLICATION_ID] AS [APPLICATION_ID], 
-[MNT_MAINTAINRECORD_UNFINISHED].[WORKER] AS [WORKER], 
-[MNT_MAINTAINRECORD_UNFINISHED].[STATUS] AS [STATUS], 
-[MNT_MAINTAINRECORD_UNFINISHED].[START_TIME] AS [START_TIME], 
-[MNT_MAINTAINRECORD_UNFINISHED].[END_TIME] AS [END_TIME], 
-[MNT_MAINTAINRECORD_UNFINISHED].[NOTE] AS [NOTE]
-FROM [dbo].[MNT_MAINTAINRECORD_UNFINISHED] AS [MNT_MAINTAINRECORD_UNFINISHED]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="STATUS_CHANGING_VIEW" EntityType="Self.STATUS_CHANGING_VIEW" store:Type="Views" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-[STATUS_CHANGING_VIEW].[SUITE_INFO_ID] AS [SUITE_INFO_ID], 
-[STATUS_CHANGING_VIEW].[STATUS] AS [STATUS], 
-[STATUS_CHANGING_VIEW].[SUITE_ID] AS [SUITE_ID], 
-[STATUS_CHANGING_VIEW].[STATUS_WORKING] AS [STATUS_WORKING], 
-[STATUS_CHANGING_VIEW].[VEHICLE_ID] AS [VEHICLE_ID], 
-[STATUS_CHANGING_VIEW].[MDVR_CORE_SN] AS [MDVR_CORE_SN]
-FROM [dbo].[STATUS_CHANGING_VIEW] AS [STATUS_CHANGING_VIEW]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="SUITE_SOFTWARE_VERSION_VIEW" EntityType="Self.SUITE_SOFTWARE_VERSION_VIEW" store:Type="Views" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-[SUITE_SOFTWARE_VERSION_VIEW].[ID] AS [ID], 
-[SUITE_SOFTWARE_VERSION_VIEW].[UNIFIED_VERSION] AS [UNIFIED_VERSION], 
-[SUITE_SOFTWARE_VERSION_VIEW].[VENDOR_VERSION] AS [VENDOR_VERSION], 
-[SUITE_SOFTWARE_VERSION_VIEW].[VENDOR] AS [VENDOR], 
-[SUITE_SOFTWARE_VERSION_VIEW].[VALID] AS [VALID], 
-[SUITE_SOFTWARE_VERSION_VIEW].[FILE_NAME] AS [FILE_NAME], 
-[SUITE_SOFTWARE_VERSION_VIEW].[FILE_SIZE] AS [FILE_SIZE]
-FROM [dbo].[SUITE_SOFTWARE_VERSION_VIEW] AS [SUITE_SOFTWARE_VERSION_VIEW]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="SUITE_UPGRADE_RECORD_VIEW" EntityType="Self.SUITE_UPGRADE_RECORD_VIEW" store:Type="Views" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-[SUITE_UPGRADE_RECORD_VIEW].[ID] AS [ID], 
-[SUITE_UPGRADE_RECORD_VIEW].[SUITE_INFO_ID] AS [SUITE_INFO_ID], 
-[SUITE_UPGRADE_RECORD_VIEW].[MDVR_CORE_SN] AS [MDVR_CORE_SN], 
-[SUITE_UPGRADE_RECORD_VIEW].[UPDATE_RESULT] AS [UPDATE_RESULT], 
-[SUITE_UPGRADE_RECORD_VIEW].[CURR_VERSION] AS [CURR_VERSION], 
-[SUITE_UPGRADE_RECORD_VIEW].[LAST_VERSION] AS [LAST_VERSION], 
-[SUITE_UPGRADE_RECORD_VIEW].[LAST_UPDATE_TIME] AS [LAST_UPDATE_TIME], 
-[SUITE_UPGRADE_RECORD_VIEW].[UPDATE_START_TIME] AS [UPDATE_START_TIME], 
-[SUITE_UPGRADE_RECORD_VIEW].[UPDATE_END_TIME] AS [UPDATE_END_TIME], 
-[SUITE_UPGRADE_RECORD_VIEW].[STATUS] AS [STATUS], 
-[SUITE_UPGRADE_RECORD_VIEW].[CONTENT] AS [CONTENT], 
-[SUITE_UPGRADE_RECORD_VIEW].[OPERATOR] AS [OPERATOR], 
-[SUITE_UPGRADE_RECORD_VIEW].[OPER_TIME] AS [OPER_TIME], 
-[SUITE_UPGRADE_RECORD_VIEW].[GPS_VALID] AS [GPS_VALID], 
-[SUITE_UPGRADE_RECORD_VIEW].[LONGITUDE] AS [LONGITUDE], 
-[SUITE_UPGRADE_RECORD_VIEW].[LATITUDE] AS [LATITUDE], 
-[SUITE_UPGRADE_RECORD_VIEW].[GPS_TIME] AS [GPS_TIME], 
-[SUITE_UPGRADE_RECORD_VIEW].[SPEED] AS [SPEED], 
-[SUITE_UPGRADE_RECORD_VIEW].[DIRECTION] AS [DIRECTION], 
-[SUITE_UPGRADE_RECORD_VIEW].[ERROR_NUMBER] AS [ERROR_NUMBER], 
-[SUITE_UPGRADE_RECORD_VIEW].[ORIGINAL_CMD] AS [ORIGINAL_CMD]
-FROM [dbo].[SUITE_UPGRADE_RECORD_VIEW] AS [SUITE_UPGRADE_RECORD_VIEW]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="SUITE_VIEW" EntityType="Self.SUITE_VIEW" store:Type="Views" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-[SUITE_VIEW].[SUITE_INFO_ID] AS [SUITE_INFO_ID], 
-[SUITE_VIEW].[SUITE_ID] AS [SUITE_ID], 
-[SUITE_VIEW].[MDVR_CORE_SN] AS [MDVR_CORE_SN], 
-[SUITE_VIEW].[MDVR_SN] AS [MDVR_SN], 
-[SUITE_VIEW].[VEHICLE_ID] AS [VEHICLE_ID], 
-[SUITE_VIEW].[CHECKSTEP] AS [CHECKSTEP], 
-[SUITE_VIEW].[STATION_ID] AS [STATION_ID], 
-[SUITE_VIEW].[INSTALL_STAFF] AS [INSTALL_STAFF], 
-[SUITE_VIEW].[RECORD_STAFF] AS [RECORD_STAFF], 
-[SUITE_VIEW].[FINISH_TIME] AS [FINISH_TIME], 
-[SUITE_VIEW].[CREATE_TIME] AS [CREATE_TIME], 
-[SUITE_VIEW].[UPS_SN] AS [UPS_SN], 
-[SUITE_VIEW].[SD_SN] AS [SD_SN], 
-[SUITE_VIEW].[STATUS] AS [STATUS], 
-[SUITE_VIEW].[MDVR_SIM] AS [MDVR_SIM], 
-[SUITE_VIEW].[MDVR_SIM_MOBILE] AS [MDVR_SIM_MOBILE], 
-[SUITE_VIEW].[SOFTWARE_VERSION] AS [SOFTWARE_VERSION], 
-[SUITE_VIEW].[NOTE] AS [NOTE]
-FROM [dbo].[SUITE_VIEW] AS [SUITE_VIEW]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="TRF_FENCEQUEUE_DELETED" EntityType="Self.TRF_FENCEQUEUE_DELETED" store:Type="Views" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-[TRF_FENCEQUEUE_DELETED].[FENCE_ID] AS [FENCE_ID], 
-[TRF_FENCEQUEUE_DELETED].[VEHICLE_ID] AS [VEHICLE_ID], 
-[TRF_FENCEQUEUE_DELETED].[CREATE_TIME] AS [CREATE_TIME]
-FROM [dbo].[TRF_FENCEQUEUE_DELETED] AS [TRF_FENCEQUEUE_DELETED]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="TRF_FENCEQUEUE_DELETEFENCEID" EntityType="Self.TRF_FENCEQUEUE_DELETEFENCEID" store:Type="Views" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-[TRF_FENCEQUEUE_DELETEFENCEID].[ID] AS [ID]
-FROM [dbo].[TRF_FENCEQUEUE_DELETEFENCEID] AS [TRF_FENCEQUEUE_DELETEFENCEID]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="TRF_FENCEQUEUE_INVALIDID" EntityType="Self.TRF_FENCEQUEUE_INVALIDID" store:Type="Views" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-[TRF_FENCEQUEUE_INVALIDID].[ID] AS [ID]
-FROM [dbo].[TRF_FENCEQUEUE_INVALIDID] AS [TRF_FENCEQUEUE_INVALIDID]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="TRF_FENCEQUEUE_ONVEHICLE" EntityType="Self.TRF_FENCEQUEUE_ONVEHICLE" store:Type="Views" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-[TRF_FENCEQUEUE_ONVEHICLE].[ID] AS [ID], 
-[TRF_FENCEQUEUE_ONVEHICLE].[FENCE_ID] AS [FENCE_ID], 
-[TRF_FENCEQUEUE_ONVEHICLE].[CLIENT_ID] AS [CLIENT_ID], 
-[TRF_FENCEQUEUE_ONVEHICLE].[VEHICLE_ID] AS [VEHICLE_ID], 
-[TRF_FENCEQUEUE_ONVEHICLE].[NAME] AS [NAME], 
-[TRF_FENCEQUEUE_ONVEHICLE].[FENCE_TYPE] AS [FENCE_TYPE], 
-[TRF_FENCEQUEUE_ONVEHICLE].[MDVR_CORE_SN] AS [MDVR_CORE_SN], 
-[TRF_FENCEQUEUE_ONVEHICLE].[RESULT_PACKET] AS [RESULT_PACKET], 
-[TRF_FENCEQUEUE_ONVEHICLE].[PTS] AS [PTS], 
-[TRF_FENCEQUEUE_ONVEHICLE].[RADIUS] AS [RADIUS], 
-[TRF_FENCEQUEUE_ONVEHICLE].[CIRCLE_CENTER] AS [CIRCLE_CENTER], 
-[TRF_FENCEQUEUE_ONVEHICLE].[SHAPE] AS [SHAPE], 
-[TRF_FENCEQUEUE_ONVEHICLE].[CREATE_TIME] AS [CREATE_TIME], 
-[TRF_FENCEQUEUE_ONVEHICLE].[PACKET_SEQ] AS [PACKET_SEQ], 
-[TRF_FENCEQUEUE_ONVEHICLE].[SEND_TIME] AS [SEND_TIME], 
-[TRF_FENCEQUEUE_ONVEHICLE].[STATUS] AS [STATUS], 
-[TRF_FENCEQUEUE_ONVEHICLE].[OPER_TYPE] AS [OPER_TYPE], 
-[TRF_FENCEQUEUE_ONVEHICLE].[MAX_SPEED] AS [MAX_SPEED], 
-[TRF_FENCEQUEUE_ONVEHICLE].[OVER_SPEED_DURATION] AS [OVER_SPEED_DURATION], 
-[TRF_FENCEQUEUE_ONVEHICLE].[POINT_COUNT] AS [POINT_COUNT], 
-[TRF_FENCEQUEUE_ONVEHICLE].[REGION_PROPERTY] AS [REGION_PROPERTY], 
-[TRF_FENCEQUEUE_ONVEHICLE].[END_TIME] AS [END_TIME], 
-[TRF_FENCEQUEUE_ONVEHICLE].[START_TIME] AS [START_TIME], 
-[TRF_FENCEQUEUE_ONVEHICLE].[REGION_ID] AS [REGION_ID]
-FROM [dbo].[TRF_FENCEQUEUE_ONVEHICLE] AS [TRF_FENCEQUEUE_ONVEHICLE]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="TRF_FENCEQUEUE_SUCCEEDID" EntityType="Self.TRF_FENCEQUEUE_SUCCEEDID" store:Type="Views" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-[TRF_FENCEQUEUE_SUCCEEDID].[ID] AS [ID]
-FROM [dbo].[TRF_FENCEQUEUE_SUCCEEDID] AS [TRF_FENCEQUEUE_SUCCEEDID]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="TRF_FENCEQUEUE_TOVEHICLE" EntityType="Self.TRF_FENCEQUEUE_TOVEHICLE" store:Type="Views" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-[TRF_FENCEQUEUE_TOVEHICLE].[ID] AS [ID], 
-[TRF_FENCEQUEUE_TOVEHICLE].[FENCE_ID] AS [FENCE_ID], 
-[TRF_FENCEQUEUE_TOVEHICLE].[CLIENT_ID] AS [CLIENT_ID], 
-[TRF_FENCEQUEUE_TOVEHICLE].[VEHICLE_ID] AS [VEHICLE_ID], 
-[TRF_FENCEQUEUE_TOVEHICLE].[NAME] AS [NAME], 
-[TRF_FENCEQUEUE_TOVEHICLE].[FENCE_TYPE] AS [FENCE_TYPE], 
-[TRF_FENCEQUEUE_TOVEHICLE].[MDVR_CORE_SN] AS [MDVR_CORE_SN], 
-[TRF_FENCEQUEUE_TOVEHICLE].[RESULT_PACKET] AS [RESULT_PACKET], 
-[TRF_FENCEQUEUE_TOVEHICLE].[PTS] AS [PTS], 
-[TRF_FENCEQUEUE_TOVEHICLE].[RADIUS] AS [RADIUS], 
-[TRF_FENCEQUEUE_TOVEHICLE].[CIRCLE_CENTER] AS [CIRCLE_CENTER], 
-[TRF_FENCEQUEUE_TOVEHICLE].[SHAPE] AS [SHAPE], 
-[TRF_FENCEQUEUE_TOVEHICLE].[CREATE_TIME] AS [CREATE_TIME], 
-[TRF_FENCEQUEUE_TOVEHICLE].[PACKET_SEQ] AS [PACKET_SEQ], 
-[TRF_FENCEQUEUE_TOVEHICLE].[SEND_TIME] AS [SEND_TIME], 
-[TRF_FENCEQUEUE_TOVEHICLE].[STATUS] AS [STATUS], 
-[TRF_FENCEQUEUE_TOVEHICLE].[OPER_TYPE] AS [OPER_TYPE], 
-[TRF_FENCEQUEUE_TOVEHICLE].[MAX_SPEED] AS [MAX_SPEED], 
-[TRF_FENCEQUEUE_TOVEHICLE].[OVER_SPEED_DURATION] AS [OVER_SPEED_DURATION], 
-[TRF_FENCEQUEUE_TOVEHICLE].[POINT_COUNT] AS [POINT_COUNT], 
-[TRF_FENCEQUEUE_TOVEHICLE].[REGION_PROPERTY] AS [REGION_PROPERTY], 
-[TRF_FENCEQUEUE_TOVEHICLE].[END_TIME] AS [END_TIME], 
-[TRF_FENCEQUEUE_TOVEHICLE].[START_TIME] AS [START_TIME], 
-[TRF_FENCEQUEUE_TOVEHICLE].[REGION_ID] AS [REGION_ID]
-FROM [dbo].[TRF_FENCEQUEUE_TOVEHICLE] AS [TRF_FENCEQUEUE_TOVEHICLE]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="TRF_ROUTEQUEUE_DELETED" EntityType="Self.TRF_ROUTEQUEUE_DELETED" store:Type="Views" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-[TRF_ROUTEQUEUE_DELETED].[ROUTE_ID] AS [ROUTE_ID], 
-[TRF_ROUTEQUEUE_DELETED].[VEHICLE_ID] AS [VEHICLE_ID], 
-[TRF_ROUTEQUEUE_DELETED].[CREATE_TIME] AS [CREATE_TIME]
-FROM [dbo].[TRF_ROUTEQUEUE_DELETED] AS [TRF_ROUTEQUEUE_DELETED]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="TRF_ROUTEQUEUE_DELETEID" EntityType="Self.TRF_ROUTEQUEUE_DELETEID" store:Type="Views" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-[TRF_ROUTEQUEUE_DELETEID].[ID] AS [ID]
-FROM [dbo].[TRF_ROUTEQUEUE_DELETEID] AS [TRF_ROUTEQUEUE_DELETEID]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="TRF_ROUTEQUEUE_INVALIDID" EntityType="Self.TRF_ROUTEQUEUE_INVALIDID" store:Type="Views" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-[TRF_ROUTEQUEUE_INVALIDID].[ID] AS [ID]
-FROM [dbo].[TRF_ROUTEQUEUE_INVALIDID] AS [TRF_ROUTEQUEUE_INVALIDID]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="TRF_ROUTEQUEUE_ONVEHCILE" EntityType="Self.TRF_ROUTEQUEUE_ONVEHCILE" store:Type="Views" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-[TRF_ROUTEQUEUE_ONVEHCILE].[ID] AS [ID], 
-[TRF_ROUTEQUEUE_ONVEHCILE].[CLIENT_ID] AS [CLIENT_ID], 
-[TRF_ROUTEQUEUE_ONVEHCILE].[RESULT_PACKET] AS [RESULT_PACKET], 
-[TRF_ROUTEQUEUE_ONVEHCILE].[PACKET_SEQ] AS [PACKET_SEQ], 
-[TRF_ROUTEQUEUE_ONVEHCILE].[VEHICLE_ID] AS [VEHICLE_ID], 
-[TRF_ROUTEQUEUE_ONVEHCILE].[END_TIME] AS [END_TIME], 
-[TRF_ROUTEQUEUE_ONVEHCILE].[REGION_ID] AS [REGION_ID], 
-[TRF_ROUTEQUEUE_ONVEHCILE].[SEND_TIME] AS [SEND_TIME], 
-[TRF_ROUTEQUEUE_ONVEHCILE].[MDVR_CORE_SN] AS [MDVR_CORE_SN], 
-[TRF_ROUTEQUEUE_ONVEHCILE].[OPER_TYPE] AS [OPER_TYPE], 
-[TRF_ROUTEQUEUE_ONVEHCILE].[STATUS] AS [STATUS], 
-[TRF_ROUTEQUEUE_ONVEHCILE].[CREATE_TIME] AS [CREATE_TIME], 
-[TRF_ROUTEQUEUE_ONVEHCILE].[START_TIME] AS [START_TIME], 
-[TRF_ROUTEQUEUE_ONVEHCILE].[PTS] AS [PTS], 
-[TRF_ROUTEQUEUE_ONVEHCILE].[ROUTE_PROPERTY] AS [ROUTE_PROPERTY], 
-[TRF_ROUTEQUEUE_ONVEHCILE].[ROUTE_SEGMENT_PROPERTY] AS [ROUTE_SEGMENT_PROPERTY], 
-[TRF_ROUTEQUEUE_ONVEHCILE].[WIDTH] AS [WIDTH], 
-[TRF_ROUTEQUEUE_ONVEHCILE].[MAX_SPEED] AS [MAX_SPEED], 
-[TRF_ROUTEQUEUE_ONVEHCILE].[NAME] AS [NAME], 
-[TRF_ROUTEQUEUE_ONVEHCILE].[OVER_SPEED_DURATION] AS [OVER_SPEED_DURATION], 
-[TRF_ROUTEQUEUE_ONVEHCILE].[POINT_COUNT] AS [POINT_COUNT], 
-[TRF_ROUTEQUEUE_ONVEHCILE].[ROUTE_ID] AS [ROUTE_ID]
-FROM [dbo].[TRF_ROUTEQUEUE_ONVEHCILE] AS [TRF_ROUTEQUEUE_ONVEHCILE]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="TRF_ROUTEQUEUE_SUCCEEDID" EntityType="Self.TRF_ROUTEQUEUE_SUCCEEDID" store:Type="Views" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-[TRF_ROUTEQUEUE_SUCCEEDID].[ID] AS [ID]
-FROM [dbo].[TRF_ROUTEQUEUE_SUCCEEDID] AS [TRF_ROUTEQUEUE_SUCCEEDID]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="TRF_ROUTEQUEUE_TOVEHICLE" EntityType="Self.TRF_ROUTEQUEUE_TOVEHICLE" store:Type="Views" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-[TRF_ROUTEQUEUE_TOVEHICLE].[ID] AS [ID], 
-[TRF_ROUTEQUEUE_TOVEHICLE].[CLIENT_ID] AS [CLIENT_ID], 
-[TRF_ROUTEQUEUE_TOVEHICLE].[RESULT_PACKET] AS [RESULT_PACKET], 
-[TRF_ROUTEQUEUE_TOVEHICLE].[PACKET_SEQ] AS [PACKET_SEQ], 
-[TRF_ROUTEQUEUE_TOVEHICLE].[VEHICLE_ID] AS [VEHICLE_ID], 
-[TRF_ROUTEQUEUE_TOVEHICLE].[END_TIME] AS [END_TIME], 
-[TRF_ROUTEQUEUE_TOVEHICLE].[REGION_ID] AS [REGION_ID], 
-[TRF_ROUTEQUEUE_TOVEHICLE].[SEND_TIME] AS [SEND_TIME], 
-[TRF_ROUTEQUEUE_TOVEHICLE].[MDVR_CORE_SN] AS [MDVR_CORE_SN], 
-[TRF_ROUTEQUEUE_TOVEHICLE].[OPER_TYPE] AS [OPER_TYPE], 
-[TRF_ROUTEQUEUE_TOVEHICLE].[STATUS] AS [STATUS], 
-[TRF_ROUTEQUEUE_TOVEHICLE].[CREATE_TIME] AS [CREATE_TIME], 
-[TRF_ROUTEQUEUE_TOVEHICLE].[START_TIME] AS [START_TIME], 
-[TRF_ROUTEQUEUE_TOVEHICLE].[PTS] AS [PTS], 
-[TRF_ROUTEQUEUE_TOVEHICLE].[ROUTE_PROPERTY] AS [ROUTE_PROPERTY], 
-[TRF_ROUTEQUEUE_TOVEHICLE].[ROUTE_SEGMENT_PROPERTY] AS [ROUTE_SEGMENT_PROPERTY], 
-[TRF_ROUTEQUEUE_TOVEHICLE].[WIDTH] AS [WIDTH], 
-[TRF_ROUTEQUEUE_TOVEHICLE].[MAX_SPEED] AS [MAX_SPEED], 
-[TRF_ROUTEQUEUE_TOVEHICLE].[NAME] AS [NAME], 
-[TRF_ROUTEQUEUE_TOVEHICLE].[OVER_SPEED_DURATION] AS [OVER_SPEED_DURATION], 
-[TRF_ROUTEQUEUE_TOVEHICLE].[POINT_COUNT] AS [POINT_COUNT], 
-[TRF_ROUTEQUEUE_TOVEHICLE].[ROUTE_ID] AS [ROUTE_ID]
-FROM [dbo].[TRF_ROUTEQUEUE_TOVEHICLE] AS [TRF_ROUTEQUEUE_TOVEHICLE]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="VEHICLE_ONLINE_TIME_VIEW" EntityType="Self.VEHICLE_ONLINE_TIME_VIEW" store:Type="Views" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-[VEHICLE_ONLINE_TIME_VIEW].[ID] AS [ID], 
-[VEHICLE_ONLINE_TIME_VIEW].[VEHICLE_ID] AS [VEHICLE_ID], 
-[VEHICLE_ONLINE_TIME_VIEW].[MDVR_CORE_SN] AS [MDVR_CORE_SN], 
-[VEHICLE_ONLINE_TIME_VIEW].[ONLINE_TIME] AS [ONLINE_TIME], 
-[VEHICLE_ONLINE_TIME_VIEW].[OFFLINE_TIME] AS [OFFLINE_TIME], 
-[VEHICLE_ONLINE_TIME_VIEW].[ONLINE_TIMESPAN] AS [ONLINE_TIMESPAN], 
-[VEHICLE_ONLINE_TIME_VIEW].[DISTRICT_CODE] AS [DISTRICT_CODE], 
-[VEHICLE_ONLINE_TIME_VIEW].[DISTANCE] AS [DISTANCE]
-FROM [dbo].[VEHICLE_ONLINE_TIME_VIEW] AS [VEHICLE_ONLINE_TIME_VIEW]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="VEHICLE_STATUS_VIEW" EntityType="Self.VEHICLE_STATUS_VIEW" store:Type="Views" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-[VEHICLE_STATUS_VIEW].[VEHICLE_ID] AS [VEHICLE_ID], 
-[VEHICLE_STATUS_VIEW].[BRAND_MODEL] AS [BRAND_MODEL], 
-[VEHICLE_STATUS_VIEW].[VEHICLE_TYPE] AS [VEHICLE_TYPE], 
-[VEHICLE_STATUS_VIEW].[OWNER] AS [OWNER], 
-[VEHICLE_STATUS_VIEW].[CONTACT_PHONE] AS [CONTACT_PHONE], 
-[VEHICLE_STATUS_VIEW].[CONTACT_ADDRESS] AS [CONTACT_ADDRESS], 
-[VEHICLE_STATUS_VIEW].[DISTRICT_CODE] AS [DISTRICT_CODE], 
-[VEHICLE_STATUS_VIEW].[START_YEAR] AS [START_YEAR], 
-[VEHICLE_STATUS_VIEW].[MDVR_CORE_SN] AS [MDVR_CORE_SN], 
-[VEHICLE_STATUS_VIEW].[STATUS] AS [STATUS], 
-[VEHICLE_STATUS_VIEW].[SWITCH_TIME] AS [SWITCH_TIME], 
-[VEHICLE_STATUS_VIEW].[ONLINE_FLAG] AS [ONLINE_FLAG], 
-[VEHICLE_STATUS_VIEW].[GROUP_ID] AS [GROUP_ID]
-FROM [dbo].[VEHICLE_STATUS_VIEW] AS [VEHICLE_STATUS_VIEW]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="VEHICLE_WORKING_VIEW" EntityType="Self.VEHICLE_WORKING_VIEW" store:Type="Views" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-[VEHICLE_WORKING_VIEW].[VEHICLE_ID] AS [VEHICLE_ID], 
-[VEHICLE_WORKING_VIEW].[BRAND_MODEL] AS [BRAND_MODEL], 
-[VEHICLE_WORKING_VIEW].[VEHICLE_TYPE] AS [VEHICLE_TYPE], 
-[VEHICLE_WORKING_VIEW].[OWNER] AS [OWNER], 
-[VEHICLE_WORKING_VIEW].[CONTACT_PHONE] AS [CONTACT_PHONE], 
-[VEHICLE_WORKING_VIEW].[CONTACT_ADDRESS] AS [CONTACT_ADDRESS], 
-[VEHICLE_WORKING_VIEW].[DISTRICT_CODE] AS [DISTRICT_CODE], 
-[VEHICLE_WORKING_VIEW].[START_YEAR] AS [START_YEAR], 
-[VEHICLE_WORKING_VIEW].[STATUS] AS [STATUS], 
-[VEHICLE_WORKING_VIEW].[SWITCH_TIME] AS [SWITCH_TIME], 
-[VEHICLE_WORKING_VIEW].[ONLINE_FLAG] AS [ONLINE_FLAG], 
-[VEHICLE_WORKING_VIEW].[PROVINCE] AS [PROVINCE], 
-[VEHICLE_WORKING_VIEW].[CITY] AS [CITY], 
-[VEHICLE_WORKING_VIEW].[PARROQUIA] AS [PARROQUIA]
-FROM [dbo].[VEHICLE_WORKING_VIEW] AS [VEHICLE_WORKING_VIEW]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="VEHICLEGPS_VIEW" EntityType="Self.VEHICLEGPS_VIEW" store:Type="Views" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-[VEHICLEGPS_VIEW].[ID] AS [ID], 
-[VEHICLEGPS_VIEW].[VEHICLE_ID] AS [VEHICLE_ID], 
-[VEHICLEGPS_VIEW].[SPEED] AS [SPEED], 
-[VEHICLEGPS_VIEW].[GPS_TIME] AS [GPS_TIME]
-FROM [dbo].[VEHICLEGPS_VIEW] AS [VEHICLEGPS_VIEW]</DefiningQuery>
-          </EntitySet>
-        </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
@@ -2536,8 +2569,8 @@ FROM [dbo].[VEHICLEGPS_VIEW] AS [VEHICLEGPS_VIEW]</DefiningQuery>
           <EntitySet Name="VEHICLE_STATUS_VIEW" EntityType="PTMSModel.VEHICLE_STATUS_VIEW" />
           <EntitySet Name="VEHICLE_WORKING_VIEW" EntityType="PTMSModel.VEHICLE_WORKING_VIEW" />
           <EntitySet Name="VEHICLEGPS_VIEW" EntityType="PTMSModel.VEHICLEGPS_VIEW" />
-          <EntitySet Name="ALM_ALARM_MAIL" EntityType="PTMSModel.ALM_ALARM_MAIL" />
           <EntitySet Name="LOG_ERROR" EntityType="PTMSModel.LOG_ERROR" />
+          <EntitySet Name="ALM_ALARM_MAIL" EntityType="PTMSModel.ALM_ALARM_MAIL" />
         </EntityContainer>
         <EntityType Name="ALM_911_DISPOSE">
           <Key>
@@ -2637,7 +2670,7 @@ FROM [dbo].[VEHICLEGPS_VIEW] AS [VEHICLEGPS_VIEW]</DefiningQuery>
           <Property Name="DIRECTION" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
           <Property Name="RULE_ID" Type="String" MaxLength="36" Unicode="true" FixedLength="false" />
           <Property Name="ADDITIONAL_INFO" Type="String" MaxLength="2000" Unicode="true" FixedLength="false" />
-          <Property Name="CREATE_TIME" Type="DateTime" Precision="3" Nullable="false" />
+          <Property Name="CREATE_TIME" Type="DateTime" Precision="3" />
         </EntityType>
         <EntityType Name="ALT_BUSINESS_ALERT_HANDLE">
           <Key>
@@ -4319,6 +4352,16 @@ FROM [dbo].[VEHICLEGPS_VIEW] AS [VEHICLEGPS_VIEW]</DefiningQuery>
           <Property Name="SPEED" Type="Int32" />
           <Property Name="GPS_TIME" Type="DateTime" Precision="3" />
         </EntityType>
+        <EntityType Name="LOG_ERROR">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="String" Nullable="false" MaxLength="36" FixedLength="true" Unicode="true" />
+          <Property Name="IP" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="SERVICE_NAME" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="CREATE_TIME" Type="DateTime" Precision="3" />
+          <Property Name="ERROR_REASON" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+        </EntityType>
         <EntityType Name="ALM_ALARM_MAIL">
           <Key>
             <PropertyRef Name="ID" />
@@ -4329,16 +4372,7 @@ FROM [dbo].[VEHICLEGPS_VIEW] AS [VEHICLEGPS_VIEW]</DefiningQuery>
           <Property Type="Int32" Name="LEVEL" />
           <Property Type="Int32" Name="VALID" />
           <Property Type="String" Name="CLIENT_ID" MaxLength="36" FixedLength="true" Unicode="true" />
-        </EntityType>
-        <EntityType Name="LOG_ERROR">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="String" Nullable="false" MaxLength="36" FixedLength="true" Unicode="true" />
-          <Property Name="IP" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="SERVICE_NAME" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="CREATE_TIME" Type="DateTime" Precision="3" />
-          <Property Name="ERROR_REASON" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="TYPE" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -6192,18 +6226,6 @@ FROM [dbo].[VEHICLEGPS_VIEW] AS [VEHICLEGPS_VIEW]</DefiningQuery>
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="ALM_ALARM_MAIL">
-            <EntityTypeMapping TypeName="PTMSModel.ALM_ALARM_MAIL">
-              <MappingFragment StoreEntitySet="ALM_ALARM_MAIL">
-                <ScalarProperty Name="CLIENT_ID" ColumnName="CLIENT_ID" />
-                <ScalarProperty Name="VALID" ColumnName="VALID" />
-                <ScalarProperty Name="LEVEL" ColumnName="LEVEL" />
-                <ScalarProperty Name="NAME" ColumnName="NAME" />
-                <ScalarProperty Name="MAIL" ColumnName="MAIL" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="LOG_ERROR">
             <EntityTypeMapping TypeName="PTMSModel.LOG_ERROR">
               <MappingFragment StoreEntitySet="LOG_ERROR">
@@ -6211,6 +6233,19 @@ FROM [dbo].[VEHICLEGPS_VIEW] AS [VEHICLEGPS_VIEW]</DefiningQuery>
                 <ScalarProperty Name="CREATE_TIME" ColumnName="CREATE_TIME" />
                 <ScalarProperty Name="SERVICE_NAME" ColumnName="SERVICE_NAME" />
                 <ScalarProperty Name="IP" ColumnName="IP" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ALM_ALARM_MAIL">
+            <EntityTypeMapping TypeName="PTMSModel.ALM_ALARM_MAIL">
+              <MappingFragment StoreEntitySet="ALM_ALARM_MAIL">
+                <ScalarProperty Name="TYPE" ColumnName="TYPE" />
+                <ScalarProperty Name="CLIENT_ID" ColumnName="CLIENT_ID" />
+                <ScalarProperty Name="VALID" ColumnName="VALID" />
+                <ScalarProperty Name="LEVEL" ColumnName="LEVEL" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="MAIL" ColumnName="MAIL" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>

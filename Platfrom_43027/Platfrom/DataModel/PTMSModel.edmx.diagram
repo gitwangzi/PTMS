@@ -113,8 +113,8 @@
         <EntityTypeShape EntityType="PTMSModel.VEHICLE_STATUS_VIEW" Width="1.5" PointX="0.75" PointY="31.75" IsExpanded="true" />
         <EntityTypeShape EntityType="PTMSModel.VEHICLE_WORKING_VIEW" Width="1.5" PointX="12.75" PointY="31.75" IsExpanded="true" />
         <EntityTypeShape EntityType="PTMSModel.VEHICLEGPS_VIEW" Width="1.5" PointX="14.75" PointY="31.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="PTMSModel.ALM_ALARM_MAIL" Width="1.5" PointX="8.2300398313580256" PointY="6.6622712941198943" />
         <EntityTypeShape EntityType="PTMSModel.LOG_ERROR" Width="1.5" PointX="3.375" PointY="32.75" />
+        <EntityTypeShape EntityType="PTMSModel.ALM_ALARM_MAIL" Width="1.5" PointX="3.1712218314275251" PointY="9.05900617365679" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

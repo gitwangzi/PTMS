@@ -22,9 +22,12 @@ namespace Gsafety.PTMS.Common.Data
 
         [DataMember]
         public string Name { get; set; }
-
+        
         [DataMember]
         public int Level { get; set; }
+
+        [DataMember]
+        public int EmailType { get; set; }  //0为报警，1为告警
      
 
     }

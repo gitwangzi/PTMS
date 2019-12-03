@@ -25,6 +25,7 @@ using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 using Gsafety.PTMS.ServiceReference.EmailService;
 using System.Text;
+using Gsafety.PTMS.Monitor.Views;
 
 namespace Gsafety.Ant.Monitor.ViewModels
 {
@@ -88,15 +89,27 @@ namespace Gsafety.Ant.Monitor.ViewModels
             set;
         }
 
+        public bool FourthCheck
+        {
+            get;
+            set;
+        }
+
         public AlertHandleViewModel()
         {
             okcommand = new ActionCommand<string>(obj => HandleAlert(obj));
             cancelcommand = new ActionCommand<string>(obj => Cancel(obj));
-
+            AddEmailCommand = new ActionCommand<string>(obj => AddEmail(obj));
+            UpdateEmailCommand = new ActionCommand<string>(obj => UpdateEmail(obj));
+            DeleteEmailCommand = new ActionCommand<string>(obj => DeleteEmail(obj));
+            FirstCheck = true;
+            InilitClient();
         }
 
         private void Cancel(string obj)
         {
+            Note = string.Empty;
+            IsMail = false;
             IsVisual = false;
         }
 
@@ -116,6 +129,10 @@ namespace Gsafety.Ant.Monitor.ViewModels
                 else if (ThirdCheck)
                 {
                     alerthandler.AlertLevel = (int)AlertLevelEnum.High;
+                }
+                else if(FourthCheck)
+                {
+                    alerthandler.AlertLevel = (int)AlertLevelEnum.Serious;
                 }
                 alerthandler.BusinessAlertID = alertinfo.Id;
                 alerthandler.ID = Guid.NewGuid().ToString();
@@ -235,17 +252,21 @@ namespace Gsafety.Ant.Monitor.ViewModels
                     {
                         if (alertinfo.AlertLevel == 1)
                         {
-                            level = ApplicationContext.Instance.StringResourceReader.GetString("AlertLow");
+                            level = ApplicationContext.Instance.StringResourceReader.GetString("IncidentCommon");
                         }
                         if (alertinfo.AlertLevel == 2)
                         {
-                            level = ApplicationContext.Instance.StringResourceReader.GetString("AlertMedium");
+                            level = ApplicationContext.Instance.StringResourceReader.GetString("IncidentLarger");
 
                         }
                         if (alertinfo.AlertLevel == 3)
                         {
-                            level = ApplicationContext.Instance.StringResourceReader.GetString("AlertHigh");
+                            level = ApplicationContext.Instance.StringResourceReader.GetString("IncidentMajor");
 
+                        }
+                        if(alertinfo.AlertLevel == 4)
+                        {
+                            level = ApplicationContext.Instance.StringResourceReader.GetString("IncidentSpecialSignificant");
                         }
                       
                     }
@@ -378,8 +399,8 @@ namespace Gsafety.Ant.Monitor.ViewModels
             }
         }
 
-        private ObservableCollection<AlarmEmailInfo> _sendpersons;
-        public ObservableCollection<AlarmEmailInfo> SendPersons
+        private ObservableCollection<PTMS.ServiceReference.VehicleAlertService.AlarmEmailInfo> _sendpersons;
+        public ObservableCollection<PTMS.ServiceReference.VehicleAlertService.AlarmEmailInfo> SendPersons
         {
             get { return _sendpersons; }
             set
@@ -389,8 +410,8 @@ namespace Gsafety.Ant.Monitor.ViewModels
             }
         }
 
-        private AlarmEmailInfo _selectedperson;
-        public AlarmEmailInfo SelectedPerson
+        private PTMS.ServiceReference.VehicleAlertService.AlarmEmailInfo _selectedperson;
+        public PTMS.ServiceReference.VehicleAlertService.AlarmEmailInfo SelectedPerson
         {
             get { return _selectedperson; }
             set
@@ -399,9 +420,7 @@ namespace Gsafety.Ant.Monitor.ViewModels
                 Jounce.Framework.JounceHelper.ExecuteOnUI(() => RaisePropertyChanged(() => SelectedPerson));
             }
         }
-
-        private EmailServiceClient emailclient = null;
-
+        
         private bool m_IsOpen = true;
         public bool IsOpen
         {
@@ -520,12 +539,47 @@ namespace Gsafety.Ant.Monitor.ViewModels
 
         BusinessAlertEx alertinfo = null;
 
+        private EmailServiceClient emailclient = null;
+        private VehicleAlertServiceClient vehicleclient = null;
         private VehicleAlertServiceClient InilitClient()
         {
             VehicleAlertServiceClient vehicleAlertServiceClient = ServiceClientFactory.Create<VehicleAlertServiceClient>();
+            vehicleAlertServiceClient.GetAllAlertEmailCompleted += VehicleAlertServiceClient_GetAllAlertEmailCompleted;
             vehicleAlertServiceClient.InsertBusinessAlertHandleCompleted += vehicleAlertServiceClient_InsertBusinessAlertHandleCompleted;
-
+            vehicleAlertServiceClient.GetAllAlertEmailAsync(ApplicationContext.Instance.AuthenticationInfo.ClientID);
             return vehicleAlertServiceClient;
+        }
+
+        private void VehicleAlertServiceClient_GetAllAlertEmailCompleted(object sender, GetAllAlertEmailCompletedEventArgs e)
+        {
+            try
+            {
+                if (e.Error == null && e.Result.Result != null)
+                {
+                    SendPersons = e.Result.Result;
+                    if (SendPersons.Count > 0)
+                    {
+                        SelectedPerson = SendPersons[0];
+
+                    }
+
+                    Jounce.Framework.JounceHelper.ExecuteOnUI(() => RaisePropertyChanged(() => SendPersons));
+
+                    Jounce.Framework.JounceHelper.ExecuteOnUI(() => RaisePropertyChanged(() => SelectedPerson));
+                }
+                else
+                {
+                    MessageBoxHelper.ShowDialog(ApplicationContext.Instance.StringResourceReader.GetString(LProxy.Caption), ApplicationContext.Instance.StringResourceReader.GetString(LProxy.ServerError));
+                }
+            }
+            catch (Exception ex)
+            {
+                ApplicationContext.Instance.Logger.LogException("vehicleAlarmServiceClient_GetApealDisposeByAlarmIDCompleted", ex);
+            }
+            finally
+            {
+                CloseClient(sender);
+            }
         }
 
         void vehicleAlertServiceClient_InsertBusinessAlertHandleCompleted(object sender, InsertBusinessAlertHandleCompletedEventArgs e)
@@ -573,6 +627,16 @@ namespace Gsafety.Ant.Monitor.ViewModels
 
         }
 
+        private static void CloseClient(object sender)
+        {
+            VehicleAlarmServiceClient client = sender as VehicleAlarmServiceClient;
+            if (client != null)
+            {
+                client.CloseAsync();
+                client = null;
+            }
+        }
+
         public void OnImportsSatisfied()
         {
             EventAggregator.SubscribeOnDispatcher<AlertHandleDisplayArgs>(this);
@@ -582,6 +646,8 @@ namespace Gsafety.Ant.Monitor.ViewModels
         public void HandleEvent(AlertHandleDisplayArgs publishedEvent)
         {
             IsVisual = publishedEvent.Show;
+            FirstCheck = true;
+            Jounce.Framework.JounceHelper.ExecuteOnUI(() => RaisePropertyChanged(() => FirstCheck));
         }
 
         public void HandleEvent(MonitorAlertInfoDisplay publishedEvent)
@@ -596,6 +662,9 @@ namespace Gsafety.Ant.Monitor.ViewModels
                     Handler = ApplicationContext.Instance.AuthenticationInfo.Account;
                     VehicleID = publishedEvent.DisPlayInfo.VehicleId;
                     AlertTime = publishedEvent.DisPlayInfo.AlertTime;
+
+                    FirstCheck = true;
+                    Jounce.Framework.JounceHelper.ExecuteOnUI(() => RaisePropertyChanged(() => FirstCheck));
 
                     if (publishedEvent.DisPlayInfo.Status != 0)
                     {
@@ -624,5 +693,204 @@ namespace Gsafety.Ant.Monitor.ViewModels
                 ApplicationContext.Instance.Logger.LogException(MethodBase.GetCurrentMethod().ToString(), ex);
             }
         }
+
+        private void AddEmail(string obj)
+        {
+            PTMS.ServiceReference.VehicleAlarmService.AlarmEmailInfo email = new PTMS.ServiceReference.VehicleAlarmService.AlarmEmailInfo
+            {
+                ClientId = ApplicationContext.Instance.AuthenticationInfo.ClientID,
+                ID = Guid.NewGuid().ToString(),
+                Level = 1,
+                Name = "",
+                Mail = "",
+            };
+
+            ChildSendMail child = new ChildSendMail(ApplicationContext.Instance.StringResourceReader.GetString("MONITOR_AddEmail"));         
+            child.Edit(email);
+
+            child.Closed += (m, n) =>
+            {
+                if (child.DialogResult == true)
+                {
+
+                    try
+                    {
+                        vehicleclient = ServiceClientFactory.Create<VehicleAlertServiceClient>();
+                        vehicleclient.AddAlertEmailCompleted += ((nsender, ne) =>
+                        {
+
+                            if (ne.Error != null || ne.Result.IsSuccess == false)
+                            {
+                                ApplicationContext.Instance.Logger.LogException("BASEINFO_Operate_Failed", ne.Error);
+                                return;
+                            }
+
+                            PTMS.ServiceReference.VehicleAlertService.AlarmEmailInfo tt = new PTMS.ServiceReference.VehicleAlertService.AlarmEmailInfo
+                            {
+                                Level = child.mail.Level,
+                                Name = child.mail.Name,
+                                Mail = child.mail.Mail,
+                            };
+
+                            SendPersons.Add(tt);
+                            SelectedPerson = null;
+                            Jounce.Framework.JounceHelper.ExecuteOnUI(() => RaisePropertyChanged(() => SendPersons));
+                            if (SendPersons.Count > 0)
+                            {
+                                SelectedPerson = SendPersons[0];
+                                Jounce.Framework.JounceHelper.ExecuteOnUI(() => RaisePropertyChanged(() => SendPersons));
+
+                            }
+                            Jounce.Framework.JounceHelper.ExecuteOnUI(() => RaisePropertyChanged(() => SelectedPerson));
+
+                        });
+
+                        PTMS.ServiceReference.VehicleAlertService.AlarmEmailInfo alertEmail = new PTMS.ServiceReference.VehicleAlertService.AlarmEmailInfo
+                        {
+                            ClientId = child.mail.ClientId,
+                            ID = child.mail.ID,
+                            Level = child.mail.Level,
+                            Name = child.mail.Name,
+                            Mail = child.mail.Mail,
+                        };
+                        vehicleclient.AddAlertEmailAsync(alertEmail);
+
+                    }
+                    catch (Exception ex)
+                    {
+
+                    }
+                    finally
+                    {
+                        vehicleclient.CloseAsync();
+
+                    }
+
+
+                }
+            };
+            child.Show();
+
+
+        }
+
+        private void UpdateEmail(string obj)
+        {
+            if (SelectedPerson != null)
+            {
+                PTMS.ServiceReference.VehicleAlertService.AlarmEmailInfo email = SelectedPerson;
+
+
+                ChildSendMail child = new ChildSendMail(ApplicationContext.Instance.StringResourceReader.GetString("MONITOR_EditEmail"));
+                PTMS.ServiceReference.VehicleAlarmService.AlarmEmailInfo alarmEmail = new PTMS.ServiceReference.VehicleAlarmService.AlarmEmailInfo
+                {
+                    Level = email.Level,
+                    Name = email.Name,
+                    Mail = email.Mail,
+                };
+                child.Edit(alarmEmail);
+                child.Closed += (m, n) =>
+                {
+                    if (child.DialogResult == true)
+                    {
+
+                        try
+                        {
+                            vehicleclient = ServiceClientFactory.Create<VehicleAlertServiceClient>();
+                            vehicleclient.UpdateAlertEmailCompleted += ((nsender, ne) =>
+                            {
+
+                                if (ne.Error != null || ne.Result.IsSuccess == false)
+                                {
+                                    ApplicationContext.Instance.Logger.LogException("BASEINFO_Operate_Failed", ne.Error);
+                                    return;
+                                }
+
+                                SelectedPerson.Level = child.mail.Level;
+                                SelectedPerson.Mail = child.mail.Mail;
+                                SelectedPerson.Name = child.mail.Name;
+
+                                Jounce.Framework.JounceHelper.ExecuteOnUI(() => RaisePropertyChanged(() => SendPersons));
+
+
+
+                            });
+                            vehicleclient.UpdateAlertEmailAsync(SelectedPerson);
+
+                        }
+                        catch (Exception ex)
+                        {
+
+                        }
+                        finally
+                        {
+                            vehicleclient.CloseAsync();
+
+                        }
+
+
+                    }
+                };
+                child.Show();
+
+            }
+
+
+        }
+
+        private void DeleteEmail(string obj)
+        {
+            string Caption = ApplicationContext.Instance.StringResourceReader.GetString(LProxy.Caption);
+
+            if (SelectedPerson != null)
+            {
+                ChildWindow result;
+
+                result = (SelfMessageBox)MessageBoxHelper.ShowDialog(Caption, ApplicationContext.Instance.StringResourceReader.GetString("IsDelete"), MessageDialogButton.OkAndCancel);
+
+                result.Closed += (a, b) =>
+                {
+                    if (result.DialogResult == true)
+                    {
+                        try
+                        {
+                            vehicleclient = ServiceClientFactory.Create<VehicleAlertServiceClient>();
+                            vehicleclient.DeleteAlertEmailCompleted += ((nsender, ne) =>
+                            {
+
+                                if (ne.Error != null || ne.Result.IsSuccess == false)
+                                {
+                                    ApplicationContext.Instance.Logger.LogException("BASEINFO_Operate_Failed", ne.Error);
+                                    return;
+                                }
+
+                                SendPersons.Remove(SelectedPerson);
+                                SelectedPerson = null;
+                                if (SendPersons.Count > 0)
+                                {
+                                    SelectedPerson = SendPersons[0];
+                                }
+                                Jounce.Framework.JounceHelper.ExecuteOnUI(() => RaisePropertyChanged(() => SendPersons));
+                                Jounce.Framework.JounceHelper.ExecuteOnUI(() => RaisePropertyChanged(() => SelectedPerson));
+
+                            });
+                            vehicleclient.DeleteAlertEmailAsync(SelectedPerson.ID);
+                        }
+                        catch (Exception ex)
+                        {
+                            ApplicationContext.Instance.Logger.LogException("BtnAddExtent", ex);
+                        }
+                        finally
+                        {
+                            vehicleclient.CloseAsync();
+                        }
+
+                    }
+                };
+            }
+
+
+        }
+
     }
 }

@@ -20,18 +20,18 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://localhost:2259/VehicleAlertService.svc" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://10.10.12.14:2258/VehicleAlertService.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="VehicleAlertService2.xsd" MetadataType="Schema" ID="bb1acd10-6de6-47dd-8133-79c45da751a0" SourceId="1" SourceUrl="http://localhost:2259/VehicleAlertService.svc?xsd=xsd5" />
-    <MetadataFile FileName="VehicleAlertService.disco" MetadataType="Disco" ID="947a6492-82f9-4d43-bf9b-96f388634f5c" SourceId="1" SourceUrl="http://localhost:2259/VehicleAlertService.svc?disco" />
-    <MetadataFile FileName="VehicleAlertService21.xsd" MetadataType="Schema" ID="ce01dc2a-0976-4d53-9e76-d3c4e8a99b7b" SourceId="1" SourceUrl="http://localhost:2259/VehicleAlertService.svc?xsd=xsd4" />
-    <MetadataFile FileName="VehicleAlertService22.xsd" MetadataType="Schema" ID="f4b7fce7-7614-4102-9273-e0cff4938247" SourceId="1" SourceUrl="http://localhost:2259/VehicleAlertService.svc?xsd=xsd6" />
-    <MetadataFile FileName="VehicleAlertService23.xsd" MetadataType="Schema" ID="72ff780e-1eae-42c3-825a-f55f5c935feb" SourceId="1" SourceUrl="http://localhost:2259/VehicleAlertService.svc?xsd=xsd1" />
-    <MetadataFile FileName="VehicleAlertService24.xsd" MetadataType="Schema" ID="297c7be9-9cc5-42d6-8d80-2dde366c4d72" SourceId="1" SourceUrl="http://localhost:2259/VehicleAlertService.svc?xsd=xsd0" />
-    <MetadataFile FileName="VehicleAlertService25.xsd" MetadataType="Schema" ID="0f205dc9-74d8-4907-9d5c-6e160f4d69c6" SourceId="1" SourceUrl="http://localhost:2259/VehicleAlertService.svc?xsd=xsd3" />
-    <MetadataFile FileName="VehicleAlertService26.xsd" MetadataType="Schema" ID="c62a7f95-113e-4d31-8e7f-af0995f7164f" SourceId="1" SourceUrl="http://localhost:2259/VehicleAlertService.svc?xsd=xsd2" />
-    <MetadataFile FileName="VehicleAlertService.wsdl" MetadataType="Wsdl" ID="3e244f92-5bc2-4351-bbd6-fbc8cce623da" SourceId="1" SourceUrl="http://localhost:2259/VehicleAlertService.svc?wsdl" />
+    <MetadataFile FileName="VehicleAlertService.xsd" MetadataType="Schema" ID="27fc1841-439d-4bea-8af3-3eb82fe597bd" SourceId="1" SourceUrl="http://10.10.12.14:2258/VehicleAlertService.svc?xsd=xsd4" />
+    <MetadataFile FileName="VehicleAlertService1.xsd" MetadataType="Schema" ID="e580f7c5-df5b-4380-8875-3066b0cf60da" SourceId="1" SourceUrl="http://10.10.12.14:2258/VehicleAlertService.svc?xsd=xsd1" />
+    <MetadataFile FileName="VehicleAlertService2.xsd" MetadataType="Schema" ID="ae142cd1-7e0b-4817-a802-844c9fc8a6ad" SourceId="1" SourceUrl="http://10.10.12.14:2258/VehicleAlertService.svc?xsd=xsd6" />
+    <MetadataFile FileName="VehicleAlertService3.xsd" MetadataType="Schema" ID="ade106e5-ca6b-4f86-b9b2-1342f803523d" SourceId="1" SourceUrl="http://10.10.12.14:2258/VehicleAlertService.svc?xsd=xsd3" />
+    <MetadataFile FileName="VehicleAlertService4.xsd" MetadataType="Schema" ID="56d8468e-2b0e-4623-aeb6-f7dfb3fc90a7" SourceId="1" SourceUrl="http://10.10.12.14:2258/VehicleAlertService.svc?xsd=xsd5" />
+    <MetadataFile FileName="VehicleAlertService1.disco" MetadataType="Disco" ID="fd50d475-b16a-4348-890e-9493f5ed4217" SourceId="1" SourceUrl="http://10.10.12.14:2258/VehicleAlertService.svc?disco" />
+    <MetadataFile FileName="VehicleAlertService5.xsd" MetadataType="Schema" ID="cd23b83d-290f-44ec-a6a4-baf90e7f26d9" SourceId="1" SourceUrl="http://10.10.12.14:2258/VehicleAlertService.svc?xsd=xsd0" />
+    <MetadataFile FileName="VehicleAlertService1.wsdl" MetadataType="Wsdl" ID="88c80e87-dc83-4839-9052-fd19b750a163" SourceId="1" SourceUrl="http://10.10.12.14:2258/VehicleAlertService.svc?wsdl" />
+    <MetadataFile FileName="VehicleAlertService6.xsd" MetadataType="Schema" ID="399ca583-0500-4121-b556-cefa0f67b230" SourceId="1" SourceUrl="http://10.10.12.14:2258/VehicleAlertService.svc?xsd=xsd2" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

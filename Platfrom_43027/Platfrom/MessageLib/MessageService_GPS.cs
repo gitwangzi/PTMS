@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Gsafety.Ant.BaseInformation.Repository;
 
 namespace Gsafety.PTMS.MessageLib
 {
@@ -157,6 +158,16 @@ namespace Gsafety.PTMS.MessageLib
                     gps.VehicleId = gpsinfo.VehicleId;
                     gps.Source = (short)GPSSourceEnum.GPS;
                     gps.GpsTime = DateTime.Parse(gpsinfo.GpsTime);
+
+
+                    if (string.IsNullOrEmpty(gps.VehicleId) && !string.IsNullOrEmpty(gps.UID))
+                    {
+                        string DevVehicleId = DevGpsRepository.GetDevGpsBySN(gpsinfo.UID);
+                        if (!string.IsNullOrEmpty(DevVehicleId))
+                        {
+                            gps.VehicleId = DevVehicleId;
+                        }
+                    }
 
 
                     if (DataManager.Vehicles != null && DataManager.Vehicles.ContainsKey(gps.VehicleId))

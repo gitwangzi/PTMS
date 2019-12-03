@@ -7270,4 +7270,10 @@
   <data name="ImageSizeError" xml:space="preserve">
     <value>Image size cannot exceed 10M!</value>
   </data>
+  <data name="DeviceType" xml:space="preserve">
+    <value>Device Type</value>
+  </data>
+  <data name="CarKit" xml:space="preserve">
+    <value>Car Kit</value>
+  </data>
 </root>

@@ -73,12 +73,13 @@ namespace Gsafety.PTMS.Common.Data
         public string InsertSQL()
         {
             StringBuilder builder = new StringBuilder();
-            builder.Append("Insert Into RUN_VEHICLE_LOCATION(ID,CLIENT_ID,VEHICLE_ID,SOURCE,GPS_VALID,LATITUDE,LONGITUDE,SPEED,DIRECTION,GPS_TIME,DISTRICT_CODE,ALARM_FLAG,STATUS_FLAG,DEVICE_ID,SOURCE_MODE)Values(");
+            builder.Append("Insert Into RUN_VEHICLE_LOCATION(ID,CLIENT_ID,VEHICLE_ID,SOURCE,GPS_VALID,ALTITUDE,LATITUDE,LONGITUDE,SPEED,DIRECTION,GPS_TIME,DISTRICT_CODE,ALARM_FLAG,STATUS_FLAG,DEVICE_ID,SOURCE_MODE)Values(");
             builder.Append("'" + Guid.NewGuid().ToString() + "',");
             builder.Append("'" + ClientID + "',N'");
             builder.Append(VehicleId + "',");
             builder.Append(Source + ",'");
             builder.Append(Valid + "','");
+            builder.Append(Height + "','");
             builder.Append(Latitude + "','");
             builder.Append(Longitude + "','");
             builder.Append(Speed + "','");

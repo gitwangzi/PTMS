@@ -248,9 +248,9 @@ public partial class PTMSEntities : DbContext
 
     public DbSet<VEHICLEGPS_VIEW> VEHICLEGPS_VIEW { get; set; }
 
-    public DbSet<ALM_ALARM_MAIL> ALM_ALARM_MAIL { get; set; }
-
     public DbSet<LOG_ERROR> LOG_ERROR { get; set; }
+
+    public DbSet<ALM_ALARM_MAIL> ALM_ALARM_MAIL { get; set; }
 
 }
 

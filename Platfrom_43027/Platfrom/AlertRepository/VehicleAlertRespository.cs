@@ -331,6 +331,7 @@ namespace Gsafety.PTMS.Alert.Repository
                 result.Result.AlertID = model.BusinessAlertID;
                 result.Result.Content = model.Content;
                 result.Result.HandleTime = model.HandleTime;
+                result.Result.AlertLevel =(int)model.AlertLevel;
 
                 return result;
             }
@@ -520,6 +521,113 @@ namespace Gsafety.PTMS.Alert.Repository
                 TotalRecord = totalcount
             };
             return result;
+        }
+
+        public MultiMessage<AlarmEmailInfo> GetAllAlertEmail(PTMSEntities context, string clientid)
+        {
+            MultiMessage<Gsafety.PTMS.Common.Data.AlarmEmailInfo> result = null;
+
+            var source = from a in context.ALM_ALARM_MAIL
+                         where a.CLIENT_ID == clientid && a.VALID == 1 && a.TYPE == 1
+
+                         select new Gsafety.PTMS.Common.Data.AlarmEmailInfo
+                         {
+                             ID = a.ID,
+                             Mail = a.MAIL,
+                             Name = a.NAME,
+                             Level = a.LEVEL.Value,
+                             EmailType = a.TYPE.Value
+                         };
+            var list = source.ToList();
+            var totalcont = source.Count();
+            result = new MultiMessage<Gsafety.PTMS.Common.Data.AlarmEmailInfo>
+            {
+                TotalRecord = totalcont,
+                Result = list
+            };
+
+            return result;
+
+        }
+
+        public SingleMessage<bool> AddAlertEmail(PTMSEntities context, AlarmEmailInfo email)
+        {
+
+
+            try
+            {
+                ALM_ALARM_MAIL data = new ALM_ALARM_MAIL();
+                data.ID = email.ID;
+                data.CLIENT_ID = email.ClientId;
+                data.MAIL = email.Mail;
+                data.VALID = 1;
+                data.LEVEL = email.Level;
+                data.NAME = email.Name;
+                data.TYPE = 1;
+                context.ALM_ALARM_MAIL.Add(data);
+                context.SaveChanges();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+
+            return new SingleMessage<bool> { Result = true };
+        }
+
+        public SingleMessage<bool> UpdateAlertEmail(PTMSEntities context, AlarmEmailInfo email)
+        {
+
+
+            try
+            {
+
+                var source = (from item in context.ALM_ALARM_MAIL
+                              where item.ID == email.ID
+                              select item).FirstOrDefault();
+
+                if (source != null)
+                {
+
+                    source.MAIL = email.Mail;
+                    source.LEVEL = email.Level;
+                    source.NAME = email.Name;
+                    context.SaveChanges();
+                }
+
+
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+
+            return new SingleMessage<bool> { Result = true };
+        }
+
+        public SingleMessage<bool> DeleteAlertEmail(PTMSEntities context, string ID)
+        {
+
+
+            try
+            {
+                var source = (from item in context.ALM_ALARM_MAIL
+                              where item.ID == ID
+                              select item).FirstOrDefault();
+
+                if (source != null)
+                {
+                    source.VALID = 0;
+                    context.SaveChanges();
+                }
+
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+
+            return new SingleMessage<bool> { Result = true };
         }
 
     }

@@ -259,5 +259,94 @@ namespace Gs.PTMS.Service
                 return new SingleMessage<BusinessAlertEx>(false, ex);
             }
         }
+
+        public MultiMessage<AlarmEmailInfo> GetAllAlertEmail(string clientid)
+        {
+            try
+            {
+                Info("Method:GetAllAlertEmail");
+
+
+                MultiMessage<AlarmEmailInfo> result = new MultiMessage<AlarmEmailInfo>();
+
+                using (PTMSEntities context = new PTMSEntities())
+                {
+                    result = Respository.GetAllAlertEmail(context, clientid);
+                }
+
+
+                this.Log<AlarmEmailInfo>(result);
+                return result;
+            }
+            catch (Exception ex)
+            {
+                Error(ex);
+                return new MultiMessage<Gsafety.PTMS.Common.Data.AlarmEmailInfo>() { Result = null, ExceptionMessage = ex };
+            }
+        }
+
+
+        public SingleMessage<bool> AddAlertEmail(AlarmEmailInfo eamil)
+        {
+            try
+            {
+                Info("Method:AddAlertEmail");
+                var result = new SingleMessage<bool>();
+                using (PTMSEntities context = new PTMSEntities())
+                {
+                    result = Respository.AddAlertEmail(context, eamil);
+                }
+
+                return result;
+            }
+            catch (Exception ex)
+            {
+                Error(ex);
+                return new SingleMessage<bool>(false, ex);
+            }
+        }
+
+
+        public SingleMessage<bool> UpdateAlertEmail(AlarmEmailInfo eamil)
+        {
+            try
+            {
+                Info("Method:UpdateAlarmEmail");
+                var result = new SingleMessage<bool>();
+                using (PTMSEntities context = new PTMSEntities())
+                {
+                    result = Respository.UpdateAlertEmail(context, eamil);
+                }
+
+                return result;
+            }
+            catch (Exception ex)
+            {
+                Error(ex);
+                return new SingleMessage<bool>(false, ex);
+            }
+        }
+
+        public SingleMessage<bool> DeleteAlertEmail(string ID)
+        {
+            try
+            {
+                Info("Method:DeleteAlarmEmail");
+                Info("DeleteAlarmEmail:" + Convert.ToString(ID));
+                var result = new SingleMessage<bool>();
+                using (PTMSEntities context = new PTMSEntities())
+                {
+                    result = Respository.DeleteAlertEmail(context, ID);
+                }
+
+                return result;
+            }
+            catch (Exception ex)
+            {
+                Error(ex);
+                return new SingleMessage<bool>(false, ex);
+            }
+        }
+
     }
 }

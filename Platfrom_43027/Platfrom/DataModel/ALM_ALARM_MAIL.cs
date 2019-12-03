@@ -30,6 +30,8 @@ public partial class ALM_ALARM_MAIL
 
     public string CLIENT_ID { get; set; }
 
+    public Nullable<int> TYPE { get; set; }
+
 }
 
 }

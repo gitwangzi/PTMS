@@ -20,18 +20,18 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://localhost:2259/VehicleAlarmService.svc" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://10.10.12.14:2258/VehicleAlarmService.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="VehicleAlarmService2.xsd" MetadataType="Schema" ID="66a2952f-e80a-4d4e-bc72-2ec1d39aa599" SourceId="1" SourceUrl="http://localhost:2259/VehicleAlarmService.svc?xsd=xsd0" />
-    <MetadataFile FileName="VehicleAlarmService21.xsd" MetadataType="Schema" ID="c85ff816-121b-42b2-9dee-0cdf44fbb1a2" SourceId="1" SourceUrl="http://localhost:2259/VehicleAlarmService.svc?xsd=xsd1" />
-    <MetadataFile FileName="VehicleAlarmService22.xsd" MetadataType="Schema" ID="331e07c4-dc83-4080-be9c-75693041b276" SourceId="1" SourceUrl="http://localhost:2259/VehicleAlarmService.svc?xsd=xsd2" />
-    <MetadataFile FileName="VehicleAlarmService23.xsd" MetadataType="Schema" ID="1bfbf433-ac58-4403-a2e8-0e6cd1bf5d14" SourceId="1" SourceUrl="http://localhost:2259/VehicleAlarmService.svc?xsd=xsd3" />
-    <MetadataFile FileName="VehicleAlarmService.disco" MetadataType="Disco" ID="1e2d78a9-9cf6-4855-aa20-b7bc28e548a3" SourceId="1" SourceUrl="http://localhost:2259/VehicleAlarmService.svc?disco" />
-    <MetadataFile FileName="VehicleAlarmService.wsdl" MetadataType="Wsdl" ID="9fe6b50c-db46-4805-9aea-c19f564b5043" SourceId="1" SourceUrl="http://localhost:2259/VehicleAlarmService.svc?wsdl" />
-    <MetadataFile FileName="VehicleAlarmService24.xsd" MetadataType="Schema" ID="094b9085-79fb-4e32-9be7-c8a415ae4ead" SourceId="1" SourceUrl="http://localhost:2259/VehicleAlarmService.svc?xsd=xsd4" />
-    <MetadataFile FileName="VehicleAlarmService25.xsd" MetadataType="Schema" ID="57d5c63b-6dd7-4135-abcf-37ab5c747f8e" SourceId="1" SourceUrl="http://localhost:2259/VehicleAlarmService.svc?xsd=xsd5" />
-    <MetadataFile FileName="VehicleAlarmService26.xsd" MetadataType="Schema" ID="c8ea183a-6439-44ae-b972-d8d788b5e5d0" SourceId="1" SourceUrl="http://localhost:2259/VehicleAlarmService.svc?xsd=xsd6" />
+    <MetadataFile FileName="VehicleAlarmService2.xsd" MetadataType="Schema" ID="1dfd48cd-1cbc-4e72-b0de-0a3581bb896f" SourceId="1" SourceUrl="http://10.10.12.14:2258/VehicleAlarmService.svc?xsd=xsd1" />
+    <MetadataFile FileName="VehicleAlarmService11.disco" MetadataType="Disco" ID="1727edae-bcbd-4d57-a072-4422d0a93cbb" SourceId="1" SourceUrl="http://10.10.12.14:2258/VehicleAlarmService.svc?disco" />
+    <MetadataFile FileName="VehicleAlarmService3.xsd" MetadataType="Schema" ID="2e1391b3-54f8-4910-bf14-f9722a807233" SourceId="1" SourceUrl="http://10.10.12.14:2258/VehicleAlarmService.svc?xsd=xsd4" />
+    <MetadataFile FileName="VehicleAlarmService4.xsd" MetadataType="Schema" ID="4b564ddf-5e7b-4ea5-8060-d5193f9dedc1" SourceId="1" SourceUrl="http://10.10.12.14:2258/VehicleAlarmService.svc?xsd=xsd0" />
+    <MetadataFile FileName="VehicleAlarmService6.xsd" MetadataType="Schema" ID="5cc4384a-7216-43f6-aebb-17ef1bd3050f" SourceId="1" SourceUrl="http://10.10.12.14:2258/VehicleAlarmService.svc?xsd=xsd2" />
+    <MetadataFile FileName="VehicleAlarmService7.xsd" MetadataType="Schema" ID="2032a3a4-6a25-439f-b4f3-86b7c118eae1" SourceId="1" SourceUrl="http://10.10.12.14:2258/VehicleAlarmService.svc?xsd=xsd3" />
+    <MetadataFile FileName="VehicleAlarmService11.wsdl" MetadataType="Wsdl" ID="dd07301f-bb80-47a0-a23e-e1fafc106969" SourceId="1" SourceUrl="http://10.10.12.14:2258/VehicleAlarmService.svc?wsdl" />
+    <MetadataFile FileName="VehicleAlarmService8.xsd" MetadataType="Schema" ID="0307306d-187d-41dd-b7ee-e8f9e231c63f" SourceId="1" SourceUrl="http://10.10.12.14:2258/VehicleAlarmService.svc?xsd=xsd5" />
+    <MetadataFile FileName="VehicleAlarmService9.xsd" MetadataType="Schema" ID="4daf0c1a-f2b8-4c09-b0ff-646e0d6dc6f5" SourceId="1" SourceUrl="http://10.10.12.14:2258/VehicleAlarmService.svc?xsd=xsd6" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

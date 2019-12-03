@@ -417,9 +417,6 @@
         <endpoint address="http://localhost:2259/VehicleService.svc"
             binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IVehicleType"
             contract="VehicleService.IVehicleType" name="BasicHttpBinding_IVehicleType" />
-        <endpoint address="http://localhost:2259/VehicleAlertService.svc"
-            binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IVehicleAlertService"
-            contract="VehicleAlertService.IVehicleAlertService" name="BasicHttpBinding_IVehicleAlertService" />
         <endpoint address="net.tcp://localhost:4503/MessageService" binding="customBinding"
             bindingConfiguration="CustomBinding_IMessageServiceExt" contract="MessageServiceExt.IMessageServiceExt"
             name="CustomBinding_IMessageServiceExt" />
@@ -462,12 +459,15 @@
         <endpoint address="http://localhost:2259/LogManageService.svc"
             binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IPTMSLogError"
             contract="PTMSLogManageService.IPTMSLogError" name="BasicHttpBinding_IPTMSLogError" />
-        <endpoint address="http://localhost:2259/VehicleAlarmService.svc"
-            binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IVehicleAlarmService"
-            contract="VehicleAlarmService.IVehicleAlarmService" name="BasicHttpBinding_IVehicleAlarmService" />
         <endpoint address="http://localhost:2259/BscGeoPoiService.svc"
             binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IBscGeoPoiService"
             contract="BscGeoPoiService.IBscGeoPoiService" name="BasicHttpBinding_IBscGeoPoiService" />
+        <endpoint address="http://10.10.12.14:2258/VehicleAlarmService.svc"
+            binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IVehicleAlarmService"
+            contract="VehicleAlarmService.IVehicleAlarmService" name="BasicHttpBinding_IVehicleAlarmService" />
+        <endpoint address="http://10.10.12.14:2258/VehicleAlertService.svc"
+            binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IVehicleAlertService"
+            contract="VehicleAlertService.IVehicleAlertService" name="BasicHttpBinding_IVehicleAlertService" />
     </client>
   </system.serviceModel>
 </configuration>

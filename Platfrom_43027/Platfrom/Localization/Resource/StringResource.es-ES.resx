@@ -375,6 +375,9 @@
     <value>Longitud</value>
     <comment>Longitud</comment>
   </data>
+  <data name="ALARM_Height" xml:space="preserve">
+    <value>Altura</value>
+  </data>
   <data name="ALARM_Note" xml:space="preserve">
     <value>Observaciones</value>
     <comment>Observación</comment>
@@ -9902,5 +9905,13 @@ luego puede eliminar la ruta!</comment>
   <data name="ImageSizeError" xml:space="preserve">
     <value>El tamaño de la imagen no puede exceder los 10M!</value>
     <comment>El tamaño de la imagen no puede exceder los 10M!</comment>
+  </data>
+  <data name="DeviceType" xml:space="preserve">
+    <value>Tipo de dispositivo</value>
+    <comment>Tipo de dispositivo</comment>
+  </data>
+  <data name="CarKit" xml:space="preserve">
+    <value>Car Kit</value>
+    <comment>Car Kit</comment>
   </data>
 </root>

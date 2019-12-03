@@ -756,7 +756,7 @@ namespace Gsafety.PTMS.ServiceReference.VehicleAlertService {
         
         private string AdditionalInfoField;
         
-        private System.Nullable<int> AlertLevelField;
+        private int AlertLevelField;
         
         private System.Nullable<System.DateTime> AlertTimeField;
         
@@ -830,7 +830,7 @@ namespace Gsafety.PTMS.ServiceReference.VehicleAlertService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> AlertLevel {
+        public int AlertLevel {
             get {
                 return this.AlertLevelField;
             }
@@ -2293,6 +2293,8 @@ namespace Gsafety.PTMS.ServiceReference.VehicleAlertService {
         
         private string AlertIDField;
         
+        private int AlertLevelField;
+        
         private string ContentField;
         
         private System.DateTime HandleTimeField;
@@ -2306,6 +2308,19 @@ namespace Gsafety.PTMS.ServiceReference.VehicleAlertService {
                 if ((object.ReferenceEquals(this.AlertIDField, value) != true)) {
                     this.AlertIDField = value;
                     this.RaisePropertyChanged("AlertID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int AlertLevel {
+            get {
+                return this.AlertLevelField;
+            }
+            set {
+                if ((this.AlertLevelField.Equals(value) != true)) {
+                    this.AlertLevelField = value;
+                    this.RaisePropertyChanged("AlertLevel");
                 }
             }
         }
@@ -2526,6 +2541,216 @@ namespace Gsafety.PTMS.ServiceReference.VehicleAlertService {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="MultiMessageOfAlarmEmailInfoi7Zg_POJ5", Namespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Base.Contract.Data")]
+    public partial class MultiMessageOfAlarmEmailInfoi7Zg_POJ5 : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string ErrorDetailMsgField;
+        
+        private string ErrorMsgField;
+        
+        private System.Exception ExceptionMessageField;
+        
+        private bool IsSuccessField;
+        
+        private System.Collections.ObjectModel.ObservableCollection<Gsafety.PTMS.ServiceReference.VehicleAlertService.AlarmEmailInfo> ResultField;
+        
+        private int TotalRecordField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ErrorDetailMsg {
+            get {
+                return this.ErrorDetailMsgField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ErrorDetailMsgField, value) != true)) {
+                    this.ErrorDetailMsgField = value;
+                    this.RaisePropertyChanged("ErrorDetailMsg");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ErrorMsg {
+            get {
+                return this.ErrorMsgField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ErrorMsgField, value) != true)) {
+                    this.ErrorMsgField = value;
+                    this.RaisePropertyChanged("ErrorMsg");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Exception ExceptionMessage {
+            get {
+                return this.ExceptionMessageField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ExceptionMessageField, value) != true)) {
+                    this.ExceptionMessageField = value;
+                    this.RaisePropertyChanged("ExceptionMessage");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool IsSuccess {
+            get {
+                return this.IsSuccessField;
+            }
+            set {
+                if ((this.IsSuccessField.Equals(value) != true)) {
+                    this.IsSuccessField = value;
+                    this.RaisePropertyChanged("IsSuccess");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.ObjectModel.ObservableCollection<Gsafety.PTMS.ServiceReference.VehicleAlertService.AlarmEmailInfo> Result {
+            get {
+                return this.ResultField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ResultField, value) != true)) {
+                    this.ResultField = value;
+                    this.RaisePropertyChanged("Result");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TotalRecord {
+            get {
+                return this.TotalRecordField;
+            }
+            set {
+                if ((this.TotalRecordField.Equals(value) != true)) {
+                    this.TotalRecordField = value;
+                    this.RaisePropertyChanged("TotalRecord");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="AlarmEmailInfo", Namespace="http://schemas.datacontract.org/2004/07/Gsafety.PTMS.Common.Data")]
+    public partial class AlarmEmailInfo : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string ClientIdField;
+        
+        private string IDField;
+        
+        private int LevelField;
+        
+        private string MailField;
+        
+        private string NameField;
+        
+        private int TypeField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ClientId {
+            get {
+                return this.ClientIdField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ClientIdField, value) != true)) {
+                    this.ClientIdField = value;
+                    this.RaisePropertyChanged("ClientId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ID {
+            get {
+                return this.IDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.IDField, value) != true)) {
+                    this.IDField = value;
+                    this.RaisePropertyChanged("ID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Level {
+            get {
+                return this.LevelField;
+            }
+            set {
+                if ((this.LevelField.Equals(value) != true)) {
+                    this.LevelField = value;
+                    this.RaisePropertyChanged("Level");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Mail {
+            get {
+                return this.MailField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.MailField, value) != true)) {
+                    this.MailField = value;
+                    this.RaisePropertyChanged("Mail");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Name {
+            get {
+                return this.NameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NameField, value) != true)) {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Type {
+            get {
+                return this.TypeField;
+            }
+            set {
+                if ((this.TypeField.Equals(value) != true)) {
+                    this.TypeField = value;
+                    this.RaisePropertyChanged("Type");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="VehicleAlertService.IVehicleAlertService")]
     public interface IVehicleAlertService {
@@ -2574,6 +2799,26 @@ namespace Gsafety.PTMS.ServiceReference.VehicleAlertService {
         System.IAsyncResult BeginGetVehicleAlertDisposeInfo(string id, string vehicleId, string clientId, System.AsyncCallback callback, object asyncState);
         
         Gsafety.PTMS.ServiceReference.VehicleAlertService.SingleMessageOfBusinessAlertExi7Zg_POJ5 EndGetVehicleAlertDisposeInfo(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IVehicleAlertService/GetAllAlertEmail", ReplyAction="http://tempuri.org/IVehicleAlertService/GetAllAlertEmailResponse")]
+        System.IAsyncResult BeginGetAllAlertEmail(string clientid, System.AsyncCallback callback, object asyncState);
+        
+        Gsafety.PTMS.ServiceReference.VehicleAlertService.MultiMessageOfAlarmEmailInfoi7Zg_POJ5 EndGetAllAlertEmail(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IVehicleAlertService/AddAlertEmail", ReplyAction="http://tempuri.org/IVehicleAlertService/AddAlertEmailResponse")]
+        System.IAsyncResult BeginAddAlertEmail(Gsafety.PTMS.ServiceReference.VehicleAlertService.AlarmEmailInfo eamil, System.AsyncCallback callback, object asyncState);
+        
+        Gsafety.PTMS.ServiceReference.VehicleAlertService.SingleMessageOfboolean EndAddAlertEmail(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IVehicleAlertService/UpdateAlertEmail", ReplyAction="http://tempuri.org/IVehicleAlertService/UpdateAlertEmailResponse")]
+        System.IAsyncResult BeginUpdateAlertEmail(Gsafety.PTMS.ServiceReference.VehicleAlertService.AlarmEmailInfo eamil, System.AsyncCallback callback, object asyncState);
+        
+        Gsafety.PTMS.ServiceReference.VehicleAlertService.SingleMessageOfboolean EndUpdateAlertEmail(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IVehicleAlertService/DeleteAlertEmail", ReplyAction="http://tempuri.org/IVehicleAlertService/DeleteAlertEmailResponse")]
+        System.IAsyncResult BeginDeleteAlertEmail(string ID, System.AsyncCallback callback, object asyncState);
+        
+        Gsafety.PTMS.ServiceReference.VehicleAlertService.SingleMessageOfboolean EndDeleteAlertEmail(System.IAsyncResult result);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -2753,6 +2998,82 @@ namespace Gsafety.PTMS.ServiceReference.VehicleAlertService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class GetAllAlertEmailCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public GetAllAlertEmailCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public Gsafety.PTMS.ServiceReference.VehicleAlertService.MultiMessageOfAlarmEmailInfoi7Zg_POJ5 Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((Gsafety.PTMS.ServiceReference.VehicleAlertService.MultiMessageOfAlarmEmailInfoi7Zg_POJ5)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class AddAlertEmailCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public AddAlertEmailCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public Gsafety.PTMS.ServiceReference.VehicleAlertService.SingleMessageOfboolean Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((Gsafety.PTMS.ServiceReference.VehicleAlertService.SingleMessageOfboolean)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class UpdateAlertEmailCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public UpdateAlertEmailCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public Gsafety.PTMS.ServiceReference.VehicleAlertService.SingleMessageOfboolean Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((Gsafety.PTMS.ServiceReference.VehicleAlertService.SingleMessageOfboolean)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class DeleteAlertEmailCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public DeleteAlertEmailCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public Gsafety.PTMS.ServiceReference.VehicleAlertService.SingleMessageOfboolean Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((Gsafety.PTMS.ServiceReference.VehicleAlertService.SingleMessageOfboolean)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public partial class VehicleAlertServiceClient : System.ServiceModel.ClientBase<Gsafety.PTMS.ServiceReference.VehicleAlertService.IVehicleAlertService>, Gsafety.PTMS.ServiceReference.VehicleAlertService.IVehicleAlertService {
         
         private BeginOperationDelegate onBeginGetVehicleHandledAlertDelegate;
@@ -2808,6 +3129,30 @@ namespace Gsafety.PTMS.ServiceReference.VehicleAlertService {
         private EndOperationDelegate onEndGetVehicleAlertDisposeInfoDelegate;
         
         private System.Threading.SendOrPostCallback onGetVehicleAlertDisposeInfoCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginGetAllAlertEmailDelegate;
+        
+        private EndOperationDelegate onEndGetAllAlertEmailDelegate;
+        
+        private System.Threading.SendOrPostCallback onGetAllAlertEmailCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginAddAlertEmailDelegate;
+        
+        private EndOperationDelegate onEndAddAlertEmailDelegate;
+        
+        private System.Threading.SendOrPostCallback onAddAlertEmailCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginUpdateAlertEmailDelegate;
+        
+        private EndOperationDelegate onEndUpdateAlertEmailDelegate;
+        
+        private System.Threading.SendOrPostCallback onUpdateAlertEmailCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginDeleteAlertEmailDelegate;
+        
+        private EndOperationDelegate onEndDeleteAlertEmailDelegate;
+        
+        private System.Threading.SendOrPostCallback onDeleteAlertEmailCompletedDelegate;
         
         private BeginOperationDelegate onBeginOpenDelegate;
         
@@ -2878,6 +3223,14 @@ namespace Gsafety.PTMS.ServiceReference.VehicleAlertService {
         public event System.EventHandler<GetBusinessAlertHandleByAlertIDCompletedEventArgs> GetBusinessAlertHandleByAlertIDCompleted;
         
         public event System.EventHandler<GetVehicleAlertDisposeInfoCompletedEventArgs> GetVehicleAlertDisposeInfoCompleted;
+        
+        public event System.EventHandler<GetAllAlertEmailCompletedEventArgs> GetAllAlertEmailCompleted;
+        
+        public event System.EventHandler<AddAlertEmailCompletedEventArgs> AddAlertEmailCompleted;
+        
+        public event System.EventHandler<UpdateAlertEmailCompletedEventArgs> UpdateAlertEmailCompleted;
+        
+        public event System.EventHandler<DeleteAlertEmailCompletedEventArgs> DeleteAlertEmailCompleted;
         
         public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> OpenCompleted;
         
@@ -3335,6 +3688,190 @@ namespace Gsafety.PTMS.ServiceReference.VehicleAlertService {
                         clientId}, this.onEndGetVehicleAlertDisposeInfoDelegate, this.onGetVehicleAlertDisposeInfoCompletedDelegate, userState);
         }
         
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.IAsyncResult Gsafety.PTMS.ServiceReference.VehicleAlertService.IVehicleAlertService.BeginGetAllAlertEmail(string clientid, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginGetAllAlertEmail(clientid, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        Gsafety.PTMS.ServiceReference.VehicleAlertService.MultiMessageOfAlarmEmailInfoi7Zg_POJ5 Gsafety.PTMS.ServiceReference.VehicleAlertService.IVehicleAlertService.EndGetAllAlertEmail(System.IAsyncResult result) {
+            return base.Channel.EndGetAllAlertEmail(result);
+        }
+        
+        private System.IAsyncResult OnBeginGetAllAlertEmail(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            string clientid = ((string)(inValues[0]));
+            return ((Gsafety.PTMS.ServiceReference.VehicleAlertService.IVehicleAlertService)(this)).BeginGetAllAlertEmail(clientid, callback, asyncState);
+        }
+        
+        private object[] OnEndGetAllAlertEmail(System.IAsyncResult result) {
+            Gsafety.PTMS.ServiceReference.VehicleAlertService.MultiMessageOfAlarmEmailInfoi7Zg_POJ5 retVal = ((Gsafety.PTMS.ServiceReference.VehicleAlertService.IVehicleAlertService)(this)).EndGetAllAlertEmail(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnGetAllAlertEmailCompleted(object state) {
+            if ((this.GetAllAlertEmailCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.GetAllAlertEmailCompleted(this, new GetAllAlertEmailCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void GetAllAlertEmailAsync(string clientid) {
+            this.GetAllAlertEmailAsync(clientid, null);
+        }
+        
+        public void GetAllAlertEmailAsync(string clientid, object userState) {
+            if ((this.onBeginGetAllAlertEmailDelegate == null)) {
+                this.onBeginGetAllAlertEmailDelegate = new BeginOperationDelegate(this.OnBeginGetAllAlertEmail);
+            }
+            if ((this.onEndGetAllAlertEmailDelegate == null)) {
+                this.onEndGetAllAlertEmailDelegate = new EndOperationDelegate(this.OnEndGetAllAlertEmail);
+            }
+            if ((this.onGetAllAlertEmailCompletedDelegate == null)) {
+                this.onGetAllAlertEmailCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGetAllAlertEmailCompleted);
+            }
+            base.InvokeAsync(this.onBeginGetAllAlertEmailDelegate, new object[] {
+                        clientid}, this.onEndGetAllAlertEmailDelegate, this.onGetAllAlertEmailCompletedDelegate, userState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.IAsyncResult Gsafety.PTMS.ServiceReference.VehicleAlertService.IVehicleAlertService.BeginAddAlertEmail(Gsafety.PTMS.ServiceReference.VehicleAlertService.AlarmEmailInfo eamil, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginAddAlertEmail(eamil, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        Gsafety.PTMS.ServiceReference.VehicleAlertService.SingleMessageOfboolean Gsafety.PTMS.ServiceReference.VehicleAlertService.IVehicleAlertService.EndAddAlertEmail(System.IAsyncResult result) {
+            return base.Channel.EndAddAlertEmail(result);
+        }
+        
+        private System.IAsyncResult OnBeginAddAlertEmail(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            Gsafety.PTMS.ServiceReference.VehicleAlertService.AlarmEmailInfo eamil = ((Gsafety.PTMS.ServiceReference.VehicleAlertService.AlarmEmailInfo)(inValues[0]));
+            return ((Gsafety.PTMS.ServiceReference.VehicleAlertService.IVehicleAlertService)(this)).BeginAddAlertEmail(eamil, callback, asyncState);
+        }
+        
+        private object[] OnEndAddAlertEmail(System.IAsyncResult result) {
+            Gsafety.PTMS.ServiceReference.VehicleAlertService.SingleMessageOfboolean retVal = ((Gsafety.PTMS.ServiceReference.VehicleAlertService.IVehicleAlertService)(this)).EndAddAlertEmail(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnAddAlertEmailCompleted(object state) {
+            if ((this.AddAlertEmailCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.AddAlertEmailCompleted(this, new AddAlertEmailCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void AddAlertEmailAsync(Gsafety.PTMS.ServiceReference.VehicleAlertService.AlarmEmailInfo eamil) {
+            this.AddAlertEmailAsync(eamil, null);
+        }
+        
+        public void AddAlertEmailAsync(Gsafety.PTMS.ServiceReference.VehicleAlertService.AlarmEmailInfo eamil, object userState) {
+            if ((this.onBeginAddAlertEmailDelegate == null)) {
+                this.onBeginAddAlertEmailDelegate = new BeginOperationDelegate(this.OnBeginAddAlertEmail);
+            }
+            if ((this.onEndAddAlertEmailDelegate == null)) {
+                this.onEndAddAlertEmailDelegate = new EndOperationDelegate(this.OnEndAddAlertEmail);
+            }
+            if ((this.onAddAlertEmailCompletedDelegate == null)) {
+                this.onAddAlertEmailCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnAddAlertEmailCompleted);
+            }
+            base.InvokeAsync(this.onBeginAddAlertEmailDelegate, new object[] {
+                        eamil}, this.onEndAddAlertEmailDelegate, this.onAddAlertEmailCompletedDelegate, userState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.IAsyncResult Gsafety.PTMS.ServiceReference.VehicleAlertService.IVehicleAlertService.BeginUpdateAlertEmail(Gsafety.PTMS.ServiceReference.VehicleAlertService.AlarmEmailInfo eamil, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginUpdateAlertEmail(eamil, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        Gsafety.PTMS.ServiceReference.VehicleAlertService.SingleMessageOfboolean Gsafety.PTMS.ServiceReference.VehicleAlertService.IVehicleAlertService.EndUpdateAlertEmail(System.IAsyncResult result) {
+            return base.Channel.EndUpdateAlertEmail(result);
+        }
+        
+        private System.IAsyncResult OnBeginUpdateAlertEmail(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            Gsafety.PTMS.ServiceReference.VehicleAlertService.AlarmEmailInfo eamil = ((Gsafety.PTMS.ServiceReference.VehicleAlertService.AlarmEmailInfo)(inValues[0]));
+            return ((Gsafety.PTMS.ServiceReference.VehicleAlertService.IVehicleAlertService)(this)).BeginUpdateAlertEmail(eamil, callback, asyncState);
+        }
+        
+        private object[] OnEndUpdateAlertEmail(System.IAsyncResult result) {
+            Gsafety.PTMS.ServiceReference.VehicleAlertService.SingleMessageOfboolean retVal = ((Gsafety.PTMS.ServiceReference.VehicleAlertService.IVehicleAlertService)(this)).EndUpdateAlertEmail(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnUpdateAlertEmailCompleted(object state) {
+            if ((this.UpdateAlertEmailCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.UpdateAlertEmailCompleted(this, new UpdateAlertEmailCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void UpdateAlertEmailAsync(Gsafety.PTMS.ServiceReference.VehicleAlertService.AlarmEmailInfo eamil) {
+            this.UpdateAlertEmailAsync(eamil, null);
+        }
+        
+        public void UpdateAlertEmailAsync(Gsafety.PTMS.ServiceReference.VehicleAlertService.AlarmEmailInfo eamil, object userState) {
+            if ((this.onBeginUpdateAlertEmailDelegate == null)) {
+                this.onBeginUpdateAlertEmailDelegate = new BeginOperationDelegate(this.OnBeginUpdateAlertEmail);
+            }
+            if ((this.onEndUpdateAlertEmailDelegate == null)) {
+                this.onEndUpdateAlertEmailDelegate = new EndOperationDelegate(this.OnEndUpdateAlertEmail);
+            }
+            if ((this.onUpdateAlertEmailCompletedDelegate == null)) {
+                this.onUpdateAlertEmailCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnUpdateAlertEmailCompleted);
+            }
+            base.InvokeAsync(this.onBeginUpdateAlertEmailDelegate, new object[] {
+                        eamil}, this.onEndUpdateAlertEmailDelegate, this.onUpdateAlertEmailCompletedDelegate, userState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.IAsyncResult Gsafety.PTMS.ServiceReference.VehicleAlertService.IVehicleAlertService.BeginDeleteAlertEmail(string ID, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginDeleteAlertEmail(ID, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        Gsafety.PTMS.ServiceReference.VehicleAlertService.SingleMessageOfboolean Gsafety.PTMS.ServiceReference.VehicleAlertService.IVehicleAlertService.EndDeleteAlertEmail(System.IAsyncResult result) {
+            return base.Channel.EndDeleteAlertEmail(result);
+        }
+        
+        private System.IAsyncResult OnBeginDeleteAlertEmail(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            string ID = ((string)(inValues[0]));
+            return ((Gsafety.PTMS.ServiceReference.VehicleAlertService.IVehicleAlertService)(this)).BeginDeleteAlertEmail(ID, callback, asyncState);
+        }
+        
+        private object[] OnEndDeleteAlertEmail(System.IAsyncResult result) {
+            Gsafety.PTMS.ServiceReference.VehicleAlertService.SingleMessageOfboolean retVal = ((Gsafety.PTMS.ServiceReference.VehicleAlertService.IVehicleAlertService)(this)).EndDeleteAlertEmail(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnDeleteAlertEmailCompleted(object state) {
+            if ((this.DeleteAlertEmailCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.DeleteAlertEmailCompleted(this, new DeleteAlertEmailCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void DeleteAlertEmailAsync(string ID) {
+            this.DeleteAlertEmailAsync(ID, null);
+        }
+        
+        public void DeleteAlertEmailAsync(string ID, object userState) {
+            if ((this.onBeginDeleteAlertEmailDelegate == null)) {
+                this.onBeginDeleteAlertEmailDelegate = new BeginOperationDelegate(this.OnBeginDeleteAlertEmail);
+            }
+            if ((this.onEndDeleteAlertEmailDelegate == null)) {
+                this.onEndDeleteAlertEmailDelegate = new EndOperationDelegate(this.OnEndDeleteAlertEmail);
+            }
+            if ((this.onDeleteAlertEmailCompletedDelegate == null)) {
+                this.onDeleteAlertEmailCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnDeleteAlertEmailCompleted);
+            }
+            base.InvokeAsync(this.onBeginDeleteAlertEmailDelegate, new object[] {
+                        ID}, this.onEndDeleteAlertEmailDelegate, this.onDeleteAlertEmailCompletedDelegate, userState);
+        }
+        
         private System.IAsyncResult OnBeginOpen(object[] inValues, System.AsyncCallback callback, object asyncState) {
             return ((System.ServiceModel.ICommunicationObject)(this)).BeginOpen(callback, asyncState);
         }
@@ -3544,6 +4081,58 @@ namespace Gsafety.PTMS.ServiceReference.VehicleAlertService {
             public Gsafety.PTMS.ServiceReference.VehicleAlertService.SingleMessageOfBusinessAlertExi7Zg_POJ5 EndGetVehicleAlertDisposeInfo(System.IAsyncResult result) {
                 object[] _args = new object[0];
                 Gsafety.PTMS.ServiceReference.VehicleAlertService.SingleMessageOfBusinessAlertExi7Zg_POJ5 _result = ((Gsafety.PTMS.ServiceReference.VehicleAlertService.SingleMessageOfBusinessAlertExi7Zg_POJ5)(base.EndInvoke("GetVehicleAlertDisposeInfo", _args, result)));
+                return _result;
+            }
+            
+            public System.IAsyncResult BeginGetAllAlertEmail(string clientid, System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[1];
+                _args[0] = clientid;
+                System.IAsyncResult _result = base.BeginInvoke("GetAllAlertEmail", _args, callback, asyncState);
+                return _result;
+            }
+            
+            public Gsafety.PTMS.ServiceReference.VehicleAlertService.MultiMessageOfAlarmEmailInfoi7Zg_POJ5 EndGetAllAlertEmail(System.IAsyncResult result) {
+                object[] _args = new object[0];
+                Gsafety.PTMS.ServiceReference.VehicleAlertService.MultiMessageOfAlarmEmailInfoi7Zg_POJ5 _result = ((Gsafety.PTMS.ServiceReference.VehicleAlertService.MultiMessageOfAlarmEmailInfoi7Zg_POJ5)(base.EndInvoke("GetAllAlertEmail", _args, result)));
+                return _result;
+            }
+            
+            public System.IAsyncResult BeginAddAlertEmail(Gsafety.PTMS.ServiceReference.VehicleAlertService.AlarmEmailInfo eamil, System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[1];
+                _args[0] = eamil;
+                System.IAsyncResult _result = base.BeginInvoke("AddAlertEmail", _args, callback, asyncState);
+                return _result;
+            }
+            
+            public Gsafety.PTMS.ServiceReference.VehicleAlertService.SingleMessageOfboolean EndAddAlertEmail(System.IAsyncResult result) {
+                object[] _args = new object[0];
+                Gsafety.PTMS.ServiceReference.VehicleAlertService.SingleMessageOfboolean _result = ((Gsafety.PTMS.ServiceReference.VehicleAlertService.SingleMessageOfboolean)(base.EndInvoke("AddAlertEmail", _args, result)));
+                return _result;
+            }
+            
+            public System.IAsyncResult BeginUpdateAlertEmail(Gsafety.PTMS.ServiceReference.VehicleAlertService.AlarmEmailInfo eamil, System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[1];
+                _args[0] = eamil;
+                System.IAsyncResult _result = base.BeginInvoke("UpdateAlertEmail", _args, callback, asyncState);
+                return _result;
+            }
+            
+            public Gsafety.PTMS.ServiceReference.VehicleAlertService.SingleMessageOfboolean EndUpdateAlertEmail(System.IAsyncResult result) {
+                object[] _args = new object[0];
+                Gsafety.PTMS.ServiceReference.VehicleAlertService.SingleMessageOfboolean _result = ((Gsafety.PTMS.ServiceReference.VehicleAlertService.SingleMessageOfboolean)(base.EndInvoke("UpdateAlertEmail", _args, result)));
+                return _result;
+            }
+            
+            public System.IAsyncResult BeginDeleteAlertEmail(string ID, System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[1];
+                _args[0] = ID;
+                System.IAsyncResult _result = base.BeginInvoke("DeleteAlertEmail", _args, callback, asyncState);
+                return _result;
+            }
+            
+            public Gsafety.PTMS.ServiceReference.VehicleAlertService.SingleMessageOfboolean EndDeleteAlertEmail(System.IAsyncResult result) {
+                object[] _args = new object[0];
+                Gsafety.PTMS.ServiceReference.VehicleAlertService.SingleMessageOfboolean _result = ((Gsafety.PTMS.ServiceReference.VehicleAlertService.SingleMessageOfboolean)(base.EndInvoke("DeleteAlertEmail", _args, result)));
                 return _result;
             }
         }

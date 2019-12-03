@@ -56,7 +56,7 @@ namespace Gsafety.PTMS.Reports
                 xrtVehicle.Text = reader.GetString("VehicleNumber");
                 xrtOrganization.Text = reader.GetString("Rpt_Organization");
                 xrtVehicleType.Text = reader.GetString("Rpt_VehicleType");
-                xrtDistrict.Text = reader.GetString("Rpt_District");
+                xrtDistrict.Text = reader.GetString("ALARM_Height");
                 xrtLon.Text = reader.GetString("ALARM_Longitude");
                 xrtLat.Text = reader.GetString("ALARM_Latitude");
                 xrtDir.Text = reader.GetString("Dir");
@@ -74,7 +74,8 @@ namespace Gsafety.PTMS.Reports
 
                 colVehicle.DataBindings.Add("Text", DataSource, "vehicle_id");
                 colOrganization.DataBindings.Add("Text", DataSource, "OrganizationName");
-                colDistrict.DataBindings.Add("Text", DataSource, "districtname");
+                //colDistrict.DataBindings.Add("Text", DataSource, "districtname");
+                colDistrict.DataBindings.Add("Text", DataSource, "alt");
                 colVehicleType.DataBindings.Add("Text", DataSource, "vehicletype");
                 colLon.DataBindings.Add("Text", DataSource, "lon");
                 colLat.DataBindings.Add("Text", DataSource, "lat");

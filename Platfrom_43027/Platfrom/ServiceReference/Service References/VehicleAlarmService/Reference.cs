@@ -1410,6 +1410,8 @@ namespace Gsafety.PTMS.ServiceReference.VehicleAlarmService {
         
         private string NameField;
         
+        private int TypeField;
+        
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string ClientId {
             get {
@@ -1471,6 +1473,19 @@ namespace Gsafety.PTMS.ServiceReference.VehicleAlarmService {
                 if ((object.ReferenceEquals(this.NameField, value) != true)) {
                     this.NameField = value;
                     this.RaisePropertyChanged("Name");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Type {
+            get {
+                return this.TypeField;
+            }
+            set {
+                if ((this.TypeField.Equals(value) != true)) {
+                    this.TypeField = value;
+                    this.RaisePropertyChanged("Type");
                 }
             }
         }

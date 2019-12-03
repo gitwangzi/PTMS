@@ -121,6 +121,7 @@ namespace Gsafety.Ant.Monitor.ViewModels
             email.Level = 1;
             email.Name = "";
             email.Mail = "";
+            
 
             ChildSendMail child = new ChildSendMail(ApplicationContext.Instance.StringResourceReader.GetString("MONITOR_AddEmail"));
             child.Edit(email);
@@ -527,6 +528,9 @@ namespace Gsafety.Ant.Monitor.ViewModels
 
         private void Cancel(string obj)
         {
+            Note = string.Empty;
+            IsMail = false;
+            IncidentAddress = string.Empty;
             AlarmHandleIsVisual = false;
         }
 

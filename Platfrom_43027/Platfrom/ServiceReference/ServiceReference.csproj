@@ -1379,27 +1379,30 @@
     <None Include="Service References\VehicleAlarmService\Gsafety.PTMS.ServiceReference.VehicleAlarmService.SingleMessageOfTransferDisposei7Zg_POJ5.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\VehicleAlarmService\VehicleAlarmService.wsdl" />
+    <None Include="Service References\VehicleAlarmService\VehicleAlarmService11.wsdl" />
     <None Include="Service References\VehicleAlarmService\VehicleAlarmService2.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\VehicleAlarmService\VehicleAlarmService21.xsd">
+    <None Include="Service References\VehicleAlarmService\VehicleAlarmService3.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\VehicleAlarmService\VehicleAlarmService22.xsd">
+    <None Include="Service References\VehicleAlarmService\VehicleAlarmService4.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\VehicleAlarmService\VehicleAlarmService23.xsd">
+    <None Include="Service References\VehicleAlarmService\VehicleAlarmService6.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\VehicleAlarmService\VehicleAlarmService24.xsd">
+    <None Include="Service References\VehicleAlarmService\VehicleAlarmService7.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\VehicleAlarmService\VehicleAlarmService25.xsd">
+    <None Include="Service References\VehicleAlarmService\VehicleAlarmService8.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\VehicleAlarmService\VehicleAlarmService26.xsd">
+    <None Include="Service References\VehicleAlarmService\VehicleAlarmService9.xsd">
       <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\VehicleAlertService\Gsafety.PTMS.ServiceReference.VehicleAlertService.MultiMessageOfAlarmEmailInfoi7Zg_POJ5.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\VehicleAlertService\Gsafety.PTMS.ServiceReference.VehicleAlertService.MultiMessageOfBusinessAlertExi7Zg_POJ5.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -1425,26 +1428,26 @@
     <None Include="Service References\VehicleAlertService\Gsafety.PTMS.ServiceReference.VehicleAlertService.SingleMessageOfVehicleAlertDetailWem2IK3v.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\VehicleAlertService\VehicleAlertService.wsdl" />
+    <None Include="Service References\VehicleAlertService\VehicleAlertService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\VehicleAlertService\VehicleAlertService1.wsdl" />
+    <None Include="Service References\VehicleAlertService\VehicleAlertService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\VehicleAlertService\VehicleAlertService2.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\VehicleAlertService\VehicleAlertService21.xsd">
+    <None Include="Service References\VehicleAlertService\VehicleAlertService3.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\VehicleAlertService\VehicleAlertService22.xsd">
+    <None Include="Service References\VehicleAlertService\VehicleAlertService4.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\VehicleAlertService\VehicleAlertService23.xsd">
+    <None Include="Service References\VehicleAlertService\VehicleAlertService5.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\VehicleAlertService\VehicleAlertService24.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\VehicleAlertService\VehicleAlertService25.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\VehicleAlertService\VehicleAlertService26.xsd">
+    <None Include="Service References\VehicleAlertService\VehicleAlertService6.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\VehicleMonitorService\Gsafety.PTMS.ServiceReference.VehicleMonitorService.MultiMessageOfGPSi7Zg_POJ5.datasource">
@@ -1709,7 +1712,6 @@
     <None Include="Service References\AccountService\AccountService1.disco" />
     <None Include="Service References\BscDevSuiteService\BscDevSuiteService1.disco" />
     <None Include="Service References\AccountService\AccountService11.disco" />
-    <None Include="Service References\VehicleAlarmService\VehicleAlarmService.disco" />
     <None Include="Service References\VehicleService\VehicleService.disco" />
     <None Include="Service References\EmailService\EmailService.disco" />
     <None Include="Service References\EmailService\configuration91.svcinfo" />
@@ -1719,11 +1721,12 @@
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
     <None Include="Service References\TrafficManageService\TrafficManageService.disco" />
-    <None Include="Service References\VehicleAlertService\VehicleAlertService.disco" />
     <None Include="Service References\DevGpsService\DevGpsService1.disco" />
     <None Include="Service References\LogService\LogService1.disco" />
     <None Include="Service References\PTMSLogManageService\LogManageService1.disco" />
     <None Include="Service References\BscGeoPoiService\BscGeoPoiService1.disco" />
+    <None Include="Service References\VehicleAlarmService\VehicleAlarmService11.disco" />
+    <None Include="Service References\VehicleAlertService\VehicleAlertService1.disco" />
     <Content Include="ServiceReferences.ClientConfig">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <SubType>Designer</SubType>

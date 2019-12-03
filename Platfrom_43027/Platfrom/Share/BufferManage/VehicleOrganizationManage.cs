@@ -382,7 +382,15 @@ namespace Gsafety.PTMS.Share
         {
             var vehicleModle = new Gsafety.PTMS.Bases.Models.Vehicle();
             vehicleModle.VehicleId = vehicle.VehicleId;
+
+         
             vehicleModle.UniqueId = vehicle.MDVR_SN;
+
+            if (string.IsNullOrEmpty(vehicle.MDVR_SN))
+            {
+                vehicleModle.UniqueId = vehicle.GPS_SN;
+            
+            }
             vehicleModle.BrandModel = vehicle.BrandModel;
             vehicleModle.EngineId = vehicle.EngineId;
             vehicleModle.Owner = vehicle.Owner;
@@ -403,6 +411,7 @@ namespace Gsafety.PTMS.Share
             vehicleModle.CityName = vehicle.CityName;
             vehicleModle.ProvinceName = vehicle.ProvinceName;
             vehicleModle.DistrictCode = vehicle.DistrictCode;
+            vehicleModle.Ficha = vehicle.Ficha;
             vehicleModle.VehicleTypeImage = vehicle.VehicleTypeImage;
             return vehicleModle;
         }

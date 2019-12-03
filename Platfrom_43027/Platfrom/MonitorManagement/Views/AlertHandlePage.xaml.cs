@@ -22,6 +22,7 @@ namespace Gsafety.Ant.Monitor.Views
         public AlertHandlePage()
         {
             InitializeComponent();
+            Gsafety.PTMS.Share.ApplicationContext.Instance.StringResourceReader.TranslateDataGrid(MailListView);
             IsDrag = true;
         }
         MouseDragElementBehavior dragBehavior = new MouseDragElementBehavior();

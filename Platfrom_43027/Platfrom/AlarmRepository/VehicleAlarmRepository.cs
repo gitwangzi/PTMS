@@ -1072,22 +1072,21 @@ namespace Gsafety.PTMS.Alarm.Repository
            
         }
 
-       
 
         public MultiMessage<AlarmEmailInfo> GetAllAlarmEmail(PTMSEntities context, string clientid)
         {
             MultiMessage<Gsafety.PTMS.Common.Data.AlarmEmailInfo> result = null;
 
             var source = from a in context.ALM_ALARM_MAIL
-                         where a.CLIENT_ID == clientid && a.VALID == 1
+                         where a.CLIENT_ID == clientid && a.VALID == 1 && a.TYPE == 0
 
                          select new Gsafety.PTMS.Common.Data.AlarmEmailInfo
                          {
                              ID = a.ID,
                              Mail = a.MAIL,
                              Name = a.NAME,
-                             Level = a.LEVEL.Value
-
+                             Level = a.LEVEL.Value,
+                             EmailType = a.TYPE.Value
                          };
             var list = source.ToList();
             var totalcont = source.Count();
@@ -1114,6 +1113,7 @@ namespace Gsafety.PTMS.Alarm.Repository
                 data.VALID = 1;
                 data.LEVEL = email.Level;
                 data.NAME = email.Name;
+                data.TYPE = 0;
                 context.ALM_ALARM_MAIL.Add(data);
                 context.SaveChanges();
             }

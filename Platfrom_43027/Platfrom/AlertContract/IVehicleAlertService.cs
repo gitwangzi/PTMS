@@ -169,5 +169,21 @@ namespace Gsafety.PTMS.Alert.Contract
         /// <returns></returns>
         [OperationContract]
         SingleMessage<BusinessAlertEx> GetVehicleAlertDisposeInfo(string id, string vehicleId, string clientId);
+
+        [OperationContract]
+        MultiMessage<AlarmEmailInfo> GetAllAlertEmail(string clientid);
+
+        [OperationContract]
+
+        SingleMessage<bool> AddAlertEmail(AlarmEmailInfo eamil);
+
+        [OperationContract]
+
+        SingleMessage<bool> UpdateAlertEmail(AlarmEmailInfo eamil);
+
+        [OperationContract]
+
+        SingleMessage<bool> DeleteAlertEmail(string ID);
+
     }
 }

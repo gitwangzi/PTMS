@@ -54,7 +54,7 @@ public partial class ALT_BUSINESS_ALERT
 
     public string ADDITIONAL_INFO { get; set; }
 
-    public System.DateTime CREATE_TIME { get; set; }
+    public Nullable<System.DateTime> CREATE_TIME { get; set; }
 
 }
 
