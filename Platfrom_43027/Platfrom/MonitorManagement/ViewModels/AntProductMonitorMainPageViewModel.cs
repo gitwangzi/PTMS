@@ -194,10 +194,10 @@ namespace Gsafety.Ant.Monitor.ViewModels
                 if (newValue != null)
                 {
                     //订阅
-                    //string department = (newValue.Parent as OrganizationEx).Organization.Name;
-                    //bool hasAlarm = ApplicationContext.Instance.BufferManager.AlarmManager.HasAlarm(newValue.VehicleId);
-                    //bool hasAlert = ApplicationContext.Instance.BufferManager.VehicleAlertManager.HasAlert(newValue.VehicleId);
-                    //MonitorGPS(newValue.VehicleId, department, true, hasAlarm, hasAlert);
+                    string department = (newValue.Parent as OrganizationEx).Organization.Name;
+                    bool hasAlarm = ApplicationContext.Instance.BufferManager.AlarmManager.HasAlarm(newValue.VehicleId);
+                    bool hasAlert = ApplicationContext.Instance.BufferManager.VehicleAlertManager.HasAlert(newValue.VehicleId);
+                    MonitorGPS(newValue.VehicleId, department, true, hasAlarm, hasAlert);
                 }
             }
             catch (Exception ex)

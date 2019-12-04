@@ -162,10 +162,14 @@ namespace Gsafety.PTMS.MessageLib
 
                     if (string.IsNullOrEmpty(gps.VehicleId) && !string.IsNullOrEmpty(gps.UID))
                     {
+                        LoggerManager.Logger.Info(gpsinfo.UID);
                         string DevVehicleId = DevGpsRepository.GetDevGpsBySN(gpsinfo.UID);
+                        LoggerManager.Logger.Info("DevVehicleId");
                         if (!string.IsNullOrEmpty(DevVehicleId))
                         {
+                            LoggerManager.Logger.Info(DevVehicleId);
                             gps.VehicleId = DevVehicleId;
+
                         }
                     }
 
@@ -180,6 +184,7 @@ namespace Gsafety.PTMS.MessageLib
                             try
                             {
                                 dictionary[item].MessageCallBack(gps);
+                                LoggerManager.Logger.Info("Send GPS Info To :" + item);
                             }
                             catch (Exception ex)
                             {

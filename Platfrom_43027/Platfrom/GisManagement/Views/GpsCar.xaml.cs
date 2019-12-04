@@ -829,7 +829,7 @@ namespace GisManagement.Views
                         //TrackImage = new BitmapImage(new Uri("/GisManagement;component/Image/track_disnable.png", UriKind.RelativeOrAbsolute)); 
 
                         //取消定位的同时取消追踪
-                        IsTracked = false;
+                        //IsTracked = false;
                     }
                     RaisePropertyChanged("IsLocated");
 

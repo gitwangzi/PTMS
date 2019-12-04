@@ -284,14 +284,22 @@ namespace Gsafety.Ant.BaseInformation.Repository
 
         public static string  GetDevGpsBySN( string sn)
         {
-            using (var context = new PTMSEntities())
+            try
             {
-                RUN_GPS_WORKING entity = context.RUN_GPS_WORKING.SingleOrDefault(n => n.GPS_SN == sn);
-                if (entity != null)
+                using (var context = new PTMSEntities())
                 {
-                    return entity.VEHICLE_ID;
+                    RUN_GPS_WORKING entity = context.RUN_GPS_WORKING.SingleOrDefault(n => n.GPS_SN == sn);
+                    if (entity != null)
+                    {
+                        return entity.VEHICLE_ID;
+                    }
+                    return null;
                 }
-                return null;
+            }
+            catch(Exception e)
+            {
+              return null;
+             
             }
         }
 

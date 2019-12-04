@@ -257,6 +257,8 @@ namespace Gsafety.PTMS.Manager
         }
         #endregion
 
+
+
         #region ConfigManager
         [Export]
         public ViewModelRoute BasicinfoSettingList

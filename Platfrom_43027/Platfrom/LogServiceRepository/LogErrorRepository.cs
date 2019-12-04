@@ -18,17 +18,30 @@ namespace LogServiceRepository
         /// 添加
         /// </summary>
         /// <param name="model"></param>
-        public static SingleMessage<bool> InsertLogError(PTMSEntities context, LogError model)
+        public static SingleMessage<bool> InsertLogError( LogError model)
         {
-            var entity = new LOG_ERROR();
-            LogErrorUtility.UpdateEntity(entity, model, true);
+            try
+            {
 
-            context.LOG_ERROR.Add(entity);
+                using (PTMSEntities context = new PTMSEntities())
+                {
 
-            if (context.SaveChanges() > 0)
-                return new SingleMessage<bool>(true);
-            else
+                    var entity = new LOG_ERROR();
+                    LogErrorUtility.UpdateEntity(entity, model, true);
+
+                    context.LOG_ERROR.Add(entity);
+
+                    if (context.SaveChanges() > 0)
+                        return new SingleMessage<bool>(true);
+                    else
+                        return new SingleMessage<bool>(false, "InsertLogAccess:" + FailedToSave);
+                }
+            }
+            catch (Exception ex)
+            {
+
                 return new SingleMessage<bool>(false, "InsertLogAccess:" + FailedToSave);
+            }
         }
 
         public static MultiMessage<LogError> GetLogErrorList(PTMSEntities context, int pageIndex, int pageSize, string reason, DateTime? beginTime, DateTime? endTime)
