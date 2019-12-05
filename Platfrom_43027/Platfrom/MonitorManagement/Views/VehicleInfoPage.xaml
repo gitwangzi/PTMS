@@ -695,23 +695,23 @@
 
 
 
-                                    <!--<TextBlock Grid.Row="5" Grid.Column="0" 
+                                    <TextBlock Grid.Row="6" Grid.Column="0" 
                                                Text="{Binding [MONITOR_VehicleType], Source={StaticResource SR}}" 
                                                Margin="0,3,10,3" HorizontalAlignment="Right"  VerticalAlignment="Center"   
                                                TextAlignment="Right"  Style="{StaticResource TextBlockLightStyle}"/>
 
-                                    <TextBlock Grid.Row="5" Grid.Column="1" 
+                                    <TextBlock Grid.Row="6" Grid.Column="1" 
                                                Text="{Binding CurrentVehicle.VehicleTypeDescribe,Converter={StaticResource  localize}}" Margin="10,3,0,3"
                                                VerticalAlignment="Center" TextAlignment="Left"
-                                               ToolTipService.ToolTip="{Binding CurrentVehicle.VehicleTypeDescribe,Converter={StaticResource  localize}}" Style="{StaticResource TextBlockLightStyle}"/>-->
+                                               ToolTipService.ToolTip="{Binding CurrentVehicle.VehicleTypeDescribe,Converter={StaticResource  localize}}" Style="{StaticResource TextBlockLightStyle}"/>
 
 
-                                    <TextBlock Grid.Row="6" 
+                                    <TextBlock Grid.Row="7" 
                                                Grid.Column="0" 
                                                Text="{Binding [SpaticalQuery_Dist], Source={StaticResource SR}}" 
                                                Margin="0,3,10,3" HorizontalAlignment="Right" VerticalAlignment="Center" 
                                                TextAlignment="Right" Style="{StaticResource TextBlockLightStyle}"/>
-                                    <TextBlock Grid.Row="6" Grid.Column="1" 
+                                    <TextBlock Grid.Row="7" Grid.Column="1" 
                                                Text="{Binding DistrictCode}" 
                                                Margin="10,3,0,3"
                                                VerticalAlignment="Center"  
@@ -720,12 +720,12 @@
 
 
 
-                                    <TextBlock Grid.Row="7" Grid.Column="1" 
+                                    <!--<TextBlock Grid.Row="8" Grid.Column="1" 
                                    Text="{Binding CurrentVehicle.CityName}" 
                                    Margin="10,3,0,3"
                                    VerticalAlignment="Center" TextAlignment="Left" 
                                        Visibility="Collapsed" ToolTipService.ToolTip="{Binding CurrentVehicle.CityName}" Style="{StaticResource TextBlockLightStyle}"
-                                   />
+                                   />-->
 
                                     <TextBlock Grid.Row="8" Grid.Column="0" 
                                    Text="{Binding [MONITOR_VehicleHBrand], Source={StaticResource SR}}"  

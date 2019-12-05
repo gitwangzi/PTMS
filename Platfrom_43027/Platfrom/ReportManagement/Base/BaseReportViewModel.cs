@@ -507,10 +507,10 @@ namespace Gsafety.PTMS.ReportManager.Base
                 }
             }
 
-            whereInfo.BeginTime = BeginTime.Value.Date.ToUniversalTime();
-            whereInfo.EndTime = EndTime.Date.AddDays(1).ToUniversalTime();
-            whereInfo.BeginTimeLocal = BeginTime.Value.Date;
-            whereInfo.EndTimeLocal = EndTime.Date;
+            whereInfo.BeginTime = BeginTime.Value.ToUniversalTime();
+            whereInfo.EndTime = EndTime.ToUniversalTime();
+            whereInfo.BeginTimeLocal = BeginTime.Value;
+            whereInfo.EndTimeLocal = EndTime;
             if (_organizationID.Trim() == string.Empty)
             {
                 foreach (var item in ApplicationContext.Instance.BufferManager.VehicleOrganizationManage.AuthorityVehicleOrgs)

@@ -39,6 +39,9 @@ using System.Linq;
 using Gsafety.PTMS.ServiceReference.MessageService;
 using System.Threading;
 using Gsafety.PTMS.Share.Model;
+using ESRI.ArcGIS.Client.Geometry;
+using Gsafety.Common;
+
 namespace Gsafety.PTMS.Share
 {
     public class AlarmManage : BaseNotify, IEventSink<RemoveDeviceSuiteAlertNotify>,
@@ -186,6 +189,17 @@ namespace Gsafety.PTMS.Share
                 alarminfoex.ID = alarminfo.ID;
                 alarminfoex.Latitude = alarminfo.Latitude;
                 alarminfoex.Longitude = alarminfo.Longitude;
+
+                //if (alarminfoex.Longitude != null && alarminfoex.Latitude != null)
+                //{
+
+                //    MapPoint mapPoint = Gsafety.Common.Transform.GeographicToWebMercator(new MapPoint(
+                //        Convert.ToDouble(alarminfoex.Longitude, System.Globalization.CultureInfo.InvariantCulture),
+                //        Convert.ToDouble(alarminfoex.Latitude, System.Globalization.CultureInfo.InvariantCulture)));
+
+                //    alarminfoex.Longitude = mapPoint.X.ToString();
+                //    alarminfoex.Latitude = mapPoint.Y.ToString();
+                //}
                 alarminfoex.MdvrCoreId = alarminfo.MdvrCoreId;
                 alarminfoex.OperationLincese = alarminfo.OperationLincese;
                 alarminfoex.Organizations = alarminfo.Organizations;

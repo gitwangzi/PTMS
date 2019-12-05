@@ -175,20 +175,20 @@
 
                 </sdk:DataGridTextColumn>
 
-                <!--<sdk:DataGridTextColumn  
+                <sdk:DataGridTextColumn  
                                         HeaderStyle="{StaticResource ColumnHeaderWhiteStyle}"
                                         Header="MANAGER_UserType"
                                         Visibility="Visible" 
-                                        Width="*"
-                                        Binding="{Binding CreateTime}">
+                                        Width="0.6*"
+                                        Binding="{Binding ServiceName}">
 
-                </sdk:DataGridTextColumn>-->
+                </sdk:DataGridTextColumn>
 
 
                 <sdk:DataGridTextColumn  Header="CreateTime" 
                                         HeaderStyle="{StaticResource ColumnHeaderWhiteStyle}"
                                         Visibility="Visible"
-                                        Width="*"
+                                        Width="0.6*"
                                         Binding="{Binding CreateTime,Converter={StaticResource LongDateTimeFormate}}"/>
 
                 <!--<sdk:DataGridTextColumn  Header="MANAGER_LogoutTime" 

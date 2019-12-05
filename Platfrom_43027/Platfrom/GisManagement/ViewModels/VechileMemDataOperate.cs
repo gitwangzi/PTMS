@@ -37,6 +37,7 @@ namespace GisManagement.ViewModels
         IEventSink<RequestVehicleMonitorArgs>,
         IEventSink<AlertGisArgs>, 
         IEventSink<OnOfflineEx>,
+        IEventSink<GisTraceChangeRoute>,
         IPartImportsSatisfiedNotification
     {
         [Import]
@@ -77,6 +78,7 @@ namespace GisManagement.ViewModels
             _EventAggregator.SubscribeOnDispatcher<AlertGisArgs>(this);
             _EventAggregator.SubscribeOnDispatcher<TrackCarArgs>(this);
             _EventAggregator.SubscribeOnDispatcher<OnOfflineEx>(this);
+            _EventAggregator.SubscribeOnDispatcher<GisTraceChangeRoute>(this);
 
         }
 
@@ -358,13 +360,14 @@ namespace GisManagement.ViewModels
                             //};
 
                             //MonitorList.VechileRealLocationGraphics.AddGraphic(newgraphic, ID + "@" + ID.ToString());
-                            car.DrawRoute(_OldPosition, pt, false, true);
+                            car.DrawRoute(_OldPosition, pt, false, true, args.GpsTime.ToString());
                             
                         }
                         else
                         {
-                            MonitorList.VechileRealLocationGraphics.Clear();
-                        
+
+                           
+                              
                         }
                         ElementLayer.SetEnvelope(car, new ESRI.ArcGIS.Client.Geometry.Envelope(pt, pt));
                     }
@@ -382,7 +385,28 @@ namespace GisManagement.ViewModels
                 ApplicationContext.Instance.Logger.LogException("VechileMemDataOperate", ee);
             }
         }
+        public void HandleEvent(GisTraceChangeRoute publishedEvent)
+        {
+            try
+            {
+                //foreach (var item in MonitorList.VechileRealLocationGraphics.CarUniqueIDList)
+                //{
+                //    if (item.Contains(publishedEvent.VechileId))
+                //    {
 
+                if (!string.IsNullOrEmpty(publishedEvent.VechileId))
+                {
+                    MonitorList.VechileRealLocationGraphics.RemoveGraphics(publishedEvent.VechileId);
+                }
+                //    }
+
+                //}
+            }
+            catch (Exception ee)
+            {
+                ApplicationContext.Instance.Logger.LogException("VechileMemDataOperate", ee);
+            }
+        }
 
         /// <summary>
         /// Latitude and longitude coordinates into projected coordinates

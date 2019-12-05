@@ -25,6 +25,7 @@ using Gsafety.PTMS.Common.Data.Enum;
 using Gsafety.Common.Converts;
 using System.Text;
 using Gsafety.PTMS.Monitor.Views;
+using ESRI.ArcGIS.Client.Geometry;
 
 namespace Gsafety.Ant.Monitor.ViewModels
 {
@@ -433,6 +434,17 @@ namespace Gsafety.Ant.Monitor.ViewModels
                     alarminfoex.ID = alarminfo.ID;
                     alarminfoex.Latitude = alarminfo.Latitude;
                     alarminfoex.Longitude = alarminfo.Longitude;
+
+                    if (alarminfoex.Longitude != null && alarminfoex.Latitude != null)
+                    {
+
+                        MapPoint mapPoint = Gsafety.Common.Transform.GeographicToWebMercator(new MapPoint(
+                            Convert.ToDouble(alarminfoex.Longitude, System.Globalization.CultureInfo.InvariantCulture),
+                            Convert.ToDouble(alarminfoex.Latitude, System.Globalization.CultureInfo.InvariantCulture)));
+
+                        alarminfoex.Longitude = mapPoint.X.ToString().Replace(",",".");
+                        alarminfoex.Latitude = mapPoint.Y.ToString().Replace(",", ".");
+                    }
                     alarminfoex.MdvrCoreId = alarminfo.MdvrCoreId;
                     alarminfoex.OperationLincese = alarminfo.OperationLincese;
                     alarminfoex.Organizations = alarminfo.Organizations;

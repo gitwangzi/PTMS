@@ -27,6 +27,23 @@ namespace Gsafety.PTMS.Common.Data
             }
         }
 
+        string _servicename;
+        ///<summary>
+        ///
+        ///</summary>
+        [DataMember]
+        public string ServiceName
+        {
+            get
+            {
+                return _servicename;
+            }
+            set
+            {
+                _servicename = value;
+            }
+        }
+
         string _clientid;
         ///<summary>
         ///

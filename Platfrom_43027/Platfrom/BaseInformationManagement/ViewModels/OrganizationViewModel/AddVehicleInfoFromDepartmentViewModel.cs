@@ -35,6 +35,8 @@ namespace Gsafety.Ant.BaseInformation.ViewModels.OrganizationViewModel
         /// </summary>
         public event EventHandler<SaveResultArgs> OnSaveResult;
 
+
+        public List<VehicleType> vehicletypes = new List<VehicleType>();
         private string dataOperateType;
 
         private Visibility resertButtonVisibility;
@@ -548,6 +550,7 @@ namespace Gsafety.Ant.BaseInformation.ViewModels.OrganizationViewModel
                 if (viewParameters.Keys.Contains("VehicleTypes"))
                 {
                     List<VehicleType> types = (List<VehicleType>)viewParameters["VehicleTypes"];
+                    vehicletypes = (List<VehicleType>)viewParameters["VehicleTypes"];
                     foreach (var item in types)
                     {
                         ComboBoxBasicStruct<VehicleType> cb = new ComboBoxBasicStruct<VehicleType>();
@@ -922,6 +925,14 @@ namespace Gsafety.Ant.BaseInformation.ViewModels.OrganizationViewModel
                         {
                             OnSaveResult(this, args);
                         }
+                        var vehicleInfo = ApplicationContext.Instance.BufferManager.VehicleOrganizationManage.VehicleList.FirstOrDefault(t => t.VehicleId == VehicleId);
+
+                        if (vehicleInfo != null)
+                        {
+                            var Image = vehicletypes.FirstOrDefault(t => t.Name == vehicleInfo.VehicleTypeDescribe);
+                            vehicleInfo.VehicleTypeImage = Image.Image;
+                        }
+                       
                     }
                 }
             }

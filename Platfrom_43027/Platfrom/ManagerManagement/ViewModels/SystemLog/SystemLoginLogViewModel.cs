@@ -175,7 +175,7 @@ namespace Gsafety.PTMS.Manager.ViewModels.SystemLog
                     PagingInfo page = new PagingInfo();
                     page.PageIndex = pageIndex;
                     page.PageSize = PageSizeValue;
-                    client.GetLoginLogAsync(ApplicationContext.Instance.AuthenticationInfo.ClientID, SearchByName, BeginTime.Value.ToUniversalTime(), EndTime.Value.AddDays(1).ToUniversalTime(), page);
+                    client.GetLoginLogAsync(ApplicationContext.Instance.AuthenticationInfo.ClientID, SearchByName, BeginTime.Value.ToUniversalTime(), EndTime.Value.ToUniversalTime(), page);
 
                 });
 

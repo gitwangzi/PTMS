@@ -137,6 +137,8 @@ namespace GisManagement.ViewModels
             //    MyClearBorder.Visibility = Visibility.Visible;
             try
             {
+
+                MonitorList.VechileRealLocationGraphics.Clear();
                 GraphicsLayer layer = MyMap.Layers["MeasureGraphicsLayer"] as GraphicsLayer;
                 if (layer != null)
                     layer.Graphics.Clear();

@@ -35,13 +35,17 @@ using Gsafety.PTMS.Message.Contract.Data;
 using Gsafety.PTMS.DBEntity;
 using Gsafety.PTMS.AnalysisLib.Command;
 using System.Net;
+using Gsafety.PTMS.Base.Contract.Data;
+using Gsafety.PTMS.BaseInfo;
 
 namespace Gsafety.PTMS.AnalysisLib
 {
-    public static class TransforMessage
+    public static class TransforMessage 
     {
         private static IModel _shareCh;
         private static IModel _privateCh;
+
+        public static BaseService baseservice = new BaseService();
 
         private static IConnection _privateConn;
         private static IConnection _shareConn;
@@ -91,6 +95,7 @@ namespace Gsafety.PTMS.AnalysisLib
             }
             catch (Exception ex)
             {
+                baseservice.Error(ex, "AnalysisService");
                 LoggerManager.Logger.Error("An exception occurred when the TransforMessage service starts!" + ex);
             }
         }
@@ -111,6 +116,7 @@ namespace Gsafety.PTMS.AnalysisLib
             }
             catch (Exception ex)
             {
+                baseservice.Error(ex, "AnalysisService");
                 LoggerManager.Logger.Error("An exception occurred when the stopping TransforMessage service!" + ex);
             }
         }
@@ -135,6 +141,7 @@ namespace Gsafety.PTMS.AnalysisLib
             }
             catch (Exception ex)
             {
+                baseservice.Error(ex, "AnalysisService");
                 LoggerManager.Logger.Error(ex);
             }
         }
@@ -227,6 +234,7 @@ namespace Gsafety.PTMS.AnalysisLib
             }
             catch (Exception ex)
             {
+                baseservice.Error(ex, "AnalysisService");
                 _PrivateConnected = false;
                 ClearUserMessageConn();
                 LoggerManager.Logger.Error(ex);
@@ -361,6 +369,7 @@ namespace Gsafety.PTMS.AnalysisLib
             {
                 _ShareConnected = false;
                 ClearBusinessConn();
+                baseservice.Error(ex, "AnalysisService");
                 LoggerManager.Logger.Error(ex);
             }
             return _ShareConnected;
@@ -536,6 +545,7 @@ namespace Gsafety.PTMS.AnalysisLib
                 {
                     if (!_shareStop)
                     {
+                        baseservice.Error(ex, "AnalysisService");
                         LoggerManager.Logger.Error(ex);
                         ClearBusinessConn();
                     }
@@ -579,6 +589,7 @@ namespace Gsafety.PTMS.AnalysisLib
                 {
                     if (!_privateStop)
                     {
+                        baseservice.Error(ex, "AnalysisService");
                         ClearUserMessageConn();
                         LoggerManager.Logger.Error(ex);
                     }
@@ -659,6 +670,7 @@ namespace Gsafety.PTMS.AnalysisLib
             }
             catch (Exception ex)
             {
+                baseservice.Error(ex, "AnalysisService");
                 LoggerManager.Logger.Error(ex);
             }
         }

@@ -33,6 +33,8 @@ using System.Collections;
 using Gsafety.PTMS.Message.Contract.Data;
 using Gsafety.PTMS.Analysis.Storage;
 using Gsafety.Common.Util;
+using Gsafety.PTMS.Base.Contract.Data;
+using Gsafety.PTMS.BaseInfo;
 
 namespace Gsafety.PTMS.Analysis.Storage
 {
@@ -57,6 +59,7 @@ namespace Gsafety.PTMS.Analysis.Storage
 
         private static DateTime _gpsTime = DateTime.Now;
 
+        public static BaseService baseservice = new BaseService();
         private static string _businessQueue = "Storage.Share";
         private static string _userMessageQueue = "Storage.Private.";
 
@@ -76,6 +79,7 @@ namespace Gsafety.PTMS.Analysis.Storage
             }
             catch (Exception ex)
             {
+                baseservice.Error(ex, "StorageService");
                 LoggerManager.Logger.Error("An exception occurred when the service starts!" + ex);
             }
         }
@@ -97,6 +101,7 @@ namespace Gsafety.PTMS.Analysis.Storage
             }
             catch (Exception ex)
             {
+                baseservice.Error(ex, "StorageService");
                 LoggerManager.Logger.Error("An exception occurred when the stopping service!" + ex);
             }
         }
@@ -190,6 +195,7 @@ namespace Gsafety.PTMS.Analysis.Storage
             }
             catch (Exception ex)
             {
+                baseservice.Error(ex, "StorageService");
                 _userMessageConnected = false;
                 ClearUserMessageConn();
                 LoggerManager.Logger.Error(ex);
@@ -236,6 +242,7 @@ namespace Gsafety.PTMS.Analysis.Storage
             }
             catch (Exception ex)
             {
+                baseservice.Error(ex, "StorageService");
                 _businessConnected = false;
                 ClearBusinessConn();
                 LoggerManager.Logger.Error(ex);
@@ -307,7 +314,7 @@ namespace Gsafety.PTMS.Analysis.Storage
                     ClearBusinessConn();
                     LoggerManager.Logger.Error(ex);
                     LoggerManager.Logger.Error("An error occurs,recconnect in mq.......");
-
+                    baseservice.Error(ex, "StorageService");
                     //InitBusinessQueue();
                     //continue;
                 }
@@ -383,6 +390,7 @@ namespace Gsafety.PTMS.Analysis.Storage
                 }
                 catch (Exception ex)
                 {
+                    baseservice.Error(ex, "StorageService");
                     _userMessageConnected = false;
                     ClearUserMessageConn();
                     LoggerManager.Logger.Error(ex);

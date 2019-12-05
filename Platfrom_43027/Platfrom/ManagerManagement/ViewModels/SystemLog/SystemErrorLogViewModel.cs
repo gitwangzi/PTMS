@@ -23,7 +23,7 @@ namespace Gsafety.PTMS.Manager.ViewModels.SystemLog
     public class SystemErrorLogViewModel
         : SystemLogBaseViewModel<LogError>
     {
-        private string errorReason;
+        private string errorReason=string.Empty;
         /// <summary>
         /// 
         /// </summary>
@@ -138,7 +138,7 @@ namespace Gsafety.PTMS.Manager.ViewModels.SystemLog
                     PagingInfo page = new PagingInfo();
                     page.PageIndex = pageIndex;
                     page.PageSize = PageSizeValue;
-                    client.GetErrorLogAsync(ApplicationContext.Instance.AuthenticationInfo.ClientID, ErrorReason, BeginTime.Value.ToUniversalTime(), EndTime.Value.AddDays(1).ToUniversalTime(), page);
+                    client.GetErrorLogAsync(ApplicationContext.Instance.AuthenticationInfo.ClientID, ErrorReason, BeginTime.Value.ToUniversalTime(), EndTime.Value.ToUniversalTime(), page);
 
                 });
 

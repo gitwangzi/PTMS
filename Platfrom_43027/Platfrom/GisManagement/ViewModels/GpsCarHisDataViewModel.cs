@@ -1040,7 +1040,7 @@ namespace GisManagement.ViewModels
                 {
                     if (csIsTrajectory)
                     {
-                        car.DrawRoute(_OldPosition, pt, false, true);
+                        car.DrawRoute(_OldPosition, pt, false, true,null);
                     }
                     ElementLayer.SetEnvelope(car, new ESRI.ArcGIS.Client.Geometry.Envelope(pt, pt));
                 }

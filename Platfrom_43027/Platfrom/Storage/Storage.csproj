@@ -124,6 +124,10 @@
       <Project>{a6c2a532-546d-4dae-8aa3-4c01de81f462}</Project>
       <Name>BaseContract</Name>
     </ProjectReference>
+    <ProjectReference Include="..\BaseInfo\BaseInfo.csproj">
+      <Project>{1a55af1b-1be4-47b2-80f5-0b1e48ef087d}</Project>
+      <Name>BaseInfo</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Common.Data\Common.Data.csproj">
       <Project>{2b4caa14-181a-4b8d-9dc6-891bea684735}</Project>
       <Name>Common.Data</Name>

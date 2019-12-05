@@ -33,15 +33,7 @@
           <EntitySet Name="CFG_TRANSFER_MAPPING" EntityType="PTMSModel.Store.CFG_TRANSFER_MAPPING" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="LOG_ACCESS" EntityType="PTMSModel.Store.LOG_ACCESS" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="LOG_DATA" EntityType="PTMSModel.Store.LOG_DATA" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="LOG_ERROR" EntityType="PTMSModel.Store.LOG_ERROR" store:Type="Tables" store:Schema="dbo" store:Name="LOG_ERROR">
-            <DefiningQuery>SELECT 
-      [LOG_ERROR].[ID] AS [ID], 
-      [LOG_ERROR].[IP] AS [IP], 
-      [LOG_ERROR].[SERVICE_NAME] AS [SERVICE_NAME], 
-      [LOG_ERROR].[CREATE_TIME] AS [CREATE_TIME], 
-      [LOG_ERROR].[ERROR_REASON] AS [ERROR_REASON]
-      FROM [dbo].[LOG_ERROR] AS [LOG_ERROR]</DefiningQuery>
-          </EntitySet>
+          <EntitySet Name="LOG_ERROR" EntityType="PTMSModel.Store.LOG_ERROR" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="LOG_MANAGER" EntityType="PTMSModel.Store.LOG_MANAGER" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="LOG_OPERATE" EntityType="PTMSModel.Store.LOG_OPERATE" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="LOG_VIDEO" EntityType="PTMSModel.Store.LOG_VIDEO" store:Type="Tables" Schema="dbo" />
@@ -995,9 +987,6 @@
           <Property Name="CREATE_TIME" Type="datetime" />
           <Property Name="ORGANIZATION_ID" Type="nchar" MaxLength="36" />
         </EntityType>
-        <!--生成过程中发现错误:
-      警告 6002: 表/视图“RDPTMS.dbo.LOG_ERROR”未定义主键。已推断出该键，并将定义创建为只读的表/视图。
-      -->
         <EntityType Name="LOG_ERROR">
           <Key>
             <PropertyRef Name="ID" />

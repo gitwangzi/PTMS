@@ -183,7 +183,7 @@ namespace Gsafety.PTMS.Manager.ViewModels
                     System.Threading.Interlocked.Exchange(ref currentIndex, pageIndex);
                     Gsafety.PTMS.ServiceReference.VehicleService.PagingInfo pagingInfo = new Gsafety.PTMS.ServiceReference.VehicleService.PagingInfo() { PageIndex = pageIndex, PageSize = pageSize };
                     LogOperateClient client = InitialClient();
-                    client.GetOperationLogListAsync(this.SearchByName, ApplicationContext.Instance.AuthenticationInfo.ClientID, BeginTime.Value.ToUniversalTime(), EndTime.Value.AddDays(1).ToUniversalTime(), pageIndex, pageSize);
+                    client.GetOperationLogListAsync(this.SearchByName, ApplicationContext.Instance.AuthenticationInfo.ClientID, BeginTime.Value.ToUniversalTime(), EndTime.Value.ToUniversalTime(), pageIndex, pageSize);
 
                 });
 

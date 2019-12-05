@@ -75,6 +75,7 @@
       <xs:element minOccurs="0" name="ErrorReason" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="ID" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="LoginUser" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ServiceName" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="LogError" nillable="true" type="tns:LogError" />

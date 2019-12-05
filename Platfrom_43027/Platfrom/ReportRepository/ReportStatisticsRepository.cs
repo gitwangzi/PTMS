@@ -1503,7 +1503,7 @@ namespace Gsafety.PTMS.Report.Repository
            
             builder.Append(" and v.orgnization_id in (");
             builder.Append(WhereInfo.OrgCode);
-            builder.Append(")  order by vl.gps_time desc");
+            builder.Append(")  and vl.gps_valid ='A' order by vl.gps_time desc");
 
             DataTable dtOffline = oracleHelp.ExecuteDataTable(builder.ToString());
 

@@ -30,7 +30,7 @@ namespace LogServiceRepository.Utilties
                 model.CreateTime = entity.CREATE_TIME.Value;
             }
             model.ErrorReason = entity.ERROR_REASON;
-            
+            model.ServiceName = entity.SERVICE_NAME;
             return model;
         }
     }

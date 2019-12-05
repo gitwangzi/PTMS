@@ -786,6 +786,7 @@ namespace GisManagement.Views
                         minDisplayCarNo.Foreground = new SolidColorBrush(Color.FromArgb(255, 218, 59, 59));
                         //TrackImage = new BitmapImage(new Uri("/GisManagement;component/Image/track.png", UriKind.RelativeOrAbsolute));
                         Canvas.SetZIndex(this, NearestZIndex - 1);
+
                     }
                     else
                     {
@@ -793,6 +794,11 @@ namespace GisManagement.Views
                         PlateNumber.Background = new SolidColorBrush(Color.FromArgb(255, 225, 225, 225));
                         minDisplayCarNo.Foreground = new SolidColorBrush(Color.FromArgb(255, 78, 77, 77));
 
+                        EventAggregator.Publish<GisTraceChangeRoute>(new GisTraceChangeRoute()
+                        {
+                            VechileId = this.CarNo
+
+                        });
                         //TrackImage = new BitmapImage(new Uri("/GisManagement;component/Image/track_disnable.png", UriKind.RelativeOrAbsolute));                     
                         Canvas.SetZIndex(this, 0);
                     }
@@ -1115,7 +1121,7 @@ namespace GisManagement.Views
                 base.SetValue(Xproperty, value);
                 if (Y == 0) return;
                 UpdateRoute();
-                if (_IsTrajectory) DrawRoute(_OldPosition, new MapPoint(X, Y), _RemoveLastPointX, false);
+                if (_IsTrajectory) DrawRoute(_OldPosition, new MapPoint(X, Y), _RemoveLastPointX, false,null);
                 _RemoveLastPointX = false;
             }
         }
@@ -1132,7 +1138,7 @@ namespace GisManagement.Views
                 base.SetValue(Yproperty, value);
                 if (X == 0) return;
                 UpdateRoute();
-                if (_IsTrajectory) DrawRoute(_OldPosition, new MapPoint(X, Y), _RemoveLastPointY, false);
+                if (_IsTrajectory) DrawRoute(_OldPosition, new MapPoint(X, Y), _RemoveLastPointY, false,null);
                 _RemoveLastPointY = false;
                 ;
             }
@@ -1148,7 +1154,7 @@ namespace GisManagement.Views
 
         private void sb_Completed(object sender, EventArgs e)
         {
-            if (_IsTrajectory) DrawRoute(_OldPosition, new MapPoint(X, Y), false, true);
+            if (_IsTrajectory) DrawRoute(_OldPosition, new MapPoint(X, Y), false, true,null);
 
             if (onGetNextPointEvent != null)
             {
@@ -1280,10 +1286,13 @@ namespace GisManagement.Views
             line.Paths.Add(newpts);
             return line;
         }
-        public void DrawRoute(MapPoint oldpt, MapPoint newpt, bool RemoveLastPoint, bool NewPtMustDraw)
+        public void DrawRoute(MapPoint oldpt, MapPoint newpt, bool RemoveLastPoint, bool NewPtMustDraw, string gpstime)
         {
             try
             {
+
+                if (gpstime == null)
+                { return; }
                 ESRI.ArcGIS.Client.Geometry.PointCollection newpts;
                 Graphic graphic = MonitorList.VechileRealLocationGraphics.GetGraphics(this.UniqueID + "@" + "Trace");
                 if (graphic == null)
@@ -1308,39 +1317,46 @@ namespace GisManagement.Views
 
                 for (int i = 0; i < newpts.Count - 1; i++)
                 {
-
-                  
-                    Graphic Locategraphic = new Graphic()
+                    if (gpstime != null)
                     {
-                        Geometry = newpts[i],
-                        Symbol = new ESRI.ArcGIS.Client.Symbols.SimpleMarkerSymbol
-                        {
-                            Style = ESRI.ArcGIS.Client.Symbols.SimpleMarkerSymbol.SimpleMarkerStyle.Circle,
-                            Size = 8,
-                            Color = new SolidColorBrush(Colors.Red),
-                        }
-                    };
 
-                    MonitorList.VechileRealLocationGraphics.AddGraphic(Locategraphic, UniqueID + "@" + "Locate-" + i.ToString());
+                        Graphic Locategraphic = new Graphic()
+                        {
+                            Geometry = newpts[i],
+                            MapTip = new TextBlock()
+                            {
+                                Text = gpstime,
+                                Foreground = new SolidColorBrush(Colors.Blue),
+                            },
+                            Symbol = new ESRI.ArcGIS.Client.Symbols.SimpleMarkerSymbol
+                            {
+                                Style = ESRI.ArcGIS.Client.Symbols.SimpleMarkerSymbol.SimpleMarkerStyle.Circle,
+                                Size = 8,
+                                Color = new SolidColorBrush(Colors.Red),
+                            }
+                        };
+
+                        MonitorList.VechileRealLocationGraphics.AddGraphic(Locategraphic, UniqueID + "@" + "Locate-" + gpstime);
+                    }
 
                     //if (NeedDrawArrow(newpts[i], newpts[i + 1]))
                     //{
-                        //double angleofline = Math.Atan2(newpts[i + 1].Y - newpts[i].Y, newpts[i + 1].X - newpts[i].X);
-                        //MapPoint pt = new MapPoint();
-                        //pt.X = (newpts[i].X + newpts[i + 1].X) / 2;
-                        //pt.Y = (newpts[i].Y + newpts[i + 1].Y) / 2;
+                    //double angleofline = Math.Atan2(newpts[i + 1].Y - newpts[i].Y, newpts[i + 1].X - newpts[i].X);
+                    //MapPoint pt = new MapPoint();
+                    //pt.X = (newpts[i].X + newpts[i + 1].X) / 2;
+                    //pt.Y = (newpts[i].Y + newpts[i + 1].Y) / 2;
 
-                        //Graphic arrowgraphic = new Graphic()
-                        //{
-                        //    Geometry = GetArrowLine(pt, angleofline),
-                        //    Symbol = new ESRI.ArcGIS.Client.Symbols.SimpleLineSymbol()
-                        //    {
-                        //        Style = ESRI.ArcGIS.Client.Symbols.SimpleLineSymbol.LineStyle.Solid,
-                        //        Width = 2,
-                        //        Color = new SolidColorBrush(Colors.Red),
-                        //    }
-                        //};
-                        //MonitorList.VechileRealLocationGraphics.AddGraphic(arrowgraphic, UniqueID + "@" + "Arrow-" + i.ToString());
+                    //Graphic arrowgraphic = new Graphic()
+                    //{
+                    //    Geometry = GetArrowLine(pt, angleofline),
+                    //    Symbol = new ESRI.ArcGIS.Client.Symbols.SimpleLineSymbol()
+                    //    {
+                    //        Style = ESRI.ArcGIS.Client.Symbols.SimpleLineSymbol.LineStyle.Solid,
+                    //        Width = 2,
+                    //        Color = new SolidColorBrush(Colors.Red),
+                    //    }
+                    //};
+                    //MonitorList.VechileRealLocationGraphics.AddGraphic(arrowgraphic, UniqueID + "@" + "Arrow-" + i.ToString());
                     //}
                 }
 
@@ -1357,8 +1373,8 @@ namespace GisManagement.Views
                         Color = new SolidColorBrush(Colors.Red),
                     }
                 };
-               // this.Graphics.AddGraphic(newgraphic, UniqueID + "@" + "Trace");
-                MonitorList.VechileRealLocationGraphics.AddGraphic(newgraphic, UniqueID + "@" + "Trace" );
+                // this.Graphics.AddGraphic(newgraphic, UniqueID + "@" + "Trace");
+                MonitorList.VechileRealLocationGraphics.AddGraphic(newgraphic, UniqueID + "@" + "Trace");
                 FLastUpdateTime = DateTime.Now;
             }
             catch (Exception e)

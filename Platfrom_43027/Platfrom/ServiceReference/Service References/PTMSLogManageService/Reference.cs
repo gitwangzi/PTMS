@@ -2460,6 +2460,8 @@ namespace Gsafety.PTMS.ServiceReference.PTMSLogManageService {
         
         private string LoginUserField;
         
+        private string ServiceNameField;
+        
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string ClientID {
             get {
@@ -2521,6 +2523,19 @@ namespace Gsafety.PTMS.ServiceReference.PTMSLogManageService {
                 if ((object.ReferenceEquals(this.LoginUserField, value) != true)) {
                     this.LoginUserField = value;
                     this.RaisePropertyChanged("LoginUser");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ServiceName {
+            get {
+                return this.ServiceNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ServiceNameField, value) != true)) {
+                    this.ServiceNameField = value;
+                    this.RaisePropertyChanged("ServiceName");
                 }
             }
         }

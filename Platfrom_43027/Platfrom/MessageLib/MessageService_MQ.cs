@@ -10,6 +10,8 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Gsafety.PTMS.BaseInfo;
+
 
 namespace Gsafety.PTMS.MessageLib
 {
@@ -22,6 +24,7 @@ namespace Gsafety.PTMS.MessageLib
         private bool _connected = false;
         bool _stop;
 
+        public static BaseService baseservice = new BaseService();
         private object _lockObj = new object();
 
         public void ClearConn()
@@ -48,6 +51,7 @@ namespace Gsafety.PTMS.MessageLib
                     }
                     catch (EndOfStreamException ex)
                     {
+                        baseservice.Error(ex, "MessageService");
                         LoggerManager.Logger.Error(ex);
                     }
                     finally
@@ -58,6 +62,7 @@ namespace Gsafety.PTMS.MessageLib
             }
             catch (Exception ex)
             {
+                baseservice.Error(ex, "MessageService");
                 LoggerManager.Logger.Error(ex);
             }
         }
@@ -88,6 +93,7 @@ namespace Gsafety.PTMS.MessageLib
             }
             catch (Exception ex)
             {
+                baseservice.Error(ex, "MessageService");
                 LoggerManager.Logger.Error(ex);
                 ClearConn();
             }
@@ -145,6 +151,7 @@ namespace Gsafety.PTMS.MessageLib
             }
             catch (Exception ex)
             {
+                baseservice.Error(ex, "MessageService");
                 _connected = false;
                 ClearConn();
                 LoggerManager.Logger.Error("InitialMQ", ex);
@@ -195,6 +202,7 @@ namespace Gsafety.PTMS.MessageLib
                         }
                         catch (Exception ex)
                         {
+                            baseservice.Error(ex, "MessageService");
                             _connected = false;
                             ClearConn();
                             LoggerManager.Logger.Error("RecMessage", ex);
@@ -203,6 +211,7 @@ namespace Gsafety.PTMS.MessageLib
                     }
                     catch (Exception ex)
                     {
+                        baseservice.Error(ex, "MessageService");
                         _connected = false;
                         ClearConn();
                         LoggerManager.Logger.Error("RecMessage", ex);
@@ -231,6 +240,7 @@ namespace Gsafety.PTMS.MessageLib
                 }
                 catch (Exception ex)
                 {
+                    baseservice.Error(ex, "MessageService");
                     LoggerManager.Logger.Error("SendMessage", ex);
                 }
             }

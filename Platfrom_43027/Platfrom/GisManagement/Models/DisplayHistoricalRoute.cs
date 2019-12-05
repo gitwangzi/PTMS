@@ -23,4 +23,10 @@ namespace GisManagement.Models
         public string VechileId { get; set; }
      
     }
+
+    public class GisTraceChangeRoute
+    {
+        public string VechileId { get; set; }
+
+    }
 }

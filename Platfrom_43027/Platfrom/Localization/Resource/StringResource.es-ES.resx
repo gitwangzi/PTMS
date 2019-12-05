@@ -4692,6 +4692,10 @@
     <value>Tipo de usuario</value>
     <comment>Tipo de usuario</comment>
   </data>
+
+   <data name="MANAGER_ServiceName" xml:space="preserve">
+    <value>Nombre de servicio</value>
+  </data>
   <data name="MANAGER_UserType_Administrator" xml:space="preserve">
     <value>Administrador</value>
     <comment>Administrador</comment>
@@ -9575,7 +9579,7 @@ luego puede eliminar la ruta!</comment>
     <value>Seguridad</value>
   </data>
   <data name="SecurityMonitor" xml:space="preserve">
-    <value>Plataforma de transporte público</value>
+    <value>Plataforma de monitoreo</value>
   </data>
   <data name="UserReference" xml:space="preserve">
     <value>No se permite eliminar el usuario, está en servicio</value>
@@ -9838,8 +9842,8 @@ luego puede eliminar la ruta!</comment>
     <value>Modificar Destinatarios</value>
   </data>
   <data name="IsRecover" xml:space="preserve">
-    <value>¿Reducción definitiva?</value>
-    <comment>Reducción definitiva</comment>
+    <value>¿Recuperación definitiva?</value>
+    <comment>Recuperación definitiva</comment>
   </data>
   <data name="StartTimeError" xml:space="preserve">
     <value>No puede empezar más que hoy</value>

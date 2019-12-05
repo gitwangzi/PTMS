@@ -17,6 +17,7 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.SelfHost;
 using Newtonsoft.Json;
+using Gsafety.PTMS.BaseInfo;
 
 namespace Gsafety.PTMS.TransferLib
 {
@@ -26,6 +27,8 @@ namespace Gsafety.PTMS.TransferLib
         private static IConnection _shareConn;
         private static QueueingBasicConsumer _shareConsumer;
         private static bool _shareStop = false;
+
+        public static BaseService baseservice = new BaseService();
         private static bool _ShareConnected = false;
         private static string _shareQueue = "Transfer.Share";
         private static HttpSelfHostServer host = null;
@@ -58,6 +61,7 @@ namespace Gsafety.PTMS.TransferLib
             }
             catch (Exception ex)
             {
+                baseservice.Error(ex,"TransferService");
                 LoggerManager.Logger.Error("An exception occurred when the TransferProcess service starts!" + ex);
             }
         }
@@ -96,6 +100,7 @@ namespace Gsafety.PTMS.TransferLib
                 }
                 catch (Exception ex)
                 {
+                    baseservice.Error(ex, "TransferService");
                     LoggerManager.Logger.Error(ex);
                     return false;
                 }
@@ -339,16 +344,29 @@ namespace Gsafety.PTMS.TransferLib
                                         appealmodel.alarmDescription = model.AlarmContent;
                                         appealmodel.incidentTime = model.AlarmTime.Value.ToString("yyyy-MM-dd HH:mm:ss");
                                         appealmodel.incidentLevel = model.IncidentLevel;
-                                        appealmodel.incidentAddress = model.IncidentAddress;
+                                        //appealmodel.incidentAddress = model.IncidentAddress;
                                         appealmodel.incidentType= model.IncidentType;
-                                        if (string.IsNullOrEmpty(model.IncidentAddress))
-                                        {
-                                           appealmodel.incidentAddress = model.Province +" "+ model.City;                                        
-                                        }                                       
+                                        //if (string.IsNullOrEmpty(model.IncidentAddress))
+                                        //{
+                                        //   appealmodel.incidentAddress = model.Province +" "+ model.City;                                        
+                                        //}                                       
 
-                                        appealmodel.districtCode = model.DistrictCode;
+                                        //appealmodel.districtCode = model.DistrictCode;
                                         appealmodel.longitude = model.Longitude;
                                         appealmodel.latitude = model.Latitude;
+
+                                        //if (appealmodel.longitude != null && appealmodel.latitude != null)
+                                        //{
+
+                                        //    MapPoint mapPoint =
+                                        //                           ESRI.ArcGIS.Client.Bing.Transform.GeographicToWebMercator(new MapPoint
+                                        //                               (Convert.ToDouble(appealmodel.longitude, System.Globalization.CultureInfo.InvariantCulture),
+                                        //                               Convert.ToDouble(appealmodel.latitude, System.Globalization.CultureInfo.InvariantCulture)));
+
+                                        //    appealmodel.longitude = mapPoint.X.ToString();
+                                        //    appealmodel.latitude = mapPoint.Y.ToString();
+                                        //}
+                                      
                                         appealmodel.installerName = "";
                                         appealmodel.installerPhone = "";
                                         appealmodel.installationTime = "";
@@ -412,6 +430,7 @@ namespace Gsafety.PTMS.TransferLib
                                 }
                                 catch (Exception ex)
                                 {
+                                    baseservice.Error(ex, "TransferService");
                                     LoggerManager.Logger.Error(ex);
                                 }
                             }
@@ -420,6 +439,7 @@ namespace Gsafety.PTMS.TransferLib
                 }
                 catch (Exception ex)
                 {
+                    baseservice.Error(ex, "TransferService");
                     _ShareConnected = false;
                     ClearBusinessConn();
                     LoggerManager.Logger.Error(ex);
@@ -462,6 +482,7 @@ namespace Gsafety.PTMS.TransferLib
             }
             catch (Exception ex)
             {
+                baseservice.Error(ex, "TransferService");
                 _ShareConnected = false;
                 ClearBusinessConn();
                 LoggerManager.Logger.Error(ex);
@@ -489,6 +510,7 @@ namespace Gsafety.PTMS.TransferLib
             }
             catch (Exception ex)
             {
+                baseservice.Error(ex, "TransferService");
                 LoggerManager.Logger.Error(ex);
             }
         }

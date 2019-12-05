@@ -75,7 +75,7 @@ namespace Gsafety.PTMS.BaseInfo
             return MakeCondtions<T>(ConditonType.District);
         }
 
-        public SingleMessage<bool> InsertLogError(PTMSEntities context,string id,DateTime createTime,string reason)
+        public SingleMessage<bool> InsertLogError(PTMSEntities context, string id, DateTime createTime, string reason, string servicename)
         {
             LOG_ERROR item = new LOG_ERROR();
             item.CREATE_TIME = createTime;
@@ -89,6 +89,7 @@ namespace Gsafety.PTMS.BaseInfo
             }
 
             item.ID = id;
+            item.SERVICE_NAME = servicename;
             context.LOG_ERROR.Add(item);
             int ret = context.SaveChanges();
             if (ret > 0)

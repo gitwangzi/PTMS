@@ -85,11 +85,18 @@ namespace Gsafety.PTMS.BaseInfo
         protected void Error(Exception ex)
         {
             LoggerManager.Logger.Error(ex);
-            AddErrorLog(ex);
+            AddErrorLog(ex,"PTMSService");
 
         }
 
-        private SingleMessage<bool> AddErrorLog(Exception ex)
+        public void Error(Exception ex,string servicename)
+        {
+
+            AddErrorLog(ex, servicename);
+
+        }
+
+        private SingleMessage<bool> AddErrorLog(Exception ex, string servicename)
         {
             try
             {
@@ -99,7 +106,7 @@ namespace Gsafety.PTMS.BaseInfo
                 string id = Guid.NewGuid().ToString();
                 using (var context = new PTMSEntities())
                 {
-               //     result = baseRepository.InsertLogError(context, id, createTime, errorReason);
+                    result = baseRepository.InsertLogError(context, id, createTime, errorReason, servicename);
                 }
 
                 return result;

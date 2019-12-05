@@ -346,7 +346,7 @@ namespace GisManagement.ViewModels
             }
         }
 
-        private ObservableCollection<string> CarUniqueIDList = new ObservableCollection<string>();
+        public ObservableCollection<string> CarUniqueIDList = new ObservableCollection<string>();
 
         /// <summary>
         /// Add graphics, if there is coverage

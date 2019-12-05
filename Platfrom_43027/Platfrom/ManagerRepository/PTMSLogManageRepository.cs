@@ -35,7 +35,7 @@ namespace Gsafety.PTMS.Manager.Repository
     {
         public List<AlarmDealLogInfo> GetAlarmDealLog(PTMSEntities context, string clientID, string vehicleID, string userName, DateTime startTime, DateTime endTime, int pageSize, int pageIndex, out int totalCount)
         {
-            DateTime dtEnd = endTime.AddDays(1);
+            //DateTime dtEnd = endTime.AddDays(1);
 
             var result = from f in context.ALM_ALARM_DISPOSE
                          join j in context.ALM_ALARM_RECORD on f.ALARM_ID equals j.ID
@@ -43,7 +43,7 @@ namespace Gsafety.PTMS.Manager.Repository
                          join t in context.BSC_VEHICLE_TYPE on v.VEHICLE_TYPE equals t.ID
                          where (string.IsNullOrEmpty(userName) ? true : f.DISPOSE_STAFF.Contains(userName))
                          &&(startTime != null ? f.DISPOSE_TIME >= startTime : true)
-                         &&(dtEnd != null ? f.DISPOSE_TIME <= dtEnd : true)
+                         &&(endTime != null ? f.DISPOSE_TIME <= endTime : true)
                          && j.CLIENT_ID == clientID && (string.IsNullOrEmpty(vehicleID) ? true : j.VEHICLE_ID.ToUpper().Contains(vehicleID.ToUpper()))
                          orderby j.GPS_TIME descending
                          select new AlarmDealLogInfo
@@ -70,7 +70,7 @@ namespace Gsafety.PTMS.Manager.Repository
 
         public List<CarAlertLogInfo> GetCarAlertDealLog(PTMSEntities context, string vehicleId, string userName, DateTime startTime, DateTime endTime, int pageSize, int pageIndex, out int totalCount)
         {
-            DateTime dtEnd = endTime.AddDays(1);
+           // DateTime dtEnd = endTime.AddDays(1);
 
             var result = from f in context.ALT_BUSINESS_ALERT_HANDLE
                          join j in context.ALT_BUSINESS_ALERT on f.BUSINESS_ALERT_ID equals j.ID into tj
@@ -81,7 +81,7 @@ namespace Gsafety.PTMS.Manager.Repository
                          where (string.IsNullOrEmpty(vehicleId) ? true : tjm.VEHICLE_ID.ToLower().Contains(vehicleId.ToLower())) &&
                                (string.IsNullOrEmpty(userName) ? true : f.HANDLE_USER.Contains(userName)) &&
                                (startTime != null ? f.HANDLE_TIME >= startTime : true) && 
-                               (dtEnd != null ? f.HANDLE_TIME <= dtEnd : true) &&
+                               (endTime != null ? f.HANDLE_TIME <= endTime : true) &&
                                (tjm.STATUS == 4)
                          orderby f.HANDLE_TIME descending
                          select new CarAlertLogInfo
@@ -108,7 +108,7 @@ namespace Gsafety.PTMS.Manager.Repository
 
         public List<InstallLogInfo> GetInstallLog(PTMSEntities context, string clientID, string installStation, string installStaff, DateTime startTime, DateTime endTime, int pageSize, int pageIndex, out int totalCount)
         {
-            DateTime dtEnd = endTime.AddDays(1);
+          //  DateTime dtEnd = endTime.AddDays(1);
 
             var suiteresult = from detail in context.MTN_INSTALLATION_DETAIL.Where(item => item.VALID == 1)
                               join v in context.BSC_VEHICLE on detail.VEHICLE_ID equals v.VEHICLE_ID
@@ -116,7 +116,7 @@ namespace Gsafety.PTMS.Manager.Repository
                               let suite = context.BSC_DEV_SUITE.FirstOrDefault(n => n.SUITE_INFO_ID == detail.SUITE_INFO_ID)
                               where (string.IsNullOrEmpty(installStaff) ? true : detail.INSTALL_STAFF.Contains(installStaff))
                               && (startTime != null ? detail.CREATE_TIME >= startTime : true)
-                              && (dtEnd != null ? detail.CREATE_TIME <= dtEnd : true)
+                              && (endTime != null ? detail.CREATE_TIME <= endTime : true)
                               && v.CLIENT_ID == clientID
                               && (string.IsNullOrEmpty(installStation) ? true : detail.STATION_ID == installStation)
                               orderby detail.CREATE_TIME descending
@@ -136,7 +136,7 @@ namespace Gsafety.PTMS.Manager.Repository
                             let gps = context.BSC_DEV_GPS.FirstOrDefault(n => n.ID == detail.GPS_ID)
                             where (string.IsNullOrEmpty(installStaff) ? true : detail.INSTALL_STAFF.Contains(installStaff))
                             && (startTime != null ? detail.CREATE_TIME >= startTime : true)
-                            && (dtEnd != null ? detail.CREATE_TIME <= dtEnd : true) 
+                            && (endTime != null ? detail.CREATE_TIME <= endTime : true) 
                              && v.CLIENT_ID == clientID
                              && (string.IsNullOrEmpty(installStation) ? true : detail.STATION_ID == installStation)
                             orderby detail.CREATE_TIME descending

@@ -27,6 +27,7 @@ using System.Text;
 using Gsafety.PTMS.Monitor.Views;
 using System.Collections.ObjectModel;
 using Gsafety.PTMS.Bases.Enums;
+using ESRI.ArcGIS.Client.Geometry;
 
 namespace Gsafety.Ant.Monitor.ViewModels
 {
@@ -1195,6 +1196,18 @@ namespace Gsafety.Ant.Monitor.ViewModels
                     {
                         MessageBoxHelper.ShowDialog(ApplicationContext.Instance.StringResourceReader.GetString("Tip"), ApplicationContext.Instance.StringResourceReader.GetString("ALARM_SendSuc"), MessageDialogButton.Ok);
                         //e.Result.Result.AlarmTime = e.Result.Result.AlarmTime.Value.ToLocalTime();
+
+
+                        if (e.Result.Result.Longitude != null && e.Result.Result.Latitude != null)
+                        {
+
+                            MapPoint mapPoint = Gsafety.Common.Transform.GeographicToWebMercator(new MapPoint(
+                                Convert.ToDouble(e.Result.Result.Longitude, System.Globalization.CultureInfo.InvariantCulture),
+                                Convert.ToDouble(e.Result.Result.Latitude, System.Globalization.CultureInfo.InvariantCulture)));
+
+                            e.Result.Result.Longitude = mapPoint.X.ToString().Replace(",", ".");
+                            e.Result.Result.Latitude = mapPoint.Y.ToString().Replace(",", ".");
+                        }
 
                         ApplicationContext.Instance.BufferManager.AlarmManager.HandleManualAlarm(e.Result.Result);
                         AlarmHandleIsVisual = false;

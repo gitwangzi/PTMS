@@ -2794,6 +2794,9 @@
   <data name="MANAGER_UserType" xml:space="preserve">
     <value>用户类型</value>
   </data>
+  <data name="MANAGER_ServiceName" xml:space="preserve">
+    <value>服务名称</value>
+  </data>
   <data name="MANAGER_UserType_Administrator" xml:space="preserve">
     <value>系统管理员</value>
   </data>
@@ -6964,7 +6967,7 @@
     <value>运维平台</value>
   </data>
   <data name="SecurityMonitor" xml:space="preserve">
-    <value>公交平台</value>
+    <value>监控平台</value>
   </data>
   <data name="ReportStrategyEnum_ByInterval" xml:space="preserve">
     <value>按时长</value>
