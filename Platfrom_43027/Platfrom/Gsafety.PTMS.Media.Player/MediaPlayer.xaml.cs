@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -32,6 +33,8 @@ namespace Gsafety.PTMS.Media.Player
 
         private bool _removeBtnVisibility = false;
         #endregion
+
+
 
         #region 属性
         private bool _realVideoMode;
@@ -438,6 +441,7 @@ namespace Gsafety.PTMS.Media.Player
             if (null != mediaElement1)
             {
                 mediaElement1.Stop();
+               
             }
         }
 
@@ -450,7 +454,7 @@ namespace Gsafety.PTMS.Media.Player
 
             if (null == _mediaStreamFacade)
                 return;
-
+            GC.Collect();
             var mediaStreamFacade = _mediaStreamFacade;
 
             await mediaStreamFacade.CloseAsync().ConfigureAwait(false);
