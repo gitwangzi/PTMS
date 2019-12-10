@@ -472,6 +472,7 @@ namespace GisManagement.ViewModels
                     }
 
                     _HisDataCar = new GpsCar(_CurrentSelectedHisDataStore.hisTraceArgs.CarNo);
+                    _HisDataCar.FixFlag = false;
                     _HisDataCar.UniqueID = _CurrentSelectedHisDataStore.hisTraceArgs.CarNo;
                     _HisDataCar.ElementLayDefine = ElementLayerDefine.miVEHisData;
                     //_HisDataCar.CarStyle = publishedEvent.;
@@ -794,6 +795,7 @@ namespace GisManagement.ViewModels
                         if (findCar == null)
                         {
                             GpsCar car = new GpsCar(_CurrentSelectedHisDataStore.hisTraceArgs.CarNo);
+                            car.FixFlag = false;
                             car.UniqueID = _CurrentSelectedHisDataStore.hisTraceArgs.CarNo;
                             car.ElementLayDefine = ElementLayerDefine.miVEHisData;
                             car.HasDraw = true;

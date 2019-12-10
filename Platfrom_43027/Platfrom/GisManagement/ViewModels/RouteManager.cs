@@ -434,8 +434,15 @@ namespace GisManagement.ViewModels
 
         public void Clear()
         {
-            CarUniqueIDList.Clear();
-            Graphics.Clear();
+            try
+            {
+                CarUniqueIDList.Clear();
+                Graphics.Clear();
+            }
+            catch
+            { 
+            
+            }
         }
     }
 

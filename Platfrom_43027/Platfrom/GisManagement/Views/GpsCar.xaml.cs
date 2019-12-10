@@ -183,6 +183,20 @@ namespace GisManagement.Views
             }
         }
 
+        
+        private bool _fixFlag = true;
+        public bool FixFlag
+        {
+            get
+            {
+                return _fixFlag;
+            }
+            set
+            {
+                _fixFlag = value;
+
+            }
+        }
 
         //上线标识
         private bool _OnlineFlag;
@@ -1003,6 +1017,19 @@ namespace GisManagement.Views
             }
         }
 
+        private bool _HasZoom;
+        public bool HasZoom
+        {
+            get
+            {
+                return _HasZoom;
+            }
+            set
+            {
+                _HasZoom = value;
+               
+            }
+        }
 
         private ElementLayerDefine _ElementLayDefine;
         public ElementLayerDefine ElementLayDefine
@@ -1042,12 +1069,15 @@ namespace GisManagement.Views
                 }
                 else
                 {
-                    EventAggregator.Publish<GisFixChangeRoute>(new GisFixChangeRoute()
+                    if (FixFlag)
                     {
-                        VechileId = this.CarNo
-                        
+                        EventAggregator.Publish<GisFixChangeRoute>(new GisFixChangeRoute()
+                        {
+                            VechileId = this.CarNo
+
+                        }
+                        );
                     }
-                    );
                 }
                 CarBtn1.IsChecked = value;
                 //RaisePropertyChanged("FixOperate");
@@ -1293,27 +1323,27 @@ namespace GisManagement.Views
 
                 if (gpstime == null)
                 { return; }
-                ESRI.ArcGIS.Client.Geometry.PointCollection newpts;
-                Graphic graphic = MonitorList.VechileRealLocationGraphics.GetGraphics(this.UniqueID + "@" + "Trace");
-                if (graphic == null)
-                {
-                    newpts = new ESRI.ArcGIS.Client.Geometry.PointCollection();
-                    newpts.Add(oldpt);
-                    newpts.Add(newpt);
-                }
-                else
-                {
-                    if ((!NewPtMustDraw) && (DateTime.Now < FLastUpdateTime.AddMilliseconds(ConstDefine.UpdateDisplayInterval))) return;
-                    newpts = new ESRI.ArcGIS.Client.Geometry.PointCollection();
+                //newpts;
+                //Graphic graphic = MonitorList.VechileRealLocationGraphics.GetGraphics(this.UniqueID + "@" + "Trace");
+                //if (graphic == null)
+                //{
+                ESRI.ArcGIS.Client.Geometry.PointCollection newpts = new ESRI.ArcGIS.Client.Geometry.PointCollection();
+                newpts.Add(oldpt);
+                newpts.Add(newpt);
+                //}
+                //else
+                //{
+                //    if ((!NewPtMustDraw) && (DateTime.Now < FLastUpdateTime.AddMilliseconds(ConstDefine.UpdateDisplayInterval))) return;
+                //    newpts = new ESRI.ArcGIS.Client.Geometry.PointCollection();
 
-                    foreach (MapPoint pt in (graphic.Geometry as ESRI.ArcGIS.Client.Geometry.Polyline).Paths[0])
-                    {
-                        newpts.Add(pt);
-                    }
-                    if (RemoveLastPoint) newpts.RemoveAt(newpts.Count - 1);
-                    newpts.Add(newpt);
+                //    foreach (MapPoint pt in (graphic.Geometry as ESRI.ArcGIS.Client.Geometry.Polyline).Paths[0])
+                //    {
+                //        newpts.Add(pt);
+                //    }
+                //    if (RemoveLastPoint) newpts.RemoveAt(newpts.Count - 1);
+                //    newpts.Add(newpt);
 
-                }
+                //}
 
                 for (int i = 0; i < newpts.Count - 1; i++)
                 {
@@ -1374,7 +1404,7 @@ namespace GisManagement.Views
                     }
                 };
                 // this.Graphics.AddGraphic(newgraphic, UniqueID + "@" + "Trace");
-                MonitorList.VechileRealLocationGraphics.AddGraphic(newgraphic, UniqueID + "@" + "Trace");
+                MonitorList.VechileRealLocationGraphics.AddGraphic(newgraphic, UniqueID + "@" + "Trace" + gpstime);
                 FLastUpdateTime = DateTime.Now;
             }
             catch (Exception e)

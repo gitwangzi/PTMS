@@ -159,12 +159,15 @@ namespace Gsafety.PTMS.VideoManagement.Views
             {
                 _HisDataCar = new GpsCar(VechileId);
                 _HisDataCar.HasDraw = true;
+                _HisDataCar.HasZoom = false;
+                _HisDataCar.FixFlag = false;
                 _HisDataCar.UniqueID = VechileId;
                 _HisDataCar.ElementLayDefine = ElementLayerDefine.miVEHisData;
                 _HisDataCar.Graphics = MonitorList.VedioReplayGPSRouteGraphics;
                 _HisDataCar.RefreshDisplay();
                 MapPoint pt = new MapPoint(0, 0);
                 MonitorList.VedioReplayGPSRoutelements.AddCars(_HisDataCar, pt);
+               
                 UpdateHisGPSCarLocation(startdt);
             }
         }
@@ -231,7 +234,28 @@ namespace Gsafety.PTMS.VideoManagement.Views
                         MapPoint pt = GetProjCoord(lslon, lslat);
 
                         //MapPoint pt = new MapPoint(lslon, lslat);
-                        ElementLayer.SetEnvelope(_HisDataCar, new ESRI.ArcGIS.Client.Geometry.Envelope(pt, pt));
+                       ElementLayer.SetEnvelope(_HisDataCar, new ESRI.ArcGIS.Client.Geometry.Envelope(pt, pt));                   
+
+                        //string strLocal = ApplicationContext.Instance.ServerConfig.AutoLocateResolution;
+                        //strLocal = strLocal.Replace(".", System.Threading.Thread.CurrentThread.CurrentCulture.NumberFormat.CurrencyDecimalSeparator);
+                        //if (MyMap.Resolution > Convert.ToDouble(strLocal))
+                        //{
+                        //CenterAndZoom(Convert.ToDouble(strLocal),pt);
+                        //}
+                        MyMap.PanTo(pt);
+                        string strLocal = ApplicationContext.Instance.ServerConfig.AutoLocateResolution;
+                        strLocal = strLocal.Replace(".", System.Threading.Thread.CurrentThread.CurrentCulture.NumberFormat.CurrencyDecimalSeparator);
+                        if (MyMap.Resolution > Convert.ToDouble(strLocal) && !_HisDataCar.HasZoom)
+                        {
+                            double reso = Convert.ToDouble(strLocal);
+                            MyMap.ZoomToResolution(reso);
+                            
+                        }
+                        else
+                        {
+
+                            _HisDataCar.HasZoom = true;
+                        }
                     }
                     //MyMap.PanTo(pt);
                 }
@@ -362,14 +386,21 @@ namespace Gsafety.PTMS.VideoManagement.Views
                 {
                     ArcGISDynamicMapServiceLayer arcgisLayer = MyMap.Layers["DynamicMapLayer"] as ArcGISDynamicMapServiceLayer;
                     arcgisLayer.Url = ApplicationContext.Instance.ServerConfig.GisBaseMapUrl;
+                    MyMap.Extent = arcgisLayer.FullExtent;
 
                 }
                 else if ((MyMap.Layers["DynamicMapLayer"]) is ArcGISTiledMapServiceLayer)
                 {
                     ArcGISTiledMapServiceLayer arcgisLayer = MyMap.Layers["DynamicMapLayer"] as ArcGISTiledMapServiceLayer;
                     arcgisLayer.Url = ApplicationContext.Instance.ServerConfig.GisBaseMapUrl;
-                    MyMap.Extent = arcgisLayer.FullExtent;
+                    //MyMap.Extent = arcgisLayer.FullExtent;
 
+                }
+
+                Envelope env = GisViewModel.getExtent(ApplicationContext.Instance.ServerConfig.MapInitExtent);
+                if (env != null)
+                {
+                    MyMap.Extent = env;
                 }
             }
         }
@@ -496,7 +527,7 @@ namespace Gsafety.PTMS.VideoManagement.Views
                     };
                     MonitorList.VedioReplayGPSRouteGraphics.AddGraphic(newgraphic, ID);
                     //MyMap.ZoomTo(line);
-                    ZoomToGeometry(line);
+                    //ZoomToGeometry(line);
 
                 }
             }
@@ -617,6 +648,8 @@ namespace Gsafety.PTMS.VideoManagement.Views
                     ESRI.ArcGIS.Client.Geometry.MapPoint newpt = new ESRI.ArcGIS.Client.Geometry.MapPoint(x, y);
 
                     MyMap.ZoomToResolution(myResolution, newpt);
+                    //MyMap.ZoomToResolution(myResolution);
+
 
                 }
             }
