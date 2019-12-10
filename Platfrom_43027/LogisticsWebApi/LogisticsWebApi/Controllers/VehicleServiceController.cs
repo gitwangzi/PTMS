@@ -22,64 +22,88 @@ using ESRI.ArcGIS.Client.Geometry;
 namespace LogisticsWebApi.Controllers
 {
     public class VehicleIntegrationServiceController : ApiController
-    {        
-      
+    {
+
         private Location LocationConvert(RUN_VEHICLE_LOCATION result)
         {
-            MapPoint mapPoint =
-                        LogisticsWebApi.Models.MapTransfer.GeographicToWebMercator(new MapPoint
-                            (Convert.ToDouble(result.LONGITUDE, System.Globalization.CultureInfo.InvariantCulture),
-                            Convert.ToDouble(result.LATITUDE, System.Globalization.CultureInfo.InvariantCulture)));
-
-
-            return new Location
+            try
             {
-                Direction = result.DIRECTION,
-                GPSTime = result.GPS_TIME.HasValue ? result.GPS_TIME.Value.ToLocalTime().ToString("yyyy-MM-dd HH:mm:ss") : string.Empty,
-                Latitude = mapPoint.Y.ToString(),
-                Longitude = mapPoint.X.ToString(),
-                Speed = result.SPEED,
-            };
+                MapPoint mapPoint =
+                            LogisticsWebApi.Models.MapTransfer.GeographicToWebMercator(new MapPoint
+                                (Convert.ToDouble(result.LONGITUDE, System.Globalization.CultureInfo.InvariantCulture),
+                                Convert.ToDouble(result.LATITUDE, System.Globalization.CultureInfo.InvariantCulture)));
+
+
+                return new Location
+                {
+                    Direction = result.DIRECTION,
+                    GPSTime = result.GPS_TIME.HasValue ? result.GPS_TIME.Value.ToLocalTime().ToString("yyyy-MM-dd HH:mm:ss") : string.Empty,
+                    Latitude = mapPoint.Y.ToString(),
+                    Longitude = mapPoint.X.ToString(),
+                    Speed = result.SPEED,
+                };
+            }
+            catch (Exception ex)
+            {
+
+                return null;
+            }
         }
 
         private LogisticsWebApi.Models.BusinessAlert BusinessAlertConvert(ALT_BUSINESS_ALERT result)
         {
-
-            MapPoint mapPoint =
-                     LogisticsWebApi.Models.MapTransfer.GeographicToWebMercator(new MapPoint
-                         (Convert.ToDouble(result.LONGITUDE, System.Globalization.CultureInfo.InvariantCulture),
-                         Convert.ToDouble(result.LATITUDE, System.Globalization.CultureInfo.InvariantCulture)));
-            return new LogisticsWebApi.Models.BusinessAlert
+            try
             {
 
-                VehicleId = result.VEHICLE_ID,
-                //AlertType = result.ALERT_TYPE.ToString(),               
-                Direction = result.DIRECTION,
-                AlertTime = result.ALERT_TIME.HasValue ? result.ALERT_TIME.Value.ToLocalTime().ToString("yyyy-MM-dd HH:mm:ss") : string.Empty,
-                Latitude = mapPoint.Y.ToString(),
-                Longitude = mapPoint.X.ToString(),
-                Speed = result.SPEED,
-            };
+                MapPoint mapPoint =
+                         LogisticsWebApi.Models.MapTransfer.GeographicToWebMercator(new MapPoint
+                             (Convert.ToDouble(result.LONGITUDE, System.Globalization.CultureInfo.InvariantCulture),
+                             Convert.ToDouble(result.LATITUDE, System.Globalization.CultureInfo.InvariantCulture)));
+                return new LogisticsWebApi.Models.BusinessAlert
+                {
+
+                    VehicleId = result.VEHICLE_ID,
+                    //AlertType = result.ALERT_TYPE.ToString(),               
+                    Direction = result.DIRECTION,
+                    AlertTime = result.ALERT_TIME.HasValue ? result.ALERT_TIME.Value.ToLocalTime().ToString("yyyy-MM-dd HH:mm:ss") : string.Empty,
+                    Latitude = mapPoint.Y.ToString(),
+                    Longitude = mapPoint.X.ToString(),
+                    Speed = result.SPEED,
+                };
+            }
+            catch (Exception ex)
+            {
+
+                return null;
+            }
         }
         private VehicleLocation VehicleLocationConvert(RUN_VEHICLE_LOCATION result, string onlinestatus, string overspeedstatus)
         {
-
-            MapPoint mapPoint =
-                     LogisticsWebApi.Models.MapTransfer.GeographicToWebMercator(new MapPoint
-                         (Convert.ToDouble(result.LONGITUDE, System.Globalization.CultureInfo.InvariantCulture),
-                         Convert.ToDouble(result.LATITUDE, System.Globalization.CultureInfo.InvariantCulture)));
-            return new VehicleLocation
+            try
             {
-                Direction = result.DIRECTION,
-                GPSTime = result.GPS_TIME.HasValue ? result.GPS_TIME.Value.ToLocalTime().ToString("yyyy-MM-dd HH:mm:ss") : string.Empty,
-                Latitude = mapPoint.Y.ToString(),
-                Longitude = mapPoint.X.ToString(),
-                Speed = result.SPEED,
-                VehicleId = result.VEHICLE_ID,
-                OnlineStatus = onlinestatus,
-                OverSpeedStatus = overspeedstatus,
-                MdvrCoreId = result.DEVICE_ID
-            };
+
+                MapPoint mapPoint =
+                         LogisticsWebApi.Models.MapTransfer.GeographicToWebMercator(new MapPoint
+                             (Convert.ToDouble(result.LONGITUDE, System.Globalization.CultureInfo.InvariantCulture),
+                             Convert.ToDouble(result.LATITUDE, System.Globalization.CultureInfo.InvariantCulture)));
+                return new VehicleLocation
+                {
+                    Direction = result.DIRECTION,
+                    GPSTime = result.GPS_TIME.HasValue ? result.GPS_TIME.Value.ToLocalTime().ToString("yyyy-MM-dd HH:mm:ss") : string.Empty,
+                    Latitude = mapPoint.Y.ToString(),
+                    Longitude = mapPoint.X.ToString(),
+                    Speed = result.SPEED,
+                    VehicleId = result.VEHICLE_ID,
+                    OnlineStatus = onlinestatus,
+                    OverSpeedStatus = overspeedstatus,
+                    MdvrCoreId = result.DEVICE_ID
+                };
+            }
+            catch (Exception ex)
+            {
+
+                return null;
+            }
         }
 
         [HttpPost]
@@ -106,10 +130,14 @@ namespace LogisticsWebApi.Controllers
                 using (var context = new PTMSEntities())
                 {
                     var result = context.RUN_VEHICLE_LOCATION.OrderByDescending(x => x.GPS_TIME)
-                          .Where(n => n.GPS_TIME >= start && n.GPS_TIME <= end && n.VEHICLE_ID == param.VehicleId).ToList();
+                          .Where(n => n.GPS_TIME >= start && n.GPS_TIME <= end && n.VEHICLE_ID == param.VehicleId && n.GPS_VALID == "A").ToList();
                     foreach (var item in result)
                     {
-                        locations.Add(LocationConvert(item));
+                        var Adddata = LocationConvert(item);
+                        if (Adddata != null)
+                        {
+                            locations.Add(Adddata);
+                        }
                     }
                 }
 
@@ -151,7 +179,12 @@ namespace LogisticsWebApi.Controllers
                     {
                         foreach (var item in data)
                         {
-                            source.Add(BusinessAlertConvert(item));
+                            var Adddata = BusinessAlertConvert(item);
+                            if (Adddata != null)
+                            {
+                                source.Add(Adddata);
+                            }
+                          
                         }
                     }
                 }
@@ -253,7 +286,7 @@ namespace LogisticsWebApi.Controllers
                         foreach (var item in result)
                         {
                             var data = context.RUN_VEHICLE_LOCATION
-                                  .Where(n => n.GPS_TIME >= start && n.GPS_TIME <= end && n.VEHICLE_ID == item.VehicleId).OrderByDescending(x => x.GPS_TIME).FirstOrDefault();
+                                  .Where(n => n.GPS_TIME >= start && n.GPS_TIME <= end && n.VEHICLE_ID == item.VehicleId && n.GPS_VALID == "A").OrderByDescending(x => x.GPS_TIME).FirstOrDefault();
 
 
                             string overspeedstatus = "0";
@@ -265,7 +298,13 @@ namespace LogisticsWebApi.Controllers
                                 {
                                     overspeedstatus = "1";
                                 }
-                                locations.Add(VehicleLocationConvert(data, item.Status.ToString(), overspeedstatus));
+
+                                var Adddata = VehicleLocationConvert(data, item.Status.ToString(), overspeedstatus);
+                                if (Adddata != null)
+                                {
+                                    locations.Add(Adddata);
+                                }
+                               
                             }
 
 
@@ -284,7 +323,7 @@ namespace LogisticsWebApi.Controllers
                         if (data != null)
                         {
                             var result = context.RUN_VEHICLE_LOCATION
-                                      .Where(n => n.GPS_TIME >= start && n.GPS_TIME <= end && n.VEHICLE_ID == VehicleId).OrderByDescending(x => x.GPS_TIME).FirstOrDefault();
+                                      .Where(n => n.GPS_TIME >= start && n.GPS_TIME <= end && n.VEHICLE_ID == VehicleId && n.GPS_VALID == "A").OrderByDescending(x => x.GPS_TIME).FirstOrDefault();
 
 
                             if (result != null)
@@ -298,7 +337,12 @@ namespace LogisticsWebApi.Controllers
                                     {
                                         overspeedstatus = "1";
                                     }
-                                    locations.Add(VehicleLocationConvert(result, data.Status.ToString(), overspeedstatus));
+                                    var Adddata = VehicleLocationConvert(result, data.Status.ToString(), overspeedstatus);
+                                    if (Adddata != null)
+                                    {
+                                        locations.Add(Adddata);
+                                    }
+                                   // locations.Add(VehicleLocationConvert(result, data.Status.ToString(), overspeedstatus));
                                 }
                                
                             }
@@ -349,7 +393,7 @@ namespace LogisticsWebApi.Controllers
                         foreach (var item in result)
                         {
                             var data = context.RUN_VEHICLE_LOCATION
-                                  .Where(n => n.GPS_TIME >= start && n.GPS_TIME <= end && n.VEHICLE_ID == item.VehicleId).OrderByDescending(x => x.GPS_TIME).FirstOrDefault();
+                                  .Where(n => n.GPS_TIME >= start && n.GPS_TIME <= end && n.VEHICLE_ID == item.VehicleId && n.GPS_VALID == "A").OrderByDescending(x => x.GPS_TIME).FirstOrDefault();
 
 
                             string overspeedstatus = "0";
@@ -361,7 +405,12 @@ namespace LogisticsWebApi.Controllers
                                 {
                                     overspeedstatus = "1";
                                 }
-                                locations.Add(VehicleLocationConvert(data, item.Status.ToString(), overspeedstatus));
+                                var Adddata = VehicleLocationConvert(data, item.Status.ToString(), overspeedstatus);
+                                if (Adddata != null)
+                                {
+                                    locations.Add(Adddata);
+                                }
+                                //locations.Add(VehicleLocationConvert(data, item.Status.ToString(), overspeedstatus));
                             }
 
 
@@ -428,25 +477,13 @@ namespace LogisticsWebApi.Controllers
                 LoggerManager.Logger.Info(msg);
 
              
+                MapPoint mapPoint =
+                           LogisticsWebApi.Models.MapTransfer.WebMercatorToGeographic(new MapPoint
+                               (Convert.ToDouble(param.Longitude, System.Globalization.CultureInfo.InvariantCulture),
+                               Convert.ToDouble(param.Latitude, System.Globalization.CultureInfo.InvariantCulture)));
 
-
-                if (param.Latitude == null)
-                {
-                    return null;
-                
-                }
-                if (param.Longitude == null)
-                {
-                    return null;
-
-                }
-                if (param.Radius == null)
-                {
-                    return null;
-
-                }
-
-
+                param.Latitude = mapPoint.Y;
+                param.Longitude = mapPoint.X;
                 if (param.Latitude > 90 || param.Latitude < -90)
                 {
                     return null;
@@ -460,10 +497,10 @@ namespace LogisticsWebApi.Controllers
                     return null;
                 }
 
-                MapPoint mapPoint =
-                     LogisticsWebApi.Models.MapTransfer.WebMercatorToGeographic(new MapPoint
-                         (Convert.ToDouble(param.Longitude, System.Globalization.CultureInfo.InvariantCulture),
-                         Convert.ToDouble(param.Latitude, System.Globalization.CultureInfo.InvariantCulture)));
+                //MapPoint mapPoint =
+                //     LogisticsWebApi.Models.MapTransfer.WebMercatorToGeographic(new MapPoint
+                //         (Convert.ToDouble(param.Longitude, System.Globalization.CultureInfo.InvariantCulture),
+                //         Convert.ToDouble(param.Latitude, System.Globalization.CultureInfo.InvariantCulture)));
 
                 DateTime start = DateTime.Now.AddDays(-7).ToUniversalTime();
                 DateTime end = DateTime.Now.AddHours(1).ToUniversalTime();
@@ -485,7 +522,7 @@ namespace LogisticsWebApi.Controllers
                         foreach (var item in result)
                         {
                             var data = context.RUN_VEHICLE_LOCATION
-                                  .Where(n => n.GPS_TIME >= start && n.GPS_TIME <= end && n.VEHICLE_ID == item.VehicleId).OrderByDescending(x => x.GPS_TIME).FirstOrDefault();
+                                  .Where(n => n.GPS_TIME >= start && n.GPS_TIME <= end && n.VEHICLE_ID == item.VehicleId&&n.GPS_VALID=="A").OrderByDescending(x => x.GPS_TIME).FirstOrDefault();
 
 
                             string overspeedstatus = "0";
@@ -503,7 +540,12 @@ namespace LogisticsWebApi.Controllers
                                     {
                                         overspeedstatus = "1";
                                     }
-                                    locations.Add(VehicleLocationConvert(data, item.Status.ToString(), overspeedstatus));
+                                    var Adddata = VehicleLocationConvert(data, item.Status.ToString(), overspeedstatus);
+                                    if (Adddata != null)
+                                    {
+                                        locations.Add(Adddata);
+                                    }
+                                   // locations.Add(VehicleLocationConvert(data, item.Status.ToString(), overspeedstatus));
                                 }
                             }
 
