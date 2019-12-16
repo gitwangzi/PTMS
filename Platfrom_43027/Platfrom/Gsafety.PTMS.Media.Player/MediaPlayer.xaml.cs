@@ -455,6 +455,7 @@ namespace Gsafety.PTMS.Media.Player
             if (null == _mediaStreamFacade)
                 return;
             GC.Collect();
+           // GC.WaitForPendingFinalizers();
             var mediaStreamFacade = _mediaStreamFacade;
 
             await mediaStreamFacade.CloseAsync().ConfigureAwait(false);

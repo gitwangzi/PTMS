@@ -160,6 +160,7 @@ namespace Gsafety.PTMS.Media.MediaManager
                             return _mediaStreamConfigurator;
                         }
                     }
+                    
                     finally
                     {
                         if (null != webStream)
@@ -193,6 +194,7 @@ namespace Gsafety.PTMS.Media.MediaManager
 
             if (null != playCancellationTokenSource)
                 playCancellationTokenSource.Cancel();
+               _playCancellationTokenSource.CancelAfter(0);
 
             return playTask ?? TplTaskExtensions.CompletedTask;
         }
@@ -235,6 +237,7 @@ namespace Gsafety.PTMS.Media.MediaManager
             lock (_lock)
             {
                 pcts = _playCancellationTokenSource;
+                _playCancellationTokenSource.CancelAfter(0);
                 _playCancellationTokenSource = null;
             }
 
@@ -304,6 +307,8 @@ namespace Gsafety.PTMS.Media.MediaManager
 
             if (!playCancellationTokenSource.IsCancellationRequested)
                 playCancellationTokenSource.Cancel();
+            if (!_playCancellationTokenSource.IsCancellationRequested)
+                _playCancellationTokenSource.Cancel();
         }
 
         async Task SimplePlayAsync(ContentType contentType, IWebReader webReader, IWebStreamResponse webStreamResponse, WebResponse webResponse, TaskCompletionSource<bool> configurationTaskCompletionSource, CancellationToken cancellationToken)
@@ -378,9 +383,13 @@ namespace Gsafety.PTMS.Media.MediaManager
                         }
                     }
                     catch (OperationCanceledException)
-                    { }
+                    {
+                        _playCancellationTokenSource.CancelAfter(0);
+                    
+                    }
                     catch (Exception ex)
                     {
+                        _playCancellationTokenSource.CancelAfter(0);
                         var message = ex.ExtendedMessage();
 
                         LoggerInstance.Debug("SingleStreamMediaManager.SimplePlayAsync() failed: " + message);
@@ -397,9 +406,12 @@ namespace Gsafety.PTMS.Media.MediaManager
                             await reader.ConfigureAwait(false);
                         }
                         catch (OperationCanceledException)
-                        { }
+                        {
+                            _playCancellationTokenSource.CancelAfter(0);
+                        }
                         catch (Exception ex)
                         {
+                            _playCancellationTokenSource.CancelAfter(0);
                             LoggerInstance.Debug("SingleStreamMediaManager.SimplePlayAsync() reader failed: " + ex.ExtendedMessage());
                         }
                     }
@@ -418,6 +430,7 @@ namespace Gsafety.PTMS.Media.MediaManager
             }
             catch (Exception ex)
             {
+                _playCancellationTokenSource.CancelAfter(0);
                 LoggerInstance.Debug("SingleStreamMediaManager.SimplePlayAsync() cleanup failed: " + ex.ExtendedMessage());
             }
 
@@ -468,6 +481,11 @@ namespace Gsafety.PTMS.Media.MediaManager
                         mediaParser.ProcessData(buffer, 0, length);
                     }
                 }
+            }
+            catch
+            {
+
+                _playCancellationTokenSource.CancelAfter(0);
             }
             finally
             {

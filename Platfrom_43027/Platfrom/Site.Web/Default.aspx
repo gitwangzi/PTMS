@@ -22,7 +22,15 @@
         }
     </style>
     <script type="text/javascript" src="Silverlight.js"></script>
-    <script type="text/javascript">
+    <script type="text/javascript">     
+
+        //function FlushMemory() {
+
+        //    min.Click();
+
+        //    window.focus();
+
+        //}
 
         function CloseShell() {
             window.external.CloseShell();
@@ -89,6 +97,7 @@
         }
 
         function Full() {
+            //setInterval(FlushMemory, 60000);
             window.resizeTo(window.screen.availWidth, window.screen.availHeight);
             window.moveTo(0, 0);
         }
@@ -110,9 +119,14 @@
                     <img src="SDK/sliverlight.jpg" alt="Install Microsoft Silverlight" style="border-style: none" />
                 </a>
             </object>
+            
             <iframe id="_sl_historyFrame" style="visibility: hidden; height: 0px; width: 0px; border: 0px"></iframe>
         </div>
         <input type="hidden" id="language" runat="server" />
     </form>
+   <%-- <object id="min" type ="data:application/x-oleobject" classid="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11">
+                 <param name="Command" value="Minimize" />
+             </object>
+     <button  onclick="FlushMemory();"></button>--%>
 </body>
 </html>

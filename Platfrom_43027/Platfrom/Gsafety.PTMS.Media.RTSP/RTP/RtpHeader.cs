@@ -233,13 +233,36 @@ namespace Gsafety.PTMS.Media.RTSP.RTP
         /// </summary>
         public int SequenceNumber
         {
+
             [System.Runtime.CompilerServices.MethodImpl(System.Runtime.CompilerServices.MethodImplOptions.AggressiveInlining)]
 
             //The sequence number is stored in Netword Byte Order @ + 0x00 from the second octet (relative offset of 0x02 from the beginning of any header pointer)
-            get { /*CheckDisposed();*/ return (ushort)Binary.ReadU16(SegmentToLast10Bytes.Array, SegmentToLast10Bytes.Offset, Common.Binary.IsLittleEndian); }
+            get
+            {
+                try
+                {
+                    /*CheckDisposed();*/
+                    return (ushort)Binary.ReadU16(SegmentToLast10Bytes.Array, SegmentToLast10Bytes.Offset, Common.Binary.IsLittleEndian);
+                }
+                catch
+                {
+                    return -1;
+                }
+            }
             [System.Runtime.CompilerServices.MethodImpl(System.Runtime.CompilerServices.MethodImplOptions.AggressiveInlining)]
 
-            set { /*CheckDisposed();*/ Binary.Write16(SegmentToLast10Bytes.Array, SegmentToLast10Bytes.Offset, Common.Binary.IsLittleEndian, (ushort)value); }
+            set
+            {
+                try
+                {
+                    /*CheckDisposed();*/
+                    Binary.Write16(SegmentToLast10Bytes.Array, SegmentToLast10Bytes.Offset, Common.Binary.IsLittleEndian, (ushort)value);
+                }
+                catch
+                {
+                   
+                }
+            }
         }
 
         /// <summary>

@@ -197,7 +197,7 @@ namespace Gsafety.PTMS.MainPage.ViewModels
                 );
 
                 _queryTimer = new DispatcherTimer();
-                _queryTimer.Interval = TimeSpan.FromSeconds(60 * 2);
+                _queryTimer.Interval = TimeSpan.FromSeconds(1);
                 _queryTimer.Tick += _queryTimer_Tick;
                 _queryTimer.Start();
             }
@@ -210,6 +210,9 @@ namespace Gsafety.PTMS.MainPage.ViewModels
 
         void _queryTimer_Tick(object sender, EventArgs e)
         {
+            GC.Collect();
+            //GC.WaitForPendingFinalizers();
+            //HtmlPage.Window.Invoke("FlushMemory");
             //_queryTimer.Stop();
             //if (!ApplicationContext.Instance.ServerConfig.Authenticate)
             //{

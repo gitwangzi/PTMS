@@ -117,7 +117,7 @@ namespace Gsafety.PTMS.Media.RTSP.Common
             //Todo, should add flag for suppression?
 
             //If should not dispose then suppress the finalizer
-            if (false == (ShouldDispose = shouldDispose || Environment.HasShutdownStarted)) GC.SuppressFinalize(this);
+           if (false == (ShouldDispose = shouldDispose || Environment.HasShutdownStarted)) GC.SuppressFinalize(this);
         }
 
         /// <summary>

@@ -167,7 +167,7 @@ namespace Gsafety.PTMS.Media.RTSP.Common
         {
             if (@base.IsDisposed) return;
 
-            System.GC.SuppressFinalize(this);
+          System.GC.SuppressFinalize(this);
 
             @base.Dispose();
 

@@ -215,7 +215,8 @@ namespace GisManagement.ViewModels
         public void HandleEvent(Gsafety.PTMS.ServiceReference.MessageServiceExt.GPS publishedEvent)
         {
             try
-            {
+            {             
+             
                 if (CarExists(ElementLayerDefine.miVERealLocation, publishedEvent.VehicleId))
                 {
                     GpsCar car = MonitorList.VechileRealLocationElements.GetCarUIElementByUniqueID(publishedEvent.VehicleId) as GpsCar;
