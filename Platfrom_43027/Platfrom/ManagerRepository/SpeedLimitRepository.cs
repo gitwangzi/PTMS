@@ -161,6 +161,35 @@ namespace Gsafety.PTMS.Manager.Repository
 
             return new MultiMessage<SpeedLimit>(items2, totalCount);
         }
+
+        public static MultiMessage<SpeedLimit> GetSpeedLimitList()
+        {
+            try
+            {
+                using (var context = new PTMSEntities())
+                {
+                    var temp = from f in context.TRF_COMMAND_PARAM
+                               join q in context.TRF_COMMAND_VEHICLE on f.ID equals q.COMMAND_PARAM_ID
+                               where f.TYPE == (short)CommandParaEnum.Speed
+                               select f;
+
+                    var templist = temp.ToList();
+
+                    List<SpeedLimit> speeds = new List<SpeedLimit>();
+                    foreach (var item in templist)
+                    {
+                        speeds.Add(SpeedLimitUtility.GetModel(item));
+                    }
+
+                    return new MultiMessage<SpeedLimit>(speeds, speeds.Count);
+                }
+            }
+            catch (Exception ex)
+            {
+                return new MultiMessage<SpeedLimit>(null, 0);
+            }
+
+        }
     }
 }
 

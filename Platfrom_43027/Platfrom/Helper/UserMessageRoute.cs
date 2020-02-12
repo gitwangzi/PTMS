@@ -206,6 +206,11 @@ namespace Gsafety.PTMS.Analysis.Helper
         public const string OriginalMonitorPointKey = "APP.UserMessage.MonitorPoint";
 
         /// <summary>
+        /// user send monitor info
+        /// </summary>
+        public const string OriginalSpeedLimitKey = "APP.UserMessage.SpeedLimit";
+
+        /// <summary>
         /// send upgrade info
         /// </summary>
         public const string OriginalUpgradeNotifyKey = "APP.UserMessage.UpgradeNotify";

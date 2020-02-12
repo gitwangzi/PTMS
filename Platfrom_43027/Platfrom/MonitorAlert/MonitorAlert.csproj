@@ -91,7 +91,6 @@
       <DependentUpon>MonitorAlertService.cs</DependentUpon>
     </Compile>
     <Compile Include="MonitorGrid.cs" />
-    <Compile Include="MonitorPlan.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="ProjectInstaller.cs">
       <SubType>Component</SubType>
@@ -116,6 +115,10 @@
       <Project>{a6c2a532-546d-4dae-8aa3-4c01de81f462}</Project>
       <Name>BaseContract</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Common.Data\Common.Data.csproj">
+      <Project>{2b4caa14-181a-4b8d-9dc6-891bea684735}</Project>
+      <Name>Common.Data</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Helper\Helper.csproj">
       <Project>{82c03cd2-b56c-4b17-85fe-92c9444d116c}</Project>
       <Name>Helper</Name>
@@ -123,6 +126,10 @@
     <ProjectReference Include="..\LogManage\LogManage.csproj">
       <Project>{48e5a665-a6c2-49a2-96d3-031eaa67de3d}</Project>
       <Name>LogManage</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ManagerRepository\ManagerRepository.csproj">
+      <Project>{5a9e13d9-65a4-405e-a6d3-fe05fee1367e}</Project>
+      <Name>ManagerRepository</Name>
     </ProjectReference>
     <ProjectReference Include="..\MQManage\MQHelper.csproj">
       <Project>{b8da0d16-008a-4c6b-9edb-97175e663e24}</Project>

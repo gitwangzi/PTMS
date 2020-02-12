@@ -35,6 +35,7 @@ using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Configuration;
 using Gsafety.PTMS.Message.Contract.Data;
+using Gsafety.PTMS.Common.Data;
 
 namespace Gsafety.PTMS.MonitorAlert
 {
@@ -49,10 +50,10 @@ namespace Gsafety.PTMS.MonitorAlert
 
         private static MonitorAlertGenerator _monitorAlertGenerator;
         private static TrafficRepository trafficeServer;
-        private static string QUEUE = "TASK.MonitorAlertMessage";
+        private static string QUEUE = "MonitorAlert.Share";
         private static bool _GenerateFenceAlert;
         private static bool _GenerateRouteAlert;
-        private static bool _GeneratePlanAlert;
+        private static bool _GenerateSpeedAlert;
         private static bool _GenerateMonitorPointAlert;
 
         /// <summary>
@@ -64,7 +65,7 @@ namespace Gsafety.PTMS.MonitorAlert
             {
                 _GenerateFenceAlert = Convert.ToBoolean(ConfigurationManager.AppSettings["GenerateFenceAlert"]);
                 _GenerateRouteAlert = Convert.ToBoolean(ConfigurationManager.AppSettings["GenerateRouteAlert"]);
-                _GeneratePlanAlert = Convert.ToBoolean(ConfigurationManager.AppSettings["GeneratePlanAlert"]);
+                _GenerateSpeedAlert = Convert.ToBoolean(ConfigurationManager.AppSettings["GenerateSpeedAlert"]);
                 _GenerateMonitorPointAlert = Convert.ToBoolean(ConfigurationManager.AppSettings["GenerateMonitorPointAlert"]);
 
                 _monitorAlertGenerator = new MonitorAlertGenerator();
@@ -143,8 +144,15 @@ namespace Gsafety.PTMS.MonitorAlert
 
                 ////绑定路由
                 ////GPS
-                _ch.QueueBind(QUEUE, Constdefine.GPSEXCHANGE, GPSRoute.OriginalANTGPSKey + "*");
-                _ch.QueueBind(QUEUE, Constdefine.GPSEXCHANGE, GPSRoute.OriginalGPSKey + "*");
+                //_ch.QueueBind(QUEUE, Constdefine.GPSEXCHANGE, GPSRoute.OriginalANTGPSKey + "*");
+                //_ch.QueueBind(QUEUE, Constdefine.GPSEXCHANGE, GPSRoute.OriginalGPSKey + "*");
+
+                _ch.QueueBind(QUEUE, Constdefine.GPSEXCHANGE, GPSRoute.SuiteKey + "*");
+
+                //_ch.QueueBind(QUEUE, Constdefine.MOBILEEXCHANGE, GPSRoute.MobileKey + "*");
+
+                _ch.QueueBind(QUEUE, Constdefine.GPSEXCHANGE, GPSRoute.GPSKey + "*");
+
 
                 //订阅围栏相关的消息
                 //_ch.QueueBind(QUEUE, Constdefine.APPEXCHANGE, MonitorRoute.OriginalFenceKey + "*");
@@ -202,12 +210,34 @@ namespace Gsafety.PTMS.MonitorAlert
                         bp.Priority = 1;
 
                         //处理AntGPS消息
-                        if (e.RoutingKey.Contains(GPSRoute.OriginalANTGPSKey))
+                        if (e.RoutingKey.Contains(GPSRoute.GPSKey) || e.RoutingKey.Contains(GPSRoute.SuiteKey))
                         {
-                            string str = System.Text.UnicodeEncoding.UTF8.GetString(bytes);
-                            PTMSGPS antgps = new PTMSGPS(str, ConfigHelper.Zone);
+                            try
+                            {
+                                //LoggerManager.Logger.Info("AddSuite.......");
+                                string str = System.Text.UnicodeEncoding.UTF8.GetString(bytes);
+                                LoggerManager.Logger.Info(str);
+                                //json -> entity
+                                GpsInfo gpsinfo = JsonHelper.FromJsonString<Gsafety.PTMS.Common.Data.GpsInfo>(str);
+
+                                if (gpsinfo != null)
+                                {
+                                    //LoggerManager.Logger.Info("gpsinfo is not empty");
+                                    GPS gps = GetGPS(gpsinfo);
+
+                                    _monitorAlertGenerator.HandleGPS(gps);
+                                }
+                                else
+                                {
+                                    LoggerManager.Logger.Warn(string.Format("Converted gps to entity is empty,string:{0}", str));
+                                }
+                            }
+                            catch (Exception ex)
+                            {
+                                LoggerManager.Logger.Error(ex);
+                            }
                             
-                            _monitorAlertGenerator.HandleAntGPS(antgps);
+                           
                         }
                         //处理电子围栏消息
                         if (e.RoutingKey.Contains(UserMessageRoute.OriginalElectronicFenceKey))
@@ -220,11 +250,11 @@ namespace Gsafety.PTMS.MonitorAlert
                                 string gpsid = "";
                                 try
                                 {                                    
-                                    if (trafficeServer.GetGPSID(mdvrid) != null)
-                                    {
-                                        gpsid = trafficeServer.GetGPSID(mdvrid);
-                                    }
-                                    LoggerManager.Logger.Info(string.Format("GPS Time ={0},MDVRCOREID={1}", model.GpsTime, model.DvId)); 
+                                    //if (trafficeServer.GetGPSID(mdvrid) != null)
+                                    //{
+                                    //    gpsid = trafficeServer.GetGPSID(mdvrid);
+                                    //}
+                                    //LoggerManager.Logger.Info(string.Format("GPS Time ={0},MDVRCOREID={1}", model.GpsTime, model.DvId)); 
                                     _monitorAlertGenerator.MonitorGrid.UpdateFence(gpsid,model);
                                 }
                                 catch (Exception ex)
@@ -234,16 +264,16 @@ namespace Gsafety.PTMS.MonitorAlert
                             }
                         }
 
-                        if (e.RoutingKey.Contains(UserMessageRoute.OriginalMonitorPointKey))
+                        if (e.RoutingKey.Contains(UserMessageRoute.OriginalSpeedLimitKey))
                         {
                             if (_GenerateMonitorPointAlert)
                             {
                                 try
                                 {
-                                    string str = System.Text.UnicodeEncoding.UTF8.GetString(bytes);
-                                    var model = ConvertHelper.BytesToObject(bytes) as ElectricFenceCMD;
-                                    LoggerManager.Logger.Info(string.Format("GPS Time ={0},MDVRCOREID={1}", model.GpsTime, model.DvId));    
-                                    _monitorAlertGenerator.MonitorGrid.UpdatePoint(model);
+                                    //string str = System.Text.UnicodeEncoding.UTF8.GetString(bytes);
+                                    //var model = ConvertHelper.BytesToObject(bytes) as ElectricFenceCMD;
+                                    //LoggerManager.Logger.Info(string.Format("GPS Time ={0},MDVRCOREID={1}", model.GpsTime, model.DvId));    
+                                    //_monitorAlertGenerator.MonitorGrid.UpdateSpeed(model);
 
                                 }
                                 catch (Exception ex)
@@ -264,11 +294,11 @@ namespace Gsafety.PTMS.MonitorAlert
                                 {
                                     string gpsid = "";
 
-                                    if (trafficeServer.GetGPSID(mdvrid) != null)
-                                    {
-                                        gpsid = trafficeServer.GetGPSID(mdvrid);                                        
-                                    }
-                                    LoggerManager.Logger.Info(string.Format("GPS Time ={0},MDVRCOREID={1}", model.GpsTime, model.DvId)); 
+                                    //if (trafficeServer.GetGPSID(mdvrid) != null)
+                                    //{
+                                    //    gpsid = trafficeServer.GetGPSID(mdvrid);                                        
+                                    //}
+                                    //LoggerManager.Logger.Info(string.Format("GPS Time ={0},MDVRCOREID={1}", model.GpsTime, model.DvId)); 
                                     _monitorAlertGenerator.MonitorGrid.UpdateRoute(gpsid, mdvrid, model);
                                 }
                                 catch (Exception ex)
@@ -277,18 +307,7 @@ namespace Gsafety.PTMS.MonitorAlert
                                 }
                             }
                         }
-                        //处理行使计划的消息
-                        if (e.RoutingKey.Contains(UserMessageRoute.OriginalTravePlanKey))
-                        {                           
-                            if (_GenerateRouteAlert)
-                            {
-                                string str = System.Text.UnicodeEncoding.UTF8.GetString(bytes);
-                                var model = ConvertHelper.BytesToObject(bytes) as TravelPlanCMD;
-                                string vechileID = model.VechileID;
-                                LoggerManager.Logger.Info(string.Format("VechileID ={0},Raptor ID={1}", model.VechileID, model.RaptorIMEI)); 
-                                _monitorAlertGenerator.MonitorGrid.UpdatePlan(vechileID, model);
-                            }                           
-                        }
+                       
                        
                         ////回复
                         _ch.BasicAck(e.DeliveryTag, false);
@@ -328,7 +347,31 @@ namespace Gsafety.PTMS.MonitorAlert
                 LoggerManager.Logger.Error(ex);
             }
         }
+        private static GPS GetGPS(GpsInfo gpsinfo)
+        {
+            GPS gps = new GPS();
+            gps.AlarmFlag = gpsinfo.AlarmFlag;
+            gps.Direction = gpsinfo.Direction;
+            gps.Status = gpsinfo.Status;
+            gps.SourceMode = 0;
+            try
+            {
+                gps.GpsTime = DateTime.Parse(gpsinfo.GpsTime);
+            }
+            catch (Exception)
+            {
 
+            }
+
+            gps.Valid = gpsinfo.Valid;
+            gps.Height = gpsinfo.Height;
+            gps.Latitude = gpsinfo.Latitude;
+            gps.Longitude = gpsinfo.Longitude;
+            gps.Speed = gpsinfo.Speed;
+            gps.UID = gpsinfo.UID;
+            gps.DeviceID = gpsinfo.UID;
+            return gps;
+        }
 
         public static byte[] ObjectToBytes(object obj)
         {

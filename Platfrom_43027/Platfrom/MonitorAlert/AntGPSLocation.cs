@@ -33,57 +33,67 @@ using RabbitMQ.Client;
 using Gsafety.PTMS.Base.Contract.Data;
 using Gsafety.PTMS.Traffic.Contract.Data;
 using Gsafety.PTMS.Message.Contract.Data;
+using Gsafety.PTMS.Common.Data;
 
 namespace Gsafety.PTMS.MonitorAlert
 {
     /// <summary>
     /// 记录每一个GPS最后一次的位置等信息
     /// </summary>
-    public class AntGPSLocation
+    public class GPSLocation
     {
         private string _Id;
         private bool _CurrentOverSpeed;
         private bool _CurrentInFenceOverSpeed;
-        private bool _CurrentInFenceUnderSpeed;
-        private Route _CurrentRoute;
-        private Road _CurrentRoad;
-        private Fence _CurrentFence;
-        private PTMSGPS _CurrentANTGPS;
-    
-////////////BIT0=0，关闭电子围栏，
-////////////BIT0=1，使用电子围栏
-////////////BIT1=1，超速报警
-////////////BIT2=1，低速报警
-////////////BIT3=1，入栏报警
-////////////BIT4=1，出栏报警
-////////////BIT5=0，时间限定无效，BIT5=1，时间限定有效
+        private bool _CurrentInRouteOverSpeed;
+        private DateTime _OverSpeedTime;
+        private DateTime _InFenceOverSpeedTime;
+        private DateTime _InRouteOverSpeedTime;
+        private TrafficRoute _CurrentRoute;
+        private TrafficFence _CurrentFence;
+        private GPS _CurrentGPS;   
 
-        public AntGPSLocation()
+
+        public GPSLocation()
         {
         }
 
         /// <summary>
-        /// 记录某辆车最近一次所在的道路、路线以及围栏等
+        /// 记录某辆车最近一次所在的路线以及围栏、速度等
         /// </summary>
         /// <param name="antgps"></param>
-        /// <param name="road"></param>
+        /// <param name="road" ></param>
         /// <param name="route"></param>
         /// <param name="fence"></param>
         /// <param name="overspeed"></param>
         /// <param name="currentInFenceOverSpeed"></param>
         /// <param name="currentInFenceUnderSpeed"></param>
-        public AntGPSLocation(PTMSGPS antgps,Road road, Route route, Fence fence, bool overspeed,bool currentInFenceOverSpeed,bool currentInFenceUnderSpeed)
+        public GPSLocation(GPS gps, TrafficRoute route, TrafficFence fence, bool overspeed, bool currentInFenceOverSpeed, bool currentInRouteOverSpeed, DateTime overspeedTime)
         {
             try
             {
-                _Id = antgps.MdvrCoreId;
-                _CurrentRoad = road;
+                _Id = gps.UID;
                 _CurrentRoute = route;
-                _CurrentFence = fence;
+                _CurrentFence = fence;               
+                _CurrentGPS = gps;
                 _CurrentOverSpeed = overspeed;
-                _CurrentANTGPS = antgps;
+                if (overspeed)
+                {
+                    _OverSpeedTime = overspeedTime;
+                
+                }
                 _CurrentInFenceOverSpeed = currentInFenceOverSpeed;
-                _CurrentInFenceUnderSpeed = currentInFenceUnderSpeed;
+                if (currentInFenceOverSpeed)
+                {
+                    _InFenceOverSpeedTime = overspeedTime;
+
+                }
+                _CurrentInRouteOverSpeed = currentInRouteOverSpeed;
+                if (currentInRouteOverSpeed)
+                {
+                    _InRouteOverSpeedTime = overspeedTime;
+
+                }
 
                 //当第一点就是超速时，引发超速事件
                 //if (overspeed) GenerateOverSpeedAlert();
@@ -96,9 +106,9 @@ namespace Gsafety.PTMS.MonitorAlert
                     GenerateInFenceAlert(fence);
                 }
 
-                if (currentInFenceOverSpeed) GenerateInFenceOverSpeedAlert(_CurrentFence);     
-             
-                if (currentInFenceUnderSpeed) GenerateInFenceUnderSpeedAlert(_CurrentFence);
+                if (currentInFenceOverSpeed) GenerateInFenceOverSpeedAlert(_CurrentFence);
+
+                if (currentInRouteOverSpeed) GenerateInRouteOverSpeedAlert(_CurrentRoute);
             }
             catch (Exception ex)
             {
@@ -106,7 +116,7 @@ namespace Gsafety.PTMS.MonitorAlert
             }
         }
         /// <summary>
-        /// 唯一标识车的信息，目前采用的是ANT GPSID
+        /// 唯一标识车的信息，目前采用的是GPSID
         /// </summary>
         public string Id
         {
@@ -119,24 +129,11 @@ namespace Gsafety.PTMS.MonitorAlert
                 _Id = value;
             }
         }       
-      /// <summary>
-      /// 当前所在道路
-      /// </summary>
-        public Road CurrentRoad
-        {
-            get
-            {
-                return _CurrentRoad;
-            }
-            set
-            {
-                _CurrentRoad = value;
-            }
-        }
+     
         /// <summary>
         /// 当前所在围栏
         /// </summary>
-        public Fence CurrentFence
+        public TrafficFence CurrentFence
         {
             get
             {
@@ -164,7 +161,7 @@ namespace Gsafety.PTMS.MonitorAlert
                     }
                     //换围栏后重新算围栏内超速否
                     _CurrentInFenceOverSpeed = false;
-                    _CurrentInFenceUnderSpeed = false;
+                   
                 }
                 _CurrentFence = value;
             }
@@ -172,7 +169,7 @@ namespace Gsafety.PTMS.MonitorAlert
         /// <summary>
         /// 当前所在路线
         /// </summary>
-        public Route CurrentRoute
+        public TrafficRoute CurrentRoute
         {
             get
             {
@@ -182,8 +179,8 @@ namespace Gsafety.PTMS.MonitorAlert
             {
                 if (value != _CurrentRoute)
                 {
-                    if (value == null) GenerateOutRouteAlert(_CurrentRoute.Id,_CurrentRoute.Name);
-                    else GenerateInRouteAlert(value.Id,value.Name);
+                    if (value == null) GenerateOutRouteAlert(_CurrentRoute.ID,_CurrentRoute.Name);
+                    else GenerateInRouteAlert(value.ID, value.Name);
                 }
                 _CurrentRoute = value;
             }
@@ -191,15 +188,15 @@ namespace Gsafety.PTMS.MonitorAlert
         /// <summary>
         /// 当前的GPS信息
         /// </summary>
-        public PTMSGPS CurrentANTGPS
+        public GPS CurrentGPS
         {
             get
             {
-                return _CurrentANTGPS;
+                return _CurrentGPS;
             }
             set
             {
-                _CurrentANTGPS = value;
+                _CurrentGPS = value;
             }
         }
         /// <summary>
@@ -215,10 +212,22 @@ namespace Gsafety.PTMS.MonitorAlert
             {
                 if (value != _CurrentOverSpeed)
                 {
-                    if (value == true) GenerateOverSpeedAlert(_CurrentRoad.Id,_CurrentRoad.Name);
-                    else GenerateNormalSpeedAlert(_CurrentRoad.Id, _CurrentRoad.Name);
+                    if (value == true) GenerateOverSpeedAlert();
+                   
                 }
                 _CurrentOverSpeed = value;
+            }
+        }
+
+        public DateTime OverSpeedTime
+        {
+            get
+            {
+                return _OverSpeedTime;
+            }
+            set
+            {
+               _OverSpeedTime = value;
             }
         }
         /// <summary>
@@ -235,150 +244,51 @@ namespace Gsafety.PTMS.MonitorAlert
                 if (value != _CurrentInFenceOverSpeed)
                 {
                     if (value == true) GenerateInFenceOverSpeedAlert(_CurrentFence);
-                    else GenerateInFenceOverSpeed2NormalAlert(_CurrentFence);
+                  
                 }
                 _CurrentInFenceOverSpeed = value;
             }
         }
-
-       
-        /// <summary>
-        /// 当前是否围栏内低速
-        /// </summary>
-        public bool CurrentInFenceUnderSpeed
+        public DateTime InFenceOverSpeedTime
         {
             get
             {
-                return _CurrentInFenceUnderSpeed;
+                return _InFenceOverSpeedTime;
             }
             set
             {
-                if (value != _CurrentInFenceUnderSpeed)
-                {
-                    if (value == true) GenerateInFenceUnderSpeedAlert(_CurrentFence);
-                    else GenerateInFenceUnderSpeed2NormalAlert(_CurrentFence);      
-                }
-                _CurrentInFenceUnderSpeed = value;
+                _InFenceOverSpeedTime = value;
             }
         }
 
         /// <summary>
-        /// 低速恢复正常报警
+        /// 当前是否在路线内超速
         /// </summary>
-        /// <param name="fence"></param>
-        private void GenerateInFenceUnderSpeed2NormalAlert(Fence fence)
+        public bool CurrentInRouteOverSpeed
         {
-            try
+            get
             {
-                if (fence.Alert("BIT2"))
-                {
-                    RegionAlert alert = new RegionAlert()
-                    {
-                        AlertType = (int)BusinessAlertType.MonitorInFenceUnderSpeed2Normal,
-                        AlertTime = DateTime.Now,
-                        SubRegionAlertType = "MonitorAlert",
-
-                        MdvrCoreSN = _CurrentANTGPS.MdvrCoreId,
-                        Longitude = _CurrentANTGPS.Longitude,
-                        Latitude = _CurrentANTGPS.Latitude,
-                        Speed = _CurrentANTGPS.Speed,
-                        Direction = _CurrentANTGPS.Direction,
-                        GpsTime = _CurrentANTGPS.GPSTime,
-                        GpsValid = _CurrentANTGPS.GPSValid,
-                        Context = _CurrentANTGPS.Context,
-                        VehicleID = _CurrentANTGPS.VehicleId,
-                        SuitInfoID = _CurrentANTGPS.SuiteInfoId,
-                        //围栏信息
-                        FenceId = fence.Id,
-                        FenceName = fence.Name,
-                    };
-
-                    MonitorAlertMessage.PublishMessage(Constdefine.APPEXCHANGE, AlertRoute.OriginalMonitorInFenceUnderSpeed2Normal, MonitorAlertMessage.ObjectToBytes(alert));
-                }
+                return _CurrentInRouteOverSpeed;
             }
-            catch (Exception ex)
+            set
             {
-                LoggerManager.Logger.Error("GenerateInFenceUnderSpeed2NormalAlert :" + ex.Message);
+                if (value != _CurrentInRouteOverSpeed)
+                {
+                    if (value == true) GenerateInRouteOverSpeedAlert(_CurrentRoute);
+                   
+                }
+                _CurrentInRouteOverSpeed = value;
             }
         }
-
-        /// <summary>
-        /// 低速告警
-        /// </summary>
-        /// <param name="fence"></param>
-        private void GenerateInFenceUnderSpeedAlert(Fence fence)
+        public DateTime InRouteOverSpeedTime
         {
-            try
+            get
             {
-                if (fence.Alert("BIT2"))
-                {
-                    RegionAlert alert = new RegionAlert()
-                    {
-                        AlertType = (int)BusinessAlertType.UnderSpeedFence,
-                        AlertTime = DateTime.Now,
-                        SubRegionAlertType = "MonitorAlert",
-
-                        MdvrCoreSN = _CurrentANTGPS.MdvrCoreId,
-                        Longitude = _CurrentANTGPS.Longitude,
-                        Latitude = _CurrentANTGPS.Latitude,
-                        Speed = _CurrentANTGPS.Speed,
-                        Direction = _CurrentANTGPS.Direction,
-                        GpsTime = _CurrentANTGPS.GPSTime,
-                        GpsValid = _CurrentANTGPS.GPSValid,
-                        Context = _CurrentANTGPS.Context,
-                        VehicleID = _CurrentANTGPS.VehicleId,
-                        SuitInfoID = _CurrentANTGPS.SuiteInfoId,
-                        //围栏信息
-                        FenceId = fence.Id,
-                        FenceName = fence.Name,
-                    };
-
-                    MonitorAlertMessage.PublishMessage(Constdefine.APPEXCHANGE, AlertRoute.OriginalMonitorInFenceUnderSpeed, MonitorAlertMessage.ObjectToBytes(alert));
-                }
+                return _InRouteOverSpeedTime;
             }
-            catch (Exception ex)
+            set
             {
-                LoggerManager.Logger.Error("GenerateInFenceUnderSpeedAlert :" + ex.Message);
-            }
-        }
-
-        /// <summary>
-        /// 围栏内超速恢复正常告警
-        /// </summary>
-        /// <param name="fence"></param>
-        private void GenerateInFenceOverSpeed2NormalAlert(Fence fence)
-        {
-            try
-            {
-                if (fence.Alert("BIT1"))
-                {
-                    RegionAlert alert = new RegionAlert()
-                    {
-                        AlertType = (int)BusinessAlertType.MonitorInFenceOverSpeed2Normal,
-                        AlertTime = DateTime.Now,
-                        SubRegionAlertType = "MonitorAlert",
-
-                        MdvrCoreSN = _CurrentANTGPS.MdvrCoreId,
-                        Longitude = _CurrentANTGPS.Longitude,
-                        Latitude = _CurrentANTGPS.Latitude,
-                        Speed = _CurrentANTGPS.Speed,
-                        Direction = _CurrentANTGPS.Direction,
-                        GpsTime = _CurrentANTGPS.GPSTime,
-                        GpsValid = _CurrentANTGPS.GPSValid,
-                        Context = _CurrentANTGPS.Context,
-                        VehicleID = _CurrentANTGPS.VehicleId,
-                        SuitInfoID = _CurrentANTGPS.SuiteInfoId,
-                        //围栏信息
-                        FenceId = fence.Id,
-                        FenceName = fence.Name,
-                    };
-
-                    MonitorAlertMessage.PublishMessage(Constdefine.APPEXCHANGE, AlertRoute.OriginalMonitorInFenceOverSpeed2Normal, MonitorAlertMessage.ObjectToBytes(alert));
-                }
-            }
-            catch (Exception ex)
-            {
-                LoggerManager.Logger.Error("GenerateInFenceOverSpeed2NormalAlert :" + ex.Message);
+                _InRouteOverSpeedTime = value;
             }
         }
 
@@ -386,36 +296,73 @@ namespace Gsafety.PTMS.MonitorAlert
         /// 围栏内超速告警
         /// </summary>
         /// <param name="fence"></param>
-        private void GenerateInFenceOverSpeedAlert(Fence fence)
+        private void GenerateInFenceOverSpeedAlert(TrafficFence fence)
         {
             try
             {
-                if (fence.Alert("BIT1"))
-                {
+                
                     RegionAlert alert = new RegionAlert()
                     {
                         AlertType = (int)BusinessAlertType.OverSpeedFence,
                         AlertTime = DateTime.Now,
                         SubRegionAlertType = "MonitorAlert",
 
-                        MdvrCoreSN = _CurrentANTGPS.MdvrCoreId,
-                        Longitude = _CurrentANTGPS.Longitude,
-                        Latitude = _CurrentANTGPS.Latitude,
-                        Speed = _CurrentANTGPS.Speed,
-                        Direction = _CurrentANTGPS.Direction,
-                        GpsTime = _CurrentANTGPS.GPSTime,
-                        GpsValid = _CurrentANTGPS.GPSValid,
-                        Context = _CurrentANTGPS.Context,
-                        VehicleID = _CurrentANTGPS.VehicleId,
-                        SuitInfoID = _CurrentANTGPS.SuiteInfoId,
+
+                        MdvrCoreSN = _CurrentGPS.UID,
+                        Longitude = _CurrentGPS.Longitude,
+                        Latitude = _CurrentGPS.Latitude,
+                        Speed = _CurrentGPS.Speed,
+                        Direction = _CurrentGPS.Direction,
+                        GpsTime = _CurrentGPS.GpsTime,
+                        GpsValid = _CurrentGPS.Valid,
+                        VehicleID = _CurrentGPS.VehicleId,
+                        SuitInfoID = _CurrentGPS.UID,
                         //围栏信息
-                        FenceId = fence.Id,
+                        FenceId = fence.ID,
                         FenceName = fence.Name,
                     };
 
-                    MonitorAlertMessage.PublishMessage(Constdefine.APPEXCHANGE, AlertRoute.OriginalMonitorInFenceOverSpeed, MonitorAlertMessage.ObjectToBytes(alert));
-                }
+                    MonitorAlertMessage.PublishMessage(Constdefine.APPEXCHANGE, AlertRoute.OriginalBusinessAlertKey, MonitorAlertMessage.ObjectToBytes(alert));
+                
             }
+            catch (Exception ex)
+            {
+                LoggerManager.Logger.Error("GenerateInFenceOverSpeedAlert :" + ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// 路线内超速告警
+        /// </summary>
+        /// <param name="fence"></param>
+        private void GenerateInRouteOverSpeedAlert(TrafficRoute route)
+        {
+            try
+            {
+                
+                    RegionAlert alert = new RegionAlert()
+                    {
+                        AlertType = (int)BusinessAlertType.OverSpeedFence,
+                        AlertTime = DateTime.Now,
+                        SubRegionAlertType = "MonitorAlert",
+
+                        MdvrCoreSN = _CurrentGPS.UID,
+                        Longitude = _CurrentGPS.Longitude,
+                        Latitude = _CurrentGPS.Latitude,
+                        Speed = _CurrentGPS.Speed,
+                        Direction = _CurrentGPS.Direction,
+                        GpsTime = _CurrentGPS.GpsTime,
+                        GpsValid = _CurrentGPS.Valid,
+                        VehicleID = _CurrentGPS.VehicleId,
+                        SuitInfoID = _CurrentGPS.UID,
+                        //围栏信息
+                        FenceId = route.ID,
+                        FenceName = route.Name,
+                    };
+
+                    MonitorAlertMessage.PublishMessage(Constdefine.APPEXCHANGE, AlertRoute.OriginalBusinessAlertKey, MonitorAlertMessage.ObjectToBytes(alert));
+                }
+            
             catch (Exception ex)
             {
                 LoggerManager.Logger.Error("GenerateInFenceOverSpeedAlert :" + ex.Message);
@@ -425,36 +372,34 @@ namespace Gsafety.PTMS.MonitorAlert
         /// 入围栏告警
         /// </summary>
         /// <param name="fence"></param>
-        private void GenerateInFenceAlert(Fence fence)
+        private void GenerateInFenceAlert(TrafficFence fence)
         {
             try
             {
-                //if (_CurrentFence == null) return;
-                if (fence.Alert("BIT3"))
-                {
+               
                     RegionAlert alert = new RegionAlert()
                     {
                         AlertType = (int)BusinessAlertType.InFence,
                         AlertTime = DateTime.Now,
                         SubRegionAlertType = "MonitorAlert",
 
-                        MdvrCoreSN = _CurrentANTGPS.MdvrCoreId,
-                        Longitude = _CurrentANTGPS.Longitude,
-                        Latitude = _CurrentANTGPS.Latitude,
-                        Speed = _CurrentANTGPS.Speed,
-                        Direction = _CurrentANTGPS.Direction,
-                        GpsTime = _CurrentANTGPS.GPSTime,
-                        GpsValid = _CurrentANTGPS.GPSValid,
-                        Context = _CurrentANTGPS.Context,
-                        VehicleID = _CurrentANTGPS.VehicleId,
-                        SuitInfoID = _CurrentANTGPS.SuiteInfoId,
+
+                        MdvrCoreSN = _CurrentGPS.UID,
+                        Longitude = _CurrentGPS.Longitude,
+                        Latitude = _CurrentGPS.Latitude,
+                        Speed = _CurrentGPS.Speed,
+                        Direction = _CurrentGPS.Direction,
+                        GpsTime = _CurrentGPS.GpsTime,
+                        GpsValid = _CurrentGPS.Valid,
+                        VehicleID = _CurrentGPS.VehicleId,
+                        SuitInfoID = _CurrentGPS.UID,
                         //围栏信息
-                        FenceId = fence.Id,
+                        FenceId = fence.ID,
                         FenceName = fence.Name,
                     };
 
-                    MonitorAlertMessage.PublishMessage(Constdefine.APPEXCHANGE, AlertRoute.OriginalMonitorInFence, MonitorAlertMessage.ObjectToBytes(alert));
-                }
+                    MonitorAlertMessage.PublishMessage(Constdefine.APPEXCHANGE, AlertRoute.OriginalBusinessAlertKey, MonitorAlertMessage.ObjectToBytes(alert));
+                
             }
             catch (Exception ex)
             {
@@ -465,36 +410,34 @@ namespace Gsafety.PTMS.MonitorAlert
         /// 出围栏告警
         /// </summary>
         /// <param name="fence"></param>
-        private void GenerateOutFenceAlert(Fence fence)
+        private void GenerateOutFenceAlert(TrafficFence fence)
         {
             try
             {
-                //if (_CurrentFence == null) return;
-                if (fence.Alert("BIT4"))
-                {
+               
                     RegionAlert alert = new RegionAlert()
                     {
                         AlertType = (int)BusinessAlertType.OutFence,
                         AlertTime = DateTime.Now,
                         SubRegionAlertType = "MonitorAlert",
 
-                        MdvrCoreSN = _CurrentANTGPS.MdvrCoreId,
-                        Longitude = _CurrentANTGPS.Longitude,
-                        Latitude = _CurrentANTGPS.Latitude,
-                        Speed = _CurrentANTGPS.Speed,
-                        Direction = _CurrentANTGPS.Direction,
-                        GpsTime = _CurrentANTGPS.GPSTime,
-                        GpsValid = _CurrentANTGPS.GPSValid,
-                        Context = _CurrentANTGPS.Context,
-                        VehicleID = _CurrentANTGPS.VehicleId,
-                        SuitInfoID = _CurrentANTGPS.SuiteInfoId,
+
+                        MdvrCoreSN = _CurrentGPS.UID,
+                        Longitude = _CurrentGPS.Longitude,
+                        Latitude = _CurrentGPS.Latitude,
+                        Speed = _CurrentGPS.Speed,
+                        Direction = _CurrentGPS.Direction,
+                        GpsTime = _CurrentGPS.GpsTime,
+                        GpsValid = _CurrentGPS.Valid,
+                        VehicleID = _CurrentGPS.VehicleId,
+                        SuitInfoID = _CurrentGPS.UID,
                         //围栏信息
-                        FenceId = fence.Id,
+                        FenceId = fence.ID,
                         FenceName = fence.Name,
                     };
 
-                    MonitorAlertMessage.PublishMessage(Constdefine.APPEXCHANGE, AlertRoute.OriginalMonitorOutFence, MonitorAlertMessage.ObjectToBytes(alert));
-                }
+                    MonitorAlertMessage.PublishMessage(Constdefine.APPEXCHANGE, AlertRoute.OriginalBusinessAlertKey, MonitorAlertMessage.ObjectToBytes(alert));
+                
             }
             catch (Exception ex)
             {
@@ -519,22 +462,21 @@ namespace Gsafety.PTMS.MonitorAlert
                     AlertTime = DateTime.Now,
                     SubRegionAlertType = "MonitorAlert",
 
-                    MdvrCoreSN = _CurrentANTGPS.MdvrCoreId,
-                    Longitude = _CurrentANTGPS.Longitude,
-                    Latitude = _CurrentANTGPS.Latitude,
-                    Speed = _CurrentANTGPS.Speed,
-                    Direction = _CurrentANTGPS.Direction,
-                    GpsTime = _CurrentANTGPS.GPSTime,
-                    GpsValid = _CurrentANTGPS.GPSValid,
-                    Context = _CurrentANTGPS.Context,
-                    VehicleID = _CurrentANTGPS.VehicleId,
-                    SuitInfoID = _CurrentANTGPS.SuiteInfoId,
+                    MdvrCoreSN = _CurrentGPS.UID,
+                    Longitude = _CurrentGPS.Longitude,
+                    Latitude = _CurrentGPS.Latitude,
+                    Speed = _CurrentGPS.Speed,
+                    Direction = _CurrentGPS.Direction,
+                    GpsTime = _CurrentGPS.GpsTime,
+                    GpsValid = _CurrentGPS.Valid,                   
+                    VehicleID = _CurrentGPS.VehicleId,
+                    SuitInfoID = _CurrentGPS.UID,
                     //路线信息
                     FenceId = routeid,
                     FenceName = routename,
                 };
 
-                MonitorAlertMessage.PublishMessage(Constdefine.APPEXCHANGE, AlertRoute.OriginalMonitorOutRoute, MonitorAlertMessage.ObjectToBytes(alert));
+                MonitorAlertMessage.PublishMessage(Constdefine.APPEXCHANGE, AlertRoute.OriginalBusinessAlertKey, MonitorAlertMessage.ObjectToBytes(alert));
             }
             catch (Exception ex)
             {
@@ -559,22 +501,21 @@ namespace Gsafety.PTMS.MonitorAlert
                     AlertTime = DateTime.Now,
                     SubRegionAlertType = "MonitorAlert",
 
-                    MdvrCoreSN = _CurrentANTGPS.MdvrCoreId,
-                    Longitude = _CurrentANTGPS.Longitude,
-                    Latitude = _CurrentANTGPS.Latitude,
-                    Speed = _CurrentANTGPS.Speed,
-                    Direction = _CurrentANTGPS.Direction,
-                    GpsTime = _CurrentANTGPS.GPSTime,
-                    GpsValid = _CurrentANTGPS.GPSValid,
-                    Context = _CurrentANTGPS.Context,
-                    VehicleID = _CurrentANTGPS.VehicleId,
-                    SuitInfoID = _CurrentANTGPS.SuiteInfoId,
+                    MdvrCoreSN = _CurrentGPS.UID,
+                    Longitude = _CurrentGPS.Longitude,
+                    Latitude = _CurrentGPS.Latitude,
+                    Speed = _CurrentGPS.Speed,
+                    Direction = _CurrentGPS.Direction,
+                    GpsTime = _CurrentGPS.GpsTime,
+                    GpsValid = _CurrentGPS.Valid,
+                    VehicleID = _CurrentGPS.VehicleId,
+                    SuitInfoID = _CurrentGPS.UID,
                     //路线信息
                     FenceId = routeid,
                     FenceName = routename,
                 };
 
-                MonitorAlertMessage.PublishMessage(Constdefine.APPEXCHANGE, AlertRoute.OriginalMonitorInRoute, MonitorAlertMessage.ObjectToBytes(alert));
+                MonitorAlertMessage.PublishMessage(Constdefine.APPEXCHANGE, AlertRoute.OriginalBusinessAlertKey, MonitorAlertMessage.ObjectToBytes(alert));
             }
             catch (Exception ex)
             {
@@ -587,7 +528,7 @@ namespace Gsafety.PTMS.MonitorAlert
         /// </summary>
         /// <param name="roadid"></param>
         /// <param name="roadname"></param>
-        private void GenerateOverSpeedAlert(string roadid,string roadname)
+        private void GenerateOverSpeedAlert()
         {
             try
             {
@@ -599,251 +540,26 @@ namespace Gsafety.PTMS.MonitorAlert
                     AlertTime = DateTime.Now,
                     SubRegionAlertType = "MonitorAlert",
 
-                    MdvrCoreSN = _CurrentANTGPS.MdvrCoreId,
-                    Longitude = _CurrentANTGPS.Longitude,
-                    Latitude = _CurrentANTGPS.Latitude,
-                    Speed = _CurrentANTGPS.Speed,
-                    Direction = _CurrentANTGPS.Direction,
-                    GpsTime = _CurrentANTGPS.GPSTime,
-                    GpsValid = _CurrentANTGPS.GPSValid,
-                    Context = _CurrentANTGPS.Context,
-                    VehicleID = _CurrentANTGPS.VehicleId,
-                    SuitInfoID = _CurrentANTGPS.SuiteInfoId,
-                    //道路信息
-                    FenceId = roadid,
-                    FenceName = roadname,
+
+                    MdvrCoreSN = _CurrentGPS.UID,
+                    Longitude = _CurrentGPS.Longitude,
+                    Latitude = _CurrentGPS.Latitude,
+                    Speed = _CurrentGPS.Speed,
+                    Direction = _CurrentGPS.Direction,
+                    GpsTime = _CurrentGPS.GpsTime,
+                    GpsValid = _CurrentGPS.Valid,
+                    VehicleID = _CurrentGPS.VehicleId,
+                    SuitInfoID = _CurrentGPS.UID,
+                  
                 };
 
-                MonitorAlertMessage.PublishMessage(Constdefine.APPEXCHANGE, AlertRoute.OriginalMonitorOverSpeed, MonitorAlertMessage.ObjectToBytes(alert));
+                MonitorAlertMessage.PublishMessage(Constdefine.APPEXCHANGE, AlertRoute.OriginalBusinessAlertKey, MonitorAlertMessage.ObjectToBytes(alert));
             }
             catch (Exception ex)
             {
                 LoggerManager.Logger.Error("GenerateOverSpeedAlert :" + ex.Message);
             }
-        }
-
-        /// <summary>
-        /// 超速恢复告警
-        /// </summary>
-        /// <param name="roadid"></param>
-        /// <param name="roadname"></param>
-        private void GenerateNormalSpeedAlert(string roadid, string roadname)
-        {
-            try
-            {
-                //if (_CurrentRoad == null) return;
-
-                RegionAlert alert = new RegionAlert()
-                {
-                    AlertType = (int)BusinessAlertType.MonitorNormalSpeed,
-                    AlertTime = DateTime.Now,
-                    SubRegionAlertType = "MonitorAlert",
-
-                    MdvrCoreSN = _CurrentANTGPS.MdvrCoreId,
-                    Longitude = _CurrentANTGPS.Longitude,
-                    Latitude = _CurrentANTGPS.Latitude,
-                    Speed = _CurrentANTGPS.Speed,
-                    Direction = _CurrentANTGPS.Direction,
-                    GpsTime = _CurrentANTGPS.GPSTime,
-                    GpsValid = _CurrentANTGPS.GPSValid,
-                    Context = _CurrentANTGPS.Context,
-                    VehicleID = _CurrentANTGPS.VehicleId,
-                    SuitInfoID = _CurrentANTGPS.SuiteInfoId,
-                    //道路信息
-                    FenceId = roadid,
-                    FenceName = roadname,
-                };
-
-                MonitorAlertMessage.PublishMessage(Constdefine.APPEXCHANGE, AlertRoute.OriginalMonitorNormalSpeed, MonitorAlertMessage.ObjectToBytes(alert));
-            }
-            catch (Exception ex)
-            {
-                LoggerManager.Logger.Error("GenerateNormalSpeedAlert :" + ex.Message);
-            }
-        }
-
-        /// <summary>
-        /// 生成车辆开始执行行驶计划告警
-        /// </summary>
-        /// <param name="travelPlanId"></param>
-        /// <param name="travePlanName"></param>
-        public void GenerateTravelPlanBeginAlert(MonitorPlan travePlan, PTMSGPS travelGPS)
-        {            
-            try
-            {
-                RegionAlert alert = new RegionAlert()
-                {
-                    AlertType = (int)BusinessAlertType.MonitorTravelPlanBegin,
-                    AlertTime = DateTime.Now,
-                    SubRegionAlertType = "MonitorAlert",
-
-                    MdvrCoreSN = travelGPS.MdvrCoreId,
-                    Longitude = travelGPS.Longitude,
-                    Latitude = travelGPS.Latitude,
-                    Speed = travelGPS.Speed,
-                    Direction = travelGPS.Direction,
-                    GpsTime = travelGPS.GPSTime,
-                    GpsValid = travelGPS.GPSValid,
-                    Context = travelGPS.Context,
-                    VehicleID = travePlan._vehicleID,
-                    SuitInfoID = travelGPS.SuiteInfoId,
-                    //行使计划计划信息
-                    FenceId = travePlan._planId,
-                    FenceName = travePlan._planName,
-                };
-                MonitorAlertMessage.PublishMessage(Constdefine.APPEXCHANGE, AlertRoute.OriginalMonitorTravelPlansBegin, MonitorAlertMessage.ObjectToBytes(alert));
-            }
-            catch (Exception ex)
-            {
-                LoggerManager.Logger.Error("GenerateTravelPlanBeginAlert :" + ex.Message);
-            }
-        }
-
-        /// <summary>
-        /// 生成车辆结束告警，没有AntGPS上报的情况
-        /// </summary>
-        /// <param name="travePlan"></param>
-        public void GenerateTravelPlanEndAlert(MonitorPlan travelPlan)
-        {
-            try
-            {
-                RegionAlert alert = new RegionAlert()
-                {
-                    AlertType = (int)BusinessAlertType.MonitorTravelPlanEnd,
-                    AlertTime = DateTime.Now,
-                    SubRegionAlertType = "MonitorAlert",
-
-                    MdvrCoreSN = travelPlan._antGpsID,
-                    Longitude = "-",
-                    Latitude = "-",
-                    Speed = "-",
-                    Direction = "-",
-                    GpsTime = null,
-                    GpsValid = "V",
-                    Context = "null",
-                    VehicleID = travelPlan._vehicleID,
-                    SuitInfoID = "-",
-                    //行驶计划信息
-                    FenceId = travelPlan._planId,
-                    FenceName = travelPlan._planName,                   
-                };
-                MonitorAlertMessage.PublishMessage(Constdefine.APPEXCHANGE, AlertRoute.OriginalMonitorTravelPlansEnd, MonitorAlertMessage.ObjectToBytes(alert));
-            }
-            catch (Exception ex)
-            {
-                LoggerManager.Logger.Error("GenerateTravelPlanEndAlert :" + ex.Message);
-            }
-        }
-
-        /// <summary>
-        /// 生成车辆结束执行行驶计划告警
-        /// </summary>
-        /// <param name="travelPlanId"></param>
-        /// <param name="travePlanName"></param>
-        public void GenerateTravelPlanEndAlert(MonitorPlan travePlan, PTMSGPS travelGPS)
-        {
-            try
-            {
-                RegionAlert alert = new RegionAlert()
-                {
-                    AlertType = (int)BusinessAlertType.MonitorTravelPlanEnd,
-                    AlertTime = DateTime.Now,
-                    SubRegionAlertType = "MonitorAlert",
-
-                    MdvrCoreSN = travelGPS.MdvrCoreId,
-                    Longitude = travelGPS.Longitude,
-                    Latitude = travelGPS.Latitude,
-                    Speed = travelGPS.Speed,
-                    Direction = travelGPS.Direction,
-                    GpsTime = travelGPS.GPSTime,
-                    GpsValid = travelGPS.GPSValid,
-                    Context = travelGPS.Context,
-                    VehicleID = travePlan._vehicleID,
-                    SuitInfoID = travelGPS.SuiteInfoId,
-                    //行使计划计划信息
-                    FenceId = travePlan._planId,
-                    FenceName = travePlan._planName,
-                };
-                MonitorAlertMessage.PublishMessage(Constdefine.APPEXCHANGE, AlertRoute.OriginalMonitorTravelPlansEnd, MonitorAlertMessage.ObjectToBytes(alert));
-            }
-            catch (Exception ex)
-            {
-                LoggerManager.Logger.Error("GenerateTravelPlanEndAlert :" + ex.Message);
-            }
-        }
-
-
-        /// <summary>
-        /// 生成车辆取消执行行驶计划告警
-        /// </summary>
-        /// <param name="travelPlanId"></param>
-        /// <param name="travePlanName"></param>
-        public void GenerateTravelPlanCancelAlert(MonitorPlan travelPlan)
-        {
-            try
-            {
-                RegionAlert alert = new RegionAlert()
-                {
-                    AlertType = (int)BusinessAlertType.MonitorTravelPlanCancel,
-                    AlertTime = DateTime.Now,
-                    SubRegionAlertType = "MonitorAlert",
-
-                    MdvrCoreSN = travelPlan._antGpsID,
-                    Longitude = "-",
-                    Latitude = "-",
-                    Speed = "-",
-                    Direction = "-",
-                    GpsTime = null,
-                    GpsValid = "V",
-                    Context = "null",
-                    VehicleID = travelPlan._vehicleID,
-                    SuitInfoID = "-",
-                    //行驶计划信息
-                    FenceId = travelPlan._planId,
-                    FenceName = travelPlan._planName,
-                };
-                MonitorAlertMessage.PublishMessage(Constdefine.APPEXCHANGE, AlertRoute.OriginalMonitorTravelPlansCancel, MonitorAlertMessage.ObjectToBytes(alert));
-            }
-            catch (Exception ex)
-            {
-                LoggerManager.Logger.Error("GenerateTravelPlanCancelAlert :" + ex.Message);
-            }
-        }
-
-        /// <summary>
-        /// 生成车辆进入监控点告警
-        /// </summary>
-        /// <param name="travelPlanId"></param>
-        public void GenerateMonitorPointAlert(GPSFence cpoint, PTMSGPS antgps)
-        {
-            try
-            {
-                RegionAlert alert = new RegionAlert()
-                {
-                    AlertType = (int)BusinessAlertType.MonitorEnterPoint,
-                    AlertTime = DateTime.Now,
-                    SubRegionAlertType = "MonitorAlert",
-                    MdvrCoreSN = antgps.MdvrCoreId,
-                    Longitude = antgps.Longitude,
-                    Latitude = antgps.Latitude,
-                    Speed = antgps.Speed,
-                    Direction = antgps.Direction,
-                    GpsTime = antgps.GPSTime,
-                    GpsValid = antgps.GPSValid,
-                    Context = antgps.Context,
-                    VehicleID = cpoint.VEHICLE_ID,
-                    SuitInfoID = antgps.SuiteInfoId,
-                    FenceId = cpoint.FenceID.ToString(),
-                    FenceName = cpoint.FenceName
-                };
-                MonitorAlertMessage.PublishMessage(Constdefine.APPEXCHANGE, AlertRoute.OriginalMonitorEnterPoint, MonitorAlertMessage.ObjectToBytes(alert));               
-            }
-            catch (Exception ex)
-            {
-                LoggerManager.Logger.Error("GenerateMonitorPointAlert :" + ex.Message);
-            }
-        }
-
-       
+        }     
+               
     }
 }

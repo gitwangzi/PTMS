@@ -94,48 +94,32 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="AlarmStatisticsReport.cs">
-      <SubType>Component</SubType>
-    </Compile>
+    <Compile Include="AlarmStatisticsReport.cs" />
     <Compile Include="AlarmStatisticsReport.designer.cs">
       <DependentUpon>AlarmStatisticsReport.cs</DependentUpon>
     </Compile>
-    <Compile Include="BusinessAlertReport.cs">
-      <SubType>Component</SubType>
-    </Compile>
+    <Compile Include="BusinessAlertReport.cs" />
     <Compile Include="BusinessAlertReport.designer.cs">
       <DependentUpon>BusinessAlertReport.cs</DependentUpon>
     </Compile>
-    <Compile Include="DeviceAlertReport.cs">
-      <SubType>Component</SubType>
-    </Compile>
+    <Compile Include="DeviceAlertReport.cs" />
     <Compile Include="DeviceAlertReport.designer.cs">
       <DependentUpon>DeviceAlertReport.cs</DependentUpon>
     </Compile>
-    <Compile Include="ReportBase.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="VechileOffLineReport.cs">
-      <SubType>Component</SubType>
-    </Compile>
+    <Compile Include="ReportBase.cs" />
+    <Compile Include="VechileOffLineReport.cs" />
     <Compile Include="VechileOffLineReport.designer.cs">
       <DependentUpon>VechileOffLineReport.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserOnlineReport.cs">
-      <SubType>Component</SubType>
-    </Compile>
+    <Compile Include="UserOnlineReport.cs" />
     <Compile Include="UserOnlineReport.designer.cs">
       <DependentUpon>UserOnlineReport.cs</DependentUpon>
     </Compile>
-    <Compile Include="VideoFlowReport.cs">
-      <SubType>Component</SubType>
-    </Compile>
+    <Compile Include="VideoFlowReport.cs" />
     <Compile Include="VideoFlowReport.designer.cs">
       <DependentUpon>VideoFlowReport.cs</DependentUpon>
     </Compile>
-    <Compile Include="VehicleHistoryReport.cs">
-      <SubType>Component</SubType>
-    </Compile>
+    <Compile Include="VehicleHistoryReport.cs" />
     <Compile Include="VehicleHistoryReport.designer.cs">
       <DependentUpon>VehicleHistoryReport.cs</DependentUpon>
     </Compile>

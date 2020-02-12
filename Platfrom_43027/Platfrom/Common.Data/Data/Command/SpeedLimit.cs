@@ -61,12 +61,12 @@ namespace Gsafety.PTMS.Common.Data
             }
         }
 
-        decimal _maxspeed;
+        int _maxspeed;
         ///<summary>
         ///最大速度（km/h）
         ///</summary>
         [DataMember]
-        public decimal MaxSpeed
+        public int MaxSpeed
         {
             get
             {
@@ -78,12 +78,12 @@ namespace Gsafety.PTMS.Common.Data
             }
         }
 
-        decimal _duration;
+        int _duration;
         ///<summary>
         ///持续时间（单位秒）
         ///</summary>
         [DataMember]
-        public decimal Duration
+        public int Duration
         {
             get
             {

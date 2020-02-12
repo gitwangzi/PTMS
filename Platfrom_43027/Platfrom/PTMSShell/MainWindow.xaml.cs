@@ -41,7 +41,7 @@ namespace PTMSShell
             //获得当前工作进程
             Process proc = Process.GetCurrentProcess();
             long usedMemory = proc.PrivateMemorySize64;
-            if (usedMemory > 1024 * 1024 * 1000)
+            if (usedMemory > 1024 * 1024 * 500)
             {
                 GC.Collect();
                 GC.WaitForPendingFinalizers();

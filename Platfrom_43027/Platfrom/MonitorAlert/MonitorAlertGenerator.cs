@@ -27,15 +27,16 @@ using System.Collections;
 using Gsafety.Common.Logging;
 using Gsafety.PTMS.Traffic.Contract.Data;
 using Gsafety.PTMS.Traffic.Repository;
+using Gsafety.PTMS.Common.Data;
 
 namespace Gsafety.PTMS.MonitorAlert
 {
     /// <summary>
-    /// 监控Ant GPS消息，产生相应的其他消息
+    /// 监控GPS消息，产生相应的其他消息
     /// </summary>
     public class MonitorAlertGenerator
     {
-        private Hashtable _AntGPSLocationHashtable;      
+        private Hashtable _GPSLocationHashtable;      
         private MonitorGrid _MonitorGrid;
         private TrafficRepository trafficeServer;
         private MonitorAlertPlan _MonitorAlertPlan;
@@ -48,12 +49,12 @@ namespace Gsafety.PTMS.MonitorAlert
             }
         }
 
-        public static Hashtable AntGPSPlanHashtable;
+        public static Hashtable GPSSpeedHashtable;
        
         public MonitorAlertGenerator()
         {
-            _AntGPSLocationHashtable = new Hashtable();
-            AntGPSPlanHashtable = new Hashtable();
+            _GPSLocationHashtable = new Hashtable();
+            GPSSpeedHashtable = new Hashtable();
             _MonitorGrid = new MonitorGrid();
             _MonitorAlertPlan = new MonitorAlertPlan();
             trafficeServer = new TrafficRepository();          
@@ -63,134 +64,122 @@ namespace Gsafety.PTMS.MonitorAlert
         ///根据GPS信息来决定生成什么样的消息
         /// </summary>
         /// <param name="antgps"></param>
-        public void HandleAntGPS(PTMSGPS antgps)
+        public void HandleGPS(GPS gps)
         {
             //如果GPS无效则退出
             try
             {
-                LoggerManager.Logger.Info("HandleAntGPS");
-                if (antgps.GPSValid != "A")
+                LoggerManager.Logger.Info("HandleGPS");
+                if (gps.Valid != "A")
                 {
                     LoggerManager.Logger.Info("GPS invalid");
                     return;
                 }
 
-                Road road = GetRoad(antgps);
-                bool OverSpeed = false;
-                
-                if (road != null)//找到了当前所在道路
-                {
-                    if (double.Parse(antgps.Speed) > road.LimitedSpeed)
-                    {
-                        OverSpeed = true;
-                    }
-                }
-                //获取当前路线
-                Route route = GetRoute(antgps);
 
+                //获取当前路线
+                TrafficRoute route = GetRoute(gps);
+                bool InRouteOverSpeed = false;
+                if (route != null)//进入路线
+                {
+                    if ((double.Parse(gps.Speed) > route.MaxSpeed) && (route.MaxSpeed != 0))
+                    {
+                        InRouteOverSpeed = true;
+                    }
+
+                }
                 //获取当前围栏
-                Fence fence = GetFence(antgps);   
+                TrafficFence fence = GetFence(gps);
                 bool InFenceOverSpeed = false;
-                bool InFenceUnderSpeed = false;
+
                 if (fence != null)//进入围栏
                 {
-                    if ((double.Parse(antgps.Speed) > fence.OverSpeed) && (fence.OverSpeed != 0))
+                    if ((double.Parse(gps.Speed) > fence.MaxSpeed) && (fence.MaxSpeed != 0))
                     {
                         InFenceOverSpeed = true;
                     }
-                    if (double.Parse(antgps.Speed) < fence.UnderSpeed)
-                    {
-                        InFenceUnderSpeed = true;
-                    }
+
                 }
-
-                //获取当前的监控点列表
-                List<GPSFence> cpoint = GetPoint(antgps);
-                if (cpoint != null)//存在相关监控点信息
+                bool OverSpeed = false;
+                if (!InFenceOverSpeed && !InRouteOverSpeed)
                 {
-                    foreach (GPSFence pointtemp in cpoint)
+                    Gsafety.PTMS.Common.Data.SpeedLimit limit = GetSpeedLimit(gps);
+
+
+                    if (limit != null)//找到了当前所在道路
                     {
-                        if (_MonitorAlertPlan.HandleControlPoint(pointtemp, antgps))
-                            (_AntGPSLocationHashtable[antgps.MdvrCoreId] as AntGPSLocation).GenerateMonitorPointAlert(pointtemp, antgps);
+                        if (double.Parse(gps.Speed) > limit.MaxSpeed)
+                        {
+                            OverSpeed = true;
+                        }
                     }
-                }           
-
-
-                //更新当前集合
-                if (_AntGPSLocationHashtable.ContainsKey(antgps.MdvrCoreId))//看车辆上次的位置信息
+                }               //更新当前集合
+                if (_GPSLocationHashtable.ContainsKey(gps.UID))//看车辆上次的位置信息
                 {
-                    (_AntGPSLocationHashtable[antgps.MdvrCoreId] as AntGPSLocation).CurrentANTGPS = antgps;
-                    (_AntGPSLocationHashtable[antgps.MdvrCoreId] as AntGPSLocation).CurrentRoad = road;
-                    (_AntGPSLocationHashtable[antgps.MdvrCoreId] as AntGPSLocation).CurrentOverSpeed = OverSpeed;
-                    (_AntGPSLocationHashtable[antgps.MdvrCoreId] as AntGPSLocation).CurrentRoute = route;
-                    (_AntGPSLocationHashtable[antgps.MdvrCoreId] as AntGPSLocation).CurrentFence = fence;
-                    (_AntGPSLocationHashtable[antgps.MdvrCoreId] as AntGPSLocation).CurrentInFenceOverSpeed = InFenceOverSpeed;
-                    (_AntGPSLocationHashtable[antgps.MdvrCoreId] as AntGPSLocation).CurrentInFenceUnderSpeed = InFenceUnderSpeed;
+                    (_GPSLocationHashtable[gps.UID] as GPSLocation).CurrentGPS = gps;
+                    (_GPSLocationHashtable[gps.UID] as GPSLocation).CurrentRoute = route;
+                    (_GPSLocationHashtable[gps.UID] as GPSLocation).CurrentFence = fence;
+
+                    if (!(_GPSLocationHashtable[gps.UID] as GPSLocation).CurrentOverSpeed && OverSpeed)
+                    {
+                        (_GPSLocationHashtable[gps.UID] as GPSLocation).OverSpeedTime = gps.GpsTime.Value;
+                    }
+                    (_GPSLocationHashtable[gps.UID] as GPSLocation).CurrentOverSpeed = OverSpeed;
+
+                    if (!(_GPSLocationHashtable[gps.UID] as GPSLocation).CurrentInFenceOverSpeed && InFenceOverSpeed)
+                    {
+                        (_GPSLocationHashtable[gps.UID] as GPSLocation).InFenceOverSpeedTime = gps.GpsTime.Value;
+                    }
+                    (_GPSLocationHashtable[gps.UID] as GPSLocation).CurrentInFenceOverSpeed = InFenceOverSpeed;
+
+                    if (!(_GPSLocationHashtable[gps.UID] as GPSLocation).CurrentInRouteOverSpeed && InRouteOverSpeed)
+                    {
+                        (_GPSLocationHashtable[gps.UID] as GPSLocation).InRouteOverSpeedTime = gps.GpsTime.Value;
+                    }
+                    (_GPSLocationHashtable[gps.UID] as GPSLocation).CurrentInRouteOverSpeed = InRouteOverSpeed;
                 }
                 else
                 {//第一点
-                    AntGPSLocation antgpslocation = new AntGPSLocation(antgps, road, route, fence, OverSpeed, InFenceOverSpeed, InFenceUnderSpeed);
-                    _AntGPSLocationHashtable.Add(antgps.MdvrCoreId, antgpslocation);
+                    GPSLocation gpslocation = new GPSLocation(gps, route, fence, OverSpeed, InFenceOverSpeed, InRouteOverSpeed, gps.GpsTime.Value);
+                    _GPSLocationHashtable.Add(gps.UID, gpslocation);
                 }
-               
 
-                //监控行驶计划
-                if (AntGPSPlanHashtable.ContainsKey(antgps.MdvrCoreId))//如果在正在运行的行使计划方案中
-                {
-                    MonitorPlan tempplan=AntGPSPlanHashtable[antgps.MdvrCoreId] as MonitorPlan;
-                    //antgps.GPSTime = antgps.GPSTime.AddHours(-13);
-                    Gsafety.PTMS.MonitorAlert.MonitorPlan.EXEStatus _status= _MonitorAlertPlan.HandleANTGPSPlan(tempplan, antgps);
-                    if (_status == Gsafety.PTMS.MonitorAlert.MonitorPlan.EXEStatus.Start)
-                    {
-                        (_AntGPSLocationHashtable[antgps.MdvrCoreId] as AntGPSLocation).GenerateTravelPlanBeginAlert(tempplan, antgps);
-                    }
-                    else if (_status == Gsafety.PTMS.MonitorAlert.MonitorPlan.EXEStatus.Finish)
-                    {
-                        (_AntGPSLocationHashtable[antgps.MdvrCoreId] as AntGPSLocation).GenerateTravelPlanEndAlert(tempplan, antgps);
-                        lock (MonitorGrid.lockplan)
-                        {
-                            AntGPSPlanHashtable.Remove(antgps.MdvrCoreId);
-                        }
-                    }
-                }
-                //LoggerManager.Logger.Info("HandleAntGPS Finished");
             }
             catch (Exception ex)
             {
                 LoggerManager.Logger.Error(ex);
             }
-        }
+        } 
 
         /// <summary>
-        /// 获取ANTGPS
+        /// 获得当前车辆所属超速规则
         /// </summary>
         /// <param name="antgps"></param>
         /// <returns></returns>
-        private List<GPSFence> GetPoint(PTMSGPS antgps)
+        private Gsafety.PTMS.Common.Data.SpeedLimit GetSpeedLimit(GPS antgps)
         {
-            List<GPSFence> cpoint = new List<GPSFence>() ;           
-            for (int i = 0; i < _MonitorGrid.allControlPointList.Count; i++)
-            {
-                if (_MonitorGrid.allControlPointList[i].GPSID == antgps.MdvrCoreId)
-                    cpoint.Add(_MonitorGrid.allControlPointList[i]);
-            }
-            return cpoint;
-        }       
+
+            Gsafety.PTMS.Common.Data.SpeedLimit limit = null;
+
+            return limit;
+        
+        
+        }
 
         /// <summary>
         /// 获得当前位置所在的围栏
         /// </summary>
         /// <param name="antgps"></param>
         /// <returns></returns>
-        private Fence GetFence(PTMSGPS antgps)
+        private TrafficFence GetFence(GPS gps)
         {
-            Fence fence = null;
-            if (_AntGPSLocationHashtable.ContainsKey(antgps.MdvrCoreId))//看车辆上次的位置信息
+            TrafficFence fence = null;
+            if (_GPSLocationHashtable.ContainsKey(gps.UID))//看车辆上次的位置信息
             {
-                fence = (_AntGPSLocationHashtable[antgps.MdvrCoreId] as AntGPSLocation).CurrentFence;
+                fence = (_GPSLocationHashtable[gps.UID] as GPSLocation).CurrentFence;
                 if (fence != null)
                 {
-                    if (!(fence as Fence).Buffer.IsPointIn(antgps.Longitude, antgps.Latitude))//不在上次的围栏上
+                    if (!(fence as TrafficFence).Buffer.IsPointIn(gps.Longitude, gps.Latitude))//不在上次的围栏上
                     {
                         fence = null;
                     }
@@ -199,11 +188,11 @@ namespace Gsafety.PTMS.MonitorAlert
 
             if (fence == null)//没有找到或不在上次所在围栏，重新计算当前围栏
             {
-                MonitorGridCell cell = _MonitorGrid.GetFenceMonitorCell(antgps.MdvrCoreId);
+                MonitorGridCell cell = _MonitorGrid.GetFenceMonitorCell(gps.UID);
                 if (cell != null)
                 {
                     object temp = cell.GetGeometry(antgps.Longitude, antgps.Latitude);
-                    if (temp != null) fence = temp as Fence;
+                    if (temp != null) fence = temp as TrafficFence;
                 }
             }
             return fence;
@@ -214,18 +203,18 @@ namespace Gsafety.PTMS.MonitorAlert
         /// </summary>
         /// <param name="antgps"></param>
         /// <returns></returns>
-        private Route GetRoute(PTMSGPS antgps)
+        private TrafficRoute GetRoute(GPS gps)
         {
-            Route route = null;
-            if (_AntGPSLocationHashtable.ContainsKey(antgps.MdvrCoreId))//看车辆上次的位置信息
+            TrafficRoute route = null;
+            if (_GPSLocationHashtable.ContainsKey(gps.UID))//看车辆上次的位置信息
             {
-                route = (_AntGPSLocationHashtable[antgps.MdvrCoreId] as AntGPSLocation).CurrentRoute;
+                route = (_GPSLocationHashtable[gps.UID] as GPSLocation).CurrentRoute;
                 if (route != null)
                 {
-                    if (!(route as Route).Buffer.IsPointIn(antgps.Longitude, antgps.Latitude))//不在上次的道路上
-                    {
-                        route = null;
-                    }
+                    //if (!(route as TrafficRoute).Buffer.IsPointIn(antgps.Longitude, antgps.Latitude))//不在上次的道路上
+                    //{
+                    //    route = null;
+                    //}
                 }
             }
 
@@ -235,44 +224,12 @@ namespace Gsafety.PTMS.MonitorAlert
                 if (cell != null)
                 {
                     object temp = cell.GetGeometry(antgps.Longitude, antgps.Latitude);
-                    if (temp != null) route = temp as Route;
+                    if (temp != null) route = temp as TrafficRoute;
                 }
             }
             return route;
         }
 
-        /// <summary>
-        /// 获得当前GPS位置所在的道路
-        /// </summary>
-        /// <param name="antgps"></param>
-        /// <param name="LastOverSpeed"></param>
-        /// <returns></returns>
-        private Road GetRoad(PTMSGPS antgps)
-        {
-            Road road = null;
-            if (_AntGPSLocationHashtable.ContainsKey(antgps.MdvrCoreId))//看车辆上次的位置信息
-            {
-                road = (_AntGPSLocationHashtable[antgps.MdvrCoreId] as AntGPSLocation).CurrentRoad;
-                if (road != null)
-                {
-                    if (!road.Buffer.IsPointIn(antgps.Longitude, antgps.Latitude))//不在上次的道路上
-                    {
-                        road = null;
-                    }
-                }
-            }
-
-            if (road == null)//没有找到或不在上次所在道路，重新计算当前道路
-            {
-                string cellid =GridCellCoord.GetCellID(antgps.Longitude, antgps.Latitude);
-                MonitorGridCell cell = _MonitorGrid.GetRoadMonitorCell(cellid);
-                if (cell != null)
-                {
-                    object temp=cell.GetGeometry(antgps.Longitude, antgps.Latitude);
-                    if (temp != null) road = temp as Road;
-                }
-            }
-            return road;
-        }
+      
     }
 }

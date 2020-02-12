@@ -138,6 +138,33 @@ namespace Gsafety.PTMS.Traffic.Repository
             }
         }
 
+
+        public static MultiMessage<TrafficRoute> GetDeliveredTrafficRouteList()
+        {
+            try
+            {
+                using (var context = new PTMSEntities())
+                {
+                    var temp = from f in context.TRF_ROUTE
+                               join q in context.TRF_ROUTE_QUEUE on f.ID equals q.ROUTE_ID                              
+                               select f;
+
+                    var templist = temp.ToList();
+
+                    List<TrafficRoute> fences = new List<TrafficRoute>();
+                    foreach (var item in templist)
+                    {
+                        fences.Add(TrafficRouteUtility.GetModel(item));
+                    }
+
+                    return new MultiMessage<TrafficRoute>(fences, fences.Count);
+                }
+            }
+            catch (Exception ex)
+            {
+                return new MultiMessage<TrafficRoute>(null, 0);
+            }
+        }
         public static MultiMessage<TrafficRoute> GetTrafficRouteListByVehicleIDAndRouteName(PTMSEntities context, string clientID, string vehicleID, string routeName)
         {
             int totalCount;

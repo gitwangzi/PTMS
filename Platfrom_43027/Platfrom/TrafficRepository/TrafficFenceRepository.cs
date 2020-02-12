@@ -233,6 +233,34 @@ namespace Gsafety.PTMS.Traffic.Repository
             }
         }
 
+
+        public static MultiMessage<TrafficFence> GetDeliveredTrafficFenceList()
+        {
+            try
+            {
+                using (var context = new PTMSEntities())
+                {
+                    var temp = from f in context.TRF_FENCE
+                               join q in context.TRF_FENCE_QUEUE on f.ID equals q.FENCE_ID
+                               select f;
+
+                    var templist = temp.ToList();
+
+                    List<TrafficFence> fences = new List<TrafficFence>();
+                    foreach (var item in templist)
+                    {
+                        fences.Add(TrafficFenceUtility.GetModel(item));
+                    }
+
+                    return new MultiMessage<TrafficFence>(fences, fences.Count);
+                }
+            }
+            catch(Exception ex)
+            {
+                return new MultiMessage<TrafficFence>(null, 0);
+            }
+        }
+
         public static MultiMessage<TrafficFence> GetTrafficFenceListOnVehicleByVehicleID(PTMSEntities context, string vehicleID, string clientID)
         {
             if (!string.IsNullOrEmpty(vehicleID))
