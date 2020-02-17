@@ -170,15 +170,43 @@ namespace Gsafety.PTMS.MonitorAlert
         {
             try
             {
-                List<Gsafety.PTMS.Common.Data.SpeedLimit> allFence = SpeedLimitRepository.GetSpeedLimitList().Result.ToList();     
+                List<Gsafety.PTMS.Common.Data.VehicleSpeedLimit> allSpeeds = SpeedLimitRepository.GetSpeedLimitList().Result.ToList();
+                LoadSpeeds(allSpeeds);
                 return true;
             }
             catch (Exception ex)
             {
-                LoggerManager.Logger.Error("LoadAllRoads :" + ex.Message);
+                LoggerManager.Logger.Error("LoadAllSpeeds :" + ex.Message);
             }
             return false;
         }
+
+        /// <summary>
+        /// 加载围栏
+        /// </summary>
+        /// <param name="addressUrl"></param>
+        /// <param name="allFence"></param>
+        public void LoadSpeeds(List<Gsafety.PTMS.Common.Data.VehicleSpeedLimit> allSpeed)
+        {
+
+            try
+            {
+                foreach (var item in allSpeed)
+                {
+                    if (!GridCellsSpeed.ContainsKey(item.UID))
+                    {
+                        GridCellsSpeed.Add(item.UID, item);                    
+                    }
+                
+                }
+
+            }
+            catch (Exception ex)
+            {
+                LoggerManager.Logger.Error("LoadSpeeds :" + ex.Message);
+            }
+
+        }  
        
         /// <summary>
         /// 加载所有的线路
@@ -187,7 +215,7 @@ namespace Gsafety.PTMS.MonitorAlert
         {
             try
             {
-                List<TrafficRoute> allRoute = TrafficRouteRepository.GetDeliveredTrafficRouteList().Result.ToList();
+                List<VehicleTrafficRoute> allRoute = TrafficRouteRepository.GetDeliveredTrafficRouteList().Result.ToList();
                 LoadRoutes(allRoute);
 
                 return true;
@@ -204,12 +232,65 @@ namespace Gsafety.PTMS.MonitorAlert
         /// </summary>
         /// <param name="addressUrl"></param>
         /// <param name="allRoute"></param>
-        public void LoadRoutes( List<TrafficRoute> allRoute)
+        public void LoadRoutes( List<VehicleTrafficRoute> allRoute)
         {
             
             try
             {
-                
+                foreach (var item in allRoute)
+                {
+                    if (!GridCellsRoute.ContainsKey(item.UID))
+                    {
+                        Hashtable itemlist = new Hashtable();
+                        List<Road.Node> Nodelist = new List<Road.Node>();
+                        if (string.IsNullOrEmpty(item.Pts))
+                        {
+                            string[] hdata = item.Pts.Split(';');
+                            foreach (var i in hdata)
+                            {
+                                string[] data = item.Pts.Split(',');
+                                if (data.Length == 2)
+                                {
+                                    Road.Node node = new Road.Node();
+                                    node.longitude = data[0].ToString();
+                                    node.latitude = data[1].ToString();
+                                    Nodelist.Add(node);
+                                }
+
+                            }
+
+                        }
+                        Route route = new Route(item, Nodelist, item.Width);
+                        itemlist.Add(item.ID, route);
+                        GridCellsFence.Add(item.UID, itemlist);
+                    }
+                    else
+                    {
+
+                        List<Road.Node> Nodelist = new List<Road.Node>();
+                        if (string.IsNullOrEmpty(item.Pts))
+                        {
+                            string[] hdata = item.Pts.Split(';');
+                            foreach (var i in hdata)
+                            {
+                                string[] data = item.Pts.Split(',');
+                                if (data.Length == 2)
+                                {
+                                    Road.Node node = new Road.Node();
+                                    node.longitude = data[0].ToString();
+                                    node.latitude = data[1].ToString();
+                                    Nodelist.Add(node);
+                                }
+
+                            }
+
+                        }
+                        Route route = new Route(item, Nodelist, item.Width);
+                        (GridCellsRoute[item.UID] as Hashtable).Add(item.ID, route);
+
+                    }
+
+                }
             }
             catch (Exception ex)
             {
@@ -223,8 +304,8 @@ namespace Gsafety.PTMS.MonitorAlert
         public bool LoadAllFences()
         {
             try
-            {               
-                List<TrafficFence> allFence = TrafficFenceRepository.GetDeliveredTrafficFenceList().Result.ToList();               
+            {
+                List<VehicleTrafficFence> allFence = TrafficFenceRepository.GetDeliveredTrafficFenceList().Result.ToList();               
                 LoadFences(allFence);                
                 return true;
             }
@@ -240,11 +321,65 @@ namespace Gsafety.PTMS.MonitorAlert
         /// </summary>
         /// <param name="addressUrl"></param>
         /// <param name="allFence"></param>
-        public void LoadFences(List<TrafficFence> allFence)
+        public void LoadFences(List<VehicleTrafficFence> allFence)
         {
            
             try
             {
+                foreach (var item in allFence)
+                {
+                    if (!GridCellsFence.ContainsKey(item.UID))
+                    {
+                        Hashtable itemlist = new Hashtable();
+                        List<Road.Node> Nodelist = new List<Road.Node>();
+                        if (string.IsNullOrEmpty(item.Pts))
+                        {
+                            string[] hdata = item.Pts.Split(';');
+                            foreach (var i in hdata)
+                            { 
+                                string[] data = item.Pts.Split(',');
+                                if (data.Length == 2)
+                                {
+                                    Road.Node node = new Road.Node();
+                                    node.longitude = data[0].ToString();
+                                    node.latitude = data[1].ToString();
+                                    Nodelist.Add(node);
+                                }
+                            
+                            }                      
+                        
+                        }
+                        Fence fence = new Fence(item, Nodelist, 0);
+                        itemlist.Add(item.ID,fence);
+                        GridCellsFence.Add(item.UID, itemlist);
+                    }
+                    else
+                    {
+
+                        List<Road.Node> Nodelist = new List<Road.Node>();
+                        if (string.IsNullOrEmpty(item.Pts))
+                        {
+                            string[] hdata = item.Pts.Split(';');
+                            foreach (var i in hdata)
+                            {
+                                string[] data = item.Pts.Split(',');
+                                if (data.Length == 2)
+                                {
+                                    Road.Node node = new Road.Node();
+                                    node.longitude = data[0].ToString();
+                                    node.latitude = data[1].ToString();
+                                    Nodelist.Add(node);
+                                }
+
+                            }
+
+                        }
+                        Fence fence = new Fence(item, Nodelist, 0);
+                        (GridCellsFence[item.UID] as Hashtable).Add(item.ID, fence);
+                    
+                    }
+
+                }
                
             }
             catch (Exception ex)
@@ -329,7 +464,35 @@ namespace Gsafety.PTMS.MonitorAlert
         public void UpdateSpeed(string vechileID, TravelPlanCMD model)
         {
            
-        }   
+        }  
+ 
+           /// <summary>
+        /// 从网格中找到落入的对象
+        /// </summary>
+        /// <param name="lon"></param>
+        /// <param name="lat"></param>
+        /// <returns></returns>
+        public object GetGeometry(string lon, string lat,Hashtable GeometryList)
+        {
+
+            foreach (DictionaryEntry de in GeometryList)
+            {
+                if (de.Value is Road)
+                {
+                    if ((de.Value as Road).Buffer.IsPointIn(lon, lat)) return de.Value;
+                }
+                if (de.Value is Route)
+                {
+                    if ((de.Value as Route).Buffer.IsPointIn(lon, lat)) return de.Value;
+                }
+                if (de.Value is Fence)
+                {
+                    if ((de.Value as Fence).Buffer.IsPointIn(lon, lat)) return de.Value;
+                }
+            }
+            return null;
+        }
+    
 
         private double LonLatStrToDouble(string value)
         {
@@ -362,56 +525,6 @@ namespace Gsafety.PTMS.MonitorAlert
             else
                 return (du + fen / 60);
         }
-    }
-
-    /// <summary>
-    /// 网格
-    /// </summary>
-    public class MonitorGridCell
-    {
-        private Hashtable _GeometryList = new Hashtable();
-        public string Id
-        {
-            get;
-            set;
-        }
-        /// <summary>
-        /// 该风格中包含的道路列表
-        /// </summary>
-        public Hashtable GeometryList
-        {
-            get
-            {
-                return _GeometryList;
-            }
-
-        }
-
-        /// <summary>
-        /// 从网格中找到落入的对象
-        /// </summary>
-        /// <param name="lon"></param>
-        /// <param name="lat"></param>
-        /// <returns></returns>
-        public object GetGeometry(string lon, string lat)
-        {
-
-            foreach (DictionaryEntry de in _GeometryList)
-            {
-                if (de.Value is Road)
-                {
-                    if ((de.Value as Road).Buffer.IsPointIn(lon, lat)) return de.Value;
-                }
-                if (de.Value is Route)
-                {
-                    if ((de.Value as Route).Buffer.IsPointIn(lon, lat)) return de.Value;
-                }
-                if (de.Value is Fence)
-                {
-                    if ((de.Value as Fence).Buffer.IsPointIn(lon, lat)) return de.Value;
-                }
-            }
-            return null;
-        }
-    }
+    } 
+     
 }

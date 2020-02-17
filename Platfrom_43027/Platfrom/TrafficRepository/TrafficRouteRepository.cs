@@ -139,30 +139,39 @@ namespace Gsafety.PTMS.Traffic.Repository
         }
 
 
-        public static MultiMessage<TrafficRoute> GetDeliveredTrafficRouteList()
+        public static MultiMessage<VehicleTrafficRoute> GetDeliveredTrafficRouteList()
         {
             try
             {
                 using (var context = new PTMSEntities())
                 {
                     var temp = from f in context.TRF_ROUTE
-                               join q in context.TRF_ROUTE_QUEUE on f.ID equals q.ROUTE_ID                              
-                               select f;
+                               join q in context.TRF_ROUTE_QUEUE on f.ID equals q.ROUTE_ID
+                               where f.VALID == 1 && q.STATUS == (int)CommandStateEnum.Succeed
+                               select new VehicleTrafficRoute
+                               {
+                                   UID = q.MDVR_CORE_SN,
+                                   VehicleId = q.VEHICLE_ID,
+                                   StartTime = q.START_TIME,
+                                   EndTime = q.END_TIME,
+                                   RouteProperty = q.ROUTE_PROPERTY,
+                                   Width = q.WIDTH.Value,
+                                   MaxSpeed = q.MAX_SPEED.Value,
+                                   OverSpeedDuration = q.OVER_SPEED_DURATION.Value,
+                                   Pts = q.PTS
+
+
+                               };
 
                     var templist = temp.ToList();
 
-                    List<TrafficRoute> fences = new List<TrafficRoute>();
-                    foreach (var item in templist)
-                    {
-                        fences.Add(TrafficRouteUtility.GetModel(item));
-                    }
 
-                    return new MultiMessage<TrafficRoute>(fences, fences.Count);
+                    return new MultiMessage<VehicleTrafficRoute>(templist, templist.Count);
                 }
             }
             catch (Exception ex)
             {
-                return new MultiMessage<TrafficRoute>(null, 0);
+                return new MultiMessage<VehicleTrafficRoute>(null, 0);
             }
         }
         public static MultiMessage<TrafficRoute> GetTrafficRouteListByVehicleIDAndRouteName(PTMSEntities context, string clientID, string vehicleID, string routeName)

@@ -77,16 +77,16 @@ namespace Gsafety.PTMS.Traffic.Repository
 
         }
 
-        public List<string> GetFenceIDByCarID(PTMSEntities _context, string strCarID, short nStatus)
-        {
-            var result = from x in _context.TRF_FENCE_QUEUE
-                         where
-                             (strCarID == null) ? true : x.VEHICLE_ID.ToLower().Trim() == strCarID.Trim().ToLower()
-                         where (nStatus == 1) ? true : x.STATUS == nStatus
-                         select x.FENCE_ID;
-            return result.ToList();
+        //public List<string> GetFenceIDByCarID(PTMSEntities _context, string strCarID, short nStatus)
+        //{
+        //    var result = from x in _context.TRF_FENCE_QUEUE
+        //                 where
+        //                     (strCarID == null) ? true : x.VEHICLE_ID.ToLower().Trim() == strCarID.Trim().ToLower()
+        //                 where (nStatus == 1) ? true : x.STATUS == nStatus
+        //                 select x.FENCE_ID;
+        //    return result.ToList();
 
-        }
+        //}
 
 
         public bool DeleteVehicleFenceByFenceID(PTMSEntities _context, string strFencid)

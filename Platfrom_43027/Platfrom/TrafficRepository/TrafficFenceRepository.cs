@@ -234,7 +234,7 @@ namespace Gsafety.PTMS.Traffic.Repository
         }
 
 
-        public static MultiMessage<TrafficFence> GetDeliveredTrafficFenceList()
+        public static MultiMessage<VehicleTrafficFence> GetDeliveredTrafficFenceList()
         {
             try
             {
@@ -242,22 +242,29 @@ namespace Gsafety.PTMS.Traffic.Repository
                 {
                     var temp = from f in context.TRF_FENCE
                                join q in context.TRF_FENCE_QUEUE on f.ID equals q.FENCE_ID
-                               select f;
+                               where f.VALID == 1 && q.STATUS == (int)CommandStateEnum.Succeed
+                               select new VehicleTrafficFence
+                               {
+                                   UID = q.MDVR_CORE_SN,
+                                   VehicleId = q.VEHICLE_ID,
+                                   StartTime = q.START_TIME,
+                                   EndTime = q.END_TIME,
+                                   RegionProperty = q.REGION_PROPERTY,
+                                   MaxSpeed = q.MAX_SPEED.Value,
+                                   OverSpeedDuration = q.OVER_SPEED_DURATION.Value,
+                                   Pts = q.PTS
+
+
+                               };
 
                     var templist = temp.ToList();
 
-                    List<TrafficFence> fences = new List<TrafficFence>();
-                    foreach (var item in templist)
-                    {
-                        fences.Add(TrafficFenceUtility.GetModel(item));
-                    }
-
-                    return new MultiMessage<TrafficFence>(fences, fences.Count);
+                    return new MultiMessage<VehicleTrafficFence>(templist, templist.Count);
                 }
             }
             catch(Exception ex)
             {
-                return new MultiMessage<TrafficFence>(null, 0);
+                return new MultiMessage<VehicleTrafficFence>(null, 0);
             }
         }
 

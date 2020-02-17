@@ -49,8 +49,8 @@ namespace Gsafety.PTMS.MonitorAlert
         private DateTime _OverSpeedTime;
         private DateTime _InFenceOverSpeedTime;
         private DateTime _InRouteOverSpeedTime;
-        private TrafficRoute _CurrentRoute;
-        private TrafficFence _CurrentFence;
+        private Route _CurrentRoute;
+        private Fence _CurrentFence;
         private GPS _CurrentGPS;   
 
 
@@ -68,7 +68,7 @@ namespace Gsafety.PTMS.MonitorAlert
         /// <param name="overspeed"></param>
         /// <param name="currentInFenceOverSpeed"></param>
         /// <param name="currentInFenceUnderSpeed"></param>
-        public GPSLocation(GPS gps, TrafficRoute route, TrafficFence fence, bool overspeed, bool currentInFenceOverSpeed, bool currentInRouteOverSpeed, DateTime overspeedTime)
+        public GPSLocation(GPS gps, Route route, Fence fence, bool overspeed, bool currentInFenceOverSpeed, bool currentInRouteOverSpeed, DateTime overspeedTime)
         {
             try
             {
@@ -133,7 +133,7 @@ namespace Gsafety.PTMS.MonitorAlert
         /// <summary>
         /// 当前所在围栏
         /// </summary>
-        public TrafficFence CurrentFence
+        public Fence CurrentFence
         {
             get
             {
@@ -169,7 +169,7 @@ namespace Gsafety.PTMS.MonitorAlert
         /// <summary>
         /// 当前所在路线
         /// </summary>
-        public TrafficRoute CurrentRoute
+        public Route CurrentRoute
         {
             get
             {
@@ -179,8 +179,8 @@ namespace Gsafety.PTMS.MonitorAlert
             {
                 if (value != _CurrentRoute)
                 {
-                    if (value == null) GenerateOutRouteAlert(_CurrentRoute.ID,_CurrentRoute.Name);
-                    else GenerateInRouteAlert(value.ID, value.Name);
+                    if (value == null) GenerateOutRouteAlert(_CurrentRoute.Route.ID, _CurrentRoute.Route.Name);
+                    else GenerateInRouteAlert(value.Route.ID, value.Route.Name);
                 }
                 _CurrentRoute = value;
             }
@@ -296,7 +296,7 @@ namespace Gsafety.PTMS.MonitorAlert
         /// 围栏内超速告警
         /// </summary>
         /// <param name="fence"></param>
-        private void GenerateInFenceOverSpeedAlert(TrafficFence fence)
+        private void GenerateInFenceOverSpeedAlert(Fence fence)
         {
             try
             {
@@ -318,8 +318,8 @@ namespace Gsafety.PTMS.MonitorAlert
                         VehicleID = _CurrentGPS.VehicleId,
                         SuitInfoID = _CurrentGPS.UID,
                         //围栏信息
-                        FenceId = fence.ID,
-                        FenceName = fence.Name,
+                        FenceId = fence.Fence.ID,
+                        FenceName = fence.Fence.Name,
                     };
 
                     MonitorAlertMessage.PublishMessage(Constdefine.APPEXCHANGE, AlertRoute.OriginalBusinessAlertKey, MonitorAlertMessage.ObjectToBytes(alert));
@@ -335,7 +335,7 @@ namespace Gsafety.PTMS.MonitorAlert
         /// 路线内超速告警
         /// </summary>
         /// <param name="fence"></param>
-        private void GenerateInRouteOverSpeedAlert(TrafficRoute route)
+        private void GenerateInRouteOverSpeedAlert(Route route)
         {
             try
             {
@@ -356,8 +356,8 @@ namespace Gsafety.PTMS.MonitorAlert
                         VehicleID = _CurrentGPS.VehicleId,
                         SuitInfoID = _CurrentGPS.UID,
                         //围栏信息
-                        FenceId = route.ID,
-                        FenceName = route.Name,
+                        FenceId = route.Route.ID,
+                        FenceName = route.Route.Name,
                     };
 
                     MonitorAlertMessage.PublishMessage(Constdefine.APPEXCHANGE, AlertRoute.OriginalBusinessAlertKey, MonitorAlertMessage.ObjectToBytes(alert));
@@ -372,7 +372,7 @@ namespace Gsafety.PTMS.MonitorAlert
         /// 入围栏告警
         /// </summary>
         /// <param name="fence"></param>
-        private void GenerateInFenceAlert(TrafficFence fence)
+        private void GenerateInFenceAlert(Fence fence)
         {
             try
             {
@@ -394,8 +394,8 @@ namespace Gsafety.PTMS.MonitorAlert
                         VehicleID = _CurrentGPS.VehicleId,
                         SuitInfoID = _CurrentGPS.UID,
                         //围栏信息
-                        FenceId = fence.ID,
-                        FenceName = fence.Name,
+                        FenceId = fence.Fence.ID,
+                        FenceName = fence.Fence.Name,
                     };
 
                     MonitorAlertMessage.PublishMessage(Constdefine.APPEXCHANGE, AlertRoute.OriginalBusinessAlertKey, MonitorAlertMessage.ObjectToBytes(alert));
@@ -410,7 +410,7 @@ namespace Gsafety.PTMS.MonitorAlert
         /// 出围栏告警
         /// </summary>
         /// <param name="fence"></param>
-        private void GenerateOutFenceAlert(TrafficFence fence)
+        private void GenerateOutFenceAlert(Fence fence)
         {
             try
             {
@@ -432,8 +432,8 @@ namespace Gsafety.PTMS.MonitorAlert
                         VehicleID = _CurrentGPS.VehicleId,
                         SuitInfoID = _CurrentGPS.UID,
                         //围栏信息
-                        FenceId = fence.ID,
-                        FenceName = fence.Name,
+                        FenceId = fence.Fence.ID,
+                        FenceName = fence.Fence.Name,
                     };
 
                     MonitorAlertMessage.PublishMessage(Constdefine.APPEXCHANGE, AlertRoute.OriginalBusinessAlertKey, MonitorAlertMessage.ObjectToBytes(alert));

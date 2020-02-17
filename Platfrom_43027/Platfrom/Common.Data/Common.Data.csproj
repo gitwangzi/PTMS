@@ -71,6 +71,7 @@
     <Compile Include="Data\Command\VehicleSpeed.cs" />
     <Compile Include="Data\Command\VideoRule.cs" />
     <Compile Include="Data\Command\VideoRuleVehicle.cs" />
+    <Compile Include="Data\Command\VehicleSpeedLimit.cs" />
     <Compile Include="Data\DataAccess\AlarmInfo.cs" />
     <Compile Include="Data\Alarm\AlarmInfoEx.cs" />
     <Compile Include="Data\Alarm\CompleteAlarm.cs" />
@@ -103,6 +104,8 @@
     <Compile Include="Data\Monitor\UserOnline.cs" />
     <Compile Include="Data\Traffic\FenceQueue.cs" />
     <Compile Include="Data\Traffic\RouteQueue.cs" />
+    <Compile Include="Data\Traffic\VehicleTrafficFence.cs" />
+    <Compile Include="Data\Traffic\VehicleTrafficRoute.cs" />
     <Compile Include="Data\User\AuthenticationInfo.cs" />
     <Compile Include="Data\User\BaseInfo.cs" />
     <Compile Include="Data\Alert\BusinessAlert.cs" />

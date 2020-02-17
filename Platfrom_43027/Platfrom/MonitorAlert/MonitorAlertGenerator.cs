@@ -78,23 +78,23 @@ namespace Gsafety.PTMS.MonitorAlert
 
 
                 //获取当前路线
-                TrafficRoute route = GetRoute(gps);
+                Route route = GetRoute(gps);
                 bool InRouteOverSpeed = false;
                 if (route != null)//进入路线
                 {
-                    if ((double.Parse(gps.Speed) > route.MaxSpeed) && (route.MaxSpeed != 0))
+                    if ((double.Parse(gps.Speed) > route.Route.MaxSpeed) && (route.Route.MaxSpeed != 0))
                     {
                         InRouteOverSpeed = true;
                     }
 
                 }
                 //获取当前围栏
-                TrafficFence fence = GetFence(gps);
+                Fence fence = GetFence(gps);
                 bool InFenceOverSpeed = false;
 
                 if (fence != null)//进入围栏
                 {
-                    if ((double.Parse(gps.Speed) > fence.MaxSpeed) && (fence.MaxSpeed != 0))
+                    if ((double.Parse(gps.Speed) > fence.Fence.MaxSpeed) && (fence.Fence.MaxSpeed != 0))
                     {
                         InFenceOverSpeed = true;
                     }
@@ -103,7 +103,7 @@ namespace Gsafety.PTMS.MonitorAlert
                 bool OverSpeed = false;
                 if (!InFenceOverSpeed && !InRouteOverSpeed)
                 {
-                    Gsafety.PTMS.Common.Data.SpeedLimit limit = GetSpeedLimit(gps);
+                    Gsafety.PTMS.Common.Data.VehicleSpeedLimit limit = GetSpeedLimit(gps);
 
 
                     if (limit != null)//找到了当前所在道路
@@ -156,10 +156,15 @@ namespace Gsafety.PTMS.MonitorAlert
         /// </summary>
         /// <param name="antgps"></param>
         /// <returns></returns>
-        private Gsafety.PTMS.Common.Data.SpeedLimit GetSpeedLimit(GPS antgps)
+        private Gsafety.PTMS.Common.Data.VehicleSpeedLimit GetSpeedLimit(GPS gps)
         {
 
-            Gsafety.PTMS.Common.Data.SpeedLimit limit = null;
+            Gsafety.PTMS.Common.Data.VehicleSpeedLimit limit = null;
+            if (_MonitorGrid.GridCellsSpeed.ContainsKey(gps.UID))
+            {
+                limit = _MonitorGrid.GridCellsSpeed[gps.UID] as VehicleSpeedLimit;
+            }
+
 
             return limit;
         
@@ -171,15 +176,15 @@ namespace Gsafety.PTMS.MonitorAlert
         /// </summary>
         /// <param name="antgps"></param>
         /// <returns></returns>
-        private TrafficFence GetFence(GPS gps)
+        private Fence GetFence(GPS gps)
         {
-            TrafficFence fence = null;
+            Fence fence = null;
             if (_GPSLocationHashtable.ContainsKey(gps.UID))//看车辆上次的位置信息
             {
                 fence = (_GPSLocationHashtable[gps.UID] as GPSLocation).CurrentFence;
                 if (fence != null)
                 {
-                    if (!(fence as TrafficFence).Buffer.IsPointIn(gps.Longitude, gps.Latitude))//不在上次的围栏上
+                    if (!(fence as Fence).Buffer.IsPointIn(gps.Longitude, gps.Latitude))//不在上次的围栏上
                     {
                         fence = null;
                     }
@@ -188,11 +193,12 @@ namespace Gsafety.PTMS.MonitorAlert
 
             if (fence == null)//没有找到或不在上次所在围栏，重新计算当前围栏
             {
-                MonitorGridCell cell = _MonitorGrid.GetFenceMonitorCell(gps.UID);
-                if (cell != null)
+                if (_MonitorGrid.GridCellsFence.ContainsKey(gps.UID))
                 {
-                    object temp = cell.GetGeometry(antgps.Longitude, antgps.Latitude);
-                    if (temp != null) fence = temp as TrafficFence;
+                    Hashtable Geometrylist = _MonitorGrid.GridCellsFence[gps.UID] as Hashtable;
+
+                    object temp = _MonitorGrid.GetGeometry(gps.Longitude, gps.Latitude, Geometrylist);
+                    if (temp != null) fence = temp as Fence;
                 }
             }
             return fence;
@@ -203,28 +209,29 @@ namespace Gsafety.PTMS.MonitorAlert
         /// </summary>
         /// <param name="antgps"></param>
         /// <returns></returns>
-        private TrafficRoute GetRoute(GPS gps)
+        private Route GetRoute(GPS gps)
         {
-            TrafficRoute route = null;
+            Route route = null;
             if (_GPSLocationHashtable.ContainsKey(gps.UID))//看车辆上次的位置信息
             {
                 route = (_GPSLocationHashtable[gps.UID] as GPSLocation).CurrentRoute;
                 if (route != null)
                 {
-                    //if (!(route as TrafficRoute).Buffer.IsPointIn(antgps.Longitude, antgps.Latitude))//不在上次的道路上
-                    //{
-                    //    route = null;
-                    //}
+                    if (!(route as Route).Buffer.IsPointIn(gps.Longitude, gps.Latitude))//不在上次的道路上
+                    {
+                        route = null;
+                    }
                 }
             }
 
             if (route == null)//没有找到或不在上次所在道路，重新计算当前道路
             {
-                MonitorGridCell cell = _MonitorGrid.GetRouteMonitorCell(antgps.MdvrCoreId);
-                if (cell != null)
+                if( _MonitorGrid.GridCellsRoute.ContainsKey(gps.UID))
                 {
-                    object temp = cell.GetGeometry(antgps.Longitude, antgps.Latitude);
-                    if (temp != null) route = temp as TrafficRoute;
+                    Hashtable Geometrylist = _MonitorGrid.GridCellsRoute[gps.UID] as Hashtable;
+
+                    object temp = _MonitorGrid.GetGeometry(gps.Longitude, gps.Latitude, Geometrylist);
+                    if (temp != null) route = temp as Route;
                 }
             }
             return route;

@@ -25,6 +25,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Gsafety.PTMS.Common.Data;
 
 namespace Gsafety.PTMS.MonitorAlert
 {
@@ -564,36 +565,7 @@ namespace Gsafety.PTMS.MonitorAlert
             SimplePolyline newline2;
 
             switch (btype)
-            {
-                case BufferType.miBufferTypeRoad:
-                    line = new SimplePolyline();
-                    foreach (Gsafety.PTMS.MonitorAlert.Road.Node node in LstNode)
-                    {
-                        SimplePoint pt = GridCellCoord.Geo2GridCoord(node);
-                        line.Points.Add(pt);
-                    }
-
-                    newline1 = line.GetPXLine(-csBufferWidth);
-                    newline2 = line.GetPXLine(csBufferWidth);
-
-                    for (int i = 0; i <= newline1.Points.Count - 1; i++)
-                    {
-                        SimplePoint pt = new SimplePoint();
-                        pt.X = newline1.Points[i].X;
-                        pt.Y = newline1.Points[i].Y;
-
-                        _polygon.Points.Add(pt);
-                    }
-
-                    for (int i = newline2.Points.Count - 1; i >= 0; i--)
-                    {
-                        SimplePoint pt = new SimplePoint();
-                        pt.X = newline2.Points[i].X;
-                        pt.Y = newline2.Points[i].Y;
-
-                        _polygon.Points.Add(pt);
-                    }
-                    break;
+            {              
                 case BufferType.miBufferTypeRoute:
                     line = new SimplePolyline();
                     foreach (Gsafety.PTMS.MonitorAlert.Road.Node node in LstNode)
@@ -636,7 +608,11 @@ namespace Gsafety.PTMS.MonitorAlert
 
         public bool IsPointIn(string lon, string lat)
         {
-            SimplePoint pt = GridCellCoord.GPS2GridCoord(lon, lat);
+            //SimplePoint pt = GridCellCoord.GPS2GridCoord(lon, lat);
+            SimplePoint pt = new SimplePoint();
+            pt.X = double.Parse(lon);
+            pt.Y = double.Parse(lat);
+
             return _polygon.IsPointIn(pt);
         }
         public SimplePolygon Polygon
@@ -831,33 +807,26 @@ namespace Gsafety.PTMS.MonitorAlert
     /// </summary>
     public class Route
     {
-        private string _Id;
+        private VehicleTrafficRoute _Route;
         private string _Name;
         private List<Gsafety.PTMS.MonitorAlert.Road.Node> _NodeLst;
         private GeometryBuffer _Buffer;
 
-        public Route(string csID, string csName, List<Gsafety.PTMS.MonitorAlert.Road.Node> NodeLst,double csBufferWidth)
+        public Route(VehicleTrafficRoute Route, List<Gsafety.PTMS.MonitorAlert.Road.Node> NodeLst, double csBufferWidth)
         {
-            _Id = csID;
-            _Name = csName;
+            _Route = Route;
             _NodeLst = NodeLst;
             _Buffer = new GeometryBuffer(BufferType.miBufferTypeRoute, NodeLst, csBufferWidth);
         }
 
-        public string Id
+        public VehicleTrafficRoute Route
         {
             get
             {
-                return _Id;
+                return _Route;
             }
         }
-        public string Name
-        {
-            get
-            {
-                return _Name;
-            }
-        }
+       
         /// <summary>
         /// 缓冲区
         /// </summary>
@@ -871,154 +840,32 @@ namespace Gsafety.PTMS.MonitorAlert
     }
 
     /// <summary>
-    /// 围栏信息
+    /// 路线信息
     /// </summary>
     public class Fence
     {
-        private string _Id;
+        private VehicleTrafficFence _Fence;
         private string _Name;
-        private GeometryBuffer _Buffer;
-        private Hashtable _EnabledList=new Hashtable();
         private List<Gsafety.PTMS.MonitorAlert.Road.Node> _NodeLst;
+        private GeometryBuffer _Buffer;
 
-        public Fence(string csID, string csName, string LimitedSpeed, int csFenceType, int action, string TimeLimit, List<Gsafety.PTMS.MonitorAlert.Road.Node> NodeLst, double csBufferWidth)
+        public Fence(VehicleTrafficFence Fence, List<Gsafety.PTMS.MonitorAlert.Road.Node> NodeLst, double csBufferWidth)
         {
-            _Id = csID;
-            _Name = csName;
+            _Fence = Fence;
             _NodeLst = NodeLst;
-            OverSpeed = 0;
-            UnderSpeed = 0;
-            Action = 1;
-            if (csFenceType == -1)
-            {
-                Action = action;
-            }
-            else if (csFenceType==1)//入围栏
-            {
-                Action += 8;
-            }
-            else if (csFenceType == 2)//出围栏
-            {
-                Action += 16;
-            }
-            else if (csFenceType == 3)//出入围栏
-            {
-                Action += 8 + 16;
-            }
-            if ((LimitedSpeed != null) && (LimitedSpeed != "") && (LimitedSpeed != "0"))
-            {
-                string[] temp = LimitedSpeed.Split("-".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
-                UnderSpeed = int.Parse(temp[0]);
-                OverSpeed = int.Parse(temp[1]);
-                if (csFenceType > -1) //按fencetype计算
-                {
-                    if (UnderSpeed > 0) Action += 4;
-                    if (OverSpeed > 0) Action += 2; 
-                }
-            }
-
-            StartTime = "00:00:00";
-            EndTime = "24:00:00";
-            if ((TimeLimit != null) && (TimeLimit != ""))
-            {
-                string[] temp=TimeLimit.Split("-".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
-                StartTime="00:00".Substring(0,5-temp[0].Length)+temp[0] + ":00";
-                EndTime = "00:00".Substring(0, 5 - temp[1].Length) + temp[1] + ":00";
-
-                if (csFenceType > -1)//按fencetype计算
-                {
-                    Action += 32;
-                }
-            }
-            _Buffer = new GeometryBuffer(BufferType.miBufferTypeFence, NodeLst, csBufferWidth);
-
-            GetEnableList(Action);
+            _Buffer = new GeometryBuffer(BufferType.miBufferTypeRoute, NodeLst, csBufferWidth);
         }
 
-        private void GetEnableList(int csAction)
-        {
-            if (csAction > Math.Pow(2, 5))
-            {
-                _EnabledList.Add("BIT5", true);
-                csAction = csAction - (int)Math.Pow(2, 5);
-            }
-            else
-            {
-                _EnabledList.Add("BIT5", false);
-                csAction = csAction - (int)Math.Pow(2, 5);
-            }
-
-            if (csAction > Math.Pow(2, 4))
-            {
-                _EnabledList.Add("BIT4", true);
-                csAction = csAction - (int)Math.Pow(2, 4);
-            }
-            else
-            {
-                _EnabledList.Add("BIT4", false);
-                csAction = csAction - (int)Math.Pow(2, 4);
-            }
-
-            if (csAction > Math.Pow(2, 3))
-            {
-                _EnabledList.Add("BIT3", true);
-                csAction = csAction - (int)Math.Pow(2, 3);
-            }
-            else
-            {
-                _EnabledList.Add("BIT3", false);
-                csAction = csAction - (int)Math.Pow(2, 3);
-            }
-
-            if (csAction > Math.Pow(2, 2))
-            {
-                _EnabledList.Add("BIT2", true);
-                csAction = csAction - (int)Math.Pow(2, 2);
-            }
-            else
-            {
-                _EnabledList.Add("BIT2", false);
-                csAction = csAction - (int)Math.Pow(2, 2);
-            }
-
-            if (csAction > Math.Pow(2, 1))
-            {
-                _EnabledList.Add("BIT1", true);
-                csAction = csAction - (int)Math.Pow(2, 1);
-            }
-            else
-            {
-                _EnabledList.Add("BIT1", false);
-                csAction = csAction - (int)Math.Pow(2, 1);
-            }
-
-            if (csAction > Math.Pow(2, 0))
-            {
-                _EnabledList.Add("BIT0", true);
-                csAction = csAction - (int)Math.Pow(2, 0);
-            }
-            else
-            {
-                _EnabledList.Add("BIT0", false);
-                csAction = csAction - (int)Math.Pow(2, 0);
-            }
-
-        }
-
-        public string Id
-        {
-            get
-            { return _Id; }
-        }
-        public string Name
+        public VehicleTrafficFence Fence
         {
             get
             {
-                return _Name;
+                return _Fence;
             }
         }
+
         /// <summary>
-        /// 围栏的缓冲区
+        /// 缓冲区
         /// </summary>
         public GeometryBuffer Buffer
         {
@@ -1027,47 +874,9 @@ namespace Gsafety.PTMS.MonitorAlert
                 return _Buffer;
             }
         }
-
-        public int OverSpeed
-        {
-            get;
-            set;
-        }
-        public int UnderSpeed
-        {
-            get;
-            set;
-        }
-        public string  StartTime
-        {
-            get;
-            set;
-        }
-        public string EndTime
-        {
-            get;
-            set;
-        }
-        public int Action
-        {
-            get;
-            set;
-        }
-
-        public bool Alert(string key)
-        {
-            DateTime dt=DateTime.Now;
-            DateTime StartDT = DateTime.Parse(dt.Date.ToShortDateString() + " " + StartTime);
-            DateTime EndDT = DateTime.Parse(dt.Date.ToShortDateString() + " " + EndTime);
-            //string temp="00:00:00".Substring(0,8-dt.ToLongTimeString().Length)+dt.ToLongTimeString();
-            if ((_EnabledList.Contains(key)) && ((dt >= StartDT) && ( dt <= EndDT)))
-            {
-                return (bool)_EnabledList[key];
-            }
-            return false;
-        }
-
     }
+
+    
 
 
 }

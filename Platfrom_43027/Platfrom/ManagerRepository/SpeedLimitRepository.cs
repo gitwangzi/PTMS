@@ -162,7 +162,7 @@ namespace Gsafety.PTMS.Manager.Repository
             return new MultiMessage<SpeedLimit>(items2, totalCount);
         }
 
-        public static MultiMessage<SpeedLimit> GetSpeedLimitList()
+        public static MultiMessage<VehicleSpeedLimit> GetSpeedLimitList()
         {
             try
             {
@@ -170,23 +170,25 @@ namespace Gsafety.PTMS.Manager.Repository
                 {
                     var temp = from f in context.TRF_COMMAND_PARAM
                                join q in context.TRF_COMMAND_VEHICLE on f.ID equals q.COMMAND_PARAM_ID
-                               where f.TYPE == (short)CommandParaEnum.Speed
-                               select f;
-
+                               where f.TYPE == (int)CommandParaEnum.Speed && f.VALID == 1 && q.STATUS == (int)CommandStateEnum.Succeed
+                               select new VehicleSpeedLimit 
+                               { 
+                                   VehicleID=q.VEHICLE_ID,
+                                   UID = q.MDVR_CORE_SN,
+                                   MaxSpeed = f.MAX_SPEED.Value,
+                                   Duration = f.DURATION.Value
+                               
+                               };
+ 
                     var templist = temp.ToList();
 
-                    List<SpeedLimit> speeds = new List<SpeedLimit>();
-                    foreach (var item in templist)
-                    {
-                        speeds.Add(SpeedLimitUtility.GetModel(item));
-                    }
 
-                    return new MultiMessage<SpeedLimit>(speeds, speeds.Count);
+                    return new MultiMessage<VehicleSpeedLimit>(templist, templist.Count);
                 }
             }
             catch (Exception ex)
-            {
-                return new MultiMessage<SpeedLimit>(null, 0);
+            { 
+                return new MultiMessage<VehicleSpeedLimit>(null, 0);
             }
 
         }
